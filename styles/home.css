@@ -5,10 +5,13 @@ ul, li, h1,h2,h3,h4,h5,p {
 }
 
 .header {
-	display: none;
 	width: 100%;
-	height: 300px;
+	height: 150px;
 	border: green;
+	padding: 0 150px;
+}
+.menu.affix {
+	top: 0;
 }
 .content {
 	margin: 0 150px;
