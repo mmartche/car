@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+
+.dropLinhaBarra{
+overflow: hidden;
+}
+
+.dropLinhaBarra ul{
+margin: 0;
+padding: 0;
+float: left;
+width: 100%;
+font: bold 13px Arial;
+background: #BA3035 url(../img/bluedefault.gif) center center repeat-x; /*default background of menu bar*/
+}
+
+.dropLinhaBarra ul li{
+display: inline;
+}
+
+.dropLinhaBarra ul li a{
+float: left;
+color: white;
+padding: 9px 11px;
+text-decoration: none;
+}
+
+.dropLinhaBarra ul li a:visited{
+color: white;
+}
+
+.dropLinhaBarra ul li a:hover, .dropLinhaBarra ul li .current{ /*background of main menu bar links onMouseover*/
+color: white;
+background: transparent url(../img/blueactive.gif) center center repeat-x;
+}
+
+/* Sub level menus*/
+.dropLinhaBarra ul li ul{
+position: absolute;
+z-index: 100;
+left: 0;
+top: 0;
+background: #yellow	; /*sub menu background color */
+visibility: hidden;
+}
+
+/* Sub level menu links style */
+.dropLinhaBarra ul li ul li a{
+font: normal 13px Verdana;
+padding: 6px;
+padding-right: 8px;
+margin: 0;
+border-bottom: 1px solid navy;
+}
+
+.dropLinhaBarra ul li ul li a:hover{ /*sub menu links' background color onMouseover */
+background: #blue;
+}

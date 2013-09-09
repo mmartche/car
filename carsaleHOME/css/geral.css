@@ -1,0 +1,370 @@
+#geral {
+	width: 988px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom:20px;
+	border-right:1px solid gray;
+	border-left:1px solid gray;
+	border-bottom: 1px solid gray;
+	background-color:#FFFFFF;
+	 
+}
+
+body {
+	margin-top: 0px;
+		margin-left: 0px;
+	margin-right: 0px;
+	background-image:url(../img/bg.gif);
+}
+#bannerTop {
+	height: 102px;
+	width: 99%;
+}
+#barraUol {
+	height: 22px;
+	width: 99%;
+
+}
+#conteudo { 
+	width: 100%;
+    background-color:#ffffff;
+}
+#conteudoInterno {
+	margin-right: auto;
+	margin-left: auto;
+	border-top:1px solid gray;
+	padding-top:3px; 
+}
+#contColVert1e2 {
+	float: left;
+	height: auto;
+	width: 654px;
+	padding-bottom:10px;
+}
+#bannerCtroSlide {
+	height: 350px;
+	width: 100%;
+ 
+	margin-top:5px;
+}
+#bannerDestaque {
+	float: left;
+	height: 350px;
+	width: 781px; 
+}
+#contRtBannerSld {
+	float: left;
+	height: 350px;
+	width: 202px;
+	border:1px solid gray;
+}
+#contCol3 {
+	height: 1200px;
+	width: 100%;
+	margin-top:10px;
+ 
+}
+#colVert  {
+	float: left;
+	height: auto;
+	width: 325px; 
+} 
+.menuHor{ 
+	height:35px;
+	width:100%;
+	background-color:#FFFF66;
+}
+#breadcrumbs {
+	height: 17px;
+	padding-top:3px;
+	padding-left:3px;
+	width: 99%;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+}
+#midias {
+	height: 20px;
+	width: 100%;
+	padding-buttom:3px;
+	border:1px solid gray;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+}
+h3 {
+border-bottom:1px solid #069;
+background-color: #daf6d1;
+border-left: 8px solid #069;
+padding-left: 12px;
+margin-top:1px; 
+}
+#contCol1{
+	height: auto;
+	width:320px;
+	margin-right: auto;
+	margin-left: auto;
+	
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:gray;
+	font-size:12px;
+}
+p {
+padding-bottom:10px;
+border-bottom:1px solid gray;
+}
+.font12{
+ font-family:Verdana, Arial, Helvetica, sans-serif;
+ font-size:12px;
+ color:#666666;
+ padding:3px;
+}
+#blocosCol2{
+	height: auto;
+	width:3118px;
+}
+#celCol2Blc { 
+	width: 320px;
+	padding-left:1px;
+
+}
+#blcVideo{
+ 	width:324px;
+	height:170px;
+	padding:2px;
+}
+#blcManchete{
+ 	width:324px;
+	height:170px;
+	padding:2px;
+}
+
+.col2BoxManchete{
+	background-image:url(../img/manchete.jpg);
+	background-repeat:no-repeat;
+	height:205px;
+}
+#blcOpiniaodoDono{
+	margin-top:4px;
+ 	width:324px;
+	height:200px;
+	padding:2px;
+}
+.col2BoxOpiniaodoDono{
+	background-image:url(../img/opiniaodoDono.jpg);
+	background-repeat:no-repeat;
+	height:205px;
+}
+#blcCarrosVerdes{
+	margin-top:4px;
+ 	width:324px;
+	height:200px;
+	padding:2px;
+}
+.col2BoxCarrosVerdes{
+	background-image:url(../img/carrosVerdes.jpg);
+	background-repeat:no-repeat;
+	height:205px;
+}
+#contColVertRt {
+	height: auto;
+	width: 327px;
+	margin-right: auto;
+	margin-left: auto;
+	float: left;
+}
+#bannerFooterCol1e2 { 
+	width: 654px; 
+}
+.blogCarSale{	
+	margin-top:12px;
+	background-image:url(../img/checkered-flag.jpg);
+	background-repeat:no-repeat;
+	height:176px;
+}
+#exploradorBnrRt {
+	width: 300px;
+	height:285px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom:12px;
+	margin-top:12px;
+}
+#megaOfertaBnrRt {
+	width: 300px;
+	height:250px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom:12px;
+	margin-top:12px;
+}
+#publicidadeBnrRt {
+	width: 300px;
+	height:auto;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom:12px;
+	margin-top:12px;
+}
+.face {
+	height: 150px;
+	width: 201px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.segredos {
+	height: auto;
+	width: 201px;
+	margin-right: auto;
+	margin-left: auto;
+	
+	margin-top:22px;
+}
+
+.bgRodape{
+	background-image:url(../img/bgRodape.jpg);
+	background-repeat:repeat-x;
+	height:30px;
+	width: 100%;
+	margin-top:5px;
+}
+.contRodape {
+	height: auto;
+	width: 988px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.cxContMenu{
+	width:100%;
+	border-bottom:1px solid red;
+}
+.contMenu {
+	height: auto;
+	width: 988px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#bgGeralRodape {
+	background-image: url(../img/bgGrodape.jpg);
+	background-repeat: repeat-x;
+	height: 200px;
+	width: 100%;
+}
+
+/*------ menu rodape --------------*/
+
+.menuRodape{
+ 
+width: 100%;
+overflow: hidden;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:10px;
+}
+
+.menuRodape ul{
+margin: 0;
+padding: 0;
+float: left;
+width: 80%; 
+border-width: 1px 0;
+}
+
+.menuRodape ul li{
+display: inline;
+}
+
+.menuRodape ul li a{
+float: left;
+color: gray;
+padding: 5px 11px;
+text-decoration: none;
+}
+
+.menuRodape ul li a:visited{
+color: gray;
+}
+
+.menuRodape ul li a:hover, .menuRodape ul li .current{
+color: #663300 !important; 
+padding-top: 6px;
+padding-bottom: 4px; 
+background-color:#EAEAEB;
+}
+/*------ Fim menu rodape --------------*/
+.cxContMenuVerRdp {
+	height: auto;
+	width: 100%;
+}
+.cxContEnd {
+	height: auto;
+	width: 100%;
+	background-color:#ffffff;
+	border-top:1px solid gray;
+	margin-top:5px;
+	height:50px;
+}
+.celContEnd{
+	padding-top:20px;
+	height: auto;
+	width: 988px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+
+}
+.celContMenuVerRdp {
+	height: auto;
+	width: 988px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/*---- Links rodape -----*/
+
+#links{
+ 
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px; 
+	width:190px;
+	float:left;
+}
+#links ul {list-style-image: url('../img/seta.png');}
+#links ul {list-style-type: none;}  
+#links ul li a{color: #8C8A8A;
+ text-decoration: none;
+} 
+#links ul li a:hover{
+	color:#787777;
+	padding:2px;
+}
+#links ul li a:visited{
+	color:GREEN;
+	padding:2px;
+}
+#links .tit{
+	color:#C21B22;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:13px;
+}
+
+/*---- FIM  Links rodape -----*/
+
+.endereco{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:gray;
+}
+.atendimento{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#ffffff;
+ 
+}
+
+/*---- Fim Links rodape -----*/
+
+.celAtendimento{
+	padding-top:6px;
+	height: auto;
+	width: 988px;
+	margin-right: auto;
+	margin-left: auto;
+}
