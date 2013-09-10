@@ -3,20 +3,33 @@ ul, li, h1,h2,h3,h4,h5,p {
 	margin: 0;
 	padding: 0;
 }
-
-.header {
-	width: 100%;
-	padding: 0 150px;
+#uolBar {
+	height: 30px;
+	background-color: #0ac;
+}
+header {
+	width: 990px;
+	margin: auto;
 	overflow: hidden;
 }
 .menu {
 	margin-bottom: 10px ;
+	z-index: 98;
+	background: url("../imgs/car-menu.jpg") no-repeat;
+	text-indent: -999em;
 }
 .menu.affix, .menu.affix-top {
 	top: 0;
-	background-color: red;
-	width: 900px;
+	background-color: #fff;
+	height: 50px;
+	width: 990px;
 	z-index: 99;
+}
+.menu.affix-top .active > a {
+	background-color: transparent;
+}
+.menu.affix .active > a {
+	width: 80px;
 }
 .logoBanner {
 	overflow: hidden;
@@ -50,13 +63,14 @@ ul, li, h1,h2,h3,h4,h5,p {
 	margin-left: 20px;
 }
 .socialBar {
-	width: 100%;
 	height: 30px;
 	border:1px dotted;
 	margin-bottom: 10px;
+	background-image: url("../imgs/car-social.jpg");
 }
 .content {
-	margin: 0 150px;
+	margin: auto;
+	width: 990px;
 	overflow: hidden;
 	height: 2000px;
 }
@@ -75,6 +89,7 @@ ul, li, h1,h2,h3,h4,h5,p {
 	float: left;
 	width: 844px;
 	height: 206px;
+	margin-bottom: 10px;
 }
 .contentMiddle {
 	float: left;
@@ -84,6 +99,8 @@ ul, li, h1,h2,h3,h4,h5,p {
 	float: left;
 	width: 830px;
 	height: 280px;
+	border:1px solid #ccc;
+	margin-bottom: 10px;
 }
 .chamadaH1 {
 	float: left;
@@ -91,27 +108,73 @@ ul, li, h1,h2,h3,h4,h5,p {
 	height: 250px;
 	padding: 10px 0;
 	margin: 0 10px 0 0;
-	border-top: 1px dotted #000;
+	border-top: 1px dotted #ccc;
+	overflow: hidden;
 }
-.chamadah1  {
-
+.chamadaH1 h3 {
+	color: #194c7f;
+	padding: 5px 0 0;
+	margin: 0;
+	font-size: 18px;
+	font-weight: bold;
+}
+.chamadaH1 h4 {
+	color: #cb2026;
+	padding: 5px 0 0;
+	margin: 0;
+	font-size: 14px;
+	font-weight: bold;
 }
 .chamadaH2 {
 	float: left;
-	width: 250px;
+	width: 280px;
 	height: 100px;
-	padding: 10px 10px 10px 0;
-	border-top: 1px solid #000;
+	padding: 10px 0 0;
+	border-top: 1px dotted #ccc;
+	overflow: hidden;
 }
-.chamadaH2 img, .chamadaH2 h3, .chamadaH2 h4 {
+.chamadaH2 img{
 	float: left;
+	margin-right: 5px;
+}
+.chamadaH2 h3 {
+	float: left;
+	color: #cb2026;
+	font-size: 14px;
+	font-weight: bold;
+	width: 130px;
+}
+.chamadaH2 h4 {
+	float: left;
+	color: #194c7f;
+	font-size: 16px;
+	font-weight: bold;
+	width: 130px;
 }
 .ultNot {
 	float: left;
 	width: 400px;
+	border-top: 1px dotted #ccc;
+	padding-top: 10px;
+}
+.ultnotTituloSpan {
+	float: left;
+	width: 200px;
+}
+.ultnotMaisNoticias {
+	float: left;
+	width: 150px;
+}
+.ultNot ul {
+	float: left;
+}
+.ultNot li {
+	padding: 5px 0;
+	border-bottom: 1px solid #ddd;
 }
 .chamadaFoto {
 	float: left;
+	padding: 15px 10px;
 }
 
 
