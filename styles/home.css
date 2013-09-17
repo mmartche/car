@@ -102,6 +102,20 @@ header {
 	border:1px solid #ccc;
 	margin-bottom: 10px;
 }
+.carrosselHome ol {
+	margin-left: 0;
+	top: 0;
+	width: 150px;
+	right: 0;
+	left: auto;
+}
+.carrosselHome li, .carrosselHome li.active {
+	text-indent: 0;
+	width: 145px;
+	height: 90px;
+	margin: 0;
+	border: none;
+}
 .chamadaH1 {
 	float: left;
 	width: 260px;
