@@ -279,6 +279,23 @@ header {
 	width: 300px;
 
 }
+.carrosselVideos .carousel-inner {
+	height: 180px;
+}
+.carrosselVideos .carousel-caption {
+	padding: 0;
+	bottom: -30px;
+	color: #000;
+}
+.carrosselVideos .carousel-control {
+	height: 120px;
+}
+.carrosselVideos .carousel-indicators {
+	top: 100px;
+}
+.carrosselVideos .item {
+	background: url("../imgs/icon_video_play2.png") transparent;
+}
 footer {
 	width: 100%;
 	margin-top: 20px;
