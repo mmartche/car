@@ -9,6 +9,6 @@ TM.Config = {
 	'keyword' : '',
 	'tags' : '',
 	'platform' : 'web',
-    'banners':['banner-300x250']
+    'banners':['banner-300x250','banner-300x600','banner-728x90']
 };
 //'banners':['banner-728x90','banner-300x250','banner-120x600','banner-300x600','banner-1x1']

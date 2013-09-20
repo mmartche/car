@@ -3,6 +3,12 @@ ul, li, h1,h2,h3,h4,h5,p {
 	margin: 0;
 	padding: 0;
 }
+a img {
+	border: 2px solid transparent;
+}
+a img:hover{
+	border: 2px solid #cb2026;
+}
 #uolBar {
 	height: 30px;
 	background-color: #0ac;
@@ -42,7 +48,6 @@ header {
 .logoBanner .bannerHome {
 	float: left;
 	overflow: hidden;
-	width: 690px;
 	position: relative;
 }
 .bannerHome .publicidade {
@@ -58,8 +63,6 @@ header {
 }
 .bannerHomeImg {
 	background-color: #ccc;
-	width: 728px;
-	height: 100px;
 	margin-left: 20px;
 }
 .socialBar {
@@ -72,14 +75,14 @@ header {
 	margin: auto;
 	width: 990px;
 	overflow: hidden;
-	height: 2000px;
+	
 }
 .columnLeft {
 	display: none;
 }
 .columnMiddle {
 	float: left;
-	width: 600px;
+	
 }
 .columnRight {
 	float: left;
@@ -97,7 +100,7 @@ header {
 }
 .carrosselHome {
 	float: left;
-	width: 530px;
+	width: 990px;
 	height: 280px;
 	border:1px solid #ccc;
 	margin-bottom: 10px;
@@ -116,10 +119,13 @@ header {
 	margin: 0;
 	border: none;
 }
+.carrosselVideos {
+	float: left;
+	width: 260px;
+}
 .chamadaH1 {
 	float: left;
 	width: 260px;
-	height: 250px;
 	padding: 10px 0;
 	margin: 0 10px 0 0;
 	border-top: 1px dotted #ccc;
@@ -141,8 +147,7 @@ header {
 }
 .chamadaH2 {
 	float: left;
-	width: 280px;
-	height: 100px;
+	width: 300px;
 	padding: 10px 0 0;
 	border-top: 1px dotted #ccc;
 	overflow: hidden;
@@ -153,17 +158,65 @@ header {
 }
 .chamadaH2 h3 {
 	float: left;
-	color: #cb2026;
+	color: #194c7f;
 	font-size: 14px;
 	font-weight: bold;
 	width: 130px;
 }
 .chamadaH2 h4 {
 	float: left;
-	color: #194c7f;
+	color: #cb2026;
 	font-size: 16px;
 	font-weight: bold;
 	width: 130px;
+}
+.chamadaM1 {
+	float: left;
+	margin:0 10px 10px 0;
+	padding-top: 10px;
+	border-top: 1px solid #ccc;
+	width: 265px;
+}
+.chamadaM1 h3 {
+	font-size: 18px;
+	font-weight: bold;
+	color: #194c7f;
+	margin-bottom: 5px;
+}
+.chamadaM1 img {
+	margin-bottom: 10px;
+	width: 264px;
+	height: 160px;
+}
+.chamadaM1 h4 {
+	color: #cb2026;
+	font-size: 18px;
+	font-weight: bold;
+}
+.chamadaM2 {
+	float: left;
+	margin: 0 10px 10px 0;
+	width: 265px;
+	padding-top: 10px;
+	border-top: 1px solid #ccc;
+}
+.chamadaM2 h3 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #194c7f;
+	margin-bottom: 5px;
+}
+.chamadaM2 img {
+	float: left;
+	margin-right: 5px;
+	width: 144px;
+	height: 100px;
+}
+.chamadaM2 h4 {
+	float: left;
+	color: #cb2026;
+	font-size: 14px;
+	font-weight: bold;
 }
 .ultNot {
 	float: left;
@@ -171,13 +224,38 @@ header {
 	border-top: 1px dotted #ccc;
 	padding-top: 10px;
 }
+.ultnotTitulo {
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+.ultnotTituloSpan a {
+	font-size: 18px;
+	color: #194c7f;
+	font-weight: bold;
+}
 .ultnotTituloSpan {
 	float: left;
 	width: 200px;
+	margin-top: 2px;
 }
 .ultnotMaisNoticias {
-	float: left;
-	width: 150px;
+	float: right;
+	margin-right: 30px;
+	background-color: #eee;
+}
+.ultnotMaisNoticias a{
+	color: #194c7f;
+	display: block;
+	padding: 5px 10px;
+	font-size: 12px;
+}
+.ultnotMaisNoticias:hover {
+	background-color: #ccc;
+}
+.ultnotMaisNoticias a:hover {
+	color:#cb2026;
+	text-decoration: none;
 }
 .ultNot ul {
 	float: left;
@@ -186,18 +264,73 @@ header {
 	padding: 5px 0;
 	border-bottom: 1px solid #ddd;
 }
+.ultNot li a {
+	color: #cb2026;
+	font-size: 12px;
+	padding: 5px 10px;
+	display: block;
+}
 .chamadaFoto {
 	float: left;
 	padding: 15px 10px;
 }
+.contentRight {
+	float: right;
+	width: 300px;
 
-
-
-
-
-
-
-
+}
+footer {
+	width: 100%;
+	margin-top: 20px;
+	border-top: 1px solid #000;
+}
+.footerTitle {
+	background: #c2232a; /* Old browsers */
+	background: -moz-linear-gradient(top,  #c2232a 1%, #a00e12 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#c2232a), color-stop(100%,#a00e12)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #c2232a 1%,#a00e12 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2232a', endColorstr='#a00e12',GradientType=0 ); /* IE6-9 */
+	padding: 5px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+}
+.footerItemsTop {
+	text-align: center;
+}
+.footerItemsTop a {
+	margin: 10px;
+	color: #747474;
+	font-size: 11px;
+	font-weight: normal;
+}
+.footerMenu {
+	width: 900px;
+	overflow: hidden;
+	margin: auto;
+}
+.footerMenu ul {
+	float: left;
+	margin: 10px 30px;
+}
+.footerMenu li {
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+}
+.footerMenu a {
+	color: #747474;
+}
+.footerMenu li.footerMenuTitle {
+	color: #cb2026;
+}
+.copyright {
+	width: 900px;
+	margin: auto;
+}
 
 
 
