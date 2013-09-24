@@ -16,23 +16,53 @@ a img:hover{
 header {
 	width: 990px;
 	margin: auto;
-	overflow: hidden;
 }
 .menu {
 	margin-bottom: 10px ;
 	z-index: 98;
-	background: url("../imgs/car-menu.jpg") no-repeat;
-	text-indent: -999em;
+	/* background: url("../imgs/car-menu.jpg") no-repeat; */
+	background: #c2232a; /* Old browsers */
+	background: -moz-linear-gradient(top,  #c2232a 1%, #a00e12 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#c2232a), color-stop(100%,#a00e12)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #c2232a 1%,#a00e12 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2232a', endColorstr='#a00e12',GradientType=0 ); /* IE6-9 */
+	height: 40px
+}
+.menu a {
+	color: #fff;
+	font-size: 18px;
+}
+.menu .nav>li>a {
+	padding: 8px 15px;
+}
+.menu .open a {
+	color: #000;
+}
+.nav .caret {
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+.nav .open .caret {
+	border-top-color: #000;
+	border-bottom-color: #000;
 }
 .menu.affix, .menu.affix-top {
 	top: 0;
 	background-color: #fff;
-	height: 50px;
 	width: 990px;
 	z-index: 99;
 }
 .menu.affix-top .active > a {
 	background-color: transparent;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+	color: #000;
+}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+	background-color: #c2232a;
 }
 .menu.affix .active > a {
 	width: 80px;
