@@ -17,6 +17,13 @@ header {
 	width: 990px;
 	margin: auto;
 }
+.logo {
+	background: url("http://carsale.uol.com.br/novosite/images/logo_topcarsale2012.gif") no-repeat;
+	text-indent: -999em;
+	float: left;
+	width: 200px;
+	height: 80px;
+}
 .menu {
 	margin-bottom: 10px ;
 	z-index: 98;
@@ -67,16 +74,16 @@ header {
 .menu.affix .active > a {
 	width: 80px;
 }
+.menu.affix .nav li.menuHome:first-child > a {
+	background: url("../imgs/logo.png") no-repeat 0px;
+	text-indent: -99em;
+}
 .logoBanner {
 	overflow: hidden;
 	margin-bottom: 10px;
 }
-.logoBanner .logo {
-	float: left;
-	width: 100px;
-}
 .logoBanner .bannerHome {
-	float: left;
+	float: right;
 	overflow: hidden;
 	position: relative;
 }
@@ -94,6 +101,9 @@ header {
 .bannerHomeImg {
 	background-color: #ccc;
 	margin-left: 20px;
+}
+.banner300 {
+	margin-bottom: 10px;
 }
 .socialBar {
 	height: 30px;
@@ -126,28 +136,30 @@ header {
 }
 .contentMiddle {
 	float: left;
-	width: 600px;
+	width: 670px;
 }
 .carrosselHome {
 	float: left;
-	width: 990px;
+	width: 780px;
 	height: 280px;
 	border:1px solid #ccc;
 	margin-bottom: 10px;
+	overflow: hidden;
 }
 .carrosselHome ol {
 	margin-left: 0;
 	top: 0;
-	width: 150px;
+	width: 110px;
 	right: 0;
 	left: auto;
 }
 .carrosselHome li, .carrosselHome li.active {
 	text-indent: 0;
-	width: 145px;
-	height: 90px;
-	margin: 0;
+	width: 100px;
+	height: 60px;
+	margin: 8px 0 0 0;
 	border: none;
+	overflow: hidden;
 }
 .carrosselVideos {
 	float: left;
@@ -155,7 +167,7 @@ header {
 }
 .chamadaH1 {
 	float: left;
-	width: 260px;
+	width: 280px;
 	padding: 10px 0;
 	margin: 0 10px 0 0;
 	border-top: 1px dotted #ccc;
@@ -250,7 +262,7 @@ header {
 }
 .ultNot {
 	float: left;
-	width: 400px;
+	width: 440px;
 	border-top: 1px dotted #ccc;
 	padding-top: 10px;
 }
@@ -313,6 +325,9 @@ header {
 	padding-top: 10px;
 	border-top: 1px solid #ccc;
 }
+.carrosselVideos:hover {
+	text-decoration: none;
+}
 .carrosselVideos h3.carrosselTitle {
 	font-size: 16px;
 	font-weight: bold;
@@ -324,8 +339,10 @@ header {
 }
 .carrosselVideos .carousel-caption {
 	padding: 0;
-	bottom: -30px;
 	color: #000;
+	position: relative;
+	left: 0;
+	top: 0;
 }
 .carrosselVideos .carousel-control {
 	height: 120px;
@@ -333,8 +350,50 @@ header {
 .carrosselVideos .carousel-indicators {
 	top: 100px;
 }
-.carrosselVideos .item {
-	background: url("../imgs/icon_video_play2.png") transparent;
+.carrosselVideos .play-arrow {
+	background: url("../imgs/icon_video_play2.png") transparent no-repeat;
+	width: 86px;
+	height: 63px;
+	position: absolute;
+	opacity: 0.4;
+	filter:alpha(opacity=40); /* For IE8 and earlier */
+	margin: 30px 90px;
+	top: 0;
+}
+.carrosselVideos .carrosselImg {
+	height: 120px;
+	width: 100%;
+	overflow: hidden;
+}
+.chamadas {
+	width: 350px;
+}
+.chamadas h2 {
+	background-color: #069;
+	padding: 0 0 2px 5px;
+	margin-bottom: 10px;
+}
+.chamadas h2 span {
+	background-color: #daf6d1;
+	display: block;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 2px 10px;
+}
+.chamadas .chamadaMiddle {
+	float: left;
+	margin-bottom: 10px;
+}
+.chamadas .chamadaMiddle .img {
+	float: left;
+	margin-right: 10px;
+}
+.chamadas .chamadaMiddle .imgRight {
+	float: right;
+	margin-left: 10px;
+}
+.chamadas .chamadaMiddle .span {
+	color: #888;
 }
 footer {
 	width: 100%;
