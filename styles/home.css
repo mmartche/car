@@ -1,3 +1,6 @@
+body {
+	font-family: arial !important;
+}
 ul, li, h1,h2,h3,h4,h5,p {
 	list-style: none;
 	margin: 0;
@@ -107,9 +110,28 @@ header {
 }
 .socialBar {
 	height: 30px;
-	border:1px dotted;
 	margin-bottom: 10px;
-	background-image: url("../imgs/car-social.jpg");
+	/*background-image: url("../imgs/car-social.jpg"); */
+	background-color: #eee;
+	padding: 4px;
+}
+.socialBar div {
+	float: left;
+}
+.txtBuscaNoticias {
+	width: 90px;
+	height: 12px;
+	font: 11px Arial, sans-serif;
+	color: #cb2026;
+	padding: 5px 0;
+	margin-right: 5px;
+}
+.btnBuscaNoticia {
+	background-image: url("http://carsale.uol.com.br/novosite/img/gridMidiasSociaisbtnBuscarNoticias.gif");
+	border:0;
+	width: 22px;
+	height: 20px;
+	text-indent: -99em;
 }
 .content {
 	margin: auto;
@@ -145,6 +167,9 @@ header {
 	border:1px solid #ccc;
 	margin-bottom: 10px;
 	overflow: hidden;
+}
+.carrosselHome .carrosselImg {
+	margin: auto;
 }
 .carrosselHome ol {
 	margin-left: 0;
@@ -369,15 +394,16 @@ header {
 	width: 350px;
 }
 .chamadas h2 {
-	background-color: #069;
+	background-color: #194c7f;
 	padding: 0 0 2px 5px;
 	margin-bottom: 10px;
 }
 .chamadas h2 span {
-	background-color: #daf6d1;
+	background-color: #cb2026;
 	display: block;
 	font-size: 18px;
-	font-weight: bold;
+	font-weight: normal;
+	color: #fff;
 	padding: 2px 10px;
 }
 .chamadas .chamadaMiddle {
