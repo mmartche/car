@@ -409,7 +409,7 @@ header {
 	overflow: hidden;
 }
 .chamadas {
-	width: 325px;
+	width: 340px;
 	float: left;
 	margin: 0 10px 10px 0;
 }
@@ -458,7 +458,13 @@ header {
 .enquetes .resultEnquete1, .enquetes .resultEnquete2, .enquetes .resultEnquete3 {
 	max-width: 150px;
 	background-color: #bbb;
-	float: left;
+	position: absolute;
+	margin: 25px 0 0 130px;
+}
+.btnSubmitEnquete {
+	width: 300px;
+	margin: auto;
+	display: block;
 }
 .banner-325x200 {
 	float: left;
@@ -469,6 +475,11 @@ header {
 	float: left;
 	width: 665px;
 	margin: 0 10px 10px 0;
+}
+.fbSocialLike {
+	border:1px solid #ddd;
+	padding: 10px;
+	height: 100px;
 }
 footer {
 	width: 100%;
