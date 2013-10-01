@@ -22,14 +22,11 @@
 
 	<script type="text/javascript" src="scripts/Dfp_home.js"></script>
 	<script src="http://tm.uol.com.br/h/par/parceiros.js"></script>
-	
-<<<<<<< HEAD
-	<link rel="stylesheet" type="text/css" href="styles/home.css">
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
-=======
+	<script src="scripts/enquete.js" type="text/javascript"></script>
+
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="styles/home.css">
->>>>>>> 9db9b03909c29a802e73a65fe7c2e2885d0ba727
+
 	
 
 </head>
@@ -96,16 +93,16 @@
 			<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
         </div>
         <div class="btnGoogle">
-			<iframe scrolling="no" frameborder="0" width="100%" style="position: static; left: 0pt; top: 0pt; width: 70px; height: 15px; visibility: visible;" src="https://plusone.google.com/u/0/_/+1/fastbutton?url=http%3A%2F%2Fcarsale.com.br%2F&amp;size=small&amp;count=true&amp;annotation=&amp;hl=en-US&amp;jsh=r%3Bgc%2F23217085-590ae8cc#id=I1_1314037697624&amp;parent=http%3A%2F%2Fwww.awwwards.com&amp;rpctoken=903490124&amp;_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe" name="I1_1314037697624" marginwidth="0" marginheight="0"></iframe>
+			<iframe scrolling="no" frameborder="0" width="100%" style="position: static; left: 0pt; top: 0pt; width: 50px; height: 15px; visibility: visible;" src="https://plusone.google.com/u/0/_/+1/fastbutton?url=http%3A%2F%2Fcarsale.com.br%2F&amp;size=small&amp;count=true&amp;annotation=&amp;hl=en-US&amp;jsh=r%3Bgc%2F23217085-590ae8cc#id=I1_1314037697624&amp;parent=http%3A%2F%2Fwww.awwwards.com&amp;rpctoken=903490124&amp;_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe" name="I1_1314037697624" marginwidth="0" marginheight="0"></iframe>
         </div>
         <div class="btnMidiasSociais"><a target="_blank" title="" href="https://www.facebook.com/carsale.brasil"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_FaceBook.gif" border="0"></a></div>
         <div class="btnMidiasSociais"><a target="_blank" title="" href="http://twitter.com/carsale_brasil"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Twitter.gif" border="0"></a></div>
         <div class="btnMidiasSociais"><a target="_blank" title="" href="http://www.orkut.com.br/Community?cmm=276832"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Orkut.gif" border="0"></a></div>
         <div class="btnMidiasSociais"><a target="_blank" title="" href="http://carsale.uol.com.br/noticias/rss.xml"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Rss.gif" border="0"></a></div>
-        <div class="txtBuscarNoticias">Busca de Notícias</div>
-        <div class="inputTextBuscarNoticiasBox">
+        <div class="txtBuscaNoticias">Busca de Notícias</div>
+        <div class="inputTextBuscaNoticiasBox">
             <form action="http://carsale.uol.com.br/novosite/revista/incs/busca.asp" id="frmRevBusca" name="frmRevBusca" method="post" onsubmit="return Busca_Rev();">    
-                <input type="text" class="inputTextBuscarNoticias" value="" name="valor_string" id="valor_string" title="Palavras Chave" placeholder="Palavras Chave" />
+                <input type="text" class="inputTextBuscaNoticias" value="" name="valor_string" id="valor_string" title="Palavras Chave" placeholder="Palavras Chave" />
                 <input type="submit" class="btnBuscaNoticia" value="Buscar" />
             </form>
         </div>
@@ -349,6 +346,58 @@
 					</a>
 				</div>
 			</div>
+			<div id="homeEnquete" class="enquetes chamadas">
+				<h2><span>Qual melhor carro?</span></h2>
+				<form action="#" onsubmit="return votaEnquete(this);">
+				<input type="hidden" name="enqueteId" value="123">
+				<div class="chamadaMiddle">
+					<a href="#">
+						<div class="fieldsEnquete">
+							<input type="radio" name="inputEnquete" value="1">
+							<span class="span">Golf</span>
+						</div>
+						<img class="imgRight" src="http://www.extuning.com.br/product_images/y/645/parachoque_Traseiro_golf_9__46487_thumb.jpg" />
+						<div class="resultEnquete1">
+							<span class="spanResultEnquete"></span>
+						</div>
+					</a>
+				</div>
+				<div class="chamadaMiddle">
+					<a href="#">
+						<div class="fieldsEnquete">
+							<input type="radio" name="inputEnquete" value="2">
+							<span class="span">Opala</span>
+						</div>
+						<img class="imgRight" src="http://vecchioveiculos.com.br/miniaturas/136188626334288TMB.JPG" />
+						<div class="resultEnquete2">
+							<span class="spanResultEnquete"></span>
+						</div>
+					</a>
+				</div>
+				<div class="chamadaMiddle">
+					<a href="#">
+						<div class="fieldsEnquete">
+							<input type="radio" name="inputEnquete" value="3">
+							<span class="span">Delorean</span>
+						</div>
+						<img class="imgRight" src="https://lh5.googleusercontent.com/proxy/u0s_GyiZRhYhRcyshnUgx7OREeVJQ3dHqG7wqzPfbDdevL-Vf4hsKMIzCPbSPAUZAfH-uemq0aMsjZ3Cusp3g8pusi9JW_rdp97tn0rN7sowPIl2JM4vAQ=w120-h120" />
+						<div class="resultEnquete3">
+							<span class="spanResultEnquete"></span>
+						</div>
+					</a>
+				</div>
+				<input type="submit" name="btnSubmitEnquete" value="Votar" />
+				</form>
+			</div>
+			<div class="banner-325x200">
+				<img src="http://localhost/carsale/carsaleHOME/img/carrosVerdes.jpg">
+			</div>
+			<div class="banner-325x200">
+				<img src="http://localhost/carsale/carsaleHOME/img/opiniaodoDono.jpg">
+			</div>
+			<div class="banner-665x176">
+				<img src="http://localhost/carsale/carsaleHOME/img/checkered-flag.jpg">
+			</div>
 		</div>
 		<div class="contentRight">
 			<div class="tm-ads banner300" id="banner-300x250">
@@ -414,7 +463,12 @@
 	        <li><a title="Carsale - Recall" href="http://carsale.uol.com.br/Novosite/servicos/recall/">Recall</a></li>
 	    </ul>
     </nav>
-    <!--div class="carsaleLogoBlog" style="margin-top:0px;"><a target="_blank" onmouseout="document.blogCarsaleFooter.src='/novosite/menu_2011/img/logoBlogCarsaleFooterHover_2.gif'" onmouseover="document.blogCarsaleFooter.src='/novosite/menu_2011/img/logoBlogCarsaleFooter_2.gif'" href="http://carsale.uol.com.br/blog/index.asp"><img border="0" alt="Blog Carsale" title="Blog Carsale" name="blogCarsaleFooter" src="/novosite/menu_2011/img/logoBlogCarsaleFooterHover_2.gif"></a></div-->
+    <div class="footerLogoBlog">
+    	<a target="_blank" href="http://carsale.uol.com.br/blog/index.asp" class="footerBlogImg"></a>
+    </div>
+    <div class="footerLogoCompra">
+    	<a target="_blank" href="http://carsale.uol.com.br/compracoletiva/index.asp" class="footerCompraImg"></a>
+    </div>
 	<div class="copyright">Av do Estado, 5200, CEP: 01516-000, São Paulo - SP   ---   	Copyright 2000-2013 Carsale.com.br - Todos os direitos reservados</div>
 </footer>
 

@@ -24,6 +24,7 @@ header {
 	background: url("http://carsale.uol.com.br/novosite/images/logo_topcarsale2012.gif") no-repeat;
 	text-indent: -999em;
 	float: left;
+	margin: 10px 0 0 20px;
 	width: 200px;
 	height: 80px;
 }
@@ -97,8 +98,9 @@ header {
 	-moz-transform: rotate(-90.0deg);  /* FF3.5+ */
 	-o-transform: rotate(-90.0deg);  /* Opera 10.5 */
 	-webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
-	left: -30px;
-	top: 40px;
+	left: -20px;
+	top: 45px;
+	font-size: 12px;
 	position: absolute;
 }
 .bannerHomeImg {
@@ -118,13 +120,29 @@ header {
 .socialBar div {
 	float: left;
 }
+.btnGoogle {
+	margin-top: 3px;
+}
+
 .txtBuscaNoticias {
 	width: 90px;
 	height: 12px;
-	font: 11px Arial, sans-serif;
-	color: #cb2026;
+	font-size: 11px;
+	color: #CB2026;
 	padding: 5px 0;
+	margin-left: 100px;
 	margin-right: 5px;
+}
+.inputTextBuscaNoticias {
+	width: 208px;
+	height: 22px;
+	font-size: 11px;
+	color: #808285;
+	margin: 0px 4px 2px 0px;
+	padding: 1px 0px 0px 4px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #dbdada;
 }
 .btnBuscaNoticia {
 	background-image: url("http://carsale.uol.com.br/novosite/img/gridMidiasSociaisbtnBuscarNoticias.gif");
@@ -158,7 +176,7 @@ header {
 }
 .contentMiddle {
 	float: left;
-	width: 670px;
+	width: 690px;
 }
 .carrosselHome {
 	float: left;
@@ -199,14 +217,14 @@ header {
 	overflow: hidden;
 }
 .chamadaH1 h3 {
-	color: #194c7f;
+	color: #8DA4A8;
 	padding: 5px 0 0;
 	margin: 0;
 	font-size: 18px;
 	font-weight: bold;
 }
 .chamadaH1 h4 {
-	color: #cb2026;
+	color: #CB2026;
 	padding: 5px 0 0;
 	margin: 0;
 	font-size: 14px;
@@ -225,14 +243,14 @@ header {
 }
 .chamadaH2 h3 {
 	float: left;
-	color: #194c7f;
+	color: #8DA4A8;
 	font-size: 14px;
 	font-weight: bold;
 	width: 130px;
 }
 .chamadaH2 h4 {
 	float: left;
-	color: #cb2026;
+	color: #CB2026;
 	font-size: 16px;
 	font-weight: bold;
 	width: 130px;
@@ -247,7 +265,7 @@ header {
 .chamadaM1 h3 {
 	font-size: 18px;
 	font-weight: bold;
-	color: #194c7f;
+	color: #8DA4A8;
 	margin-bottom: 5px;
 }
 .chamadaM1 img {
@@ -256,7 +274,7 @@ header {
 	height: 160px;
 }
 .chamadaM1 h4 {
-	color: #cb2026;
+	color: #CB2026;
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -270,7 +288,7 @@ header {
 .chamadaM2 h3 {
 	font-size: 16px;
 	font-weight: bold;
-	color: #194c7f;
+	color: #8DA4A8;
 	margin-bottom: 5px;
 }
 .chamadaM2 img {
@@ -281,7 +299,7 @@ header {
 }
 .chamadaM2 h4 {
 	float: left;
-	color: #cb2026;
+	color: #CB2026;
 	font-size: 14px;
 	font-weight: bold;
 }
@@ -298,7 +316,7 @@ header {
 }
 .ultnotTituloSpan a {
 	font-size: 18px;
-	color: #194c7f;
+	color: #8DA4A8;
 	font-weight: bold;
 }
 .ultnotTituloSpan {
@@ -312,7 +330,7 @@ header {
 	background-color: #eee;
 }
 .ultnotMaisNoticias a{
-	color: #194c7f;
+	color: #8DA4A8;
 	display: block;
 	padding: 5px 10px;
 	font-size: 12px;
@@ -321,7 +339,7 @@ header {
 	background-color: #ccc;
 }
 .ultnotMaisNoticias a:hover {
-	color:#cb2026;
+	color:#CB2026;
 	text-decoration: none;
 }
 .ultNot ul {
@@ -332,7 +350,7 @@ header {
 	border-bottom: 1px solid #ddd;
 }
 .ultNot li a {
-	color: #cb2026;
+	color: #CB2026;
 	font-size: 12px;
 	padding: 5px 10px;
 	display: block;
@@ -356,7 +374,7 @@ header {
 .carrosselVideos h3.carrosselTitle {
 	font-size: 16px;
 	font-weight: bold;
-	color: #194c7f;
+	color: #8DA4A8;
 	margin-bottom: 5px;
 }
 .carrosselVideos .carousel-inner {
@@ -391,15 +409,17 @@ header {
 	overflow: hidden;
 }
 .chamadas {
-	width: 350px;
+	width: 325px;
+	float: left;
+	margin: 0 10px 10px 0;
 }
 .chamadas h2 {
-	background-color: #194c7f;
+	background-color: #8DA4A8;
 	padding: 0 0 2px 5px;
 	margin-bottom: 10px;
 }
 .chamadas h2 span {
-	background-color: #cb2026;
+	background-color: #CB2026;
 	display: block;
 	font-size: 18px;
 	font-weight: normal;
@@ -409,6 +429,7 @@ header {
 .chamadas .chamadaMiddle {
 	float: left;
 	margin-bottom: 10px;
+	width: 100%;
 }
 .chamadas .chamadaMiddle .img {
 	float: left;
@@ -423,10 +444,45 @@ header {
 .chamadas .chamadaMiddle .span {
 	color: #888;
 }
+.enquetes .chamadaMiddle:hover {
+	background-color: #eee;
+}
+.fieldsEnquete {
+	float: left;
+	overflow: hidden;
+	width: 195px;
+}
+.enquetes .imgRight {
+	float: left !important;
+}
+.enquetes .resultEnquete1, .enquetes .resultEnquete2, .enquetes .resultEnquete3 {
+	max-width: 150px;
+	background-color: #bbb;
+	float: left;
+}
+.banner-325x200 {
+	float: left;
+	width: 325px;
+	margin: 0 10px 10px 0;
+}
+.banner-665x176 {
+	float: left;
+	width: 665px;
+	margin: 0 10px 10px 0;
+}
 footer {
 	width: 100%;
 	margin-top: 20px;
 	border-top: 1px solid #000;
+	background: linear-gradient(to bottom, #fff 1%,#eee 100%);
+	background: #fff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fff 1%, #eee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#fff), color-stop(100%,#eee)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fff 1%,#eee 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fff 1%,#eee 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fff 1%,#eee 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #fff 1%,#eee 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#eee',GradientType=0 ); /* IE6-9 */
 }
 .footerTitle {
 	background: #c2232a; /* Old browsers */
@@ -452,6 +508,9 @@ footer {
 	font-size: 11px;
 	font-weight: normal;
 }
+.footerItemsTop a:hover {
+	background-color: #ccc;
+}
 .footerMenu {
 	width: 900px;
 	overflow: hidden;
@@ -469,9 +528,47 @@ footer {
 	color: #747474;
 }
 .footerMenu li.footerMenuTitle {
-	color: #cb2026;
+	color: #CB2026;
+}
+.footerItemsTop {
+	border-bottom: 1px solid #ccc;
+}
+footer .footerLogoBlog {
+	margin: 20px 0 30px 200px;
+	float: left;
+}
+footer .footerBlogImg {
+	background: url("http://carsale.uol.com.br/novosite/menu_2011/img/logoBlogCarsaleFooterHover_2.gif") no-repeat;
+	display: block;
+	width: 225px;
+	height: 50px;
+}
+footer .footerBlogImg:hover {
+	background:url("http://carsale.uol.com.br/novosite/menu_2011/img/logoBlogCarsaleFooter_2.gif") no-repeat;
+}
+footer .footerLogoCompra {
+	margin: 20px 200px 30px 0;
+	float: right;
+}
+footer .footerCompraImg {
+	background: url("http://carsale.uol.com.br/novosite/menu_2011/img/logoCarsaleCompraColetivaFooter.gif") no-repeat;
+	display: block;
+	width: 111px;
+	height: 50px;
+}
+footer .footerCompraImg:hover {
+	background: url("http://carsale.uol.com.br/novosite/menu_2011/img/logoCarsaleCompraColetivaFooterHover.gif") no-repeat;
 }
 .copyright {
-	width: 900px;
+	width: 100%;
 	margin: auto;
+	background-color: #fff;
+	margin: 10px auto;
+	position: relative;
+	border-top: 1px solid #ccc;
+	overflow: hidden;
+	font-size: 12px;
+	color: #a7a9ac;
+	padding: 10px 0 0 0;
+	text-align: center;
 }
