@@ -116,31 +116,13 @@
 		<? 
 		include ("inc/carrosselHome.inc");
 		include ("inc/chamadaFoto.inc");
+
 		?>
 		
 		<div class="contentMiddle">
-			<div class="chamadaH1">
-				<a href="#">
-					<!--img src="/arquivos/spacer.gif" data-imagem="http://imagens.walmart.com.br/arquivos/ids/4886658" width="130" height="130" alt="" class="loading" style="display: none;"-->
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
-					<h3>Titulo chamda</h3>
-					<h4>carro golf</h4>
-				</a>
-			</div>
-			<div class="chamadaH2">
-				<a href="#">
-					<img src="http://carsale.uol.com.br/novosite/images/home/slsmercedes_h3.jpg">
-					<h3>Vignale</h3>
-					<h4>vignale</h4>
-				</a>
-			</div>
-			<div class="chamadaH2">
-				<a href="#">
-					<img src="http://carsale.uol.com.br/novosite/images/home/vignale_h3.jpg">
-					<h3>Vignale</h3>
-					<h4>vignale</h4>
-				</a>
-			</div>
+			<?
+			include ("inc/chamadaHome.inc");
+			?>
 			<div class="ultNot">
 				<div class="ultnotTitulo">
 				    <h3 class="ultnotTituloSpan"><a title="" href="http://carsale.uol.com.br/editorial/noticia/listagem">Últimas Notícias</a></h3>
