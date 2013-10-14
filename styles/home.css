@@ -123,6 +123,18 @@ header {
 .btnGoogle {
 	margin-top: 3px;
 }
+.btnGoogle iframe {
+
+left: 0pt; 
+top: 0pt; 
+width: 50px; 
+height: 15px; 
+visibility: visible;
+border:none;
+margin:0; 
+
+overflow: hidden;
+}
 
 .txtBuscaNoticias {
 	width: 90px;
@@ -200,7 +212,7 @@ header {
 	text-indent: 0;
 	width: 100px;
 	height: 60px;
-	margin: 8px 0 0 0;
+	margin: 5px 0 0 0;
 	border: none;
 	overflow: hidden;
 }
@@ -281,7 +293,7 @@ header {
 .chamadaM2 {
 	float: left;
 	margin: 0 10px 10px 0;
-	width: 265px;
+	width: 330px;
 	padding-top: 10px;
 	border-top: 1px solid #ccc;
 }
@@ -299,6 +311,7 @@ header {
 }
 .chamadaM2 h4 {
 	float: left;
+	width: 160px;
 	color: #CB2026;
 	font-size: 14px;
 	font-weight: bold;
@@ -367,6 +380,7 @@ header {
 .carrosselVideos {
 	padding-top: 10px;
 	border-top: 1px solid #ccc;
+	height: 260px;
 }
 .carrosselVideos:hover {
 	text-decoration: none;
@@ -378,33 +392,33 @@ header {
 	margin-bottom: 5px;
 }
 .carrosselVideos .carousel-inner {
-	height: 180px;
+	height: 210px;
 }
 .carrosselVideos .carousel-caption {
 	padding: 0;
-	color: #000;
+	color: #CB2026;
 	position: relative;
 	left: 0;
 	top: 0;
 }
 .carrosselVideos .carousel-control {
-	height: 120px;
+	height: 160px;
 }
 .carrosselVideos .carousel-indicators {
-	top: 100px;
+	top: 140px;
 }
 .carrosselVideos .play-arrow {
 	background: url("../imgs/icon_video_play2.png") transparent no-repeat;
 	width: 86px;
 	height: 63px;
 	position: absolute;
-	opacity: 0.4;
-	filter:alpha(opacity=40); /* For IE8 and earlier */
+	opacity: 0.7;
+	filter:alpha(opacity=70); /* For IE8 and earlier */
 	margin: 30px 90px;
 	top: 0;
 }
 .carrosselVideos .carrosselImg {
-	height: 120px;
+	height: 160px;
 	width: 100%;
 	overflow: hidden;
 }
@@ -455,11 +469,12 @@ header {
 .enquetes .imgRight {
 	float: left !important;
 }
-.enquetes .resultEnquete1, .enquetes .resultEnquete2, .enquetes .resultEnquete3 {
-	max-width: 150px;
-	background-color: #bbb;
-	position: absolute;
+.enquetes .resultEnquete {
 	margin: 25px 0 0 130px;
+}
+.enquetes .spanResultEnquete {
+	background-color: #bbb;
+	overflow: hidden;
 }
 .btnSubmitEnquete {
 	width: 300px;
@@ -582,4 +597,10 @@ footer .footerCompraImg:hover {
 	color: #a7a9ac;
 	padding: 10px 0 0 0;
 	text-align: center;
+}
+.frameFb {
+	border:none; overflow:hidden; width:108px; height:20px; 
+}
+.frameTw {
+	width: 259px; height: 20px;
 }

@@ -11,21 +11,21 @@
 	
 	<meta http-equiv="Pragma" content="no-cache"/>
 	<meta name="robots" content="index, follow" />
-	<meta name="description" content="Carsale,o maior e mais completo site de compra e venda direta de veículos na internet, com garantia de fábrica e entrega pela concessionária,Carros novos, Classificados, Notícias Automotivas, Testes e Opinião do Dono">
-	<meta name="keywords" content="Carsale notícias,Opinião do dono,Opiniao do dono,Classificados,Carros novos,carros okm,Anúncio,Testes / Comparativos,Avaliação de carros,Oferta de carros,Venda de carros">
+	<meta name="description" content="Carsale,o maior e mais completo site de compra e venda direta de veículos na internet, com garantia de fábrica e entrega pela concessionária,Carros novos, Classificados, Notícias Automotivas, Testes e Opinião do Dono" />
+	<meta name="keywords" content="Carsale notícias,Opinião do dono,Opiniao do dono,Classificados,Carros novos,carros okm,Anúncio,Testes / Comparativos,Avaliação de carros,Oferta de carros,Venda de carros" />
 	<title>Carsale</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Search The" />
 	<script type="text/javascript" src="scripts/jquery.2.9.3.min.js"></script>
-	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/scripts.min.js"></script>
 
 	<script type="text/javascript" src="scripts/Dfp_home.js"></script>
 	<script src="http://tm.uol.com.br/h/par/parceiros.js"></script>
 	<script src="scripts/enquete.js" type="text/javascript"></script>
 
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styles/home.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.min.css" />
+	<link rel="stylesheet" type="text/css" href="styles/home.css" />
 
 	
 
@@ -116,45 +116,15 @@
 		<? 
 		include ("inc/carrosselHome.inc");
 		include ("inc/chamadaFoto.inc");
+
 		?>
 		
 		<div class="contentMiddle">
-			<div class="chamadaH1">
-				<a href="#">
-					<!--img src="/arquivos/spacer.gif" data-imagem="http://imagens.walmart.com.br/arquivos/ids/4886658" width="130" height="130" alt="" class="loading" style="display: none;"-->
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
-					<h3>Titulo chamda</h3>
-					<h4>carro golf</h4>
-				</a>
-			</div>
-			<div class="chamadaH2">
-				<a href="#">
-					<img src="http://carsale.uol.com.br/novosite/images/home/slsmercedes_h3.jpg">
-					<h3>Vignale</h3>
-					<h4>vignale</h4>
-				</a>
-			</div>
-			<div class="chamadaH2">
-				<a href="#">
-					<img src="http://carsale.uol.com.br/novosite/images/home/vignale_h3.jpg">
-					<h3>Vignale</h3>
-					<h4>vignale</h4>
-				</a>
-			</div>
-			<div class="ultNot">
-				<div class="ultnotTitulo">
-				    <h3 class="ultnotTituloSpan"><a title="" href="http://carsale.uol.com.br/editorial/noticia/listagem">Últimas Notícias</a></h3>
-			        <h4 class="ultnotMaisNoticias"><a title="" href="http://carsale.uol.com.br/editorial/noticia/listagem">+ Notícias</a></h4>
-			    </div>
-			    <ul>
-			        <li class="ultnotItem"><a title="Confira tudo o que rolou no mundo automotivo na última semana" href="http://carsale.uol.com.br/editorial/noticia/11637-confira-tudo-o-que-rolou-no-mundo-automotivo-na-ultima-semana">Confira tudo o que rolou no mundo automotivo na última semana</a></li>
-			        <li class="ultnotItem"><a title="Novo Golf: Vídeo mostra o processo de criação da sétima geração" href="http://carsale.uol.com.br/editorial/noticia/11640-novo-golf:-video-mostra-o-processo-de-criacao-da-setima-geracao">Novo Golf: Vídeo mostra o processo de criação da sétima geração</a></li>
-			        <li class="ultnotItem"><a title="Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990" href="http://carsale.uol.com.br/editorial/lancamentos/11636-fim-do-misterio:-novo-volkswagen-golf-custara-a-partir-de-r$-67.990">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</a></li>
-			        <li class="ultnotItem"><a title="Mercedes-Benz bate recordes de venda em agosto" href="http://carsale.uol.com.br/editorial/noticia/11638-mercedes-benz-bate-recordes-de-venda-em-agosto">Mercedes-Benz bate recordes de venda em agosto</a></li>
-			        <li class="ultnotItem"><a title="Citroën lança edição de luxo para a linha DS" href="http://carsale.uol.com.br/editorial/noticia/11635-citroen-lanca-edicao-de-luxo-para-a-linha-ds">Citroën lança edição de luxo para a linha DS</a></li>
-			        <li class="ultnotItem"><a title="Brabus eleva a potência do Mercedes-Benz S63 AMG a 850 cv" href="http://carsale.uol.com.br/editorial/noticia/11634-brabus-eleva-a-potencia-do-mercedes-benz-s63-amg-a-850-cv">Brabus eleva a potência do Mercedes-Benz S63 AMG a 850 cv</a></li>
-				</ul>
-			</div>
+			<?
+			include ("inc/chamadaHome.inc");
+			include ("inc/ultNot.php");
+			?>
+			
 			<div class="chamadaFoto">
 				<a href="#"><img src="http://carsale.uol.com.br/novosite/images/segredos.jpg"></a>
 			</div>
@@ -162,14 +132,15 @@
 				<a href="#"><img src="http://carsale.uol.com.br/novosite/images/blogCarsale.jpg"></a>
 			</div>
 			<div class="chamadaM1">
-				<a href="#">
-					<h3>Titulo chamda m1</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/porsche-918_h2.jpg">
-					<h4>carro golf</h4>
+				<a href="http://carsale.uol.com.br/blog/">
+					<h3>Blog do Carsale</h3>
+					<img src="http://carsale.uol.com.br/novosite/images/home/limusine-blog-carsale.jpg">
+					<h4>Peugeot vira limusine com cara de Ferrari!</h4>
 				</a>
 			</div>
+			<? include ("inc/carrosselVideos.php"); ?>
 			<div class="chamadaM1">
-				<a href="#">
+				<a href="">
 					<h3>Titulo chamda m1</h3>
 					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
 					<h4>carro golf</h4>
@@ -177,90 +148,33 @@
 			</div>
 			<div class="chamadaM2">
 				<a href="#">
-					<h3>Titulo chamda m2</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
-					<h4>carro golf</h4>
+					<h3>Opniāo do Dono</h3>
+					<img src="http://carsale.uol.com.br/novosite/img/lixo_OpiniaoDono.gif">
+					<h4>Fale o que acha de seu carro e ajude a orientar o comprador</h4>
 				</a>
 			</div>
 			<div class="chamadaM2">
 				<a href="#">
-					<h3>Titulo chamda</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/civiccarsale_h3.JPG">
-					<h4>carro golf</h4>
+					<h3>Cuide do escapamento!</h3>
+					<img src="http://carsale.uol.com.br/novosite/images/home/ESCAPAMENTOOK.jpg">
+					<h4>Ações evitam aumento do consumo, multas e outros problemas</h4>
 				</a>
 			</div>
 			<div class="chamadaM2">
 				<a href="#">
-					<h3>Titulo chamda</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
-					<h4>carro golf</h4>
+					<h3>Segredos</h3>
+					<img src="http://carsale.uol.com.br/novosite/img/BannerSegredo.jpg">
+					<h4>Seja um repórter do Carsale pelo país. Envie seu flagra para segredos@carsale.com.br</h4>
 				</a>
 			</div>
 			<div class="chamadaM2">
 				<a href="#">
-					<h3>Titulo chamda</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
-					<h4>carro golf</h4>
+					<h3>É infração?</h3>
+					<img src="http://carsale.uol.com.br/novosite/images/home/multa-de-transito.jpg">
+					<h4>Conheça as multas mais inusitadas e saiba como evitá-las</h4>
 				</a>
 			</div>
-			<div class="carrosselVideos">
-				<h3 class="carrosselTitle">Multimídia</h3>
-				<div id="carousel-videos" class="carousel slide">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-videos" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-videos" data-slide-to="1"></li>
-						<li data-target="#carousel-videos" data-slide-to="2"></li>
-					</ol>
-
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<a href="#">
-							<div class="carrosselImg">
-								<img src="./imgs/jeremias-muito-louco.jpg" alt="...">
-							</div>
-							<div class="carousel-caption">
-								<h3>carro</h3>
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-						<div class="item">
-							<a href="#">
-							<div class="carrosselImg">
-								<img src="" alt="...">
-							</div>
-							<div class="carousel-caption">
-								<h3>carro 222</h3>
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-						<div class="item">
-							<a href="#">
-							<div class="carrosselImg">
-								<img src="./imgs/jeremias-muito-louco.jpg" alt="...">
-							</div>
-							<div class="carousel-caption">
-								<h3>carro 111111</h3>
-								<p>texto adidcional</p>
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-					</div>
-
-					<!-- Controls -->
-					<a class="left carousel-control" href="#carousel-videos" data-slide="prev">
-						<span class="icon-prev"></span>
-					</a>
-					<a class="right carousel-control" href="#carousel-videos" data-slide="next">
-						<span class="icon-next"></span>
-					</a>
-
-				</div>
-			</div>
+			
 			<hr style="width:100%;" />
 			<div class="chamadas">
 				<h2><span>Title</span></h2>

@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html>
+<html>
 <head>
 	<link rel="shortcut icon" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/50192_124345857613786_740480673_q.jpg" />
 
@@ -9,29 +9,29 @@
 	<meta property="fb:page_id" content="124345857613786" />
 	<meta name="msvalidate.01" content="270B7706358DDE8D5FA26B2B7522BC42" /-->
 	
-	<meta http-equiv="Pragma" content="no-cache"/>
+	<!--meta http-equiv="Pragma" content="no-cache"/-->
 	<meta name="robots" content="index, follow" />
-	<meta name="description" content="Carsale,o maior e mais completo site de compra e venda direta de veículos na internet, com garantia de fábrica e entrega pela concessionária,Carros novos, Classificados, Notícias Automotivas, Testes e Opinião do Dono">
-	<meta name="keywords" content="Carsale notícias,Opinião do dono,Opiniao do dono,Classificados,Carros novos,carros okm,Anúncio,Testes / Comparativos,Avaliação de carros,Oferta de carros,Venda de carros">
+	<meta name="description" content="Carsale,o maior e mais completo site de compra e venda direta de veículos na internet, com garantia de fábrica e entrega pela concessionária,Carros novos, Classificados, Notícias Automotivas, Testes e Opinião do Dono" />
+	<meta name="keywords" content="Carsale notícias,Opinião do dono,Opiniao do dono,Classificados,Carros novos,carros okm,Anúncio,Testes / Comparativos,Avaliação de carros,Oferta de carros,Venda de carros" />
 	<title>Carsale</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Search The" />
 	<script type="text/javascript" src="scripts/jquery.2.9.3.min.js"></script>
-	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="scripts/scripts.min.js"></script>
 
 	<script type="text/javascript" src="scripts/Dfp_home.js"></script>
-	<script src="http://tm.uol.com.br/h/par/parceiros.js"></script>
+	<script src="http://tm.uol.com.br/h/par/parceiros.js" type="text/javascript"></script>
 	<script src="scripts/enquete.js" type="text/javascript"></script>
 
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styles/home.css">
+	<link rel="stylesheet" type="text/css" href="styles/style.min.css" />
+	<link rel="stylesheet" type="text/css" href="styles/home.css" />
 
 	
 
 </head>
 <body>
-<script src="http://tm.uol.com.br/b/par/parceiros.js"></script>
+<script type="text/javascript" src="http://tm.uol.com.br/b/par/parceiros.js"></script>
 <div id="uolBar"></div>
 <header>
 	<div class="logoBanner">
@@ -86,19 +86,19 @@
 	</div>
 	<div class="socialBar">
         <div class="btnFaceBook">
-        	<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;send=false&amp;layout=button_count&amp;width=180&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=31" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:108px; height:20px;"></iframe>
+        	<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;send=false&amp;layout=button_count&amp;width=180&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=31" style="border:none; overflow:hidden; width:108px; height:20px;" ></iframe>
         </div>
         <div class="btnTwitter">
-			<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/follow_button.1380141200.html#_=1380554220744&amp;id=twitter-widget-0&amp;lang=pt&amp;screen_name=carsale_brasil&amp;show_count=true&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 259px; height: 20px;"></iframe>
+			<iframe src="http://platform.twitter.com/widgets/follow_button.1380141200.html#_=1380554220744&amp;id=twitter-widget-0&amp;lang=pt&amp;screen_name=carsale_brasil&amp;show_count=true&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 259px; height: 20px;border:none;"></iframe>
 			<script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
         </div>
         <div class="btnGoogle">
-			<iframe scrolling="no" frameborder="0" width="100%" style="position: static; left: 0pt; top: 0pt; width: 50px; height: 15px; visibility: visible;" src="https://plusone.google.com/u/0/_/+1/fastbutton?url=http%3A%2F%2Fcarsale.com.br%2F&amp;size=small&amp;count=true&amp;annotation=&amp;hl=en-US&amp;jsh=r%3Bgc%2F23217085-590ae8cc#id=I1_1314037697624&amp;parent=http%3A%2F%2Fwww.awwwards.com&amp;rpctoken=903490124&amp;_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe" name="I1_1314037697624" marginwidth="0" marginheight="0"></iframe>
+			<iframe  src="https://plusone.google.com/u/0/_/+1/fastbutton?url=http%3A%2F%2Fcarsale.com.br%2F&amp;size=small&amp;count=true&amp;annotation=&amp;hl=en-US&amp;jsh=r%3Bgc%2F23217085-590ae8cc#id=I1_1314037697624&amp;parent=http%3A%2F%2Fwww.awwwards.com&amp;rpctoken=903490124&amp;_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe" name="I1_1314037697624" ></iframe>
         </div>
-        <div class="btnMidiasSociais"><a target="_blank" title="" href="https://www.facebook.com/carsale.brasil"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_FaceBook.gif" border="0"></a></div>
-        <div class="btnMidiasSociais"><a target="_blank" title="" href="http://twitter.com/carsale_brasil"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Twitter.gif" border="0"></a></div>
-        <div class="btnMidiasSociais"><a target="_blank" title="" href="http://www.orkut.com.br/Community?cmm=276832"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Orkut.gif" border="0"></a></div>
-        <div class="btnMidiasSociais"><a target="_blank" title="" href="http://carsale.uol.com.br/noticias/rss.xml"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Rss.gif" border="0"></a></div>
+        <div class="btnMidiasSociais"><a target="_blank" title="" href="https://www.facebook.com/carsale.brasil"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_FaceBook.gif"></a></div>
+        <div class="btnMidiasSociais"><a target="_blank" title="" href="http://twitter.com/carsale_brasil"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Twitter.gif" ></a></div>
+        <div class="btnMidiasSociais"><a target="_blank" title="" href="http://www.orkut.com.br/Community?cmm=276832"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Orkut.gif"></a></div>
+        <div class="btnMidiasSociais"><a target="_blank" title="" href="http://carsale.uol.com.br/noticias/rss.xml"><img alt="" title="" src="http://carsale.uol.com.br/novosite/img/gridMidiasSociais_Rss.gif" ></a></div>
         <div class="txtBuscaNoticias">Busca de Notícias</div>
         <div class="inputTextBuscaNoticiasBox">
             <form action="http://carsale.uol.com.br/novosite/revista/incs/busca.asp" id="frmRevBusca" name="frmRevBusca" method="post" onsubmit="return Busca_Rev();">    
@@ -110,216 +110,141 @@
 </header>
 <div class="content">
 	<div class="columnMiddle">
-		<!--div class="bannerBigHome">
-			<a href="#"><img src="http://carsale.uol.com.br/novosite/images/bannerMegaOfertasV2.jpg"></a>
-		</div-->
 		<? 
-		include ("inc/carrosselHome.inc");
-		include ("inc/chamadaFoto.inc");
-
+		include ("inc/carrosselHome.php");
+		include ("inc/chamadaFoto.php");
 		?>
 		
 		<div class="contentMiddle">
 			<?
-			include ("inc/chamadaHome.inc");
+			include ("inc/chamadaHome.php");
+			include ("inc/ultNot.php");
 			?>
-			<div class="ultNot">
-				<div class="ultnotTitulo">
-				    <h3 class="ultnotTituloSpan"><a title="" href="http://carsale.uol.com.br/editorial/noticia/listagem">Últimas Notícias</a></h3>
-			        <h4 class="ultnotMaisNoticias"><a title="" href="http://carsale.uol.com.br/editorial/noticia/listagem">+ Notícias</a></h4>
-			    </div>
-			    <ul>
-			        <li class="ultnotItem"><a title="Confira tudo o que rolou no mundo automotivo na última semana" href="http://carsale.uol.com.br/editorial/noticia/11637-confira-tudo-o-que-rolou-no-mundo-automotivo-na-ultima-semana">Confira tudo o que rolou no mundo automotivo na última semana</a></li>
-			        <li class="ultnotItem"><a title="Novo Golf: Vídeo mostra o processo de criação da sétima geração" href="http://carsale.uol.com.br/editorial/noticia/11640-novo-golf:-video-mostra-o-processo-de-criacao-da-setima-geracao">Novo Golf: Vídeo mostra o processo de criação da sétima geração</a></li>
-			        <li class="ultnotItem"><a title="Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990" href="http://carsale.uol.com.br/editorial/lancamentos/11636-fim-do-misterio:-novo-volkswagen-golf-custara-a-partir-de-r$-67.990">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</a></li>
-			        <li class="ultnotItem"><a title="Mercedes-Benz bate recordes de venda em agosto" href="http://carsale.uol.com.br/editorial/noticia/11638-mercedes-benz-bate-recordes-de-venda-em-agosto">Mercedes-Benz bate recordes de venda em agosto</a></li>
-			        <li class="ultnotItem"><a title="Citroën lança edição de luxo para a linha DS" href="http://carsale.uol.com.br/editorial/noticia/11635-citroen-lanca-edicao-de-luxo-para-a-linha-ds">Citroën lança edição de luxo para a linha DS</a></li>
-			        <li class="ultnotItem"><a title="Brabus eleva a potência do Mercedes-Benz S63 AMG a 850 cv" href="http://carsale.uol.com.br/editorial/noticia/11634-brabus-eleva-a-potencia-do-mercedes-benz-s63-amg-a-850-cv">Brabus eleva a potência do Mercedes-Benz S63 AMG a 850 cv</a></li>
-				</ul>
+			
+			<div class="chamadaFoto">
+				<a href="#"><img src="http://carsale.uol.com.br/novosite/images/segredos.jpg" alt="..." /></a>
 			</div>
 			<div class="chamadaFoto">
-				<a href="#"><img src="http://carsale.uol.com.br/novosite/images/segredos.jpg"></a>
-			</div>
-			<div class="chamadaFoto">
-				<a href="#"><img src="http://carsale.uol.com.br/novosite/images/blogCarsale.jpg"></a>
+				<a href="#"><img src="http://carsale.uol.com.br/novosite/images/blogCarsale.jpg" alt="..." /></a>
 			</div>
 			<div class="chamadaM1">
-				<a href="#">
-					<h3>Titulo chamda m1</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/porsche-918_h2.jpg">
-					<h4>carro golf</h4>
+				<a href="http://carsale.uol.com.br/blog/">
+					<h3>Blog do Carsale</h3>
+					<img src="http://carsale.uol.com.br/novosite/images/home/limusine-blog-carsale.jpg" alt="..." />
+					<h4>Peugeot vira limusine com cara de Ferrari!</h4>
 				</a>
 			</div>
+			<? include ("inc/carrosselVideos.php"); ?>
 			<div class="chamadaM1">
-				<a href="#">
+				<a href="">
 					<h3>Titulo chamda m1</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
+					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg" alt="..." />
 					<h4>carro golf</h4>
 				</a>
 			</div>
 			<div class="chamadaM2">
 				<a href="#">
-					<h3>Titulo chamda m2</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
-					<h4>carro golf</h4>
+					<h3>Opniāo do Dono</h3>
+					<img src="http://carsale.uol.com.br/novosite/img/lixo_OpiniaoDono.gif" alt="..." />
+					<h4>Fale o que acha de seu carro e ajude a orientar o comprador</h4>
 				</a>
 			</div>
 			<div class="chamadaM2">
 				<a href="#">
-					<h3>Titulo chamda</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/civiccarsale_h3.JPG">
-					<h4>carro golf</h4>
+					<h3>Cuide do escapamento!</h3>
+					<img src="http://carsale.uol.com.br/novosite/images/home/ESCAPAMENTOOK.jpg" alt="..." />
+					<h4>Ações evitam aumento do consumo, multas e outros problemas</h4>
 				</a>
 			</div>
 			<div class="chamadaM2">
 				<a href="#">
-					<h3>Titulo chamda</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
-					<h4>carro golf</h4>
+					<h3>Segredos</h3>
+					<img src="http://carsale.uol.com.br/novosite/img/BannerSegredo.jpg" alt="..." />
+					<h4>Seja um repórter do Carsale pelo país. Envie seu flagra para segredos@carsale.com.br</h4>
 				</a>
 			</div>
 			<div class="chamadaM2">
 				<a href="#">
-					<h3>Titulo chamda</h3>
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj3hatch_h2.jpg">
-					<h4>carro golf</h4>
+					<h3>É infração?</h3>
+					<img src="http://carsale.uol.com.br/novosite/images/home/multa-de-transito.jpg" alt="..." />
+					<h4>Conheça as multas mais inusitadas e saiba como evitá-las</h4>
 				</a>
 			</div>
-			<div class="carrosselVideos">
-				<h3 class="carrosselTitle">Multimídia</h3>
-				<div id="carousel-videos" class="carousel slide">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-videos" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-videos" data-slide-to="1"></li>
-						<li data-target="#carousel-videos" data-slide-to="2"></li>
-					</ol>
-
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<a href="#">
-							<div class="carrosselImg">
-								<img src="./imgs/jeremias-muito-louco.jpg" alt="...">
-							</div>
-							<div class="carousel-caption">
-								<h3>carro</h3>
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-						<div class="item">
-							<a href="#">
-							<div class="carrosselImg">
-								<img src="" alt="...">
-							</div>
-							<div class="carousel-caption">
-								<h3>carro 222</h3>
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-						<div class="item">
-							<a href="#">
-							<div class="carrosselImg">
-								<img src="./imgs/jeremias-muito-louco.jpg" alt="...">
-							</div>
-							<div class="carousel-caption">
-								<h3>carro 111111</h3>
-								<p>texto adidcional</p>
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-					</div>
-
-					<!-- Controls -->
-					<a class="left carousel-control" href="#carousel-videos" data-slide="prev">
-						<span class="icon-prev"></span>
-					</a>
-					<a class="right carousel-control" href="#carousel-videos" data-slide="next">
-						<span class="icon-next"></span>
-					</a>
-
-				</div>
-			</div>
+			
 			<hr style="width:100%;" />
 			<div class="chamadas">
 				<h2><span>Title</span></h2>
 				<div class="chamadaMiddle">
 					<a href="#">
-						<img class="img" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg">
+						<img class="img" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
 						<span class="span">asajasl jdaljdlajsldkasjdlkajsdlasj ldaj sldasldlasdjasdlaks dlajd asd</span>
 					</a>
 				</div>
 				<div class="chamadaMiddle">
 					<a href="#">
-						<img class="img" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg">
+						<img class="img" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
 						<span class="span">asajasl jdaljdlajsldkasjdlkajsdlasj ldaj sldasldlasdjasdlaks dlajd asd</span>
 					</a>
 				</div>
 				<div class="chamadaMiddle">
 					<a href="#">
-						<img class="imgRight" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg">
+						<img class="imgRight" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
 						<span class="span">asajasl jdaljdlajsldkasjdlkajsdlasj ldaj sldasldlasdjasdlaks dlajd asd</span>
 					</a>
 				</div>
 			</div>
 			<div class="banner-325x200">
-				<img src="http://localhost/carsale/carsaleHOME/img/carrosVerdes.jpg">
+				<img src="http://localhost/carsale/carsaleHOME/img/carrosVerdes.jpg" alt="..." />
 			</div>
 			<div id="homeEnquete" class="enquetes chamadas">
 				<h2><span>Qual melhor carro?</span></h2>
 				<form action="#" onsubmit="return votaEnquete(this);">
 				<h4>Vote no seu favorito</h4>
-				<input type="hidden" name="enqueteId" value="123">
+				<input type="hidden" name="enqueteId" value="123" />
 				<div class="chamadaMiddle">
-					<a href="#">
+					<input id="inputResult1" type="radio" name="inputEnquete" value="1" />
+					<label for="inputResult1">
 						<div class="fieldsEnquete">
-							<input type="radio" name="inputEnquete" value="1">
 							<span class="span">Golf</span>
 						</div>
-						<img class="imgRight" src="http://www.extuning.com.br/product_images/y/645/parachoque_Traseiro_golf_9__46487_thumb.jpg" />
-						<div class="resultEnquete1">
-							
-							<span class="spanResultEnquete"></span>
+						<img class="imgRight" src="http://www.extuning.com.br/product_images/y/645/parachoque_Traseiro_golf_9__46487_thumb.jpg" alt="..." />
+						<div class="resultEnquete" id="resultEnquete1">
+							<div class="spanResultEnquete"></div>
 						</div>
-					</a>
+					</label>
 				</div>
 				<div class="chamadaMiddle">
-					<a href="#">
+					<input id="inputResult2" type="radio" name="inputEnquete" value="2" />
+					<label for="inputResult2">
 						<div class="fieldsEnquete">
-							<input type="radio" name="inputEnquete" value="2">
 							<span class="span">Opala</span>
 						</div>
-						<img class="imgRight" src="http://vecchioveiculos.com.br/miniaturas/136188626334288TMB.JPG" />
-						<div class="resultEnquete2">
-							
-							<span class="spanResultEnquete"></span>
+						<img class="imgRight" src="http://vecchioveiculos.com.br/miniaturas/136188626334288TMB.JPG" alt="..." />
+						<div class="resultEnquete" id="resultEnquete2">
+							<div class="spanResultEnquete"></div>
 						</div>
-					</a>
+					</label>
 				</div>
 				<div class="chamadaMiddle">
-					<a href="#">
+					<input id="inputResult3" type="radio" name="inputEnquete" value="3" />
+					<label for="inputResult3">
 						<div class="fieldsEnquete">
-							<input type="radio" name="inputEnquete" value="3">
 							<span class="span">Delorean</span>
 						</div>
-						<img class="imgRight" src="https://lh5.googleusercontent.com/proxy/u0s_GyiZRhYhRcyshnUgx7OREeVJQ3dHqG7wqzPfbDdevL-Vf4hsKMIzCPbSPAUZAfH-uemq0aMsjZ3Cusp3g8pusi9JW_rdp97tn0rN7sowPIl2JM4vAQ=w120-h120" />
-						<div class="resultEnquete3">
-							
-							<span class="spanResultEnquete"></span>
+						<img class="imgRight" src="https://lh5.googleusercontent.com/proxy/u0s_GyiZRhYhRcyshnUgx7OREeVJQ3dHqG7wqzPfbDdevL-Vf4hsKMIzCPbSPAUZAfH-uemq0aMsjZ3Cusp3g8pusi9JW_rdp97tn0rN7sowPIl2JM4vAQ=w120-h120" alt="..." />
+						<div class="resultEnquete" id="resultEnquete3">
+							<div class="spanResultEnquete"></div>
 						</div>
-					</a>
+					</label>
 				</div>
 				<input type="submit" name="btnSubmitEnquete" value="Votar" class="btnSubmitEnquete" />
 				</form>
 			</div>
 			<div class="banner-325x200">
-				<img src="http://localhost/carsale/carsaleHOME/img/opiniaodoDono.jpg">
+				<img src="http://localhost/carsale/carsaleHOME/img/opiniaodoDono.jpg" alt="..." />
 			</div>
 			<div class="banner-665x176">
-				<img src="http://localhost/carsale/carsaleHOME/img/checkered-flag.jpg">
+				<img src="http://localhost/carsale/carsaleHOME/img/checkered-flag.jpg" alt="..." />
 			</div>
 		</div>
 		<div class="contentRight">
@@ -334,7 +259,7 @@
 				</script>
 			</div>
 			<div class="fbSocialLike">
-				<iframe src="//www.facebook.com/plugins/facepile.php?app_id&amp;href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;action=Comma+separated+list+of+action+of+action+types&amp;width=280&amp;max_rows=1&amp;colorscheme=light&amp;size=medium&amp;show_count=true&amp;appId=469436836436999" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:280px;" allowTransparency="true"></iframe>
+				<iframe src="//www.facebook.com/plugins/facepile.php?app_id&amp;href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;action=Comma+separated+list+of+action+of+action+types&amp;width=280&amp;max_rows=1&amp;colorscheme=light&amp;size=medium&amp;show_count=true&amp;appId=469436836436999" style="border:none; overflow:hidden; width:280px;" ></iframe>
 			</div>
 		</div>
 	</div>
@@ -416,7 +341,7 @@
 var uolJsHost = (("https:" == document.location.protocol) ? "https://ssl.carsale.com.br/js/carsale.js" : "http://me.jsuol.com/omtr/carsale.js");
 document.write(unescape("%3Cscript language='JavaScript' src='" + uolJsHost + "' type='text/javascript' %3E%3C/script%3E"));
 </script>
-<script language="JavaScript" type="text/javascript"><!--
+<script type="text/javascript"><!--
 uol_sc.channel="Carros-parceiros-carsale";
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
 var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
