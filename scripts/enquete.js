@@ -20,8 +20,6 @@ function votaEnquete(){
 			$("#homeEnquete #resultEnquete3 .spanResultEnquete").animate({"width": size3+"%"}, "fast"); 
 	  	});
 	});
-	
-	
 	//change vote btn properties
 	return false;
 }

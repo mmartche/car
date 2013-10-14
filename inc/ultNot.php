@@ -1,3 +1,39 @@
+			<div class="chamadasUltnot">
+				<h2><span>Últimas Notícias</span></h2>
+				<div class="chamadaMiddle">
+					<a href="#">
+						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<span class="span">Confira tudo o que rolou no mundo automotivo na última semana</span>
+					</a>
+				</div>
+				<div class="chamadaMiddle">
+					<a href="#">
+						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<span class="span">Novo Golf: Vídeo mostra o processo de criação da sétima geração</span>
+					</a>
+				</div>
+				<div class="chamadaMiddle">
+					<a href="#">
+						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<span class="span">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</span>
+					</a>
+				</div>
+				<div class="chamadaMiddle">
+					<a href="#">
+						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<span class="span">Novo Golf: Vídeo mostra o processo de criação da sétima geração</span>
+					</a>
+				</div>
+				<div class="chamadaMiddle">
+					<a href="#">
+						<!--<img class="fotoRight" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." /-->
+						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<span class="span">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</span>
+					</a>
+				</div>
+			</div>
+<?
+/*
 			<div class="ultNot">
 				<div class="ultnotTitulo">
 				    <h3 class="ultnotTituloSpan"><a title="" href="http://carsale.uol.com.br/editorial/noticia/listagem">Últimas Notícias</a></h3>
@@ -12,3 +48,5 @@
 			        <li class="ultnotItem"><a title="Brabus eleva a potência do Mercedes-Benz S63 AMG a 850 cv" href="http://carsale.uol.com.br/editorial/noticia/11634-brabus-eleva-a-potencia-do-mercedes-benz-s63-amg-a-850-cv">Brabus eleva a potência do Mercedes-Benz S63 AMG a 850 cv</a></li>
 				</ul>
 			</div>
+*/
+?>

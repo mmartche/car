@@ -32,31 +32,43 @@ header {
 	margin-bottom: 10px ;
 	z-index: 98;
 	/* background: url("../imgs/car-menu.jpg") no-repeat; */
-	background: #c2232a; /* Old browsers */
-	background: -moz-linear-gradient(top,  #c2232a 1%, #a00e12 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#c2232a), color-stop(100%,#a00e12)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #c2232a 1%,#a00e12 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #c2232a 1%,#a00e12 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2232a', endColorstr='#a00e12',GradientType=0 ); /* IE6-9 */
-	height: 40px
+	background: #CB2229; /* Old browsers */
+	background: -moz-linear-gradient(top,  #CB2229 1%, #A91015 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#CB2229), color-stop(100%,#A91015)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #CB2229 1%,#A91015 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #CB2229 1%,#A91015 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #CB2229 1%,#A91015 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #CB2229 1%,#A91015 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#CB2229', endColorstr='#A91015',GradientType=0 ); /* IE6-9 */
+	height: 40px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 .menu a {
 	color: #fff;
 	font-size: 18px;
 }
 .menu .nav>li>a {
-	padding: 8px 15px;
+	padding: 10px 10px 9px 15px;
+	text-shadow:1px 1px 3px rgba(0,0,0,0.6);
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 15px;
 }
 .menu .open a {
 	color: #000;
+	font-size: 13px;
 }
-.nav .caret {
+.menu .nav .caret {
 	border-top-color: #fff;
 	border-bottom-color: #fff;
 }
-.nav .open .caret {
+.menu .nav .dropdown:hover .caret {
+	border-top-color: #CB2229;
+	border-bottom-color: #CB2229;
+}
+.menu .nav .open .caret {
 	border-top-color: #000;
 	border-bottom-color: #000;
 }
@@ -69,11 +81,25 @@ header {
 .menu.affix-top .active > a {
 	background-color: transparent;
 }
-.nav>li>a:hover, .nav>li>a:focus {
-	color: #000;
+.menu .nav>li>a:hover, .nav>li>a:focus {
+	color: #CB2229;
+	font-weight: bold;
+}
+.menu .nav-pills>li.active>a, .nav-pills>li.active>a:hover {
+	background: transparent;
+}
+.menu .nav-pills>li>a {
+	border-radius: 0;
+}
+.menu .dropdown-menu {
+	margin-top: 0;
 }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
 	background-color: #c2232a;
+}
+.dropdown-menu li a {
+	margin: 10px 0;
+	padding: 5px 20px;
 }
 .menu.affix .active > a {
 	width: 80px;
@@ -81,6 +107,21 @@ header {
 .menu.affix .nav li.menuHome:first-child > a {
 	background: url("../imgs/logo.png") no-repeat 0px;
 	text-indent: -99em;
+}
+.subMenuLi {
+	float: none !important;
+	margin-top: 39px;
+}
+.subMenuLi .subMenu {
+	width: 100%;
+	background-color: darkred;
+}
+.subMenu a {
+	margin: 0 !important;
+	color: #fff !important;
+}
+.subMenuLi .subMenu li {
+	float: left;
 }
 .logoBanner {
 	overflow: hidden;
@@ -192,8 +233,8 @@ overflow: hidden;
 }
 .carrosselHome {
 	float: left;
-	width: 780px;
-	height: 280px;
+	width: 800px;
+	height: 400px;
 	border:1px solid #ccc;
 	margin-bottom: 10px;
 	overflow: hidden;
@@ -222,11 +263,15 @@ overflow: hidden;
 }
 .chamadaH1 {
 	float: left;
-	width: 280px;
+	width: 300px;
 	padding: 10px 0;
 	margin: 0 10px 0 0;
 	border-top: 1px dotted #ccc;
 	overflow: hidden;
+}
+.chamadaH1 .foto {
+	width: 300px;
+	height: 300px;
 }
 .chamadaH1 h3 {
 	color: #8DA4A8;
@@ -372,6 +417,9 @@ overflow: hidden;
 	float: left;
 	padding: 15px 10px;
 }
+.chamadaFotoTopo {
+	float: right;
+}
 .contentRight {
 	float: right;
 	width: 300px;
@@ -407,6 +455,9 @@ overflow: hidden;
 .carrosselVideos .carousel-indicators {
 	top: 140px;
 }
+.carrosselVideos .carousel-indicators .active {
+	background-color: #fff;
+}
 .carrosselVideos .play-arrow {
 	background: url("../imgs/icon_video_play2.png") transparent no-repeat;
 	width: 86px;
@@ -422,17 +473,17 @@ overflow: hidden;
 	width: 100%;
 	overflow: hidden;
 }
-.chamadas {
-	width: 340px;
+.chamadasUltnot {
+	width: 360px;
 	float: left;
 	margin: 0 10px 10px 0;
 }
-.chamadas h2 {
+.chamadasUltnot h2 {
 	background-color: #8DA4A8;
 	padding: 0 0 2px 5px;
 	margin-bottom: 10px;
 }
-.chamadas h2 span {
+.chamadasUltnot h2 span {
 	background-color: #CB2026;
 	display: block;
 	font-size: 18px;
@@ -440,22 +491,22 @@ overflow: hidden;
 	color: #fff;
 	padding: 2px 10px;
 }
-.chamadas .chamadaMiddle {
+.chamadasUltnot .chamadaMiddle {
 	float: left;
 	margin-bottom: 10px;
 	width: 100%;
 }
-.chamadas .chamadaMiddle .img {
+.chamadasUltnot .chamadaMiddle .foto {
 	float: left;
 	margin-right: 10px;
 	max-width: 120px;
 }
-.chamadas .chamadaMiddle .imgRight {
+.chamadasUltnot .chamadaMiddle .fotoRight {
 	float: right;
 	margin-left: 10px;
 	max-width: 120px;
 }
-.chamadas .chamadaMiddle .span {
+.chamadasUltnot .chamadaMiddle .span {
 	color: #888;
 }
 .enquetes .chamadaMiddle:hover {

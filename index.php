@@ -22,6 +22,7 @@
 
 	<script type="text/javascript" src="scripts/Dfp_home.js"></script>
 	<script src="http://tm.uol.com.br/h/par/parceiros.js" type="text/javascript"></script>
+	<script src="scripts/scriptHome.js" type="text/javascript"></script>
 	<script src="scripts/enquete.js" type="text/javascript"></script>
 
 	<link rel="stylesheet" type="text/css" href="styles/style.min.css" />
@@ -47,43 +48,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="menu" data-spy="affix" data-offset-top="140">
-	<!--nav class="navbar navbar-default navbar-fixed-top" role="navigation"-->
-		<ul class="nav nav-pills">
-			<li class="active menuHome"><a href="#">Home</a></li>
-			<li><a href="#">Classificados</a></li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Classificados<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Explorador</a></li>
-					<li><a href="#">Mega Oferta</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Compra Coletiva</a></li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Editorial<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Notícias</a></li>
-					<li><a href="#">Segredos</a></li>
-					<li><a href="#">Testes</a></li>
-					<li><a href="#">Lançamentos</a></li>
-					<li><a href="#">Blog</a></li>
-				</ul>
-			</li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#">Interativo<span class="caret"></span></a>
-				<ul class="dropdown-menu">
-					<li><a href="#">Opniāo do Done</a></li>
-					<li><a href="#">Enquete</a></li>
-					<li><a href="#">Forum</a></li>
-					<li><a href="#">Papel de Parede</a></li>
-					<li><a href="#">Blog</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Profile</a></li>
-			<li><a href="#">Messages</a></li>
-		</ul>
-	</div>
+	<?
+	include("inc/menu.php");
+	?>
 	<div class="socialBar">
         <div class="btnFaceBook">
         	<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;send=false&amp;layout=button_count&amp;width=180&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=31" style="border:none; overflow:hidden; width:108px; height:20px;" ></iframe>
@@ -112,13 +79,14 @@
 	<div class="columnMiddle">
 		<? 
 		include ("inc/carrosselHome.php");
-		include ("inc/chamadaFoto.php");
+		include ("inc/chamadaFotoTopo.php");
 		?>
 		
 		<div class="contentMiddle">
+			
 			<?
-			include ("inc/chamadaHome.php");
 			include ("inc/ultNot.php");
+			include ("inc/chamadaHome.php");
 			?>
 			
 			<div class="chamadaFoto">
@@ -172,27 +140,7 @@
 			</div>
 			
 			<hr style="width:100%;" />
-			<div class="chamadas">
-				<h2><span>Title</span></h2>
-				<div class="chamadaMiddle">
-					<a href="#">
-						<img class="img" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
-						<span class="span">asajasl jdaljdlajsldkasjdlkajsdlasj ldaj sldasldlasdjasdlaks dlajd asd</span>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#">
-						<img class="img" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
-						<span class="span">asajasl jdaljdlajsldkasjdlkajsdlasj ldaj sldasldlasdjasdlaks dlajd asd</span>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#">
-						<img class="imgRight" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
-						<span class="span">asajasl jdaljdlajsldkasjdlkajsdlasj ldaj sldasldlasdjasdlaks dlajd asd</span>
-					</a>
-				</div>
-			</div>
+			
 			<div class="banner-325x200">
 				<img src="http://localhost/carsale/carsaleHOME/img/carrosVerdes.jpg" alt="..." />
 			</div>
@@ -357,6 +305,5 @@ var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
  </script>
-
 </body>
 </html>

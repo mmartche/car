@@ -19,10 +19,9 @@ echo $conecao."asssss";
 
 
 $sql = "select * from enqueteIndice";
-$query = mysql_query($sql) or die (mysql_error());
-$resultado = mysql_fetch_array($query);
-print "foi";
-print "z<pre>$resultado</pre>";
+$query = mysqli_query($sql) or die (mysqli_error());
+$resultado = mysqli_fetch_array($query);
+print "z<pre>".$resultado."</pre>";
 ?>
 
 
