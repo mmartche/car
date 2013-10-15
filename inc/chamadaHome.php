@@ -1,8 +1,8 @@
 			<div class="chamadaH1">
 				<a href="#">
-					<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/mercedes-classeb_h2.jpg"  alt="..." />
 					<h3>Mercedes B200 Turbo Sport</h3>
 					<h4>Versão topo de linha do monovolume alemão vai para a pista de testes</h4>
+					<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/mercedes-classeb_h2.jpg"  alt="..." />
 				</a>
 			</div>
 			<div class="chamadaH2">

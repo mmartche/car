@@ -144,50 +144,9 @@
 			<div class="banner-325x200">
 				<img src="http://localhost/carsale/carsaleHOME/img/carrosVerdes.jpg" alt="..." />
 			</div>
-			<div id="homeEnquete" class="enquetes chamadas">
-				<h2><span>Qual melhor carro?</span></h2>
-				<form action="#" onsubmit="return votaEnquete(this);">
-				<h4>Vote no seu favorito</h4>
-				<input type="hidden" name="enqueteId" value="123" />
-				<div class="chamadaMiddle">
-					<input id="inputResult1" type="radio" name="inputEnquete" value="1" />
-					<label for="inputResult1">
-						<div class="fieldsEnquete">
-							<span class="span">Golf</span>
-						</div>
-						<img class="imgRight" src="http://www.extuning.com.br/product_images/y/645/parachoque_Traseiro_golf_9__46487_thumb.jpg" alt="..." />
-						<div class="resultEnquete" id="resultEnquete1">
-							<div class="spanResultEnquete"></div>
-						</div>
-					</label>
-				</div>
-				<div class="chamadaMiddle">
-					<input id="inputResult2" type="radio" name="inputEnquete" value="2" />
-					<label for="inputResult2">
-						<div class="fieldsEnquete">
-							<span class="span">Opala</span>
-						</div>
-						<img class="imgRight" src="http://vecchioveiculos.com.br/miniaturas/136188626334288TMB.JPG" alt="..." />
-						<div class="resultEnquete" id="resultEnquete2">
-							<div class="spanResultEnquete"></div>
-						</div>
-					</label>
-				</div>
-				<div class="chamadaMiddle">
-					<input id="inputResult3" type="radio" name="inputEnquete" value="3" />
-					<label for="inputResult3">
-						<div class="fieldsEnquete">
-							<span class="span">Delorean</span>
-						</div>
-						<img class="imgRight" src="https://lh5.googleusercontent.com/proxy/u0s_GyiZRhYhRcyshnUgx7OREeVJQ3dHqG7wqzPfbDdevL-Vf4hsKMIzCPbSPAUZAfH-uemq0aMsjZ3Cusp3g8pusi9JW_rdp97tn0rN7sowPIl2JM4vAQ=w120-h120" alt="..." />
-						<div class="resultEnquete" id="resultEnquete3">
-							<div class="spanResultEnquete"></div>
-						</div>
-					</label>
-				</div>
-				<input type="submit" name="btnSubmitEnquete" value="Votar" class="btnSubmitEnquete" />
-				</form>
-			</div>
+			<?
+			include("inc/enqueteHome.php");
+			?>
 			<div class="banner-325x200">
 				<img src="http://localhost/carsale/carsaleHOME/img/opiniaodoDono.jpg" alt="..." />
 			</div>
@@ -207,7 +166,7 @@
 				</script>
 			</div>
 			<div class="fbSocialLike">
-				<iframe src="//www.facebook.com/plugins/facepile.php?app_id&amp;href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;action=Comma+separated+list+of+action+of+action+types&amp;width=280&amp;max_rows=1&amp;colorscheme=light&amp;size=medium&amp;show_count=true&amp;appId=469436836436999" style="border:none; overflow:hidden; width:280px;" ></iframe>
+				<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;width=300&amp;height=558&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=true&amp;show_border=true&amp;appId=441715265891994" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:558px;" allowTransparency="true"></iframe>
 			</div>
 		</div>
 	</div>

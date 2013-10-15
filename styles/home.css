@@ -7,10 +7,10 @@ ul, li, h1,h2,h3,h4,h5,p {
 	padding: 0;
 }
 a img {
-	border: 2px solid transparent;
+	border: 1px solid transparent;
 }
 a img:hover{
-	border: 2px solid #cb2026;
+	border: 1px solid #cb2026;
 }
 #uolBar {
 	height: 30px;
@@ -50,7 +50,7 @@ header {
 	font-size: 18px;
 }
 .menu .nav>li>a {
-	padding: 10px 10px 9px 15px;
+	padding: 10px 5px 9px 10px;
 	text-shadow:1px 1px 3px rgba(0,0,0,0.6);
 	font-weight: bold;
 	text-transform: uppercase;
@@ -87,9 +87,13 @@ header {
 }
 .menu .nav-pills>li.active>a, .nav-pills>li.active>a:hover {
 	background: transparent;
+	width: 100px;
+	text-align: center;
 }
 .menu .nav-pills>li>a {
 	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
 }
 .menu .dropdown-menu {
 	margin-top: 0;
@@ -105,8 +109,13 @@ header {
 	width: 80px;
 }
 .menu.affix .nav li.menuHome:first-child > a {
-	background: url("../imgs/logo.png") no-repeat 0px;
+	background: url("../imgs/logo-80x28.png") no-repeat 10px 5px;
 	text-indent: -99em;
+	width: 100px;
+	background-color: #fff;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
 }
 .subMenuLi {
 	float: none !important;
@@ -244,18 +253,58 @@ overflow: hidden;
 }
 .carrosselHome ol {
 	margin-left: 0;
+	margin-right: 10px;
 	top: 0;
-	width: 110px;
+	width: 120px;
 	right: 0;
 	left: auto;
 }
+.carrosselHome li.active img {
+	background-color: #000;
+}
 .carrosselHome li, .carrosselHome li.active {
 	text-indent: 0;
-	width: 100px;
-	height: 60px;
+	width: 100%;
+	height: 70px;
 	margin: 5px 0 0 0;
 	border: none;
+}
+.carrosselHome .carousel-caption {
+	width: 100%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: inherit;
 	overflow: hidden;
+	height: 80px;
+	padding: 10px 0 0 0;
+}
+.carrosselHome .carousel-caption h3 {
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+.carrosselHome .carousel-caption p {
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+	margin-top: 25px;
+}
+.carrosselHome .carousel-opacity {
+	position: absolute;
+	opacity: 0.5;
+	filter:alpha(opacity=50); /* For IE8 and earlier */
+	background-color: #000;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+.carrosselHome .carousel-inner {
+	height: 100%;
+}
+.carrosselHome .carousel-inner .item {
+	height: 100%;
 }
 .carrosselVideos {
 	float: left;
@@ -264,7 +313,7 @@ overflow: hidden;
 .chamadaH1 {
 	float: left;
 	width: 300px;
-	padding: 10px 0;
+	padding: 10px 0 0;
 	margin: 0 10px 0 0;
 	border-top: 1px dotted #ccc;
 	overflow: hidden;
@@ -275,14 +324,14 @@ overflow: hidden;
 }
 .chamadaH1 h3 {
 	color: #8DA4A8;
-	padding: 5px 0 0;
+	padding: 0 0 5px;
 	margin: 0;
 	font-size: 18px;
 	font-weight: bold;
 }
 .chamadaH1 h4 {
 	color: #CB2026;
-	padding: 5px 0 0;
+	padding: 0 0 5px;
 	margin: 0;
 	font-size: 14px;
 	font-weight: bold;
@@ -509,6 +558,9 @@ overflow: hidden;
 .chamadasUltnot .chamadaMiddle .span {
 	color: #888;
 }
+.enquetes {
+	overflow: hidden;
+}
 .enquetes .chamadaMiddle:hover {
 	background-color: #eee;
 }
@@ -532,6 +584,20 @@ overflow: hidden;
 	margin: auto;
 	display: block;
 }
+.enquetes .inputStatus.checked {
+	border: 1px solid;
+	width: 28px;
+	height: 30px;
+	position: absolute;
+	background: url("../imgs/css-checkbox-size.jpg") -250px -29px transparent;
+}
+.enquetes .inputStatus {
+	border: 1px solid;
+	width: 28px;
+	height: 30px;
+	position: absolute;
+	background-color: #fff;
+}
 .banner-325x200 {
 	float: left;
 	width: 325px;
@@ -543,9 +609,7 @@ overflow: hidden;
 	margin: 0 10px 10px 0;
 }
 .fbSocialLike {
-	border:1px solid #ddd;
-	padding: 10px;
-	height: 100px;
+	
 }
 footer {
 	width: 100%;

@@ -3,24 +3,28 @@
 				<div class="chamadaMiddle">
 					<a href="#">
 						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<p class="ultnotData">20/20/2020</p>
 						<span class="span">Confira tudo o que rolou no mundo automotivo na última semana</span>
 					</a>
 				</div>
 				<div class="chamadaMiddle">
 					<a href="#">
 						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<p class="ultnotData">20/20/2020</p>
 						<span class="span">Novo Golf: Vídeo mostra o processo de criação da sétima geração</span>
 					</a>
 				</div>
 				<div class="chamadaMiddle">
 					<a href="#">
 						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<p class="ultnotData">20/20/2020</p>
 						<span class="span">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</span>
 					</a>
 				</div>
 				<div class="chamadaMiddle">
 					<a href="#">
 						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<p class="ultnotData">20/20/2020</p>
 						<span class="span">Novo Golf: Vídeo mostra o processo de criação da sétima geração</span>
 					</a>
 				</div>
@@ -28,6 +32,7 @@
 					<a href="#">
 						<!--<img class="fotoRight" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." /-->
 						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." />
+						<p class="ultnotData">20/20/2020</p>
 						<span class="span">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</span>
 					</a>
 				</div>

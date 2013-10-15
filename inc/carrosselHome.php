@@ -2,25 +2,29 @@
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#carousel-home" data-slide-to="0" class="active">
-					<img src="http://carsale.uol.com.br/novosite/images/home/ferrarigto_h1.jpg" alt="..." />
+					<img src="http://carsale.uol.com.br/novosite/images/home/ferrarigto_h1.jpg" class="img-thumbnail" alt="..." />
 				</li>
 				<li data-target="#carousel-home" data-slide-to="1">
-					<img src="http://carsale.uol.com.br/novosite/images/home/garagemdobelotte_h1.jpg" alt="..." />
+					<img src="http://carsale.uol.com.br/novosite/images/home/garagemdobelotte_h1.jpg" class="img-thumbnail" alt="..." />
 				</li>
 				<li data-target="#carousel-home" data-slide-to="2">
-					<img src="http://carsale.uol.com.br/novosite/images/home/vw-golf-producao_h1.jpg" alt="..." />
+					<img src="http://carsale.uol.com.br/novosite/images/home/vw-golf-producao_h1.jpg" class="img-thumbnail" alt="..." />
 				</li>
 				<li data-target="#carousel-home" data-slide-to="3">
-					<img src="http://carsale.uol.com.br/novosite/images/home/jacj6nova_h1.jpg" alt="...">
+					<img src="http://carsale.uol.com.br/novosite/images/home/jacj6nova_h1.jpg" class="img-thumbnail" alt="...">
+				</li>
+				<li data-target="#carousel-home" data-slide-to="4">
+					<img src="http://carsale.uol.com.br/novosite/images/home/vw-golf-producao_h1.jpg" class="img-thumbnail" alt="..." />
 				</li>
 			</ol>
 			<div class="carousel-inner">
 				<div class="item active">
 					<a href="http://carsale.uol.com.br/editorial/noticia/11771-ferrari-250-gto-racer-de-us$-52-milhoes-e-o-veicul">
-					<img src="http://carsale.uol.com.br/novosite/images/home/ferrarigto_h1.jpg" alt="..." class="carrosselImg" style="width:100%" />
+					<img src="http://carsale.uol.com.br/novosite/images/home/ferrarigto_h1.jpg" alt="..." class=" carrosselImg" style="width:100%" />
 					<div class="carousel-caption">
 						<h3>Destaque</h3>
 						<p>Ferrari 250 GTO racer de US$ 52 milhões é o veículo mais caro de todos os tempos</p>
+						<div class="carousel-opacity"></div>
 					</div>
 					</a>
 				</div>
@@ -30,6 +34,7 @@
 					<div class="carousel-caption">
 						<h3>Clássico da semana: Gol GTI é esportividade pura!</h3>
 						<p>{DESCRICAO 2}</p>
+						<div class="carousel-opacity"></div>
 					</div>
 					</a>
 				</div>
@@ -39,6 +44,7 @@
 					<div class="carousel-caption">
 						<h3></h3>
 						<p>JAC J6 chega à linha 2014 de cara nova para se aproximar de Chevrolet Spin e Nissan Livina</p>
+						<div class="carousel-opacity"></div>
 					</div>
 					</a>
 				</div>
@@ -48,6 +54,17 @@
 					<div class="carousel-caption">
 						<h3>{TITULO 4}</h3>
 						<p>{DESCRICAO 4}</p>
+						<div class="carousel-opacity"></div>
+					</div>
+					</a>
+				</div>
+				<div class="item">
+					<a href="http://carsale.uol.com.br/editorial/classicos/11780-classico:-vw-gol-gti-e-esportividade-pura">
+					<img src="http://carsale.uol.com.br/novosite/images/home/garagemdobelotte_h1.jpg" alt="..." class="carrosselImg" />
+					<div class="carousel-caption">
+						<h3>Clássico da semana: Gol GTI é esportividade pura!</h3>
+						<p>{DESCRICAO 2}</p>
+						<div class="carousel-opacity"></div>
 					</div>
 					</a>
 				</div>
