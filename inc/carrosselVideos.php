@@ -11,9 +11,9 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner">
 						<div class="item active">
-							<a href="#">
+							<a href="#" title="">
 							<div class="carrosselImg">
-								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video6_g.jpg" alt="..." />
+								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video6_g.jpg" alt="..." title="" />
 							</div>
 							<div class="carousel-caption">
 								<p>Audi A3 chega para completar a família</p>
@@ -22,9 +22,9 @@
 							</a>
 						</div>
 						<div class="item">
-							<a href="#">
+							<a href="#" title="">
 							<div class="carrosselImg">
-								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video3_g.jpg" alt="..." />
+								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video3_g.jpg" alt="..." title="" />
 							</div>
 							<div class="carousel-caption">
 								<h3>Mercedes mostra crossover GLA e confirma venda no Brasil</h3>
@@ -33,9 +33,9 @@
 							</a>
 						</div>
 						<div class="item">
-							<a href="#">
+							<a href="#" title="">
 							<div class="carrosselImg">
-								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video4_g.jpg" alt="..." />
+								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video4_g.jpg" alt="..." title="" />
 							</div>
 							<div class="carousel-caption">
 								<p>Duster ganha atualização visual; veja no vídeo</p>

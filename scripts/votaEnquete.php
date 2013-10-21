@@ -1,17 +1,61 @@
 <?
+/*
+steps:
+1.
+gerar cripto referente a hora atual:
+-
+date_default_timezone_set("America/Sao_Paulo");
+$horaEnquete = date('Hie');
+$criptHora = md5($horaEnquete);
+-
+
+2.
+validar se a chave gerada é igual a chave informada (envio 4 caracteres, verificar se esses 4 estao dentro da chave gerada)
+
+3.
+se nao validado, retornar erro
+'{
+	"idEnquete":"1",
+	"resultadoEnquete":{},
+	"resultadoAcao":"false",
+	"codError":"1"
+}'
+
+4.
+validado? bele, imprime esse trecho
+'{
+"idEnquete": "1",
+"resultadoEnquete":{
+	"opt1Id":"1",
+	"opt1Nome":"Golf",
+	"opt1Votos":"1",
+	"opt2Id":"2",
+	"opt2Nome":"Opalao",
+	"opt2Votos":"10",
+	"opt3Id":"3",
+	"opt3Nome":"Delorean",
+	"opt3Votos":"10"
+	},
+"resultadoAcao":"true",
+"codError":"0"
+}'
+
+*/
 echo ('{
 	"idEnquete": "1",
 	"resultadoEnquete":{
 		"opt1Id":"1",
 		"opt1Nome":"Golf",
-		"opt1Votos":"2222",
+		"opt1Votos":"1",
 		"opt2Id":"2",
 		"opt2Nome":"Opalao",
-		"opt2Votos":"121",
+		"opt2Votos":"10",
 		"opt3Id":"3",
 		"opt3Nome":"Delorean",
-		"opt3Votos":"392"
-		}
+		"opt3Votos":"10"
+		},
+	"resultadoAcao":"true",
+	"codError":"0"
 	}');
 /*
 echo ('{

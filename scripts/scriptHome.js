@@ -1,5 +1,11 @@
 $(document).ready(function(){
 	console.log("ready");
+	$('.carrosselHome').carousel({
+		interval: 5000
+	});
+	$('.carrosselVideos').carousel({
+		interval: 5000
+	});
 	$(".dropdown-toggle").hover(function(){
 		//do
 		var nextMenu = "#sub"+$(this).attr("id");
@@ -22,14 +28,22 @@ $(document).ready(function(){
 		$(".subMenuLi ul").css("display","none");
 	});
 	
-	$("#enqueteHome").click(function() {
+	$("#enqueteHome label").click(function() {
+		if (!($("#homeEnquete").is(".finalizada"))) {
+			$(".enquetes label").removeClass("checked");
+			$(this).addClass("checked");
+			console.log($(this));
+		}
+//		var $ok = "#inputStatus"+$(this).children("input").val();
+//		console.log($ok.children(".inputStatus"));
+/*
 		console.log( $("input:checked").val() + " is checked!" );
 		var statusCheck = "#inputStatus"+$("input:checked").val();
 			ok = statusCheck.join();
 		//var statusCheck = "#inputStatus2";
 		console.log($(ok));
 		//$(".inputStatus").removeClass("checked");
-		$(statusCheck).addCLass("checked");
 		//$("#inputStatus2").addClass("checked");
+*/
 	});
 });

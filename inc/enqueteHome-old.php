@@ -24,32 +24,32 @@ $criptHora = md5($horaEnquete);
 		<div class="chamadaMiddle">
 			<input id="inputResult2" type="radio" name="inputEnquete" value="2" class="enqueteRadio" />
 			<label for="inputResult2">
-				<span class="fieldsEnquete">
+				<div class="fieldsEnquete">
 					<span class="span">Opala</span>
-				</span>
+				</div>
 				<!--div class="progress progress-striped active">
 					<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
 						<span class="sr-only">60% Complete</span>
 					</div>
 				</div-->
-				<span class="inputStatus" id="inputStatus2"></span>
+				<div class="inputStatus" id="inputStatus2"></div>
 				<img class="imgRight" src="http://vecchioveiculos.com.br/miniaturas/136188626334288TMB.JPG" alt="..." title="" />
-				<span class="resultEnquete" id="resultEnquete2">
-					<span class="spanResultEnquete"></span>
-				</span>
+				<div class="resultEnquete" id="resultEnquete2">
+					<div class="spanResultEnquete"></div>
+				</div>
 			</label>
 		</div>
 		<div class="chamadaMiddle">
 			<input id="inputResult3" type="radio" name="inputEnquete" value="3" class="enqueteRadio" />
 			<label for="inputResult3">
-				<span class="fieldsEnquete">
+				<div class="fieldsEnquete">
 					<span class="span">Delorean</span>
-				</span>
-				<span class="inputStatus" id="inputStatus3"></span>
+				</div>
+				<div class="inputStatus" id="inputStatus3"></div>
 				<img class="imgRight" src="https://lh5.googleusercontent.com/proxy/u0s_GyiZRhYhRcyshnUgx7OREeVJQ3dHqG7wqzPfbDdevL-Vf4hsKMIzCPbSPAUZAfH-uemq0aMsjZ3Cusp3g8pusi9JW_rdp97tn0rN7sowPIl2JM4vAQ=w120-h120" alt="..." title="" />
-				<span class="resultEnquete" id="resultEnquete3">
-					<span class="spanResultEnquete"></span>
-				</span>
+				<div class="resultEnquete" id="resultEnquete3">
+					<div class="spanResultEnquete"></div>
+				</div>
 			</label>
 		</div>
 		<input type="button" id="btnEnqueteVotar" name="btnEnquete" value="Votar" class="btnSubmitEnquete enabled" />
