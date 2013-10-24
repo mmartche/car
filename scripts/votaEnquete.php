@@ -46,13 +46,13 @@ echo ('{
 	"resultadoEnquete":{
 		"opt1Id":"1",
 		"opt1Nome":"Golf",
-		"opt1Votos":"1",
+		"opt1Votos":"16",
 		"opt2Id":"2",
 		"opt2Nome":"Opalao",
 		"opt2Votos":"10",
 		"opt3Id":"3",
 		"opt3Nome":"Delorean",
-		"opt3Votos":"10"
+		"opt3Votos":"70"
 		},
 	"resultadoAcao":"true",
 	"codError":"0"

@@ -17,9 +17,9 @@
 			<div class="carousel-inner">
 				<div class="item active">
 					<a href="http://carsale.uol.com.br/editorial/noticia/11771-ferrari-250-gto-racer-de-us$-52-milhoes-e-o-veicul" title="">
-					<img src="http://carsale.uol.com.br/novosite/images/home/ferrarigto_h1.jpg" alt="..." class=" carrosselImg" title="" style="width:100%" />
+					<img src="http://carsale.uol.com.br/novosite/images/home/ferrarigto_h1.jpg" alt="..." class="carrosselImg" title="" style="width:100%" />
 					<div class="carousel-caption">
-						<h3>Ferrari 250 GTO racer de US$ 52 milhões é o veículo mais caro de todos os tempos</h3>
+						<h3>Ferrari 250 GTO racer de US$ 52 milhões é o veículo mais caro</h3>
 						<div class="carousel-opacity"></div>
 					</div>
 					</a>
@@ -37,7 +37,7 @@
 					<a href="#" title="">
 					<img src="http://carsale.uol.com.br/novosite/images/home/vw-golf-producao_h1.jpg" alt="..." class="carrosselImg" title="" style="width:100%" />
 					<div class="carousel-caption">
-						<h3>JAC J6 chega à linha 2014 de cara nova para se aproximar de Chevrolet Spin e Nissan Livina</h3>
+						<h3>JAC J6 chega à linha 2014 de cara nova para se aproximar</h3>
 						<div class="carousel-opacity"></div>
 					</div>
 					</a>

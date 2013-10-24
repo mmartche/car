@@ -4,6 +4,9 @@ $(document).ready (function(){
 			$(".modalCaptcha").css("display","block");
 		}
 	});
+	$(".enqClose").click(function(){
+		$(".modalCaptcha").css("display","none");
+	});
 });
 function votaEnquete(){
 	console.log("start voto");
@@ -21,14 +24,17 @@ function votaEnquete(){
 			var size1 = parseInt((parseInt(data.resultadoEnquete.opt1Votos) * 100) / calcs);
 			var size2 = parseInt((parseInt(data.resultadoEnquete.opt2Votos) * 100) / calcs);
 			var size3 = parseInt((parseInt(data.resultadoEnquete.opt3Votos) * 100) / calcs);
+			$(".inputStatus").css("display","none");
 			console.log(parseInt(data.resultadoEnquete.opt1Votos),".",parseInt(data.resultadoEnquete.opt2Votos),".",parseInt(data.resultadoEnquete.opt3Votos), ",", calcs,":",size1,":",size2,":",size3);
 			$("#homeEnquete .fieldsEnquete").animate({"width": "0"}, 500,'linear', function() {
-				$("#homeEnquete #resultEnquete1 .spanResultEnquete").text(data.resultadoEnquete.opt1Votos);
-				$("#homeEnquete #resultEnquete1 .spanResultEnquete").animate({"width": size1+"%"}, "fast");
-				$("#homeEnquete #resultEnquete2 .spanResultEnquete").text(data.resultadoEnquete.opt2Votos);
-				$("#homeEnquete #resultEnquete2 .spanResultEnquete").animate({"width": size2+"%"}, "fast");
-				$("#homeEnquete #resultEnquete3 .spanResultEnquete").text(data.resultadoEnquete.opt3Votos);
-				$("#homeEnquete #resultEnquete3 .spanResultEnquete").animate({"width": size3+"%"}, "fast");
+				$("#homeEnquete .spanResultEnquete").animate({"width": "200px"}, "fast");
+				$("#homeEnquete #resultEnquete1 .resultText").text(data.resultadoEnquete.opt1Votos);
+				$("#homeEnquete #resultEnquete1 .progress-bar").animate({"width": size1+"%"}, "fast");
+				$("#homeEnquete #resultEnquete2 .resultText").text(data.resultadoEnquete.opt2Votos);
+				$("#homeEnquete #resultEnquete2 .progress-bar").animate({"width": size2+"%"}, "fast");
+				$("#homeEnquete #resultEnquete3 .resultText").text(data.resultadoEnquete.opt3Votos);
+				$("#homeEnquete #resultEnquete3 .progress-bar").animate({"width": size3+"%"}, "fast");
+				$(".inputStatus").css("display","block");
 				$("#homeEnquete .inputStatus").css("left","0");
 				$("#btnEnqueteVotar").val("Obrigado por participar");
 				$("#homeEnquete").addClass("finalizada");
