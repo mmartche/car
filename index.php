@@ -54,7 +54,7 @@ $_SESSION["tokenTime"] = time();
 		</div>
 	</div>
 	<?
-	include("inc/menu.php");
+	include("includes/menu.php");
 	?>
 	<div class="socialBar">
         <div class="btnFaceBook">
@@ -83,76 +83,17 @@ $_SESSION["tokenTime"] = time();
 <div class="content">
 	<div class="columnMiddle">
 		<? 
-		include ("inc/carrosselHome.php");
-		include ("inc/chamadaFotoTopo.php");
+		include ("includes/carrosselHome.php");
+		include ("includes/chamadaFotoTopo.php");
 		?>
 		
 		<div class="contentMiddle">
 			
 			<?
-			include ("inc/ultNot.php");
-			include ("inc/chamadaHome.php");
-			?>
-			
-			<div class="carrosselVideos carrosselVideosDown">
-				<div id="carousel-videos" class="carousel slide">
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-						<li data-target="#carousel-videos" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-videos" data-slide-to="1"></li>
-						<li data-target="#carousel-videos" data-slide-to="2"></li>
-					</ol>
-
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<a href="#" title="">
-							<div class="carousel-caption">
-								<p>Audi A3 chega para completar a família</p>
-							</div>
-							<div class="carrosselImg">
-								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video6_g.jpg" alt="..." title="" />
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-						<div class="item">
-							<a href="#" title="">
-							<div class="carousel-caption">
-								<h3>Mercedes mostra crossover GLA e confirma venda no Brasil</h3>
-							</div>
-							<div class="carrosselImg">
-								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video3_g.jpg" alt="..." title="" />
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-						<div class="item">
-							<a href="#" title="">
-							<div class="carousel-caption">
-								<p>Duster ganha atualização visual; veja no vídeo</p>
-							</div>
-							<div class="carrosselImg">
-								<img src="http://carsale.uol.com.br/asp/img/hotsite/video/capa/video4_g.jpg" alt="..." title="" />
-							</div>
-							<div class="play-arrow"> </div>
-							</a>
-						</div>
-					</div>
-
-					<!-- Controls -->
-					<a class="left carousel-control" href="#carousel-videos" data-slide="prev">
-						<span class="icon-prev"></span>
-					</a>
-					<a class="right carousel-control" href="#carousel-videos" data-slide="next">
-						<span class="icon-next"></span>
-					</a>
-
-				</div>
-			</div>
-			
-			<?
-			include("inc/enqueteHome.php");
+			include ("includes/ultNot.php");
+			include ("includes/chamadaHome.php");
+			include ("includes/carrosselVideos.php");
+			include("includes/enqueteHome.php");
 			?>
 			<div class="banner-325x200">
 				<img src="http://localhost/carsale/carsaleHOME/img/opiniaodoDono.jpg" alt="..." title="" />
@@ -171,14 +112,14 @@ $_SESSION["tokenTime"] = time();
 				</script>
 			</div>
 			<div class="fbSocialLike">
-				<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;width=300&amp;height=558&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=true&amp;show_border=true&amp;appId=441715265891994" style="border:none; overflow:hidden; width:300px; height:558px;" ></iframe>
+				<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;width=300&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;show_border=true&amp;appId=441715265891994" style="border:none; overflow:hidden; width:300px; height:258px;" ></iframe>
 			</div>
 		</div>
 	</div>
 	<div class="columnRight"></div>
 </div>
 <?
-include ("inc/footer.php");
+include ("includes/footer.php");
 ?>
 
 

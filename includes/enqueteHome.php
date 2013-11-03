@@ -61,7 +61,79 @@ $criptHora = md5($horaEnquete);
 				<span class="inputStatus" id="inputStatus3"></span>
 				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
 				<span class="resultEnquete" id="resultEnquete3">
-					<div class="spanResultEnquete progress progress-striped">
+					<div class="spanResultEnquete progress progress-striped active">
+						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+							<span class="sr-only"></span>
+						</div>
+					</div>
+					<div class="resultText"></div>
+				</span>
+			</label>
+		</div>
+		<div class="chamadaMiddle">
+			<input id="inputResult3" type="radio" name="inputEnquete" value="3" class="enqueteRadio" />
+			<label for="inputResult3">
+				<span class="fieldsEnquete">
+					<span class="span">Delorean</span>
+				</span>
+				<span class="inputStatus" id="inputStatus3"></span>
+				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<span class="resultEnquete" id="resultEnquete3">
+					<div class="spanResultEnquete progress progress-striped active">
+						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+							<span class="sr-only"></span>
+						</div>
+					</div>
+					<div class="resultText"></div>
+				</span>
+			</label>
+		</div>
+		<div class="chamadaMiddle">
+			<input id="inputResult3" type="radio" name="inputEnquete" value="3" class="enqueteRadio" />
+			<label for="inputResult3">
+				<span class="fieldsEnquete">
+					<span class="span">Delorean</span>
+				</span>
+				<span class="inputStatus" id="inputStatus3"></span>
+				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<span class="resultEnquete" id="resultEnquete3">
+					<div class="spanResultEnquete progress progress-striped active">
+						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+							<span class="sr-only"></span>
+						</div>
+					</div>
+					<div class="resultText"></div>
+				</span>
+			</label>
+		</div>
+		<div class="chamadaMiddle">
+			<input id="inputResult3" type="radio" name="inputEnquete" value="3" class="enqueteRadio" />
+			<label for="inputResult3">
+				<span class="fieldsEnquete">
+					<span class="span">Delorean</span>
+				</span>
+				<span class="inputStatus" id="inputStatus3"></span>
+				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<span class="resultEnquete" id="resultEnquete3">
+					<div class="spanResultEnquete progress progress-striped active">
+						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+							<span class="sr-only"></span>
+						</div>
+					</div>
+					<div class="resultText"></div>
+				</span>
+			</label>
+		</div>
+		<div class="chamadaMiddle last">
+			<input id="inputResult3" type="radio" name="inputEnquete" value="3" class="enqueteRadio" />
+			<label for="inputResult3">
+				<span class="fieldsEnquete">
+					<span class="span">Delorean</span>
+				</span>
+				<span class="inputStatus" id="inputStatus3"></span>
+				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<span class="resultEnquete" id="resultEnquete3">
+					<div class="spanResultEnquete progress progress-striped active">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
 							<span class="sr-only"></span>
 						</div>

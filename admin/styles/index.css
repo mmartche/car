@@ -1,0 +1,96 @@
+ul, li, h1 {
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+footer {
+	padding: 10px;
+	border: 1px solid;
+	bottom: 0;
+	width: 100%;
+}
+.menu {
+	display: none;
+}
+.formSearch {
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+.resultList li {
+	border: 1px solid;
+	height: 50px;
+}
+.resultSearch {
+	overflow-x: scroll;
+}
+.resultList {
+	width: 10000px;
+}
+.rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYear,.rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable {
+	float: left;
+	border-left: 1px dotted;
+	border-right: 1px dotted;
+	height: 100%;
+	margin: 1px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.rsItems {
+	width: 122px;
+}
+.btnEdit {
+	width: 30px;
+	height: 30px;
+	background-color: #ccc;
+	float: left;
+}
+.btnDelete{
+	width: 30px;
+	height: 30px;
+	background-color: #0dd;
+	float: left;
+}
+.btnClone {
+	width: 30px;
+	height: 30px;
+	background-color: #e0e;
+	float: left;
+}
+.btnActive {
+	width: 30px;
+	height: 30px;
+	background-color: #330;
+	float: left;
+}
+.rsManufacturer {
+	width:150px;
+}
+.rsModel {
+	width:150px;
+}
+.rsVersion {
+	width:150px;
+}
+.rsYear {
+	width:150px;
+}
+.rsOptions {
+	width:150px;
+}
+.rsPicture {
+	width:150px;
+}
+.rsSegment {
+	width:100px;
+}
+.rsGear {
+	width:100px;
+}
+.rsOil {
+	width:100px;
+}
+.rsAvaliable {
+	width:100px;
+}

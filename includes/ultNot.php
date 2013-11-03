@@ -44,6 +44,13 @@
 						<p class="ultnotData">20h40</p>
 					</a>
 				</div>
+				<div class="chamadaMiddle">
+					<a href="#" title="">
+						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" />
+						<span class="span">Confira tudo o que rolou no mundo automotivo na última semana</span>
+						<p class="ultnotData">12h20</p>
+					</a>
+				</div>
 			</div>
 <?
 /*

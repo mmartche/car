@@ -21,7 +21,7 @@ header {
 	margin: auto;
 }
 .logo {
-	background: url("../imgs/logo-175x70.png") no-repeat;
+	background: url("../images/logo-175x70.png") no-repeat;
 	text-indent: -999em;
 	float: left;
 	margin: 10px 0 0 20px;
@@ -114,7 +114,7 @@ header {
 	width: 80px;
 }
 .menu.affix .nav li.menuHome:first-child > a {
-	background: url("../imgs/logo-80x28.png") no-repeat 10px 5px;
+	background: url("../images/logo-80x28.png") no-repeat 10px 5px;
 	text-indent: -99em;
 	width: 100px;
 	height: 38px;
@@ -533,7 +533,7 @@ overflow: hidden;
 	background-color: #fff;
 }
 .carrosselVideos .play-arrow {
-	background: url("../imgs/icon_video_play2.png") transparent no-repeat;
+	background: url("../images/icon_video_play2.png") transparent no-repeat;
 	width: 86px;
 	height: 63px;
 	position: absolute;
@@ -568,7 +568,7 @@ overflow: hidden;
 	margin-top: 80px;
 }
 .chamadasUltnot {
-	width: 350px;
+	width: 360px;
 	float: left;
 	margin: 0 10px 10px 0;
 }
@@ -617,7 +617,9 @@ overflow: hidden;
 	margin: 0 10px 10px 0;
 }
 .enquetes .enqueteHeader {
-	background-color: #484242;
+	background-color: #e0dede;
+	padding: 5px 0 10px;
+	overflow: hidden;
 }
 .enquetes .enqueteHeader span {
 	display: block;
@@ -625,11 +627,14 @@ overflow: hidden;
 	color: #fff;
 	padding: 3px;
 	font-size: 22px;
+	background-color: #484242;
+	box-shadow: 0px 5px 8px #888888;
+
 }
 .enquetes .enqueteTitle {
 	background-color: #e0dede;
 	color: #3a3737;
-	padding: 5px;
+	padding: 0 5px 5px;
 	overflow: hidden;
 	font-size: 18px;
 }
@@ -649,7 +654,7 @@ overflow: hidden;
 	position: absolute;
 	right: 0;
 	top: -5px;
-	background: url("../imgs/checkBox-checked.png") 0px 0px transparent no-repeat;
+	background: url("../images/checkBox-checked.png") 0px 0px transparent no-repeat;
 }
 .enquetes .enqueteImg {
 	float: left;
@@ -668,6 +673,9 @@ overflow: hidden;
 .enquetes .chamadaMiddle {
 	padding: 10px 0 5px 0;
 	border-bottom: 2px solid #989695; 
+}
+.enquetes .chamadaMiddle.last {
+	border-bottom: none;
 }
 .enquetes .chamadaMiddle label {
 	position: relative;
@@ -703,7 +711,7 @@ overflow: hidden;
 	width: 117px;
 	border: 0;
 	margin: auto;
-	background: url("../imgs/btnVote.png") no-repeat;
+	background: url("../images/btnVote.png") no-repeat;
 	display: block;
 	font-size: 14px;
 	height: 29px;
@@ -713,7 +721,7 @@ overflow: hidden;
 }
 .btnSubmitEnquete:hover {
 	color: #000;
-	background: url("../imgs/btnVoteHover.png") no-repeat;
+	background: url("../images/btnVoteHover.png") no-repeat;
 	padding-top: 3px;
 }
 .finalizada .btnSubmitEnquete {
@@ -723,9 +731,9 @@ overflow: hidden;
 }
 .enqClose {
 	cursor: pointer;
-	background-color: #000;
+	background-color: #9c1212;
 	position: absolute;
-	top: 100px;
+	bottom: 223px;
 	right: 0px;
 	width: 25px;
 	padding: 5px;
@@ -734,14 +742,14 @@ overflow: hidden;
 }
 .enquetes .checked .inputStatus {
 	top: -5px;
-	background: url("../imgs/checkBox-checked.png") 0px 0px transparent no-repeat;
+	background: url("../images/checkBox-checked.png") 0px 0px transparent no-repeat;
 }
 .enquetes .inputStatus {
 	width: 29px;
 	height: 35px;
 	top: 0px;
 	position: absolute;
-	background: url("../imgs/checkBox-empty.png") 0px 0px transparent no-repeat;
+	background: url("../images/checkBox-empty.png") 0px 0px transparent no-repeat;
 }
 .enquetes .enqueteRadio {
 	display: none;
@@ -765,6 +773,7 @@ overflow: hidden;
 	margin:100px 20px;
 	position: absolute;
 	background-color: #424141;
+	bottom: 0;
 }
 .opacityWhite {
 	width: 100%;

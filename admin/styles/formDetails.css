@@ -1,0 +1,53 @@
+ul, li, h1, label {
+	list-style:none;
+	margin: 0;
+	padding: 0;
+}
+footer {
+	width: 100%;
+	border: 1px solid #ddd;
+	padding: 5px;
+}
+.menu {
+	display: none;
+}
+.dataContent {
+	overflow: hidden;
+}
+.dataColLeft {
+	float: left;
+	width: 350px;
+	position: relative;
+	border: 1px dotted;
+	padding:10px;
+}
+.dataColLeft span {
+	display: block;
+}
+.dataColLeft input {
+	right: 0;
+	position: absolute;
+}
+.dataColRight {
+	float: right;
+	width: 800px;
+}
+.dataFields {
+	padding: 10px;
+}
+.optionsFields {
+	border: 1px solid;
+	padding:10px;
+	overflow: hidden;
+}
+.optionsFields span {
+	width: 250px;
+	display: block;
+	float: left;
+	margin: 5px 0 0;
+}
+.divColor {
+	width: 40px;
+	height: 40px;
+	border: 10px double;
+}
