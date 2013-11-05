@@ -10,7 +10,7 @@ $fonte = $fonte_array[rand(0,2)];
 
 //array com as imagens
 //$imagem1 = imagecreate(150,40);
-$imagem1 = imagecreatefromjpeg("../imgs/captcha".rand(1,4).".jpg");
+$imagem1 = imagecreatefromjpeg("../images/captcha".rand(1,4).".jpg");
 
 
 //cores da imagem (fundo,fonte,outros)

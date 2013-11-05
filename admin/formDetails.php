@@ -1,3 +1,6 @@
+<?
+include ("scripts/checkPermissions.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +23,13 @@
 	<link rel="stylesheet" type="text/css" href="styles/formDetails.css" />
 
 </head>
-<body>
+<body name="formDetails">
+<?
+include("./scripts/conectDB.php");
+$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id and feature.id = ".$_GET[vehicle]." order by model.name";
+$query_search = mysql_query($sql_search) or die (mysql_error()." error 79");
+$res = mysql_fetch_array($query_search);
+?>
 <div class="body">
 	<header>
 		<div class="menu">
@@ -46,9 +55,9 @@
 		</ol>
 		<div class="dataContent">
 			<div class="dataColLeft">
-				<span><label>Montadora:</label><input type="text" id="txtManufacturer" /></span><br />
-				<span><label>Modelo:</label><input type="text" id="txtModel" /></span><br />
-				<span><label>Versão:</label><input type="text" id="txtVersion" /></span><br />
+				<span><label>Montadora:</label><input type="text" id="txtManufacturer" value="<?=$res[manufacturerName]?>" /></span><br />
+				<span><label>Modelo:</label><input type="text" id="txtModel" value="<?=$res[modelName]?>" /></span><br />
+				<span><label>Versão:</label><input type="text" id="txtVersion" value="<?=$res[versionName]?>" /></span><br />
 				<span><label>Quantidade de portas:</label><input type="text" id="txtModel" /></span><br />
 				<span><label>Quantidade de ocupantes:</label><input type="text" id="txtModel" /></span><br />
 				<span><label>Motor:</label><input type="text" id="txtModel" /></span><br />
@@ -83,44 +92,44 @@
 				<div class="dataFeatures dataFields">
 					<label>ACESSÓRIOS</label>
 					<div class="optionsFeatures optionsFields">
-						<span><input type="checkbox" />Trava Elétrica</span>
-						<span><input type="checkbox" />Desembaçador</span>
-						<span><input type="checkbox" />Vidro Elétrico</span>
-						<span><input type="checkbox" /> Airbag duplo frontal</span>
-						<span><input type="checkbox" />Alarme</span>
-						<span><input type="checkbox" />Ar condicionado</span>
-						<span><input type="checkbox" />Ar quente</span>
-						<span><input type="checkbox" />Banco de couro</span>
-						<span><input type="checkbox" />Banco do motorista com regulagem de altura</span>
-						<span><input type="checkbox" />Banco traseiro bipartido</span>
-						<span><input type="checkbox" />Bluetooth com viva-voz</span>
-						<span><input type="checkbox" />Capota marítima</span>
-						<span><input type="checkbox" />Computador de bordo</span>
-						<span><input type="checkbox" />Conta giros</span>
-						<span><input type="checkbox" />Desembaçador de vidro traseiro</span>
-						<span><input type="checkbox" />Direção hidráulica</span>
-						<span><input type="checkbox" />Estribos laterais</span>
-						<span><input type="checkbox" />Faróis de neblina/milha</span>
-						<span><input type="checkbox" />Faróis xenon</span>
-						<span><input type="checkbox" />Freios Abs</span>
-						<span><input type="checkbox" />GPS integrado ao painel</span>
-						<span><input type="checkbox" />Limpador de vidro traseiro</span>
-						<span><input type="checkbox" />Para choque na cor do veículo</span>
-						<span><input type="checkbox" />Piloto automático</span>
-						<span><input type="checkbox" />Protetor de caçamba</span>
-						<span><input type="checkbox" />Rack de teto</span>
-						<span><input type="checkbox" />Radio cp player com entrada USB</span>
-						<span><input type="checkbox" />Regulagem de altura dos faróis</span>
-						<span><input type="checkbox" />Retrovisor elétrico</span>
-						<span><input type="checkbox" />Rodas de liga leve</span>
-						<span><input type="checkbox" />Sensor de chuva</span>
-						<span><input type="checkbox" />Sensor de estacionamento</span>
-						<span><input type="checkbox" />Sistema Isofix para cadeira de criança</span>
-						<span><input type="checkbox" />Teto solar</span>
-						<span><input type="checkbox" />Trava elétrica</span>
-						<span><input type="checkbox" />Vidro elétrico</span>
-						<span><input type="checkbox" />Vidro elétrico traseiro</span>
-						<span><input type="checkbox" />Volante com regulagem de altura</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Trava Elétrica</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Desembaçador</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Vidro Elétrico</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" /> Airbag duplo frontal</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Alarme</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Ar condicionado</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Ar quente</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Banco de couro</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Banco do motorista com regulagem de altura</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Banco traseiro bipartido</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Bluetooth com viva-voz</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Capota marítima</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Computador de bordo</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Conta giros</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Desembaçador de vidro traseiro</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Direção hidráulica</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Estribos laterais</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Faróis de neblina/milha</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Faróis xenon</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Freios Abs</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />GPS integrado ao painel</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Limpador de vidro traseiro</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Para choque na cor do veículo</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Piloto automático</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Protetor de caçamba</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Rack de teto</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Radio cp player com entrada USB</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Regulagem de altura dos faróis</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Retrovisor elétrico</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Rodas de liga leve</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Sensor de chuva</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Sensor de estacionamento</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Sistema Isofix para cadeira de criança</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Teto solar</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Trava elétrica</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Vidro elétrico</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Vidro elétrico traseiro</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Volante com regulagem de altura</span>
 					</div>
 				</div>
 				<div class="dataOptions dataFields">
@@ -129,9 +138,9 @@
 						<span>insira novos itens sepando a cada linha</span>
 						<span><input type="textarea" /><input type="button" value="+" /></span><br /><br />
 						<label>Opcionais referente a este modelo</label><br />
-						<span><input type="checkbox" />Trava Elétrica</span>
-						<span><input type="checkbox" />Desembaçador</span>
-						<span><input type="checkbox" />Vidro Elétrico</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Trava Elétrica</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Desembaçador</span>
+						<span><input type="radio" /><input type="radio" /><input type="radio" />Vidro Elétrico</span>
 					</div>
 				</div>
 				<div class="dataColor dataFields">

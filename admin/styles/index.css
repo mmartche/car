@@ -3,6 +3,9 @@ ul, li, h1 {
 	margin: 0;
 	padding: 0;
 }
+.hide {
+	display: none;
+}
 footer {
 	padding: 10px;
 	border: 1px solid;
@@ -17,6 +20,9 @@ footer {
 	top: 0;
 	right: 0;
 }
+.ui-autocomplete-loading {
+	background: white url('ui-anim_basic_16x16.gif') right center no-repeat;
+}
 .resultList li {
 	border: 1px solid;
 	height: 50px;
@@ -27,7 +33,11 @@ footer {
 .resultList {
 	width: 10000px;
 }
-.rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYear,.rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable {
+.resultContent {
+	cursor: pointer;
+}
+.rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYear, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, 
+.rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYear, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, .rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYear, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable {
 	float: left;
 	border-left: 1px dotted;
 	border-right: 1px dotted;
@@ -36,8 +46,9 @@ footer {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	width: 150px;
 }
-.rsItems {
+.rhItems, .rfItems, .rsItems {
 	width: 122px;
 }
 .btnEdit {

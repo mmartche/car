@@ -31,7 +31,7 @@ header {
 .menu {
 	margin-bottom: 10px ;
 	z-index: 98;
-	/* background: url("../imgs/car-menu.jpg") no-repeat; */
+	/* background: url("../images/car-menu.jpg") no-repeat; */
 	background: #CB2229; /* Old browsers */
 	background: -moz-linear-gradient(top,  #CB2229 1%, #A91015 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#CB2229), color-stop(100%,#A91015)); /* Chrome,Safari4+ */
@@ -170,7 +170,7 @@ header {
 .socialBar {
 	height: 30px;
 	margin-bottom: 10px;
-	/*background-image: url("../imgs/car-social.jpg"); */
+	/*background-image: url("../images/car-social.jpg"); */
 	background-color: #eee;
 	padding: 4px;
 }

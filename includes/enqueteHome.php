@@ -9,9 +9,9 @@ $criptHora = md5($horaEnquete);
 		<div class="enqueteFigure">
 			<div class="enqFigure">
 				<div class="enqCheckRight"></div>
-				<img src="./imgs/testes/carro251x155.jpg" class="enqueteImg" />
+				<img src="./images/testes/carro251x155.jpg" class="enqueteImg" />
 			</div>
-			<img src="./imgs/question.png" class="enqueteSubImg" />
+			<img src="./images/question.png" class="enqueteSubImg" />
 		</div>
 		<form action="#" onsubmit="return votaEnquete(this);" id="enqueteHome" class="enqueteForm">
 		<input type="hidden" name="enqueteId" value="123" />
@@ -22,7 +22,7 @@ $criptHora = md5($horaEnquete);
 					<span class="span">Golf</span>
 				</span>
 				<span class="inputStatus" id="inputStatus1"></span>
-				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<img class="imgRight" src="./images/testes/delorean.jpg" alt="..." title="" />
 				<span class="resultEnquete" id="resultEnquete1">
 					<div class="spanResultEnquete progress progress-striped">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
@@ -41,7 +41,7 @@ $criptHora = md5($horaEnquete);
 				</span>
 				<span class="inputStatus" id="inputStatus2">
 				</span>
-				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<img class="imgRight" src="./images/testes/delorean.jpg" alt="..." title="" />
 				<span class="resultEnquete" id="resultEnquete2">
 					<div class="spanResultEnquete progress progress-striped">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
@@ -59,7 +59,7 @@ $criptHora = md5($horaEnquete);
 					<span class="span">Delorean</span>
 				</span>
 				<span class="inputStatus" id="inputStatus3"></span>
-				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<img class="imgRight" src="./images/testes/delorean.jpg" alt="..." title="" />
 				<span class="resultEnquete" id="resultEnquete3">
 					<div class="spanResultEnquete progress progress-striped active">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
@@ -77,7 +77,7 @@ $criptHora = md5($horaEnquete);
 					<span class="span">Delorean</span>
 				</span>
 				<span class="inputStatus" id="inputStatus3"></span>
-				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<img class="imgRight" src="./images/testes/delorean.jpg" alt="..." title="" />
 				<span class="resultEnquete" id="resultEnquete3">
 					<div class="spanResultEnquete progress progress-striped active">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
@@ -95,7 +95,7 @@ $criptHora = md5($horaEnquete);
 					<span class="span">Delorean</span>
 				</span>
 				<span class="inputStatus" id="inputStatus3"></span>
-				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<img class="imgRight" src="./images/testes/delorean.jpg" alt="..." title="" />
 				<span class="resultEnquete" id="resultEnquete3">
 					<div class="spanResultEnquete progress progress-striped active">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
@@ -113,7 +113,7 @@ $criptHora = md5($horaEnquete);
 					<span class="span">Delorean</span>
 				</span>
 				<span class="inputStatus" id="inputStatus3"></span>
-				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<img class="imgRight" src="./images/testes/delorean.jpg" alt="..." title="" />
 				<span class="resultEnquete" id="resultEnquete3">
 					<div class="spanResultEnquete progress progress-striped active">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
@@ -131,7 +131,7 @@ $criptHora = md5($horaEnquete);
 					<span class="span">Delorean</span>
 				</span>
 				<span class="inputStatus" id="inputStatus3"></span>
-				<img class="imgRight" src="./imgs/testes/delorean.jpg" alt="..." title="" />
+				<img class="imgRight" src="./images/testes/delorean.jpg" alt="..." title="" />
 				<span class="resultEnquete" id="resultEnquete3">
 					<div class="spanResultEnquete progress progress-striped active">
 						<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
