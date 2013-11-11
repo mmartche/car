@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="scripts/jquery.2.9.3.min.js"></script>
 	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui.js"></script>
+	<script type="text/javascript" src="scripts/colorpicker.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
 	
 	<link rel="stylesheet" href="styles//jquery-ui.css" />
@@ -51,63 +52,156 @@ include ("./scripts/conectDB.php");
 	</div>
 	<div class="content">
 		<ol class="breadcrumb">
-			<li><a href="#">Home</a></li>
-			<li><a href="#">Library</a></li>
-			<li class="active">Data</li>
+			<li><a href=".">Home</a></li>
+			<?
+			switch ($_GET[search]) {
+				case 'manufacturer':
+					?><li class="active">Montadoras</li><?
+					break;
+				case 'model':
+					?><li><a href="?search=manufacturer">Montadoras</a></li><li class="active">Modelos</li><?
+					break;
+				default:
+					?><li><a href="?search=manufacturer">Montadoras</a><li><a href="?search=model">Modelos</a></li><li class="active">Versao</li><?
+					break;
+			}
+			?>
 		</ol>
 		<div class="resultSearch">
 			<ul class="resultList">
 				<li class="resultHeader">
-					<div class="rhItems"></div>
-					<div class="rhManufacturer">Montadora</div>
-					<div class="rhModel">Modelo</div>
-					<div class="rhVersion">Versão</div>
-					<div class="rhYear">Ano de Fabricaçao</div>
-					<div class="rhYear">Ano do Modelo</div>
-					<div class="rhPicture">Foto</div>
-					<div class="rhSegment">Segmento</div>
-					<div class="rhGear">Câmbio</div>
-					<div class="rhOil">Combustível</div>
-					<div class="rhAvaliable">Disponível</div>
+				<?
+				switch ($_GET[search]) {
+					case 'manufacturer':
+						echo '<div class="rhItems"></div>
+						 	<div class="rhManufacturer">Montadora</div>';
+						break;
+					case 'model':
+						echo '<div class="rhItems"></div>
+							<div class="rhManufacturer">Montadora</div>
+							<div class="rhModel">Modelo</div>';
+						break;
+					default:
+						echo '<div class="rhItems"></div>
+							<div class="rhManufacturer">Montadora</div>
+							<div class="rhModel">Modelo</div>
+							<div class="rhVersion">Versão</div>
+							<div class="rhYear">Ano de Fabricaçao</div>
+							<div class="rhYear">Ano do Modelo</div>
+							<div class="rhPicture">Foto</div>
+							<div class="rhSegment">Segmento</div>
+							<div class="rhGear">Câmbio</div>
+							<div class="rhOil">Combustível</div>
+							<div class="rhAvaliable">Disponível</div>';
+						break;
+				}
+				?>
 				</li>
 				<li class="resultFilter">
-					<div class="rfItems"></div>
-					<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" /></div>
-					<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields('rsModel',this)" /></div>
-					<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)"  /></div>
-					<div class="rfYear"><input type="text" id="txtRSYear" onkeyup="filterFields('rsYear',this)" /></div>
-					<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
-					<div class="rfPicture"><input type="text" id="txtRSPicture" /></div>
-					<div class="rfSegment"><input type="text" id="txtRSSegment" onkeyup="filterFields('rsSegment',this)" /></div>
-					<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields('rsGear',this)" /></div>
-					<div class="rfOil"><input type="text" id="txtRSOil" onkeyup="filterFields('rsOil',this)" /></div>
-					<div class="rfAvaliable"><input type="text" id="txtRSAvaliable" /></div>
+				<?
+				switch ($_GET[search]) {
+					case 'manufacturer':
+						echo '<div class="rfItems"></div>
+							<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields(\'rsManufacturer\',this)" /></div>';
+						break;
+					case 'model':
+						echo '<div class="rfItems"></div>
+							<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields(\'rsManufacturer\',this)" /></div>
+							<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields(\'rsModel\',this)" /></div>';
+						break;
+					default:
+						echo '<div class="rfItems"></div>
+							<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields(\'rsManufacturer\',this)" /></div>
+							<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields(\'rsModel\',this)" /></div>
+							<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields(\'rsVersion\',this)"  /></div>
+							<div class="rfYear"><input type="text" id="txtRSYear" onkeyup="filterFields(\'rsYear\',this)" /></div>
+							<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields(\'rsOptions\',this)" /></div>
+							<div class="rfPicture"><input type="text" id="txtRSPicture" /></div>
+							<div class="rfSegment"><input type="text" id="txtRSSegment" onkeyup="filterFields(\'rsSegment\',this)" /></div>
+							<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields(\'rsGear\',this)" /></div>
+							<div class="rfOil"><input type="text" id="txtRSOil" onkeyup="filterFields(\'rsOil\',this)" /></div>
+							<div class="rfAvaliable"><input type="text" id="txtRSAvaliable" /></div>';
+						break;
+				}
+				?>
 				</li>
 				<?
-				$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
-				$query_search = mysql_query($sql_search) or die (mysql_error()." error 79");
+				switch ($_GET[search]) {
+					case 'manufacturer':
+						$sql_search = "select id as manufacturerId, name as manufacturerName from manufacturer";
+						break;
+					case 'model':
+						$sql_search = "select model.id as modelId, model.name as modelName, manufacturer.name as manufacturerName from model, manufacturer where model.idManufacturer = manufacturer.id";
+						break;
+					default:
+						$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
+						
+						break;
+				}
+				$query_search = mysql_query($sql_search) or die (" error #130");
 				while ($res = mysql_fetch_array($query_search)) {
 				?>
-				<a href="formDetails.php?vehicle=<?=$res[featureId]?>">
-				<li class="resultContent" idDB="<?=$res[featureId]?>">
-					<div class="rsItems">
-						<div class="btnEdit"></div>
-						<div class="btnDelete"></div>
-						<div class="btnClone"></div>
-						<div class="btnActive"></div>
-					</div>
-					<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
-					<div class="rsModel"><?=$res[modelName]?></div>
-					<div class="rsVersion"><?=$res[versionName]?></div>
-					<div class="rsYear"><?=$res[yearProduced]?></div>
-					<div class="rsYear"><?=$res[yearModel]?></div>
-					<div class="rsPicture"></div>
-					<div class="rsSegment"></div>
-					<div class="rsGear"></div>
-					<div class="rsOil"></div>
-					<div class="rsAvaliable">Sim</div>
-				</li>
-				</a>
+				<?
+				switch ($_GET[search]) {
+					case 'manufacturer':
+					?>
+						<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&search=<?=$_GET[search]?>">
+						<li class="resultContent" idDB="<?=$res[manufacturerId]?>">
+							<div class="rsItems">
+								<div class="btnEdit"></div>
+								<div class="btnDelete"></div>
+								<div class="btnClone"></div>
+								<div class="btnActive"></div>
+							</div>
+							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
+							<div class="rsAvaliable">Sim</div>
+						</li>
+						</a>
+						<?
+						break;
+					case 'model':
+					?>
+						<a href="formDetails.php?vehicle=<?=$res[modelId]?>&search=<?=$_GET[search]?>">
+						<li class="resultContent" idDB="<?=$res[modelId]?>">
+							<div class="rsItems">
+								<div class="btnEdit"></div>
+								<div class="btnDelete"></div>
+								<div class="btnClone"></div>
+								<div class="btnActive"></div>
+							</div>
+							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
+							<div class="rsModel"><?=$res[modelName]?></div>
+							<div class="rsAvaliable">Sim</div>
+						</li>
+						</a>
+						<?
+						break;
+					default:
+					?>
+						<a href="formDetails.php?vehicle=<?=$res[featureId]?>&search=<?=$_GET[search]?>">
+						<li class="resultContent" idDB="<?=$res[featureId]?>">
+							<div class="rsItems">
+								<div class="btnEdit"></div>
+								<div class="btnDelete"></div>
+								<div class="btnClone"></div>
+								<div class="btnActive"></div>
+							</div>
+							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
+							<div class="rsModel"><?=$res[modelName]?></div>
+							<div class="rsVersion"><?=$res[versionName]?></div>
+							<div class="rsYear"><?=$res[yearProduced]?></div>
+							<div class="rsYear"><?=$res[yearModel]?></div>
+							<div class="rsPicture"></div>
+							<div class="rsSegment"></div>
+							<div class="rsGear"></div>
+							<div class="rsOil"></div>
+							<div class="rsAvaliable">Sim</div>
+						</li>
+						</a>
+						<?
+						break;
+				}
+				?>
 				<? } ?>
 				<li class="resultContent">
 					<div class="rsItems">
