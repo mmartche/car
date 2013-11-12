@@ -36,7 +36,19 @@ include ("./scripts/conectDB.php");
 				<li><a href="#">Modelos</a></li>
 			</ul>
 		</div>
-		<h1>Sistema administrativo - Ficha Técnica de veículos</h1>
+		<?
+		switch ($_GET[search]) {
+			case 'manufacturer':
+				echo "<h1>Sistema administrativo - Cadastro de Montadoras</h1>";
+				break;
+			case 'model':
+				echo "<h1>Sistema administrativo - Cadastro de Linhas</h1>";
+				break;
+			default:
+				echo "<h1>Sistema administrativo - Ficha Técnica de veículos / Versao</h1>";
+				break;
+		}
+		?>
 	</header>
 	<div class="formSearch">
 		<form action="" method="post" onsubmit="return false" >

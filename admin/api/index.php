@@ -9,10 +9,24 @@ include ("../scripts/conectDB.php");
 
 switch ($_GET[type]) {
  	case 'askInput':
-		$sql_search = "select id, name from model";
-		$query_search = mysql_query($sql_search) or die (mysql_error()." error 79");
 		echo "[";
-		$l = 0;
+		$sql_s_manuf = "select id, name from manufacturer";
+		$query_s_manuf = mysql_query($sql_s_manuf) or die (" error #15");
+		$m = 0;
+		while ($resM = mysql_fetch_array($query_s_manuf)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resM[id].'",
+					"label":"'.$resM[name].'",
+					"category": "manufacturer",
+					"table":"model",
+					"value":"'.$resM[name].'"
+				}';
+			$m++;
+		}
+		$sql_search = "select id, name from model";
+		$query_search = mysql_query($sql_search) or die (" error #30");
+		$l = 1;
 		while ($res = mysql_fetch_array($query_search)) {
 			if ($l > 0) { echo ","; }
 			echo '{
@@ -52,6 +66,13 @@ switch ($_GET[type]) {
 			$l++;
 		}
 		echo "]";
+		break;
+
+	case 'addOption':
+		$sql_addOpt = "insert into `optionsModel` (`id`, `idModel`, `name`, `description`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[idModel]."', '".$_GET[name]."', '".$_GET[text]."', '', now(), now(),'')";
+		//echo $sql_addOpt;
+		mysql_query($sql_addOpt) or die ('[{"response":"false"}]');
+		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		break;
 }
 

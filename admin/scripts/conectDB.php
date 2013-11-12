@@ -8,12 +8,12 @@ if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == 'localh
 	$db="carsale";
 } else {
 	$dbHost="db499362938.db.1and1.com";
-	$dbUser="administrator";
-	$dbPassw="31michti07";
-	$db="carsale";
+	$dbUser="dbo499362938";
+	$dbPassw="carsale";
+	$db="db499362938";
 }
 $conectDB = mysql_connect($dbHost,$dbUser,$dbPassw) or die (mysql_error());
-mysql_select_db("carsale") or die(mysql_error());
+mysql_select_db($db) or die(mysql_error());
 /*
 $sql_cargo = "select * from model";
 $query_cargo = mysql_query($sql_cargo) or print (mysql_error()." erro 5");

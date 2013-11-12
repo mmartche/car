@@ -2,7 +2,7 @@
 include("conectDB.php");
 switch ($_POST[action]) {
 	case 'update':
-		$sqlFeature = "update `carsale`.`feature` 
+		$sqlFeature = "update `feature` 
 		SET 
 			`idManufacturer` = '".$_POST[idManufacturer]."',
 			`idModel` = '".$_POST[idModel]."',
@@ -76,23 +76,41 @@ switch ($_POST[action]) {
 			`dateUpdate` = now(),
 			`userUpdate` = ''
 		WHERE `feature`.`id` = '".$_POST[idFeature]."' ;";
-		mysql_query($sqlFeature) or die (mysql_error().$sqlFeature." error #80");
+		//mysql_query($sqlFeature) or die (mysql_error().$sqlFeature." error #80");
 		
+		//serie
+		$sqlDelSeries = "delete from `serieFeature` WHERE `idFeature` = '".$_POST[idFeature]."'";
+		//mysql_query($sqlDelSeries) or die (mysql_error()." error #85");
+		for ($i=0;$i<$_POST[lengthSerie];$i++){
+			$serieOpt = "rdSerie".$i;
+			$serieName = "txtSerie".$i;
+			if ($i > 0) { $valuesSerieInput .= ","; }
+			$valuesSerieInput .= "(NULL, '".$_POST[idFeature]."', '".$_POST[$serieName]."', '".$_POST[$serieOpt]."', now(), now(), NULL)";
+		}
+		$sqlAddSeries = "insert into `serieFeature` (`id`, `idFeature`, `description`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesSerieInput;
+		//mysql_query($sqlAddSeries) or die (" error #93");
+
 		//options
 		$sqlDelOpts = "delete from `optionsFeature` WHERE `idFeature` = '".$_POST[idFeature]."'";
-		mysql_query($sqlDelOpts) or die (mysql_error()." error #85");
+		//mysql_query($sqlDelOpts) or die (mysql_error()." error #85");
+		$o=0;
 		for ($i=0;$i<$_POST[lengthOptions];$i++){
-			$optOpt = "rdOpt".$i;
-			$optName = "txtOpt".$i;
-			if ($i > 0) { $valuesOptInput .= ","; }
-			$valuesOptInput .= "(NULL, '".$_POST[idFeature]."', '".$_POST[$optName]."', '".$_POST[$optOpt]."', now(), now(), NULL)";
+			$optIdOption = "txtOpt".$i;
+			$optChoice = "chOpt".$i;
+			if ($_POST[$optChoice] == "s") {
+				if ($o > 0) { $valuesOptInput .= ","; }
+				$valuesOptInput .= "(NULL, '".$_POST[idFeature]."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', now(), now(), '')";
+				$o++;
+			}
 		}
-		$sqlAddOpts = "insert into `optionsFeature` (`id`, `idFeature`, `description`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
-		mysql_query($sqlAddOpts) or die (mysql_error()." error #93");
+		$sqlAddOpts = "insert into `optionsFeature` (`id`, `idFeature`, `idOption`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
+		//mysql_query($sqlAddOpts) or die (mysql_error()." error #93");
+		echo $sqlAddOpts."<br>";
 
 		//color
 		$sqlDelColor = "delete from `colorModel` where `idModel` = '".$_POST[idModel]."'";
-		mysql_query($sqlDelColor) or die (mysql_error()." error #96");
+		//mysql_query($sqlDelColor) or die (mysql_error()." error #96");
+		//echo $sqlDelColor."<br>";
 		for ($i=0;$i<$_POST[colorLength];$i++){
 			$colorName = $_POST["colorInputName".$i];
 			$colorApp = $_POST["colorInputApp".$i];
@@ -102,10 +120,10 @@ switch ($_POST[action]) {
 			$valuesColorInput .= "(NULL, '".$_POST[idModel]."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputType".$i]."', now(), now(), NULL)";
 		}
 		$sqlAddColor = "insert into `colorModel` (`id`, `idModel`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
-		mysql_query($sqlAddColor) or die (mysql_error().$sqlAddColor." error #106");
-		
+		//mysql_query($sqlAddColor) or die (mysql_error().$sqlAddColor." error #106");
+		//echo $sqlAddColor."<br>";
+
 		//pictures
-		echo "ok";
 
 		break;
 	

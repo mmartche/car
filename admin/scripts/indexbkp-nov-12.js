@@ -52,47 +52,31 @@ $(document).ready(function(){
 			
 		//});
 	});
-	$("#btnSerieAdd").click(function(){
+	$("#btnOptionsAdd").click(function(){
 		//captura daods
-		textTemp = $("#textAreaSerieAdd").val();
+		textTemp = $("#textAreaOptionsAdd").val();
 		text = textTemp.split(";");
-		//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-		l = $("#optionsSerie span").length-2;
+		optionTemp = $('input[name=rdOptionsAdd]:checked').val();
+		l = $("#optionsOptions span").length-2;
 		for (i=0;i<text.length;i++){
 			if (text[i].length > 0){
-				$("#resultSerie").prepend('<span><input type="checkbox" name="rdSerie'+l+'" checked="true" value="s" /><input type="hidden" name="txtSerie'+l+'" value="'+text[i]+'" />'+text[i]+'</span>');
+				switch(optionTemp){
+					case ("s"):
+						$("#optionsOptions").append('<span><input type="radio" name="rdOpt'+l+'" checked="true" value="s" /><input type="radio" name="rdOpt'+l+'" value="o" /><input type="radio" name="rdOpt'+l+'" value="n" /><input type="hidden" name="txtOpt'+l+'" value="'+text[i]+'" />'+text[i]+'</span>');
+					break;
+
+					case ("o"):
+						$("#optionsOptions").append('<span><input type="radio" name="rdOpt'+l+'" value="s" /><input type="radio" name="rdOpt'+l+'" checked="true" value="o" /><input type="radio" name="rdOpt'+l+'" value="n" /><input type="hidden" name="txtOpt'+l+'" value="'+text[i]+'" />'+text[i]+'</span>');
+					break;
+
+					case ("n"):
+						$("#optionsOptions").append('<span><input type="radio" name="rdOpt'+l+'" value="s" /><input type="radio" name="rdOpt'+l+'" value="o" /><input type="radio" name="rdOpt'+l+'" checked="true" value="n" /><input type="hidden" name="txtOpt'+l+'" value="'+text[i]+'" />'+text[i]+'</span>');
+					break;
+				}
 				l++;
 			}
 		}
-		$("#lengthSerie").val(l);
-		//captura opcao global
-		//valida se tem varios
-		//adiciona na lista + opcao selecionada
-	});
-	$("#btnOptionsAdd").click(function(){
-		//dados
-		textTemp = $("#textAreaOptionsAdd").val();
-		name = $("#txtOptionsName").val();
-		idModel = $("#idModel").val();
-		text = textTemp.split(";");
-		//add db
-		$.getJSON('api/index.php?type=addOption&idModel='+idModel+'&name='+name+'&text='+textTemp, function(data) {
-			console.log(data[0].response,data[0].insertId)
-			if(data[0].response == "true"){
-				console.log("ASSASAS");
-				//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-				l = $("#optionsOptions span").length-2;
-				$("#resultOptions").prepend('<span><input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" /><input type="hidden" name="txtOpt'+l+'" value="'+data[0].insertId+'" /><label title="'+textTemp+'">'+name+'</label></span>');
-				l++;
-				$("#lengthOptions").val(l);
-			} else {
-				$("#resultOptions").prepend('<label>'+textTemp+'</label>');
-			}
-		});
-		//add form
-
-
-
+		$("#lengthOptions").val(l);
 		//captura opcao global
 		//valida se tem varios
 		//adiciona na lista + opcao selecionada
@@ -111,6 +95,7 @@ function openDetails(idFeature){
 }
 function filterFields(fieldName,obj){
 	//se o campo do mesmo class nao tiver o texto digitado, some
+	//console.log(fieldName,obj.value);
 	$(".resultContent").removeClass("hide");
 	lengthFields = $("."+fieldName).length;
 	for (i=0;i<lengthFields;i++){
@@ -121,36 +106,26 @@ function filterFields(fieldName,obj){
 		}
 	}	
 }
-$.widget( "custom.catcomplete", $.ui.autocomplete, {
-	_renderMenu: function( ul, items ) {
-		var that = this,
-		currentCategory = "";
-		$.each( items, function( index, item ) {
-			if ( item.category != currentCategory ) {
-				ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
-        		currentCategory = item.category;
-        	}
-        	that._renderItemData( ul, item );
-		});
-	}
-});
 $(function() {
 	function log( message ) {
 		$( "<div>" ).text( message ).prependTo( "#log" );
 		$( "#log" ).scrollTop( 0 );
 	}
-	$( "#askInput" ).catcomplete({
+	$( "#askInput" ).autocomplete({
 		source: "api/index.php?type=askInput",
-		delay:0,
 		minLength: 1,
 		select: function( event, ui ) {
+			//console.log(ui.item.value+ui.item.id+this.value);
+			//console.log(ui);
 			log( ui.item ?
 				"Selected: " + ui.item.id + " aka " + ui.item.value :
 				"Nothing selected, input was " + this.value );
+			//console.log('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table);
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
 				var items = "";
 				$(".resultContent").remove();
 				$.each(data, function(key, val) {
+					//<tr><td id="' + key + '" class="askImg">'+key+'+'+val.value+'</td></tr>');
 					items = '<li class="resultContent" idDB="'+val.featureId+'">'+
 									'<div class="rsItems">'+
 									'<div class="btnEdit"></div>'+
