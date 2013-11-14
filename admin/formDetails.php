@@ -333,7 +333,7 @@ $res = mysql_fetch_array($query_search);
 							<input type="text" name="txtOptionsName" id="txtOptionsName" placeholder="Nome do opcional" />
 							<textarea name="textAreaOptionsAdd" id="textAreaOptionsAdd" style="width:95%"></textarea>
 							<input type="button" id="btnOptionsAdd" value="+" />
-							<input type="text" name="lengthOptions" value="<?=$lengthOptionsTotal?>" id="lengthOptions" />
+							<input type="hidden" name="lengthOptions" value="<?=$lengthOptionsTotal?>" id="lengthOptions" />
 							<!--CHECK HOW MANY FIELDS AFTER SUBMIT AND W/ ADD SCRIPT -->
 						</span>
 						<div id="resultOptions">

@@ -57,7 +57,7 @@ include ("./scripts/conectDB.php");
 			</div>
 			<div class="ui-widget result-box">
 				Result:
-				<!--div id="log" class="ui-widget-content log-box"></div-->
+				<div id="log" class="ui-widget-content log-box"></div>
 			</div>
 			<div id="resultSearch" class="resultSearch"></div>
 		</form>
@@ -157,8 +157,8 @@ include ("./scripts/conectDB.php");
 				switch ($_GET[search]) {
 					case 'manufacturer':
 					?>
-						<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&search=<?=$_GET[search]?>">
-						<li class="resultContent" idDB="<?=$res[manufacturerId]?>">
+						<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&search=<?=$_GET[search]?>" class="resultContent">
+						<li idDB="<?=$res[manufacturerId]?>">
 							<div class="rsItems">
 								<div class="btnEdit"></div>
 								<div class="btnDelete"></div>
@@ -173,8 +173,8 @@ include ("./scripts/conectDB.php");
 						break;
 					case 'model':
 					?>
-						<a href="formDetails.php?vehicle=<?=$res[modelId]?>&search=<?=$_GET[search]?>">
-						<li class="resultContent" idDB="<?=$res[modelId]?>">
+						<a href="formDetails.php?vehicle=<?=$res[modelId]?>&search=<?=$_GET[search]?>" class="resultContent">
+						<li idDB="<?=$res[modelId]?>">
 							<div class="rsItems">
 								<div class="btnEdit"></div>
 								<div class="btnDelete"></div>
@@ -190,8 +190,8 @@ include ("./scripts/conectDB.php");
 						break;
 					default:
 					?>
-						<a href="formDetails.php?vehicle=<?=$res[featureId]?>&search=<?=$_GET[search]?>">
-						<li class="resultContent" idDB="<?=$res[featureId]?>">
+						<a href="formDetails.php?vehicle=<?=$res[featureId]?>&search=<?=$_GET[search]?>" class="resultContent">
+						<li idDB="<?=$res[featureId]?>">
 							<div class="rsItems">
 								<div class="btnEdit"></div>
 								<div class="btnDelete"></div>
@@ -215,24 +215,6 @@ include ("./scripts/conectDB.php");
 				}
 				?>
 				<? } ?>
-				<li class="resultContent">
-					<div class="rsItems">
-						<div class="btnEdit"></div>
-						<div class="btnDelete"></div>
-						<div class="btnClone"></div>
-						<div class="btnActive"></div>
-					</div>
-					<div class="rsManufacturer">Fiat</div>
-					<div class="rsModel">Uno</div>
-					<div class="rsVersion">Mille</div>
-					<div class="rsYear">2010</div>
-					<div class="rsOptions">Opcionais</div>
-					<div class="rsPicture">Foto</div>
-					<div class="rsSegment">Carro</div>
-					<div class="rsGear">Manual</div>
-					<div class="rsOil">Gasolina</div>
-					<div class="rsAvaliable">Sim</div>
-				</li>
 			</ul>
 		</div>
 

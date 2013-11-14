@@ -145,13 +145,48 @@ $(function() {
 		minLength: 1,
 		select: function( event, ui ) {
 			log( ui.item ?
-				"Selected: " + ui.item.id + " aka " + ui.item.value :
+				"Selected: " + ui.item.id + " aka " + ui.item.value + " category " + ui.item.category:
 				"Nothing selected, input was " + this.value );
+			//each category will print a diferent result w/ links
+			//console.log('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table);
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
-				var items = "";
 				$(".resultContent").remove();
-				$.each(data, function(key, val) {
-					items = '<li class="resultContent" idDB="'+val.featureId+'">'+
+				switch (ui.item.category) {
+					case "Manufacturer":
+						$.each(data, function(key, val) {
+							$(".resultList").append('<a href="formDetails.php?vehicle='+val.manufacturerId+'&search=manufacturer" class="resultContent">'+
+									'<li idDB="'+val.featureId+'">'+
+										'<div class="rsItems">'+
+										'<div class="btnEdit"></div>'+
+										'<div class="btnDelete"></div>'+
+										'<div class="btnClone"></div>'+
+										'<div class="btnActive"></div>'+
+										'</div>'+
+										'<div class="rsManufacturer">'+val.manufacturerName+'</div>'+
+										'<div class="rsAvaliable">Sim</div>'+
+									'</li></a>');
+							});
+						break;
+					case "Model":
+						$.each(data, function(key, val) {
+							$(".resultList").append('<a href="formDetails.php?vehicle='+val.modelId+'&search=model" class="resultContent">'+
+								'<li idDB="'+val.featureId+'">'+
+									'<div class="rsItems">'+
+									'<div class="btnEdit"></div>'+
+									'<div class="btnDelete"></div>'+
+									'<div class="btnClone"></div>'+
+									'<div class="btnActive"></div>'+
+									'</div>'+
+									'<div class="rsManufacturer">'+val.manufacturerName+'</div>'+
+									'<div class="rsModel">'+val.modelName+'</div>'+
+									'<div class="rsAvaliable">Sim</div>'+
+								'</li></a>');
+							});
+						break;
+					default:
+						$.each(data, function(key, val) {
+							$(".resultList").append('<a href="formDetails.php?vehicle='+val.featureId+'&search=feature" class="resultContent">'+
+								'<li idDB="'+val.featureId+'">'+
 									'<div class="rsItems">'+
 									'<div class="btnEdit"></div>'+
 									'<div class="btnDelete"></div>'+
@@ -168,9 +203,10 @@ $(function() {
 									'<div class="rsGear"></div>'+
 									'<div class="rsOil"></div>'+
 									'<div class="rsAvaliable">Sim</div>'+
-								'</li>';
-					$(".resultList").append(items);
-				});
+								'</li></a>');
+							});
+						break;
+					}
 
 				$(".resultContent").click(function(){
 					openDetails($(this).attr("iddb"));

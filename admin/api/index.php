@@ -10,25 +10,25 @@ include ("../scripts/conectDB.php");
 switch ($_GET[type]) {
  	case 'askInput':
 		echo "[";
-		$sql_s_manuf = "select id, name from manufacturer";
-		$query_s_manuf = mysql_query($sql_s_manuf) or die (" error #15");
+		$sql_s_manuf = "select id, name from manufacturer where name like ('%".$_GET[term]."%')";
+		$query_s_manuf = mysql_query($sql_s_manuf) or die ($sql_s_manuf." error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
 			if ($m > 0) { echo ","; }
 			echo '{
 					"id":"'.$resM[id].'",
 					"label":"'.$resM[name].'",
-					"category": "manufacturer",
-					"table":"model",
+					"category": "Manufacturer",
+					"table":"manufacturer",
 					"value":"'.$resM[name].'"
 				}';
 			$m++;
 		}
-		$sql_search = "select id, name from model";
+		$sql_search = "select id, name from model where name like ('%".$_GET[term]."%')";
 		$query_search = mysql_query($sql_search) or die (" error #30");
-		$l = 1;
+		$l = 0;
 		while ($res = mysql_fetch_array($query_search)) {
-			if ($l > 0) { echo ","; }
+			if ($l > 0 || $m > 0) { echo ","; }
 			echo '{
 					"id":"'.$res[id].'",
 					"label":"'.$res[name].'",
@@ -42,10 +42,20 @@ switch ($_GET[type]) {
 	break;
 
 	case 'terms':
+		switch ($_GET[table]) {
+			case 'manufacturer':
+				# code...
+				break;
+			
+			default:
+				# code...
+				break;
+		}
 		if ($_GET[table] && $_GET[idField]) { $filter = 'and '.$_GET[table].'.id = "'.$_GET[idField].'"'; }
-		$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id ".$filter." order by model.name";
+		$sql_search = "select manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version where feature.idModel = model.id and feature.idVersion = version.id ".$filter." order by model.name";
+		//$sql_search = "select feature.id as featureId, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id ".$filter." order by model.name";
 		//echo $sql_search;
-		$query_search = mysql_query($sql_search) or die (mysql_error()." error 79");
+		$query_search = mysql_query($sql_search) or die (" error #50");
 		echo "[";
 		$l = 0;
 		while ($res = mysql_fetch_array($query_search)) {
@@ -54,7 +64,9 @@ switch ($_GET[type]) {
 					"id":"'.$res[featureId].'",
 					"label":"'.$_GET[term].'",
 					"featureId":"'.$res[featureId].'",
+					"manufacturerId":"'.$res[manufacturerId].'",
 					"manufacturerName":"'.$res[manufacturerName].'",
+					"modelId":"'.$res[modelId].'",
 					"modelName":"'.$res[modelName].'",
 					"versionName":"'.$res[versionName].'",
 					"yearProduced":"'.$res[yearProduced].'",
