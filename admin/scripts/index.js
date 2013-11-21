@@ -111,11 +111,11 @@ function openDetails(idFeature){
 }
 function filterFields(fieldName,obj){
 	//se o campo do mesmo class nao tiver o texto digitado, some
-	$(".resultContent").removeClass("hide");
+	$(".resultContent li").removeClass("hide");
 	lengthFields = $("."+fieldName).length;
 	for (i=0;i<lengthFields;i++){
 		var tempField = $("."+fieldName)[i].innerText;
-		if (tempField.indexOf(obj.value) < 0){
+		if (tempField.toLowerCase().indexOf(obj.value) < 0){
 			t = $("."+fieldName)[i].parentElement;
 			$(t).addClass("hide");
 		}
@@ -152,7 +152,7 @@ $(function() {
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
 				$(".resultContent").remove();
 				switch (ui.item.category) {
-					case "Manufacturer":
+					case "Manufacture":
 						$.each(data, function(key, val) {
 							$(".resultList").append('<a href="formDetails.php?vehicle='+val.manufacturerId+'&search=manufacturer" class="resultContent">'+
 									'<li idDB="'+val.featureId+'">'+
@@ -167,7 +167,7 @@ $(function() {
 									'</li></a>');
 							});
 						break;
-					case "Model":
+					case "Mode":
 						$.each(data, function(key, val) {
 							$(".resultList").append('<a href="formDetails.php?vehicle='+val.modelId+'&search=model" class="resultContent">'+
 								'<li idDB="'+val.featureId+'">'+
@@ -188,17 +188,17 @@ $(function() {
 							$(".resultList").append('<a href="formDetails.php?vehicle='+val.featureId+'&search=feature" class="resultContent">'+
 								'<li idDB="'+val.featureId+'">'+
 									'<div class="rsItems">'+
-									'<div class="btnEdit"></div>'+
-									'<div class="btnDelete"></div>'+
-									'<div class="btnClone"></div>'+
-									'<div class="btnActive"></div>'+
+										'<div class="btnEdit"></div>'+
+										'<div class="btnDelete"></div>'+
+										'<div class="btnClone"></div>'+
+										'<div class="btnActive"></div>'+
 									'</div>'+
 									'<div class="rsManufacturer">'+val.manufacturerName+'</div>'+
 									'<div class="rsModel">'+val.modelName+'</div>'+
 									'<div class="rsVersion">'+val.versionName+'</div>'+
 									'<div class="rsYear">'+val.yearProduced+'</div>'+
 									'<div class="rsYear">'+val.yearModel+'</div>'+
-									'<div class="rsPicture"></div>'+
+									'<div class="rsPicture">'+val.featureEngine+'</div>'+
 									'<div class="rsSegment"></div>'+
 									'<div class="rsGear"></div>'+
 									'<div class="rsOil"></div>'+

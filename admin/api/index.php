@@ -42,19 +42,12 @@ switch ($_GET[type]) {
 	break;
 
 	case 'terms':
-		switch ($_GET[table]) {
-			case 'manufacturer':
-				# code...
-				break;
-			
-			default:
-				# code...
-				break;
-		}
-		if ($_GET[table] && $_GET[idField]) { $filter = 'and '.$_GET[table].'.id = "'.$_GET[idField].'"'; }
-		$sql_search = "select manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version where feature.idModel = model.id and feature.idVersion = version.id ".$filter." order by model.name";
-		//$sql_search = "select feature.id as featureId, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id ".$filter." order by model.name";
 		//echo $sql_search;
+		if ($_GET[table] != "") { $filterSearch = "and ".$_GET[table].".id = '".$_GET[idField]."'"; }
+		elseif ($_GET[term] != "") { 
+		//search all about the term
+		 }
+		$sql_search = "SELECT feature.id as featureId, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer WHERE feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id ".$filterSearch;
 		$query_search = mysql_query($sql_search) or die (" error #50");
 		echo "[";
 		$l = 0;
@@ -64,6 +57,7 @@ switch ($_GET[type]) {
 					"id":"'.$res[featureId].'",
 					"label":"'.$_GET[term].'",
 					"featureId":"'.$res[featureId].'",
+					"featureEngine":"'.$res[featureEngine].'",
 					"manufacturerId":"'.$res[manufacturerId].'",
 					"manufacturerName":"'.$res[manufacturerName].'",
 					"modelId":"'.$res[modelId].'",

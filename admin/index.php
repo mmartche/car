@@ -82,6 +82,7 @@ include ("./scripts/conectDB.php");
 		<div class="resultSearch">
 			<ul class="resultList">
 				<li class="resultHeader">
+				
 				<?
 				switch ($_GET[search]) {
 					case 'manufacturer':
@@ -110,33 +111,19 @@ include ("./scripts/conectDB.php");
 				?>
 				</li>
 				<li class="resultFilter">
-				<?
-				switch ($_GET[search]) {
-					case 'manufacturer':
-						echo '<div class="rfItems"></div>
-							<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields(\'rsManufacturer\',this)" /></div>';
-						break;
-					case 'model':
-						echo '<div class="rfItems"></div>
-							<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields(\'rsManufacturer\',this)" /></div>
-							<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields(\'rsModel\',this)" /></div>';
-						break;
-					default:
-						echo '<div class="rfItems"></div>
-							<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields(\'rsManufacturer\',this)" /></div>
-							<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields(\'rsModel\',this)" /></div>
-							<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields(\'rsVersion\',this)"  /></div>
-							<div class="rfYear"><input type="text" id="txtRSYear" onkeyup="filterFields(\'rsYear\',this)" /></div>
-							<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields(\'rsOptions\',this)" /></div>
-							<div class="rfPicture"><input type="text" id="txtRSPicture" /></div>
-							<div class="rfSegment"><input type="text" id="txtRSSegment" onkeyup="filterFields(\'rsSegment\',this)" /></div>
-							<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields(\'rsGear\',this)" /></div>
-							<div class="rfOil"><input type="text" id="txtRSOil" onkeyup="filterFields(\'rsOil\',this)" /></div>
-							<div class="rfAvaliable"><input type="text" id="txtRSAvaliable" /></div>';
-						break;
-				}
-				?>
+					<div class="rfItems"></div>
+					<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" /></div>
+					<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields('rsModel',this)" /></div>
+					<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)"  /></div>
+					<div class="rfYear"><input type="text" id="txtRSYear" onkeyup="filterFields('rsYear',this)" /></div>
+					<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
+					<div class="rfPicture"><input type="text" id="txtRSPicture" /></div>
+					<div class="rfSegment"><input type="text" id="txtRSSegment" onkeyup="filterFields('rsSegment',this)" /></div>
+					<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields('rsGear',this)" /></div>
+					<div class="rfOil"><input type="text" id="txtRSOil" onkeyup="filterFields('rsOil',this)" /></div>
+					<div class="rfAvaliable"><input type="text" id="txtRSAvaliable" /></div>
 				</li>
+				<li class="resultData"><ul>
 				<?
 				switch ($_GET[search]) {
 					case 'manufacturer':
@@ -146,7 +133,8 @@ include ("./scripts/conectDB.php");
 						$sql_search = "select model.id as modelId, model.name as modelName, manufacturer.name as manufacturerName from model, manufacturer where model.idManufacturer = manufacturer.id";
 						break;
 					default:
-						$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
+						//$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
+						$sql_search = "SELECT feature.id as featureId, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer where feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id";
 						
 						break;
 				}
@@ -215,6 +203,7 @@ include ("./scripts/conectDB.php");
 				}
 				?>
 				<? } ?>
+				</ul></li>
 			</ul>
 		</div>
 
