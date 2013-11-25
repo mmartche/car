@@ -30,6 +30,7 @@ include ("./scripts/conectDB.php");
 
 <div class="body">
 	<header>
+		<h1 class="logo">Carsale</h1>
 		<div class="menu">
 			<ul>
 				<li><a href="#">Montadoras</a></li>
@@ -39,13 +40,13 @@ include ("./scripts/conectDB.php");
 		<?
 		switch ($_GET[search]) {
 			case 'manufacturer':
-				echo "<h1>Sistema administrativo - Cadastro de Montadoras</h1>";
+				echo "<h2>Sistema administrativo - Cadastro de Montadoras</h2>";
 				break;
 			case 'model':
-				echo "<h1>Sistema administrativo - Cadastro de Linhas</h1>";
+				echo "<h2>Sistema administrativo - Cadastro de Linhas</h2>";
 				break;
 			default:
-				echo "<h1>Sistema administrativo - Ficha Técnica de veículos / Versao</h1>";
+				echo "<h2><span>Sistema administrativo - Ficha Técnica de veículos / Versao</span><a href='formDetails.php' class='btnButton btnNewForm'>Novo Cadastro</a></h2>";
 				break;
 		}
 		?>
@@ -53,13 +54,14 @@ include ("./scripts/conectDB.php");
 	<div class="formSearch">
 		<form action="" method="post" onsubmit="return false" >
 			<div class="ui-widget">
-				<input id="askInput" class="askInput" placeholder="Search by version, vehicle, manufacturer" />
+				<input id="askInput" class="askInput" placeholder="Digite o que quer encontrar" />
 			</div>
 			<div class="ui-widget result-box">
 				Result:
 				<div id="log" class="ui-widget-content log-box"></div>
 			</div>
 			<div id="resultSearch" class="resultSearch"></div>
+			<button value="busca" class="btnButton btnSearch">Buscar</button>
 		</form>
 	</div>
 	<div class="content">
@@ -111,7 +113,7 @@ include ("./scripts/conectDB.php");
 				?>
 				</li>
 				<li class="resultFilter">
-					<div class="rfItems"></div>
+					<div class="rfItems">Filtros</div>
 					<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" /></div>
 					<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields('rsModel',this)" /></div>
 					<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)"  /></div>
@@ -128,81 +130,73 @@ include ("./scripts/conectDB.php");
 				switch ($_GET[search]) {
 					case 'manufacturer':
 						$sql_search = "select id as manufacturerId, name as manufacturerName from manufacturer";
+						$query_search = mysql_query($sql_search) or die (" error #130");
+						while ($res = mysql_fetch_array($query_search)) {
+					?>
+						<li idDB="<?=$res[manufacturerId]?>">
+							<div class="rsItems">
+								<div class="btnEdit"><a href="#">edita</a></div>
+								<div class="btnDelete"><a href="#">apaga</a></div>
+								<div class="btnClone"><a href="#">clona</a></div>
+								<div class="btnActive"><a href="#">ativa</a></div>
+							</div>
+						<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&search=<?=$_GET[search]?>" class="resultContent">
+							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
+							<div class="rsAvaliable">Sim</div>
+						</li>
+						</a>
+						<?
+						}
 						break;
 					case 'model':
 						$sql_search = "select model.id as modelId, model.name as modelName, manufacturer.name as manufacturerName from model, manufacturer where model.idManufacturer = manufacturer.id";
-						break;
-					default:
-						//$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
-						$sql_search = "SELECT feature.id as featureId, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer where feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id";
-						
-						break;
-				}
-				$query_search = mysql_query($sql_search) or die (" error #130");
-				while ($res = mysql_fetch_array($query_search)) {
-				?>
-				<?
-				switch ($_GET[search]) {
-					case 'manufacturer':
+						$query_search = mysql_query($sql_search) or die (" error #160");
+						while ($res = mysql_fetch_array($query_search)) {
 					?>
-						<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&search=<?=$_GET[search]?>" class="resultContent">
-						<li idDB="<?=$res[manufacturerId]?>">
-							<div class="rsItems">
-								<div class="btnEdit"></div>
-								<div class="btnDelete"></div>
-								<div class="btnClone"></div>
-								<div class="btnActive"></div>
-							</div>
-							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
-							<div class="rsAvaliable">Sim</div>
-						</li>
-						</a>
-						<?
-						break;
-					case 'model':
-					?>
-						<a href="formDetails.php?vehicle=<?=$res[modelId]?>&search=<?=$_GET[search]?>" class="resultContent">
 						<li idDB="<?=$res[modelId]?>">
 							<div class="rsItems">
-								<div class="btnEdit"></div>
-								<div class="btnDelete"></div>
-								<div class="btnClone"></div>
-								<div class="btnActive"></div>
+								<div class="btnEdit">edita</div>
+								<div class="btnDelete">apaga</div>
+								<div class="btnClone">clona</div>
+								<div class="btnActive">ativa</div>
 							</div>
+						<a href="formDetails.php?vehicle=<?=$res[modelId]?>&search=<?=$_GET[search]?>" class="resultContent">
 							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
 							<div class="rsModel"><?=$res[modelName]?></div>
 							<div class="rsAvaliable">Sim</div>
 						</li>
 						</a>
 						<?
+						}
 						break;
 					default:
+						$sql_search = "SELECT feature.id as featureId, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer where feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id";
+						$query_search = mysql_query($sql_search) or die (" error #180");
+						while ($res = mysql_fetch_array($query_search)) {
 					?>
-						<a href="formDetails.php?vehicle=<?=$res[featureId]?>&search=<?=$_GET[search]?>" class="resultContent">
-						<li idDB="<?=$res[featureId]?>">
+						<li class="resultItem" idDB="<?=$res[featureId]?>">
 							<div class="rsItems">
-								<div class="btnEdit"></div>
-								<div class="btnDelete"></div>
-								<div class="btnClone"></div>
-								<div class="btnActive"></div>
+								<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
+								<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
 							</div>
-							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
-							<div class="rsModel"><?=$res[modelName]?></div>
-							<div class="rsVersion"><?=$res[versionName]?></div>
-							<div class="rsYear"><?=$res[yearProduced]?></div>
-							<div class="rsYear"><?=$res[yearModel]?></div>
-							<div class="rsPicture"></div>
+						<a href="formDetails.php?vehicle=<?=$res[featureId]?>&search=<?=$_GET[search]?>" class="resultContent">
+							<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
+							<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
+							<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
+							<div class="rsYear" title="<?=$res[yearProduced]?>"><?=$res[yearProduced]?></div>
+							<div class="rsYear" title="<?=$res[yearModel]?>"><?=$res[yearModel]?></div>
+							<div class="rsPicture"><img src="" /></div>
 							<div class="rsSegment"></div>
 							<div class="rsGear"></div>
 							<div class="rsOil"></div>
 							<div class="rsAvaliable">Sim</div>
-						</li>
 						</a>
+						</li>
 						<?
+						}
 						break;
 				}
 				?>
-				<? } ?>
 				</ul></li>
 			</ul>
 		</div>

@@ -18,7 +18,7 @@ switch ($_GET[type]) {
 			echo '{
 					"id":"'.$resM[id].'",
 					"label":"'.$resM[name].'",
-					"category": "Manufacturer",
+					"category": "Montadora",
 					"table":"manufacturer",
 					"value":"'.$resM[name].'"
 				}';
@@ -32,7 +32,7 @@ switch ($_GET[type]) {
 			echo '{
 					"id":"'.$res[id].'",
 					"label":"'.$res[name].'",
-					"category": "Model",
+					"category": "Modelo",
 					"table":"model",
 					"value":"'.$res[name].'"
 				}';
@@ -75,10 +75,21 @@ switch ($_GET[type]) {
 		break;
 
 	case 'addOption':
-		$sql_addOpt = "insert into `optionsModel` (`id`, `idModel`, `name`, `description`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[idModel]."', '".$_GET[name]."', '".$_GET[text]."', '', now(), now(),'')";
-		//echo $sql_addOpt;
+		$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[idManufacturer]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '', now(), now(),'')";
 		mysql_query($sql_addOpt) or die ('[{"response":"false"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
+		break;
+
+	case 'addColor':
+		$sql_addColor = "insert into `colorManufacturer` (`idManufacturer`, `name`, `hexa`, `type`, `application`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[idManufacturer]."', '".$_GET[cname]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', now(), now(),'')";
+		mysql_query($sql_addColor) or die ('[{"response":"false"}]');
+		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
+		break;
+
+	case 'removeColor':
+		$sql_addColor = "DELETE FROM `colorManufacturer` WHERE `colorManufacturer`.`id` = '".$_GET[idColor]."'";
+		mysql_query($sql_addColor) or die ('[{"response":"false"}]');
+		echo '[{"response":"true"}]';
 		break;
 }
 

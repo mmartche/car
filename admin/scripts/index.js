@@ -32,19 +32,28 @@ $(document).ready(function(){
 		//$(".divColor").ColorPicker({color:colorTemp});
 	});
 	$("#btnColorAdd").click(function(){
+		idManufacturer = $("#idManufacturer").val(),
 		cName = $("#colorName").val(),
 		cColor = $("#colorSelected").val(),
 		cApp = $("#colorAplication").val(),
 		cType = $("#colorType").val();
 		cLength = $("#optionsColor span").length-1;
 		if (cColor.length == "6") {
-			$("#optionsColor").append('<span><div class="delColor" onclick="deleteColor(this)">X</div><div class="divColor"><div style="background-color: #'+cColor+';"></div></div>'+cName+'-'+cApp+'-'+cType+'<input type="hidden" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" name="colorInputType'+cLength+'" value="'+cType+'" /></span>');
-			$("#colorLength").val(cLength+1);
-			$("#colorName").val(""),
-			$("#colorSelected").val(""),
-			$("#colorAplication").val(""),
-			$("#colorType").val(""),
-			$("#colorSelector div").css("backgroundColor", "#ffffff");
+			$.getJSON('api/index.php?type=addColor&idManufacturer='+idManufacturer+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType, function(data) {
+				//console.log(data[0].response,data[0].insertId);
+				if(data[0].response == "true"){
+					//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
+					$("#optionsColor").append('<span><div class="delColor" onclick="deleteColor(this,"'+data[0].insertId+'")">X</div><div class="divColor"><div style="background-color: #'+cColor+';"></div></div>'+cName+'-'+cApp+'-'+cType+'<input type="hidden" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" name="colorInputType'+cLength+'" value="'+cType+'" /></span>');
+					$("#colorLength").val(cLength+1);
+					$("#colorName").val(""),
+					$("#colorSelected").val(""),
+					$("#colorAplication").val(""),
+					$("#colorType").val(""),
+					$("#colorSelector div").css("backgroundColor", "#ffffff");
+				} else {
+					//$("#resultOptions").prepend('<label>''</label>');
+				}
+			});
 		} else {
 			alert("Precisa ser 6 números, contei "+cColor.length);
 		}
@@ -71,15 +80,15 @@ $(document).ready(function(){
 	});
 	$("#btnOptionsAdd").click(function(){
 		//dados
+		codOpt = $("#txtOptionsCode").val();
 		textTemp = $("#textAreaOptionsAdd").val();
 		name = $("#txtOptionsName").val();
-		idModel = $("#idModel").val();
+		idManufacturer = $("#idManufacturer").val();
 		text = textTemp.split(";");
 		//add db
-		$.getJSON('api/index.php?type=addOption&idModel='+idModel+'&name='+name+'&text='+textTemp, function(data) {
-			console.log(data[0].response,data[0].insertId)
+		$.getJSON('api/index.php?type=addOption&idManufacturer='+idManufacturer+'&codopt='+codOpt+'&name='+name+'&text='+textTemp, function(data) {
+			console.log(data[0].response,data[0].insertId);
 			if(data[0].response == "true"){
-				console.log("ASSASAS");
 				//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
 				l = $("#optionsOptions span").length-2;
 				$("#resultOptions").prepend('<span><input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" /><input type="hidden" name="txtOpt'+l+'" value="'+data[0].insertId+'" /><label title="'+textTemp+'">'+name+'</label></span>');
@@ -102,21 +111,29 @@ function fixFields(){
 	//fix all inputs // counters // flags before submit
 	return true;
 }
-function deleteColor(obj) {
-	$(obj).parent().remove();
-	$("#colorLength").val($("#optionsColor span").length-1);
+function deleteColor(obj,idColor) {
+	$.getJSON('api/index.php?type=removeColor&idColor='+idColor, function(data) {
+		if(data[0].response == "true"){
+			//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
+			$(obj).parent().remove();
+			$("#colorLength").val($("#optionsColor span").length-1);
+		} else {
+
+		}
+	});
 }
 function openDetails(idFeature){
 	console.log(idFeature);
 }
 function filterFields(fieldName,obj){
 	//se o campo do mesmo class nao tiver o texto digitado, some
-	$(".resultContent li").removeClass("hide");
+	$(".resultItem").removeClass("hide");
 	lengthFields = $("."+fieldName).length;
 	for (i=0;i<lengthFields;i++){
 		var tempField = $("."+fieldName)[i].innerText;
-		if (tempField.toLowerCase().indexOf(obj.value) < 0){
-			t = $("."+fieldName)[i].parentElement;
+		if (tempField.toLowerCase().indexOf(obj.value.toLowerCase()) < 0){
+			t = $("."+fieldName)[i].parentElement.parentElement;
+			console.log(t);
 			$(t).addClass("hide");
 		}
 	}	
