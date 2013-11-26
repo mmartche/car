@@ -10,7 +10,7 @@ include ("../scripts/conectDB.php");
 switch ($_GET[type]) {
  	case 'askInput':
 		echo "[";
-		$sql_s_manuf = "select id, name from manufacturer where name like ('%".$_GET[term]."%')";
+		$sql_s_manuf = "select id, name from manufacturer where name like ('%".$_GET[term]."%') limit 10";
 		$query_s_manuf = mysql_query($sql_s_manuf) or die ($sql_s_manuf." error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -24,7 +24,7 @@ switch ($_GET[type]) {
 				}';
 			$m++;
 		}
-		$sql_search = "select id, name from model where name like ('%".$_GET[term]."%')";
+		$sql_search = "select id, name from model where name like ('%".$_GET[term]."%') limit 10";
 		$query_search = mysql_query($sql_search) or die (" error #30");
 		$l = 0;
 		while ($res = mysql_fetch_array($query_search)) {
@@ -38,38 +38,134 @@ switch ($_GET[type]) {
 				}';
 			$l++;
 		}
+		$sql_v = "select id, name from version where name like ('%".$_GET[term]."%') limit 10";
+		$query_v = mysql_query($sql_v) or die (" error #40");
+		$v = 0;
+		while ($resV = mysql_fetch_array($query_v)) {
+			if ($l > 0 || $m > 0 || $v > 0) { echo ","; }
+			echo '{
+					"id":"'.$resV[id].'",
+					"label":"'.$resV[name].'",
+					"category": "Versão",
+					"table":"version",
+					"value":"'.$resV[name].'"
+				}';
+			$l++;
+		}
 		echo "]";
 	break;
 
 	case 'terms':
 		//echo $sql_search;
-		if ($_GET[table] != "") { $filterSearch = "and ".$_GET[table].".id = '".$_GET[idField]."'"; }
+		if ($_GET[table] != "") { $filterSearch = "AND ".$_GET[table].".id = '".$_GET[idField]."'"; }
 		elseif ($_GET[term] != "") { 
 		//search all about the term
-		 }
-		$sql_search = "SELECT feature.id as featureId, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer WHERE feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id ".$filterSearch;
-		$query_search = mysql_query($sql_search) or die (" error #50");
+		}
 		echo "[";
-		$l = 0;
-		while ($res = mysql_fetch_array($query_search)) {
-			if($l>0) {echo ",";}
-			echo '{
-					"id":"'.$res[featureId].'",
-					"label":"'.$_GET[term].'",
-					"featureId":"'.$res[featureId].'",
-					"featureEngine":"'.$res[featureEngine].'",
-					"manufacturerId":"'.$res[manufacturerId].'",
-					"manufacturerName":"'.$res[manufacturerName].'",
-					"modelId":"'.$res[modelId].'",
-					"modelName":"'.$res[modelName].'",
-					"versionName":"'.$res[versionName].'",
-					"yearProduced":"'.$res[yearProduced].'",
-					"yearModel":"'.$res[yearModel].'",
-					"category": "feature",
-					"value":"",
-					"name":""
-				}';
-			$l++;
+		//ALL MANUFACTURES
+		if ($_GET[table] == "manufacturer") {
+			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer WHERE id = '".$_GET[idField]."'";
+			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #70");
+			$l = 0;
+			while ($res = mysql_fetch_array($queryTerm)) {
+				if($l>0) {echo ",";}
+				echo '{
+						"id":"'.$res[featureId].'",
+						"order":"'.$l.'",
+						"label":"'.$_GET[term].'",
+						"featureId":"'.$res[featureId].'",
+						"manufacturerId":"'.$res[manufacturerId].'",
+						"manufacturerName":"'.$res[manufacturerName].'",
+						"modelId":"'.$res[modelId].'",
+						"modelName":"'.$res[modelName].'",
+						"versionId":"'.$res[versionId].'",
+						"versionName":"'.$res[versionName].'",
+						"yearProduced":"'.$res[yearProduced].'",
+						"yearModel":"'.$res[yearModel].'",
+						"category": "manufacturer",
+						"value":"",
+						"name":""
+					}';
+				$l++;
+			}
+		}
+		//ALL MODELS
+		if ($_GET[table] == "manufacturer" || $_GET[table] == "model") {
+			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id ".$filterSearch;
+			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #95");
+			while ($res = mysql_fetch_array($queryTerm)) {
+				if($l>0) {echo ",";}
+				echo '{
+						"id":"'.$res[featureId].'",
+						"order":"'.$l.'",
+						"label":"'.$_GET[term].'",
+						"featureId":"'.$res[featureId].'",
+						"manufacturerId":"'.$res[manufacturerId].'",
+						"manufacturerName":"'.$res[manufacturerName].'",
+						"modelId":"'.$res[modelId].'",
+						"modelName":"'.$res[modelName].'",
+						"versionId":"'.$res[versionId].'",
+						"versionName":"'.$res[versionName].'",
+						"yearProduced":"'.$res[yearProduced].'",
+						"yearModel":"'.$res[yearModel].'",
+						"category": "model",
+						"value":"",
+						"name":""
+					}';
+				$l++;
+			}
+		}
+		//ALL VERSIONS
+		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
+			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #120");
+			while ($res = mysql_fetch_array($queryTerm)) {
+				if($l>0) {echo ",";}
+				echo '{
+						"id":"'.$res[featureId].'",
+						"order":"'.$l.'",
+						"label":"'.$_GET[term].'",
+						"featureId":"'.$res[featureId].'",
+						"manufacturerId":"'.$res[manufacturerId].'",
+						"manufacturerName":"'.$res[manufacturerName].'",
+						"modelId":"'.$res[modelId].'",
+						"modelName":"'.$res[modelName].'",
+						"versionId":"'.$res[versionId].'",
+						"versionName":"'.$res[versionName].'",
+						"yearProduced":"'.$res[yearProduced].'",
+						"yearModel":"'.$res[yearModel].'",
+						"category": "version",
+						"value":"",
+						"name":""
+					}';
+				$l++;
+			}
+		}
+		//ALL ALL
+		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
+			$sqlTerm = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #150");
+			while ($res = mysql_fetch_array($queryTerm)) {
+				if($l>0) {echo ",";}
+				echo '{
+						"id":"'.$res[featureId].'",
+						"order":"'.$l.'",
+						"label":"'.$_GET[term].'",
+						"featureId":"'.$res[featureId].'",
+						"manufacturerId":"'.$res[manufacturerId].'",
+						"manufacturerName":"'.$res[manufacturerName].'",
+						"modelId":"'.$res[modelId].'",
+						"modelName":"'.$res[modelName].'",
+						"versionId":"'.$res[versionId].'",
+						"versionName":"'.$res[versionName].'",
+						"yearProduced":"'.$res[yearProduced].'",
+						"yearModel":"'.$res[yearModel].'",
+						"category": "feature",
+						"value":"",
+						"name":""
+					}';
+				$l++;
+			}
 		}
 		echo "]";
 		break;

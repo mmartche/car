@@ -165,65 +165,40 @@ $(function() {
 				"Selected: " + ui.item.id + " aka " + ui.item.value + " category " + ui.item.category:
 				"Nothing selected, input was " + this.value );
 			//each category will print a diferent result w/ links
-			//console.log('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table);
+			console.log('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table);
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
-				$(".resultContent").remove();
-				switch (ui.item.category) {
-					case "Montadora":
-						$.each(data, function(key, val) {
-							$(".resultList").append('<a href="formDetails.php?vehicle='+val.manufacturerId+'&search=manufacturer" class="resultContent">'+
-									'<li idDB="'+val.featureId+'">'+
-										'<div class="rsItems">'+
-										'<div class="btnEdit"></div>'+
-										'<div class="btnDelete"></div>'+
-										'<div class="btnClone"></div>'+
-										'<div class="btnActive"></div>'+
-										'</div>'+
-										'<div class="rsManufacturer">'+val.manufacturerName+'</div>'+
-										'<div class="rsAvaliable">Sim</div>'+
-									'</li></a>');
-							});
-						break;
-					case "Modelo":
-						$.each(data, function(key, val) {
-							$(".resultList").append('<a href="formDetails.php?vehicle='+val.modelId+'&search=model" class="resultContent">'+
-								'<li idDB="'+val.featureId+'">'+
-									'<div class="rsItems">'+
-									'<div class="btnEdit"></div>'+
-									'<div class="btnDelete"></div>'+
-									'<div class="btnClone"></div>'+
-									'<div class="btnActive"></div>'+
-									'</div>'+
-									'<div class="rsManufacturer">'+val.manufacturerName+'</div>'+
-									'<div class="rsModel">'+val.modelName+'</div>'+
-									'<div class="rsAvaliable">Sim</div>'+
-								'</li></a>');
-							});
-						break;
-					default:
-						$.each(data, function(key, val) {
-							$(".resultList").append('<a href="formDetails.php?vehicle='+val.featureId+'&search=feature" class="resultContent">'+
-								'<li idDB="'+val.featureId+'">'+
-									'<div class="rsItems">'+
-										'<div class="btnEdit"></div>'+
-										'<div class="btnDelete"></div>'+
-										'<div class="btnClone"></div>'+
-										'<div class="btnActive"></div>'+
-									'</div>'+
-									'<div class="rsManufacturer">'+val.manufacturerName+'</div>'+
-									'<div class="rsModel">'+val.modelName+'</div>'+
-									'<div class="rsVersion">'+val.versionName+'</div>'+
-									'<div class="rsYear">'+val.yearProduced+'</div>'+
-									'<div class="rsYear">'+val.yearModel+'</div>'+
-									'<div class="rsPicture">'+val.featureEngine+'</div>'+
-									'<div class="rsSegment"></div>'+
-									'<div class="rsGear"></div>'+
-									'<div class="rsOil"></div>'+
-									'<div class="rsAvaliable">Sim</div>'+
-								'</li></a>');
-							});
-						break;
-					}
+				$(".resultData ul li").remove();
+					$.each(data, function(key, val) {
+						data = '<li class="resultItem" idDB="'+val.featureId+'">'+
+							'<div class="rsItems">';
+						if (val.featureId != "") {
+							data +=	'<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>';
+						} else if (val.verionId != "") {
+							data +=	'<div class="btnClone btnButton" title="Adicionar um novo registro para esta Versão" alt="Adicionar um novo registro para esta Versão">+</div>';
+						} else if (val.modelId != "") {
+							data +=	'<div class="btnClone btnButton" title="Adicionar uma nova Versão para este Modelo" alt="Adicionar um novo registro para esta Versão">+</div>';
+						} else if (val.manufacturerId != "") {
+							data +=	'<div class="btnClone btnButton" title="Adicionar um novo Modelo para esta Montadora" alt="Adicionar um novo Modelo para esta Montadora">+</div>';
+						} else {
+							data +=	'<div class="btnClone btnButton" title="Adicionar Montadora" alt="Adicionar Montadora">+</div>';
+						}
+						data +=	'<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>'+
+							'</div>'+
+						'<a href="formDetails.php?vehicle='+val.featureId+'&category='+val.category+'&search=<?=$_GET[search]?>" class="resultContent">'+
+							'<div class="rsManufacturer" title="'+val.manufacturerName+'">'+val.manufacturerName+'</div>'+
+							'<div class="rsModel" title="'+val.modelName+'">'+val.modelName+'</div>'+
+							'<div class="rsVersion" title="'+val.versionName+'">'+val.versionName+'</div>'+
+							'<div class="rsYear" title="'+val.yearProduced+'">'+val.yearProduced+'</div>'+
+							'<div class="rsYear" title="'+val.yearModel+'">'+val.yearModel+'</div>'+
+							'<div class="rsPicture"><img src="'+val.picture+'" /></div>'+
+							'<div class="rsSegment"></div>'+
+							'<div class="rsGear"></div>'+
+							'<div class="rsOil"></div>'+
+							'<div class="rsAvaliable">Sim</div>'+
+						'</a>'+
+						'</li>';
+						$(".resultData ul").append(data);
+					});
 
 				$(".resultContent").click(function(){
 					openDetails($(this).attr("iddb"));

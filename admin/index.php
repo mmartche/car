@@ -171,7 +171,7 @@ include ("./scripts/conectDB.php");
 						}
 						break;
 					default:
-						$sql_search = "SELECT feature.id as featureId, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer where feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id";
+						$sql_search = "SELECT feature.id as featureId, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, feature.picture, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer where feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id";
 						$query_search = mysql_query($sql_search) or die (" error #180");
 						while ($res = mysql_fetch_array($query_search)) {
 					?>
@@ -186,7 +186,7 @@ include ("./scripts/conectDB.php");
 							<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
 							<div class="rsYear" title="<?=$res[yearProduced]?>"><?=$res[yearProduced]?></div>
 							<div class="rsYear" title="<?=$res[yearModel]?>"><?=$res[yearModel]?></div>
-							<div class="rsPicture"><img src="" /></div>
+							<div class="rsPicture"><img src="<?=$res[picture]?>" /></div>
 							<div class="rsSegment"></div>
 							<div class="rsGear"></div>
 							<div class="rsOil"></div>

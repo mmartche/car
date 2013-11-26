@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `colorManufacturer` (
   `percent` varchar(10) DEFAULT NULL,
   `type` varchar(100) DEFAULT NULL,
   `application` varchar(100) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `dateCreate` datetime DEFAULT NULL,
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `colorModel` (
   `percent` varchar(10) DEFAULT NULL,
   `type` varchar(100) DEFAULT NULL,
   `application` varchar(100) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `dateCreate` datetime DEFAULT NULL,
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `feature` (
   `countryOrigin` int(11) DEFAULT NULL,
   `dateUpdate` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='need drop after test' AUTO_INCREMENT=95 ;
+)   AUTO_INCREMENT=95 ;
 
 --
 -- Dumping data for table `feature`
@@ -317,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `featureNew` (
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='need rename to use this structure' AUTO_INCREMENT=4 ;
+)  AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `featureNew`
@@ -338,13 +338,13 @@ CREATE TABLE IF NOT EXISTS `manufacturer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `active` char(1) DEFAULT NULL,
-  `description` varchar(300) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `cep` char(8) DEFAULT NULL,
   `dateCreate` datetime DEFAULT NULL,
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=91 ;
+) ;
 
 --
 -- Dumping data for table `manufacturer`
@@ -459,7 +459,7 @@ CREATE TABLE IF NOT EXISTS `model` (
   `userUpdate` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `numMont` (`idManufacturer`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ;
 
 --
 -- Dumping data for table `model`
@@ -1304,7 +1304,7 @@ CREATE TABLE IF NOT EXISTS `optionsFeature` (
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=101 ;
+) ;
 
 --
 -- Dumping data for table `optionsFeature`
@@ -1333,7 +1333,7 @@ CREATE TABLE IF NOT EXISTS `optionsManufacturer` (
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
+) ;
 
 --
 -- Dumping data for table `optionsManufacturer`
@@ -1356,7 +1356,7 @@ INSERT INTO `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `opti
 CREATE TABLE IF NOT EXISTS `picture` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `description` varchar(500) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
   `href` varchar(200) NOT NULL,
   `title` varchar(100) DEFAULT NULL,
   `idFeatures` int(11) NOT NULL,
@@ -1366,7 +1366,7 @@ CREATE TABLE IF NOT EXISTS `picture` (
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ;
 
 --
 -- Dumping data for table `picture`
@@ -1388,7 +1388,7 @@ CREATE TABLE IF NOT EXISTS `segment` (
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ;
 
 --
 -- Dumping data for table `segment`
@@ -1423,7 +1423,7 @@ CREATE TABLE IF NOT EXISTS `serieFeature` (
   `dateUpdate` datetime DEFAULT NULL,
   `userUpdate` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ;
 
 --
 -- Dumping data for table `serieFeature`
@@ -1469,7 +1469,7 @@ CREATE TABLE IF NOT EXISTS `version` (
   `userAlterLinha` int(4) DEFAULT NULL,
   `fipe` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=68138 ;
+)  ;
 
 --
 -- Dumping data for table `version`
