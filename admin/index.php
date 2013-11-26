@@ -52,16 +52,17 @@ include ("./scripts/conectDB.php");
 		?>
 	</header>
 	<div class="formSearch">
-		<form action="" method="post" onsubmit="return false" >
+		<form action="." method="get" >
 			<div class="ui-widget">
-				<input id="askInput" class="askInput" placeholder="Digite o que quer encontrar" />
+				<input id="askInput" class="askInput" name="askInput" placeholder="Digite o que quer encontrar" />
+				<input id="askType" class="askType" name="askType" />
 			</div>
 			<div class="ui-widget result-box">
 				Result:
 				<div id="log" class="ui-widget-content log-box"></div>
 			</div>
 			<div id="resultSearch" class="resultSearch"></div>
-			<button value="busca" class="btnButton btnSearch">Buscar</button>
+			<input type="submit" value="Buscar" class="btnButton btnSearch" />
 		</form>
 	</div>
 	<div class="content">

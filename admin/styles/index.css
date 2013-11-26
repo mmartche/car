@@ -52,6 +52,9 @@ footer {
 	width: 317px;
 	float: left;
 }
+.formSearch .askType {
+	display: none;
+}
 .formSearch .btnSearch {
 	float: left;
 }
@@ -152,7 +155,6 @@ footer {
 .rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYear, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, 
 .rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYear, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, .rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYear, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable {
 	float: left;
-	border-left: 1px dotted;
 	border-right: 1px dotted;
 	height: 100%;
 	margin: 1px;

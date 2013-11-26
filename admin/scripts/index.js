@@ -169,7 +169,7 @@ $(function() {
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
 				$(".resultContent").remove();
 				switch (ui.item.category) {
-					case "Manufacture":
+					case "Montadora":
 						$.each(data, function(key, val) {
 							$(".resultList").append('<a href="formDetails.php?vehicle='+val.manufacturerId+'&search=manufacturer" class="resultContent">'+
 									'<li idDB="'+val.featureId+'">'+
@@ -184,7 +184,7 @@ $(function() {
 									'</li></a>');
 							});
 						break;
-					case "Mode":
+					case "Modelo":
 						$.each(data, function(key, val) {
 							$(".resultList").append('<a href="formDetails.php?vehicle='+val.modelId+'&search=model" class="resultContent">'+
 								'<li idDB="'+val.featureId+'">'+
@@ -231,11 +231,9 @@ $(function() {
 			});
 		},
 		open: function() {
-		//$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
 			//console.log("open");
 		},
 		close: function() {
-		//$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
 			//console.log("close");
 		}
 	});
