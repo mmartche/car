@@ -16,7 +16,6 @@ footer {
 }
 .dataColLeft {
 	float: left;
-	width: 350px;
 	position: relative;
 	border: 1px dotted;
 	padding:10px;
@@ -25,8 +24,8 @@ footer {
 	display: block;
 }
 .dataColLeft input {
-	right: 0;
-	position: absolute;
+	width: 500px;
+	float: right;
 }
 .dataColRight {
 	float: right;

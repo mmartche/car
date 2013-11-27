@@ -61,7 +61,7 @@ include ("./scripts/conectDB.php");
 				Result:
 				<div id="log" class="ui-widget-content log-box"></div>
 			</div>
-			<div id="resultSearch" class="resultSearch"></div>
+			<!--div id="resultSearch" class="resultSearch"></div-->
 			<input type="submit" value="Buscar" class="btnButton btnSearch" />
 		</form>
 	</div>
@@ -128,76 +128,21 @@ include ("./scripts/conectDB.php");
 				</li>
 				<li class="resultData"><ul>
 				<?
-				switch ($_GET[search]) {
-					case 'manufacturer':
-						$sql_search = "select id as manufacturerId, name as manufacturerName from manufacturer";
-						$query_search = mysql_query($sql_search) or die (" error #130");
-						while ($res = mysql_fetch_array($query_search)) {
+					$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer";
+					//$sql_search = "SELECT feature.id as idFeature, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, feature.picture, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer where feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id";
+					$query_search = mysql_query($sql_search) or die (" error #180");
+					while ($res = mysql_fetch_array($query_search)) {
 					?>
-						<li idDB="<?=$res[manufacturerId]?>">
-							<div class="rsItems">
-								<div class="btnEdit"><a href="#">edita</a></div>
-								<div class="btnDelete"><a href="#">apaga</a></div>
-								<div class="btnClone"><a href="#">clona</a></div>
-								<div class="btnActive"><a href="#">ativa</a></div>
-							</div>
-						<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&search=<?=$_GET[search]?>" class="resultContent">
-							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
-							<div class="rsAvaliable">Sim</div>
-						</li>
-						</a>
-						<?
-						}
-						break;
-					case 'model':
-						$sql_search = "select model.id as modelId, model.name as modelName, manufacturer.name as manufacturerName from model, manufacturer where model.idManufacturer = manufacturer.id";
-						$query_search = mysql_query($sql_search) or die (" error #160");
-						while ($res = mysql_fetch_array($query_search)) {
-					?>
-						<li idDB="<?=$res[modelId]?>">
-							<div class="rsItems">
-								<div class="btnEdit">edita</div>
-								<div class="btnDelete">apaga</div>
-								<div class="btnClone">clona</div>
-								<div class="btnActive">ativa</div>
-							</div>
-						<a href="formDetails.php?vehicle=<?=$res[modelId]?>&search=<?=$_GET[search]?>" class="resultContent">
-							<div class="rsManufacturer"><?=$res[manufacturerName]?></div>
-							<div class="rsModel"><?=$res[modelName]?></div>
-							<div class="rsAvaliable">Sim</div>
-						</li>
-						</a>
-						<?
-						}
-						break;
-					default:
-						$sql_search = "SELECT feature.id as featureId, feature.yearModel, feature.yearProduced, feature.engine as featureEngine, feature.picture, version.name as versionName, model.name as modelName, manufacturer.name as manufacturerName FROM feature,version,model,manufacturer where feature.idversion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id";
-						$query_search = mysql_query($sql_search) or die (" error #180");
-						while ($res = mysql_fetch_array($query_search)) {
-					?>
-						<li class="resultItem" idDB="<?=$res[featureId]?>">
-							<div class="rsItems">
-								<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-								<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
-							</div>
-						<a href="formDetails.php?vehicle=<?=$res[featureId]?>&search=<?=$_GET[search]?>" class="resultContent">
+					<li class="resultItem" idDB="<?=$res[idFeature]?>">
+						<div class="rsItems">
+							<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
+							<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
+						</div>
+						<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&category=manufacturer" class="resultContent">
 							<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
-							<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
-							<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
-							<div class="rsYear" title="<?=$res[yearProduced]?>"><?=$res[yearProduced]?></div>
-							<div class="rsYear" title="<?=$res[yearModel]?>"><?=$res[yearModel]?></div>
-							<div class="rsPicture"><img src="<?=$res[picture]?>" /></div>
-							<div class="rsSegment"></div>
-							<div class="rsGear"></div>
-							<div class="rsOil"></div>
-							<div class="rsAvaliable">Sim</div>
 						</a>
-						</li>
-						<?
-						}
-						break;
-				}
-				?>
+					</li>
+				<? } ?>
 				</ul></li>
 			</ul>
 		</div>

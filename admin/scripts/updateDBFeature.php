@@ -4,9 +4,9 @@ switch ($_POST[action]) {
 	case 'update':
 		$sqlFeature = "update `feature` 
 		SET 
-			`idManufacturer` = '".$_POST[idManufacturer]."',
-			`idModel` = '".$_POST[idModel]."',
-			`idVersion` = '".$_POST[idVersion]."',
+			`manufacturerId` = '".$_POST[manufacturerId]."',
+			`modelId` = '".$_POST[modelId]."',
+			`versionId` = '".$_POST[versionId]."',
 			`yearProduced` = '".$_POST[yearProduced]."',
 			`yearModel` = '".$_POST[yearModel]."',
 			`doors` = '".$_POST[doors]."',
@@ -111,7 +111,7 @@ switch ($_POST[action]) {
 		}
 
 		//color
-		$sqlDelColor = "delete from `colorModel` where `idModel` = '".$_POST[idModel]."'";
+		$sqlDelColor = "delete from `colorModel` where `modelId` = '".$_POST[modelId]."'";
 		mysql_query($sqlDelColor) or die (mysql_error()." error #115");
 		for ($i=0;$i<$_POST[colorLength];$i++){
 			$colorName = $_POST["colorInputName".$i];
@@ -119,10 +119,10 @@ switch ($_POST[action]) {
 			$colorHex = $_POST["colorInputColor".$i];
 			$colorType = $_POST["colorInputType".$i];
 			if ($i > 0) { $valuesColorInput .= ","; }
-			$valuesColorInput .= "(NULL, '".$_POST[idModel]."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputType".$i]."', now(), now(), NULL)";
+			$valuesColorInput .= "(NULL, '".$_POST[modelId]."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputType".$i]."', now(), now(), NULL)";
 		}
 		if ($valuesColorInput != ""){
-			$sqlAddColor = "insert into `colorModel` (`id`, `idModel`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
+			$sqlAddColor = "insert into `colorModel` (`id`, `modelId`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
 			mysql_query($sqlAddColor) or die (" error #126");
 		}
 

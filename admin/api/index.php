@@ -3,7 +3,7 @@
 include ("../scripts/conectDB.php");
 
 
-//$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
+//$sql_search = "select feature.id as idFeature, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
 
 
 
@@ -70,10 +70,10 @@ switch ($_GET[type]) {
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
 				echo '{
-						"id":"'.$res[featureId].'",
+						"idItem":"'.$res[manufacturerId].'",
 						"order":"'.$l.'",
 						"label":"'.$_GET[term].'",
-						"featureId":"'.$res[featureId].'",
+						"idFeature":"'.$res[idFeature].'",
 						"manufacturerId":"'.$res[manufacturerId].'",
 						"manufacturerName":"'.$res[manufacturerName].'",
 						"modelId":"'.$res[modelId].'",
@@ -96,10 +96,10 @@ switch ($_GET[type]) {
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
 				echo '{
-						"id":"'.$res[featureId].'",
+						"idItem":"'.$res[modelId].'",
 						"order":"'.$l.'",
 						"label":"'.$_GET[term].'",
-						"featureId":"'.$res[featureId].'",
+						"idFeature":"'.$res[idFeature].'",
 						"manufacturerId":"'.$res[manufacturerId].'",
 						"manufacturerName":"'.$res[manufacturerName].'",
 						"modelId":"'.$res[modelId].'",
@@ -122,10 +122,10 @@ switch ($_GET[type]) {
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
 				echo '{
-						"id":"'.$res[featureId].'",
+						"idItem":"'.$res[versionId].'",
 						"order":"'.$l.'",
 						"label":"'.$_GET[term].'",
-						"featureId":"'.$res[featureId].'",
+						"idFeature":"'.$res[idFeature].'",
 						"manufacturerId":"'.$res[manufacturerId].'",
 						"manufacturerName":"'.$res[manufacturerName].'",
 						"modelId":"'.$res[modelId].'",
@@ -143,15 +143,15 @@ switch ($_GET[type]) {
 		}
 		//ALL ALL
 		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
-			$sqlTerm = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+			$sqlTerm = "SELECT feature.id as idFeature, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #150");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
 				echo '{
-						"id":"'.$res[featureId].'",
+						"idItem":"'.$res[idFeature].'",
 						"order":"'.$l.'",
 						"label":"'.$_GET[term].'",
-						"featureId":"'.$res[featureId].'",
+						"idFeature":"'.$res[idFeature].'",
 						"manufacturerId":"'.$res[manufacturerId].'",
 						"manufacturerName":"'.$res[manufacturerName].'",
 						"modelId":"'.$res[modelId].'",
@@ -171,13 +171,13 @@ switch ($_GET[type]) {
 		break;
 
 	case 'addOption':
-		$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[idManufacturer]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '', now(), now(),'')";
+		$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '', now(), now(),'')";
 		mysql_query($sql_addOpt) or die ('[{"response":"false"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		break;
 
 	case 'addColor':
-		$sql_addColor = "insert into `colorManufacturer` (`idManufacturer`, `name`, `hexa`, `type`, `application`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[idManufacturer]."', '".$_GET[cname]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', now(), now(),'')";
+		$sql_addColor = "insert into `colorManufacturer` (`idManufacturer`, `name`, `hexa`, `type`, `application`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', now(), now(),'')";
 		mysql_query($sql_addColor) or die ('[{"response":"false"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		break;

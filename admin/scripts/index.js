@@ -32,14 +32,14 @@ $(document).ready(function(){
 		//$(".divColor").ColorPicker({color:colorTemp});
 	});
 	$("#btnColorAdd").click(function(){
-		idManufacturer = $("#idManufacturer").val(),
+		manufacturerId = $("#manufacturerId").val(),
 		cName = $("#colorName").val(),
 		cColor = $("#colorSelected").val(),
 		cApp = $("#colorAplication").val(),
 		cType = $("#colorType").val();
 		cLength = $("#optionsColor span").length-1;
 		if (cColor.length == "6") {
-			$.getJSON('api/index.php?type=addColor&idManufacturer='+idManufacturer+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType, function(data) {
+			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType, function(data) {
 				//console.log(data[0].response,data[0].insertId);
 				if(data[0].response == "true"){
 					//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
@@ -64,7 +64,7 @@ $(document).ready(function(){
 	$("#btnSerieAdd").click(function(){
 		//captura daods
 		textTemp = $("#textAreaSerieAdd").val();
-		text = textTemp.split(";");
+		text = textTemp.split(",");
 		//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
 		l = $("#optionsSerie span").length-2;
 		for (i=0;i<text.length;i++){
@@ -83,10 +83,10 @@ $(document).ready(function(){
 		codOpt = $("#txtOptionsCode").val();
 		textTemp = $("#textAreaOptionsAdd").val();
 		name = $("#txtOptionsName").val();
-		idManufacturer = $("#idManufacturer").val();
+		manufacturerId = $("#manufacturerId").val();
 		text = textTemp.split(";");
 		//add db
-		$.getJSON('api/index.php?type=addOption&idManufacturer='+idManufacturer+'&codopt='+codOpt+'&name='+name+'&text='+textTemp, function(data) {
+		$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp, function(data) {
 			console.log(data[0].response,data[0].insertId);
 			if(data[0].response == "true"){
 				//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
@@ -158,7 +158,7 @@ $(function() {
 	}
 	$( "#askInput" ).catcomplete({
 		source: "api/index.php?type=askInput",
-		delay:0,
+		delay:2,
 		minLength: 1,
 		select: function( event, ui ) {
 			log( ui.item ?
@@ -169,22 +169,22 @@ $(function() {
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
 				$(".resultData ul li").remove();
 					$.each(data, function(key, val) {
-						data = '<li class="resultItem" idDB="'+val.featureId+'">'+
+						data = '<li class="resultItem" idDB="'+val.idFeature+'">'+
 							'<div class="rsItems">';
-						if (val.featureId != "") {
+						if (val.idFeature != "") {
 							data +=	'<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>';
-						} else if (val.verionId != "") {
+						} else if (val.idVersion != "") {
 							data +=	'<div class="btnClone btnButton" title="Adicionar um novo registro para esta Versão" alt="Adicionar um novo registro para esta Versão">+</div>';
-						} else if (val.modelId != "") {
+						} else if (val.idModel != "") {
 							data +=	'<div class="btnClone btnButton" title="Adicionar uma nova Versão para este Modelo" alt="Adicionar um novo registro para esta Versão">+</div>';
-						} else if (val.manufacturerId != "") {
+						} else if (val.idManufacturer != "") {
 							data +=	'<div class="btnClone btnButton" title="Adicionar um novo Modelo para esta Montadora" alt="Adicionar um novo Modelo para esta Montadora">+</div>';
 						} else {
 							data +=	'<div class="btnClone btnButton" title="Adicionar Montadora" alt="Adicionar Montadora">+</div>';
 						}
 						data +=	'<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>'+
 							'</div>'+
-						'<a href="formDetails.php?vehicle='+val.featureId+'&category='+val.category+'&search=<?=$_GET[search]?>" class="resultContent">'+
+						'<a href="formDetails.php?vehicle='+val.idItem+'&category='+val.category+'&search=" class="resultContent">'+
 							'<div class="rsManufacturer" title="'+val.manufacturerName+'">'+val.manufacturerName+'</div>'+
 							'<div class="rsModel" title="'+val.modelName+'">'+val.modelName+'</div>'+
 							'<div class="rsVersion" title="'+val.versionName+'">'+val.versionName+'</div>'+

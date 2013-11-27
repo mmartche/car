@@ -126,7 +126,7 @@ $(function() {
 				$(".resultContent").remove();
 				$.each(data, function(key, val) {
 					//<tr><td id="' + key + '" class="askImg">'+key+'+'+val.value+'</td></tr>');
-					items = '<li class="resultContent" idDB="'+val.featureId+'">'+
+					items = '<li class="resultContent" idDB="'+val.idFeature+'">'+
 									'<div class="rsItems">'+
 									'<div class="btnEdit"></div>'+
 									'<div class="btnDelete"></div>'+
