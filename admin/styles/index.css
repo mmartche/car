@@ -150,14 +150,14 @@ footer {
 	height: auto !important;
 }
 .resultData ul {
-	height: 400px;
+	height: 600px;
 	overflow-y: scroll;
 }
 .resultData>ul>li:nth-child(odd)>a {
-	background-color: #ccc;
+	background-color: #eee;
 }
 .resultData>ul>li>a {
-	background-color: #000;
+	
 }
 .rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYear, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, 
 .rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYear, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, .rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYear, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable {

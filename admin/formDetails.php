@@ -75,15 +75,17 @@ $res = mysql_fetch_array($query_search);
 		?>
 	</header>
 	<div class="formSearch">
-		<form action="" method="post" onsubmit="return false" >
+		<form action="." method="get" >
 			<div class="ui-widget">
-				<input id="askInput" class="askInput" placeholder="Search by version, vehicle, manufacturer" />
+				<input id="askInput" class="askInput" name="askInput" placeholder="Digite o que quer encontrar" />
+				<input id="askType" class="askType" name="askType" />
 			</div>
 			<div class="ui-widget result-box">
 				Result:
-				<!--div id="log" class="ui-widget-content log-box"></div-->
+				<div id="log" class="ui-widget-content log-box"></div>
 			</div>
-			<div id="resultSearch" class="resultSearch"></div>
+			<!--div id="resultSearch" class="resultSearch"></div-->
+			<input type="submit" value="Buscar" class="btnButton btnSearch" />
 		</form>
 	</div>
 	<div class="content">
@@ -359,7 +361,7 @@ $res = mysql_fetch_array($query_search);
 							$filterOpt .= " and idOption != '".$resOptF[idOption]."'";
 						}
 						?>
-						<label>Opcionais referente a linha '<?=$res[manufacturerName]?>'</label><br />
+						<label>Opcionais referente a Montadora '<?=$res[manufacturerName]?>'</label><br />
 						<?
 					$sqlOptM = "select * from optionsManufacturer where idManufacturer = '".$res[manufacturerId]."' ".$filterOpt." order by `name` asc";
 					$queryOptM = mysql_query($sqlOptM) or die (" error #330");
@@ -369,7 +371,7 @@ $res = mysql_fetch_array($query_search);
 						//try remove duplicity
 						?>
 							<span>
-								<input type="checkbox" name="chOpt<?=$iOptM?>" value="s"  />
+								<input type="checkbox" name="chOpt<?=$iOptM?>" value="s" />
 								<input type="hidden" name="txtOpt<?=$iOptM?>" value="<?=$resOptM[id]?>" />
 								<label title="<?=$resOptM[options]?>"><?=$resOptM[name]?></label>
 							</span>
@@ -417,30 +419,14 @@ $res = mysql_fetch_array($query_search);
 					</div>
 				</div>
 				<? } ?>
-				<? if ($_GET[category] != "manufacturer" && $_GET[category] != "model") { ?>
+				<? if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") { ?>
 				<div class="dataPicture dataFields">
-					<label>FOTOS</label>
+					<label>FOTO</label>
 					<div class="optionsPicture optionsFields">
-						<span>Insira uma nova foto</span>
-						<input type="text"><input type="button" value="pesquisar"><br />
-						<input type="button" value="+">
-						<ol class="listPictures">
-							<li>
-								<input type="checkbox" />
-								<div class="btnDeletePicture"></div>
-								<img src="#" />
-							</li>
-							<li>
-								<input type="checkbox" />
-								<div class="btnDeletePicture"></div>
-								<img src="#" />
-							</li>
-							<li>
-								<input type="checkbox" />
-								<div class="btnDeletePicture"></div>
-								<img src="#" />
-							</li>
-						</ol>
+						<label for="txtPicName">Nome da imagem</label><input type="text" name="txtPicName" id="txtPicName" placeholder="Nome da imagem" /><br />
+						<label for="txtPicture">Insira a url da imagem <i>ex.: "http://google.com.br/imagemdocarro.jpg"</i></label><input type="text" name="txtPicture" id="txtPicture" placeholder="url da imagem" />
+						<input type="button" value="Adicionar" id="btnPictureAdd" />
+						<ol class="listPictures" id="listPictures"></ol>
 					</div>
 				</div>
 				<? } ?>
@@ -513,7 +499,7 @@ $res = mysql_fetch_array($query_search);
 								<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
 							</div>
 							<a href="formDetails.php?vehicle=<?=$resRelat[$sqlField]?>&category=<?=$categoryRelat?>" class="resultContent">
-								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$resRelat[modelName]?></div>
+								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$resRelat[manufacturerName]?></div>
 								<div class="rsModel" title="<?=$res[modelName]?>"><?=$resRelat[modelName]?></div>
 								<div class="rsVersion" title="<?=$res[versionName]?>"><?=$resRelat[versionName]?></div>
 								<div class="rsYear" title="<?=$res[yearProduced]?>"><?=$resRelat[yearProduced]?></div>
