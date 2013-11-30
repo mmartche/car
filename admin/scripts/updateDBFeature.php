@@ -87,6 +87,10 @@ switch ($_POST[category]) {
 			`dateUpdate` = now(),
 			`userUpdate` = ''
 		WHERE `feature`.`id` = '".$_POST[idFeature]."' ;";
+<<<<<<< HEAD
+=======
+		echo $sqlFeature;
+>>>>>>> 5653777c64cfe8ca458a03359a4a8ebc1cdcb780
 		/*
 		mysql_query($sqlFeature) or die (" error #80");
 		//serie

@@ -31,6 +31,15 @@ include ("./scripts/conectDB.php");
 <div class="body">
 	<header>
 		<h1 class="logo">Carsale</h1>
+<<<<<<< HEAD
+=======
+		<div class="menu">
+			<ul>
+				<li><a href="#">Montadoras</a></li>
+				<li><a href="#">Modelos</a></li>
+			</ul>
+		</div>
+>>>>>>> 5653777c64cfe8ca458a03359a4a8ebc1cdcb780
 		<h2><span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='formDetails.php' class='btnButton btnNewForm'>Novo Cadastro</a></h2>
 	</header>
 	<div class="formSearch">
@@ -53,7 +62,11 @@ include ("./scripts/conectDB.php");
 			<li><a href="?search=manufacturer">Montadoras</a></li>
 			<li><a href="?search=model">Modelos</a></li>
 			<li class="active">Versao</li>
+<<<<<<< HEAD
 		</ol-->
+=======
+		</ol>
+>>>>>>> 5653777c64cfe8ca458a03359a4a8ebc1cdcb780
 		<div class="resultSearch">
 			<ul class="resultList">
 				<li class="resultHeader">
