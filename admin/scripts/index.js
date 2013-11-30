@@ -106,6 +106,11 @@ $(document).ready(function(){
 		//valida se tem varios
 		//adiciona na lista + opcao selecionada
 	});
+	$("#btnPictureAdd").click(function(){
+		picUrl = $("#txtPicture").val();
+		picName = $("#txtPicName").val();
+		$("#listPictures").html('<li><div class="btnDeletePicture"></div><label>'+picName+'</label><img src="'+picUrl+'" /></li>');
+	});
 });
 function fixFields(){
 	//fix all inputs // counters // flags before submit

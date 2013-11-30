@@ -4,8 +4,8 @@ if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == 'localh
 {
 	$dbHost="localhost";
 	$dbUser="root";
-	$dbPassw="";
-	//$dbPassw="root"; //macbook
+	//$dbPassw="";
+	$dbPassw="root"; //macbook
 	$db="carsale";
 } else {
 	$dbHost="db499362938.db.1and1.com";

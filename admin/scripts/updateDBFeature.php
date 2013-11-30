@@ -1,12 +1,23 @@
 <?
+include ("checkPermissions.php");
 include("conectDB.php");
-switch ($_POST[action]) {
-	case 'update':
-		$sqlFeature = "update `feature` 
+switch ($_POST[category]) {
+	case 'manufacturer':
+		$sqlUpdate = "UPDATE `manufacturer` SET `name` = '".$_POST[manufacturerName]."' WHERE `id` = '".$_POST[manufacturerId]."'";
+		break;
+	case 'model':
+		$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `name` = '".$_POST[modelName]."' WHERE `id` = '".$_POST[modelId]."'";
+		break;
+	case 'version':
+		$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[modelName]."' WHERE `id` = '".$_POST[modelId]."'";
+		break;
+	case 'feature':
+		$sqlUpdate = "update `feature` 
 		SET 
-			`manufacturerId` = '".$_POST[manufacturerId]."',
-			`modelId` = '".$_POST[modelId]."',
-			`versionId` = '".$_POST[versionId]."',
+			`idFeature` = '".$_POST[featureId]."',
+			`idManufacturer` = '".$_POST[manufacturerId]."',
+			`idModel` = '".$_POST[modelId]."',
+			`idVersion` = '".$_POST[versionId]."',
 			`yearProduced` = '".$_POST[yearProduced]."',
 			`yearModel` = '".$_POST[yearModel]."',
 			`doors` = '".$_POST[doors]."',
@@ -76,8 +87,8 @@ switch ($_POST[action]) {
 			`dateUpdate` = now(),
 			`userUpdate` = ''
 		WHERE `feature`.`id` = '".$_POST[idFeature]."' ;";
+		/*
 		mysql_query($sqlFeature) or die (" error #80");
-		
 		//serie
 		$sqlDelSeries = "delete from `serieFeature` WHERE `idFeature` = '".$_POST[idFeature]."'";
 		mysql_query($sqlDelSeries) or die (mysql_error()." error #85");
@@ -125,7 +136,7 @@ switch ($_POST[action]) {
 			$sqlAddColor = "insert into `colorModel` (`id`, `modelId`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
 			mysql_query($sqlAddColor) or die (" error #126");
 		}
-
+*/
 
 		//pictures
 
@@ -134,6 +145,7 @@ switch ($_POST[action]) {
 	default:
 		# code...
 		break;
+	echo $sqlUpdate;
 }
 
 
