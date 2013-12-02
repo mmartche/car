@@ -3,7 +3,7 @@
 include ("../scripts/conectDB.php");
 
 
-//$sql_search = "select feature.id as idFeature, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
+//$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
 
 
 
@@ -73,7 +73,7 @@ switch ($_GET[type]) {
 						"idItem":"'.$res[manufacturerId].'",
 						"order":"'.$l.'",
 						"label":"'.$_GET[term].'",
-						"idFeature":"'.$res[idFeature].'",
+						"featureId":"'.$res[featureId].'",
 						"manufacturerId":"'.$res[manufacturerId].'",
 						"manufacturerName":"'.$res[manufacturerName].'",
 						"modelId":"'.$res[modelId].'",
@@ -99,7 +99,7 @@ switch ($_GET[type]) {
 						"idItem":"'.$res[modelId].'",
 						"order":"'.$l.'",
 						"label":"'.$_GET[term].'",
-						"idFeature":"'.$res[idFeature].'",
+						"featureId":"'.$res[featureId].'",
 						"manufacturerId":"'.$res[manufacturerId].'",
 						"manufacturerName":"'.$res[manufacturerName].'",
 						"modelId":"'.$res[modelId].'",
@@ -125,7 +125,7 @@ switch ($_GET[type]) {
 						"idItem":"'.$res[versionId].'",
 						"order":"'.$l.'",
 						"label":"'.$_GET[term].'",
-						"idFeature":"'.$res[idFeature].'",
+						"featureId":"'.$res[featureId].'",
 						"manufacturerId":"'.$res[manufacturerId].'",
 						"manufacturerName":"'.$res[manufacturerName].'",
 						"modelId":"'.$res[modelId].'",
@@ -143,15 +143,15 @@ switch ($_GET[type]) {
 		}
 		//ALL ALL
 		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
-			$sqlTerm = "SELECT feature.id as idFeature, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+			$sqlTerm = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #150");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
 				echo '{
-						"idItem":"'.$res[idFeature].'",
+						"idItem":"'.$res[featureId].'",
 						"order":"'.$l.'",
 						"label":"'.$_GET[term].'",
-						"idFeature":"'.$res[idFeature].'",
+						"featureId":"'.$res[featureId].'",
 						"manufacturerId":"'.$res[manufacturerId].'",
 						"manufacturerName":"'.$res[manufacturerName].'",
 						"modelId":"'.$res[modelId].'",
@@ -186,6 +186,81 @@ switch ($_GET[type]) {
 		$sql_addColor = "DELETE FROM `colorManufacturer` WHERE `colorManufacturer`.`id` = '".$_GET[idColor]."'";
 		mysql_query($sql_addColor) or die ('[{"response":"false"}]');
 		echo '[{"response":"true"}]';
+		break;
+
+		//first check if exist children-content about this, 
+		//if true then response false and the children info (how many itens still using this item)
+		//if false go to delConfirm
+	case 'deleteForm':
+		if ($_GET[table] && $_GET[idField]) {
+			$sqlCheckChildren = "DELETE FROM ".$_GET[table]." WHERE `id` = '".$_GET[idField]."'";
+			mysql_query($sqlCheckChildren) or die ('[{"response":"false","error":"error #200","reason":"'.mysql_error().'"}]');
+			echo '[{"response":"true"}]';
+		} else {
+			echo '[{"response":"false","error":"error #210","reason":"Incomplete Data"}]';
+		}
+		break;
+
+		//wait prompt confirm and userId
+		//check if will erase the children data (NO NO NO . NOT NOW)
+		//change the status to deleted by user ;x;
+	case 'deleteFormConfirm':
+		echo '[{"response":"true"}]';
+		break;
+
+	case 'askManuf':
+		echo "[";
+		$sql_s_manuf = "select id, name from manufacturer where name like ('%".$_GET[term]."%') limit 10";
+		$query_s_manuf = mysql_query($sql_s_manuf) or die ($sql_s_manuf." error #15");
+		$m = 0;
+		while ($resM = mysql_fetch_array($query_s_manuf)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resM[id].'",
+					"label":"'.$resM[name].'",
+					"category": "Montadora",
+					"table":"manufacturer",
+					"value":"'.$resM[name].'"
+				}';
+			$m++;
+		}
+		echo "]";
+		break;
+	case 'askModel':
+		echo "[";
+		$sql_search = "select id, name from model where name like ('%".$_GET[term]."%') limit 10";
+		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
+		$m = 0;
+		while ($resM = mysql_fetch_array($query_s_manuf)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resM[id].'",
+					"label":"'.$resM[name].'",
+					"category": "Modelo",
+					"table":"model",
+					"value":"'.$resM[name].'"
+				}';
+			$m++;
+		}
+		echo "]";
+		break;
+	case 'askManuf':
+		echo "[";
+		$sql_v = "select id, name from version where name like ('%".$_GET[term]."%') limit 10";
+		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
+		$m = 0;
+		while ($resM = mysql_fetch_array($query_s_manuf)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resM[id].'",
+					"label":"'.$resM[name].'",
+					"category": "Versão",
+					"table":"version",
+					"value":"'.$resM[name].'"
+				}';
+			$m++;
+		}
+		echo "]";
 		break;
 }
 

@@ -12,6 +12,13 @@ header .logo {
 	height: 45px;
 	margin: 10px 0 0 10px;
 }
+.logoRed {
+	color: #cb2026;
+}
+.logoText {
+	font-family: Impact, serif;
+	letter-spacing: 0.5px;
+}
 header h2 {
 	background-color: #596678;
 	color: #fff;
@@ -90,6 +97,14 @@ footer {
 	position: absolute;
 	top: 5px;
 	right: 10px;
+}
+.btnDelForm {
+	font-size: 16px;
+	padding: 5px 10px;
+	display: block;
+	background-color: #cb2026;
+	width: 100%;
+	text-align: center;
 }
 .ui-autocomplete-loading {
 	background: white url('ui-anim_basic_16x16.gif') right center no-repeat;

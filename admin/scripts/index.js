@@ -111,6 +111,42 @@ $(document).ready(function(){
 		picName = $("#txtPicName").val();
 		$("#listPictures").html('<li><div class="btnDeletePicture"></div><label>'+picName+'</label><img src="'+picUrl+'" /></li>');
 	});
+	$("#btnDelForm").click(function(){
+		//check where we are (category whatever)
+		featureId = $("#featureId").val(), yearProduced = $("#txtYearProduced").val(), yearModel = $("#txtYearModel").val(), manufacturerId = $("#manufacturerId").val(), manufacturerName = $("#txtManufacturerName").val(), modelId = $("#modelId").val(), modelName = $("#txtModelName").val(), versionId = $("#versionId").val(), versionName = $("#txtVersionName").val(), category = $("#category").val();
+		if (category != ""){
+			fieldTemp = "#"+category+"Id";
+			idForm = $(fieldTemp).val();
+			msg = "Tem certeza que deseja excluir o veículo";
+			if (featureId){
+				msg+=" Ano: "+yearModel+"/"+yearProduced;
+			}
+			if (versionId){
+				msg+=" Versão:"+versionName;
+			}
+			if (modelId){
+				msg+=" Modelo:"+modelName;
+			}
+			if (manufacturerId){
+				msg+=" Montadora:"+manufacturerName;
+			}
+			//show confirm  ... then
+			console.log (msg);
+			if (idForm && category) {
+				$.getJSON('api/index.php?type=deleteForm&idField='+idForm+'&table='+category, function(data) {
+					if(data[0].response == "true"){
+						//go to index
+						//console.log("foi");
+						return true;
+					} else {
+						console.log(data[0].error);
+						return false;
+						//alert error
+					}
+				});
+			}
+		}
+	});
 });
 function fixFields(){
 	//fix all inputs // counters // flags before submit
@@ -127,8 +163,8 @@ function deleteColor(obj,idColor) {
 		}
 	});
 }
-function openDetails(idFeature){
-	console.log(idFeature);
+function openDetails(featureId){
+	console.log(featureId);
 }
 function filterFields(fieldName,obj){
 	//se o campo do mesmo class nao tiver o texto digitado, some
@@ -142,6 +178,10 @@ function filterFields(fieldName,obj){
 			$(t).addClass("hide");
 		}
 	}	
+}
+function checkFields() {
+	//valida o que vai ser
+	return false;
 }
 $.widget( "custom.catcomplete", $.ui.autocomplete, {
 	_renderMenu: function( ul, items ) {
@@ -174,9 +214,9 @@ $(function() {
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
 				$(".resultData ul li").remove();
 					$.each(data, function(key, val) {
-						data = '<li class="resultItem" idDB="'+val.idFeature+'">'+
+						data = '<li class="resultItem" idDB="'+val.featureId+'">'+
 							'<div class="rsItems">';
-						if (val.idFeature != "") {
+						if (val.featureId != "") {
 							data +=	'<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>';
 						} else if (val.idVersion != "") {
 							data +=	'<div class="btnClone btnButton" title="Adicionar um novo registro para esta Versão" alt="Adicionar um novo registro para esta Versão">+</div>';
@@ -217,4 +257,62 @@ $(function() {
 			//console.log("close");
 		}
 	});
+/*
+	$( "#txtManufacturerName" ).catcomplete({
+		source: "api/index.php?type=askManuf",
+		delay:1,
+		minLength: 1,
+		select: function( event, ui ) {
+			//change id
+			$("#manufacturerId").val(ui.item.id);
+		}
+	});
+	$( "#txtModelName" ).catcomplete({
+		source: "api/index.php?type=askModel",
+		delay:1,
+		minLength: 1,
+		select: function( event, ui ) {
+			//change id
+			$("#modelId").val(ui.item.id);
+		}
+	});
+	$( "#txtVersionName" ).catcomplete({
+		source: "api/index.php?type=askVersion",
+		delay:1,
+		minLength: 1,
+		select: function( event, ui ) {
+			//change id
+			$("#versionId").val(ui.item.id);
+		}
+	});
+*/
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -30,16 +30,7 @@ include ("./scripts/conectDB.php");
 
 <div class="body">
 	<header>
-		<h1 class="logo">Carsale</h1>
-<<<<<<< HEAD
-=======
-		<div class="menu">
-			<ul>
-				<li><a href="#">Montadoras</a></li>
-				<li><a href="#">Modelos</a></li>
-			</ul>
-		</div>
->>>>>>> 5653777c64cfe8ca458a03359a4a8ebc1cdcb780
+		<h1 class="logo"><span class="logoText logoRed">Car</span><span class="logoText logoBlack">sale</span></h1>
 		<h2><span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='formDetails.php' class='btnButton btnNewForm'>Novo Cadastro</a></h2>
 	</header>
 	<div class="formSearch">
@@ -62,11 +53,7 @@ include ("./scripts/conectDB.php");
 			<li><a href="?search=manufacturer">Montadoras</a></li>
 			<li><a href="?search=model">Modelos</a></li>
 			<li class="active">Versao</li>
-<<<<<<< HEAD
 		</ol-->
-=======
-		</ol>
->>>>>>> 5653777c64cfe8ca458a03359a4a8ebc1cdcb780
 		<div class="resultSearch">
 			<ul class="resultList">
 				<li class="resultHeader">
@@ -98,7 +85,7 @@ include ("./scripts/conectDB.php");
 				<li class="resultData"><ul>
 				<?
 					if ($_GET[askInput] != "") {
-						$sqlTerm = "SELECT manufacturer.id as id, manufacturer.name as manufacturerName FROM manufacturer WHERE name like ('%".$_GET[askInput]."%')";
+						$sqlTerm = "SELECT manufacturer.id as id, manufacturer.name as manufacturerName FROM manufacturer WHERE name like ('%".$_GET[askInput]."%') ORDER by name";
 						$query_search = mysql_query($sqlTerm) or die ($sqlTerm. mysql_error()." error #135");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
@@ -112,7 +99,7 @@ include ("./scripts/conectDB.php");
 								</a>
 							</li>
 						<? }
-						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.id as id, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id and model.name like ('%".$_GET[askInput]."%')";
+						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.id as id, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id and model.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name";
 						$query_search = mysql_query($sqlTerm) or die (" error #150");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
@@ -127,11 +114,11 @@ include ("./scripts/conectDB.php");
 								</a>
 							</li>
 						<? }
-						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.name as modelName, version.id as id, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id and version.name like ('%".$_GET[askInput]."%')";
+						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.name as modelName, version.id as id, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id and version.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name, version.name";
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
-							<li class="resultItem" idDB="<?=$res[idFeature]?>">
+							<li class="resultItem" idDB="">
 								<div class="rsItems">
 									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
 									<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
@@ -152,7 +139,7 @@ include ("./scripts/conectDB.php");
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
-							<li class="resultItem" idDB="<?=$res[idFeature]?>">
+							<li class="resultItem" idDB="">
 								<div class="rsItems">
 									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
 									<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
@@ -172,11 +159,11 @@ include ("./scripts/conectDB.php");
 							</li>
 						<? } 
 					} else {
-						$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer";
+						$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 						$query_search = mysql_query($sql_search) or die (" error #180");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
-						<li class="resultItem" idDB="<?=$res[idFeature]?>">
+						<li class="resultItem" idDB="">
 							<div class="rsItems">
 								<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
 								<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
