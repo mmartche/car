@@ -131,19 +131,23 @@ $(document).ready(function(){
 				msg+=" Montadora:"+manufacturerName;
 			}
 			//show confirm  ... then
-			console.log (msg);
-			if (idForm && category) {
-				$.getJSON('api/index.php?type=deleteForm&idField='+idForm+'&table='+category, function(data) {
-					if(data[0].response == "true"){
-						//go to index
-						//console.log("foi");
-						return true;
-					} else {
-						console.log(data[0].error);
-						return false;
-						//alert error
-					}
-				});
+			var r = confirm(msg);
+			if (r == true) {
+				if (idForm && category) {
+					$.getJSON('api/index.php?type=deleteForm&idField='+idForm+'&table='+category, function(data) {
+						if(data[0].response == "true"){
+							//go to index
+							//console.log("foi");
+							return true;
+						} else {
+							console.log(data[0].error);
+							return false;
+							//alert error
+						}
+					});
+				}
+			} else {
+				return false;
 			}
 		}
 	});
@@ -171,10 +175,9 @@ function filterFields(fieldName,obj){
 	$(".resultItem").removeClass("hide");
 	lengthFields = $("."+fieldName).length;
 	for (i=0;i<lengthFields;i++){
-		var tempField = $("."+fieldName)[i].innerText;
+		var tempField = $("."+fieldName)[i].innerHTML;
 		if (tempField.toLowerCase().indexOf(obj.value.toLowerCase()) < 0){
 			t = $("."+fieldName)[i].parentElement.parentElement;
-			console.log(t);
 			$(t).addClass("hide");
 		}
 	}	
@@ -257,17 +260,8 @@ $(function() {
 			//console.log("close");
 		}
 	});
-/*
-	$( "#txtManufacturerName" ).catcomplete({
-		source: "api/index.php?type=askManuf",
-		delay:1,
-		minLength: 1,
-		select: function( event, ui ) {
-			//change id
-			$("#manufacturerId").val(ui.item.id);
-		}
-	});
-	$( "#txtModelName" ).catcomplete({
+
+	$( ".new #txtModelName" ).catcomplete({
 		source: "api/index.php?type=askModel",
 		delay:1,
 		minLength: 1,
@@ -276,7 +270,7 @@ $(function() {
 			$("#modelId").val(ui.item.id);
 		}
 	});
-	$( "#txtVersionName" ).catcomplete({
+	$( ".new #txtVersionName" ).catcomplete({
 		source: "api/index.php?type=askVersion",
 		delay:1,
 		minLength: 1,
@@ -285,9 +279,17 @@ $(function() {
 			$("#versionId").val(ui.item.id);
 		}
 	});
-*/
-});
+	$( ".new #txtManufacturerName" ).catcomplete({
+		source: "api/index.php?type=askManuf",
+		delay:1,
+		minLength: 1,
+		select: function( event, ui ) {
+			//change id
+			$("#manufacturerId").val(ui.item.id);
+		}
+	});
 
+});
 
 
 

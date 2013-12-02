@@ -85,45 +85,45 @@ include ("./scripts/conectDB.php");
 				<li class="resultData"><ul>
 				<?
 					if ($_GET[askInput] != "") {
-						$sqlTerm = "SELECT manufacturer.id as id, manufacturer.name as manufacturerName FROM manufacturer WHERE name like ('%".$_GET[askInput]."%') ORDER by name";
+						$sqlTerm = "SELECT manufacturer.id as id, manufacturer.name as manufacturerName FROM manufacturer WHERE name like ('%".$_GET[askInput]."%') ORDER by name limit 10";
 						$query_search = mysql_query($sqlTerm) or die ($sqlTerm. mysql_error()." error #135");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
+									<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
+									<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=manufacturer" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=manufacturer&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 								</a>
 							</li>
 						<? }
-						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.id as id, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id and model.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name";
+						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.id as id, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id and model.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name limit 10";
 						$query_search = mysql_query($sqlTerm) or die (" error #150");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
+									<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
+									<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=model" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=model&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 								</a>
 							</li>
 						<? }
-						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.name as modelName, version.id as id, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id and version.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name, version.name";
+						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.name as modelName, version.id as id, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id and version.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name, version.name limit 10";
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 							<li class="resultItem" idDB="">
 								<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
+									<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
+									<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=version" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=version&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
@@ -131,20 +131,20 @@ include ("./scripts/conectDB.php");
 									<div class="rsSegment"></div>
 									<div class="rsGear"></div>
 									<div class="rsOil"></div>
-									<div class="rsAvaliable">Sim</div>
+									<div class="rsAvaliable"></div>
 								</a>
 							</li>
 						<? } 
-						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%'))";
+						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 10";
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 							<li class="resultItem" idDB="">
 								<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
+									<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
+									<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
@@ -154,7 +154,7 @@ include ("./scripts/conectDB.php");
 									<div class="rsSegment"></div>
 									<div class="rsGear"></div>
 									<div class="rsOil"></div>
-									<div class="rsAvaliable">Sim</div>
+									<div class="rsAvaliable"></div>
 								</a>
 							</li>
 						<? } 
@@ -165,10 +165,10 @@ include ("./scripts/conectDB.php");
 						?>
 						<li class="resultItem" idDB="">
 							<div class="rsItems">
-								<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-								<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
+								<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
+								<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
 							</div>
-							<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&category=manufacturer" class="resultContent">
+							<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" class="resultContent">
 								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 							</a>
 						</li>
@@ -179,7 +179,7 @@ include ("./scripts/conectDB.php");
 		</div>
 	</div>
 	<footer>
-		Copyright 2013
+		Copyright 2013 carsale.com.br - Todos os direitos reservados
 	</footer>
 </div>
 

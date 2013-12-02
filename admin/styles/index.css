@@ -49,7 +49,7 @@ footer {
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 400px;
+	width: 402px;
 	padding: 10px;
 	margin: 1px;
 	border: 1px solid;
@@ -148,6 +148,8 @@ footer {
 }
 .resultSearch {
 	overflow-x: scroll;
+	margin: 20px;
+	border: 1px solid;
 }
 .resultList {
 	/*width: 10000px; */
@@ -175,7 +177,8 @@ footer {
 	
 }
 .rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYear, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, 
-.rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYear, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, .rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYear, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable {
+.rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYear, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, 
+.rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYear, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable {
 	float: left;
 	border-right: 1px dotted;
 	height: 100%;
@@ -187,6 +190,9 @@ footer {
 }
 .rhItems, .rfItems, .rsItems {
 	width: 110px;
+}
+.rfItems {
+	padding: 10px;
 }
 .btnEdit {
 	height: 30px;
