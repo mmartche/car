@@ -245,8 +245,8 @@ $(function() {
 						data += '<div class="rsVersion" title="'+val.versionName+'">'+val.versionName+'</div>';
 						}
 						if (val.category == "feature") {
-						data += '<div class="rsYear" title="'+val.yearProduced+'">'+val.yearProduced+'</div>'+
-							'<div class="rsYear" title="'+val.yearModel+'">'+val.yearModel+'</div>'+
+						data +='<div class="rsYearModel" title="'+val.yearModel+'">'+val.yearModel+'</div>'+
+							'<div class="rsYearProduced" title="'+val.yearProduced+'">'+val.yearProduced+'</div>'+
 							'<div class="rsEngine" title="'+val.engine+'">'+val.engine+'</div>'+
 							'<div class="rsGear" title="'+val.gear+'">'+val.gear+'</div>'+
 							'<div class="rsFuel" title="'+val.fuel+'">'+val.fuel+'</div>'+
