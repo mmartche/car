@@ -53,7 +53,8 @@ footer {
 	padding: 10px;
 	margin: 1px;
 	border: 1px solid;
-	background-color: #fff;
+	background-color: #000;
+	z-index: 1;
 }
 .formSearch .askInput {
 	width: 317px;
@@ -122,12 +123,12 @@ footer {
 	text-align: center;
 	padding: 5px 0;
 	color: #fff;
-	background: -moz-linear-gradient(top, rgba(95,102,113,1) 0%, rgba(95,102,113,0.96) 20%, rgba(153,162,174,0.9) 50%, rgba(95,102,113,0.84) 80%, rgba(95,102,113,0.8) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(95,102,113,1)), color-stop(20%,rgba(95,102,113,0.96)), color-stop(50%,rgba(153,162,174,0.9)), color-stop(80%,rgba(95,102,113,0.84)), color-stop(100%,rgba(95,102,113,0.8))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(95,102,113,1) 0%,rgba(95,102,113,0.96) 20%,rgba(153,162,174,0.9) 50%,rgba(95,102,113,0.84) 80%,rgba(95,102,113,0.8) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(95,102,113,1) 0%,rgba(95,102,113,0.96) 20%,rgba(153,162,174,0.9) 50%,rgba(95,102,113,0.84) 80%,rgba(95,102,113,0.8) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(95,102,113,1) 0%,rgba(95,102,113,0.96) 20%,rgba(153,162,174,0.9) 50%,rgba(95,102,113,0.84) 80%,rgba(95,102,113,0.8) 100%); /* IE10+ */
-	background: linear-gradient(to bottom, rgba(95,102,113,1) 0%,rgba(95,102,113,0.96) 20%,rgba(153,162,174,0.9) 50%,rgba(95,102,113,0.84) 80%,rgba(95,102,113,0.8) 100%); /* W3C */
+	background: -moz-linear-gradient(top, rgba(95,102,113,1) 0%, rgba(95,102,113,0.96) 10%, rgba(153,162,174,0.9) 50%, rgba(95,102,113,0.84) 90%, rgba(95,102,113,0.8) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(95,102,113,1)), color-stop(10%,rgba(95,102,113,0.96)), color-stop(50%,rgba(153,162,174,0.9)), color-stop(90%,rgba(95,102,113,0.84)), color-stop(100%,rgba(95,102,113,0.8))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(95,102,113,1) 0%,rgba(95,102,113,0.96) 10%,rgba(153,162,174,0.9) 50%,rgba(95,102,113,0.84) 90%,rgba(95,102,113,0.8) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(95,102,113,1) 0%,rgba(95,102,113,0.96) 10%,rgba(153,162,174,0.9) 50%,rgba(95,102,113,0.84) 90%,rgba(95,102,113,0.8) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(95,102,113,1) 0%,rgba(95,102,113,0.96) 10%,rgba(153,162,174,0.9) 50%,rgba(95,102,113,0.84) 90%,rgba(95,102,113,0.8) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(95,102,113,1) 0%,rgba(95,102,113,0.96) 10%,rgba(153,162,174,0.9) 50%,rgba(95,102,113,0.84) 90%,rgba(95,102,113,0.8) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5f6671', endColorstr='#cc5f6671',GradientType=0 ); /* IE6-9 */
 }
 .resultFilter {
@@ -136,7 +137,7 @@ footer {
 }
 .resultFilter input {
 	width: 90%;
-	margin: 10px 0;
+	margin: 5px 0;
 }
 .resultList li {
 	overflow: hidden;
@@ -152,16 +153,13 @@ footer {
 	border: 1px solid;
 }
 .resultList {
-	/*width: 10000px; */
+	width: 2105px;
 }
 .resultContent {
 	cursor: pointer;
 	display: block;
 	overflow: hidden;
 	border: 1px solid;
-}
-.resultContent:hover {
-	background-color: #fff !important;
 }
 .resultData {
 	height: auto !important;
@@ -174,11 +172,18 @@ footer {
 	background-color: #eee;
 }
 .resultData>ul>li>a {
-	
+	display: block;
+	overflow: hidden;
 }
-.rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYear, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, 
-.rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYear, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, 
-.rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYear, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable {
+.resultContent:hover {
+	background-color: #ddd !important;
+}
+.resultData>ul>li>a:hover {
+	background-color: #ddd;
+}
+.rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYearModel, .rhYearProduced, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, .rhGear, .rhEngine, .rhFuel, .rhSteering, .rhSegment, 
+.rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYearModel, .rfYearProduced, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, .rfGear, .rfEngine, .rfFuel, .rfSteering, .rfSegment,  
+.rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYearModel, .rsYearProduced, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable, .rsGear, .rsEngine, .rsFuel, .rsSteering, .rsSegment {
 	float: left;
 	border-right: 1px dotted;
 	height: 100%;
@@ -187,6 +192,9 @@ footer {
 	white-space: nowrap;
 	overflow: hidden;
 	width: 150px;
+	font-size: 17px;
+	text-align: center;
+	color: #000;
 }
 .rhItems, .rfItems, .rsItems {
 	width: 110px;
@@ -244,6 +252,8 @@ footer {
 }
 .rsPicture {
 	width:150px;
+	text-align: left;
+	margin: 0 0 0 10px;
 }
 .rsPicture img {
 	border: 1px solid;
@@ -251,16 +261,4 @@ footer {
 	height: 70px;
 	position: absolute;
 	top: 5px;
-}
-.rsSegment {
-	width:100px;
-}
-.rsGear {
-	width:100px;
-}
-.rsOil {
-	width:100px;
-}
-.rsAvaliable {
-	width:100px;
 }

@@ -31,7 +31,7 @@ include ("./scripts/conectDB.php");
 <div class="body">
 	<header>
 		<h1 class="logo"><span class="logoText logoRed">Car</span><span class="logoText logoBlack">sale</span></h1>
-		<h2><span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='formDetails.php' class='btnButton btnNewForm'>Novo Cadastro</a></h2>
+		<h2><span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='formDetails.php?action=new' class='btnButton btnNewForm'>Novo Cadastro</a></h2>
 	</header>
 	<div class="formSearch">
 		<form action="." method="get" >
@@ -61,26 +61,31 @@ include ("./scripts/conectDB.php");
 					<div class="rhManufacturer">Montadora</div>
 					<div class="rhModel">Modelo</div>
 					<div class="rhVersion">Versão</div>
-					<div class="rhYear">Ano de Fabricaçao</div>
-					<div class="rhYear">Ano do Modelo</div>
-					<div class="rhPicture">Foto</div>
-					<div class="rhSegment">Segmento</div>
+					<div class="rhYearModel">Ano do Modelo</div>
+					<div class="rhYearProduced">Ano de Fabricaçao</div>
+					<div class="rhEngine">Motor</div>
 					<div class="rhGear">Câmbio</div>
-					<div class="rhOil">Combustível</div>
-					<div class="rhAvaliable">Disponível</div>
+					<div class="rhFuel">Combustível</div>
+					<div class="rhSteering">Direção</div>
+					<div class="rhSegment">Segmento 1</div>
+					<div class="rhSegment">Segmento 2</div>
+					<div class="rhSegment">Segmento 3</div>
 				</li>
 				<li class="resultFilter">
 					<div class="rfItems">Filtros</div>
 					<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" /></div>
 					<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields('rsModel',this)" /></div>
 					<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)"  /></div>
-					<div class="rfYear"><input type="text" id="txtRSYear" onkeyup="filterFields('rsYear',this)" /></div>
-					<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
-					<div class="rfPicture"><input type="text" id="txtRSPicture" /></div>
-					<div class="rfSegment"><input type="text" id="txtRSSegment" onkeyup="filterFields('rsSegment',this)" /></div>
+					<div class="rfYearModel"><input type="text" id="txtRSYearModel" onkeyup="filterFields('rsYearModel',this)" /></div>
+					<div class="rfYearProduced"><input type="text" id="txtRSYearProduced" onkeyup="filterFields('rsYearProduced',this)" /></div>
+					<div class="rfEngine"><input type="text" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" /></div>
 					<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields('rsGear',this)" /></div>
-					<div class="rfOil"><input type="text" id="txtRSOil" onkeyup="filterFields('rsOil',this)" /></div>
-					<div class="rfAvaliable"><input type="text" id="txtRSAvaliable" /></div>
+					<div class="rfFuel"><input type="text" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" /></div>
+					<div class="rfSteering"><input type="text" id="txtRSSteering" onkeyup="filterFields('rsSteering',this)" /></div>
+					<div class="rfSegment"><input type="text" id="txtRSSegment1" onkeyup="filterFields('rsSegment1',this)" /></div>
+					<div class="rfSegment"><input type="text" id="txtRSSegment2" onkeyup="filterFields('rsSegment2',this)" /></div>
+					<div class="rfSegment"><input type="text" id="txtRSSegment3" onkeyup="filterFields('rsSegment3',this)" /></div>
+					<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
 				</li>
 				<li class="resultData"><ul>
 				<?
@@ -122,20 +127,16 @@ include ("./scripts/conectDB.php");
 								<div class="rsItems">
 									<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
 									<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
+									<div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div>
 								</div>
 								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=version&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
-									<div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div>
-									<div class="rsSegment"></div>
-									<div class="rsGear"></div>
-									<div class="rsOil"></div>
-									<div class="rsAvaliable"></div>
 								</a>
 							</li>
 						<? } 
-						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 10";
+						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 10";
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
@@ -143,34 +144,50 @@ include ("./scripts/conectDB.php");
 								<div class="rsItems">
 									<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
 									<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
+									<div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div>
 								</div>
 								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
-									<div class="rsYear"><?=$res[yearModel]?></div>
-									<div class="rsYear"><?=$res[yearProduced]?></div>
-									<div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div>
-									<div class="rsSegment"></div>
-									<div class="rsGear"></div>
-									<div class="rsOil"></div>
-									<div class="rsAvaliable"></div>
+									<div class="rsYearModel"><?=$res[yearModel]?></div>
+									<div class="rsYearProduced"><?=$res[yearProduced]?></div>
+									<div class="rsEngine"><?=$res[engine]?></div>
+									<div class="rsGear"><?=$res[gear]?></div>
+									<div class="rsFuel"><?=$res[fuel]?></div>
+									<div class="rsSteering"><?=$res[steering]?></div>
+									<div class="rsSegment"><?=$res[segment]?></div>
+									<div class="rsSegment"><?=$res[segment]?></div>
+									<div class="rsSegment"><?=$res[segment]?></div>
 								</a>
 							</li>
 						<? } 
 					} else {
-						$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
+						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ORDER BY manufacturerName ASC, yearModel asc, yearProduced asc limit 30";
+						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 						$query_search = mysql_query($sql_search) or die (" error #180");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 						<li class="resultItem" idDB="">
 							<div class="rsItems">
-								<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
-								<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
-							</div>
-							<a href="formDetails.php?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" class="resultContent">
-								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
-							</a>
+									<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
+									<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
+									<div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div>
+								</div>
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
+									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
+									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
+									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
+									<div class="rsYearModel"><?=$res[yearModel]?></div>
+									<div class="rsYearProduced"><?=$res[yearProduced]?></div>
+									<div class="rsEngine"><?=$res[engine]?></div>
+									<div class="rsGear"><?=$res[gear]?></div>
+									<div class="rsFuel"><?=$res[fuel]?></div>
+									<div class="rsSteering"><?=$res[steering]?></div>
+									<div class="rsSegment"><?=$res[segment]?></div>
+									<div class="rsSegment"><?=$res[segment]?></div>
+									<div class="rsSegment"><?=$res[segment]?></div>
+								</a>
 						</li>
 						<? } 
 					} ?>

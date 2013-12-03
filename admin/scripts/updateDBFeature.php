@@ -140,8 +140,8 @@ switch ($_POST[action]) {
 				$valuesColorInput .= "(NULL, '".$_POST[modelId]."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputType".$i]."', now(), now(), NULL)";
 			}
 			if ($valuesColorInput != ""){
-				$sqlAddColor = "insert into `colorModel` (`id`, `modelId`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
-				mysql_query($sqlAddColor) or die (" error #126");
+				$sqlAddColor = "insert into `colorModel` (`id`, `idModel`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
+				mysql_query($sqlAddColor) or die (mysql_error()." error #126");
 			}
 
 			//pictures

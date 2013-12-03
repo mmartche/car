@@ -125,34 +125,34 @@ $res = mysql_fetch_array($query_search);
 			<?
 			switch ($_GET[category]) {
 				case 'manufacturer':
-					?><li class="active" title="Montadora"><?=$res[manufacturerName]?></li><?
+					?><li class="active" title="Editar Montadora"><?=$res[manufacturerName]?></li><?
 					break;
 				case 'model':
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Montadora"><?=$res[manufacturerName]?></a></li>
-					<li class="active" title="Modelo"><?=$res[modelName]?></li><?
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+					<li class="active" title="Editar Modelo"><?=$res[modelName]?></li><?
 					break;
 				case 'version':
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Montadora"><?=$res[manufacturerName]?></a></li>
-					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Modelo"><?=$res[modelName]?></a></li>
-					<li class="active" title="Versão"><?=$res[versionName]?></li><?
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=$res[modelName]?></a></li>
+					<li class="active" title="Editar Versão"><?=$res[versionName]?></li><?
 					break;
 				default:
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Montadora"><?=$res[manufacturerName]?></a></li>
-					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Modelo"><?=$res[modelName]?></a></li>
-					<li><a href="?vehicle=<?=$res[versionId]?>&category=version&action=update" title="Versão"><?=$res[versionName]?></a></li>
-					<li class="active" title="Ficha Técnica">Ficha Técnica</li><?
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=$res[modelName]?></a></li>
+					<li><a href="?vehicle=<?=$res[versionId]?>&category=version&action=update" title="Editar Versão"><?=$res[versionName]?></a></li>
+					<li class="active" title="Editar Ficha Técnica">Ficha Técnica</li><?
 					break;
 			}
 			?>
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="checkFields()">
-		<input type="text" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
+		<input type="hidden" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="hidden" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="hidden" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="hidden" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="hidden" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="hidden" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?
@@ -223,7 +223,34 @@ $res = mysql_fetch_array($query_search);
 					<span><label>Segmento:</label><input type="text" name="segmentName" id="txtSegmentName" value="<?=$res[segmentName]?>" placeholder="Segmento" /></span><br />
 					<span><label>Ano de Produção:</label><input type="text" name="yearModel" id="txtYearModel" value="<?=$res[yearModel]?>" placeholder="Ano do Modelo" /></span><br />
 					<span><label>Ano do Modelo:</label><input type="text" name="yearProduced" id="txtYearProduced" value="<?=$res[yearProduced]?>" placeholder="Ano de Produção" /></span><br />
-				
+					<span class="hide"><label>Quantidade de portas:</label><input type="text" name="doors" id="txtDoors" value="<?=$res[doors]?>" /></span><br />
+					<span class="hide"><label>Quantidade de ocupantes:</label><input type="text" name="passagers" id="txtPassagers" value="<?=$res[passagers]?>" /></span><br />
+					<span class="hide"><label>Motor:</label><input type="text" name="engine" id="txtEngine" value="<?=$res[engine]?>" /></span><br />
+					<span class="hide"><label>Alimentação:</label><input type="text" name="feeding" id="txtFeeding"  value="<?=$res[feeding]?>" /></span><br />
+					<span class="hide"><label>Combustível:</label><input type="text" name="fuel" id="txtFuel" value="<?=$res[fuel]?>" /></span><br />
+					<span class="hide"><label>Potência máxima:</label><input type="text" name="powerMax" id="txtPowerMax" value="<?=$res[powerMax]?>" /></span><br />
+					<span class="hide"><label>Torque:</label><input type="text" name="torque" id="txtTorque" value="<?=$res[torque]?>" /></span><br />
+					<span class="hide"><label>Aceleração:</label><input type="text" name="acceleration" id="txtAcceleration" value="<?=$res[acceleration]?>" /></span><br />
+					<span class="hide"><label>Velocidade máxima (km/h):</label><input type="text" name="speedMax" id="txtSpeedMax" value="<?=$res[speedMax]?>" /></span><br />
+					<span class="hide"><label>Consumo (km/l) na cidade:</label><input type="text" name="consumptionCity" id="txtConsumptionCity" value="<?=$res[consumptionCity]?>" /></span><br />
+					<span class="hide"><label>Consumo (km/l) na estrada:</label><input type="text" name="consumptionRoad" id="txtConsumptionRoad" value="<?=$res[consumptionRoad]?>" /></span><br />
+					<span class="hide"><label>Câmbio:</label><input type="text" name="gear" id="txtGear" value="<?=$res[gear]?>" /></span><br />
+					<span class="hide"><label>Tração:</label><input type="text" name="traction" id="txtTraction" value="<?=$res[traction]?>" /></span><br />
+					<span class="hide"><label>Rodas:</label><input type="text" name="wheels" id="txtWheels" value="<?=$res[wheels]?>" /></span><br />
+					<span class="hide"><label>Suspensão dianteira:</label><input type="text" name="frontSuspension" id="txtFrontSuspension" value="<?=$res[frontSuspension]?>" /></span><br />
+					<span class="hide"><label>Suspensão traseira:</label><input type="text" name="rearSuspension" id="txtRearSuspension" value="<?=$res[rearSuspension]?>" /></span><br />
+					<span class="hide"><label>Freio dianteiro:</label><input type="text" name="frontBrake" id="txtFrontBrake" value="<?=$res[frontBrake]?>" /></span><br />
+					<span class="hide"><label>Freio traseiro:</label><input type="text" name="rearBrake" id="txtRearBrake" value="<?=$res[rearBrake]?>" /></span><br />
+					<span class="hide"><label>Dimensão (mm):</label></span><br />
+					<span class="hide"><label>-Comprimento:</label><input type="text" name="dimensionLength" id="txtDimensionLength" value="<?=$res[dimensionLength]?>" /></span><br />
+					<span class="hide"><label>-Largura:</label><input type="text" name="dimensionWidth" id="txtDimensionWidth" value="<?=$res[dimensionWidth]?>" /></span><br />
+					<span class="hide"><label>-Altura:</label><input type="text" name="dimensionHeight" id="txtDimensionHeight" value="<?=$res[dimensionHeight]?>" /></span><br />
+					<span class="hide"><label>-Entre eixos:</label><input type="text" name="dimensionSignAxes" id="txtDimensionSignAxes" value="<?=$res[dimensionSignAxes]?>" /></span><br />
+					<span class="hide"><label>Peso (kg):</label><input type="text" name="weight" id="txtHeight" value="<?=$res[weight]?>" /></span><br />
+					<span class="hide"><label>Porta malas (litros):</label><input type="text" name="trunk" id="txtTrunk" value="<?=$res[trunk]?>" /></span><br />
+					<span class="hide"><label>Tanque (litros):</label><input type="text" name="tank" id="txtTank" value="<?=$res[tank]?>" /></span><br />
+					<span class="hide"><label>Garantia:</label><input type="text" name="warranty" id="txtWarranty" value="<?=$res[warranty]?>" /></span><br />
+					<span class="hide"><label>País de orígem:</label><input type="text" name="countryOrigin" id="txtCountryOrigin" value="<?=$res[countryOrigin]?>" /></span><br />
 					<?
 				break;
 			}
@@ -505,17 +532,19 @@ $res = mysql_fetch_array($query_search);
 			<div class="resultSearch">
 				<ul class="resultList">
 					<li class="resultHeader">
-						<div class="rsItems"></div>
-						<div class="rsManufacturer">Montadora</div>
-						<div class="rsModel">Modelo</div>
-						<div class="rsVersion">Versão</div>
-						<div class="rsYear">Ano Fabricação</div>
-						<div class="rsYear">Ano Modelo</div>
-						<div class="rsPicture">Foto</div>
-						<div class="rsSegment">Segmento</div>
-						<div class="rsGear">Câmbio</div>
-						<div class="rsOil">Combustível</div>
-						<div class="rsAvaliable">Disponível</div>
+						<div class="rhItems"></div>
+						<div class="rhManufacturer">Montadora</div>
+						<div class="rhModel">Modelo</div>
+						<div class="rhVersion">Versão</div>
+						<div class="rhYear">Ano de Fabricaçao</div>
+						<div class="rhYear">Ano do Modelo</div>
+						<div class="rhEngine">Motor</div>
+						<div class="rhGear">Câmbio</div>
+						<div class="rhFuel">Combustível</div>
+						<div class="rhSteering">Direção</div>
+						<div class="rhSegment">Segmento 1</div>
+						<div class="rhSegment">Segmento 2</div>
+						<div class="rhSegment">Segmento 3</div>
 					</li>
 					<li class="resultFilter">
 						<div class="rfItems">Filtros</div>
@@ -523,12 +552,14 @@ $res = mysql_fetch_array($query_search);
 						<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields('rsModel',this)" /></div>
 						<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)"  /></div>
 						<div class="rfYear"><input type="text" id="txtRSYear" onkeyup="filterFields('rsYear',this)" /></div>
-						<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
-						<div class="rfPicture"><input type="text" id="txtRSPicture" /></div>
-						<div class="rfSegment"><input type="text" id="txtRSSegment" onkeyup="filterFields('rsSegment',this)" /></div>
+						<div class="rfEngine"><input type="text" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" /></div>
 						<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields('rsGear',this)" /></div>
-						<div class="rfOil"><input type="text" id="txtRSOil" onkeyup="filterFields('rsOil',this)" /></div>
-						<div class="rfAvaliable"><input type="text" id="txtRSAvaliable" /></div>
+						<div class="rfFuel"><input type="text" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" /></div>
+						<div class="rfSteering"><input type="text" id="txtRSSteering" onkeyup="filterFields('rsSteering',this)" /></div>
+						<div class="rfSegment"><input type="text" id="txtRSSegment1" onkeyup="filterFields('rsSegment1',this)" /></div>
+						<div class="rfSegment"><input type="text" id="txtRSSegment2" onkeyup="filterFields('rsSegment2',this)" /></div>
+						<div class="rfSegment"><input type="text" id="txtRSSegment3" onkeyup="filterFields('rsSegment3',this)" /></div>
+						<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
 					</li>
 					<li class="resultData"><ul>
 					<?
@@ -552,18 +583,27 @@ $res = mysql_fetch_array($query_search);
 						$query_relat = mysql_query($sql_relat) or die (mysql_error()."error #495");
 						while ($resRelat = mysql_fetch_array($query_relat)) {
 						?>
-						<li class="resultItem" idDB="<?=$res[$sqlField]?>">
+						<li class="resultItem" idDB="<?=$resRelat[$sqlField]?>">
 							<div class="rsItems">
-								<div class="btnClone btnButton" title="Adicionar um novo registro para esta Versão" alt="Adicionar um novo registro para esta Versão">+</div>';
-								<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-								<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>
+								<!--div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div-->
+								<!--div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div-->
+								<? if ($_GET[category] == "feature") { ?>
+								<div class="rsPicture"><img src="<?=$resRelat[picture]?>+'" /></div>
+								<? } ?>
 							</div>
-							<a href="formDetails.php?vehicle=<?=$resRelat[$sqlField]?>&category=<?=$categoryRelat?>&action=update" class="resultContent">
-								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$resRelat[manufacturerName]?></div>
-								<div class="rsModel" title="<?=$res[modelName]?>"><?=$resRelat[modelName]?></div>
-								<div class="rsVersion" title="<?=$res[versionName]?>"><?=$resRelat[versionName]?></div>
-								<div class="rsYear" title="<?=$res[yearProduced]?>"><?=$resRelat[yearProduced]?></div>
-								<div class="rsYear" title="<?=$res[yearModel]?>"><?=$resRelat[yearModel]?></div>
+							<a href="formDetails.php?vehicle=<?=$resRelat[$sqlField]?>&category=<?=$categoryRelat?>&action=update" class="resRelatultContent">
+								<div class="rsManufacturer" title="<?=$resRelat[manufacturerName]?>"><?=$resRelat[manufacturerName]?></div>
+								<div class="rsModel" title="<?=$resRelat[modelName]?>"><?=$resRelat[modelName]?></div>
+								<div class="rsVersion" title="<?=$resRelat[versionName]?>"><?=$resRelat[versionName]?></div>
+								<div class="rsYear"><?=$resRelat[yearModel]?></div>
+								<div class="rsYear"><?=$resRelat[yearProduced]?></div>
+								<div class="rsEngine"><?=$resRelat[engine]?></div>
+								<div class="rsGear"><?=$resRelat[gear]?></div>
+								<div class="rsFuel"><?=$resRelat[fuel]?></div>
+								<div class="rsSteering"><?=$resRelat[steering]?></div>
+								<div class="rsSegment"><?=$resRelat[segment]?></div>
+								<div class="rsSegment"><?=$resRelat[segment]?></div>
+								<div class="rsSegment"><?=$resRelat[segment]?></div>
 							</a>
 						</li>
 					<? }

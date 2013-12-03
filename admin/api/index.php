@@ -57,7 +57,7 @@ switch ($_GET[type]) {
 
 	case 'terms':
 		//echo $sql_search;
-		if ($_GET[table] != "") { $filterSearch = "AND ".$_GET[table].".id = '".$_GET[idField]."'"; }
+		if ($_GET[table] != "") { $filterSearch = "AND ".$_GET[table].".id = '".$_GET[idField]."' limit 10"; }
 		elseif ($_GET[term] != "") { 
 		//search all about the term
 		}
@@ -143,7 +143,7 @@ switch ($_GET[type]) {
 		}
 		//ALL ALL
 		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
-			$sqlTerm = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+			$sqlTerm = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #150");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
@@ -160,6 +160,13 @@ switch ($_GET[type]) {
 						"versionName":"'.$res[versionName].'",
 						"yearProduced":"'.$res[yearProduced].'",
 						"yearModel":"'.$res[yearModel].'",
+						"engine":"'.$res[engine].'",
+						"gear":"'.$res[gear].'",
+						"fuel":"'.$res[fuel].'",
+						"steering":"'.$res[steering].'",
+						"segment1":"'.$res[segment1].'",
+						"segment2":"'.$res[segment2].'",
+						"segment3":"'.$res[segment3].'",
 						"category": "feature",
 						"value":"",
 						"name":""

@@ -219,6 +219,7 @@ $(function() {
 					$.each(data, function(key, val) {
 						data = '<li class="resultItem" idDB="'+val.featureId+'">'+
 							'<div class="rsItems">';
+						/*
 						if (val.featureId != "") {
 							data +=	'<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>';
 						} else if (val.idVersion != "") {
@@ -230,20 +231,31 @@ $(function() {
 						} else {
 							data +=	'<div class="btnClone btnButton" title="Adicionar Montadora" alt="Adicionar Montadora">+</div>';
 						}
-						data +=	'<div class="btnActive btnButton" title="Ativo" alt="Ativo">v</div>'+
-							'</div>'+
+						*/
+						if (val.category == "feature") {
+						data +=	'<div class="rsPicture"><img src="'+val.picture+'" /></div>';
+						}
+						data += '</div>'+
 						'<a href="formDetails.php?vehicle='+val.idItem+'&category='+val.category+'&search=" class="resultContent">'+
-							'<div class="rsManufacturer" title="'+val.manufacturerName+'">'+val.manufacturerName+'</div>'+
-							'<div class="rsModel" title="'+val.modelName+'">'+val.modelName+'</div>'+
-							'<div class="rsVersion" title="'+val.versionName+'">'+val.versionName+'</div>'+
-							'<div class="rsYear" title="'+val.yearProduced+'">'+val.yearProduced+'</div>'+
+							'<div class="rsManufacturer" title="'+val.manufacturerName+'">'+val.manufacturerName+'</div>';
+						if (val.category == "model" || val.category == "version" || val.category == "feature") {
+						data += '<div class="rsModel" title="'+val.modelName+'">'+val.modelName+'</div>';
+						}
+						if (val.category == "feature" || val.category == "version") {
+						data += '<div class="rsVersion" title="'+val.versionName+'">'+val.versionName+'</div>';
+						}
+						if (val.category == "feature") {
+						data += '<div class="rsYear" title="'+val.yearProduced+'">'+val.yearProduced+'</div>'+
 							'<div class="rsYear" title="'+val.yearModel+'">'+val.yearModel+'</div>'+
-							'<div class="rsPicture"><img src="'+val.picture+'" /></div>'+
-							'<div class="rsSegment"></div>'+
-							'<div class="rsGear"></div>'+
-							'<div class="rsOil"></div>'+
-							'<div class="rsAvaliable">Sim</div>'+
-						'</a>'+
+							'<div class="rsEngine" title="'+val.engine+'">'+val.engine+'</div>'+
+							'<div class="rsGear" title="'+val.gear+'">'+val.gear+'</div>'+
+							'<div class="rsFuel" title="'+val.fuel+'">'+val.fuel+'</div>'+
+							'<div class="rsSteering" title="'+val.steering+'">'+val.steering+'</div>'+
+							'<div class="rsSegment" title="'+val.segment1+'">'+val.segment1+'</div>'+
+							'<div class="rsSegment" title="'+val.segment2+'">'+val.segment2+'</div>'+
+							'<div class="rsSegment" title="'+val.segment3+'">'+val.segment3+'</div>';
+						}
+						data+='</a>'+
 						'</li>';
 						$(".resultData ul").append(data);
 					});
@@ -261,7 +273,16 @@ $(function() {
 		}
 	});
 
-	$( ".new #txtModelName" ).catcomplete({
+	$( "#txtManufacturerName" ).catcomplete({
+		source: "api/index.php?type=askManuf",
+		delay:1,
+		minLength: 1,
+		select: function( event, ui ) {
+			//change id
+			$("#manufacturerId").val(ui.item.id);
+		}
+	});
+	$( "#txtModelName" ).catcomplete({
 		source: "api/index.php?type=askModel",
 		delay:1,
 		minLength: 1,
@@ -270,22 +291,13 @@ $(function() {
 			$("#modelId").val(ui.item.id);
 		}
 	});
-	$( ".new #txtVersionName" ).catcomplete({
+	$( "#txtVersionName" ).catcomplete({
 		source: "api/index.php?type=askVersion",
 		delay:1,
 		minLength: 1,
 		select: function( event, ui ) {
 			//change id
 			$("#versionId").val(ui.item.id);
-		}
-	});
-	$( ".new #txtManufacturerName" ).catcomplete({
-		source: "api/index.php?type=askManuf",
-		delay:1,
-		minLength: 1,
-		select: function( event, ui ) {
-			//change id
-			$("#manufacturerId").val(ui.item.id);
 		}
 	});
 
