@@ -186,6 +186,15 @@ function checkFields() {
 	//valida o que vai ser
 	return false;
 }
+function activeItem (item,table,obj) {
+	$.getJSON('api/index.php?type=activeItem&idItem='+obj, function(data) {
+		if(data[0].response == "true"){
+			$(obj).parents("li.resultItem").toggleClass("desactive");
+		} else {
+			//alert error
+		}
+	});
+}
 $.widget( "custom.catcomplete", $.ui.autocomplete, {
 	_renderMenu: function( ul, items ) {
 		var that = this,
@@ -206,8 +215,8 @@ $(function() {
 	}
 	$( "#askInput" ).catcomplete({
 		source: "api/index.php?type=askInput",
-		delay:2,
-		minLength: 1,
+		delay:5,
+		minLength: 0,
 		select: function( event, ui ) {
 			log( ui.item ?
 				"Selected: " + ui.item.id + " aka " + ui.item.value + " category " + ui.item.category:
@@ -219,21 +228,23 @@ $(function() {
 					$.each(data, function(key, val) {
 						data = '<li class="resultItem" idDB="'+val.featureId+'">'+
 							'<div class="rsItems">';
-						/*
-						if (val.featureId != "") {
-							data +=	'<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>';
-						} else if (val.idVersion != "") {
-							data +=	'<div class="btnClone btnButton" title="Adicionar um novo registro para esta Versão" alt="Adicionar um novo registro para esta Versão">+</div>';
-						} else if (val.idModel != "") {
-							data +=	'<div class="btnClone btnButton" title="Adicionar uma nova Versão para este Modelo" alt="Adicionar um novo registro para esta Versão">+</div>';
-						} else if (val.idManufacturer != "") {
-							data +=	'<div class="btnClone btnButton" title="Adicionar um novo Modelo para esta Montadora" alt="Adicionar um novo Modelo para esta Montadora">+</div>';
-						} else {
-							data +=	'<div class="btnClone btnButton" title="Adicionar Montadora" alt="Adicionar Montadora">+</div>';
-						}
-						*/
-						if (val.category == "feature") {
-						data +=	'<div class="rsPicture"><img src="'+val.picture+'" /></div>';
+						switch (val.category) {
+							case "manufacturer":
+								data +=	'<div class="btnClone btnButton" title="Adicionar um novo Modelo para esta Montadora" alt="Adicionar um novo Modelo para esta Montadora">+</div>';
+								data += '<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'manufacturer\',this)">v</div>';
+							break;
+							case "model":
+								data +=	'<div class="btnClone btnButton" title="Adicionar uma nova Versão para este Modelo" alt="Adicionar um novo registro para esta Versão">+</div>';
+								data += '<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'model\',this)">v</div>';
+							break;
+							case "version":
+								data +=	'<div class="btnClone btnButton" title="Adicionar um novo registro para esta Versão" alt="Adicionar um novo registro para esta Versão">+</div>';
+								data += '<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'version\',this)">v</div>';
+							break;
+							case "feature":
+								data +=	'<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>';
+								data += '<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'feature\',this)">v</div>';
+							break;
 						}
 						data += '</div>'+
 						'<a href="formDetails.php?vehicle='+val.idItem+'&category='+val.category+'&search=" class="resultContent">'+
@@ -276,7 +287,7 @@ $(function() {
 	$( "#txtManufacturerName" ).catcomplete({
 		source: "api/index.php?type=askManuf",
 		delay:1,
-		minLength: 1,
+		minLength: 0,
 		select: function( event, ui ) {
 			//change id
 			$("#manufacturerId").val(ui.item.id);
@@ -285,7 +296,7 @@ $(function() {
 	$( "#txtModelName" ).catcomplete({
 		source: "api/index.php?type=askModel",
 		delay:1,
-		minLength: 1,
+		minLength: 0,
 		select: function( event, ui ) {
 			//change id
 			$("#modelId").val(ui.item.id);
@@ -294,13 +305,21 @@ $(function() {
 	$( "#txtVersionName" ).catcomplete({
 		source: "api/index.php?type=askVersion",
 		delay:1,
-		minLength: 1,
+		minLength: 0,
 		select: function( event, ui ) {
 			//change id
 			$("#versionId").val(ui.item.id);
 		}
 	});
-
+	$( "#colorType" ).catcomplete({
+		source: "json/colorAplication.json",
+		delay:1,
+		minLength: 0,
+		select: function( event, ui ) {
+			//change id
+			//$("#versionId").val(ui.item.id);
+		}
+	});
 });
 
 

@@ -180,6 +180,7 @@ $res = mysql_fetch_array($query_search);
 					break;
 				case 'feature':
 				?>
+				<span><label>Código:</label><input type="text" name="code" id="code" value="<?=$res[code]?>" /></span><br />
 				<span><label>Montadora:</label><input type="text" name="manufaturerName" id="txtManufacturerName" value="<?=$res[manufacturerName]?>" /></span><br />
 				<span><label>Modelo:</label><input type="text" name="modelName" id="txtModelName" value="<?=$res[modelName]?>" /></span><br />
 				<span><label>Versão:</label><input type="text" name="versionName" id="txtVersionName" value="<?=$res[versionName]?>" /></span><br />

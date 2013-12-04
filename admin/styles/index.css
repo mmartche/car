@@ -107,6 +107,10 @@ footer {
 	width: 100%;
 	text-align: center;
 }
+.ui-autocomplete {
+	max-height: 500px;
+	overflow-y:scroll;
+}
 .ui-autocomplete-loading {
 	background: white url('ui-anim_basic_16x16.gif') right center no-repeat;
 }
@@ -145,7 +149,10 @@ footer {
 }
 .resultItem {
 	position: relative;
-	padding: 30px 0;
+	padding: 10px 0;
+}
+.resultItem.desactive {
+	background-color: #ff0000;
 }
 .resultSearch {
 	overflow-x: scroll;
@@ -165,7 +172,7 @@ footer {
 	height: auto !important;
 }
 .resultData ul {
-	height: 600px;
+	height: 400px;
 	overflow-y: scroll;
 }
 .resultData>ul>li:nth-child(odd)>a {
