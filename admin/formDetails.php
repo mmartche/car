@@ -76,29 +76,62 @@ $res = mysql_fetch_array($query_search);
 		switch ($_GET[category]) {
 			case 'manufacturer':
 				echo "<h2><span>Sistema administrativo - Cadastro de Montadoras</span>";
-				if ($_GET[action] != "new") {	
-					echo "<a href='?category=model&action=new&vehicle=".$res[manufacturerId]."' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>";
+				if ($_GET[action] == "new") {
+					?>
+					<input type="button" value="Incluir" class="btnSave btnButton" />
+					<?
+				} elseif ($_GET[action] == "update") {
+					?>
+					<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+					<a href='?category=model&action=new&vehicle=<?=$res[manufacturerId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>
+					<input type="button" value="Atualizar" class="btnSave btnButton" />
+					<?
 				}
 				echo "</h2>";
 				break;
 			case 'model':
 				echo "<h2><span>Sistema administrativo - Cadastro de Linhas</span>";
-				if ($_GET[action] != "new") {
-					echo "<a href='?category=version&action=new&vehicle=".$res[modelId]."' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>";
+				if ($_GET[action] == "new") {
+					?>
+						<input type="button" value="Incluir" class="btnSave btnButton" />
+					<?
+				} elseif ($_GET[action] == "update") {
+					?>
+						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+						<a href='?category=version&action=new&vehicle=<?=$res[modelId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>
+						<input type="submit" value="Atualizar" class="btnSave btnButton" />
+					<?
 				}
 				echo "</h2>";
 				break;
 			case 'version':
 				echo "<h2><span>Sistema administrativo - Ficha Técnica de veículos / Versão</span>";
-				if ($_GET[action] != "new") {
-					echo "<a href='?category=feature&action=new&vehicle=".$res[versionId]."' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>";
+				if ($_GET[action] == "new") {
+					?>
+						<input type="submit" value="Incluir" class="btnSave btnButton" />
+					<?
+				} elseif ($_GET[action] == "update") {
+					?>
+						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+						<a href='?category=feature&action=new&vehicle=<?=$res[versionId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>
+						<input type="submit" value="Atualizar" class="btnSave btnButton" />	
+					<?
 				}
+
 				echo"</h2>";
 				break;
-			default:
+			case 'feature':
 				echo "<h2><span>Sistema administrativo - Ficha Técnica de veículos</span>";
-				if ($_GET[action] != "new") {
-					echo "<a href='?category=feature&action=clone&vehicle=".$res[featureId]."' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>";
+				if ($_GET[action] == "new" || $_GET[action] == "clone") {
+					?>
+					<input type="button" value="Incluir" class="btnSave btnButton" />
+					<?
+				} elseif ($_GET[action] == "update") {
+					?>
+						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+						<a href='?category=feature&action=clone&vehicle=<?=$res[featureId]?>' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>
+						<input type="submit" value="Atualizar" class="btnSave btnButton" />
+					<?
 				}
 				echo"</h2>";
 				break;
@@ -146,13 +179,13 @@ $res = mysql_fetch_array($query_search);
 			?>
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="checkFields()">
-		<input type="hidden" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
+		<input type="text" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="hidden" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="hidden" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="hidden" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="hidden" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="hidden" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?
@@ -518,9 +551,26 @@ $res = mysql_fetch_array($query_search);
 			</div>
 		</div>
 		<div class="divSave">
-			<input type="submit" value="SALVAR" class="btnSave">
+			<? switch ($_GET[action]) {
+				case 'update':
+					?>
+					<input type="submit" value="ATUALIZAR" class="btnSave btnButton">
+					<?
+					break;
+				case 'new':
+					?>
+					<input type="submit" value="CRIAR" class="btnSave btnButton">
+					<?
+					break;
+				default:
+					?>
+					<input type="submit" value="SALVAR" class="btnSave btnButton">
+					<?
+					break;
+			}
+			?>
 			<? if ($_GET[action] != "new" && $_GET[action] != "clone") { ?>
-			<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+				<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
 			<? } ?>
 		</div>
 		</form>
@@ -537,8 +587,8 @@ $res = mysql_fetch_array($query_search);
 						<div class="rhManufacturer">Montadora</div>
 						<div class="rhModel">Modelo</div>
 						<div class="rhVersion">Versão</div>
-						<div class="rhYear">Ano de Fabricaçao</div>
-						<div class="rhYear">Ano do Modelo</div>
+						<div class="rhYearModel">Ano do Modelo</div>
+						<div class="rhYearProduced">Ano de Fabricaçao</div>
 						<div class="rhEngine">Motor</div>
 						<div class="rhGear">Câmbio</div>
 						<div class="rhFuel">Combustível</div>
@@ -552,7 +602,8 @@ $res = mysql_fetch_array($query_search);
 						<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" /></div>
 						<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields('rsModel',this)" /></div>
 						<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)"  /></div>
-						<div class="rfYear"><input type="text" id="txtRSYear" onkeyup="filterFields('rsYear',this)" /></div>
+						<div class="rfYearModel"><input type="text" id="txtRSYearModel" onkeyup="filterFields('rsYearModel',this)" /></div>
+						<div class="rfYearProduced"><input type="text" id="txtRSYearProduced" onkeyup="filterFields('rsYearProduced',this)" /></div>
 						<div class="rfEngine"><input type="text" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" /></div>
 						<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields('rsGear',this)" /></div>
 						<div class="rfFuel"><input type="text" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" /></div>
@@ -560,7 +611,6 @@ $res = mysql_fetch_array($query_search);
 						<div class="rfSegment"><input type="text" id="txtRSSegment1" onkeyup="filterFields('rsSegment1',this)" /></div>
 						<div class="rfSegment"><input type="text" id="txtRSSegment2" onkeyup="filterFields('rsSegment2',this)" /></div>
 						<div class="rfSegment"><input type="text" id="txtRSSegment3" onkeyup="filterFields('rsSegment3',this)" /></div>
-						<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
 					</li>
 					<li class="resultData"><ul>
 					<?
@@ -596,8 +646,8 @@ $res = mysql_fetch_array($query_search);
 								<div class="rsManufacturer" title="<?=$resRelat[manufacturerName]?>"><?=$resRelat[manufacturerName]?></div>
 								<div class="rsModel" title="<?=$resRelat[modelName]?>"><?=$resRelat[modelName]?></div>
 								<div class="rsVersion" title="<?=$resRelat[versionName]?>"><?=$resRelat[versionName]?></div>
-								<div class="rsYear"><?=$resRelat[yearModel]?></div>
-								<div class="rsYear"><?=$resRelat[yearProduced]?></div>
+								<div class="rsYearModel"><?=$resRelat[yearModel]?></div>
+								<div class="rsYearProduced"><?=$resRelat[yearProduced]?></div>
 								<div class="rsEngine"><?=$resRelat[engine]?></div>
 								<div class="rsGear"><?=$resRelat[gear]?></div>
 								<div class="rsFuel"><?=$resRelat[fuel]?></div>

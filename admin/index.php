@@ -96,8 +96,8 @@ include ("./scripts/conectDB.php");
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'manufacturer',this)">v</div>
+									<a class="btnClone btnButton" href="?category=model&action=new&vehicle=<?=$res[id]?>" title="Incluir Modelo para esta Montadora" alt="Incluir Modelo para esta Montadora">Novo modelo</a>
+									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'manufacturer',this)"></div>
 								</div>
 								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=manufacturer&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
@@ -110,8 +110,8 @@ include ("./scripts/conectDB.php");
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'model',this)">v</div>
+									<a class="btnClone btnButton" href="?category=version&action=new&vehicle=<?=$res[id]?>" title="Incluir Versão para este Modelo" alt="Incluir Versão para este Modelo">Nova versão</a>
+									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'model',this)"></div>
 								</div>
 								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=model&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
@@ -123,10 +123,10 @@ include ("./scripts/conectDB.php");
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
-							<li class="resultItem" idDB="">
+							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'version',this)">v</div>
+									<a class="btnClone btnButton" href="?category=feature&action=new&vehicle=<?=$res[id]?>" title="Incluir Ficha Técnica para esta Versão" alt="Incluir Ficha Técnica para esta Versão">Nova Ficha</a>
+									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'version',this)"></div>
 									<!--div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div-->
 								</div>
 								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=version&action=update" class="resultContent">
@@ -140,10 +140,10 @@ include ("./scripts/conectDB.php");
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
-							<li class="resultItem" idDB="">
+							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)">v</div>
+									<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
+									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>
 									<!--div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div-->
 								</div>
 								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
@@ -163,15 +163,15 @@ include ("./scripts/conectDB.php");
 							</li>
 						<? } 
 					} else {
-						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel asc, yearProduced asc limit 30";
+						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel asc, yearProduced asc limit 30";
 						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 						$query_search = mysql_query($sql_search) or die (mysql_error()." error #180");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
-						<li class="resultItem" idDB="">
+						<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
 							<div class="rsItems">
-									<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>
-									<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)">v</div>
+									<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
+									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>
 									<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
 								</div>
 								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">

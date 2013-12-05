@@ -10,7 +10,7 @@ include ("../scripts/conectDB.php");
 switch ($_GET[type]) {
  	case 'askInput':
 		echo "[";
-		$sql_s_manuf = "select id, name from manufacturer where name like ('%".$_GET[term]."%') limit 10";
+		$sql_s_manuf = "select id, name, active from manufacturer where name like ('%".$_GET[term]."%') limit 10";
 		$query_s_manuf = mysql_query($sql_s_manuf) or die ($sql_s_manuf." error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -19,12 +19,13 @@ switch ($_GET[type]) {
 					"id":"'.$resM[id].'",
 					"label":"'.$resM[name].'",
 					"category": "Montadora",
+					"active":"'.$resM[active].'",
 					"table":"manufacturer",
 					"value":"'.$resM[name].'"
 				}';
 			$m++;
 		}
-		$sql_search = "select id, name from model where name like ('%".$_GET[term]."%') limit 10";
+		$sql_search = "select id, name, active from model where name like ('%".$_GET[term]."%') limit 10";
 		$query_search = mysql_query($sql_search) or die (" error #30");
 		$l = 0;
 		while ($res = mysql_fetch_array($query_search)) {
@@ -33,12 +34,13 @@ switch ($_GET[type]) {
 					"id":"'.$res[id].'",
 					"label":"'.$res[name].'",
 					"category": "Modelo",
+					"active":"'.$res[active].'",
 					"table":"model",
 					"value":"'.$res[name].'"
 				}';
 			$l++;
 		}
-		$sql_v = "select id, name from version where name like ('%".$_GET[term]."%') limit 10";
+		$sql_v = "select id, name, active from version where name like ('%".$_GET[term]."%') limit 10";
 		$query_v = mysql_query($sql_v) or die (" error #40");
 		$v = 0;
 		while ($resV = mysql_fetch_array($query_v)) {
@@ -47,6 +49,7 @@ switch ($_GET[type]) {
 					"id":"'.$resV[id].'",
 					"label":"'.$resV[name].'",
 					"category": "Versão",
+					"active":"'.$resV[active].'",
 					"table":"version",
 					"value":"'.$resV[name].'"
 				}';
@@ -64,7 +67,7 @@ switch ($_GET[type]) {
 		echo "[";
 		//ALL MANUFACTURES
 		if ($_GET[table] == "manufacturer") {
-			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer WHERE id = '".$_GET[idField]."'";
+			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, active FROM manufacturer WHERE id = '".$_GET[idField]."'";
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #70");
 			$l = 0;
 			while ($res = mysql_fetch_array($queryTerm)) {
@@ -83,6 +86,7 @@ switch ($_GET[type]) {
 						"yearProduced":"'.$res[yearProduced].'",
 						"yearModel":"'.$res[yearModel].'",
 						"category": "manufacturer",
+						"active":"'.$res[active].'",
 						"value":"",
 						"name":""
 					}';
@@ -91,7 +95,7 @@ switch ($_GET[type]) {
 		}
 		//ALL MODELS
 		if ($_GET[table] == "manufacturer" || $_GET[table] == "model") {
-			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id ".$filterSearch;
+			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, model.active FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #95");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
@@ -109,6 +113,7 @@ switch ($_GET[type]) {
 						"yearProduced":"'.$res[yearProduced].'",
 						"yearModel":"'.$res[yearModel].'",
 						"category": "model",
+						"active":"'.$res[active].'",
 						"value":"",
 						"name":""
 					}';
@@ -117,7 +122,7 @@ switch ($_GET[type]) {
 		}
 		//ALL VERSIONS
 		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
-			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, version.active FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #120");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
@@ -135,6 +140,7 @@ switch ($_GET[type]) {
 						"yearProduced":"'.$res[yearProduced].'",
 						"yearModel":"'.$res[yearModel].'",
 						"category": "version",
+						"active":"'.$res[active].'",
 						"value":"",
 						"name":""
 					}';
@@ -143,7 +149,7 @@ switch ($_GET[type]) {
 		}
 		//ALL ALL
 		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
-			$sqlTerm = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+			$sqlTerm = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, feature.active FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #150");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
@@ -168,6 +174,7 @@ switch ($_GET[type]) {
 						"segment2":"'.$res[segment2].'",
 						"segment3":"'.$res[segment3].'",
 						"category": "feature",
+						"active":"'.$res[active].'",
 						"value":"",
 						"name":""
 					}';
@@ -217,7 +224,7 @@ switch ($_GET[type]) {
 
 	case 'askManuf':
 		echo "[";
-		$sql_s_manuf = "select id, name from manufacturer where name like ('%".$_GET[term]."%') limit 10";
+		$sql_s_manuf = "SELECT id, name, active from manufacturer where name like ('%".$_GET[term]."%') ORDER by name limit 10";
 		$query_s_manuf = mysql_query($sql_s_manuf) or die ($sql_s_manuf." error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -227,6 +234,7 @@ switch ($_GET[type]) {
 					"label":"'.$resM[name].'",
 					"category": "Montadora",
 					"table":"manufacturer",
+					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';
 			$m++;
@@ -235,17 +243,19 @@ switch ($_GET[type]) {
 		break;
 	case 'askModel':
 		echo "[";
-		$sql_search = "select id, name from model where name like ('%".$_GET[term]."%') limit 10";
+		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
+		$sql_search = "SELECT id, name, active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name limit 10";
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
 			if ($m > 0) { echo ","; }
 			echo '{
 					"id":"'.$resM[id].'",
-					"label":"'.$resM[name].'",
+					"label":"'.$sql_search.'",
 					"category": "Modelo",
 					"table":"model",
-					"value":"'.$resM[name].'"
+					"active":"'.$resM[active].'",
+					"value":"'.$sql_search.'"
 				}';
 			$m++;
 		}
@@ -253,7 +263,8 @@ switch ($_GET[type]) {
 		break;
 	case 'askManuf':
 		echo "[";
-		$sql_v = "select id, name from version where name like ('%".$_GET[term]."%') limit 10";
+		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' "; }
+		$sql_v = "SELECT id, name, active from version where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name limit 10";
 		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -263,11 +274,27 @@ switch ($_GET[type]) {
 					"label":"'.$resM[name].'",
 					"category": "Versão",
 					"table":"version",
+					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';
 			$m++;
 		}
 		echo "]";
+		break;
+
+	case 'activeItem':
+		$select = "SELECT active from ".$_GET[category]." WHERE id = '".$_GET[idItem]."'";
+		$query = mysql_query($select) or die ('[{"response":"false", "errorMsg":"'.mysql_error().'"}]');
+		$resAI = mysql_fetch_array($query);
+		if ($resAI[active] == "n") {
+			$sql_aI = "UPDATE `".$_GET[category]."` SET `active` = 's' WHERE `id` = '".$_GET[idItem]."'";
+			mysql_query($sql_aI) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+			echo '[{"response":"true", "responseMsg":"active"}]';
+		} else {
+			$sql_aI = "UPDATE `".$_GET[category]."` SET `active` = 'n' WHERE `id` = '".$_GET[idItem]."'";
+			mysql_query($sql_aI) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+			echo '[{"response":"true", "responseMsg":"desactive"}]';
+		}
 		break;
 }
 

@@ -25,10 +25,21 @@ header h2 {
 	font-size: 18px;
 	margin: 10px 0 0 0;
 	position: relative;
+	height: 40px;
 }
 header h2 span {
 	padding: 10px 5px;
 	display: block;
+	float: left;
+}
+header .btnSave {
+	width: 100px;
+	float: right;
+	margin: 5px 5px;
+	font-size: 17px;
+	padding: 7px 10px 3px;
+	background-color: green;
+	color: #fff;
 }
 .hide {
 	display: none;
@@ -95,17 +106,19 @@ footer {
 .btnNewForm {
 	font-size: 16px;
 	padding: 5px 10px;
-	position: absolute;
-	top: 5px;
+	margin: 6px 5px;
 	right: 10px;
+	float: right;
 }
 .btnDelForm {
 	font-size: 16px;
 	padding: 5px 10px;
+	margin: 6px 5px;
 	display: block;
 	background-color: #cb2026;
-	width: 100%;
+	width: 150px;
 	text-align: center;
+	float: right;
 }
 .ui-autocomplete {
 	max-height: 500px;
@@ -204,7 +217,7 @@ footer {
 	color: #000;
 }
 .rhItems, .rfItems, .rsItems {
-	width: 110px;
+	width: 160px;
 }
 .rfItems {
 	padding: 10px;
@@ -227,20 +240,33 @@ footer {
 }
 .btnClone {
 	height: 22px;
-	width: 60px;
+	width: 110px;
 	padding: 0px;
 	float: left;
 	margin: 0 0 0 5px;
 	text-align: center;
 }
 .btnActive {
-	height: 22px;
 	width: 30px;
 	padding: 0px;
 	float: left;
 	margin: 0 5px;
+	height: 25px;
+	border: 0;
 	text-align: center;
-
+	background: url("../images/buttons.sprite.png") -160px -5px transparent;
+	text-indent: -99px;
+}
+.desactive .btnActive {
+	width: 30px;
+	padding: 0px;
+	float: left;
+	margin: 0 5px;
+	height: 25px;
+	border: 0;
+	text-align: center;
+	background: url("../images/buttons.sprite.png") -128px -5px transparent;
+	text-indent: -99px;
 }
 .rsManufacturer {
 	width:150px;

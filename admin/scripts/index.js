@@ -187,11 +187,15 @@ function checkFields() {
 	return false;
 }
 function activeItem (item,table,obj) {
-	$.getJSON('api/index.php?type=activeItem&idItem='+obj, function(data) {
+	$.getJSON('api/index.php?type=activeItem&idItem='+item+'&category='+table, function(data) {
 		if(data[0].response == "true"){
-			$(obj).parents("li.resultItem").toggleClass("desactive");
+			if (data[0].responseMsg == "active") {
+				$(obj).parents("li.resultItem").removeClass("desactive");
+			} else if (data[0].responseMsg == "desactive") {
+				$(obj).parents("li.resultItem").addClass("desactive");
+			}
 		} else {
-			//alert error
+			console.log("Item não desativado"+data[0].errorMsg);
 		}
 	});
 }
@@ -226,24 +230,28 @@ $(function() {
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
 				$(".resultData ul li").remove();
 					$.each(data, function(key, val) {
-						data = '<li class="resultItem" idDB="'+val.featureId+'">'+
-							'<div class="rsItems">';
+						if (val.active == "n") {
+							data = '<li class="resultItem desactive" idDB="'+val.featureId+'">';
+						} else {
+							data = '<li class="resultItem " idDB="'+val.featureId+'">';
+						}
+						data += '<div class="rsItems">';
 						switch (val.category) {
 							case "manufacturer":
-								data +=	'<div class="btnClone btnButton" title="Adicionar um novo Modelo para esta Montadora" alt="Adicionar um novo Modelo para esta Montadora">+</div>';
-								data += '<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'manufacturer\',this)">v</div>';
+								data += '<a class="btnClone btnButton" href="formDetails.php?category=model&action=new&vehicle='+val.idItem+'" title="Incluir Modelo para esta Montadora" alt="Incluir Modelo para esta Montadora">Novo modelo</a>';
+								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'manufacturer\',this)"></div>';
 							break;
 							case "model":
-								data +=	'<div class="btnClone btnButton" title="Adicionar uma nova Versão para este Modelo" alt="Adicionar um novo registro para esta Versão">+</div>';
-								data += '<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'model\',this)">v</div>';
+								data += '<a class="btnClone btnButton" href="formDetails.php?category=version&action=new&vehicle='+val.idItem+'" title="Incluir Versão para este Modelo" alt="Incluir Versão para este Modelo">Nova versão</a>';
+								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'model\',this)"></div>';
 							break;
 							case "version":
-								data +=	'<div class="btnClone btnButton" title="Adicionar um novo registro para esta Versão" alt="Adicionar um novo registro para esta Versão">+</div>';
-								data += '<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'version\',this)">v</div>';
+								data += '<a class="btnClone btnButton" href="formDetails.php?category=feature&action=new&vehicle='+val.idItem+'" title="Incluir Ficha Técnica para esta Versão" alt="Incluir Ficha Técnica para esta Versão">Nova Ficha</a>';
+								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'version\',this)"></div>';
 							break;
 							case "feature":
-								data +=	'<div class="btnClone btnButton" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</div>';
-								data += '<div class="btnActive btnButton" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'feature\',this)">v</div>';
+								data += '<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle='+val.idItem+'" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>';
+								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'feature\',this)"></div>';
 							break;
 						}
 						data += '</div>'+
@@ -294,7 +302,7 @@ $(function() {
 		}
 	});
 	$( "#txtModelName" ).catcomplete({
-		source: "api/index.php?type=askModel",
+		source: "api/index.php?type=askModel&mainId="+$("#manufacturerId").val(),
 		delay:1,
 		minLength: 0,
 		select: function( event, ui ) {
@@ -303,7 +311,7 @@ $(function() {
 		}
 	});
 	$( "#txtVersionName" ).catcomplete({
-		source: "api/index.php?type=askVersion",
+		source: "api/index.php?type=askVersion&mainId="+$("#modelId").val(),
 		delay:1,
 		minLength: 0,
 		select: function( event, ui ) {
@@ -321,7 +329,6 @@ $(function() {
 		}
 	});
 });
-
 
 
 
