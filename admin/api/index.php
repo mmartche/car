@@ -11,7 +11,8 @@ switch ($_GET[type]) {
  	case 'askInput':
 		echo "[";
 		$sql_s_manuf = "select id, name, active from manufacturer where name like ('%".$_GET[term]."%') limit 10";
-		$query_s_manuf = mysql_query($sql_s_manuf) or die ($sql_s_manuf." error #15");
+		$query_s_manuf = mysql_query($sql_s_manuf);
+		// or die ($sql_s_manuf." error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
 			if ($m > 0) { echo ","; }
@@ -26,7 +27,8 @@ switch ($_GET[type]) {
 			$m++;
 		}
 		$sql_search = "select id, name, active from model where name like ('%".$_GET[term]."%') limit 10";
-		$query_search = mysql_query($sql_search) or die (" error #30");
+		$query_search = mysql_query($sql_search);
+		// or die (" error #30");
 		$l = 0;
 		while ($res = mysql_fetch_array($query_search)) {
 			if ($l > 0 || $m > 0) { echo ","; }
@@ -41,7 +43,8 @@ switch ($_GET[type]) {
 			$l++;
 		}
 		$sql_v = "select id, name, active from version where name like ('%".$_GET[term]."%') limit 10";
-		$query_v = mysql_query($sql_v) or die (" error #40");
+		$query_v = mysql_query($sql_v);
+		// or die (mysql_error()." error #40");
 		$v = 0;
 		while ($resV = mysql_fetch_array($query_v)) {
 			if ($l > 0 || $m > 0 || $v > 0) { echo ","; }
@@ -251,17 +254,17 @@ switch ($_GET[type]) {
 			if ($m > 0) { echo ","; }
 			echo '{
 					"id":"'.$resM[id].'",
-					"label":"'.$sql_search.'",
+					"label":"'.$resM[name].'",
 					"category": "Modelo",
 					"table":"model",
 					"active":"'.$resM[active].'",
-					"value":"'.$sql_search.'"
+					"value":"'.$resM[name].'"
 				}';
 			$m++;
 		}
 		echo "]";
 		break;
-	case 'askManuf':
+	case 'askVersion':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' "; }
 		$sql_v = "SELECT id, name, active from version where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name limit 10";

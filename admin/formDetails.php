@@ -34,6 +34,9 @@ include("./scripts/conectDB.php");
 <?
 if ($_GET[action] == "new") {
 	switch ($_GET[category]) {
+		case 'manufacturer':
+			$sql_search = "SELECT id as manufacturerId, name as manufacturerName from manufacturer where id = '".$_GET[vehicle]."'";
+			break;
 		case 'model':
 			$sql_search = "SELECT id as manufacturerId, name as manufacturerName from manufacturer where id = '".$_GET[vehicle]."'";
 			break;
@@ -82,7 +85,7 @@ $res = mysql_fetch_array($query_search);
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
-					<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+					<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 					<a href='?category=model&action=new&vehicle=<?=$res[manufacturerId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>
 					<input type="button" value="Atualizar" class="btnSave btnButton" />
 					<?
@@ -97,7 +100,7 @@ $res = mysql_fetch_array($query_search);
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
-						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 						<a href='?category=version&action=new&vehicle=<?=$res[modelId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>
 						<input type="submit" value="Atualizar" class="btnSave btnButton" />
 					<?
@@ -112,7 +115,7 @@ $res = mysql_fetch_array($query_search);
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
-						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 						<a href='?category=feature&action=new&vehicle=<?=$res[versionId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>
 						<input type="submit" value="Atualizar" class="btnSave btnButton" />	
 					<?
@@ -128,7 +131,7 @@ $res = mysql_fetch_array($query_search);
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
-						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 						<a href='?category=feature&action=clone&vehicle=<?=$res[featureId]?>' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>
 						<input type="submit" value="Atualizar" class="btnSave btnButton" />
 					<?
@@ -179,13 +182,13 @@ $res = mysql_fetch_array($query_search);
 			?>
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="checkFields()">
-		<input type="text" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
+		<input type="hidden" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="hidden" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="hidden" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="hidden" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="hidden" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="hidden" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?
@@ -559,7 +562,7 @@ $res = mysql_fetch_array($query_search);
 					break;
 				case 'new':
 					?>
-					<input type="submit" value="CRIAR" class="btnSave btnButton">
+					<input type="submit" value="INCLUIR" class="btnSave btnButton">
 					<?
 					break;
 				default:
@@ -570,12 +573,12 @@ $res = mysql_fetch_array($query_search);
 			}
 			?>
 			<? if ($_GET[action] != "new" && $_GET[action] != "clone") { ?>
-				<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Excluir Cadastro</a>
+				<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 			<? } ?>
 		</div>
 		</form>
 		<?
-		if ($_GET[category] == "manufacturer" || $_GET[category] == "model" || $_GET[category] == "version") {
+		if (($_GET[category] == "manufacturer" || $_GET[category] == "model" || $_GET[category] == "version") && $_GET[action] != "new") {
 		?>
 		<div class="relations">
 			<span>Itens relacionados</span>

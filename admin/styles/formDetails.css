@@ -54,9 +54,10 @@ footer {
 	width: 1024px;
 	margin: auto;
 	margin-top: 30px;
-	margin-bottom: 30px;
+	overflow: hidden;
 }
 .btnSave {
+	padding: 7px 10px 3px;
 	width: 100%;
 }
 .divColor {

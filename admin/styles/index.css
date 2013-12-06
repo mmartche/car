@@ -41,6 +41,32 @@ header .btnSave {
 	background-color: green;
 	color: #fff;
 }
+.btnNewForm {
+	font-size: 16px;
+	padding: 5px 10px;
+	margin: 6px 5px;
+	right: 10px;
+	float: right;
+}
+.newChoice {
+	position: absolute;
+	right: 5px;
+	top: 40px;
+	background-color: #fff;
+	z-index: 5;
+	padding: 5px;
+	width: 140px;
+	display: none;
+}
+.newChoice a {
+	float: left;
+	width: 100%;
+	margin: 5px 0;
+	text-align: center;
+}
+.newChoice:hover {
+	display: block;
+}
 .hide {
 	display: none;
 }
@@ -103,22 +129,19 @@ footer {
 	box-shadow: 0px 0px 8px #85b2cb;
 	text-decoration: none;
 }
-.btnNewForm {
-	font-size: 16px;
-	padding: 5px 10px;
+header .btnDelForm {
+	width: 170px;
 	margin: 6px 5px;
-	right: 10px;
-	float: right;
 }
 .btnDelForm {
 	font-size: 16px;
 	padding: 5px 10px;
-	margin: 6px 5px;
+	margin: 6px 0px;
 	display: block;
 	background-color: #cb2026;
-	width: 150px;
 	text-align: center;
 	float: right;
+	width: 100%;
 }
 .ui-autocomplete {
 	max-height: 500px;
@@ -165,7 +188,7 @@ footer {
 	padding: 10px 0;
 }
 .resultItem.desactive {
-	background-color: #ff0000;
+	background-color: #aeb8c2;
 }
 .resultSearch {
 	overflow-x: scroll;
@@ -226,7 +249,7 @@ footer {
 	height: 30px;
 	background-color: #ccc;
 	float: left;
-	background: url('../images/buttons.sprite.png') 0px -5px transparent;
+	background: url('../images/buttons.png') 0px -5px transparent;
 	text-indent: -99em;
 	width: 30px;
 }
@@ -234,7 +257,7 @@ footer {
 	height: 30px;
 	background-color: #0dd;
 	float: left;
-	background: url('../images/buttons.sprite.png') -30px -5px transparent;
+	background: url('../images/buttons.png') -30px -5px transparent;
 	text-indent: -99em;
 	width: 30px;
 }
@@ -254,7 +277,7 @@ footer {
 	height: 25px;
 	border: 0;
 	text-align: center;
-	background: url("../images/buttons.sprite.png") -160px -5px transparent;
+	background: url("../images/buttons.png") -160px -5px transparent;
 	text-indent: -99px;
 }
 .desactive .btnActive {
@@ -265,7 +288,7 @@ footer {
 	height: 25px;
 	border: 0;
 	text-align: center;
-	background: url("../images/buttons.sprite.png") -128px -5px transparent;
+	background: url("../images/buttons.png") -128px -5px transparent;
 	text-indent: -99px;
 }
 .rsManufacturer {

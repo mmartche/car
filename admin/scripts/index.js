@@ -1,9 +1,25 @@
+//global vars
+var manufacturerIdGlobal, modelIdGlobal, versionIdGlobal, featureIdGlobal;
+
+
 function submitForm(){
 	fixFields();
 }
 $(document).ready(function(){
-	$(".resultContent").click(function(){
-		openDetails($(this).attr("iddb"));
+
+	manufacturerIdGlobal = $("#manufacturerId").val();
+	$(".btnNewForm").click(
+	function() {
+		$(".newChoice").show();
+	});
+	$(".newChoice").hover(function() {
+		//do nothing
+	},function(){
+		$(this).hide();
+	});
+
+	$(".resultContent").click(function()
+{		openDetails($(this).attr("iddb"));
 	});
 	$('#colorSelector').ColorPicker({
 		color: '#0000ff',
@@ -284,8 +300,8 @@ $(function() {
 				});
 			});
 		},
-		open: function() {
-			//console.log("open");
+		open: function(event,ui) {
+			console.log("open");
 		},
 		close: function() {
 			//console.log("close");
@@ -299,25 +315,30 @@ $(function() {
 		select: function( event, ui ) {
 			//change id
 			$("#manufacturerId").val(ui.item.id);
+			manufacturerIdGlobal = ui.item.id;
 		}
 	});
-	$( "#txtModelName" ).catcomplete({
-		source: "api/index.php?type=askModel&mainId="+$("#manufacturerId").val(),
-		delay:1,
-		minLength: 0,
-		select: function( event, ui ) {
-			//change id
-			$("#modelId").val(ui.item.id);
-		}
+	$("#txtModelName").focusin(function() {
+		$( "#txtModelName" ).catcomplete({
+			source: "api/index.php?type=askModel&mainId="+$("#manufacturerId").val(),
+			delay:1,
+			minLength: 0,
+			select: function( event, ui ) {
+				//change id
+				$("#modelId").val(ui.item.id);
+			}
+		});
 	});
-	$( "#txtVersionName" ).catcomplete({
-		source: "api/index.php?type=askVersion&mainId="+$("#modelId").val(),
-		delay:1,
-		minLength: 0,
-		select: function( event, ui ) {
-			//change id
-			$("#versionId").val(ui.item.id);
-		}
+	$("#txtVersionName").focusin(function() {
+		$( "#txtVersionName" ).catcomplete({
+			source: "api/index.php?type=askVersion&mainId="+$("#modelId").val(),
+			delay:1,
+			minLength: 0,
+			select: function( event, ui ) {
+				//change id
+				$("#versionId").val(ui.item.id);
+			}
+		});
 	});
 	$( "#colorType" ).catcomplete({
 		source: "json/colorAplication.json",
@@ -329,7 +350,6 @@ $(function() {
 		}
 	});
 });
-
 
 
 

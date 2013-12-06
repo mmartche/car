@@ -31,7 +31,15 @@ include ("./scripts/conectDB.php");
 <div class="body">
 	<header>
 		<h1 class="logo"><span class="logoText logoRed">Car</span><span class="logoText logoBlack">sale</span></h1>
-		<h2><span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='formDetails.php?action=new' class='btnButton btnNewForm'>Novo Cadastro</a></h2>
+		<h2>
+			<span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='#' class='btnButton btnNewForm'>Novo Cadastro</a>
+			<div class="newChoice">
+				<a href="formDetails.php?action=new&category=manufacturer" class="btnButton">Montadora</a>
+				<a href="formDetails.php?action=new&category=model" class="btnButton">Modelo</a>
+				<a href="formDetails.php?action=new&category=version" class="btnButton">Versão</a>
+				<a href="formDetails.php?action=new&category=feature" class="btnButton">Ficha Técnica</a>
+			</div>
+		</h2>
 	</header>
 	<div class="formSearch">
 		<form action="." method="get" >
