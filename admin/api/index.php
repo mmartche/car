@@ -299,6 +299,25 @@ switch ($_GET[type]) {
 			echo '[{"response":"true", "responseMsg":"desactive"}]';
 		}
 		break;
+
+	case 'askOption':
+		$sql = "SELECT id,name, options FROM optionsManufacturer WHERE idManufacturer = '".$_GET[manufacturerId]."'";
+		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+		$m=0; echo "[";
+		while ($resOpt = mysql_fetch_array($query)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resOpt[id].'",
+					"label":"'.$resOpt[name].'",
+					"category": "Opcional",
+					"table":"optionsManufacturer",
+					"value":"'.$resOpt[name].'",
+					"optValue":"'.$resOpt[options].'"
+				}';
+			$m++;
+		}
+		echo "]";
+		break;
 }
 
 

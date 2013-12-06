@@ -81,7 +81,8 @@ $(document).ready(function(){
 		//captura daods
 		textTemp = $("#textAreaSerieAdd").val();
 		text = textTemp.split(",");
-		//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
+		optionTemp = $('input[name=rdOptionsAdd]:checked').val();
+		$("#resultSerie input:hidden")
 		l = $("#optionsSerie span").length-2;
 		for (i=0;i<text.length;i++){
 			if (text[i].length > 0){
@@ -90,6 +91,7 @@ $(document).ready(function(){
 			}
 		}
 		$("#lengthSerie").val(l);
+		$("#textAreaSerieAdd").val("");
 		//captura opcao global
 		//valida se tem varios
 		//adiciona na lista + opcao selecionada
@@ -349,6 +351,23 @@ $(function() {
 			//$("#versionId").val(ui.item.id);
 		}
 	});
+	$("#txtOptionsName").focusin(function(){
+		$( "#txtOptionsName" ).catcomplete({
+			source: "api/index.php?type=askOption&manufacturerId="+$("#manufacturerId").val(),
+			delay:1,
+			minLength: 0,
+			select: function( event, ui ) {
+				//change id
+				//$("#versionId").val(ui.item.id);
+			},
+			focus: function( event, ui ) {
+				$("#textAreaOptionsAdd").val(ui.item.optValue);
+			}
+		});
+	});
+//	codOpt = $("#txtOptionsCode").val();
+//		name = $("#txtOptionsName").val();
+//		manufacturerId = $("#manufacturerId").val();
 });
 
 
