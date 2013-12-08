@@ -1,11 +1,15 @@
 <?php 
 
-if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == 'localhost' || $_SERVER['REMOTE_ADDR'] == '::1')
+if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == 'localhost')
 {
 	$dbHost="localhost";
 	$dbUser="root";
 	$dbPassw="";
-	//$dbPassw="root"; //macbook
+	$db="carsale";
+} elseif ($_SERVER['REMOTE_ADDR'] == '::1') {
+	$dbHost="localhost";
+	$dbUser="root";
+	$dbPassw="root"; //macbook
 	$db="carsale";
 } else {
 	$dbHost="db499362938.db.1and1.com";

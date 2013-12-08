@@ -71,6 +71,7 @@ header .btnSave {
 	display: none;
 }
 footer {
+	display: none;
 	padding: 10px;
 	border: 1px solid;
 	bottom: 0;

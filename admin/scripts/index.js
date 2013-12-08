@@ -79,14 +79,27 @@ $(document).ready(function(){
 	});
 	$("#btnSerieAdd").click(function(){
 		//captura daods
+		var flag=false;
 		textTemp = $("#textAreaSerieAdd").val();
 		text = textTemp.split(",");
 		optionTemp = $('input[name=rdOptionsAdd]:checked').val();
 		$("#resultSerie input:hidden")
 		l = $("#optionsSerie span").length-2;
 		for (i=0;i<text.length;i++){
-			if (text[i].length > 0){
-				$("#resultSerie").prepend('<span><input type="checkbox" name="rdSerie'+l+'" checked="true" value="s" /><input type="hidden" name="txtSerie'+l+'" value="'+text[i]+'" />'+text[i]+'</span>');
+			if (text[i].trim().length > 0){
+				if ($("#lengthSerie").val() > 0){
+					for (v=1;v<$("#lengthSerie").val();v++){
+						if ($("#resultSerie #txtSerie"+v).val().toLowerCase() === text[i].toLowerCase()) {
+							flag=true;
+							alert("O item de nome: '"+text[i]+"' já existe nesta listagem.")
+						}
+					}
+				}
+				if (flag==false){
+					$("#resultSerie").prepend('<span><input type="checkbox" name="rdSerie'+l+'" checked="true" value="s" /><input type="hidden" name="txtSerie'+l+'" id="txtSerie'+l+'" value="'+text[i].trim()+'" />'+text[i].trim()+'</span>');
+				} else {
+					flag=false;
+				}
 				l++;
 			}
 		}
@@ -95,6 +108,10 @@ $(document).ready(function(){
 		//captura opcao global
 		//valida se tem varios
 		//adiciona na lista + opcao selecionada
+	});
+	$("#btnRemoveAllSeries").click(function(){
+		$("#lengthSerie").val("0");
+		$("#resultSerie span").remove();
 	});
 	$("#btnOptionsAdd").click(function(){
 		//dados
