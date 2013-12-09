@@ -53,7 +53,7 @@ $(document).ready(function(){
 			manufacturerId = $("#featureId").val();
 		} else { 
 			cTable = "colorManufacturer"; 
-			manufacturerId = $("#manufacturerId").val(),
+			manufacturerId = $("#manufacturerId").val();
 		}
 		cName = $("#colorName").val(),
 		cColor = $("#colorSelected").val(),

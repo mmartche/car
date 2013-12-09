@@ -354,3 +354,18 @@ header .btnDelForm {
 	width: 100%;
 	margin: 5px 0;
 }
+.spanOptions {
+	width: 100% !important;
+}
+.inputOptions {
+	width: 100% !important;
+}
+#txtOptionsName, #textAreaOptionsAdd {
+	float: left;
+}
+#textAreaOptionsAdd {
+	float: left;
+	width: 440px;
+	height: 200px;
+	margin: 0 10px;
+}

@@ -457,12 +457,12 @@ $res = mysql_fetch_array($query_search);
 				<div class="dataOptions dataFields">
 					<label class="subTitle">OPCIONAIS</label>
 					<div id="optionsOptions" class="optionsOptions optionsFields">
-						<span>insira novos itens sepando a cada linha</span>
-						<span style="width:500px;">
+						<span class="spanOptions">insira novos itens sepando a cada linha</span>
+						<span class="inputOptions">
 							<input type="hidden" name="txtOptionsCode" id="txtOptionsCode" placeholder="Código do opcional" />
 							<input type="text" name="txtOptionsName" id="txtOptionsName" placeholder="Nome do opcional" />
-							<textarea name="textAreaOptionsAdd" id="textAreaOptionsAdd" placeholder="Opcionais" style="height: 205px; width: 320px;"></textarea>
-							<input type="button" id="btnOptionsAdd" value="+" />
+							<textarea name="textAreaOptionsAdd" id="textAreaOptionsAdd" placeholder="Opcionais" ></textarea>
+							<input type="button" id="btnOptionsAdd" value="Adicionar Opcionais" />
 							<!--CHECK HOW MANY FIELDS  AFTER SUBMIT AND W/ ADD SCRIPT -->
 						</span>
 						<div id="resultOptions">
