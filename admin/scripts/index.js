@@ -18,8 +18,8 @@ $(document).ready(function(){
 		$(this).hide();
 	});
 
-	$(".resultContent").click(function()
-{		openDetails($(this).attr("iddb"));
+	$(".resultContent").click(function(){
+		openDetails($(this).attr("iddb"));
 	});
 	$('#colorSelector').ColorPicker({
 		color: '#0000ff',
@@ -48,18 +48,24 @@ $(document).ready(function(){
 		//$(".divColor").ColorPicker({color:colorTemp});
 	});
 	$("#btnColorAdd").click(function(){
-		manufacturerId = $("#manufacturerId").val(),
+		if ($("#featureId").val().length > 0) { 
+			cTable = "modelColor"; 
+			manufacturerId = $("#featureId").val();
+		} else { 
+			cTable = "colorManufacturer"; 
+			manufacturerId = $("#manufacturerId").val(),
+		}
 		cName = $("#colorName").val(),
 		cColor = $("#colorSelected").val(),
 		cApp = $("#colorAplication").val(),
 		cType = $("#colorType").val();
 		cLength = $("#optionsColor span").length-1;
 		if (cColor.length == "6") {
-			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType, function(data) {
+			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType+'&table='+cTable, function(data) {
 				//console.log(data[0].response,data[0].insertId);
 				if(data[0].response == "true"){
 					//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-					$("#optionsColor").append('<span><div class="delColor" onclick="deleteColor(this,"'+data[0].insertId+'")">X</div><div class="divColor"><div style="background-color: #'+cColor+';"></div></div>'+cName+'-'+cApp+'-'+cType+'<input type="hidden" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" name="colorInputType'+cLength+'" value="'+cType+'" /></span>');
+					$("#optionsColor").append('<span><div class="delColor" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="divColor"><div style="background-color: #'+cColor+';"></div></div>'+cName+'-'+cApp+'-'+cType+'<input type="hidden" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" name="colorInputType'+cLength+'" value="'+cType+'" /></span>');
 					$("#colorLength").val(cLength+1);
 					$("#colorName").val(""),
 					$("#colorSelected").val(""),
@@ -89,14 +95,18 @@ $(document).ready(function(){
 			if (text[i].trim().length > 0){
 				if ($("#lengthSerie").val() > 0){
 					for (v=1;v<$("#lengthSerie").val();v++){
-						if ($("#resultSerie #txtSerie"+v).val().toLowerCase() === text[i].toLowerCase()) {
-							flag=true;
-							alert("O item de nome: '"+text[i]+"' já existe nesta listagem.")
+						if ($("#resultSerie #txtSerie"+v).val()) {
+							if ($("#resultSerie #txtSerie"+v).val().length > 0 && text[i].length > 0 && $("#resultSerie #txtSerie"+v).val().toLowerCase() === text[i].toLowerCase()) {
+								flag=true;
+								alert("O item de nome: '"+text[i]+"' já existe nesta listagem.");
+								break;
+							}
 						}
 					}
 				}
 				if (flag==false){
 					$("#resultSerie").prepend('<span><input type="checkbox" name="rdSerie'+l+'" checked="true" value="s" /><input type="hidden" name="txtSerie'+l+'" id="txtSerie'+l+'" value="'+text[i].trim()+'" />'+text[i].trim()+'</span>');
+					flag=false;
 				} else {
 					flag=false;
 				}
@@ -191,14 +201,15 @@ function fixFields(){
 	//fix all inputs // counters // flags before submit
 	return true;
 }
-function deleteColor(obj,idColor) {
-	$.getJSON('api/index.php?type=removeColor&idColor='+idColor, function(data) {
+function deleteColor(obj,idColor,table) {
+	console.log(obj,idColor,table);
+	$.getJSON('api/index.php?type=removeColor&table='+table+'&idColor='+idColor, function(data) {
 		if(data[0].response == "true"){
 			//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
 			$(obj).parent().remove();
 			$("#colorLength").val($("#optionsColor span").length-1);
 		} else {
-
+			console.log(data[0].reason);
 		}
 	});
 }
@@ -331,6 +342,7 @@ $(function() {
 		source: "api/index.php?type=askManuf",
 		delay:1,
 		minLength: 0,
+		autoFocus: true,
 		select: function( event, ui ) {
 			//change id
 			$("#manufacturerId").val(ui.item.id);

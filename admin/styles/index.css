@@ -87,7 +87,7 @@ footer {
 	position: fixed;
 	top: 0;
 	right: 0;
-	width: 402px;
+	width: 412px;
 	padding: 10px;
 	margin: 1px;
 	border: 1px solid;
@@ -103,6 +103,7 @@ footer {
 }
 .formSearch .btnSearch {
 	float: left;
+	margin: 0 0 0 10px;
 }
 .formSearch .result-box {
 	display: none;
@@ -318,4 +319,38 @@ header .btnDelForm {
 	height: 70px;
 	position: absolute;
 	top: 5px;
+}
+.subTitle {
+	background: #6c7888; /* Old browsers */
+	background: -moz-linear-gradient(top,  #6c7888 0%, #8897ab 50%, #8897ab 51%, #6c7888 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c7888), color-stop(50%,#8897ab), color-stop(51%,#8897ab), color-stop(100%,#6c7888)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #6c7888 0%,#8897ab 50%,#8897ab 51%,#6c7888 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #6c7888 0%,#8897ab 50%,#8897ab 51%,#6c7888 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #6c7888 0%,#8897ab 50%,#8897ab 51%,#6c7888 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #6c7888 0%,#8897ab 50%,#8897ab 51%,#6c7888 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c7888', endColorstr='#6c7888',GradientType=0 ); /* IE6-9 */
+	width: 100%;
+	font-size: 16px;
+	padding: 5px;
+	color: #fff;
+}
+.subTitleSerie {
+	width: 100% !important;
+}
+.subTextAreaSerie{
+	width: 100% !important;
+}
+.subTextAreaSerie textarea {
+	width: 100%;
+	height: 100px;
+}
+#btnSerieAdd {
+	float: right;
+}
+.subBtnRemoveAllSerie {
+	width: 100%;
+}
+.subTitleAllItems {
+	width: 100%;
+	margin: 5px 0;
 }

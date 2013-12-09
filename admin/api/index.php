@@ -200,8 +200,8 @@ switch ($_GET[type]) {
 		break;
 
 	case 'removeColor':
-		$sql_addColor = "DELETE FROM `colorManufacturer` WHERE `colorManufacturer`.`id` = '".$_GET[idColor]."'";
-		mysql_query($sql_addColor) or die ('[{"response":"false"}]');
+		$sql_addColor = "DELETE FROM `".$_GET[table]."` WHERE `".$_GET[table]."`.`id` = '".$_GET[idColor]."'";
+		mysql_query($sql_addColor) or die ('[{"response":"false","error":"error #205","reason":"'.mysql_error()." ".$sql_addColor.'"}]');
 		echo '[{"response":"true"}]';
 		break;
 
@@ -211,7 +211,7 @@ switch ($_GET[type]) {
 	case 'deleteForm':
 		if ($_GET[table] && $_GET[idField]) {
 			$sqlCheckChildren = "DELETE FROM ".$_GET[table]." WHERE `id` = '".$_GET[idField]."'";
-			mysql_query($sqlCheckChildren) or die ('[{"response":"false","error":"error #200","reason":"'.mysql_error().'"}]');
+			mysql_query($sqlCheckChildren) or die ('[{"response":"false","error":"error #215","reason":"'.mysql_error().'"}]');
 			echo '[{"response":"true"}]';
 		} else {
 			echo '[{"response":"false","error":"error #210","reason":"Incomplete Data"}]';

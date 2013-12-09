@@ -297,7 +297,7 @@ $res = mysql_fetch_array($query_search);
 			if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") {
 			?>
 				<div class="dataFeatures dataFields">
-					<label>ACESSÓRIOS</label>
+					<label class="subTitle">ACESSÓRIOS</label>
 					<div class="optionsFeatures optionsFields">
 						<span>
 							<input type="checkbox" name="dualFrontAirBag" value="s" <? if ($res[dualFrontAirBag] == "s") { echo 'checked="true"'; } ?> />
@@ -420,17 +420,17 @@ $res = mysql_fetch_array($query_search);
 				$lengthSerie = mysql_num_rows($querySerie);
 				?>
 				<div class="dataSerie dataFields">
-					<label>ITENS DE SÉRIE</label>
+					<label class="subTitle">ITENS DE SÉRIE</label>
 					<div id="optionsSerie" class="optionsSerie optionsFields">
-						<span>insira novos itens sepando por , (virgula)</span>
-						<span><input type="button" class="btnButton" value="Remover todos os itens de série" id="btnRemoveAllSeries" /></span>
-						<span>
-							<textarea name="textAreaSerieAdd" id="textAreaSerieAdd" style="width:95%"><?=$res[itemsSerie]?></textarea>
-							<input type="button" id="btnSerieAdd" value="+" />
+						<span class="subTitleSerie">Insira novos itens sepando por , (virgula)</span>
+						<span class="subTextAreaSerie">
+							<textarea name="textAreaSerieAdd" id="textAreaSerieAdd"><?=$res[itemsSerie]?></textarea>
+							<input type="button" id="btnSerieAdd" value="Adicionar" />
 							<input type="hidden" name="lengthSerie" value="<?=$lengthSerie?>" id="lengthSerie" />
 							<!--CHECK HOW MANY FIELDS AFTER SUBMIT AND W/ ADD SCRIPT -->
 						</span>
-						<label>Itens de série referente a esta versao</label><br />
+						<span class="subBtnRemoveAllSerie"><input type="button" class="btnButton" value="Remover todos os itens de série" id="btnRemoveAllSeries" /></span>
+						<label class="subTitleAllItems">Itens de série referente a esta versao</label><br />
 						<div id="resultSerie">
 						<?
 						while ($resSerie = mysql_fetch_array($querySerie)) {
@@ -455,7 +455,7 @@ $res = mysql_fetch_array($query_search);
 				$lengthOptF = mysql_num_rows($queryOptF);
 				?>
 				<div class="dataOptions dataFields">
-					<label>OPCIONAIS</label>
+					<label class="subTitle">OPCIONAIS</label>
 					<div id="optionsOptions" class="optionsOptions optionsFields">
 						<span>insira novos itens sepando a cada linha</span>
 						<span style="width:500px;">
@@ -508,16 +508,18 @@ $res = mysql_fetch_array($query_search);
 				if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") { 
 					if ($_GET[category] != "model"){
 					$iColor = 0;
-					if ($_GET[category] == "manufacturer") {
+					//if ($_GET[category] == "manufacturer") {
 						$sqlColor = "SELECT * from colorManufacturer WHERE idManufacturer = '".$res[manufacturerId]."'";
-					} else {
+						$tableColor = "colorManufacturer";
+					/*} else {
 						$sqlColor = "SELECT * from colorModel where idModel = '".$res[modelId]."'";
-					}
+						$tableColor = "colorModel";
+					}*/
 					$queryColor = mysql_query($sqlColor) or die (" error #450");
 					$lengthColor = mysql_num_rows($queryColor);
 					?>
 					<div class="dataColor dataFields">
-						<label>CORES DISPONÍVEIS</label>
+						<label class="subTitle">CORES DISPONÍVEIS</label>
 						<div class="optionsColor optionsFields" id="optionsColor">
 							<span>
 								<div id="colorSelector" class="divColor"><div></div></div>
@@ -529,7 +531,7 @@ $res = mysql_fetch_array($query_search);
 								<input type="hidden" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
 							</span>
 							<? while ($resColor = mysql_fetch_array($queryColor)) { ?>
-							<span><div class="delColor" onclick="deleteColor(this,'<?=$resColor[id]?>')">X</div><div class="divColor"><div style="background-color: #<?=$resColor[hexa]?>;"></div></div><?=$resColor[name]." - ".$resColor[type]." - ".$resColor[application]?>
+							<span><div class="delColor" onclick="deleteColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">X</div><div class="divColor"><div style="background-color: #<?=$resColor[hexa]?>;"></div></div><?=$resColor[name]." - ".$resColor[type]." - ".$resColor[application]?>
 							<input type="hidden" name="colorInputName<?=$iColor?>" value="<?=$resColor[name]?>" />
 							<input type="hidden" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
 							<input type="hidden" name="colorInputApp<?=$iColor?>" value="<?=$resColor[application]?>" />
@@ -544,7 +546,7 @@ $res = mysql_fetch_array($query_search);
 				} ?>
 				<? if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") { ?>
 				<div class="dataPicture dataFields">
-					<label>FOTO</label>
+					<label class="subTitle">FOTO</label>
 					<div class="optionsPicture optionsFields">
 						<label for="txtPicture">Insira a imagem</label>
 							<input type="file" name="file" id="txtPicture" placeholder="Imagem" />
