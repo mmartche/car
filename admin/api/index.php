@@ -188,7 +188,7 @@ switch ($_GET[type]) {
 		break;
 
 	case 'addOption':
-		$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '', now(), now(),'')";
+		$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
 		mysql_query($sql_addOpt) or die ('[{"response":"false"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		break;
@@ -301,7 +301,7 @@ switch ($_GET[type]) {
 		break;
 
 	case 'askOption':
-		$sql = "SELECT id,name, options FROM optionsManufacturer WHERE idManufacturer = '".$_GET[manufacturerId]."'";
+		$sql = "SELECT id, name, options, price, code FROM optionsManufacturer WHERE idManufacturer = '".$_GET[manufacturerId]."'";
 		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resOpt = mysql_fetch_array($query)) {
@@ -312,11 +312,28 @@ switch ($_GET[type]) {
 					"category": "Opcional",
 					"table":"optionsManufacturer",
 					"value":"'.$resOpt[name].'",
-					"optValue":"'.$resOpt[options].'"
+					"optValue":"'.$resOpt[options].'",
+					"price":"'.$resOpt[price].'",
+					"code":"'.$resOpt[code].'"
 				}';
 			$m++;
 		}
 		echo "]";
+		break;
+	case 'checkSearch':
+		if ($_GET[idItem] && $_GET[table] && $_GET[field] && $_GET[text]) {
+			$field = $_GET[field];
+			$sql = "SELECT ".$_GET[field]." FROM ".$_GET[table]." WHERE id = '".$_GET[idItem]."'";
+			$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+			$res = mysql_fetch_array($query);
+			if ($res[$field] === $_GET[text]) {
+				echo '[{"response":"true", "responseMsg":""}]';
+			} else {
+				echo '[{"response":"false", "responseMsg":"Different Info"}]';
+			}
+		} else {
+			echo '[{"response":"false", "responseMsg":"Incomplete Info"}]';
+		}
 		break;
 }
 

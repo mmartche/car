@@ -23,7 +23,7 @@ footer {
 .dataColLeft span {
 	display: block;
 }
-.dataColLeft input {
+.dataColLeft input, .dataColLeft textarea {
 	width: 500px;
 	float: right;
 }

@@ -6,7 +6,30 @@ function submitForm(){
 	fixFields();
 }
 $(document).ready(function(){
-
+	
+	$("#txtPicture").change(function(e){
+        if(typeof FileReader == "undefined") return true;
+        var elem = $(this);
+        var files = e.target.files;
+ 
+        for (var i = 0, f; f = files[i]; i++) {
+            if (f.type.match('image.*')) {
+                var reader = new FileReader();
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                        var image = e.target.result;
+                        previewDiv = $('.image-preview', elem.parent());
+                        bg_width = previewDiv.width();
+                        bg_height = previewDiv.height();
+                        previewDiv.css({
+                            "background-image":"url("+image+")"
+                        });
+                    };
+                })(f);
+                reader.readAsDataURL(f);
+            }
+        }
+	});
 	manufacturerIdGlobal = $("#manufacturerId").val();
 	$(".btnNewForm").click(
 	function() {
@@ -98,14 +121,15 @@ $(document).ready(function(){
 						if ($("#resultSerie #txtSerie"+v).val()) {
 							if ($("#resultSerie #txtSerie"+v).val().length > 0 && text[i].length > 0 && $("#resultSerie #txtSerie"+v).val().toLowerCase() === text[i].toLowerCase()) {
 								flag=true;
-								alert("O item de nome: '"+text[i]+"' já existe nesta listagem.");
+								alert("O item de nome: '"+text[i]+"' já existe nesta listagem e foi selecionado.");
+								document.getElementById("rdSerie"+v).checked = true;
 								break;
 							}
 						}
 					}
 				}
 				if (flag==false){
-					$("#resultSerie").prepend('<span><input type="checkbox" name="rdSerie'+l+'" checked="true" value="s" /><input type="hidden" name="txtSerie'+l+'" id="txtSerie'+l+'" value="'+text[i].trim()+'" />'+text[i].trim()+'</span>');
+					$("#resultSerie").prepend('<span><input type="checkbox" name="rdSerie'+l+'" id="rdSerie'+l+'" checked="true" value="s" /><input type="hidden" name="txtSerie'+l+'" id="txtSerie'+l+'" value="'+text[i].trim()+'" />'+text[i].trim()+'</span>');
 					flag=false;
 				} else {
 					flag=false;
@@ -125,24 +149,60 @@ $(document).ready(function(){
 	});
 	$("#btnOptionsAdd").click(function(){
 		//dados
+		optId = $("#txtOptionsId").val();
 		codOpt = $("#txtOptionsCode").val();
 		textTemp = $("#textAreaOptionsAdd").val();
 		name = $("#txtOptionsName").val();
+		price = $("#txtOptionsPrice").val();
 		manufacturerId = $("#manufacturerId").val();
 		text = textTemp.split(";");
 		//add db
-		$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp, function(data) {
-			console.log(data[0].response,data[0].insertId);
-			if(data[0].response == "true"){
-				//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-				l = $("#optionsOptions span").length-2;
-				$("#resultOptions").prepend('<span><input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" /><input type="hidden" name="txtOpt'+l+'" value="'+data[0].insertId+'" /><label title="'+textTemp+'">'+name+'</label></span>');
-				l++;
-				$("#lengthOptions").val(l);
-			} else {
-				$("#resultOptions").prepend('<label>'+textTemp+'</label>');
-			}
-		});
+		if(checkSearch($("#txtOptionsId").val(),$("#txtOptionsName").val(),"name","optionsmanufacturer")) {
+			console.log("pass");
+		} else {
+			console.log("NO");
+		}
+		if (optId != "") {
+			$.getJSON('api/index.php?type=checkSearch&idItem='+codId+'&table=optionsmanufacturer&field=name&text='+name, function(data) {
+				if (data[0].response == true){
+					yesOpt = true;
+					newId = optId;
+				} else {
+					$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
+						//console.log(data[0].response,data[0].insertId);
+						if(data[0].response == "true"){
+							yesOpt=true;
+							newId = data[0].insertId;
+						}
+					});
+				}
+			});
+		} else {
+			$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
+				//console.log(data[0].response,data[0].insertId);
+				if(data[0].response == "true"){
+					yesOpt=true;
+					newId = data[0].insertId;
+				}
+			});
+		}
+		if (yesOpt == true) {
+			l = $("#optionsOptions span").length-2;
+			$("#resultOptions").prepend('<span>'+
+					'<input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" />'+
+					'<input type="hidden" name="txtOpt'+l+'" value="'+newId+'" />'+
+					'<label title="'+textTemp+'">'+name+'</label>'+
+					'</span>');
+			l++;
+			$("#lengthOptions").val(l);
+		}
+		$("#txtOptionsId").val("");
+		$("#txtOptionsCode").val("");
+		$("#textAreaOptionsAdd").val("");
+		$("#txtOptionsName").val("");
+		$("#txtOptionsPrice").val("");
+		$("#manufacturerId").val("");
+		
 		//add form
 
 
@@ -242,6 +302,20 @@ function activeItem (item,table,obj) {
 			}
 		} else {
 			console.log("Item não desativado"+data[0].errorMsg);
+		}
+	});
+}
+function checkSearch(id,text,field,table) {
+	console.log("checking...",id,text,field,table);
+	console.log('api/index.php?type=checkSearch&idItem='+id+'&table='+table+'&field='+field+'&text='+text);
+	$.getJSON('api/index.php?type=checkSearch&idItem='+id+'&table='+table+'&field='+field+'&text='+text, function(data) {
+		console.log(data[0].response);
+		if(data[0].response == "true"){
+			//console.log("true");
+			return true;
+		} else {
+			//console.log("fala");
+			return false;
 		}
 	});
 }
@@ -381,6 +455,7 @@ $(function() {
 		}
 	});
 	$("#txtOptionsName").focusin(function(){
+
 		$( "#txtOptionsName" ).catcomplete({
 			source: "api/index.php?type=askOption&manufacturerId="+$("#manufacturerId").val(),
 			delay:1,
@@ -391,6 +466,9 @@ $(function() {
 			},
 			focus: function( event, ui ) {
 				$("#textAreaOptionsAdd").val(ui.item.optValue);
+				$("#txtOptionsId").val(ui.item.id);
+				$("#txtOptionsPrice").val(ui.item.price);
+				$("#txtOptionsCode").val(ui.item.code);
 			}
 		});
 	});

@@ -178,24 +178,24 @@ include ("./scripts/conectDB.php");
 						?>
 						<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
 							<div class="rsItems">
-									<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
-									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>
-									<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
-								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
-									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
-									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
-									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
-									<div class="rsYearModel"><?=$res[yearModel]?></div>
-									<div class="rsYearProduced"><?=$res[yearProduced]?></div>
-									<div class="rsEngine"><?=$res[engine]?></div>
-									<div class="rsGear"><?=$res[gear]?></div>
-									<div class="rsFuel"><?=$res[fuel]?></div>
-									<div class="rsSteering"><?=$res[steering]?></div>
-									<div class="rsSegment"><?=$res[segment]?></div>
-									<div class="rsSegment"><?=$res[segment]?></div>
-									<div class="rsSegment"><?=$res[segment]?></div>
-								</a>
+								<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
+								<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>
+								<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
+							</div>
+							<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
+								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
+								<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
+								<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
+								<div class="rsYearModel"><?=$res[yearModel]?></div>
+								<div class="rsYearProduced"><?=$res[yearProduced]?></div>
+								<div class="rsEngine"><?=$res[engine]?></div>
+								<div class="rsGear"><?=$res[gear]?></div>
+								<div class="rsFuel"><?=$res[fuel]?></div>
+								<div class="rsSteering"><?=$res[steering]?></div>
+								<div class="rsSegment"><?=$res[segment]?></div>
+								<div class="rsSegment"><?=$res[segment]?></div>
+								<div class="rsSegment"><?=$res[segment]?></div>
+							</a>
 						</li>
 						<? } 
 					} ?>

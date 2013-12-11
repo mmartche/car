@@ -360,7 +360,7 @@ header .btnDelForm {
 .inputOptions {
 	width: 100% !important;
 }
-#txtOptionsName, #textAreaOptionsAdd {
+#txtOptionsName, #txtOptionsCode, #txtOptionsValue, #textAreaOptionsAdd {
 	float: left;
 }
 #textAreaOptionsAdd {
@@ -368,4 +368,19 @@ header .btnDelForm {
 	width: 440px;
 	height: 200px;
 	margin: 0 10px;
+}
+.image-preview {
+    background:#ccc;
+    border:5px solid #fff;
+    box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+    display:inline-block;
+    float:left;
+    margin-right:1em;
+    text-align:center;
+    min-width: 200px;
+    min-height: 200px;
+    background-repeat: no-repeat;
+    background-position:50%, 50%;
 }
