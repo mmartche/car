@@ -44,7 +44,7 @@ if ($_GET[action] == "new") {
 			$sql_search = "SELECT model.id as modelId, model.name as modelName, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.description from model, manufacturer where model.idManufacturer = manufacturer.id and model.id = '".$_GET[vehicle]."'";
 			break;
 		case 'feature':
-			$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, feature.description FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id AND version.id = '".$_GET[vehicle]."'";
+			$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id AND version.id = '".$_GET[vehicle]."'";
 			break;
 	}
 } elseif ($_GET[action] == "clone") {
@@ -464,7 +464,7 @@ $res = mysql_fetch_array($query_search);
 					<div id="optionsOptions" class="optionsOptions optionsFields">
 						<span class="spanOptions">insira novos itens sepando a cada linha</span>
 						<span class="inputOptions">
-							<input type="text" name="txtOptionsId" id="txtOptionsId" />
+							<input type="hidden" name="txtOptionsId" id="txtOptionsId" />
 							<input type="text" name="txtOptionsCode" id="txtOptionsCode" placeholder="Código" />
 							<input type="text" name="txtOptionsName" id="txtOptionsName" placeholder="Nome" />
 							<input type="text" name="txtOptionsPrice" id="txtOptionsPrice" placeholder="Valor" />
@@ -533,8 +533,8 @@ $res = mysql_fetch_array($query_search);
 								<input type="text" id="colorSelected" placeholder="Cor em hexa" />
 								<input type="text" id="colorName" placeholder="Descrição" />
 								<input type="text" id="colorType" placeholder="Tipo" />
-								<input type="text" id="colorAplication" placeholder="Aplicação" />
-								<input type="button" value="+" id="btnColorAdd" />
+								<input type="text" id="colorAplication" placeholder="Aplicação" /><br />
+								<input type="button" value="Adicionar" id="btnColorAdd" />
 								<input type="hidden" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
 							</span>
 							<? while ($resColor = mysql_fetch_array($queryColor)) { ?>
@@ -684,7 +684,7 @@ $res = mysql_fetch_array($query_search);
 		</div>
 		<? } ?>
 	</div>
-<footer>Copyright</footer>
+<footer></footer>
 </div>
 </body>
 </html>

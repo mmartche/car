@@ -127,12 +127,13 @@ switch ($_POST[action]) {
 				`description` = '".$_POST[description]."',
 				`picture` = '".$picTemp."',
 				`active` = '".$_POST[active]."',
+				`description` = '".$_POST[description]."',
 				`dateCreate` = now(),
 				`dateUpdate` = now(),
 				`userUpdate` = ''
 			WHERE `feature`.`id` = '".$_POST[featureId]."' ;";
 		
-			mysql_query($sqlUpdate) or die (" error #90");
+			mysql_query($sqlUpdate) or die (mysql_error()." error #90");
 			//serie
 			$sqlDelSeries = "delete from `serieFeature` WHERE `idFeature` = '".$_POST[featureId]."'";
 			mysql_query($sqlDelSeries) or die (" error #95");
@@ -208,7 +209,7 @@ switch ($_POST[action]) {
 		
 			mysql_query($sqlAdd) or die ("error #172");
 			$fetId = mysql_insert_id();
-			echo $fetId;
+			//echo $fetId;
 			//serie
 			for ($i=0;$i<$_POST[lengthSerie];$i++){
 				$serieOpt = "rdSerie".$i;
@@ -219,7 +220,7 @@ switch ($_POST[action]) {
 			if ($valuesSerieInput != ""){
 				$sqlAddSeries = "insert into `serieFeature` (`id`, `idFeature`, `description`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesSerieInput;
 				mysql_query($sqlAddSeries) or die (" error #183");
-				echo $sqlAddSeries;
+				//echo $sqlAddSeries;
 			}
 
 			//options
@@ -236,7 +237,7 @@ switch ($_POST[action]) {
 			if ($valuesOptInput != ""){
 				$sqlAddOpts = "insert into `optionsFeature` (`id`, `idFeature`, `idOption`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
 				mysql_query($sqlAddOpts) or die (" error #200");
-				echo $sqlAddOpts;
+				//echo $sqlAddOpts;
 			}
 
 			//color
@@ -251,7 +252,7 @@ switch ($_POST[action]) {
 			if ($valuesColorInput != ""){
 				$sqlAddColor = "insert into `colorFeature` (`id`, `idFeature`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
 				mysql_query($sqlAddColor) or die (" error #215");
-				echo $sqlAddColor;
+				//echo $sqlAddColor;
 			}
 		break;
 		}

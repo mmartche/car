@@ -384,3 +384,6 @@ header .btnDelForm {
     background-repeat: no-repeat;
     background-position:50%, 50%;
 }
+#btnColorAdd {
+	width: 155px;
+}

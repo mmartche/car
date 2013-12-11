@@ -156,52 +156,63 @@ $(document).ready(function(){
 		price = $("#txtOptionsPrice").val();
 		manufacturerId = $("#manufacturerId").val();
 		text = textTemp.split(";");
+		yesOpt=false;
 		//add db
-		if(checkSearch($("#txtOptionsId").val(),$("#txtOptionsName").val(),"name","optionsmanufacturer")) {
-			console.log("pass");
-		} else {
-			console.log("NO");
-		}
 		if (optId != "") {
-			$.getJSON('api/index.php?type=checkSearch&idItem='+codId+'&table=optionsmanufacturer&field=name&text='+name, function(data) {
-				if (data[0].response == true){
+			console.log('api/index.php?type=checkSearch&idItem='+optId+'&table=optionsManufacturer&field=name&text='+name);
+			$.getJSON('api/index.php?type=checkSearch&idItem='+optId+'&table=optionsManufacturer&field=name&text='+name, function(data) {
+				if (data[0].response == "true"){
 					yesOpt = true;
 					newId = optId;
 				} else {
+					console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price);
 					$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
-						//console.log(data[0].response,data[0].insertId);
 						if(data[0].response == "true"){
 							yesOpt=true;
 							newId = data[0].insertId;
 						}
 					});
 				}
+				if (yesOpt == true) {
+					l = $("#optionsOptions span").length-2;
+					$("#resultOptions").prepend('<span>'+
+							'<input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" />'+
+							'<input type="hidden" name="txtOpt'+l+'" value="'+newId+'" />'+
+							'<label title="'+textTemp+'">'+name+'</label>'+
+							'</span>');
+					l++;
+					$("#lengthOptions").val(l);
+				}
+				$("#txtOptionsId").val("");
+				$("#txtOptionsCode").val("");
+				$("#textAreaOptionsAdd").val("");
+				$("#txtOptionsName").val("");
+				$("#txtOptionsPrice").val("");
 			});
 		} else {
+			console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price);
 			$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
-				//console.log(data[0].response,data[0].insertId);
 				if(data[0].response == "true"){
 					yesOpt=true;
 					newId = data[0].insertId;
 				}
+				if (yesOpt == true) {
+					l = $("#optionsOptions span").length-2;
+					$("#resultOptions").prepend('<span>'+
+							'<input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" />'+
+							'<input type="hidden" name="txtOpt'+l+'" value="'+newId+'" />'+
+							'<label title="'+textTemp+'">'+name+'</label>'+
+							'</span>');
+					l++;
+					$("#lengthOptions").val(l);
+				}
+				$("#txtOptionsId").val("");
+				$("#txtOptionsCode").val("");
+				$("#textAreaOptionsAdd").val("");
+				$("#txtOptionsName").val("");
+				$("#txtOptionsPrice").val("");
 			});
 		}
-		if (yesOpt == true) {
-			l = $("#optionsOptions span").length-2;
-			$("#resultOptions").prepend('<span>'+
-					'<input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" />'+
-					'<input type="hidden" name="txtOpt'+l+'" value="'+newId+'" />'+
-					'<label title="'+textTemp+'">'+name+'</label>'+
-					'</span>');
-			l++;
-			$("#lengthOptions").val(l);
-		}
-		$("#txtOptionsId").val("");
-		$("#txtOptionsCode").val("");
-		$("#textAreaOptionsAdd").val("");
-		$("#txtOptionsName").val("");
-		$("#txtOptionsPrice").val("");
-		$("#manufacturerId").val("");
 		
 		//add form
 
