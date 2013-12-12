@@ -41,6 +41,12 @@ include ("./scripts/conectDB.php");
 			</div>
 		</h2>
 	</header>
+	<!--form class="form-search">
+	<div class="input-append">
+	<input type="text" class="span2 search-query">
+	<button type="submit" class="btn">Search</button>
+	</div>
+	</form-->
 	<div class="formSearch">
 		<form action="." method="get" >
 			<div class="ui-widget">

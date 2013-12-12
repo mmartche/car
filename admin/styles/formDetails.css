@@ -24,10 +24,15 @@ footer {
 }
 .dataColLeft span {
 	display: block;
+	overflow: hidden;
+}
+.dataColLeft label {
+	float: left;
 }
 .dataColLeft input, .dataColLeft textarea {
 	width: 500px;
 	float: right;
+	background-color: #fff;
 }
 .dataColRight {
 	float: right;

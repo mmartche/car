@@ -343,6 +343,179 @@ $.widget( "custom.catcomplete", $.ui.autocomplete, {
 		});
 	}
 });
+$.widget( "custom.combobox", {
+  _create: function() {
+    this.wrapper = $( "<span>" )
+      .addClass( "custom-combobox" )
+      .insertAfter( this.element );
+
+    this.element.hide();
+    this._createAutocomplete();
+    this._createShowAllButton();
+  },
+
+  _createAutocomplete: function() {
+    var selected = this.element.children( ":selected" ),
+      value = selected.val() ? selected.text() : "";
+
+    this.input = $( "<input>" )
+      .appendTo( this.wrapper )
+      .val( value )
+      .attr( "title", "" )
+      .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
+      .autocomplete({
+        delay: 0,
+        minLength: 0,
+        source: $.proxy( this, "_source" )
+      })
+      .tooltip({
+        tooltipClass: "ui-state-highlight"
+      });
+    this._on( this.input, {
+      autocompleteselect: function( event, ui ) {
+      	//TODO: change next input value
+      	
+        ui.item.option.selected = true;
+        this._trigger( "select", event, {
+          item: ui.item.option
+        });
+        switch ($(ui.item.option.parentElement).attr("name")) {
+      		case "manufacturerName":
+	      		var optTemp;
+	  			$.getJSON('api/index.php?type=askModel&mainId='+ui.item.option.value, function(data) {
+					$.each(data, function(key, val) {
+						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
+					});
+					$("#txtModelName option").remove();
+					$("#txtModelName").append(optTemp);
+					$("#txtModelName").parent().find("input").val("");
+				});
+	      		break;
+      		case "modelName":
+      			var optTemp;
+	  			$.getJSON('api/index.php?type=askVersion&mainId='+ui.item.option.value, function(data) {
+					$.each(data, function(key, val) {
+						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
+					});
+					$("#txtVersionName option").remove();
+					$("#txtVersionName").append(optTemp);
+					$("#txtVersionName").parent().find("input").val("");
+				});
+	      		break;
+      		case "versionName":
+      			//change modelName
+	      		break;
+      		case "manufacturerName":
+      			//change modelName
+	      		break;
+	      	default:
+	      		break;
+      	}
+      },
+      autocompletechange: "_removeIfInvalid"
+    });
+  },
+
+  _createShowAllButton: function() {
+    var input = this.input,
+      wasOpen = false;
+
+    $( "<a>" )
+      .attr( "tabIndex", -1 )
+      .attr( "title", "Show All Items" )
+      .tooltip()
+      .appendTo( this.wrapper )
+      .button({
+        icons: {
+          primary: "ui-icon-triangle-1-s"
+        },
+        text: false
+      })
+      .removeClass( "ui-corner-all" )
+      .addClass( "custom-combobox-toggle ui-corner-right" )
+      .mousedown(function() {
+        wasOpen = input.autocomplete( "widget" ).is( ":visible" );
+      })
+      .click(function() {
+        input.focus();
+
+        // Close if already visible
+        if ( wasOpen ) {
+          return;
+        }
+
+        // Pass empty string as value to search for, displaying all results
+        input.autocomplete( "search", "" );
+      });
+  },
+
+  _source: function( request, response ) {
+    var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
+    response( this.element.children( "option" ).map(function() {
+      var text = $( this ).text();
+      if ( this.value && ( !request.term || matcher.test(text) ) )
+        return {
+          label: text,
+          value: text,
+          option: this
+        };
+    }) );
+  },
+
+  _removeIfInvalid: function( event, ui ) {
+  	//TODO: apagar o campo id se o que for digitado nao bater
+    //return;
+
+    ////////////////--------IF OPTION DONT MATCH, CLEAR THE FIELD ---------///////////////
+    ////////////---------- BEGIN CLEAR INVALID FIELD
+    
+    console.log($(this));
+    // Selected an item, nothing to do
+    if ( ui.item ) {
+      return;
+    }
+    // Search for a match (case-insensitive)
+    var value = this.input.val(),
+      valueLowerCase = value.toLowerCase(),
+      valid = false;
+    this.element.children( "option" ).each(function() {
+      if ( $( this ).text().toLowerCase() === valueLowerCase ) {
+        this.selected = valid = true;
+        return false;
+      }
+    });
+
+    // Found a match, nothing to do
+    if ( valid ) {
+      return;
+    }
+
+	switch ($(ui.item.option.parentElement).attr("name")) {
+    	case "manufacturerName":
+    		$("#manufacturerId").val("");
+	    	break;
+    	case "modelName":
+    		break;
+    }
+    // Remove invalid value
+    this.input
+      .val( "" )
+      .attr( "title", value + " didn't match any item" )
+      .tooltip( "open" );
+    this.element.val( "" );
+    this._delay(function() {
+      this.input.tooltip( "close" ).attr( "title", "" );
+    }, 2500 );
+    this.input.data( "ui-autocomplete" ).term = "";
+    
+    //////////////---------- END CLEAR INVALID FIELD
+  },
+
+  _destroy: function() {
+    this.wrapper.remove();
+    this.element.show();
+  }
+});
 $(function() {
 	function log( message ) {
 		$( "<div>" ).text( message ).prependTo( "#log" );
@@ -483,6 +656,10 @@ $(function() {
 			}
 		});
 	});
+	$( "#txtManufacturerName" ).combobox();
+	$( "#txtModelName" ).combobox();
+	$( "#txtVersionName" ).combobox();
+	
 //	codOpt = $("#txtOptionsCode").val();
 //		name = $("#txtOptionsName").val();
 //		manufacturerId = $("#manufacturerId").val();

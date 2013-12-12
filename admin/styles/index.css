@@ -387,3 +387,32 @@ header .btnDelForm {
 #btnColorAdd {
 	width: 155px;
 }
+.custom-combobox {
+	position: relative;
+	display: inline-block;
+}
+.custom-combobox-toggle {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin-left: -1px;
+	padding: 0;
+	/* support: IE7 */
+	*height: 1.7em;
+	*top: 0.1em;
+}
+.custom-combobox-input {
+	margin: 0;
+	padding: 0.3em;
+}
+.custom-combobox {
+	overflow: hidden;
+}
+.ui-state-default .ui-icon {
+	background-image: url(http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png);
+	width: 15px;
+	background-position: -65px -17px;
+	height: 15px;
+	background-color: #ccc;
+}

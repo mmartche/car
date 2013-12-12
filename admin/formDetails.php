@@ -182,13 +182,13 @@ $res = mysql_fetch_array($query_search);
 			?>
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="checkFields()" enctype="multipart/form-data">
-		<input type="hidden" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
+		<input type="text" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="hidden" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="hidden" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="hidden" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="hidden" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="hidden" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?
@@ -218,9 +218,44 @@ $res = mysql_fetch_array($query_search);
 					break;
 				case 'feature':
 				?>
-				<span><label>Montadora:</label><input type="text" name="manufacturerName" id="txtManufacturerName" value="<?=$res[manufacturerName]?>" /></span><br />
-				<span><label>Modelo:</label><input type="text" name="modelName" id="txtModelName" value="<?=$res[modelName]?>" /></span><br />
-				<span><label>Versão:</label><input type="text" name="versionName" id="txtVersionName" value="<?=$res[versionName]?>" /></span><br />
+				<span id="spanManufacturerName">
+					<label>Montadora</label>
+					<select name="manufacturerName" id="txtManufacturerName">
+					    <?
+					    $sqlManuf = "SELECT id, name from manufacturer order by name";
+					    $queryManuf = mysql_query($sqlManuf);
+					    while ($resManuf = mysql_fetch_array($queryManuf)) {
+					    	?>
+					    	<option value="<?=$resManuf[id]?>" <? if ($resManuf[name] == $res[manufacturerName]) echo "selected=selected"; ?>><?=$resManuf[name]?></option>
+					    	<?
+					    }
+					    ?>
+					</select>
+				</span><br />
+				<!--span><label>Montadora:</label><input type="text" name="manufacturerName" id="txtManufacturerName" value="<?=$res[manufacturerName]?>" /></span><br /-->
+				<span id="spanModelName">
+					<label>Modelo:</label>
+					<select  name="modelName" id="txtModelName">
+						<? if ($res[modelName]) {
+							$sqlMod = "SELECT id, name from model where idManufacturer = '".$res[manufacturerId]."' order by name";
+						    $queryMod = mysql_query($sqlMod);
+						    while ($resMod = mysql_fetch_array($queryMod)) {
+					    ?>
+					    	<option value="<?=$resMod[id]?>" <? if ($resMod[name] == $res[modelName]) echo "selected=selected"; ?>><?=$resMod[name]?></option>
+							<? } 
+						} ?>
+					</select>
+					<!--input type="text" name="modelName" id="txtModelName" value="<?=$res[modelName]?>" /-->
+				</span><br />
+				<span id="spanVersionName">
+					<label>Versão:</label>
+					<select  name="versionName" id="txtVersionName">
+						<? if ($res[versionName]) { ?>
+						<option value="<?=$res[versionId]?>" selected="selected" ><?=$res[versionName]?></option>
+						<? } ?>
+					</select>
+					<!--input type="text" name="versionName" id="txtVersionName" value="<?=$res[versionName]?>" /-->
+				</span><br />
 				<span><label>Segmento:</label><input type="text" name="segmentName" id="txtSegmentName" value="<?=$res[segmentName]?>" /></span><br />
 				<span><label>Ano de Produção:</label><input type="text" name="yearModel" id="txtYearModel" value="<?=$res[yearModel]?>" /></span><br />
 				<span><label>Ano do Modelo:</label><input type="text" name="yearProduced" id="txtYearProduced" value="<?=$res[yearProduced]?>" /></span><br />
