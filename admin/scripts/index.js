@@ -88,7 +88,7 @@ $(document).ready(function(){
 				//console.log(data[0].response,data[0].insertId);
 				if(data[0].response == "true"){
 					//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-					$("#optionsColor").append('<span><div class="delColor" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="divColor"><div style="background-color: #'+cColor+';"></div></div>'+cName+'-'+cApp+'-'+cType+'<input type="hidden" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" name="colorInputType'+cLength+'" value="'+cType+'" /></span>');
+					$("#optionsColor").append('<span><div class="delColor" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="divColor"><div style="background-color: #'+cColor+';"></div></div>'+cName+' - '+cApp+' - '+cType+'<input type="hidden" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" name="colorInputType'+cLength+'" value="'+cType+'" /></span>');
 					$("#colorLength").val(cLength+1);
 					$("#colorName").val(""),
 					$("#colorSelected").val(""),
@@ -152,15 +152,17 @@ $(document).ready(function(){
 		optId = $("#txtOptionsId").val();
 		codOpt = $("#txtOptionsCode").val();
 		textTemp = $("#textAreaOptionsAdd").val();
-		name = $("#txtOptionsName").val();
+		//name = $("#txtOptionsName").val();
+		name = $("#txtOptionsName").parent().find("input.custom-combobox-input").val();
 		price = $("#txtOptionsPrice").val();
 		manufacturerId = $("#manufacturerId").val();
 		text = textTemp.split(";");
 		yesOpt=false;
+		console.log(optId,codOpt ,textTemp,name ,price,manufacturerId,text,yesOpt);
 		//add db
 		if (optId != "") {
-			console.log('api/index.php?type=checkSearch&idItem='+optId+'&table=optionsManufacturer&field=name&text='+name);
-			$.getJSON('api/index.php?type=checkSearch&idItem='+optId+'&table=optionsManufacturer&field=name&text='+name, function(data) {
+			console.log('asdsda&field=name&text='+name);
+			/*$.getJSON('api/index.php?type=checkSearch&idItem='+optId+'&table=optionsManufacturer&field=name&text='+name, function(data) {
 				if (data[0].response == "true"){
 					yesOpt = true;
 					newId = optId;
@@ -174,21 +176,22 @@ $(document).ready(function(){
 					});
 				}
 				if (yesOpt == true) {
+					*/
 					l = $("#optionsOptions span").length-2;
 					$("#resultOptions").prepend('<span>'+
 							'<input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" />'+
-							'<input type="hidden" name="txtOpt'+l+'" value="'+newId+'" />'+
+							'<input type="hidden" name="txtOpt'+l+'" value="'+optId+'" />'+
 							'<label title="'+textTemp+'">'+name+'</label>'+
 							'</span>');
 					l++;
 					$("#lengthOptions").val(l);
-				}
+				//}
 				$("#txtOptionsId").val("");
 				$("#txtOptionsCode").val("");
 				$("#textAreaOptionsAdd").val("");
 				$("#txtOptionsName").val("");
 				$("#txtOptionsPrice").val("");
-			});
+			//});
 		} else {
 			console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price);
 			$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
@@ -229,7 +232,7 @@ $(document).ready(function(){
 	});
 	$("#btnDelForm").click(function(){
 		//check where we are (category whatever)
-		featureId = $("#featureId").val(), yearProduced = $("#txtYearProduced").val(), yearModel = $("#txtYearModel").val(), manufacturerId = $("#manufacturerId").val(), manufacturerName = $("#txtManufacturerName").val(), modelId = $("#modelId").val(), modelName = $("#txtModelName").val(), versionId = $("#versionId").val(), versionName = $("#txtVersionName").val(), category = $("#category").val();
+		featureId = $("#featureId").val(), yearProduced = $("#txtYearProduced").val(), yearModel = $("#txtYearModel").val(), manufacturerId = $("#manufacturerId").val(), manufacturerName = $("#manufacturerName").val(), modelId = $("#modelId").val(), modelName = $("#modelName").val(), versionId = $("#versionId").val(), versionName = $("#versionName").val(), category = $("#category").val();
 		if (category != ""){
 			fieldTemp = "#"+category+"Id";
 			idForm = $(fieldTemp).val();
@@ -331,7 +334,7 @@ function checkSearch(id,text,field,table) {
 	});
 }
 //onKeyPress="return(formata_valor(this,'.',',',8,2,event))";
-function formata_valor(fld, milSep, decSep, qtint, qtdec, e){
+function format_price(fld, milSep, decSep, qtint, qtdec, e){
 	// fld = campo receptor da digita
 	// milsep = caracter para separar de milhar: "." ou ","
 	// decsep = caracter para separar decimal: "," ou "."
@@ -418,9 +421,10 @@ $.widget( "custom.combobox", {
 
   _createAutocomplete: function() {
     var selected = this.element.children( ":selected" ),
-      value = selected.val() ? selected.text() : "";
-
+      value = selected.val() ? selected.text() : "",
+      nameInput = (selected.context.id);
     this.input = $( "<input>" )
+      .attr("name",nameInput)
       .appendTo( this.wrapper )
       .val( value )
       .attr( "title", "" )
@@ -441,17 +445,24 @@ $.widget( "custom.combobox", {
         this._trigger( "select", event, {
           item: ui.item.option
         });
-        switch ($(ui.item.option.parentElement).attr("name")) {
+        switch ($(ui.item.option.parentElement).attr("id")) {
       		case "manufacturerName":
 	      		var optTemp;
 	  			$.getJSON('api/index.php?type=askModel&mainId='+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
 					});
-					$("#txtModelName option").remove();
-					$("#txtModelName").append(optTemp);
-					$("#txtModelName").parent().find("input").val("");
+					$("#modelName option").remove();
+					$("#modelName").append(optTemp);
+					$("#modelName").parent().find("input").val("");
+					$("#modelId").val("");
+
+					$("#versionName option").remove();
+					$("#versionName").append(optTemp);
+					$("#versionName").parent().find("input").val("");
+					$("#versionId").val("");
 				});
+				$("#manufacturerId").val(ui.item.option.value);
 	      		break;
       		case "modelName":
       			var optTemp;
@@ -459,22 +470,35 @@ $.widget( "custom.combobox", {
 					$.each(data, function(key, val) {
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
 					});
-					$("#txtVersionName option").remove();
-					$("#txtVersionName").append(optTemp);
-					$("#txtVersionName").parent().find("input").val("");
+					$("#versionName option").remove();
+					$("#versionName").append(optTemp);
+					$("#versionName").parent().find("input").val("");
 				});
+				$("#modelId").val(ui.item.option.value);
 	      		break;
       		case "versionName":
       			//change modelName
+      			$("#versionId").val(ui.item.option.value);
 	      		break;
-      		case "manufacturerName":
-      			//change modelName
-	      		break;
-	      	default:
-	      		break;
+			case "txtOptionsName":
+				var optTemp;
+				console.log('api/index.php?type=askOptionValue&optId='+ui.item.option.value);
+	  			$.getJSON('api/index.php?type=askOptionValue&optId='+ui.item.option.value, function(data) {
+					$.each(data, function(key, val) {
+						$("#txtOptionsCode").val(val.code);
+						$("#txtOptionsCode").attr("disabled",true);
+						$("#txtOptionsPrice").val(val.price);
+						$("#txtOptionsPrice").attr("disabled",true);
+						$("#textAreaOptionsAdd").text(val.optValue);
+						$("#textAreaOptionsAdd").attr("disabled",true);
+					});
+				});
+				$("#txtOptionsId").val(ui.item.option.value);
+	    		break;
       	}
       },
-      autocompletechange: "_removeIfInvalid"
+      autocompletechange: "_removeIfInvalid",
+      focus: "_focus"
     });
   },
 
@@ -484,7 +508,7 @@ $.widget( "custom.combobox", {
 
     $( "<a>" )
       .attr( "tabIndex", -1 )
-      .attr( "title", "Show All Items" )
+      .attr( "title", "Mostrar todas as opções" )
       .tooltip()
       .appendTo( this.wrapper )
       .button({
@@ -533,14 +557,8 @@ $.widget( "custom.combobox", {
     
     // Selected an item, nothing to do
     if ( ui.item ) {
-    	switch ($(ui.item.option.parentElement).attr("name")) {
-	    	case "manufacturerName":
-	    		$("#manufacturerId").val(ui.item.option.value);
-		    	break;
-	    	case "modelName":
-	    		break;
-	    }
-    	console.log(ui.item.option.value,$(ui.item.option.parentElement).attr("name"));
+    	//$(ui.item.option.parentElement).attr("name")
+    	//console.log(ui.item.option.value,$(ui.item.option.parentElement).attr("name"));
       return;
     }
     // Search for a match (case-insensitive)
@@ -562,15 +580,28 @@ $.widget( "custom.combobox", {
 	switch ($(this.element)[0].name) {
     	case "manufacturerName":
     		$("#manufacturerId").val("");
+    		$("#modelId").val("");
+    		$("#versionId").val("");
 	    	break;
     	case "modelName":
+    		$("#modelId").val("");
+    		$("#versionId").val("");
     		break;
+		case "versionName":
+			$("#versionId").val("");
+			break;
+		case "txtOptionsName":
+			$("#txtOptionsId").val("");
+			$("#textAreaOptionsAdd").attr("disabled",false);
+			$("#txtOptionsCode").attr("disabled",false);
+			$("#txtOptionsPrice").attr("disabled",false);
+			break;
     }
     /*
     // Remove invalid value
     this.input
       .val( "" )
-      .attr( "title", value + " didn't match any item" )
+      .attr( "title", value + " nenhum item encontrado" )
       .tooltip( "open" );
     this.element.val( "" );
     this._delay(function() {
@@ -580,6 +611,15 @@ $.widget( "custom.combobox", {
     */
     //////////////---------- END CLEAR INVALID FIELD
   },
+  _focus: function( event, ui ) {
+	/*
+  	console.log(event,ui);
+		$("#textAreaOptionsAdd").val(ui.item.optValue);
+		$("#txtOptionsId").val(ui.item.id);
+		$("#txtOptionsPrice").val(ui.item.price);
+		$("#txtOptionsCode").val(ui.item.code);
+*/
+	},
 
   _destroy: function() {
     this.wrapper.remove();
@@ -666,7 +706,7 @@ $(function() {
 		}
 	});
 
-	$( "#txtManufacturerName" ).catcomplete({
+	$( "#manufacturerName" ).catcomplete({
 		source: "api/index.php?type=askManuf",
 		delay:1,
 		minLength: 0,
@@ -677,8 +717,8 @@ $(function() {
 			manufacturerIdGlobal = ui.item.id;
 		}
 	});
-	$("#txtModelName").focusin(function() {
-		$( "#txtModelName" ).catcomplete({
+	$("#modelName").focusin(function() {
+		$( "#modelName" ).catcomplete({
 			source: "api/index.php?type=askModel&mainId="+$("#manufacturerId").val(),
 			delay:1,
 			minLength: 0,
@@ -688,8 +728,8 @@ $(function() {
 			}
 		});
 	});
-	$("#txtVersionName").focusin(function() {
-		$( "#txtVersionName" ).catcomplete({
+	$("#versionName").focusin(function() {
+		$( "#versionName" ).catcomplete({
 			source: "api/index.php?type=askVersion&mainId="+$("#modelId").val(),
 			delay:1,
 			minLength: 0,
@@ -726,9 +766,14 @@ $(function() {
 			}
 		});
 	});
-	$( "#txtManufacturerName" ).combobox();
-	$( "#txtModelName" ).combobox();
-	$( "#txtVersionName" ).combobox();
+	$( "#manufacturerName" ).combobox();
+	$( "#modelName" ).combobox();
+	$( "#versionName" ).combobox();
+	$( "#txtSegmentName" ).combobox();
+	$( "#txtFuel" ).combobox();
+	$( "#txtOptionsName" ).combobox();
+	$( "#colorAplication" ).combobox();
+	$( "#colorType" ).combobox();
 	
 //	codOpt = $("#txtOptionsCode").val();
 //		name = $("#txtOptionsName").val();

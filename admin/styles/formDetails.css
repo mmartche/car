@@ -21,6 +21,7 @@ footer {
 	position: relative;
 	border: 1px dotted;
 	padding:10px;
+	margin-right: 50px;
 }
 .dataColLeft span {
 	display: block;
@@ -34,8 +35,12 @@ footer {
 	float: right;
 	background-color: #fff;
 }
+.dataColLeft input {
+	height: 35px;
+	background-color: transparent;
+}
 .dataColRight {
-	float: right;
+	float: left;
 	width: 800px;
 }
 .dataFields {
@@ -58,7 +63,7 @@ footer {
 	background-color: #eee;
 }
 .divSave {
-	width: 1024px;
+	width: 540px;
 	margin: auto;
 	margin-top: 30px;
 	overflow: hidden;

@@ -227,7 +227,7 @@ switch ($_GET[type]) {
 
 	case 'askManuf':
 		echo "[";
-		$sql_s_manuf = "SELECT id, name, active from manufacturer where name like ('%".$_GET[term]."%') ORDER by name limit 10";
+		$sql_s_manuf = "SELECT id, name, active from manufacturer where name like ('%".$_GET[term]."%') ORDER by name";
 		$query_s_manuf = mysql_query($sql_s_manuf) or die ($sql_s_manuf." error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -247,7 +247,7 @@ switch ($_GET[type]) {
 	case 'askModel':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
-		$sql_search = "SELECT id, name, active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name limit 10";
+		$sql_search = "SELECT id, name, active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -267,7 +267,7 @@ switch ($_GET[type]) {
 	case 'askVersion':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' "; }
-		$sql_v = "SELECT id, name, active from version where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name limit 10";
+		$sql_v = "SELECT id, name, active from version where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
 		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -302,6 +302,26 @@ switch ($_GET[type]) {
 
 	case 'askOption':
 		$sql = "SELECT id, name, options, price, code FROM optionsManufacturer WHERE idManufacturer = '".$_GET[manufacturerId]."'";
+		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+		$m=0; echo "[";
+		while ($resOpt = mysql_fetch_array($query)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resOpt[id].'",
+					"label":"'.$resOpt[name].'",
+					"category": "Opcional",
+					"table":"optionsManufacturer",
+					"value":"'.$resOpt[name].'",
+					"optValue":"'.$resOpt[options].'",
+					"price":"'.$resOpt[price].'",
+					"code":"'.$resOpt[code].'"
+				}';
+			$m++;
+		}
+		echo "]";
+		break;
+	case 'askOptionValue':
+		$sql = "SELECT id, name, options, price, code FROM optionsManufacturer WHERE id = '".$_GET[optId]."'";
 		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resOpt = mysql_fetch_array($query)) {

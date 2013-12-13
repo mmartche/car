@@ -2,7 +2,7 @@
 include ("checkPermissions.php");
 include("conectDB.php");
 
-function uploadFile () {
+function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
 	$allowedExts = array("gif", "jpeg", "jpg", "png");
 	$temp = explode(".", $_FILES["file"]["name"]);
 	$extension = end($temp);
@@ -17,19 +17,19 @@ function uploadFile () {
 		if ($_FILES["file"]["error"] > 0) {
 			//echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 		} else {
-			$_FILES["file"]["name"] = $_POST[manufacturerName]."-".$_POST[modelName]."-".$_POST[versionName]."-".$_POST[featureId].".".end($temp);
+			$_FILES["file"]["name"] = $manufacturerName."-".$modelName."-".$versionName."-".$featureId.".".end($temp);
 			//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
 			//echo "Type: " . $_FILES["file"]["type"] . "<br>";
 			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-				if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
+				//if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
 					//echo $_FILES["file"]["name"] . " already exists. ";
-				} else {
+				//} else {
 					move_uploaded_file($_FILES["file"]["tmp_name"],
 					"../../carImages/" . $_FILES["file"]["name"]);
 					//echo "Stored in: " . "../../carImages/" . $_FILES["file"]["name"];
 					return $_FILES["file"]["name"];
-				}
+				//}
 		}
 	} else {
 		//echo "Invalid file";
@@ -52,7 +52,10 @@ switch ($_POST[action]) {
 			mysql_query($sqlUpdate) or die (" error #20");
 		break;
 		case 'feature':
-			$picTemp = uploadFile();
+			$picTemp = uploadFile($_POST[manufacturerName],$_POST[modelName],$_POST[versionName],$_POST[featureId]);
+			if ($picTemp != "") {
+				$picTempSql = "`picture` = '".$picTemp."',";
+			}
 			$sqlUpdate = "UPDATE `feature` 
 			SET 
 				`idManufacturer` = '".$_POST[manufacturerId]."',
@@ -125,7 +128,7 @@ switch ($_POST[action]) {
 				`rearElectricWindow` = '".$_POST[rearElectricWindow]."',
 				`steeringWheelAdjustment` = '".$_POST[steeringWheelAdjustment]."',
 				`description` = '".$_POST[description]."',
-				`picture` = '".$picTemp."',
+				".$picTempSql."
 				`active` = '".$_POST[active]."',
 				`description` = '".$_POST[description]."',
 				`dateCreate` = now(),
@@ -204,10 +207,15 @@ switch ($_POST[action]) {
 			mysql_query($sqlAdd) or die (" error #170");
 		break;
 		case 'feature':
-			$picTemp = uploadFile();
-			$sqlAdd = "INSERT INTO `feature` (`idModel`, `idVersion`, `code`, `yearProduced`, `yearModel`, `doors`, `passagers`, `engine`, `feeding`, `fuel`, `powerMax`, `torque`, `acceleration`, `speedMax`, `consumptionCity`, `consumptionRoad`, `gear`, `traction`, `wheels`, `frontSuspension`, `rearSuspension`, `frontBrake`, `rearBrake`, `dimensionLength`, `dimensionWidth`, `dimensionHeight`, `dimensionSignAxes`, `weight`, `trunk`, `tank`, `warranty`, `countryOrigin`, `dualFrontAirBag`, `alarm`, `airConditioning`, `hotAir`, `leatherSeat`, `heightAdjustment`, `rearSeatSplit`, `bluetoothSpeakerphone`, `bonnetSea`, `onboardComputer`, `accelerationCounter`, `rearWindowDefroster`, `electricSteering`, `hydraulicSteering`, `sidesteps`, `fogLamps`, `xenonHeadlights`, `absBrake`, `integratedGPSPanel`, `rearWindowWiper`, `bumper`, `autopilot`, `bucketProtector`, `roofRack`, `cdplayerUSBInput`, `headlightsHeightAdjustment`, `rearviewElectric`, `alloyWheels`, `rainSensor`, `parkingSensor`, `isofix`, `sunroof`, `electricLock`, `electricWindow`, `rearElectricWindow`, `steeringWheelAdjustment`,`description`, `picture`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_POST[modelId]."','".$_POST[versionId]."','".$_POST[code]."','".$_POST[yearProduced]."','".$_POST[yearModel]."','".$_POST[doors]."','".$_POST[passagers]."','".$_POST[engine]."','".$_POST[feeding]."','".$_POST[fuel]."','".$_POST[powerMax]."','".$_POST[torque]."','".$_POST[acceleration]."','".$_POST[speedMax]."','".$_POST[consumptionCity]."','".$_POST[consumptionRoad]."','".$_POST[gear]."','".$_POST[traction]."','".$_POST[wheels]."','".$_POST[frontSuspension]."','".$_POST[rearSuspension]."','".$_POST[frontBrake]."','".$_POST[rearBrake]."','".$_POST[dimensionLength]."','".$_POST[dimensionWidth]."','".$_POST[dimensionHeight]."','".$_POST[dimensionSignAxes]."','".$_POST[weight]."','".$_POST[trunk]."','".$_POST[tank]."','".$_POST[warranty]."','".$_POST[countryOrigin]."','".$_POST[dualFrontAirBag]."','".$_POST[alarm]."','".$_POST[airConditioning]."','".$_POST[hotAir]."','".$_POST[leatherSeat]."','".$_POST[heightAdjustment]."','".$_POST[rearSeatSplit]."','".$_POST[bluetoothSpeakerphone]."','".$_POST[bonnetSea]."','".$_POST[onboardComputer]."','".$_POST[accelerationCounter]."','".$_POST[rearWindowDefroster]."','".$_POST[electricSteering]."','".$_POST[hydraulicSteering]."','".$_POST[sidesteps]."','".$_POST[fogLamps]."','".$_POST[xenonHeadlights]."','".$_POST[absBrake]."','".$_POST[integratedGPSPanel]."','".$_POST[rearWindowWiper]."','".$_POST[bumper]."','".$_POST[autopilot]."','".$_POST[bucketProtector]."','".$_POST[roofRack]."','".$_POST[cdplayerUSBInput]."','".$_POST[headlightsHeightAdjustment]."','".$_POST[rearviewElectric]."','".$_POST[alloyWheels]."','".$_POST[rainSensor]."','".$_POST[parkingSensor]."','".$_POST[isofix]."','".$_POST[sunroof]."','".$_POST[electricLock]."','".$_POST[electricWindow]."','".$_POST[rearElectricWindow]."','".$_POST[steeringWheelAdjustment]."','".$_POST[description]."','".$picTemp."','".$_POST[active]."',now(),now(),'')";
+		//TO DO: check if exist image cloned before then add
+			$picTemp = uploadFile($_POST[manufacturerName],$_POST[modelName],$_POST[versionName],$_POST[featureId]);
+			if ($picTemp != "") {
+				$picTempSql = "`picture`, ";
+				$picTempValue = "'".$picTemp."',";
+			}
+			$sqlAdd = "INSERT INTO `feature` (`idModel`, `idVersion`, `code`, `yearProduced`, `yearModel`, `doors`, `passagers`, `engine`, `feeding`, `fuel`, `powerMax`, `torque`, `acceleration`, `speedMax`, `consumptionCity`, `consumptionRoad`, `gear`, `traction`, `wheels`, `frontSuspension`, `rearSuspension`, `frontBrake`, `rearBrake`, `dimensionLength`, `dimensionWidth`, `dimensionHeight`, `dimensionSignAxes`, `weight`, `trunk`, `tank`, `warranty`, `countryOrigin`, `dualFrontAirBag`, `alarm`, `airConditioning`, `hotAir`, `leatherSeat`, `heightAdjustment`, `rearSeatSplit`, `bluetoothSpeakerphone`, `bonnetSea`, `onboardComputer`, `accelerationCounter`, `rearWindowDefroster`, `electricSteering`, `hydraulicSteering`, `sidesteps`, `fogLamps`, `xenonHeadlights`, `absBrake`, `integratedGPSPanel`, `rearWindowWiper`, `bumper`, `autopilot`, `bucketProtector`, `roofRack`, `cdplayerUSBInput`, `headlightsHeightAdjustment`, `rearviewElectric`, `alloyWheels`, `rainSensor`, `parkingSensor`, `isofix`, `sunroof`, `electricLock`, `electricWindow`, `rearElectricWindow`, `steeringWheelAdjustment`,`description`, ".$picTempSql." `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_POST[modelId]."','".$_POST[versionId]."','".$_POST[code]."','".$_POST[yearProduced]."','".$_POST[yearModel]."','".$_POST[doors]."','".$_POST[passagers]."','".$_POST[engine]."','".$_POST[feeding]."','".$_POST[fuel]."','".$_POST[powerMax]."','".$_POST[torque]."','".$_POST[acceleration]."','".$_POST[speedMax]."','".$_POST[consumptionCity]."','".$_POST[consumptionRoad]."','".$_POST[gear]."','".$_POST[traction]."','".$_POST[wheels]."','".$_POST[frontSuspension]."','".$_POST[rearSuspension]."','".$_POST[frontBrake]."','".$_POST[rearBrake]."','".$_POST[dimensionLength]."','".$_POST[dimensionWidth]."','".$_POST[dimensionHeight]."','".$_POST[dimensionSignAxes]."','".$_POST[weight]."','".$_POST[trunk]."','".$_POST[tank]."','".$_POST[warranty]."','".$_POST[countryOrigin]."','".$_POST[dualFrontAirBag]."','".$_POST[alarm]."','".$_POST[airConditioning]."','".$_POST[hotAir]."','".$_POST[leatherSeat]."','".$_POST[heightAdjustment]."','".$_POST[rearSeatSplit]."','".$_POST[bluetoothSpeakerphone]."','".$_POST[bonnetSea]."','".$_POST[onboardComputer]."','".$_POST[accelerationCounter]."','".$_POST[rearWindowDefroster]."','".$_POST[electricSteering]."','".$_POST[hydraulicSteering]."','".$_POST[sidesteps]."','".$_POST[fogLamps]."','".$_POST[xenonHeadlights]."','".$_POST[absBrake]."','".$_POST[integratedGPSPanel]."','".$_POST[rearWindowWiper]."','".$_POST[bumper]."','".$_POST[autopilot]."','".$_POST[bucketProtector]."','".$_POST[roofRack]."','".$_POST[cdplayerUSBInput]."','".$_POST[headlightsHeightAdjustment]."','".$_POST[rearviewElectric]."','".$_POST[alloyWheels]."','".$_POST[rainSensor]."','".$_POST[parkingSensor]."','".$_POST[isofix]."','".$_POST[sunroof]."','".$_POST[electricLock]."','".$_POST[electricWindow]."','".$_POST[rearElectricWindow]."','".$_POST[steeringWheelAdjustment]."','".$_POST[description]."',".$picTempValue."'".$_POST[active]."',now(),now(),'')";
 		
-			mysql_query($sqlAdd) or die ("error #172");
+			mysql_query($sqlAdd) or die ($sqlAdd."error #172");
 			$fetId = mysql_insert_id();
 			//echo $fetId;
 			//serie
@@ -273,7 +281,7 @@ switch ($_POST[action]) {
 ?>
 <script> 
 alert("Atualizado");
-//window.location="../index.php"; 
+window.location="../index.php"; 
 </script>
 <a href="../index.php">Voltar a Home</a>
 
