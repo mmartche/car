@@ -330,6 +330,68 @@ function checkSearch(id,text,field,table) {
 		}
 	});
 }
+//onKeyPress="return(formata_valor(this,'.',',',8,2,event))";
+function formata_valor(fld, milSep, decSep, qtint, qtdec, e){
+	// fld = campo receptor da digita
+	// milsep = caracter para separar de milhar: "." ou ","
+	// decsep = caracter para separar decimal: "," ou "."
+	// qtint = quantidade de caracteres inteiros
+	// qtdec = quantidade de caracteres decimais
+	var sep = 0;
+	var key = '';
+	var i = j = 0;
+	var len = len2 = 0;
+	var strCheck = '-0123456789';
+	var aux = aux2 = '';
+	var whichCode = (window.Event) ? e.which : e.keyCode;
+	if (whichCode == 13)
+		return true;  // Enter
+	key = String.fromCharCode(whichCode);  // Get key value from key code
+	if (strCheck.indexOf(key) == -1)
+		return false;  // Not a valid key
+	len = fld.value.length;
+	for(i = 0; i < len; i++)
+		if ((fld.value.charAt(i) != '0') && (fld.value.charAt(i) != decSep))
+			break;
+	aux = '';
+	for(; i < len; i++)
+		if (strCheck.indexOf(fld.value.charAt(i))!=-1) aux += fld.value.charAt(i);
+	aux += key;
+	len = aux.length;
+	
+	if (len > (qtint + qtdec)) 
+		return true; // digitou o m ximo de caracteres permitido
+
+	if (len <= qtdec)
+	{  // monta caracteres decimais
+		fld.value = '0' + decSep;
+		for (j = (qtdec - len - 1); j >= 0; j--)
+  			fld.value = fld.value + '0';
+		fld.value = fld.value + aux;
+	}	
+	else   // está digitando a parte inteira
+	{  
+		aux2 = '';
+	  	for (j = 0, i = len - (qtdec + 1) ; i >= 0; i--)
+		{
+    		if (j == 3) // checa separação de milhares
+			{  
+      			aux2 += milSep;
+      			j = 0;
+   			}
+    		aux2 += aux.charAt(i);
+    		j++;
+  		}
+	  	fld.value = '';
+  		len2 = aux2.length;  // só a parte inteira
+  		for (i = len2 - 1; i >= 0; i--)
+  			fld.value += aux2.charAt(i);
+  		fld.value += decSep + aux.substr((len - qtdec), len);
+  	}
+	return false;
+}
+//  End -->
+
 $.widget( "custom.catcomplete", $.ui.autocomplete, {
 	_renderMenu: function( ul, items ) {
 		var that = this,
@@ -469,9 +531,16 @@ $.widget( "custom.combobox", {
     ////////////////--------IF OPTION DONT MATCH, CLEAR THE FIELD ---------///////////////
     ////////////---------- BEGIN CLEAR INVALID FIELD
     
-    console.log($(this));
     // Selected an item, nothing to do
     if ( ui.item ) {
+    	switch ($(ui.item.option.parentElement).attr("name")) {
+	    	case "manufacturerName":
+	    		$("#manufacturerId").val(ui.item.option.value);
+		    	break;
+	    	case "modelName":
+	    		break;
+	    }
+    	console.log(ui.item.option.value,$(ui.item.option.parentElement).attr("name"));
       return;
     }
     // Search for a match (case-insensitive)
@@ -490,13 +559,14 @@ $.widget( "custom.combobox", {
       return;
     }
 
-	switch ($(ui.item.option.parentElement).attr("name")) {
+	switch ($(this.element)[0].name) {
     	case "manufacturerName":
     		$("#manufacturerId").val("");
 	    	break;
     	case "modelName":
     		break;
     }
+    /*
     // Remove invalid value
     this.input
       .val( "" )
@@ -507,7 +577,7 @@ $.widget( "custom.combobox", {
       this.input.tooltip( "close" ).attr( "title", "" );
     }, 2500 );
     this.input.data( "ui-autocomplete" ).term = "";
-    
+    */
     //////////////---------- END CLEAR INVALID FIELD
   },
 
