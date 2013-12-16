@@ -134,9 +134,13 @@ footer {
 	padding: 10px;
 	margin: 1px;
 	border: 1px solid;
-	background-color: #000;
+	background-color: #cdd8e6;
+	opacity: 0.69;
 	z-index: 1;
 	color:#cdd8e6;
+}
+.formSearch:hover {
+	opacity: 1;
 }
 .formSearch .transparent {
 	opacity: 0.79;
@@ -258,7 +262,7 @@ header .btnDelForm {
 	padding: 10px 0;
 }
 .resultItem.desactive {
-	background-color: #aeb8c2;
+	background-color: #c4ccd4;
 }
 .resultSearch {
 	overflow-x: scroll;
@@ -289,10 +293,10 @@ header .btnDelForm {
 	overflow: hidden;
 }
 .resultContent:hover {
-	background-color: #ddd !important;
+	background-color: #d1dae3 !important;
 }
 .resultData>ul>li>a:hover {
-	background-color: #ddd;
+	background-color: #d1dae3;
 }
 .rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYearModel, .rhYearProduced, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, .rhGear, .rhEngine, .rhFuel, .rhSteering, .rhSegment, 
 .rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYearModel, .rfYearProduced, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, .rfGear, .rfEngine, .rfFuel, .rfSteering, .rfSegment,  
@@ -358,7 +362,7 @@ header .btnDelForm {
 	height: 25px;
 	border: 0;
 	text-align: center;
-	background: url("../images/buttons.png") -128px -5px transparent;
+	background: url("../images/botoes.png") -77px -10px transparent no-repeat;
 	text-indent: -99px;
 }
 .rsManufacturer {

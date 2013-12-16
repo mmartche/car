@@ -10,7 +10,7 @@ include ("../scripts/conectDB.php");
 switch ($_GET[type]) {
  	case 'askInput':
 		echo "[";
-		$sql_s_manuf = "select id, name, active from manufacturer where name like ('%".$_GET[term]."%') limit 10";
+		$sql_s_manuf = "select id, name, active from manufacturer where name like ('%".$_GET[term]."%') limit 100";
 		$query_s_manuf = mysql_query($sql_s_manuf);
 		// or die ($sql_s_manuf." error #15");
 		$m = 0;
@@ -26,7 +26,7 @@ switch ($_GET[type]) {
 				}';
 			$m++;
 		}
-		$sql_search = "select id, name, active from model where name like ('%".$_GET[term]."%') limit 10";
+		$sql_search = "select id, name, active from model where name like ('%".$_GET[term]."%') limit 100";
 		$query_search = mysql_query($sql_search);
 		// or die (" error #30");
 		$l = 0;
@@ -42,7 +42,7 @@ switch ($_GET[type]) {
 				}';
 			$l++;
 		}
-		$sql_v = "select id, name, active from version where name like ('%".$_GET[term]."%') limit 10";
+		$sql_v = "select id, name, active from version where name like ('%".$_GET[term]."%') limit 100";
 		$query_v = mysql_query($sql_v);
 		// or die (mysql_error()." error #40");
 		$v = 0;
@@ -63,7 +63,7 @@ switch ($_GET[type]) {
 
 	case 'terms':
 		//echo $sql_search;
-		if ($_GET[table] != "") { $filterSearch = "AND ".$_GET[table].".id = '".$_GET[idField]."' limit 10"; }
+		if ($_GET[table] != "") { $filterSearch = "AND ".$_GET[table].".id = '".$_GET[idField]."' limit 100"; }
 		elseif ($_GET[term] != "") { 
 		//search all about the term
 		}
@@ -266,8 +266,8 @@ switch ($_GET[type]) {
 		break;
 	case 'askVersion':
 		echo "[";
-		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' "; }
-		$sql_v = "SELECT id, name, active from version where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' and model.id = '".$_GET[mainId]."' "; }
+		$sql_v = "SELECT version.id, version.name, model.active, segment.name as segmentName from version, model, segment where segment.id = model.idSegment and version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by version.name";
 		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -278,6 +278,7 @@ switch ($_GET[type]) {
 					"category": "Versão",
 					"table":"version",
 					"active":"'.$resM[active].'",
+					"segmentName":"'.$resM[segmentName].'",
 					"value":"'.$resM[name].'"
 				}';
 			$m++;

@@ -81,9 +81,7 @@ include ("./scripts/conectDB.php");
 					<div class="rhGear">Câmbio</div>
 					<div class="rhFuel">Combustível</div>
 					<div class="rhSteering">Direção</div>
-					<div class="rhSegment">Segmento 1</div>
-					<div class="rhSegment">Segmento 2</div>
-					<div class="rhSegment">Segmento 3</div>
+					<div class="rhSegment">Segmento</div>
 				</li>
 				<li class="resultFilter">
 					<div class="rfItems">Filtros</div>
@@ -96,15 +94,13 @@ include ("./scripts/conectDB.php");
 					<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields('rsGear',this)" /></div>
 					<div class="rfFuel"><input type="text" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" /></div>
 					<div class="rfSteering"><input type="text" id="txtRSSteering" onkeyup="filterFields('rsSteering',this)" /></div>
-					<div class="rfSegment"><input type="text" id="txtRSSegment1" onkeyup="filterFields('rsSegment1',this)" /></div>
-					<div class="rfSegment"><input type="text" id="txtRSSegment2" onkeyup="filterFields('rsSegment2',this)" /></div>
-					<div class="rfSegment"><input type="text" id="txtRSSegment3" onkeyup="filterFields('rsSegment3',this)" /></div>
+					<div class="rfSegment"><input type="text" id="txtRSSegment" onkeyup="filterFields('rsSegment',this)" /></div>
 					<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
 				</li>
 				<li class="resultData"><ul>
 				<?
 					if ($_GET[askInput] != "") {
-						$sqlTerm = "SELECT manufacturer.id as id, manufacturer.name as manufacturerName FROM manufacturer WHERE name like ('%".$_GET[askInput]."%') ORDER by name limit 10";
+						$sqlTerm = "SELECT manufacturer.id as id, manufacturer.name as manufacturerName FROM manufacturer WHERE name like ('%".$_GET[askInput]."%') ORDER by name limit 100";
 						$query_search = mysql_query($sqlTerm) or die ($sqlTerm. mysql_error()." error #135");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
@@ -118,7 +114,7 @@ include ("./scripts/conectDB.php");
 								</a>
 							</li>
 						<? }
-						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.id as id, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id and model.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name limit 10";
+						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.id as id, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id and model.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name limit 100";
 						$query_search = mysql_query($sqlTerm) or die (" error #150");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
@@ -133,7 +129,7 @@ include ("./scripts/conectDB.php");
 								</a>
 							</li>
 						<? }
-						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.name as modelName, version.id as id, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id and version.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name, version.name limit 10";
+						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.name as modelName, version.id as id, version.name as versionName  FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id and version.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name, version.name limit 100";
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
@@ -150,7 +146,7 @@ include ("./scripts/conectDB.php");
 								</a>
 							</li>
 						<? } 
-						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 10";
+						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, segment.name as segmentName FROM manufacturer, model, version, feature, segment WHERE model.idSegment = segment.id and feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 100";
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
@@ -170,14 +166,12 @@ include ("./scripts/conectDB.php");
 									<div class="rsGear"><?=$res[gear]?></div>
 									<div class="rsFuel"><?=$res[fuel]?></div>
 									<div class="rsSteering"><?=$res[steering]?></div>
-									<div class="rsSegment"><?=$res[segment]?></div>
-									<div class="rsSegment"><?=$res[segment]?></div>
-									<div class="rsSegment"><?=$res[segment]?></div>
+									<div class="rsSegment"><?=$res[segmentName]?></div>
 								</a>
 							</li>
 						<? } 
 					} else {
-						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel asc, yearProduced asc limit 30";
+						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, segment.name as segmentName FROM manufacturer, model, version, feature, segment WHERE model.idSegment = segment.id and feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel asc, yearProduced asc limit 300";
 						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 						$query_search = mysql_query($sql_search) or die (mysql_error()." error #180");
 						while ($res = mysql_fetch_array($query_search)) {
@@ -198,9 +192,7 @@ include ("./scripts/conectDB.php");
 								<div class="rsGear"><?=$res[gear]?></div>
 								<div class="rsFuel"><?=$res[fuel]?></div>
 								<div class="rsSteering"><?=$res[steering]?></div>
-								<div class="rsSegment"><?=$res[segment]?></div>
-								<div class="rsSegment"><?=$res[segment]?></div>
-								<div class="rsSegment"><?=$res[segment]?></div>
+								<div class="rsSegment"><?=$res[segmentName]?></div>
 							</a>
 						</li>
 						<? } 

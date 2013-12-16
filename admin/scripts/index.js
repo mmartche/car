@@ -469,6 +469,7 @@ $.widget( "custom.combobox", {
 	  			$.getJSON('api/index.php?type=askVersion&mainId='+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
+						$("#idSegment").parent().find("input").val(val.segmentName);
 					});
 					$("#versionName option").remove();
 					$("#versionName").append(optTemp);
@@ -769,7 +770,7 @@ $(function() {
 	$( "#manufacturerName" ).combobox();
 	$( "#modelName" ).combobox();
 	$( "#versionName" ).combobox();
-	$( "#txtSegmentName" ).combobox();
+	$( "#idSegment" ).combobox();
 	$( "#txtFuel" ).combobox();
 	$( "#txtOptionsName" ).combobox();
 	$( "#colorAplication" ).combobox();
