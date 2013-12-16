@@ -80,23 +80,24 @@ include ("./scripts/conectDB.php");
 					<div class="rhEngine">Motor</div>
 					<div class="rhGear">Câmbio</div>
 					<div class="rhFuel">Combustível</div>
-					<div class="rhSteering">Direção</div>
-					<div class="rhSegment">Segmento</div>
+					<div class="rhPrice">Preço</div>
 				</li>
 				<li class="resultFilter">
-					<div class="rfItems">Filtros</div>
-					<div class="rfManufacturer"><input type="text" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" /></div>
-					<div class="rfModel"><input type="text" id="txtRSModel" onkeyup="filterFields('rsModel',this)" /></div>
-					<div class="rfVersion"><input type="text" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)"  /></div>
-					<div class="rfYearModel"><input type="text" id="txtRSYearModel" onkeyup="filterFields('rsYearModel',this)" /></div>
-					<div class="rfYearProduced"><input type="text" id="txtRSYearProduced" onkeyup="filterFields('rsYearProduced',this)" /></div>
-					<div class="rfEngine"><input type="text" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" /></div>
-					<div class="rfGear"><input type="text" id="txtRSGear" onkeyup="filterFields('rsGear',this)" /></div>
-					<div class="rfFuel"><input type="text" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" /></div>
-					<div class="rfSteering"><input type="text" id="txtRSSteering" onkeyup="filterFields('rsSteering',this)" /></div>
-					<div class="rfSegment"><input type="text" id="txtRSSegment" onkeyup="filterFields('rsSegment',this)" /></div>
-					<div class="rfOptions"><input type="text" id="txtRSOptions" onkeyup="filterFields('rsOptions',this)" /></div>
+					<form action="?filter=true" method="post">
+					<div class="rfItems">Filtros<input type="checkbox" name="filterActive" id="chkRSActive" value="n" /></div>
+					<div class="rfManufacturer"><input type="text" name="filterManuf" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" /></div>
+					<div class="rfModel"><input type="text" name="filterModel" id="txtRSModel" onkeyup="filterFields('rsModel',this)" /></div>
+					<div class="rfVersion"><input type="text" name="filterVersion" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)"  /></div>
+					<div class="rfYearModel"><input type="text" name="filterYearModel" id="txtRSYearModel" onkeyup="filterFields('rsYearModel',this)" /></div>
+					<div class="rfYearProduced"><input type="text" name="filterYearProduced" id="txtRSYearProduced" onkeyup="filterFields('rsYearProduced',this)" /></div>
+					<div class="rfEngine"><input type="text" name="filterEngine" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" /></div>
+					<div class="rfGear"><input type="text" name="filterGear" id="txtRSGear" onkeyup="filterFields('rsGear',this)" /></div>
+					<div class="rfFuel"><input type="text" name="filterFuel" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" /></div>
+					<div class="rfPrice"><input type="text" name="filterPrice" id="txtRSPrice" onkeyup="filterFields('rsPrice',this)" /></div>
+					<div class="rfSubmit"><input type="submit" value="Pesquisar" /></div>
+					</form>
 				</li>
+
 				<li class="resultData"><ul>
 				<?
 					if ($_GET[askInput] != "") {
@@ -171,9 +172,21 @@ include ("./scripts/conectDB.php");
 							</li>
 						<? } 
 					} else {
-						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, segment.name as segmentName FROM manufacturer, model, version, feature, segment WHERE model.idSegment = segment.id and feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel asc, yearProduced asc limit 300";
+						if ($_POST[filterManuf] != "") { $filterSql .= " AND manufacturer.name like ('%".$_POST[filterManuf]."%') "; }
+						if ($_POST[filterModel] != "") { $filterSql .= " AND model.name like ('%".$_POST[filterModel]."%') "; }
+						if ($_POST[filterVersion] != "") { $filterSql .= " AND version.name like ('%".$_POST[filterVersion]."%') "; }
+						if ($_POST[filterYearModel] != "") { $filterSql .= " AND feature.yearModel  like ('%".$_POST[filterYearModel]."%') "; }
+						if ($_POST[filterYearProduced] != "") { $filterSql .= " AND feature.yearProduced like ('%".$_POST[filterYearProduced]."%') "; }
+						if ($_POST[filterEngine] != "") { $filterSql .= " AND feature.engine like ('%".$_POST[filterEngine]."%') "; }
+						if ($_POST[filterGear] != "") { $filterSql .= " AND feature.gear like ('%".$_POST[filterGear]."%') "; }
+						if ($_POST[filterFuel] != "") { $filterSql .= " AND feature.fuel like ('%".$_POST[filterFuel]."%') "; }
+						if ($_POST[filterPrice] != "") { $filterSql .= " AND feature.price like ('%".$_POST[filterPrice]."%') "; }
+						if ($_POST[filterActive] == "n") { $filterSql .= " AND feature.active = 'n' "; } else { $filterSql .= " AND feature.active != 'n' "; }
+
+						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, segment.name as segmentName FROM manufacturer, model, version, feature, segment WHERE model.idSegment = segment.id and feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel asc, yearProduced asc limit 400";
 						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 						$query_search = mysql_query($sql_search) or die (mysql_error()." error #180");
+						echo $sql_search;
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 						<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
