@@ -447,114 +447,114 @@ $res = mysql_fetch_array($query_search);
 					<label class="subTitle">ACESSÓRIOS</label>
 					<div class="optionsFeatures optionsFields">
 						<span>
-							<input type="checkbox" name="dualFrontAirBag" value="s" <? if ($res[dualFrontAirBag] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="dualFrontAirBag" value="s" <? if (strtolower($res[dualFrontAirBag]) == "s") { echo 'checked="true"'; } ?> />
 							Airbag duplo frontal
 						</span>
 						<span>
-							<input type="checkbox" name="alarm" value="s" <? if ($res[alarm] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="alarm" value="s" <? if (strtolower($res[alarm]) == "s") { echo 'checked="true"'; } ?> />
 							Alarme
 						</span>
 						<span>
-							<input type="checkbox" name="airConditioning" value="s" <? if ($res[airConditioning] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="airConditioning" value="s" <? if (strtolower($res[airConditioning]) == "s") { echo 'checked="true"'; } ?> />
 							Ar condicionado</span>
 						<span>
-							<input type="checkbox" name="hotAir" value="s" <? if ($res[hotAir] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="hotAir" value="s" <? if (strtolower($res[hotAir]) == "s") { echo 'checked="true"'; } ?> />
 							Ar quente</span>
 						<span>
-							<input type="checkbox" name="leatherSeat" value="s" <? if ($res[leatherSeat] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="leatherSeat" value="s" <? if (strtolower($res[leatherSeat]) == "s") { echo 'checked="true"'; } ?> />
 							Banco de couro</span>
 						<span>
-							<input type="checkbox" name="heightAdjustment" value="s" <? if ($res[heightAdjustment] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="heightAdjustment" value="s" <? if (strtolower($res[heightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
 							Banco do motorista com regulagem de altura</span>
 						<span>
-							<input type="checkbox" name="rearSeatSplit" value="s" <? if ($res[rearSeatSplit] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="rearSeatSplit" value="s" <? if (strtolower($res[rearSeatSplit]) == "s") { echo 'checked="true"'; } ?> />
 							Banco traseiro bipartido</span>
 						<span>
-							<input type="checkbox" name="bluetoothSpeakerphone" value="s" <? if ($res[bluetoothSpeakerphone] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="bluetoothSpeakerphone" value="s" <? if (strtolower($res[bluetoothSpeakerphone]) == "s") { echo 'checked="true"'; } ?> />
 							Bluetooth com viva-voz</span>
 						<span>
-							<input type="checkbox" name="bonnetSea" value="s" <? if ($res[bonnetSea] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="bonnetSea" value="s" <? if (strtolower($res[bonnetSea]) == "s") { echo 'checked="true"'; } ?> />
 							Capota marítima</span>
 						<span>
-							<input type="checkbox" name="onboardComputer" value="s" <? if ($res[onboardComputer] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="onboardComputer" value="s" <? if (strtolower($res[onboardComputer]) == "s") { echo 'checked="true"'; } ?> />
 							Computador de bordo</span>
 						<span>
-							<input type="checkbox" name="accelerationCounter" value="s" <? if ($res[accelerationCounter] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="accelerationCounter" value="s" <? if (strtolower($res[accelerationCounter]) == "s") { echo 'checked="true"'; } ?> />
 							Conta giros</span>
 						<span>
-							<input type="checkbox" name="rearWindowDefroster" value="s" <? if ($res[rearWindowDefroster] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="rearWindowDefroster" value="s" <? if (strtolower($res[rearWindowDefroster]) == "s") { echo 'checked="true"'; } ?> />
 							Desembaçador de vidro traseiro</span>
 						<span>
-							<input type="checkbox" name="electricSteering" value="s" <? if ($res[electricSteering] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="electricSteering" value="s" <? if (strtolower($res[electricSteering]) == "s") { echo 'checked="true"'; } ?> />
 							Direção elétrica</span>
 						<span>
-							<input type="checkbox" name="hydraulicSteering" value="s" <? if ($res[hydraulicSteering] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="hydraulicSteering" value="s" <? if (strtolower($res[hydraulicSteering]) == "s") { echo 'checked="true"'; } ?> />
 							Direção hidráulica</span>
 						<span>
-							<input type="checkbox" name="sidesteps" value="s" <? if ($res[sidesteps] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="sidesteps" value="s" <? if (strtolower($res[sidesteps]) == "s") { echo 'checked="true"'; } ?> />
 							Estribos laterais</span>
 						<span>
-							<input type="checkbox" name="fogLamps" value="s" <? if ($res[fogLamps] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="fogLamps" value="s" <? if (strtolower($res[fogLamps]) == "s") { echo 'checked="true"'; } ?> />
 							Faróis de neblina/milha</span>
 						<span>
-							<input type="checkbox" name="xenonHeadlights" value="s" <? if ($res[xenonHeadlights] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="xenonHeadlights" value="s" <? if (strtolower($res[xenonHeadlights]) == "s") { echo 'checked="true"'; } ?> />
 							Faróis xenon</span>
 						<span>
-							<input type="checkbox" name="absBrake" value="s" <? if ($res[absBrake] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="absBrake" value="s" <? if (strtolower($res[absBrake]) == "s") { echo 'checked="true"'; } ?> />
 							Freios Abs</span>
 						<span>
-							<input type="checkbox" name="integratedGPSPanel" value="s" <? if ($res[integratedGPSPanel] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="integratedGPSPanel" value="s" <? if (strtolower($res[integratedGPSPanel]) == "s") { echo 'checked="true"'; } ?> />
 							GPS integrado ao painel</span>
 						<span>
-							<input type="checkbox" name="rearWindowWiper" value="s" <? if ($res[rearWindowWiper] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="rearWindowWiper" value="s" <? if (strtolower($res[rearWindowWiper]) == "s") { echo 'checked="true"'; } ?> />
 							Limpador de vidro traseiro</span>
 						<span>
-							<input type="checkbox" name="bumper" value="s" <? if ($res[bumper] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="bumper" value="s" <? if (strtolower($res[bumper]) == "s") { echo 'checked="true"'; } ?> />
 							Para choque na cor do veículo</span>
 						<span>
-							<input type="checkbox" name="autopilot" value="s" <? if ($res[autopilot] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="autopilot" value="s" <? if (strtolower($res[autopilot]) == "s") { echo 'checked="true"'; } ?> />
 							Piloto automático</span>
 						<span>
-							<input type="checkbox" name="bucketProtector" value="s" <? if ($res[bucketProtector] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="bucketProtector" value="s" <? if (strtolower($res[bucketProtector]) == "s") { echo 'checked="true"'; } ?> />
 							Protetor de caçamba</span>
 						<span>
-							<input type="checkbox" name="roofRack" value="s" <? if ($res[roofRack] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="roofRack" value="s" <? if (strtolower($res[roofRack]) == "s") { echo 'checked="true"'; } ?> />
 							Rack de teto</span>
 						<span>
-							<input type="checkbox" name="cdplayerUSBInput" value="s" <? if ($res[cdplayerUSBInput] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="cdplayerUSBInput" value="s" <? if (strtolower($res[cdplayerUSBInput]) == "s") { echo 'checked="true"'; } ?> />
 							checkbox cd player com entrada USB</span>
 						<span>
-							<input type="checkbox" name="headlightsHeightAdjustment" value="s" <? if ($res[headlightsHeightAdjustment] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="headlightsHeightAdjustment" value="s" <? if (strtolower($res[headlightsHeightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
 							Regulagem de altura dos faróis</span>
 						<span>
-							<input type="checkbox" name="rearviewElectric" value="s" <? if ($res[rearviewElectric] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="rearviewElectric" value="s" <? if (strtolower($res[rearviewElectric]) == "s") { echo 'checked="true"'; } ?> />
 							Retrovisor elétrico</span>
 						<span>
-							<input type="checkbox" name="alloyWheels" value="s" <? if ($res[alloyWheels] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="alloyWheels" value="s" <? if (strtolower($res[alloyWheels]) == "s") { echo 'checked="true"'; } ?> />
 							Rodas de liga leve</span>
 						<span>
-							<input type="checkbox" name="rainSensor" value="s" <? if ($res[rainSensor] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="rainSensor" value="s" <? if (strtolower($res[rainSensor]) == "s") { echo 'checked="true"'; } ?> />
 							Sensor de chuva</span>
 						<span>
-							<input type="checkbox" name="parkingSensor" value="s" <? if ($res[parkingSensor] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="parkingSensor" value="s" <? if (strtolower($res[parkingSensor]) == "s") { echo 'checked="true"'; } ?> />
 							Sensor de estacionamento</span>
 						<span>
-							<input type="checkbox" name="isofix" value="s" <? if ($res[isofix] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="isofix" value="s" <? if (strtolower($res[isofix]) == "s") { echo 'checked="true"'; } ?> />
 							Sistema Isofix para cadeira de criança</span>
 						<span>
-							<input type="checkbox" name="sunroof" value="s" <? if ($res[sunroof] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="sunroof" value="s" <? if (strtolower($res[sunroof]) == "s") { echo 'checked="true"'; } ?> />
 							Teto solar</span>
 						<span>
-							<input type="checkbox" name="electricLock" value="s" <? if ($res[electricLock] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="electricLock" value="s" <? if (strtolower($res[electricLock]) == "s") { echo 'checked="true"'; } ?> />
 							Trava elétrica</span>
 						<span>
-							<input type="checkbox" name="electricWindow" value="s" <? if ($res[electricWindow] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="electricWindow" value="s" <? if (strtolower($res[electricWindow]) == "s") { echo 'checked="true"'; } ?> />
 							Vidro elétrico</span>
 						<span>
-							<input type="checkbox" name="rearElectricWindow" value="s" <? if ($res[rearElectricWindow] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="rearElectricWindow" value="s" <? if (strtolower($res[rearElectricWindow]) == "s") { echo 'checked="true"'; } ?> />
 							Vidro elétrico traseiro</span>
 						<span>
-							<input type="checkbox" name="steeringWheelAdjustment" value="s" <? if ($res[steeringWheelAdjustment] == "s") { echo 'checked="true"'; } ?> />
+							<input type="checkbox" name="steeringWheelAdjustment" value="s" <? if (strtolower($res[steeringWheelAdjustment]) == "s") { echo 'checked="true"'; } ?> />
 							Volante com regulagem de altura</span>
 					</div>
 				</div>
@@ -721,8 +721,12 @@ $res = mysql_fetch_array($query_search);
 						<label for="txtPicture">Insira a imagem</label>
 							<input type="file" name="file" id="txtPicture" placeholder="Imagem" />
 							<!--input type="button" value="Adicionar" id="btnPictureAdd" /-->
-							<? if ($res[picture] != "") { $bgImgPicture = 'style="background-image:url(\'../carImages/'.$res[picture].'\')"'; } ?>
+							<? if ($res[picture] != "") { 
+								//if ($res[picture].split("/", string))
+								$bgImgPicture = 'style="background-image:url(\'../carImages/'.$res[picture].'\')"'; 
+							} ?>
 							<textarea class="image-preview" disabled="disabled" <?=$bgImgPicture?>></textarea>
+							<div class="oldPicture"><span class="subTitleAllItems">Imagem do cadastro atual</span><img src="http://carsale.uol.com.br/foto/<?=$res[picture]?>_g.jpg" /></div>
 						<!--ol class="listPictures" id="listPictures">
 							<li><img src="../carImages/<?=$res[picture]?>">
 							<img src="<? echo $res[manufacturerName]."-".$res[modelName]."-".$res[versionName]."-".$res[featureId].".jpg"; ?>"></li>

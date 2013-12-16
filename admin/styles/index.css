@@ -556,3 +556,11 @@ input[type="checkbox"] {
 	background-image: url(../images/botoes.png) !important;
 	background-position: -185px 0px !important;
 }
+.oldPicture {
+	border:1px solid;
+	overflow: hidden;
+}
+.oldPicture .subTitleAllItems {
+	width: 100%;
+	text-align: center;
+}
