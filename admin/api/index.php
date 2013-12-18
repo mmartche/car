@@ -247,7 +247,7 @@ switch ($_GET[type]) {
 	case 'askModel':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
-		$sql_search = "SELECT id, name, active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+		$sql_search = "SELECT id, name, idSegment active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -257,6 +257,7 @@ switch ($_GET[type]) {
 					"label":"'.$resM[name].'",
 					"category": "Modelo",
 					"table":"model",
+					"segmentId":"'.$resM[idSegment].'",
 					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';
@@ -267,7 +268,8 @@ switch ($_GET[type]) {
 	case 'askVersion':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' and model.id = '".$_GET[mainId]."' "; }
-		$sql_v = "SELECT version.id, version.name, model.active, segment.name as segmentName from version, model, segment where segment.id = model.idSegment and version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by version.name";
+		$sql_v = "SELECT version.id, version.name, model.active from version, model where version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by version.name";
+		
 		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -278,7 +280,6 @@ switch ($_GET[type]) {
 					"category": "Versão",
 					"table":"version",
 					"active":"'.$resM[active].'",
-					"segmentName":"'.$resM[segmentName].'",
 					"value":"'.$resM[name].'"
 				}';
 			$m++;

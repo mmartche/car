@@ -127,6 +127,7 @@ footer {
 	display: none;
 }
 .formSearch {
+	display: none;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -298,9 +299,9 @@ header .btnDelForm {
 .resultData>ul>li>a:hover {
 	background-color: #d1dae3;
 }
-.rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYearModel, .rhYearProduced, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, .rhGear, .rhEngine, .rhFuel, .rhSteering, .rhSegment, 
-.rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYearModel, .rfYearProduced, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, .rfGear, .rfEngine, .rfFuel, .rfSteering, .rfSegment,  
-.rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYearModel, .rsYearProduced, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable, .rsGear, .rsEngine, .rsFuel, .rsSteering, .rsSegment {
+.rhItems, .rhManufacturer, .rhModel, .rhVersion, .rhYearModel, .rhYearProduced, .rhOptions, .rhPicture, .rhSegment, .rhGear, .rhOil, .rhAvaliable, .rhGear, .rhEngine, .rhFuel, .rhPrice, .rhSteering, .rhSegment, 
+.rfItems, .rfManufacturer, .rfModel, .rfVersion, .rfYearModel, .rfYearProduced, .rfOptions, .rfPicture, .rfSegment, .rfGear, .rfOil, .rfAvaliable, .rfGear, .rfEngine, .rfFuel, .rfPrice, .rfSteering, .rfSegment,  
+.rsItems, .rsManufacturer, .rsModel, .rsVersion, .rsYearModel, .rsYearProduced, .rsOptions, .rsPicture, .rsSegment, .rsGear, .rsOil, .rsAvaliable, .rsGear, .rsEngine, .rsFuel, .rsPrice, .rsSteering, .rsSegment {
 	float: left;
 	border-right: 1px dotted;
 	height: 100%;

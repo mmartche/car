@@ -92,8 +92,8 @@ $(document).ready(function(){
 					$("#colorLength").val(cLength+1);
 					$("#colorName").val(""),
 					$("#colorSelected").val(""),
-					$("#colorAplication").val(""),
-					$("#colorType").val(""),
+					//$("#colorAplication").val(""),
+					//$("#colorType").val(""),
 					$("#colorSelector div").css("backgroundColor", "#ffffff");
 				} else {
 					//$("#resultOptions").prepend('<label>''</label>');
@@ -458,7 +458,6 @@ $.widget( "custom.combobox", {
 					$("#modelId").val("");
 
 					$("#versionName option").remove();
-					$("#versionName").append(optTemp);
 					$("#versionName").parent().find("input").val("");
 					$("#versionId").val("");
 				});
@@ -468,6 +467,7 @@ $.widget( "custom.combobox", {
       			var optTemp;
 	  			$.getJSON('api/index.php?type=askVersion&mainId='+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
+						//console.log(val.label,"====",ui.item.option.value);
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
 						$("#idSegment").parent().find("input").val(val.segmentName);
 					});
@@ -550,7 +550,7 @@ $.widget( "custom.combobox", {
   },
 
   _removeIfInvalid: function( event, ui ) {
-  	//TODO: apagar o campo id se o que for digitado nao bater
+  	//TODO: apagar o campo id se o que for digitado nao bater - ok
     //return;
 
     ////////////////--------IF OPTION DONT MATCH, CLEAR THE FIELD ---------///////////////
@@ -558,8 +558,8 @@ $.widget( "custom.combobox", {
     
     // Selected an item, nothing to do
     if ( ui.item ) {
+    	//console.log(ui.item.option.value,$(ui.item.option.parentElement).attr("name"))
     	//$(ui.item.option.parentElement).attr("name")
-    	//console.log(ui.item.option.value,$(ui.item.option.parentElement).attr("name"));
       return;
     }
     // Search for a match (case-insensitive)
@@ -577,16 +577,18 @@ $.widget( "custom.combobox", {
     if ( valid ) {
       return;
     }
+    	console.log($(this.input),this.input[0].name);
 
-	switch ($(this.element)[0].name) {
+
+	switch (this.input[0].name) {
     	case "manufacturerName":
     		$("#manufacturerId").val("");
-    		$("#modelId").val("");
-    		$("#versionId").val("");
+    		//$("#modelId").val("");
+    		//$("#versionId").val("");
 	    	break;
     	case "modelName":
     		$("#modelId").val("");
-    		$("#versionId").val("");
+    		//$("#versionId").val("");
     		break;
 		case "versionName":
 			$("#versionId").val("");
@@ -641,7 +643,7 @@ $(function() {
 				"Selected: " + ui.item.id + " aka " + ui.item.value + " category " + ui.item.category:
 				"Nothing selected, input was " + this.value );
 			//each category will print a diferent result w/ links
-			console.log('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table);
+			//console.log('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table);
 			$.getJSON('api/index.php?type=terms&term='+ui.item.value+'&idField='+ui.item.id+'&table='+ui.item.table, function(data) {
 				$(".resultData ul li").remove();
 					$.each(data, function(key, val) {
