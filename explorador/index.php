@@ -55,12 +55,20 @@ include ("../scripts/conectDB.php");
 				<div class="secSubTitle"><span>Então começe por aqui</span></div>
 				<div class="expHomeForm">
 					<form action="#" method="post">
-						<select class="expInputSelect" name="expManufacturer" id="expSelectManufacturer">
-							<option value="1">Select</option>
-							
+						<select class="expInputSelect" name="expManufacturer" id="expSelectManufacturer" onchange="updateField(this)">
+							<option>Montadora</option>
+							<?
+							$sql = "select id, name from manufacturer";
+							$query = mysql_query($sql) or die ("error #62");
+							while ($res = mysql_fetch_array($query)) {
+							?>
+							<option value="<?=$res[id]?>"><?=$res[name]?></option>
+							<?
+							}
+							?>
 						</select>
-						<select class="expInputSelect" name="expModel">
-							<option value="1">Select</option>
+						<select class="expInputSelect" id="expModel" name="expModel">
+							<option>Escolha uma montadora primeiro</option>
 						</select>
 						<div class="btnExpSearch"><div class="btnPadding"><input type="button" class="btnButton" value="Ir para comparativo" /></div></div>
 					</form>
@@ -70,7 +78,7 @@ include ("../scripts/conectDB.php");
 				<h3 class="secTitle">Não sabe o que quer?</h3>
 				<div class="secSubTitle"><span>Nós Ajudamos você</span></div>
 				<img src="http://carsale.uol.com.br/classificado/img/exploradorperguntasCarros.gif" />
-				<div class="btnExpSearch"><div class="btnPadding"><input type="button" class="btnButton" value="Explorar" /></div></div>
+				<div class="btnExpSearch"><div class="btnPadding"><a href="search.php" class="btnButton">Explorar</a></div></div>
 			</section>
 		</div>
 	</div>
@@ -114,7 +122,18 @@ var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
  </script>
-
+<script type="text/javascript">
+function updateField(obj){
+	$("#expModel option").remove();
+	var optTemp;
+	$.getJSON('../admin/api/index.php?type=askModel&mainId='+obj.value, function(data) {
+		$.each(data, function(key, val) {
+			optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
+		});
+		$("#expModel").append(optTemp);
+	});
+}
+</script>
 
 </body>
 </html>

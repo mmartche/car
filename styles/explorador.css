@@ -74,7 +74,7 @@
 	text-decoration: none;
 	cursor: pointer;
 	border-radius: 5px;
-	
+	display: block;
 	background: #64a800; /* Old browsers */
 	background: -moz-linear-gradient(top,  #ebf4de 0%, #64a800 50%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf4de), color-stop(50%,#64a800)); /* Chrome,Safari4+ */
@@ -95,5 +95,35 @@
 	background: -ms-linear-gradient(top,  #f9f7de 0%,#ffcc04 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #f9f7de 0%,#ffcc04 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f7de', endColorstr='#ffcc04',GradientType=0 ); /* IE6-9 */
-
+}
+.formExplorer {
+	overflow: hidden;
+	width: 950px;
+}
+.exploradorTitulo {
+	width: 100%;
+	padding-top: 10px;
+	padding-left: 30px;
+	padding-bottom: 4px;
+	font: 20px Arial, sans-serif;
+	color: #000;
+	font-weight: bold;
+	text-align: left;
+	float: left;
+	position: relative;
+	overflow: hidden;
+}
+.exploradorBgInterno {
+	height: auto;
+	width: 100%;
+	margin-left: 8px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	background-color: #fff;
+	border: 1px #bcbec0 solid;
+	float: left;
+	position: relative;
+}
+.exploradorGridFiltrosColunaB, .exploradorGridFiltrosColunaA {
+	float: left;
 }
