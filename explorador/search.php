@@ -28,6 +28,7 @@ include ("../scripts/conectDB.php");
 	<script type="text/javascript" src="Dfp_home.js"></script>
 	<script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
 	<script type="text/javascript" src="../scripts/scriptHome.js"></script>
+	<script type="text/javascript" src="../scripts/explorer.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="../styles/home.css" />
@@ -54,55 +55,24 @@ include ("../scripts/conectDB.php");
 <div id="formularioSegmentos" class="formExplorer">
 	<div class="exploradorTitulo">Preencha um ou mais campos:</div>
 	<div class="exploradorBgInterno">
-	    <form action="/classificado/explorador/buscar" name="explorador" id="formBusca" method="post" >
+	    <form action="" name="formExplorer" id="formExplorer" method="post" >
 	        <div class="exploradorGridFiltros">
 	            <div class="exploradorGridFiltrosColunaB">
 	                <div class="exploradorGridFiltrosColunaBTitulo">Qual tipo de carro você quer ?</div>
 	                <div class="exploradorGridFiltrosGridImg">
+	                <?
+	                $sqlThumb = "SELECT id, name FROM segment order by name";
+	                $queryThumb = mysql_query($sqlThumb) or die ("error #65");
+	                while ($resThumb = mysql_fetch_array($queryThumb)) {
+	                ?>
 	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_entrada" name="filtroVersaoVeiculo.segmentos[].id" value="3">
-	                        <a id="entrada" class="labelSegmento" href=""><img id="imgentrada" src="/classificado/img/btnFiltroCategoriaEntrada.gif"></a>
+	                        <input type="checkbox" class="inputExpForm" id="chkExpForm<?=$resThumb[id]?>" name="segmentos[].id" value="<?=$resThumb[id]?>">
+	                        <label for="chkExpForm<?=$resThumb[id]?>"><img class="thumbExpForm" src="./images/explorer/thumb/<?=$resThumb[id]?>.png" alt="<?=$resThumb[name]?>" title="<?=$resThumb[name]?>" /></a>
 	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_hatch" name="filtroVersaoVeiculo.segmentos[].id" value="1">
-	                        <a id="hatch" class="labelSegmento" href=""><img id="imghatch" src="/classificado/img/btnFiltroCategoriaHatch.gif"></a>
-	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_seda" name="filtroVersaoVeiculo.segmentos[].id" value="2">
-	                        <a id="seda" class="labelSegmento" href=""><img id="imgseda" src="/classificado/img/btnFiltroCategoriaSeda.gif"></a>
-	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_minivan" name="filtroVersaoVeiculo.segmentos[].id" value="6">
-	                        <a id="minivan" class="labelSegmento" href=""><img id="imgminivan" src="/classificado/img/btnFiltroCategoriaMinivan.gif"></a>
-	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_perua" name="filtroVersaoVeiculo.segmentos[].id" value="7">
-	                        <a id="perua" class="labelSegmento" href=""><img id="imgperua" src="/classificado/img/btnFiltroCategoriaPerua.gif"></a>
-	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_picape" name="filtroVersaoVeiculo.segmentos[].id" value="8">
-	                        <a id="picape" class="labelSegmento" href=""><img id="imgpicape" src="/classificado/img/btnFiltroCategoriaPicape.gif"></a>
-	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_suv" name="filtroVersaoVeiculo.segmentos[].id" value="10">
-	                        <a id="suv" class="labelSegmento" href=""><img id="imgsuv" src="/classificado/img/btnFiltroCategoriaSuv.gif"></a>
-	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_coupe" name="filtroVersaoVeiculo.segmentos[].id" value="4">
-	                        <a id="coupe" class="labelSegmento" href=""><img id="imgcoupe" src="/classificado/img/btnFiltroCategoriaAventureiro.gif"></a>
-	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_esportivo" name="filtroVersaoVeiculo.segmentos[].id" value="5">
-	                        <a id="esportivo" class="labelSegmento" href=""><img id="imgesportivo" src="/classificado/img/btnFiltroCategoriaEsportivo.gif"></a>
-	                    </div>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="segmento" id="check_utilitario" name="filtroVersaoVeiculo.segmentos[].id" value="9">
-	                        <a id="utilitario" class="labelSegmento" href=""><img id="imgutilitario" src="/classificado/img/btnFiltroCategoriaUtilitario.gif"></a>
-	                    </div>
+	                <? } ?>
 	                </div>
 	                <div class="exploradorGridFiltrosBtnBuscar">
-	                    <input type="submit" value="dd" id="submitButton">
-	                    <a class="buscar" href="" onclick="$('#submitButton').click();"><img border="0" alt="Buscar" title="Buscar" name="exploradorBtnBuscar" src="/classificado/img/exploradorBtnBuscar.gif"></a>
+	                    <input type="submit" value="Buscar" id="btnSearch" name="btnSearch" />
 	                </div>
 	            </div>
 
@@ -110,64 +80,221 @@ include ("../scripts/conectDB.php");
 	                <div class="exploradorGridFiltrosColunaATitulo">Quanto você pretende gastar ?</div>
 	                <div class="exploradorGridFiltrosInputText">
 	                    <div class="exploradorGridFiltrosInputTextLine">
-	                        <div class="exploradorGridFiltrosInputTextTxt"><label for="valorInicial">De:</label></div>
-	                        <fieldset class="exploradorGridFiltroInput">
-	                            <input type="text" class="exploradorGridFiltroInputBox numeric numericFormated" id="valorInicial">
-	                            <input type="hidden" name="filtroVersaoVeiculo.valorInicial" id="valorInicialHidden">
-	                        </fieldset>
-	                    </div>
+                        	<label for="priceIni">De:</label>
+                            <input type="text" name="priceIni" id="priceIni">
+                        </div>
 	                    <div class="exploradorGridFiltrosInputTextLine">
-	                        <div class="exploradorGridFiltrosInputTextTxt"><label for="valorFinal">Até:</label></div>
-	                        <fieldset class="exploradorGridFiltroInput">
-	                            <input type="text" class="exploradorGridFiltroInputBox numeric numericFormated" id="valorFinal">
-	                            <input type="hidden" name="filtroVersaoVeiculo.valorFinal" id="valorFinalHidden">
-	                        </fieldset>
+	                        <label for="priceFinal">Até:</label>
+                            <input type="text" name="priceFinal" id="priceFinal">
 	                    </div>
 	                </div>
 	                <div class="exploradorGridFiltrosColunaATitulo">Quais opcionais não podem faltar ?</div>
-	                <div class="exploradorGridFiltrosChecks">
-	                    <div class="exploradorGridFiltrosChecksLine">
-	                        <div class="exploradorGridFiltrosCheckBox"><input type="checkbox" class="opcionais" name="filtroVersaoVeiculo.arCondicionado" id="arCondicionado"></div>
-	                        <div class="exploradorGridFiltrosCheckTxt"><label for="arCondicionado">Ar Condicionado</label></div>
-	                    </div>
-	                    <div class="exploradorGridFiltrosChecksLine">
-	                        <div class="exploradorGridFiltrosCheckBox"><input type="checkbox" class="opcionais" name="filtroVersaoVeiculo.automatico" id="automatico"></div>
-	                        <div class="exploradorGridFiltrosCheckTxt"><label for="automatico">Câmbio automático</label></div>
-	                    </div>
-	                    <div class="exploradorGridFiltrosChecksLine">
-	                        <div class="exploradorGridFiltrosCheckBox"><input type="checkbox" class="opcionais" name="filtroVersaoVeiculo.direcaoHidraulica" id="direcaoHidraulica"></div>
-	                        <div class="exploradorGridFiltrosCheckTxt"><label for="direcaoHidraulica">Direção Hidráulica</label></div>
-	                    </div>
-	                    <div class="exploradorGridFiltrosChecksLine">
-	                        <div class="exploradorGridFiltrosCheckBox"><input type="checkbox" class="opcionais" name="filtroVersaoVeiculo.freioAbs" id="freioAbs"></div>
-	                        <div class="exploradorGridFiltrosCheckTxt"><label for="freioAbs">Freios ABS</label></div>
-	                    </div>
-	                </div>
-	                <div class="exploradorGridFiltrosChecks">
-	                    <div class="exploradorGridFiltrosChecksLine">
-	                        <div class="exploradorGridFiltrosCheckBox"><input type="checkbox" class="opcionais" name="filtroVersaoVeiculo.airBagDuploFrontal" id="airBag"></div>
-	                        <div class="exploradorGridFiltrosCheckTxt"><label for="airBag">Airbag Duplo Frontal</label></div>
-	                    </div>
-	                    <div class="exploradorGridFiltrosChecksLine">
-	                        <div class="exploradorGridFiltrosCheckBox"><input type="checkbox" class="opcionais" name="filtroVersaoVeiculo.radioCdPlayerEntradaUsb" id="radioUsb"></div>
-	                        <div class="exploradorGridFiltrosCheckTxt"><label for="radioUsb">Rádio CD com USB</label></div>
-	                    </div>
-	                    <div class="exploradorGridFiltrosChecksLine">
-	                        <div class="exploradorGridFiltrosCheckBox"><input type="checkbox" class="opcionais" name="filtroVersaoVeiculo.travaEletrica" id="travaEletrica"></div>
-	                        <div class="exploradorGridFiltrosCheckTxt"><label for="travaEletrica">Travas Elétricas</label></div>
-	                    </div>
-	                    <div class="exploradorGridFiltrosChecksLine">
-	                        <div class="exploradorGridFiltrosCheckBox"><input type="checkbox" class="opcionais" name="filtroVersaoVeiculo.vidroEletrico" id="vidroEletrico"></div>
-	                        <div class="exploradorGridFiltrosCheckTxt"><label for="vidroEletrico">Vidros Elétricos</label></div>
-	                    </div>
-	                </div>
+	                <ul class="exploradorGridFiltrosChecks">
+						<li>
+							<input type="checkbox" class="chkFormExp" name="dualFrontAirBag" value="s" <? if (strtolower($res[dualFrontAirBag]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Airbag duplo frontal</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="alarm" value="s" <? if (strtolower($res[alarm]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Alarme</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="airConditioning" value="s" <? if (strtolower($res[airConditioning]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Ar condicionado</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="hotAir" value="s" <? if (strtolower($res[hotAir]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Ar quente</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="leatherSeat" value="s" <? if (strtolower($res[leatherSeat]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Banco de couro</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="heightAdjustment" value="s" <? if (strtolower($res[heightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Banco do motorista com regulagem de altura</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="rearSeatSplit" value="s" <? if (strtolower($res[rearSeatSplit]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Banco traseiro bipartido</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="bluetoothSpeakerphone" value="s" <? if (strtolower($res[bluetoothSpeakerphone]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Bluetooth com viva-voz</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="bonnetSea" value="s" <? if (strtolower($res[bonnetSea]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Capota marítima</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="onboardComputer" value="s" <? if (strtolower($res[onboardComputer]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Computador de bordo</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="accelerationCounter" value="s" <? if (strtolower($res[accelerationCounter]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Conta giros</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="rearWindowDefroster" value="s" <? if (strtolower($res[rearWindowDefroster]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Desembaçador de vidro traseiro</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="electricSteering" value="s" <? if (strtolower($res[electricSteering]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Direção elétrica</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="hydraulicSteering" value="s" <? if (strtolower($res[hydraulicSteering]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Direção hidráulica</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="sidesteps" value="s" <? if (strtolower($res[sidesteps]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Estribos laterais</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="fogLamps" value="s" <? if (strtolower($res[fogLamps]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Faróis de neblina/milha</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="xenonHeadlights" value="s" <? if (strtolower($res[xenonHeadlights]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Faróis xenon</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="absBrake" value="s" <? if (strtolower($res[absBrake]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Freios Abs</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="integratedGPdlel" value="s" <? if (strtolower($res[integratedGPdlel]) == "s") { echo 'checked="true"'; } ?> />
+							<label>GPS integrado ao painel</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="rearWindowWiper" value="s" <? if (strtolower($res[rearWindowWiper]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Limpador de vidro traseiro</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="bumper" value="s" <? if (strtolower($res[bumper]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Para choque na cor do veículo</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="autopilot" value="s" <? if (strtolower($res[autopilot]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Piloto automático</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="bucketProtector" value="s" <? if (strtolower($res[bucketProtector]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Protetor de caçamba</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="roofRack" value="s" <? if (strtolower($res[roofRack]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Rack de teto</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="cdplayerUSBInput" value="s" <? if (strtolower($res[cdplayerUSBInput]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Cd player com entrada USB</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="headlightsHeightAdjustment" value="s" <? if (strtolower($res[headlightsHeightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Regulagem de altura dos faróis</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="rearviewElectric" value="s" <? if (strtolower($res[rearviewElectric]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Retrovisor elétrico</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="alloyWheels" value="s" <? if (strtolower($res[alloyWheels]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Rodas de liga leve</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="rainSensor" value="s" <? if (strtolower($res[rainSensor]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Sensor de chuva</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="parkingSensor" value="s" <? if (strtolower($res[parkingSensor]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Sensor de estacionamento</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="isofix" value="s" <? if (strtolower($res[isofix]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Sistema Isofix para cadeira de criança</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="sunroof" value="s" <? if (strtolower($res[sunroof]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Teto solar</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="electricLock" value="s" <? if (strtolower($res[electricLock]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Trava elétrica</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="electricWindow" value="s" <? if (strtolower($res[electricWindow]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Vidro elétrico</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="rearElectricWindow" value="s" <? if (strtolower($res[rearElectricWindow]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Vidro elétrico traseiro</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="steeringWheelAdjustment" value="s" <? if (strtolower($res[steeringWheelAdjustment]) == "s") { echo 'checked="true"'; } ?> />
+							<label>Volante com regulagem de altura</label></li>
+	                </ul>
 	            </div>
 	        </div>
 	    </form>
 	</div>
 </div>
+<!--FIM DO FORM FILTER -->
+<? if ($_POST[btnSearch] == "Buscar") { ?>
+<!-- FORM SELECT UR CAR -->
+<div class="sContent">
+	<div class="exploradorTitulo">Clique nos carros para compará-los:</div>
+	<ul class="ulCarList">
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem">
+			<img src="" class="imgCarSelect" />
+		</li>
+		<li class="liCarItem btnMore">
+			<div id="btnSearchMore" class="btnSearchMore">Buscar mais</div>
+		</li>
+	</ul>
 
+</div>
+<!--END FORM SELECT UR CAR -->
+<? } ?>
 
+<div class="bannerExplorer">banner</div>
+
+<div class="featureExplorer">
+	<div class="rowTitle">
+        <div class="exploradorTabelaGridCarro"><img alt="" title="" src="/classificado/img/exploradorTituloTabelaComparativa.gif"></div>
+        <div class="exploradorTabelaGridCarro veiculo0">
+            <div class="exploradorTabelaGridCarroOculta"></div>
+            <div class="exploradorTabelaCarroFechar"><a href="" class="excluirComparacao" id="excluirComparacao0">x</a></div>
+            <div class="exploradorTabelaCarroNumeracao">1</div>
+            <div class="exploradorTabelaCarroImg"><img alt="" title="" src="/classificado/img/exploradorGhostTabelaComparativa.gif"></div>
+            <div class="exploradorTabelaCarroModelo"></div>
+            <div class="exploradorTabelaCarroValor"></div>
+        </div>
+        <div class="exploradorTabelaGridCarro veiculo1">
+            <div class="exploradorTabelaGridCarroOculta"></div>
+            <div class="exploradorTabelaCarroFechar"><a href="" class="excluirComparacao" id="excluirComparacao1">x</a></div>
+            <div class="exploradorTabelaCarroNumeracao">2</div>
+            <div class="exploradorTabelaCarroImg"><img alt="" title="" src="/classificado/img/exploradorGhostTabelaComparativa.gif"></div>
+            <div class="exploradorTabelaCarroModelo"></div>
+            <div class="exploradorTabelaCarroValor"></div>
+        </div>
+        <div class="exploradorTabelaGridCarro veiculo2">
+            <div class="exploradorTabelaGridCarroOculta"></div>
+            <div class="exploradorTabelaCarroFechar"><a href="" class="excluirComparacao" id="excluirComparacao2">x</a></div>
+            <div class="exploradorTabelaCarroNumeracao">3</div>
+            <div class="exploradorTabelaCarroImg"><img alt="" title="" src="/classificado/img/exploradorGhostTabelaComparativa.gif"></div>
+            <div class="exploradorTabelaCarroModelo"></div>
+            <div class="exploradorTabelaCarroValor"></div>
+        </div>
+        <div class="exploradorTabelaGridCarro veiculo3">
+            <div class="exploradorTabelaGridCarroOculta"></div>
+            <div class="exploradorTabelaCarroFechar"><a href="" class="excluirComparacao" id="excluirComparacao3">x</a></div>
+            <div class="exploradorTabelaCarroNumeracao">4</div>
+            <div class="exploradorTabelaCarroImg"><img alt="" title="" src="/classificado/img/exploradorGhostTabelaComparativa.gif"></div>
+            <div class="exploradorTabelaCarroModelo"></div>
+            <div class="exploradorTabelaCarroValor"></div>
+        </div>
+	</div>
+	<div class="colItemCar">
+		
+		
+	</div>
+</div>
 
 		</div>
 	</div>

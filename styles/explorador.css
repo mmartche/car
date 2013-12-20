@@ -4,6 +4,7 @@
 .expTitle {
 	border-bottom: 1px solid;
 	padding: 5px 0;
+	margin-bottom: 15px;
 }
 .expTitle b {
 	font-size: 30px;
@@ -96,12 +97,7 @@
 	background: linear-gradient(to bottom,  #f9f7de 0%,#ffcc04 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f7de', endColorstr='#ffcc04',GradientType=0 ); /* IE6-9 */
 }
-.formExplorer {
-	overflow: hidden;
-	width: 950px;
-}
 .exploradorTitulo {
-	width: 100%;
 	padding-top: 10px;
 	padding-left: 30px;
 	padding-bottom: 4px;
@@ -115,15 +111,167 @@
 }
 .exploradorBgInterno {
 	height: auto;
-	width: 100%;
 	margin-left: 8px;
 	margin-top: 8px;
 	margin-bottom: 8px;
 	background-color: #fff;
-	border: 1px #bcbec0 solid;
 	float: left;
 	position: relative;
+	/*border: 1px #bcbec0 solid; */
+}
+.formExplorer {
+	background-color: #e6e6e6;
+	overflow: hidden;
 }
 .exploradorGridFiltrosColunaB, .exploradorGridFiltrosColunaA {
 	float: left;
 }
+.exploradorGridFiltrosColunaA {
+	width: 520px;
+	border: 1px solid #ccc;
+}
+.exploradorGridFiltrosColunaB {
+	width: 455px;
+}
+.thumbExpForm {
+	width: 100px;
+	height: 100px;
+	border:1px solid red;
+	border-radius: 10px;
+}
+.thumbExpForm:hover{
+	border-color: red;
+}
+.exploradorGridFiltrosGridImg {
+	overflow: hidden;
+	padding-left: 10px;
+}
+.exploradorGridFiltrosImg {
+	float: left;
+	margin: 0 10px 10px 0;
+}
+.inputExpForm {
+	display: none;
+}
+.exploradorGridFiltrosColunaBTitulo {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 20px;
+	color: #000;
+	font-weight: bold;
+	text-align: left;
+}
+.exploradorGridFiltrosColunaATitulo {
+	padding: 10px;
+	font-size: 20px;
+	color: #000;
+	font-weight: bold;
+	text-align: left;
+	border-top: 1px solid #ccc;
+}
+.exploradorGridFiltrosChecks {
+	height: 250px;
+	overflow: scroll;
+	padding: 0 0 0 10px;
+}
+.exploradorGridFiltrosChecks label {
+	width: 235px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.exploradorGridFiltrosChecks input[type="checkbox"], .exploradorGridFiltrosChecks input[type="radio"] {
+	vertical-align: top;
+}
+.exploradorGridFiltrosChecks li {
+	float: left;
+	margin: 0;
+}
+.exploradorGridFiltrosInputTextLine {
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.exploradorGridFiltrosInputTextLine label {
+	width: 30px;
+	float: left;
+}
+.exploradorGridFiltrosInputTextLine input {
+	float: left;
+	width: 250px;
+}
+.exploradorGridFiltrosInputText {
+	padding: 10px;
+}
+
+.bannerExplorer {
+	width: 100%;
+	height: 100px;
+	background-color: #123;
+}
+/* lista com os carros para comparacao */
+.sContent {
+	padding: 5px;
+	background-color: #eee;
+	overflow: hidden;
+}
+.ulCarList {
+	overflow: scroll;
+	height: 400px;
+	float: left;
+	background-color: #fff;
+}
+.liCarItem {
+	width: 170px;
+	height: 100px;
+	border: 1px solid;
+	overflow: hidden;
+	float: left;
+	margin: 10px;
+}
+.liCarItem:hover {
+	background-color: #ddd;
+}
+.liCarItem.selected {
+	background-color: #999;
+}
+.btnMore {
+	width: 100%;
+	height: 40px;
+	padding: 0;
+	margin: 0;
+}
+.btnSearchMore {
+	width: 100px;
+	margin: auto;
+	padding: 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
