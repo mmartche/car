@@ -33,6 +33,7 @@ include ("../scripts/conectDB.php");
 	<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="../styles/home.css" />
 	<link rel="stylesheet" type="text/css" href="../styles/explorador.css" />
+	<link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsale.css?no_cache=20120330" />
 
 </head>
 <body>
@@ -252,7 +253,7 @@ include ("../scripts/conectDB.php");
 <!--END FORM SELECT UR CAR -->
 <? } ?>
 
-<div class="bannerExplorer">banner</div>
+<div class="bannerExplorer" id="bannermenu" class="menu affix" data-spy="affix" data-offset-top="1000">banner</div>
 
 <div class="featureExplorer">
 	<div class="rowTitle">

@@ -71,31 +71,51 @@ $(document).ready(function(){
 		//$(".divColor").ColorPicker({color:colorTemp});
 	});
 	$("#btnColorAdd").click(function(){
+		/*
 		if ($("#featureId").val().length > 0) { 
 			cTable = "modelColor"; 
 			manufacturerId = $("#featureId").val();
 		} else { 
+		*/
 			cTable = "colorManufacturer"; 
 			manufacturerId = $("#manufacturerId").val();
-		}
+		/*}*/
+		cIId = $("#colorId").val(),
 		cName = $("#colorName").val(),
 		cColor = $("#colorSelected").val(),
 		cApp = $("#colorAplication").val(),
-		cType = $("#colorType").val();
+		cType = $("#colorType").val(),
+		cPrice = $("#colorPrice").val();
 		cLength = $("#optionsColor span").length-1;
+		//console.log('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice);
 		if (cColor.length == "6") {
-			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType+'&table='+cTable, function(data) {
+			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
 				//console.log(data[0].response,data[0].insertId);
 				if(data[0].response == "true"){
 					//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-					$("#optionsColor").append('<span><div class="delColor" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="divColor"><div style="background-color: #'+cColor+';"></div></div>'+cName+' - '+cApp+' - '+cType+'<input type="hidden" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" name="colorInputType'+cLength+'" value="'+cType+'" /></span>');
-					$("#colorLength").val(cLength+1);
+					
+					if (cIId.length == 0) {
+					$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+' - '+cApp+'<br />R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputApp" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+						$("#colorLength").val(cLength+1);
+					} else {
+						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputName").val(cName);
+						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputColor").val(cColor);
+						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputApp").val(cApp);
+						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputType").val(cType);
+						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputPrice").val(cPrice);
+						$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+' - '+cApp+ '\n R$ '+cPrice);
+						$("#optionsColor").find("span[colorId="+cIId+"] #colorSelector div").css("backgroundColor", "#"+cColor);
+						$("#optionsColor span").show();
+					}
 					$("#colorName").val(""),
 					$("#colorSelected").val(""),
+					$("#colorPrice").val(""),
 					//$("#colorAplication").val(""),
 					//$("#colorType").val(""),
 					$("#colorSelector div").css("backgroundColor", "#ffffff");
+					$("#btnColorAdd").val("Adicionar");
 				} else {
+					console.log(data[0].reason);
 					//$("#resultOptions").prepend('<label>''</label>');
 				}
 			});
@@ -275,8 +295,28 @@ function fixFields(){
 	//fix all inputs // counters // flags before submit
 	return true;
 }
+function updateColor(obj,idColor,table) {
+	cIId = $(obj).children("#colorInputId").val();
+	cIName = $(obj).children("#colorInputName").val();
+	cISelect = $(obj).children("#colorInputColor").val();
+	cIPrice = $(obj).children("#colorInputPrice").val();
+	cIApp = $(obj).children("#colorInputApp").val();
+	cIType = $(obj).children("#colorInputType").val();
+	$("#colorId").val(cIId);
+	$("#colorName").val(cIName),
+	$("#colorSelected").val(cISelect),
+	$("#colorPrice").val(cIPrice),
+	$("#colorAplication").val(cIApp),
+	$("#colorAplication").parent().find("input[name=colorAplication]").val(cIApp),
+	$("#colorType").val(cIType),
+	$("#colorType").parent().find("input[name=colorType]").val(cIType);
+	$("#colorSelector div").css("backgroundColor", "#"+cISelect);
+	$("#btnColorAdd").val("Editar");
+	$("#optionsColor span").show();
+	$(obj).parent("span").hide();
+}
 function deleteColor(obj,idColor,table) {
-	console.log(obj,idColor,table);
+//	console.log(obj,idColor,table);
 	$.getJSON('api/index.php?type=removeColor&table='+table+'&idColor='+idColor, function(data) {
 		if(data[0].response == "true"){
 			//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
@@ -447,7 +487,7 @@ $.widget( "custom.combobox", {
         });
         switch ($(ui.item.option.parentElement).attr("id")) {
       		case "manufacturerName":
-	      		var optTemp;
+	      		var optTemp, optOptMan, optManufacturerName;
 	  			$.getJSON('api/index.php?type=askModel&mainId='+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
@@ -462,6 +502,16 @@ $.widget( "custom.combobox", {
 					$("#versionId").val("");
 				});
 				$("#manufacturerId").val(ui.item.option.value);
+				//TODO: change opts
+				$.getJSON("api/index.php?type=askOption&manufacturerId="+ui.item.option.value, function(data) {
+					$.each(data, function(key, val) {
+						optOptMan += '<option value="'+val.id+'" >'+val.label+'</option>';
+						optManufacturerName = val.manufacturerName;
+					});
+					$("#txtOptionsName option").remove();
+					$("#txtOptionsName").append(optOptMan);
+					//$("#txtOptionsName").parent().find("input").val("Opcionais de "+optManufacturerName);
+				});
 	      		break;
       		case "modelName":
       			var optTemp;
@@ -489,7 +539,7 @@ $.widget( "custom.combobox", {
 						$("#txtOptionsCode").val(val.code);
 						$("#txtOptionsCode").attr("disabled",true);
 						$("#txtOptionsPrice").val(val.price);
-						$("#txtOptionsPrice").attr("disabled",true);
+						$("#txtOptionsPrice").attr("disabled",false);
 						$("#textAreaOptionsAdd").text(val.optValue);
 						$("#textAreaOptionsAdd").attr("disabled",true);
 					});
@@ -596,8 +646,12 @@ $.widget( "custom.combobox", {
 		case "txtOptionsName":
 			$("#txtOptionsId").val("");
 			$("#textAreaOptionsAdd").attr("disabled",false);
+			$("#textAreaOptionsAdd").val("");
+			$("#textAreaOptionsAdd").text("");
 			$("#txtOptionsCode").attr("disabled",false);
+			$("#txtOptionsCode").val("");
 			$("#txtOptionsPrice").attr("disabled",false);
+			$("#txtOptionsPrice").val("");
 			break;
     }
     /*
@@ -752,7 +806,7 @@ $(function() {
 		}
 	});
 	$("#txtOptionsName").focusin(function(){
-
+		console.log("JIJIJIJIJI");
 		$( "#txtOptionsName" ).catcomplete({
 			source: "api/index.php?type=askOption&manufacturerId="+$("#manufacturerId").val(),
 			delay:1,

@@ -607,9 +607,9 @@ $res = mysql_fetch_array($query_search);
 					<div id="optionsOptions" class="optionsOptions optionsFields">
 						<span class="spanOptions">insira novos itens sepando a cada linha</span>
 						<span class="inputOptions">
-							<input type="text" name="txtOptionsId" id="txtOptionsId" />
+							<input type="hidden" name="txtOptionsId" id="txtOptionsId" />
 							<select  name="txtOptionsName" id="txtOptionsName" placeholder="Nome">
-								<option>Opcionais de <?=$res[manufacturerName]?></option>
+								<option>Opcionais</option>
 								<?
 								$sqlOptManuf = "SELECT id, name from optionsManufacturer where idManufacturer = '".$res[manufacturerId]."'";
 								$queryOptManuf = mysql_query($sqlOptManuf) or die (mysql_error());
@@ -674,8 +674,8 @@ $res = mysql_fetch_array($query_search);
 						$sqlColor = "SELECT * from colorManufacturer WHERE idManufacturer = '".$res[manufacturerId]."'";
 						$tableColor = "colorManufacturer";
 					/*} else {
-						$sqlColor = "SELECT * from colorModel where idModel = '".$res[modelId]."'";
-						$tableColor = "colorModel";
+						$sqlColor = "SELECT * from colorFeature where idVersion = '".$res[modelId]."'";
+						$tableColor = "colorFeature";
 					}*/
 					$queryColor = mysql_query($sqlColor) or die (" error #450");
 					$lengthColor = mysql_num_rows($queryColor);
@@ -685,6 +685,7 @@ $res = mysql_fetch_array($query_search);
 						<div class="optionsColor optionsFields" id="optionsColor">
 							<span>
 								<div id="colorSelector" class="divColor"><div></div></div>
+								<input type="hidden" id="colorId" />
 								<input type="text" id="colorSelected" placeholder="Cor em hexa" /><br />
 								<input type="text" id="colorName" placeholder="Nome" /><br />
 								<select  id="colorType">
@@ -697,16 +698,28 @@ $res = mysql_fetch_array($query_search);
 									<option value="Interna" >Interna</option>
 									<option value="Externa">Externa</option>
 								</select><br />
-								<!--input type="text" id="colorAplication" placeholder="Aplicação" /--><br />
+								<!--input type="text" id="colorAplication" placeholder="Aplicação" /-->
+								<input type="text" id="colorPrice" placeholder="Valor" onKeyPress="return(format_price(this,'.','',8,0,event))" /><br />
 								<input type="button" value="Adicionar" id="btnColorAdd" />
 								<input type="hidden" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
 							</span>
 							<? while ($resColor = mysql_fetch_array($queryColor)) { ?>
-							<span><div class="delColor" onclick="deleteColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">X</div><div class="divColor"><div style="background-color: #<?=$resColor[hexa]?>;"></div></div><?=$resColor[name]." - ".$resColor[type]." - ".$resColor[application]?>
-							<input type="hidden" name="colorInputName<?=$iColor?>" value="<?=$resColor[name]?>" />
-							<input type="hidden" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
-							<input type="hidden" name="colorInputApp<?=$iColor?>" value="<?=$resColor[application]?>" />
-							<input type="hidden" name="colorInputType<?=$iColor?>" value="<?=$resColor[type]?>" /></span>
+							<span  colorId="<?=$resColor[id]?>">
+								<div class="delColor" onclick="deleteColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">X</div>
+							<div class="updateColor" onclick="updateColor(this,<?=$resColor[id]?>,'<?=$tableColor?>')">
+								<div class="divColor">
+									<div style="background-color: #<?=$resColor[hexa]?>;"></div>
+								</div>
+								<span id="textColor"><?=$resColor[name]." - ".$resColor[type]." - ".$resColor[application]."<br />R$ ".$resColor[price]?></span>
+								<input type="hidden" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
+								<input type="hidden" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=$resColor[name]?>" />
+								<input type="hidden" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
+								<input type="hidden" id="colorInputApp" name="colorInputApp<?=$iColor?>" value="<?=$resColor[application]?>" />
+								<input type="hidden" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=$resColor[type]?>" />
+								<input type="hidden" id="colorInputPrice" name="colorInputPrice<?=$iColor?>" value="<?=$resColor[price]?>" />
+								<input type="hidden" id="colorInputTable" name="colorInputTable<?=$iColor?>" value="<?=$tableColor?>" />
+							</div>
+							</span>
 							<?
 							$iColor++;
 							}

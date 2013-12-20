@@ -83,6 +83,7 @@ include ("./scripts/conectDB.php");
 					<div class="rhEngine">Motor</div>
 					<div class="rhGear">Câmbio</div>
 					<div class="rhFuel">Combustível</div>
+					<div class="rhSteering">Direção</div>
 					<div class="rhPrice">Preço</div>
 				</li>
 				<li class="resultFilter">
@@ -100,6 +101,7 @@ include ("./scripts/conectDB.php");
 					<div class="rfEngine"><input type="text" name="filterEngine" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" value="<?=$_POST[filterEngine]?>" /></div>
 					<div class="rfGear"><input type="text" name="filterGear" id="txtRSGear" onkeyup="filterFields('rsGear',this)" value="<?=$_POST[filterGear]?>" /></div>
 					<div class="rfFuel"><input type="text" name="filterFuel" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" value="<?=$_POST[filterFuel]?>" /></div>
+					<div class="rfSteering"><input type="text" name="filterSteering" id="txtRSSteering" onkeyup="filterFields('rsSteering',this)" value="<?=$_POST[filterSteering]?>" /></div>
 					<div class="rfPrice"><input type="text" name="filterPrice" id="txtRSPrice" onkeyup="filterFields('rsPrice',this)" value="<?=$_POST[filterPrice]?>" /></div>
 					<div class="rfSubmit"><input type="submit" value="Pesquisar" /></div>
 					</form>

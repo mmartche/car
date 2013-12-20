@@ -189,13 +189,17 @@ switch ($_GET[type]) {
 
 	case 'addOption':
 		$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
-		mysql_query($sql_addOpt) or die ('[{"response":"false"}]');
+		mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		break;
 
 	case 'addColor':
-		$sql_addColor = "insert into `colorManufacturer` (`idManufacturer`, `name`, `hexa`, `type`, `application`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', now(), now(),'')";
-		mysql_query($sql_addColor) or die ('[{"response":"false"}]');
+		if ($_GET[cId] != "") {
+			$sql_addColor = "UPDATE colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE id = '".$_GET[cId]."'";
+		} else {
+			$sql_addColor = "INSERT into `colorManufacturer` (`idManufacturer`, `name`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";
+		}
+		mysql_query($sql_addColor) or die ('[{"response":"false","error":"error #198","reason":"'.mysql_error().$sql_addColor.'"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		break;
 
@@ -303,7 +307,7 @@ switch ($_GET[type]) {
 		break;
 
 	case 'askOption':
-		$sql = "SELECT id, name, options, price, code FROM optionsManufacturer WHERE idManufacturer = '".$_GET[manufacturerId]."'";
+		$sql = "SELECT optionsManufacturer.id, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price, optionsManufacturer.code, manufacturer.name as manufacturerName FROM optionsManufacturer, manufacturer WHERE manufacturer.id = optionsManufacturer.idManufacturer and  optionsManufacturer.idManufacturer = '".$_GET[manufacturerId]."'";
 		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resOpt = mysql_fetch_array($query)) {
@@ -316,7 +320,8 @@ switch ($_GET[type]) {
 					"value":"'.$resOpt[name].'",
 					"optValue":"'.$resOpt[options].'",
 					"price":"'.$resOpt[price].'",
-					"code":"'.$resOpt[code].'"
+					"code":"'.$resOpt[code].'",
+					"manufacturerName":"'.$resOpt[manufacturerName].'"
 				}';
 			$m++;
 		}

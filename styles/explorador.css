@@ -245,7 +245,11 @@
 	margin: auto;
 	padding: 10px 0;
 }
-
+.bannerExplorer.affix{
+	top: 40px;
+	width: 990px;
+	margin: auto;
+}
 
 
 
