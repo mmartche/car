@@ -81,13 +81,13 @@ $res = mysql_fetch_array($query_search);
 				echo "<h2><span>Sistema administrativo - Cadastro de Montadoras</span>";
 				if ($_GET[action] == "new") {
 					?>
-					<input type="button" value="Incluir" class="btnSave btnButton" />
+					<!--input type="button" value="Incluir" class="btnSave btnButton" /-->
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
 					<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 					<a href='?category=model&action=new&vehicle=<?=$res[manufacturerId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>
-					<input type="button" value="Atualizar" class="btnSave btnButton" />
+					<!--input type="button" value="Atualizar" class="btnSave btnButton" /-->
 					<?
 				}
 				echo "</h2>";
@@ -96,13 +96,13 @@ $res = mysql_fetch_array($query_search);
 				echo "<h2><span>Sistema administrativo - Cadastro de Versão</span>";
 				if ($_GET[action] == "new") {
 					?>
-						<input type="button" value="Incluir" class="btnSave btnButton" />
+						<!--input type="button" value="Incluir" class="btnSave btnButton" /-->
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
 						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 						<a href='?category=version&action=new&vehicle=<?=$res[modelId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>
-						<input type="submit" value="Atualizar" class="btnSave btnButton" />
+						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-->
 					<?
 				}
 				echo "</h2>";
@@ -111,13 +111,13 @@ $res = mysql_fetch_array($query_search);
 				echo "<h2><span>Sistema administrativo - Cadastro de Modelo</span>";
 				if ($_GET[action] == "new") {
 					?>
-						<input type="submit" value="Incluir" class="btnSave btnButton" />
+						<!--input type="submit" value="Incluir" class="btnSave btnButton" /-->
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
 						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 						<a href='?category=feature&action=new&vehicle=<?=$res[versionId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>
-						<input type="submit" value="Atualizar" class="btnSave btnButton" />	
+						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-->	
 					<?
 				}
 
@@ -127,13 +127,13 @@ $res = mysql_fetch_array($query_search);
 				echo "<h2><span>Sistema administrativo - Ficha Técnica de veículos</span>";
 				if ($_GET[action] == "new" || $_GET[action] == "clone") {
 					?>
-					<input type="button" value="Incluir" class="btnSave btnButton" />
+					<!--input type="button" value="Incluir" class="btnSave btnButton" /-->
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
 						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
 						<a href='?category=feature&action=clone&vehicle=<?=$res[featureId]?>' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>
-						<input type="submit" value="Atualizar" class="btnSave btnButton" />
+						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-\-->
 					<?
 				}
 				echo"</h2>";
@@ -694,10 +694,10 @@ $res = mysql_fetch_array($query_search);
 									<option value="Perolizada">Perolizada</option>
 								</select><br />
 								<!--input type="text" id="colorType" placeholder="Tipo" /-->
-								<select  id="colorAplication">
+								<!--select  id="colorAplication">
 									<option value="Interna" >Interna</option>
 									<option value="Externa">Externa</option>
-								</select><br />
+								</select><br /-->
 								<!--input type="text" id="colorAplication" placeholder="Aplicação" /-->
 								<input type="text" id="colorPrice" placeholder="Valor" onKeyPress="return(format_price(this,'.','',8,0,event))" /><br />
 								<input type="button" value="Adicionar" id="btnColorAdd" />

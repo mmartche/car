@@ -150,12 +150,12 @@ switch ($_POST[action]) {
 			}
 			if ($valuesSerieInput != ""){
 				$sqlAddSeries = "insert into `serieFeature` (`id`, `idFeature`, `description`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesSerieInput;
-				mysql_query($sqlAddSeries) or die (" error #103");
+				mysql_query($sqlAddSeries) or die (" error #153");
 			}
 
 			//options
 			$sqlDelOpts = "delete from `optionsFeature` WHERE `idFeature` = '".$_POST[featureId]."'";
-			mysql_query($sqlDelOpts) or die (" error #110");
+			mysql_query($sqlDelOpts) or die (" error #158");
 			$o=0;
 			for ($i=0;$i<$_POST[lengthOptions];$i++){
 				$optIdOption = "txtOpt".$i;
@@ -168,7 +168,7 @@ switch ($_POST[action]) {
 			}
 			if ($valuesOptInput != ""){
 				$sqlAddOpts = "insert into `optionsFeature` (`id`, `idFeature`, `idOption`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
-				mysql_query($sqlAddOpts) or die (" error #121");
+				mysql_query($sqlAddOpts) or die (" error #171");
 			}
 
 			//color
@@ -219,7 +219,7 @@ switch ($_POST[action]) {
 		} else {
 			$versionId = $_POST[versionId];
 		}
-		echo "AAAA";
+		
 		//TO DO: check if exist image cloned before then add
 		$picTemp = uploadFile($_POST[manufacturerName],$_POST[modelName],$_POST[versionName],$_POST[featureId]);
 		if ($picTemp != "") {
