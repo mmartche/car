@@ -21,7 +21,6 @@
 	<link rel="stylesheet" href="styles//jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="styles/index.css" />
-
 </head>
 <body name="searchList">
 <?
@@ -56,12 +55,21 @@ include ("./scripts/conectDB.php");
 		</form>
 	</div>
 	<div class="content">
+		<?
+		$sql_mo = "SELECT megaOferta.idFeature, megaOferta.price, megaOferta.place, megaOferta.dateLimit, version.name as versionName, model.name as modelName, feature.picture FROM megaOferta, manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id AND megaOferta.idFeature = feature.id";
+		$query_mo = mysql_query($sql_mo) or die (mysql_error());
+		?>
 		<div class="megaOfertaData">
 			<ul class="ulMO">
+				<?
+					while ($resMO = mysql_fetch_array($query_mo)) {
+				?>
 				<li class="liMO">
-					<img src="">
-					<span>caro</span>
+					<img src="http://carsale.uol.com.br/foto/<?=$resMO[picture]?>_g.jpg?>" />
+					<span><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
+					<span><?=$resMO[price]?></span>
 				</li>
+				<? } ?>
 			</ul>
 		</div>
 		<!--ol class="breadcrumb">
@@ -129,7 +137,14 @@ include ("./scripts/conectDB.php");
 					?>
 					<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
 						<div class="rsItems">
-							<a class="btnClone btnButton" href="#" onclick="addMega(<?=$res[id]?>)" title="Adicionar a lista" alt="Adicioanr a lista">Adicionar</a>
+							<select id="addMegaPlace_<?=$res[id]?>">
+								<option value="carrousel">Destaque (Rotativo/TV)</option>
+								<option value="normal">Secundárias</option>
+							</select><br />
+							<input type="text" id="addMegaPrice_<?=$res[id]?>" placeholder="Preço" value="" /><br />
+							<input type="text" id="addMegaDateLimit_<?=$res[id]?>" class="addMegaDateLimit" placeholder="Data Limite" value="" /><br />
+							<div class="btnClone btnButton"onclick="addMega(<?=$res[id]?>)" title="Adicionar a lista" alt="Adicioanr a lista">Adicionar</div>
+							<input type="hidden" id="addMegaName_<?=$res[id]?>" value="<?=$res[modelName]?>-<?=$res[versionName]?>" />
 							<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
 						</div>
 						<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
@@ -156,14 +171,29 @@ include ("./scripts/conectDB.php");
 </div>
 <script type="text/javascript">
 	function addMega(id) {
-		$.getJSON('api/index.php?type=addMega&&codopt='+codOpt+'&price='+price, function(data) {
+		price = $("#addMegaPrice_"+id).val(),
+		place = $("#addMegaPlace_"+id).val(),
+		dateLimit = $("#addMegaDateLimit_"+id).val(),
+		name = $("#addMegaName_"+id).val();
+		console.log('api/index.php?type=mega&idFeature='+id+'&price='+price+'&place='+place+'&dateLimit='+dateLimit+'&name='+name);
+		$.getJSON('api/index.php?type=mega&idFeature='+id+'&price='+price+'&place='+place+'&dateLimit='+dateLimit+'&name='+name, function(data) {
 			if(data[0].response == "true"){
-				$("#ulMO").append("<li>"+data[0].name+"</li>");
+				console.log("item adicionado");
+				$(".ulMO").append('<li class="liMO"><img src="http://carsale.uol.com.br/foto/'+data[0].picture+'_g.jpg?>" /><span>'+data[0].name+'</span><span>'+data[0].price+'</span></li>');
 			} else {
+				alert(data[0].reason);
 				console.log(data[0].reason);
 			}
 		});
 	}
+$(document).ready(function(){
+	$(".addMegaDateLimit").focusin(function(){
+		if ($(this).is(".hasDatepicker") == false) {
+			$(this).datepicker();
+			$(this).datepicker( "option", "dateFormat", "yy-mm-dd" );
+		}
+	})
+});
 </script>
 </body>
 </html>

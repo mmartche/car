@@ -576,4 +576,20 @@ input[type="checkbox"] {
 
 .megaOfertaData {
 	height: 300px;
+	overflow: scroll;
+}
+.rhItems, .rfItems, .rsItems {
+	width: 250px;
+}
+.btnClone {
+	padding: 5px 10px;
+	float: none;
+	margin: auto;
+	height: 30px;
+}
+.liMO {
+	float: left;
+	width: 370px;
+	border: 1px solid;
+	text-align: center;
 }

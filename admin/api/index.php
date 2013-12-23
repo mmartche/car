@@ -297,18 +297,18 @@ switch ($_GET[type]) {
 		$resAI = mysql_fetch_array($query);
 		if ($resAI[active] == "n") {
 			$sql_aI = "UPDATE `".$_GET[category]."` SET `active` = 's' WHERE `id` = '".$_GET[idItem]."'";
-			mysql_query($sql_aI) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
-			echo '[{"response":"true", "responseMsg":"active"}]';
+			mysql_query($sql_aI) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+			echo '[{"response":"true", "reason":"active"}]';
 		} else {
 			$sql_aI = "UPDATE `".$_GET[category]."` SET `active` = 'n' WHERE `id` = '".$_GET[idItem]."'";
-			mysql_query($sql_aI) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
-			echo '[{"response":"true", "responseMsg":"desactive"}]';
+			mysql_query($sql_aI) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+			echo '[{"response":"true", "reason":"desactive"}]';
 		}
 		break;
 
 	case 'askOption':
 		$sql = "SELECT optionsManufacturer.id, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price, optionsManufacturer.code, manufacturer.name as manufacturerName FROM optionsManufacturer, manufacturer WHERE manufacturer.id = optionsManufacturer.idManufacturer and  optionsManufacturer.idManufacturer = '".$_GET[manufacturerId]."'";
-		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resOpt = mysql_fetch_array($query)) {
 			if ($m > 0) { echo ","; }
@@ -329,7 +329,7 @@ switch ($_GET[type]) {
 		break;
 	case 'askOptionValue':
 		$sql = "SELECT id, name, options, price, code FROM optionsManufacturer WHERE id = '".$_GET[optId]."'";
-		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resOpt = mysql_fetch_array($query)) {
 			if ($m > 0) { echo ","; }
@@ -347,33 +347,40 @@ switch ($_GET[type]) {
 		}
 		echo "]";
 		break;
+	case 'mega':
+	//api/index.php?type=mega&idFeature=5&price=123&p=carrousel&dateLimit=12/12/2013&name=undefined 
+		$sqlMO = "SELECT id, place FROM megaOferta WHERE idFeature = '".$_GET[idFeature]."'";
+		$queryMO = mysql_query($sqlMO) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+		if (mysql_num_rows($queryMO) > 0 ){
+			echo '[{"response":"false", "errorNumber":"#355", "reason":"Already exist"}]';
+		} else {
+			$sql = "INSERT INTO megaOferta (`idFeature`, `price`, `dateLimit`, `place`) VALUES ('".$_GET[idFeature]."', '".$_GET[price]."', '".$_GET[dateLimit]."', '".$_GET[place]."')";
+			$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+			//$res = mysql_fetch_array($query);
+			echo '{
+					"id":"'.mysql_insert_id().'",
+					"name":"'.$_GET[name].'"
+				}';
+		}
+		break;
+
 	case 'checkSearch':
 		if ($_GET[idItem] && $_GET[table] && $_GET[field] && $_GET[text]) {
 			$field = $_GET[field];
 			$sql = "SELECT ".$_GET[field]." FROM ".$_GET[table]." WHERE id = '".$_GET[idItem]."'";
-			$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+			$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 			$res = mysql_fetch_array($query);
 			if ($res[$field] === $_GET[text]) {
-				echo '[{"response":"true", "responseMsg":""}]';
+				echo '[{"response":"true", "reason":""}]';
 			} else {
-				echo '[{"response":"false", "responseMsg":"Different Info"}]';
+				echo '[{"response":"false", "reason":"Different Info"}]';
 			}
 		} else {
-			echo '[{"response":"false", "responseMsg":"Incomplete Info"}]';
+			echo '[{"response":"false", "reason":"Incomplete Info"}]';
 		}
 		break;
 
-	case 'addMega':
-		$sql = "INSERT INTO megaOferta (`idFeature`, `price`, `dateLimit`, `type`) VALUES ('".$_GET[idFeature]."', '".$_GET[price]."', '".$_GET[dateLimit]."', '".$_GET[type]."')";
-		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
-		$res = mysql_fetch_array($query);
-		echo '{
-				"id":"'.mysql_insert_id().'",
-				"name":"CARRO"
-			}';
-		break;
 }
-
 
 $sql_full = "select manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, version.description as versionDescription, version.idSegment1, feature.id as id, feature.idManufacturer as manufacturerId, feature.idModel modelId, feature.idVersion versionId, feature.yearProduced, feature.yearModel, feature.doors, feature.passagers, feature.motor, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLenght, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.active, feature.dateCreate, feature.dateUpdate from feature, manufacturer, model, version where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
 
