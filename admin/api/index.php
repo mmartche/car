@@ -362,6 +362,16 @@ switch ($_GET[type]) {
 			echo '[{"response":"false", "responseMsg":"Incomplete Info"}]';
 		}
 		break;
+
+	case 'addMega':
+		$sql = "INSERT INTO megaOferta (`idFeature`, `price`, `dateLimit`, `type`) VALUES ('".$_GET[idFeature]."', '".$_GET[price]."', '".$_GET[dateLimit]."', '".$_GET[type]."')";
+		$query = mysql_query($sql) or die ('[{"response":"false", "responseMsg":"'.mysql_error().'"}]');
+		$res = mysql_fetch_array($query);
+		echo '{
+				"id":"'.mysql_insert_id().'",
+				"name":"CARRO"
+			}';
+		break;
 }
 
 

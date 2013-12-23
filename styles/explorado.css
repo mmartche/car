@@ -1,0 +1,1254 @@
+@charset "utf-8";
+/*
+CARSALE S/A - Avenida do Estado, 5.200, Cambuci, São Paulo, SP, Brasil
+TELEFONE - (11) 3274 5900
+E - MAIL - carsale@carsale.com.br
+
+CARSALE
+DESENVOLVIMENTO - BRUNO PEROBELLI - WEBDESIGNER - www.perobelli.site90.com
+DESENVOLVIMENTO - *************** - DESENVOLVEDOR
+*/
+html, body, div, span, applet, object, iframe, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+/*  CARSALE - DEALER - ITENS FIXOS  */
+body { margin:0 0 0 0; background-color:#fafafa; }
+.dealerOfertaCentralizador { width:988px; height:auto; margin-top:8px; margin-left:auto; margin-right:auto; position:relative; padding-top:20px; overflow:hidden;}
+.dealerListaOfertaColunaA { width:254px; height:auto; margin-right:8px; float:left; position:relative; overflow:hidden;}
+.dealerListaOfertaColunaB { width:585px; height:auto; margin-right:8px; float:left; position:relative; overflow:hidden;}
+.dealerListaOfertaColunaC { width:120px; height:auto; float:left; position:relative; overflow:hidden;}
+.dealerOfertaNav { width:254px; height:auto; margin-bottom:20px; float:left; position:relative;}
+.dealerOfertaNavHeader { width:236px; height:36px; background-color:#f0f0f0; padding-top:8px; padding-left:18px; font:22px Arial, sans-serif; font-weight:bold; color:#194c7f; border-top:8px #cb2026 solid; border-bottom:1px #cb2026 dashed; float:left; position:relative; overflow:hidden;}
+.dealerOfertaNavBtn { width:236px; height:36px; padding-top:8px; padding-left:18px; font:22px Arial, sans-serif; font-weight:bold; color:#cb2026; border-bottom:1px #cb2026 dashed; float:left; position:relative; overflow:hidden;}
+.dealerOfertaNavBtn a { text-decoration:none; color:#cb2026;}
+.dealerOfertaNavBtn a:hover { text-decoration:underline; color:#cb2026; }
+.dealerOfertaFiltros { width:254px; height:auto; float:left; position:relative; overflow:hidden;}
+.dealerOfertaFiltrosHeader { width:236px; height:36px; background-color:#f0f0f0; padding-top:8px; padding-left:18px; font:22px Arial, sans-serif; font-weight:bold; color:#194c7f; border-top:8px #cb2026 solid; border-bottom:1px #cb2026 dashed; float:left; position:relative; overflow:hidden;}
+.dealerOfertaFiltrosBg { width:254px; height:auto; background-color:#e6e6e6; float:left; position:relative; }
+.dealerOfertaFiltrosColunaA { width:56px; height:190px; margin-bottom:10px; margin-left:8px; margin-top:8px; float:left; position:relative; overflow:hidden; }
+.dealerOfertaFiltrosColunaB { width:254px; height:auto; margin-bottom:10px; margin-left:8px; margin-top:8px; float:left; position:relative; }
+.dealerOfertaFiltrosResultLine { width:182px; height:20px; margin-bottom:8px; float:left; position:relative;  }
+.dealerOfertaFiltrosTxtSelect { width:56px; height:22px; margin-bottom:8px; padding-top:4px; margin-right:8px; font:12px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.dealerOfertaFiltrosResultLineSelect { width:242px; height:20px; padding-left:2px; margin-bottom:8px; float:left; position:relative;  }
+.dealerOfertaFiltrosResultSelect { width:170px; height:22px; color:#000; padding-left:8px; padding-top:2px; padding-bottom:2px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.dealerOfertaFiltrosResultSelectAnoA { width:80px; height:22px; color:#000; padding-left:4px; padding-top:2px; padding-bottom:2px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.dealerOfertaFiltrosResultSelectAnoB { width:80px; height:22px; color:#000; margin-left:6px; padding-left:4px; padding-top:2px; padding-bottom:2px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.dealerOfertaFiltrosResult { width:auto; height:18px; padding-left:4px; padding-top:4px; padding-right:20px; background-color:#fff; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerOfertaFiltrosResultDuo { width:50px; height:18px; padding-left:4px; padding-top:4px; padding-right:4px; background-color:#fff; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerOfertaFiltrosResultDuoDir { width:50px; height:18px; margin-left:14px; padding-left:4px; padding-top:4px; padding-right:4px; background-color:#fff; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerOfertaFiltrosResultDelet { width:14px; height:14px; background-color:#fff; padding-top:5px; padding-left:4px; padding-right:4px; padding-bottom:3px; float:left; position:relative; }
+.dealerOfertaFiltrosBtnRefazerBusca { width:240px; height:22px; margin-left:7px; margin-right:7px; padding-bottom:8px; background-color:#e6e6e6; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.dealerOfertaFiltrosTituloOpcionais { width:240px; height:34px; margin-left:7px; margin-right:7px; border-top:1px #bcbec0 solid; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.dealerOfertaFiltrosOpcionaisTxt { width:134px; height:20px; padding-top:8px; font:14px Arial, sans-serif; color:#868686; float:left; position:relative; }
+.dealerOfertaFiltrosOpcionaisBtnMais { width:88px; height:20px; padding-top:7px; float:left; position:relative; }
+.dealerOfertaFiltrosListaOpcionais { width:240px; height:auto; padding-top:8px; padding-bottom:8px; margin-left:7px; margin-right:7px; border-top:1px #fff solid; float:left; position:relative; }
+.dealerOfertaFiltrosOpcionaisItem { width:240px; height:20px; padding-top:6px; font:12px Arial, sans-serif; color:#868686; float:left; position:relative; }
+.dealerOfertaFiltrosOpcionaisItemRadio { width:109px; height:14px; padding-right:10px; padding-bottom:14px; border-bottom:1px #bcbec0 solid; font:12px Arial, sans-serif; color:#868686; float:left; position:relative; }
+.dealerOfertaGridBtnFormGenerico { width:254px; height:84px; background-color:#e6e6e6; margin-top:8px; float:left; position:relative; }
+.dealerOfertaBtnFormGenerico { width:238px; height:64px; margin:8px 8px 8px 8px; border:1px #c0c0c0 solid; background-color:#e6e6e6; float:left; position:relative; }
+.dealerOfertaGridPublicidade { width:254px; height:254px; background-color:#e6e6e6; margin-top:8px; float:left; position:relative; }
+.dealerOfertaPublicidade { width:236px; height:236px; margin:8px 8px 8px 8px; border:1px #c0c0c0 solid; background-color:#e6e6e6; float:left; position:relative; }
+.dealerOfertaFaceBook { width:254px; height:360px; margin-top:8px; float:left; position:relative; }
+.dealerOfertaSteps { width:585px; height:56px; margin-bottom:8px; float:left; position:relative; }
+.dealerOfertaHelpTxt { width:456px; height:42px; padding-left:12px; padding-right:8px; padding-top:12px; background-color:#e6e6e6; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerOfertaHelpTxtClique { font-weight:bold; position:relative; }
+.dealerOfertaHelpTxtClique a { text-decoration:none; color:#000; }
+.dealerOfertaHelpTxtClique a:hover { text-decoration:underline; color:#cb2026; }
+.dealerOfertaHelpBtn { width:100px; height:46px; padding-right:8px; padding-top:8px; background-color:#e6e6e6; float:left; position:relative; }
+/*  CARSALE - DEALER - ITENS DA LISTA  */
+.dealerListaOfertaListaBg { width:584px; height:auto; margin-top:8px; margin-bottom:8px; background-color:#e6e6e6; float:left; position:relative; }
+.dealerListaOfertaNomeCarro { width:300px; height:30px; padding-left:8px; padding-top:8px; font:22px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.dealerListaOfertaListaBtnCompararA { width:259px; height:34px; margin-top:6px; margin-right:8px; float:right; position:relative; }
+.dealerListaOfertaListaBgInterno { width:566px; height:auto; margin-left:8px; margin-top:4px; background-color:#fff; border:1px #bcbec0 solid; float:left; position:relative; }
+.dealerListaOfertaListaLinePremium { width:566px; height:174px; margin-top:8px; margin-left:8px; margin-bottom:8px; border:1px #bcbec0 solid; background-color:#fff; float:left; position:relative; }
+.dealerListaOfertaListaPremiumA { width:282px; height:174px; border-right:1px #bcbec0 solid; float:left; position:relative; }
+.dealerListaOfertaListaPremiumB { width:282px; height:174px; float:left; position:relative; }
+.dealerListaOfertaListaPremiumColunaA { width:141px; height:130px; float:left; position:relative; }
+.dealerListaOfertaListaPremiumColunaB { width:137px; height:130px; float:left; position:relative; }
+.dealerListaOfertaListaPremiumImgCarro { width:141px; height:80px; margin-top:2px; float:left; position:relative; }
+.dealerListaOfertaListaPremiumImgLogoAnunciante { width:77px; height:26px; margin-left:28px; margin-right:28px; margin-top:2px; float:left; position:relative; }
+.dealerListaOfertaListaPremiumImgCheck { width:14px; height:14px; margin-left:56px; margin-right:60px; margin-top:2px; float:left; position:relative; }
+.dealerListaOfertaListaPremiumTitulo { width:270px; height:36px; padding-left:6px; padding-right:6px; padding-top:4px; font:16px Arial, sans-serif; line-height:18px; font-weight:bold; color:#000; float:left; position:relative;  }
+.dealerListaOfertaListaPremiumTitulo a { text-decoration:none; color:#000; }
+.dealerListaOfertaListaPremiumTitulo a:hover { text-decoration:underline; color:#000; }
+.dealerListaOfertaListaPremiumPreco { width:137px; height:18px; padding-top:6px; font:14px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.dealerListaOfertaListaPremiumPreco a { text-decoration:none; color:#000; }
+.dealerListaOfertaListaPremiumPreco a:hover { text-decoration:underline; color:#000; }
+.dealerListaOfertaListaPremiumLinhaFina { width:137px; height:110px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerListaOfertaListaPremiumLinhaFina a { text-decoration:underline; color:#000; }
+.dealerListaOfertaListaPremiumLinhaFina a:hover { text-decoration:underline; color:#cb2026; }
+.dealerListaOfertaListaLineModeloCarro { width:566px; height:96px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.dealerListaOfertaListaLineModeloCarroImg { width:144px; height:88px; margin-left:10px; padding-top:8px; margin-right:14px; float:left; position:relative; }
+.dealerListaOfertaListaBgModeloCarroTitulo { width:368px; height:96px; float:left; position:relative; }
+.dealerListaOfertaListaTxtModeloCarroTitulo { width:340px; height:50px; padding-top:12px; padding-left:20px; font:20px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.dealerListaOfertaListaTxtModeloCarroValor { width:154px; height:26px; font:16px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.dealerListaOfertaListaTxtModeloCarroBtns { width:95px; height:16px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerListaOfertaListaTxtModeloCarroBtns a { text-decoration:underline; color:#000; }
+.dealerListaOfertaListaTxtModeloCarroBtns a:hover { text-decoration:underline; color:#cb2026; }
+.dealerListaOfertaListaGridIconModeloCarroTitulo { width:348px; height:20px; padding-left:20px; padding-top:8px; float:left; position:relative; }
+.dealerListaOfertaListaIconModeloCarroTitulo { width:32px; height:32px; padding-left:4px; float:left; position:relative; }
+.dealerListaOfertaListaLineOferta { width:566px; height:76px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.dealerListaOfertaListaOfertaCheck { width:14px; height:14px; padding-top:41px; padding-left:4px; padding-right:12px; padding-bottom:31px; float:left; position:relative; }
+.dealerListaOfertaListaOfertaTitulo { width:190px; height:30px; padding-top:12px; padding-left:12px; font:20px Arial, sans-serif; color:#000; text-align:center; font-weight:bold; float:left; position:relative; }
+.dealerListaOfertaListaOfertaTitulo a { text-decoration:none; color:#000; }
+.dealerListaOfertaListaOfertaTitulo a:hover { text-decoration:underline; color:#000; }
+.dealerListaOfertaListaOfertaGridTxt { width:320px; height:42px; padding-top:10px; padding-left:12px; padding-bottom:4px; float:left; position:relative; }
+.dealerListaOfertaListaOfertaTxt { width:210px; height:16px; font:14px Arial, sans-serif; text-align:center; color:#000; position:relative; }
+.dealerListaOfertaListaOfertaTxt a { text-decoration:none; color:#000; }
+.dealerListaOfertaListaOfertaTxt a:hover { text-decoration:underline; color:#000; }
+.dealerListaOfertaListaOfertaLogo { width:77px; height:16px; margin-left:14px; padding-top:10px; float:left; position:relative; }
+.dealerListaOfertaListaOfertaTxtBtnA { width:80px; height:16px; padding-left:80px; padding-top:16px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerListaOfertaListaOfertaTxtBtnA a { text-decoration:underline; color:#000; }
+.dealerListaOfertaListaOfertaTxtBtnA a:hover { text-decoration:underline; color:#cb2026; }
+.dealerListaOfertaListaOfertaTxtBtnB { width:90px; height:16px; padding-left:14px; padding-top:16px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerListaOfertaListaOfertaTxtBtnB a { text-decoration:underline; color:#000; }
+.dealerListaOfertaListaOfertaTxtBtnB a:hover { text-decoration:underline; color:#cb2026; }
+.dealerListaOfertaListaOfertaGridPaginacaoBtnComparar { width:584px; height:56px; float:left; position:relative; }
+.dealerListaOfertaListaOfertaGridPaginacao { width:280px; height:24px; padding-top:13px; padding-bottom:16px; padding-left:20px; float:left; position:relative; text-align:center; white-space:nowrap;}
+.dealerListaOfertaListaOfertaBtnPaginacao { margin:0px; padding:0px; display:inline-block; }
+.dealerListaOfertaListaOfertaBtnPaginacao a { width:30px; height:22px; padding-top:6px; margin-left:6px; background-color:#e6e6e6; color:#000; border:1px #bcbec0 solid; font:12px Arial, sans-serif; text-align:center; text-decoration:none; position:relative; display:inline-block; }
+.dealerListaOfertaListaOfertaBtnPaginacao a:hover { background:#838383; text-decoration:none; font-weight:bold; color:#fff; display:inline-block; }
+.dealerListaOfertaListaOfertaBtnPaginacaoAtual { width:30px; height:22px; padding-top:6px; margin-left:6px; background-color:#838383; color:#fff; border:1px #bcbec0 solid; font:12px Arial, sans-serif; text-align:center; font-weight:bold; position:relative; display:inline-block; }
+.dealerListaOfertaListaOfertaBtnCompararB { width:259px; height:34px; padding-top:12px; padding-bottom:16px; float:left; position:relative; text-align:center; display:inline-block; }
+.dealerListaOfertaListaBanner { width:566px; height:94px; margin-left:8px; margin-bottom:8px; border:1px #bcbec0 solid; float:left; position:relative; }
+.dealerListaOfertaListaBannerEntreTexto { width:566px; height:94px; border-bottom:1px #bcbec0 solid; background-color:#e6e6e6; float:left; position:relative; }
+.dealerListaOfertaListaBannerFull { width:468px; height:60px; padding-left:49px; padding-right:49px; padding-top:18px; float:left; position:relative; }
+/*  CARSALE - DEALER - FORMULÁRIO ESPECÍFICO  */
+.dealerFormEspecificoCentralizador { width:988px; height:auto; margin-left:auto; margin-right:auto; position:relative; padding-top:10px; overflow:hidden;}
+.dealerFormEspecificoBg { width:988px; height:auto; margin-top:8px; margin-bottom:8px; background-color:#e6e6e6; float:left; position:relative; }
+.dealerFormEspecificoBgInterno { width:972px; height:auto; margin-left:8px; margin-bottom:8px; background-color:#fff; border:1px #bcbec0 solid; float:left; position:relative; }
+.dealerFormEspecificoNomeCarro { width:972px; height:auto; margin-left:8px; margin-top:6px; margin-bottom:8px; font:22px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.dealerFormEspecificoColunaA { width:350px; height:auto; float:left; position:relative; }
+.dealerFormEspecificoColunaB { width:621px; height:auto; background-color:#e6e6e6; border-left:1px #bcbec0 solid; float:left; position:relative; }
+.dealerFormEspecificoImgCarro { width:350px; height:167; padding-top:10px; float:left; position:relative; }
+.dealerFormEspecificoGridAnunciante { width:330px; height:auto; padding-left:20px; padding-top:20px; float:left; position:relative; }
+.dealerFormEspecificoLogoAnunciante { width:77px; height:26px; padding-right:116px; float:left; position:relative; }
+.dealerFormEspecificoTxtAnunciante { width:170px; height:auto; padding-bottom:12px; padding-top:8px; padding-right:24px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerFormEspecificoTxtAnuncianteBtnVendedor { width:100px; height:auto; padding-top:4px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerFormEspecificoTxtAnuncianteBtnVendedor a { text-decoration:underline; color:#000; }
+.dealerFormEspecificoTxtAnuncianteBtnVendedor a:hover { text-decoration:underline; color:#cb2026; }
+.dealerFormEspecificoGridInformacoes { width:175px; height:auto; border-top:1px #bcbec0 solid; border-right:1px #bcbec0 solid; margin-right:-1px; float:left; position:relative; }
+.dealerFormEspecificoInformacoesAdicionaisTitulo { width:160px; height:auto; padding-top:10px; padding-left:12px; font:16px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormEspecificoInformacoesAdicionaisTxt { width:146px; height:auto; padding-top:12px; padding-left:24px; padding-bottom:20px; font:11px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerFormEspecificoFormTitulo { width:609px; height:auto; padding-top:10px; padding-left:12px; padding-bottom:8px; background-color:#fff; border-bottom:1px #bcbec0 solid; font:20px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormEspecificoGridForm { width:180px; height:auto; padding-left:24px; padding-bottom:12px; float:left; position:relative; }
+.dealerFormEspecificoGridFormB { width:180px; height:auto; padding-top:14px; padding-left:30px; padding-bottom:12px; float:left; position:relative; }
+.dealerFormEspecificoFormLegenda { width:180px; height:14px; padding-top:14px; padding-left:10px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormEspecificoFormInput { position:relative; float:left; overflow:visible; }
+input.dealerFormEspecificoFormInputBox { width:180px; height:25px; color:#000; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerFormEspecificoFormInput input.dealerFormEspecificoFormInputBox:focus { outline:none; color:#000; }
+.dealerFormEspecificoGridFormTel { width:215px; height:60px; float:left; position:relative; }
+.dealerFormEspecificoFormLegendaDDD { width:30px; height:14px; padding-top:12px; padding-left:12px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; background-color:#e6e6e6; float:left; position:relative; }
+.dealerFormEspecificoFormLegendaTel { width:100px; height:14px; padding-top:12px; padding-left:30px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; background-color:#e6e6e6; float:left; position:relative; }
+.dealerFormEspecificoFormInputDDD { position:relative; float:left; overflow:visible; }
+input.dealerFormEspecificoFormInputBoxDDD { width:38px; height:25px; padding-left:10px; color:#000; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerFormEspecificoFormInputDDD input.dealerFormEspecificoFormInputBoxDDD:focus { outline:none; color:#000; }
+.dealerFormEspecificoFormInputTel { position:relative; float:left; overflow:visible; }
+input.dealerFormEspecificoFormInputBoxTel { width:117px; height:25px; margin-left:12px; padding-left:10px; color:#000; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerFormEspecificoFormInputTel input.dealerFormEspecificoFormInputBoxTel:focus { outline:none; color:#000; }
+.dealerFormEspecificoGridCheckBox { width:190px; height:auto; margin-top:20px; padding-bottom:14px; margin-bottom:1px; border:1px #bcbec0 solid; background-color:#fff; float:left; position:relative; }
+.dealerFormEspecificoFormTextArea { width:150px; height:200px; text-align:left; margin-left:6px; padding-top:8px; color:#000; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; overflow:visible; }
+.dealerFormEspecificoGridFormLine { width:611px; height:auto; padding-top:8px; padding-left:10px; padding-bottom:8px; float:left; position:relative; }
+.dealerFormEspecificoLineCheckBoxOfertasTxt { width:500px; height:auto; margin-top:11px; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormEspecificoFormBtnEnviarProposta { width:500px; height:37px; margin-top:12px; margin-bottom:20px; margin-left:100px; float:left; position:relative; }
+/*  CARSALE - DEALER - ITENS DO DETALHE  */
+.dealerDetalheOfertaBg { width:584px; height:auto; margin-top:8px; margin-bottom:8px; background-color:#e6e6e6; float:left; position:relative; }
+.dealerDetalheOfertaBgInterno { width:566px; height:auto; margin-left:8px; margin-top:4px; margin-bottom:8px; background-color:#fff; border:1px #bcbec0 solid; float:left; position:relative; }
+.dealerDetalheOfertaNomeCarro { width:540px; height:30px; padding-left:8px; padding-top:8px; font:22px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaColunaA { width:350px; height:auto; float:left; position:relative; }
+.dealerDetalheOfertaColunaB { width:211px; height:auto; border-left:1px #bcbec0 solid; float:left; position:relative; }
+.dealerDetalheOfertaImgCarro { width:350px; height:167; float:left; position:relative; }
+.dealerDetalheOfertaGridIcons {  width:326px; height:38px; padding-left:46px; padding-top:18px; padding-bottom:18px; float:left; position:relative; }
+.dealerDetalheOfertaIcons { width:38px; height:38px; padding-left:4px; float:left; position:relative; }
+.dealerDetalheOfertaPreco { width:326px; height:42px; padding-left:22px; font:18px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerDetalheOfertaPreco a { text-decoration:none; color:#000; }
+.dealerDetalheOfertaPreco a:hover { text-decoration:underline; color:#000; }
+.dealerDetalheOfertaGridAnunciante { width:328px; height:60px; padding-left:22px; padding-top:10px; float:left; position:relative; }
+.dealerDetalheOfertaTxtAnunciante { width:200px; height:60px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaTxtAnuncianteBtn { width:100px; height:16px; padding-top:6px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaTxtAnuncianteBtn a { text-decoration:underline; color:#000; }
+.dealerDetalheOfertaTxtAnuncianteBtn a:hover { text-decoration:underline; color:#cb2026; }
+.dealerDetalheOfertaTxtDadosCarro { width:114px; height:60px; padding-left:12px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaLineInformacoesAdicionais { width:350px; height:auto; float:left; position:relative; }
+.dealerDetalheOfertaGridInformacoesAdicionaisA { width:174px; height:auto; border-right:1px #bcbec0 solid; float:left; position:relative; }
+.dealerDetalheOfertaGridInformacoesAdicionaisB { width:174px; height:auto; float:left; position:relative; }
+.dealerDetalheOfertaInformacoesAdicionaisTitulo { width:338px; height:20px; padding-top:10px; padding-left:12px; font:16px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; border-top:1px #bcbec0 solid; }
+.dealerDetalheOfertaInformacoesAdicionaisTxt { width:300px; height:auto; padding-top:12px; padding-left:24px; padding-right:26px; padding-bottom:20px; font:11px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaInformacoesAdicionaisTituloVendedor { width:338px; height:20px; padding-top:10px; padding-left:12px; font:16px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; border-top:1px #bcbec0 solid; }
+.dealerDetalheOfertaInformacoesAdicionaisTxtVendedor { width:300px; height:auto; padding-top:12px; padding-left:24px; padding-right:26px; font:11px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaTxtAnuncianteBtnVendedor { width:80px; height:16px; padding-top:6px; padding-left:24px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaTxtAnuncianteBtnVendedor a { text-decoration:underline; color:#000; }
+.dealerDetalheOfertaTxtAnuncianteBtnVendedor a:hover { text-decoration:underline; color:#cb2026; }
+.dealerDetalheOfertaTxtDadosCarro { width:114px; height:60px; padding-left:12px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaAnuncianteMapa { width:325px; height:226px; margin:12px 12px 12px 12px; border:1px #bcbec0 solid; float:left; position:relative; }
+.dealerDetalheOfertaColunaBGridAnunciante { width:203px; height:auto; padding-left:12px; padding-top:12px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.dealerDetalheOfertaColunaBLogoAnunciante { width:77px; height:26px; padding-right:116px; float:left; position:relative; }
+.dealerDetalheOfertaColunaBTxtAnunciante { width:170px; height:auto; padding-bottom:12px; padding-top:8px; padding-right:24px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaColunaBTxtAnuncianteBtnVendedor { width:100px; height:16px; padding-bottom:8px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaColunaBTxtAnuncianteBtnVendedor a { text-decoration:underline; color:#000; }
+.dealerDetalheOfertaColunaBTxtAnuncianteBtnVendedor a:hover { text-decoration:underline; color:#cb2026; }
+.dealerDetalheOfertaColunaBGridAnunciante { width:203px; height:auto; padding-left:12px; padding-top:12px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.dealerDetalheOfertaFormTitulo { width:203px; height:auto; padding-top:10px; padding-left:12px; padding-bottom:8px; border-bottom:1px #bcbec0 solid; font:20px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerDetalheOfertaGridForm { width:215px; height:auto; background-color:#e6e6e6; padding-bottom:12px; float:left; position:relative; }
+
+.dealerDetalheOfertaFormLegenda { width:180px; height:14px; padding-top:14px; padding-left:24px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; background-color:#e6e6e6; float:left; position:relative; }
+.dealerDetalheOfertaFormInput { position:relative; float:left; overflow:visible; }
+input.dealerDetalheOfertaFormInputBox { width:180px; height:25px; margin-left:12px; color:#000; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerDetalheOfertaFormInput input.dealerDetalheOfertaFormInputBox:focus { outline:none; color:#000; }
+.dealerDetalheOfertaGridFormTel { width:215px; height:60px; float:left; position:relative; }
+.dealerDetalheOfertaFormLegendaDDD { width:30px; height:14px; padding-top:12px; padding-left:24px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; background-color:#e6e6e6; float:left; position:relative; }
+.dealerDetalheOfertaFormLegendaTel { width:80px; height:14px; padding-top:12px; padding-left:30px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; background-color:#e6e6e6; float:left; position:relative; }
+.dealerDetalheOfertaFormInputDDD { position:relative; float:left; overflow:visible; }
+input.dealerDetalheOfertaFormInputBoxDDD { width:38px; height:25px; margin-left:12px; padding-left:10px; color:#000; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerDetalheOfertaFormInputDDD input.dealerDetalheOfertaFormInputBoxDDD:focus { outline:none; color:#000; }
+.dealerDetalheOfertaFormInputTel { position:relative; float:left; overflow:visible; }
+input.dealerDetalheOfertaFormInputBoxTel { width:117px; height:25px; margin-left:12px; padding-left:10px; color:#000; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerDetalheOfertaFormInputTel input.dealerDetalheOfertaFormInputBoxTel:focus { outline:none; color:#000; }
+.dealerDetalheOfertaFormTextArea { width:180px; height:160px; text-align:left; margin-left:12px; padding-top:8px; color:#000; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; overflow:visible; }
+.dealerDetalheOfertaGridCheckBox { width:190px; height:auto; margin-top:8px; padding-bottom:14px; margin-left:12px; margin-bottom:1px; border:1px #bcbec0 solid; background-color:#fff; float:left; position:relative; }
+.dealerDetalheOfertaLineCheckBox { width:174px; height:14px; margin-top:8px; padding-left:6px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerDetalheOfertaFormLegendaTroca { width:140px; height:14px; padding-top:10px; padding-left:24px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerDetalheOfertaFormInputTroca { position:relative; float:left; overflow:visible; }
+input.dealerDetalheOfertaFormInputTrocaBox { width:150px; height:25px; margin-left:12px; color:#000; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerDetalheOfertaFormTrocaInput input.dealerDetalheOfertaFormInputTrocaBox:focus { outline:none; color:#000; }
+.dealerDetalheOfertaLineCheckBoxOfertas { width:15px; height:15px; margin-top:8px; padding-left:22px; float:left; position:relative; }
+.dealerDetalheOfertaLineCheckBoxOfertasTxt { width:160px; height:14px; margin-top:11px; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerDetalheOfertaFormBtnEnviar { width:184px; height:31px; border:1px #c0c0c0 solid; margin-top:26px; margin-left:14px; float:left; position:relative; }
+.dealerDetalheOfertaItensSerieTitulo { width:554px; height:26px; padding-top:10px; padding-left:12px; padding-bottom:8px; border-bottom:1px #bcbec0 solid; font:20px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerDetalheOfertaColunaC { width:566px; height:auto; float:left; position:relative; }
+.dealerDetalheOfertaColunaD { width:126px; height:auto; float:left; position:relative; }
+.dealerDetalheOfertaItensSerieTxtClaro { width:538px; height:auto; padding-top:6px; padding-left:28px; padding-bottom:6px; font:11px Arial, sans-serif; color:#000; background-color:#fff; float:left; position:relative; }
+.dealerDetalheOfertaItensSerieTxtEscuro { width:538px; height:auto; padding-top:6px; padding-left:28px; padding-bottom:6px; background-color:#eee; font:11px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaItensSerieTituloGeral { width:114px; height:26px; padding-top:10px; padding-left:12px; font:16px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerDetalheOfertaItensSerieTxtGeral { width:114px; height:auto; padding-top:10px; padding-left:12px; padding-bottom:12px; font:11px Arial, sans-serif; color:#000; float:left; position:relative; }
+.dealerDetalheOfertaListaBanner { width:566px; height:94px; margin-left:8px; margin-bottom:8px; border:1px #bcbec0 solid; float:left; position:relative; }
+.dealerDetalheOfertaListaBannerFull { width:468px; height:60px; padding-left:49px; padding-right:49px; padding-top:18px; float:left; position:relative; }
+/*  CARSALE - DEALER - FORMULÁRIO GENÉRICO  */
+.dealerFormGenericoBgHeader { width:584px; height:183px; background-image:url('../img/formGenerico_Header.jpg'); background-repeat:no-repeat; background-color:#e6e6e6; float:left; position:relative; }
+.dealerFormGenericoBg { width:584px; height:auto; margin-bottom:8px; background-color:#e6e6e6; float:left; position:relative; }
+
+.dealerFormGenericoGridTxtHeader { width:270px; height:138px; padding-left:300px; padding-top:54px; float:left; position:relative; }
+.dealerFormGenericoTituloHeader { width:270px; height:50px; font:18px Arial, sans-serif; color:#4b4b4b; font-weight:bold; float:left; position:relative; }
+.dealerFormGenericoTxtHeader { width:270px; height:82px; font:14px Arial, sans-serif; color:#4b4b4b; float:left; position:relative; }
+
+.dealerFormGenericoBgInterno { width:566px; height:auto; margin-left:8px; margin-top:8px; margin-bottom:8px; background-color:#fff; border:1px #bcbec0 solid; float:left; position:relative; }
+.dealerFormGenericoTitulo { width:554px; height:26px; padding-top:10px; padding-left:12px; padding-bottom:8px; border-bottom:1px #bcbec0 solid; font:20px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormGenericoColunaA { width:210px; height:auto; padding-top:12px; padding-left:62px; float:left; position:relative; }
+.dealerFormGenericoColunaB { width:210px; height:auto; padding-top:12px; padding-left:24px; padding-right:50px; float:left; position:relative; }
+.dealerFormGenericoLegenda { width:180px; height:14px; padding-left:12px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormGenericoLegendaB { width:180px; height:14px; padding-left:12px; margin-top:12px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormGenericoSelect { width:190px; height:29px; color:#000; padding-left:8px; padding-top:6px; padding-bottom:6px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.exploradorFormSelect { width:200px; height:29px; color:#000; padding-left:8px; padding-top:6px; padding-bottom:6px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.dealerFormGenericoSelectPrecoA { width:89px; height:29px; color:#000; padding-left:8px; padding-top:6px; padding-bottom:6px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.dealerFormGenericoSelectPrecoB { width:89px; height:29px; color:#000; margin-left:8px; padding-left:8px; padding-top:6px; padding-bottom:6px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.dealerFormGenericoInput { position:relative; float:left; overflow:visible; }
+input.dealerFormGenericoInputBox { width:190px; height:25px; color:#000; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerFormGenericoInput input.dealerFormGenericoInputBox:focus { outline:none; color:#000; }
+.dealerFormGenericoGridFormTel { width:215px; height:60px; float:left; position:relative; }
+.dealerFormGenericoFormLegendaDDD { width:30px; height:14px; padding-top:12px; padding-left:12px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormGenericoFormLegendaTel { width:80px; height:14px; padding-top:12px; padding-left:30px; padding-right:30px; padding-bottom:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.dealerFormGenericoFormInputDDD { position:relative; float:left; overflow:visible; }
+input.dealerFormGenericoFormInputBoxDDD { width:38px; height:25px; padding-left:10px; color:#000; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerFormGenericoFormInputDDD input.dealerFormGenericoFormInputBoxDDD:focus { outline:none; color:#000; }
+.dealerFormGenericoFormInputTel { position:relative; float:left; overflow:visible; }
+input.dealerFormGenericoFormInputBoxTel { width:127px; height:25px; margin-left:12px; padding-left:10px; color:#000; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.dealerFormGenericoGridObservacoes { width:450px; height:auto; padding-left:62px; float:left; position:relative; }
+.dealerFormGenericoFormTextArea { width:424px; height:140px; text-align:left; padding-top:8px; color:#000; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; overflow:visible; }
+.dealerFormGenericoFormGridCheckBox { width:424px; height:40px; padding-left:10px; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; overflow:visible; }
+.dealerFormGenericoFormCheckBoxObservacoes { width:180px; height:20px; text-align:left; padding-top:10px; color:#000; padding-left:20px; font:12px Arial, sans-serif; color:#000; font-weight:bold; background-color:#fff; position:relative; float:left; overflow:visible; }
+.dealerFormGenericoFormGridObservacoesInput { width:424px; margin-bottom:12px; height:auto; padding-left:10px; margin-top:1px; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; overflow:visible; }
+.dealerFormGenericoFormGridCheckBoxReceberOferta { width:424px; height:40px; padding-left:10px; margin-top:1px; position:relative; float:left; overflow:visible; }
+.dealerFormGenericoFormCheckBoxReceberOferta { width:300px; height:20px; text-align:left; padding-top:10px; color:#000; padding-left:20px; font:12px Arial, sans-serif; color:#000; font-weight:bold; position:relative; float:left; overflow:visible; }
+.dealerDetalheOfertaGridCheckBoxB { width:190px; height:auto; padding-bottom:14px; margin-left:12px; margin-bottom:1px;  background-color:#fff; float:left; position:relative; }
+.dealerFormGenericoFormBtnEnviar { width:446px; height:31px; border:1px #c0c0c0 solid; margin-top:12px; margin-bottom:20px; float:left; position:relative; }
+/*  CARSALE - DEALER - FICHA TÉCNICA  */
+.dealerFichaTecnicaCentralizador { width:584px; height:auto; margin-left:auto; margin-right:auto; position:relative; overflow:hidden;}
+.dealerFichaTecnicaBg { width:584px; height:auto; background-color:#e6e6e6; float:left; position:relative; }
+.dealerFichaTecnicaBgInterno { width:566px; height:auto; margin-left:8px; margin-top:8px; margin-bottom:8px; background-color:#fff; border:1px #bcbec0 solid; float:left; position:relative; }
+.dealerFichaTecnicaTitulo { width:566px; height:26px; padding-top:10px; padding-bottom:8px; border-bottom:1px #bcbec0 solid; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:center; float:left; position:relative; }
+.dealerFichaTecnicaImg { width:350px; height:167px; padding-top:10px; padding-left:102px; padding-right:102px; padding-bottom:8px; float:left; position:relative; }
+.dealerFichaTecnicaTxtCarro { width:566px; height:26px;  padding-top:10px; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:center; float:left; position:relative; }
+.dealerFichaTecnicaTxtLegenda { width:566px; height:26px; padding-bottom:10px; font:12px Arial, sans-serif; color:#5b5b5b; font-weight:bold; text-align:center; float:left; position:relative; }
+.dealerFichaTecnicaTituloDesc { width:546px; height:26px; padding-top:10px; padding-left:20px; padding-bottom:8px; border-top:1px #bcbec0 solid; border-bottom:1px #bcbec0 solid; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; float:left; position:relative; }
+.dealerFichaTecnicaLineDescClaro { width:546px; height:16px; padding-top:5px; padding-left:20px; padding-bottom:4px; font:11px Arial, sans-serif; color:#414042; text-align:left; background-color:#fff; float:left; position:relative; }
+.dealerFichaTecnicaLineDescEscuro { width:546px; height:16px; padding-top:5px; padding-left:20px; padding-bottom:4px; font:11px Arial, sans-serif; background-color:#eeeeee; color:#414042; text-align:left; float:left; position:relative; }
+.dealerFichaTecnicaDescClaroLine { width:566px; height:auto; background-color:#fff; float:left; position:relative; }
+.dealerFichaTecnicaDescEscuroLine { width:566px; height:auto; background-color:#eeeeee; float:left; position:relative; }
+.dealerFichaTecnicaDescLineTxtA { width:170px; height:16px; padding-top:5px; padding-left:20px; padding-bottom:4px; font:11px Arial, sans-serif; color:#414042; text-align:left; float:left; position:relative; }
+.dealerFichaTecnicaDescLineTxtB { width:370px; height:16px; padding-top:5px; padding-bottom:4px; font:11px Arial, sans-serif; color:#414042; text-align:left; float:left; position:relative; }
+.dealerFichaTecnicaDescLineTxtC { width:80px; height:16px; padding-top:5px; padding-left:8px; padding-bottom:4px; font:11px Arial, sans-serif; color:#414042; text-align:left; float:left; position:relative; }
+.dealerFichaTecnicaDescLineTxtD { width:110px; height:16px; padding-top:5px; padding-left:20px; padding-bottom:4px; font:11px Arial, sans-serif; color:#414042; text-align:left; float:left; position:relative; }
+.dealerFichaTecnicaDescLineTxtE { width:210px; height:16px; padding-top:5px; padding-left:20px; padding-bottom:4px; font:11px Arial, sans-serif; color:#414042; text-align:left; float:left; position:relative; }
+.dealerFichaTecnicaDescLineColors { width:60px; height:10px; margin-top:7px; margin-left:20px; margin-bottom:2px; border:1px #bcbec0 solid; font:11px Arial, sans-serif; color:#414042; text-align:left; float:left; position:relative; }
+/*  CARSALE - DEALER - ALERT  */
+.dealerAlertCentralizador { width:601px; height:142; margin-left:auto; margin-right:auto; margin-top:150px; position:relative; overflow:hidden;}
+.dealerAlertHeader { width:601px; height:32px; background-image:url("../img/dealerAlertHeader.gif"); background-repeat:no-repeat; font:18px Arial, sans-serif; color:#fff; text-align:center; font-weight:bold; padding-top:6px; position:relative; overflow:hidden;}
+.dealerAlertTxt { width:501px; height:auto; font:14px Arial, sans-serif; color:#666666; text-align:center; padding-top:14px; padding-bottom:16px; background-color:#eeeeee; padding-left:50px; padding-right:50px; border-bottom:1px #bebebe solid; position:relative; overflow:hidden;}
+.dealerAlertFooter { width:601px; height:58px; background-image:url("../img/dealerAlertFooter.gif"); background-repeat:no-repeat; border-top:1px #fff solid; position:relative; overflow:hidden;}
+.dealerAlertFooterBtn { width:82px; height:26px; margin-left:250px; margin-right:250px; margin-top:16px; border:1px #a7a6a7 solid; position:relative; overflow:hidden;}
+/*  CARSALE - EXPLORADOR  */
+.exploradorCentralizador { width:988px; height:auto; margin-left:auto; margin-right:auto; position:relative; overflow:hidden;}
+.exploradorCentralizadorOfertas { width:988px; height:auto; padding-top:8px; margin-left:auto; margin-right:auto; position:relative; overflow:hidden;}
+.exploradorBg { width:988px; height:auto; margin-top:16px; background-color:#e6e6e6; float:left; position:relative; }
+.exploradorBgInterno { width:970px; height:auto; margin-left:8px; margin-top:8px; margin-bottom:8px; background-color:#fff; border:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorTitulo { width:950px; height:20px; padding-top:10px; padding-left:30px; padding-bottom:4px; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; float:left; position:relative; }
+.exploradorGridFiltros { width:970px; height:290px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorGridFiltrosColunaA { width:365px; height:290px; border-right:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorGridFiltrosColunaB { width:604px; height:290px; float:left; position:relative; }
+.exploradorGridFiltrosColunaATitulo { width:345px; height:20px; padding-top:10px; padding-left:20px; padding-bottom:10px; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; float:left; position:relative; }
+.exploradorGridFiltrosInputText { width:345px; height:60px; padding-top:10px; padding-left:20px; padding-bottom:20px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorGridFiltrosInputTextLine { width:345px; height:28px; padding-bottom:6px; float:left; position:relative; }
+.exploradorGridFiltrosInputTextTxt { width:34px; height:16px; padding-top:10px; font:14px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; float:left; position:relative; }
+.exploradorGridFiltroInput { position:relative; float:left; overflow:visible; }
+input.exploradorGridFiltroInputBox { width:250px; height:25px; color:#000; padding-left:10px; font:14px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.exploradorGridFiltrosChecks { width:156px; height:106px; padding-top:2px; padding-left:20px; padding-bottom:8px; float:left; position:relative; }
+.exploradorGridFiltrosChecksLine { width:146px; height:20px; padding-bottom:2px; float:left; position:relative; }
+.exploradorGridFiltrosCheckBox { width:14px; height:14px; padding-top:4px; float:left; position:relative; }
+.exploradorGridFiltrosCheckTxt { width:120px; height:14px; color:#000; padding-left:12px; padding-top:6px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.exploradorGridFiltrosColunaBTitulo { width:584px; height:20px; padding-top:10px; padding-left:20px; padding-bottom:10px; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; float:left; position:relative; }
+.exploradorGridFiltrosGridImg { /*width:540px; height:204px; */padding-top:10px; padding-left:24px; padding-right:24px; float:left; position:relative; }
+.exploradorGridFiltrosImg { width:100px; height:96px; margin-right:8px; margin-bottom:8px; overflow:visible; float:left; position:relative; }
+.exploradorGridFiltrosBtnBuscar { width:597px; height:34px; padding-left:3px; padding-right:3px; float:left; position:relative; }
+.exploradorTituloInterno { width:950px; height:24px; padding-top:10px; padding-left:20px; padding-bottom:10px; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; background-color:#e6e6e6; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorGridPremium { width:970px; height:106px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorGridPremiumSuperBanner { width:970px; height:106px; background-color:#e6e6e6; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorPremiumSuperBanner { width:728px; height:90px; margin-left:121px; margin-right:121px; margin-top:8px; margin-bottom:8px; border:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorAnuncioPremiumRevendedor { width:646px; height:106px; margin-left:-1px; border-left:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorAnuncioPremiumRevendedorPremiumTitulo { width:620px; height:24px; padding-top:10px; padding-left:20px; padding-right:10px; font:20px Arial, sans-serif; color:#000; text-align:left; font-weight:bold; float:left; position:relative; overflow:hidden; }
+.exploradorAnuncioPremiumRevendedorPremiumTitulo a { text-decoration:none; color:#000; }
+.exploradorAnuncioPremiumRevendedorPremiumTitulo a:hover { text-decoration:underline; color:#cb2026; }
+.exploradorAnuncioPremiumTxt { width:620px; height:24px; width:620px; height:24px; padding-left:20px; padding-right:10px; padding-top:10px; font:14px Arial, sans-serif; color:#000; text-align:left; float:left; position:relative; }
+.exploradorAnuncioPremiumTxt a { text-decoration:none; color:#000; }
+.exploradorAnuncioPremiumTxt a:hover { text-decoration:underline; color:#cb2026; }
+.exploradorAnuncioPremiumRevendedorBtn { width:156px; height:16px; padding-left:20px; padding-right:10px; padding-top:14px; font:12px Arial, sans-serif; color:#000; text-align:left; float:left; position:relative; }
+.exploradorAnuncioPremiumRevendedorBtn a { text-decoration:underline; color:#000; }
+.exploradorAnuncioPremiumRevendedorBtn a:hover { text-decoration:underline; color:#cb2026; }
+.exploradorAnuncioPremiumTxtPublicidade { width:13px; height:106px; margin-left:2px; margin-right:2px; float:left; position:relative; }
+.exploradorAnuncioPremiumImgPublicidade { width:141px; height:80px; margin-left:4px; margin-right:10px; margin-top:10px; margin-bottom:16px; float:left; position:relative; }
+.exploradorAnuncioPremiumLogoPublicidade { width:77px; height:26px; margin-right:50px; margin-top:6px; margin-bottom:6px; float:left; position:relative; }
+.exploradorAnuncioPremiumTituloPublicidade { width:130px; height:16px; padding-right:4px; font:16px Arial, sans-serif; color:#000; text-align:left; font-weight:bold; float:left; position:relative; overflow:hidden; }
+.exploradorAnuncioPremiumValorPublicidade { width:130px; height:16px; padding-right:4px; padding-top:4px; font:14px Arial, sans-serif; color:#000; text-align:left; font-weight:bold; float:left; position:relative; }
+.exploradorAnuncioPremiumBtnPublicidade { width:130px; height:16px; padding-right:4px; padding-top:8px; font:12px Arial, sans-serif; color:#000; text-align:left; float:left; position:relative; }
+.exploradorAnuncioPremiumBtnPublicidade a { text-decoration:underline; color:#000; }
+.exploradorAnuncioPremiumBtnPublicidade a:hover { text-decoration:underline; color:#cb2026; }
+.exploradorAnuncioPremium { width:323px; height:106px; margin-left:-1px; border-left:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorAnuncioPremiumImg { width:141px; height:80px; margin-left:4px; margin-right:16px; margin-top:10px; margin-bottom:16px; float:left; position:relative; }
+.exploradorAnuncioPremiumLogo { width:77px; height:26px; margin-top:10px; margin-right:80px; float:left; position:relative; }
+.exploradorAnuncioPremiumTitulo { width:156px; height:16px; padding-right:4px; font:16px Arial, sans-serif; color:#000; text-align:left; font-weight:bold; float:left; position:relative; overflow:hidden; }
+.exploradorAnuncioPremiumValor { width:156px; height:16px; padding-right:4px; padding-top:4px; font:14px Arial, sans-serif; color:#000; text-align:left; font-weight:bold; float:left; position:relative; }
+.exploradorAnuncioPremiumBtn { width:156px; height:16px; padding-right:4px; padding-top:8px; font:12px Arial, sans-serif; color:#000; text-align:left; float:left; position:relative; }
+.exploradorAnuncioPremiumBtn a { text-decoration:underline; color:#000; }
+.exploradorAnuncioPremiumBtn a:hover { text-decoration:underline; color:#cb2026; }
+.exploradorGridCarros { width:970px; height:auto; margin-top:8px; float:left; position:relative; }
+.exploradorCarrosMarcacao { width:180px; height:115px; margin-left:6px; margin-right:5px; margin-bottom:3px; margin-top:3px; border:1px #c0c0c0 solid; float:left; position:relative; }
+.exploradorCarros { width:180px; height:115px; margin-left:7px; margin-right:6px; margin-bottom:3px; margin-top:3px; z-index:70; float:left; position:relative; }
+.exploradorCarrosQuantidade { width:49px; height:31px; float:left; z-index:60; position:relative; }
+.exploradorCarrosFechar { width:23px; height:31px; float:right; z-index:50;  position:relative; }
+.exploradorCarrosImg { width:141px; height:80px; margin-left:18px; margin-right:18px; margin-top:-24px; float:left; z-index:90; position:relative; }
+.exploradorCarrosTxt { width:160px; height:20px; padding-left:9px; padding-right:9px; font:12px Arial, sans-serif; color:#000; text-align:center; float:left; z-index:80; position:relative; }
+.exploradorCarrosTxt a { text-decoration:none; color:#000; }
+.exploradorCarrosTxt a:hover { text-decoration:underline; color:#cb2026; }
+.exploradorCarrosBgHover { width:180px; height:115px; margin-top:-107px; float:left; z-index:10; position:relative; }
+.exploradorTabela { width:970px; height:auto; position:relative; float:left; }
+.exploradorTabelaLineCarros { width:970px; height:192px; border-bottom:1px #bcbec0 solid; border-top:1px #63666a solid; position:relative; float:left; }
+.exploradorTabelaLineCarrosB { width:970px; height:192px; border-bottom:1px #bcbec0 solid; position:relative; float:left; }
+.exploradorTabelaLineVersao { width:970px; height:auto; border-bottom:1px #63666a solid; position:relative; float:left; }
+.exploradorTabelaLineVersaoB { width:970px; height:auto; border-bottom:1px #BCBEC0 solid; position:relative; float:left; }
+.exploradorTabelaLineBtn { width:970px; height:auto; position:relative; float:left; }
+.exploradorTabelaGridCarro { width:194px; height:192px; margin-left:-1px; border-left:1px #bcbec0 solid; position:relative; float:left; }
+.exploradorTabelaGridCarroOculta { width:194px; height:4px; overflow:visible; position:relative; float:left; }
+.exploradorTabelaCarroFechar  { margin:0px; padding:0px; }
+.exploradorTabelaCarroFechar a {  width:18px; height:18px; text-align:center; padding-top:0px; margin-top:-4px; background-color:#e6e6e6; color:#000; font:12px Arial, sans-serif; text-align:center; text-decoration:none; font-weight:bold; float:right; position:relative; }
+.exploradorTabelaCarroFechar a:hover { background: #838383 center center; text-decoration:none; font-weight:bold; color:#fff;}
+.exploradorTabelaCarroNumeracao { width:194px; height:18px; padding-bottom:10px; margin-top:-4px; font:18px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; position:relative; float:left; }
+.exploradorTabelaCarroImg { width:141px; height:80px; padding-left:26px; padding-right:26px; padding-top:2px; position:relative; float:left; }
+.exploradorTabelaCarroModelo { width:194px; height:auto; padding-top:4px; font:16px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; position:relative; float:left; }
+.exploradorTabelaCarroValor { width:194px; height:14px; padding-top:2px; font:14px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; position:relative; float:left; }
+.exploradorTabelaGridVersao { width:194px; height:auto; margin-left:-1px; border-left:1px #bcbec0 solid; position:relative; float:left; }
+.exploradorTabelaVersaoSelect { width:174px; height:20px; margin-left:10px; margin-top:8px; margin-bottom:10px; background-color:#e6e6e6; border:1px #c0c0c0 solid; font:12px Arial, sans-serif; font-weight:bold; color:#000; text-align:left; position:relative; float:left; }
+.exploradorTabelaVersaoTxt { width:194px; height:auto; padding-top:12px; padding-bottom:10px; font:12px Arial, sans-serif; font-weight:bold; text-align:center; color:#4d4f4c; position:relative; float:left; }
+.exploradorTabelaLineOpcionais { width:970px; height:244px; overflow:auto; border-bottom:1px #63666a solid; position:relative; float:left;}
+.exploradorTabelaLineOpcionaisB { width:970px; height:244px; overflow:auto; position:relative; float:left;}
+.exploradorTabelaGridOpcionais { width:194px; height:auto; margin-left:-1px; border-left:1px #bcbec0 solid; position:relative; float:left; }
+.exploradorTabelaGridOpcionais_B { width:174px; height:auto; margin-left:-1px; border-left:1px #bcbec0 solid; position:relative; float:left; }
+.exploradorTabelaOpcionaisTxtBgGray { width:180px; height:12px; padding-top:4px; padding-bottom:6px; padding-left:14px; background-color:#c3c3c3; font:11px Arial, sans-serif; text-align:left; color:#000; position:relative; float:left; }
+.exploradorTabelaOpcionaisTxtBgWhite { width:180px; height:12px; padding-top:4px; padding-bottom:6px; padding-left:14px; background-color:#fff; font:11px Arial, sans-serif; text-align:left; color:#000; position:relative; float:left; }
+.exploradorTabelaOpcionaisImgBgGray { width:16px; height:13px; padding-top:4px; padding-bottom:5px; padding-left:89px; padding-right:89px; background-color:#eeeeee; position:relative; float:left; overflow:hidden; }
+.exploradorTabelaOpcionaisImgBgWhite { width:16px; height:13px; padding-top:4px; padding-bottom:5px; padding-left:89px; padding-right:89px; background-color:#fff; position:relative; float:left; overflow:hidden; }
+.exploradorTabelaOpcionaisImgBgGray_B { width:16px; height:13px; padding-top:4px; padding-bottom:5px; padding-left:84px; padding-right:77px; background-color:#eeeeee; position:relative; float:left; overflow:hidden; }
+.exploradorTabelaOpcionaisImgBgWhite_B { width:16px; height:13px; padding-top:4px; padding-bottom:5px; padding-left:84px; padding-right:77px; background-color:#fff; position:relative; float:left; overflow:hidden; }
+.exploradorTabelaGridBase { width:194px; height:108px; margin-left:-1px; border-left:1px #bcbec0 solid; position:relative; float:left; overflow:hidden; }
+.exploradorTabelaBtnFicha { width:194px; height:14px; padding-top:4px; padding-bottom:4px; font:12px Arial, sans-serif; text-align:center; color:#000;  position:relative; float:left; }
+.exploradorTabelaBtnFicha a { text-decoration:underline; color:#000; }
+.exploradorTabelaBtnFicha a:hover { text-decoration:underline; color:#cb2026; }
+.exploradorTabelaBtnVerOfertas { width:189px; height:34px; padding-left:5px; padding-top:4px; padding-bottom:3px; border-top:1px #bcbec0 solid; background-color:#e6e6e6; position:relative; float:left; }
+.exploradorTabelaGridCarroExibirOfertaBtn { width:194px; height:200px; margin-left:-8px; margin-top:-4px;  border-top:3px #515458 solid; border-left:3px #515458 solid; border-right:3px #515458 solid; position:relative; float:left; }
+.exploradorTabelaGridCarroExibirOfertaTitulo { width:194px; height:1000px; margin-left:-8px; margin-top:-4px; border-top:3px #515458 solid; border-left:3px #515458 solid; border-right:3px #515458 solid; position:relative; float:left; }
+.exploradorListaOfertaLineModeloCarro { width:970px; height:96px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorListaOfertaLineModeloCarroImg { width:144px; height:88px; margin-left:10px;  padding-top:8px; border-right:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorListaOfertaListaBgModeloCarroTitulo { width:815px; height:96px; background-color:#e6e6e6; float:left; position:relative; }
+.exploradorListaOfertaListaTxtModeloCarroTitulo { width:480px; height:40px; padding-top:34px; padding-left:24px; font:24px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.exploradorListaOfertaListaGridIconModeloCarroTitulo { width:280px; height:38px; padding-right:14px; padding-top:30px; float:right; position:relative; }
+.exploradorListaOfertaListaIconModeloCarroTitulo { width:38px; height:38px; padding-left:4px; float:left; position:relative; }
+.exploradorListaOfertaListaLineOferta { width:970px; height:41px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorListaOfertaListaOfertaTitulo { width:260px; height:18px; padding-top:12px; padding-left:12px; font:14px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.exploradorListaOfertaListaOfertaTitulo a { text-decoration:none; color:#000; }
+.exploradorListaOfertaListaOfertaTitulo a:hover { text-decoration:underline; color:#000; }
+.exploradorListaOfertaListaOfertaValor { width:120px; height:18px; padding-top:12px; padding-left:12px; font:14px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.exploradorListaOfertaListaOfertaValor a { text-decoration:none; color:#000; }
+.exploradorListaOfertaListaOfertaValor a:hover { text-decoration:underline; color:#000; }
+.exploradorListaOfertaListaOfertaTxt { width:100px; height:18px; padding-top:12px; padding-left:12px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.exploradorListaOfertaListaOfertaTxtBtn { width:90px; height:18px; padding-left:8px; padding-top:12px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; }
+.exploradorListaOfertaListaOfertaTxtBtn a { text-decoration:underline; color:#000; }
+.exploradorListaOfertaListaOfertaTxtBtn a:hover { text-decoration:underline; color:#cb2026; }
+.exploradorListaOfertaListaOfertaLogo { width:77px; height:26px; margin-left:42px; margin-top:7px; float:left; position:relative; }
+.exploradorGridCarrosPaginacaoOfertas { width:970px; height:30px; padding-bottom:8px; padding-top:8px; position:relative; float:left; text-align:center; white-space:nowrap; }
+.exploradorBtnCarrosPaginacaoOfertas  { margin:0px; padding:0px; display:inline-block; }
+.exploradorBtnCarrosPaginacaoOfertas a {  width:30px; height:22px; padding-top:6px; margin-left:6px; background-color:#e6e6e6; color:#000; border:1px #bcbec0 solid; font:12px Arial, sans-serif; text-align:center; text-decoration:none; position:relative; display:inline-block;}
+.exploradorBtnCarrosPaginacaoOfertas a:hover { background:#838383; text-decoration:none; font-weight:bold; color:#fff; display:inline-block; }
+.exploradorBtnCarrosPaginacaoOfertasAtual { width:30px; height:22px; padding-top:6px; margin-left:6px; background-color:#838383; color:#fff; border:1px #bcbec0 solid; font:12px Arial, sans-serif; text-align:center; font-weight:bold; position:relative; display:inline-block; }
+.exploradorBtnVoltar { width:203px; height:34px; padding-bottom:6px; padding-top:6px; padding-right:6px; padding-left:6px; background-color:#dddddd; border:1px #bcbec0 solid; position:fixed; bottom:0px; right:70px; display:block; }
+.exploradorBgPublicidade { width:988px; height:110px; background-color:#dddddd; float:left; position:relative;}
+.exploradorPublicidade { width:728px; height:90px; margin-top:10px; margin-bottom:10px; margin-left:130px; margin-right:130px; border:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorTxtLegalTabela { width:950px; height:auto; padding-top:10px; padding-left:20px; padding-bottom:10px; font:14px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; background-color:#fff; float:left; position:relative; }
+.exploradorTituloFormulario { width:950px; height:auto; padding-top:10px; padding-left:20px; padding-bottom:10px; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; background-color:#fff; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorColunaFormularioA { width:430px; height:auto; background-color:#fff; float:left; position:relative; }
+.exploradorColunaFormularioB { width:539px; height:auto; background-color:#e6e6e6; border-left:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorFormularioImg { width:350px; height:167px; padding-top:16px; padding-left:40px; padding-right:40px; padding-bottom:16px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorFormularioTituloCarro { width:375px; height:auto; padding-top:20px; padding-left:30px; padding-right:30px; padding-bottom:10px; font:26px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; float:left; position:relative; }
+.exploradorFormularioPrecoCarro { width:375px; height:auto; padding-top:20px; padding-left:30px; padding-right:30px; padding-bottom:30px; font:24px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorFormularioTxtCarro { width:375px; height:auto; padding-top:20px; padding-left:30px; padding-right:30px; font:12px Arial, sans-serif; color:#000; font-weight:bold; text-align:left; float:left; position:relative; }
+.exploradorGridFormularioInput { width:210px; height:auto; padding-top:20px; padding-left:42px; float:left; position:relative; }
+.exploradorGridObservacoes { width:450px; height:auto; padding-left:42px; padding-top:16px; float:left; position:relative; }
+.exploradorFormGridCheckBox { width:440px; height:40px; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; overflow:visible; }
+.exploradorFormCheckBoxObservacoes { width:180px; height:20px; text-align:left; padding-top:10px; color:#000; padding-left:30px; font:12px Arial, sans-serif; color:#000; font-weight:bold; background-color:#fff; position:relative; float:left; overflow:visible; }
+.exploradorFormGridObservacoesInput { width:430px; margin-bottom:12px; height:auto; padding-left:10px; margin-top:1px; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; overflow:visible; }
+.exploradorFormGenericoFormBtnEnviarProposta { width:447px; height:37px; margin-top:12px; margin-bottom:20px; margin-left:40px; float:left; position:relative; }
+
+.exploradorGridTitulo { width:985px; height:auto; padding-top:10px; border-bottom:1px #000 solid; float:left; position:relative; }
+
+.exploradorTituloPrincial { width:auto; height:auto; padding-right:20px; padding-bottom:4px; font:30px Arial, sans-serif; color:#000; text-align:left; float:left; position:relative; }
+.exploradorSubTituloPrincial { width:664px; height:auto; padding-top:8px; padding-right:20px; padding-bottom:8px; font:20px Arial, sans-serif; color:#7b7c7c; text-align:left; float:left; position:relative; }
+.exploradorGridPerguntas { width:354px; height:224px; margin-top:46px; margin-left:86px; margin-bottom:20px; border:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorPerguntaTitulo { width:354px; height:auto; padding-top:12px; padding-bottom:10px; background-color:#e6e6e6; border-bottom:1px #bcbec0 solid; font:22px Arial, sans-serif; color:#000; text-align:center; float:left; position:relative; }
+.exploradorPerguntaSubTitulo { width:354px; height:auto; padding-top:8px; padding-bottom:10px; font:16px Arial, sans-serif; color:#7b7c7c; text-align:center; float:left; position:relative; }
+.exploradorGridImg { width:354px; height:96px; background-image:url('../img/exploradorperguntasCarros.gif'); background-repeat:no-repeat; float:left; position:relative; }
+.exploradorGridSelect { width:354px; height:96px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.exploradorPerguntasSelect { width:210px; height:20px; margin-left:76px; margin-top:18px; background-color:#e6e6e6; border:1px #c0c0c0 solid; font:12px Arial, sans-serif; font-weight:bold; color:#000; text-align:left; position:relative; float:left; }
+.exploradorPerguntaBtn { margin-top:0px; }
+.exploradorPerguntaBtn a { width:340px; height:27px; padding-left:7px; padding-right:7px; padding-bottom:3px; padding-top:11px; background-color:#e6e6e6; border-top:1px #bcbec0 solid; font:18px Arial, sans-serif; color:#fff; text-align:center; font-weight:bold; text-decoration:none; background-image:url('../img/exploradorBtnPerguntas.gif'); background-repeat:no-repeat; float:left; position:relative; }
+.exploradorPerguntaBtn a:hover { background-image:url('../img/exploradorBtnPerguntasHover.gif'); background-repeat:no-repeat; text-decoration:none; color:#000; }
+.exploradorPerguntaBtn input { margin-top:0px; }
+.exploradorPerguntaBtn input { width:354px; height:41px; background-color:#e6e6e6; border-top:1px #bcbec0 solid; font:18px Arial, sans-serif; color:#fff; text-align:center; font-weight:bold; text-decoration:none; background-image:url('../img/exploradorBtnPerguntas.gif'); background-repeat:no-repeat; cursor:pointer; border:none; float:left; position:relative; }
+.exploradorPerguntaBtn input:hover { background-image:url('../img/exploradorBtnPerguntasHover.gif'); background-repeat:no-repeat; text-decoration:none; color:#000; }
+
+
+/*---HOME - CARSALE - 2012---*/
+.carsaleHomeCentralizador { width:988px; height:auto; padding-top:20px; margin-left:auto; margin-right:auto; position:relative; }
+/*---MENU---*/
+.CarsaleMenu { width:992px; height:41px; float:left; position:relative; margin-bottom:10px; }
+.carsaleMenuHome { width:87px; height:41px; float:left; position:relative; margin-bottom:10px; margin-left:-4px; }
+.carsaleMenuHome ul { height:41px; list-style:none; margin:0; padding:0; float:left; }
+.carsaleMenuHome li { float:left; padding:0px; }
+.carsaleMenuHome li a { width:87px; height:41px; display:block; }
+.carsaleMenuHome li a:hover, .menu ul li:hover a{ background:#eee; color:#cb2026; text-decoration:none; }
+.carsaleMenuHome li ul{ background:#eee; display:none; height:auto; padding:0px; position:absolute; width:87px; z-index:200; }
+.carsaleMenuHome li:hover ul{ display:block; }
+.carsaleMenuHome li li { display:block; float:none; margin:0px; padding:0px; width:87px; }
+.carsaleMenuHome li:hover li a{ background:none; }
+.carsaleMenuHome li ul a{ height:30px; font-size:12px; font-style:normal; margin:0px; text-align:left; }
+.carsaleMenuHome li ul a:hover, .menu li ul li:hover a{ background:#cb2026 center left no-repeat; border:0px; color:#ffffff; text-decoration:none; }
+.carsaleMenuHome p{ clear:left; }
+.carsaleMenuClassificados { width:159px; height:41px; float:left; position:relative; margin-bottom:10px; }
+.carsaleMenuClassificados ul { height:41px; list-style:none; margin:0; padding:0; }
+.carsaleMenuClassificados li { float:left; padding:0px; }
+.liClassificados a { width:159px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; float:left; }
+.liClassificadosSub a { width:143px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; padding-left:16px; padding-top:8px; float:left; text-decoration:none; }
+.carsaleMenuClassificados li a:hover, .menu ul li:hover a{ background:#eee; font:12px Arial, sans-serif; color:#444; text-decoration:none; }
+.carsaleMenuClassificados li ul{ background-color:#f1f1f1; border:1px #b8b8b8 solid; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; display:none; height:auto; position:absolute; width:159px; z-index:200;}
+.carsaleMenuClassificados li:hover ul{ display:block; }
+.carsaleMenuClassificados li li { display:block; float:none; margin:0px; padding:0px; width:auto; }
+.carsaleMenuClassificados li:hover li a{ background:none; }
+.carsaleMenuClassificados li ul a{ height:32px; font-size:12px; font-style:normal; margin:0px; text-align:left; }
+.carsaleMenuClassificados li ul a:hover, .menu li ul li:hover a{ background-image:url('../img/carsaleMenuBgHover.gif'); background-repeat:repeat-x; color:#fff; font-weight:bold; text-decoration:none; }
+.carsaleMenuCompraColetiva { width:183px; height:41px; float:left; position:relative; margin-bottom:10px; }
+.carsaleMenuCompraColetiva ul { height:41px; list-style:none; margin:0; padding:0; }
+.carsaleMenuCompraColetiva li { float:left; padding:0px; }
+.carsaleMenuCompraColetiva li a { width:183px; height:41px; color:#eee; display:block; }
+.carsaleMenuCompraColetiva li a:hover, .menu ul li:hover a{ background:#eee; color:#cb2026; text-decoration:none; }
+.carsaleMenuCompraColetiva li ul{ background:#eee; display:none; height:auto; padding:0px; position:absolute; width:183px; z-index:200;}
+.carsaleMenuCompraColetiva li:hover ul{ display:block; }
+.carsaleMenuCompraColetiva li li { display:block; float:none; margin:0px; padding:0px; width:auto; }
+.carsaleMenuCompraColetiva li:hover li a{ background:none; }
+.carsaleMenuCompraColetiva li ul a{ height:30px; font-size:12px; font-style:normal; margin:0px; text-align:left; }
+.carsaleMenuCompraColetiva p{ clear:left; }
+.carsaleMenuEditorial { width:115px; height:41px; float:left; position:relative; margin-bottom:10px; }
+.carsaleMenuEditorial ul { height:41px; list-style:none; margin:0; padding:0; }
+.carsaleMenuEditorial li { float:left; padding:0px; }
+.liEditorial a { width:115px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; }
+.liEditorialSub a { width:99px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; padding-left:16px; padding-top:8px; text-decoration:none; }
+.carsaleMenuEditorial li a:hover, .menu ul li:hover a{ background:#eee; font:12px Arial, sans-serif; color:#444; text-decoration:none; }
+.carsaleMenuEditorial li ul{ background-color:#f1f1f1; border:1px #b8b8b8 solid; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; display:none; height:auto; position:absolute; width:115px; z-index:200;}
+.carsaleMenuEditorial li:hover ul{ display:block; }
+.carsaleMenuEditorial li li { display:block; float:none; margin:0px; padding:0px; width:115px; }
+.carsaleMenuEditorial li:hover li a{ background:none; }
+.carsaleMenuEditorial li ul a{ height:30px; font-size:12px; font-style:normal; margin:0px; text-align:left; }
+.carsaleMenuEditorial li ul a:hover, .menu li ul li:hover a{ background-image:url('../img/carsaleMenuBgHover.gif'); background-repeat:repeat-x; color:#fff; font-weight:bold; text-decoration:none; }
+.carsaleMenuInterativo { width:127px; height:41px; float:left; position:relative; margin-bottom:10px; }
+.carsaleMenuInterativo ul { height:41px; list-style:none; margin:0; padding:0; }
+.carsaleMenuInterativo li { float:left; padding:0px; }
+.liInterativo a { width:127px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; }
+.liInterativoSub a { width:111px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; padding-left:16px; padding-top:8px; text-decoration:none; }
+.carsaleMenuInterativo li a:hover, .menu ul li:hover a{ background:#eee; font:12px Arial, sans-serif; color:#444; text-decoration:none; }
+.carsaleMenuInterativo li ul{ background-color:#f1f1f1; border:1px #b8b8b8 solid; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; display:none; height:auto; position:absolute; width:127px; z-index:200;}
+.carsaleMenuInterativo li:hover ul{ display:block; }
+.carsaleMenuInterativo li li { display:block; float:none; margin:0px; padding:0px; width:127px; }
+.carsaleMenuInterativo li:hover li a{ background:none; }
+.carsaleMenuInterativo li ul a{ height:30px; font-size:12px; font-style:normal; margin:0px; text-align:left; }
+.carsaleMenuInterativo li ul a:hover, .menu li ul li:hover a{ background-image:url('../img/carsaleMenuBgHover.gif'); background-repeat:repeat-x; color:#fff; font-weight:bold; text-decoration:none; }
+.carsaleMenuMultimidia { width:125px; height:41px; float:left; position:relative; margin-bottom:10px; }
+.carsaleMenuMultimidia ul { height:41px; list-style:none; margin:0; padding:0; }
+.carsaleMenuMultimidia li { float:left; padding:0px; }
+.liMultimidia a { width:125px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; }
+.liMultimidiaSub a { width:109px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; padding-left:16px; padding-top:8px; text-decoration:none; }
+.carsaleMenuMultimidia li a:hover, .menu ul li:hover a{ background:#eee; font:12px Arial, sans-serif; color:#444; text-decoration:none; }
+.carsaleMenuMultimidia li ul{ background-color:#f1f1f1; border:1px #b8b8b8 solid; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; display:none; height:auto; position:absolute;  width:125px; z-index:200;}
+.carsaleMenuMultimidia li:hover ul{ display:block; }
+.carsaleMenuMultimidia li li { display:block; float:none; margin:0px; padding:0px;  width:125px; }
+.carsaleMenuMultimidia li:hover li a{ background:none; }
+.carsaleMenuMultimidia li ul a{ height:30px; font-size:12px; font-style:normal; margin:0px; text-align:left; }
+.carsaleMenuMultimidia li ul a:hover, .menu li ul li:hover a{ background-image:url('../img/carsaleMenuBgHover.gif'); background-repeat:repeat-x; color:#fff; font-weight:bold; text-decoration:none; }
+.carsaleMenuGuiaMotorista { width:196px; height:41px; float:left; position:relative; margin-bottom:10px; }
+.carsaleMenuGuiaMotorista ul { height:41px; list-style:none; margin:0; padding:0; }
+.carsaleMenuGuiaMotorista li { float:left; padding:0px; }
+.liGuiaMotorista a { width:192px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; }
+.liGuiaMotoristaSub a { width:176px; height:41px; display:block; font:12px Arial, sans-serif; color:#444; font-weight:bold; padding-left:16px; padding-top:8px; text-decoration:none; }
+.carsaleMenuGuiaMotorista li a:hover, .menu ul li:hover a{ background:#eee; font:12px Arial, sans-serif; color:#444; text-decoration:none; }
+.carsaleMenuGuiaMotorista li ul{ background-color:#f1f1f1; border:1px #b8b8b8 solid; font:12px Arial, sans-serif; color:#444; font-weight:bold; text-decoration:none; display:none; height:auto; position:absolute;  width:192px; z-index:200;}
+.carsaleMenuGuiaMotorista li:hover ul{ display:block; }
+.carsaleMenuGuiaMotorista li li { display:block; float:none; margin:0px; padding:0px; width:196px; }
+.carsaleMenuGuiaMotorista li:hover li a{ background:none; }
+.carsaleMenuGuiaMotorista li ul a{ height:30px; font-size:12px; font-style:normal; margin:0px; text-align:left; }
+.carsaleMenuGuiaMotorista li ul a:hover, .menu li ul li:hover a{ background-image:url('../img/carsaleMenuBgHover.gif'); background-repeat:repeat-x; color:#fff; font-weight:bold; text-decoration:none; }
+/*---MIDIAS-SOCIAIS---BUSCAR-NOTÍCIAS---*/
+.carsaleHomegridMidiasSociais { width:985px; height:26px; margin-left:1px; background-color:#eeeeee; border-width:1px; border-style:solid; border-color:#dbdada; float:left; position:relative; }
+.carsaleHometxtBuscarNoticias { width:90px; height:12px; font:11px Arial, sans-serif; color:#cb2026; padding:7px 6px 6px 20px; float:left;}
+.carsaleHomeinputTextBuscarNoticiasBox { position:relative; float:left; }
+input.carsaleHomeinputTextBuscarNoticias { width:208px; height:16px; font:11px Arial, sans-serif; color:#808285; margin:4px 4px 2px 0px; padding:1px 0px 0px 4px; border-width:1px; border-style:solid; border-color:#dbdada; float:left;}
+.carsaleHomeinputTextRecebaMailBox input.carsaleHomeinputTextRecebaMail:focus { outline:none; }
+.carsaleHomebtnBuscarNoticias { width:23px; height:20px; margin-top:3px; float:left; _margin-left:-665px;}
+.carsaleHomebtnFaceBook { width:88px; height:20px; margin-left:30px; margin-top:3px; float:left; }
+.carsaleHomebtnTwitter { width:244px; height:20px; margin-left:30px; margin-top:3px; float:left; }
+.carsaleHomebtnGoogle { width:70px; height:15px; margin-left:30px; margin-top:5px; float:left; }
+.carsaleHomebtnMidiasSociais { width:23px; height:23px; margin-left:10px; margin-top:3px; float:left; }
+/*---HOME--*/
+.carsaleHomeColuna_A { width:530px; height:auto; margin-top:12px; margin-right:15px; position:relative; float:left; }
+.carsaleHomeColuna_B { width:307px; height:auto; margin-top:12px; margin-right:15px; position:relative; float:left; }
+.carsaleHomeColuna_C { width:120px; height:1500px; margin-top:12px; position:relative; float:left; }
+.carsaleHomeColunaDestaque_G { width:260px; height:240px; margin-right:10px; padding-top:10px; border-bottom:1px #d4d4d4 solid; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeColunaDestaque_P { width:260px; height:240px; border-bottom:1px #d4d4d4 solid; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeEditoria_TV { width:520px; height:24px; padding-left:10px; padding-bottom:18px; font:24px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeImg_TV { width:530px; height:245px; border:0 none; float:left; position:relative; }
+a.carsaleHomeImg_TV, a.carsaleHomeImg_TV img { width:530px; height:245px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.carsaleHomeImg_TV:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:524px; height:239px; }
+a.carsaleHomeImg_TV:hover img { margin-left:-2px; margin-top:-2px; }
+.carsaleHomeGridTxt_TV { width:530px; height:38px; margin-top:-38px; float:left; position:relative; }
+.carsaleHomeBtnEsq_TV { width:30px; height:38px; margin-right:2px; float:left; opacity:0.7; filter:alpha(opacity=70); position:relative; }
+.carsaleHomeBtnDir_TV { width:30px; height:38px; margin-left:2px; float:left; opacity:0.7; filter:alpha(opacity=70); position:relative; }
+.carsaleHomeGridLegenda_TV { width:466px; height:38px; background-color:#000; opacity:0.7; float:left; position:relative; }
+.carsaleHomeTxt_TV { width:440px; height:20px; padding-left:16px; padding-top:8px; opacity:1.0; font:16px Arial, sans-serif; color:#fff; font-weight:bold; float:left; position:relative; }
+.carsaleHomeTxt_TV a { text-decoration:none; color:#fff; opacity:1.0;}
+.carsaleHomeTxt_TV a:hover { text-decoration:underline; color:#fff; opacity:1.0; }
+.carsaleHomeTvChamada { width:520px; height:24px; padding-left:10px; padding-top:8px; font:22px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeTvChamada a { text-decoration:none; color:#194c7f; }
+.carsaleHomeTvChamada a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleHomeTvLinhaFina { width:520px; height:16px; padding-left:10px; padding-top:10px; padding-bottom:16px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.carsaleHomeTvLinhaFina a { text-decoration:none; color:#cb2026; }
+.carsaleHomeTvLinhaFina a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleHomeDestaqueImg { width:260px; height:156px; float:left; position:relative; }
+a.carsaleHomeDestaqueImg, a.carsaleHomeDestaqueImg img { width:260px; height:156px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.carsaleHomeDestaqueImg:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:254px; height:150px; }
+a.carsaleHomeDestaqueImg:hover img { margin-left:-2px; margin-top:-2px; }
+.carsaleHomeDestaqueTitulo { width:248px; height:20px; padding-top:8px; padding-left:12px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeDestaqueTitulo a { text-decoration:none; color:#194c7f;}
+.carsaleHomeDestaqueTitulo a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeDestaqueTxt { width:248px; height:20px; padding-top:6px; padding-left:12px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.carsaleHomeDestaqueTxt a { text-decoration:none; color:#cb2026;}
+.carsaleHomeDestaqueTxt a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleHomeGridDestaque_P { width:260px; height:110px; margin-bottom:3px; margin-top:8px; border-bottom:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeDestaqueImg_P { width:144px; height:100px; float:left; position:relative; }
+a.carsaleHomeDestaqueImg_P, a.carsaleHomeDestaqueImg_P img {  width:144px; height:100px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.carsaleHomeDestaqueImg_P:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:138px; height:94px; }
+a.carsaleHomeDestaqueImg_P:hover img { margin-left:-2px; margin-top:-2px; }
+.carsaleHomeDestaqueTitulo_P { width:106px; height:20px; padding-left:8px; font:16px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeDestaqueTitulo_P a { text-decoration:none; color:#194c7f;}
+.carsaleHomeDestaqueTitulo_P a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeDestaqueTxt_P { width:106px; height:70px; padding-top:6px; padding-left:8px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.carsaleHomeDestaqueTxt_P a { text-decoration:none; color:#cb2026;}
+.carsaleHomeDestaqueTxt_P a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleHomeGridGuiaNoticias { width:530px; height:230px; margin-top:18px; margin-bottom:18px; float:left; position:relative; }
+.carsaleHomeGridNoticias { width:310px; height:230px; margin-right:34px; float:left; position:relative; }
+.carsaleHomeGridTitulo { width:310px; height:28px; border-bottom:1px #8b8b8b solid; float:left; position:relative; }
+.carsaleHomeGridGuia { width:168px; height:230px; float:left; position:relative; }
+.carsaleHomeTituloNoticias { width:168px; height:20px; padding-left:12px; padding-bottom:8px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold;  float:left; position:relative; border-bottom:1px #8b8b8b solid;}
+.carsaleHomeTituloNoticias a { text-decoration:none; color:#194c7f;}
+.carsaleHomeTituloNoticias a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeBtnMaisNoticias  { margin:0px; padding:0px; }
+.carsaleHomeBtnMaisNoticias a {  width:90px; height:16px; text-align:center; padding-top:4px; padding-bottom:2px; margin-bottom:6px; margin-left:16px; background-color:#eeeeee; color:#194c7f; font:12px Arial, sans-serif; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleHomeBtnMaisNoticias a:hover { background: #e0e0e0 center center; text-decoration:none; color:#cb2026;}
+.carsaleHomeTxtNoticias { width:298px; height:12px; padding-left:16px; padding-bottom:10px; padding-top:10px; font:12px Arial, sans-serif; color:#cb2026; float:left; position:relative; border-top:1px #dcdcdc solid;}
+.carsaleHomeTxtNoticias a { text-decoration:none; color:#cb2026;}
+.carsaleHomeTxtNoticias a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleHomeTxtGuia { width:168px; height:12px; padding-left:12px; padding-bottom:10px; padding-top:10px; font:12px Arial, sans-serif; color:#000; float:left; position:relative; border-top:1px #dcdcdc solid;}
+.carsaleHomeTxtGuia a { text-decoration:none; color:#000;}
+.carsaleHomeTxtGuia a:hover { text-decoration:underline; color:#000;}
+.carsaleHomeColunaEnquete { width:260px; height:290px; margin-right:10px; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeColunaEnqueteImg { width:260px; height:156px; float:left; position:relative; }
+a.carsaleHomeColunaEnqueteImg, a.carsaleHomeColunaEnqueteImg img { width:260px; height:156px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.carsaleHomeColunaEnqueteImg:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px;width:254px; height:150px; }
+a.carsaleHomeColunaEnqueteImg:hover img { margin-left:-2px; margin-top:-2px; }
+.carsaleHomeColunaEnqueteTituloEditoria { width:248px; height:20px; padding-bottom:18px; padding-top:8px; padding-left:6px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaEnqueteTituloEditoria a { text-decoration:none; color:#194c7f;}
+.carsaleHomeColunaEnqueteTituloEditoria a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeColunaEnqueteTitulo { width:248px; height:20px; padding-top:8px; padding-left:6px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaEnqueteTitulo a { text-decoration:none; color:#194c7f;}
+.carsaleHomeColunaEnqueteTitulo a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeColunaEnqueteTxt { width:248px; height:20px; padding-top:6px; padding-left:6px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaEnqueteTxt a { text-decoration:none; color:#cb2026;}
+.carsaleHomeColunaEnqueteTxt a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleHomeColunaVideos { width:260px; height:290px; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeColunaVideosImg { width:260px; height:156px; float:left; position:relative; }
+a.carsaleHomeColunaVideosImg, a.carsaleHomeColunaVideosImg img { width:260px; height:156px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.carsaleHomeColunaVideosImg:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px;width:254px; height:150px; }
+a.carsaleHomeColunaVideosImg:hover img { margin-left:-2px; margin-top:-2px; }
+.carsaleHomeColunaVideosEditoria { width:248px; height:20px; padding-bottom:18px; padding-top:8px; padding-left:6px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaVideos a { text-decoration:none; color:#194c7f;}
+.carsaleHomeColunaVideos a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeColunaVideosTitulo { width:248px; height:20px; padding-top:8px; padding-left:6px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaVideosTitulo a { text-decoration:none; color:#194c7f;}
+.carsaleHomeColunaVideosTitulo a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeColunaVideosTxt { width:248px; height:20px; padding-top:6px; padding-left:6px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaVideosTxt a { text-decoration:none; color:#cb2026;}
+.carsaleHomeColunaVideosTxt a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleHomeColunaFina { width:126px; height:346px; margin-right:8px; margin-top:16px; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeColunaFinaImg { width:126px; height:156px; margin-top:8px; float:left; position:relative; }
+.carsaleHomeColunaFinaTitulo { width:120px; height:42px; padding-top:4px; padding-left:6px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaFinaTitulo a { text-decoration:none; color:#194c7f;}
+.carsaleHomeColunaFinaTitulo a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeColunaFinaTxt { width:120px; height:106px; padding-top:6px; padding-left:6px; font:15px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaFinaTxt a { text-decoration:none; color:#cb2026;}
+.carsaleHomeColunaFinaTxt a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleHomeColunaMultimidia { width:260px; height:346px; margin-top:16px; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeGridMultimidia_A { width:260px; height:154px; margin-top:8px; border-bottom:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeGridMultimidia_B { width:260px; height:154px; margin-top:8px; position:relative; float:left; }
+.carsaleHomeMultimidiaImg { width:144px; height:100px; padding-bottom:0px; float:left; position:relative; }
+a.carsaleHomeMultimidiaImg, a.carsaleHomeMultimidiaImg img { width:144px; height:100px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.carsaleHomeMultimidiaImg:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:138px; height:94px; }
+a.carsaleHomeMultimidiaImg:hover img { margin-left:-2px; margin-top:-2px; }
+
+.carsaleHomeMultimidiaTitulo { width:252px; height:20px; padding-left:8px; padding-bottom:8px; font:16px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMultimidiaTitulo a { text-decoration:none; color:#194c7f;}
+.carsaleHomeMultimidiaTitulo a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeMultimidiaTxt { width:106px; height:70px; padding-left:10px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMultimidiaTxt a { text-decoration:none; color:#cb2026;}
+.carsaleHomeMultimidiaTxt a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleHomeColunaInterativo { width:260px; height:346px; margin-top:16px; margin-right:8px; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeGridInterativo_A { width:260px; height:154px; margin-top:8px; border-bottom:1px #d4d4d4 solid; position:relative; float:left; }
+.carsaleHomeGridInterativo_B { width:260px; height:154px; margin-top:8px; position:relative; float:left; }
+.carsaleHomeInterativoImg { width:144px; height:100px; padding-bottom:0px; float:left; position:relative; }
+a.carsaleHomeInterativoImg, a.carsaleHomeInterativoImg img { width:144px; height:100px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.carsaleHomeInterativoImg:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:138px; height:94px; }
+a.carsaleHomeInterativoImg:hover img { margin-left:-2px; margin-top:-2px; }
+
+
+.carsaleHomeInterativoTitulo { width:252px; height:20px; padding-left:8px; padding-bottom:8px; font:16px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeInterativoTitulo a { text-decoration:none; color:#194c7f;}
+.carsaleHomeInterativoTitulo a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleHomeInterativoTxt { width:106px; height:70px; padding-left:10px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.carsaleHomeInterativoTxt a { text-decoration:none; color:#cb2026;}
+.carsaleHomeInterativoTxt a:hover { text-decoration:underline; color:#cb2026;}
+
+
+.carsaleHomeColunaFinaBtn { width:120px; height:12px; padding-top:8px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.carsaleHomeColunaFinaBtn a { text-decoration:underline; color:#000;}
+.carsaleHomeColunaFinaBtn a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleHomeMercadoCarrosTitulo { width:290px; height:24px; padding-left:10px; padding-bottom:10px; font:24px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMercadoCarrosTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleHomeMercadoCarrosTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleHomeMercadoCarrosGridExplorador { width:307px; height:299px; margin-top:8px; background-color:#e6e6e6; position:relative; float:left; }
+.carsaleHomeMercadoCarrosExploradorImg { width:283px; height:172px; margin-left:12px; margin-right:12px; border-top:1px #fff solid; background-image:url('../img/homeCarsaleBgExplorador.gif'); background-repeat:no-repeat; border-bottom:1px #a3a3a3 solid; position:relative; float:left; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Bg1 { width:307px; height:99px; background-image:url('../img/explorador_HomeBg_1.jpg'); background-repeat:no-repeat; position:relative; float:left; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Titulo { width:240px; height:28px; padding-left:32px; padding-right:32px; padding-top:20px; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:center; position:relative; float:left; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Titulo a { text-decoration:none; color:#000; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Titulo a:hover { text-decoration:underline; color:#000; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Txt { width:240px; height:40px; padding-left:32px; padding-right:32px; font:15px Arial, sans-serif; color:#000; font-weight:bold; text-align:center; position:relative; float:left; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Txt a { text-decoration:none; color:#000; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Txt a:hover { text-decoration:underline; color:#000; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Bg2 { width:307px; height:157px; background-image:url('../img/explorador_HomeBg_2.jpg'); background-repeat:no-repeat; position:relative; float:left; }
+.carsaleHomeMercadoCarrosExploradorGrid2_Bg3 { width:307px; height:43px; position:relative; float:left; }
+.carsaleHomeMercadoCarrosExploradorTxt { width:283px; height:44px; margin-left:12px; margin-right:12px; padding-top:4px; font:18px Arial, sans-serif; color:#000; font-weight:bold; text-align:center; border-top:1px #fff solid; position:relative; float:left; }
+
+.carsalePublicidadeExplorador_Bg1 { width:300px; height:99px; background-image:url('../img/exploradorPublicidade_Bg_1.jpg'); background-repeat:no-repeat; position:relative; float:left; }
+.carsalePublicidadeExplorador_Titulo { width:233px; height:28px; padding-left:32px; padding-right:32px; padding-top:20px; font:20px Arial, sans-serif; color:#000; font-weight:bold; text-align:center; position:relative; float:left; }
+.carsalePublicidadeExplorador_Titulo a { text-decoration:none; color:#000; }
+.carsalePublicidadeExplorador_Titulo a:hover { text-decoration:underline; color:#000; }
+.carsalePublicidadeExplorador_Txt { width:233px; height:40px; padding-left:32px; padding-right:32px; font:15px Arial, sans-serif; color:#000; font-weight:bold; text-align:center; position:relative; float:left; }
+.carsalePublicidadeExplorador_Txt a { text-decoration:none; color:#000; }
+.carsalePublicidadeExplorador_Txt a:hover { text-decoration:underline; color:#000; }
+.carsalePublicidadeExplorador_Bg2 { width:300px; height:100px; background-image:url('../img/exploradorPublicidade_Bg_2.jpg'); background-repeat:no-repeat; position:relative; float:left; }
+.carsalePublicidadeExplorador_Bg3 { width:300px; height:51px; position:relative; float:left; }
+
+
+.carsaleHomeMercadoCarrosExploradorTxt { width:283px; height:44px; margin-left:12px; margin-right:12px; padding-top:4px; font:18px Arial, sans-serif; color:#000; font-weight:bold; text-align:center; border-top:1px #fff solid; position:relative; float:left; }
+.carsaleHomeMercadoCarrosExploradorTxt a { text-decoration:none; color:#000; }
+.carsaleHomeMercadoCarrosExploradorTxt a:hover { text-decoration:underline; color:#000; }
+.carsaleHomeMercadoCarrosExploradorBtn  { margin:0px; padding:0px; }
+.carsaleHomeMercadoCarrosExploradorBtn a {  width:291px; height:14px; margin-left:8px; margin-right:8px; margin-top:8px; margin-bottom:8px; padding-top:2px; padding-bottom:4px; background-color:#9d9d9d; color:#fff; font:12px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleHomeMercadoCarrosExploradorBtn a:hover { background: #383838 center center; text-decoration:none; color:#dedede;}
+.carsaleHomeMercadoCarrosGridBusca { width:307px; height:243px; margin-top:19px; background-color:#e6e6e6; position:relative; float:left; }
+.carsaleHomeMercadoCarrosBuscaTitulo { width:283px; height:20px; margin-left:12px; margin-right:12px; padding-top:8px; padding-bottom:10px; border-bottom:1px #a3a3a3 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMercadoCarrosBuscaTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleHomeMercadoCarrosBuscaTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleHomeMercadoCarrosGridFiltrosBusca { width:283px; height:120px; margin-left:12px; margin-right:12px; padding-top:22px; padding-bottom:22px; border-bottom:1px #bcbec0 solid; border-top:1px #fff solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMercadoCarrosLineFiltrosBusca { width:283px; height:22px; margin-bottom:4px; float:left; position:relative; }
+.carsaleHomeMercadoCarrosFiltrosBuscaTxt { width:54px; height:14px; padding-top:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMercadoCarrosFiltrosBuscaSelect { width:219px; height:22px; color:#000; padding-left:8px; padding-top:2px; padding-bottom:2px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.carsaleHomeMercadoCarrosFiltrosBuscaSelectDuoDir { width:103px; height:22px; margin-right:12px; color:#000; padding-left:8px; padding-top:2px; padding-bottom:2px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; }
+.carsaleHomeMercadoCarrosFiltrosBuscaSelectDuoEsq { width:103px; height:22px; margin-right:10px; color:#000; padding-left:8px; padding-top:2px; padding-bottom:2px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; }
+.carsaleHomeMercadoCarrosFiltrosBuscaBtn  { margin:0px; padding:0px; }
+.carsaleHomeMercadoCarrosFiltrosBuscaBtn a {  width:287px; height:14px; margin-left:10px; margin-right:10px; margin-top:8px; margin-bottom:8px; padding-top:2px; padding-bottom:4px; background-color:#9d9d9d; color:#fff; font:12px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleHomeMercadoCarrosFiltrosBuscaBtn a:hover { background: #383838 center center; text-decoration:none; color:#dedede;}
+.carsaleHomeMercadoCarrosGridCompraColetiva { width:307px; height:240px; margin-top:8px; background-color:#e6e6e6; position:relative; float:left; }
+
+.carsaleHomeMercadoCarrosCompraColetivaTitulo { width:283px; height:20px; margin-left:12px; margin-right:12px; padding-top:8px; padding-bottom:10px; border-bottom:1px #a3a3a3 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMercadoCarrosCompraColetivaTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleHomeMercadoCarrosCompraColetivaTitulo a:hover { text-decoration:underline; color:#194c7f; }
+
+.carsaleHomeMercadoCarrosGridCompraColetivaTitulo { width:283px; height:36px; margin-left:12px; margin-right:12px; padding-top:8px; padding-bottom:6px; border-bottom:1px #a3a3a3 solid; border-top:1px #fff solid; font:14px Arial, sans-serif; color:#3c3c3c; float:left; position:relative; }
+.carsaleHomeMercadoCarrosGridCompraColetivaTitulo a { text-decoration:none; color:#3c3c3c; }
+.carsaleHomeMercadoCarrosGridCompraColetivaTitulo a:hover { text-decoration:underline; color:#3c3c3c; }
+.carsaleHomeMercadoCarrosCompraColetivaOferta { width:283px; height:110px; margin-left:12px; margin-right:12px; border-bottom:1px #bcbec0 solid; border-top:1px #fff solid; background-image:url('../img/homeCarsaleBgCompraColetiva.gif'); background-repeat:no-repeat; float:left; position:relative; }
+.carsaleHomeMercadoCarrosCompraColetivaBtn  { margin:0px; padding:0px; }
+.carsaleHomeMercadoCarrosCompraColetivaBtn a {  width:287px; height:14px; margin-left:10px; margin-right:10px; margin-top:8px; margin-bottom:8px; padding-top:2px; padding-bottom:4px; background-color:#9d9d9d; color:#fff; font:12px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleHomeMercadoCarrosCompraColetivaBtn a:hover { background: #383838 center center; text-decoration:none; color:#dedede;}
+.carsaleHomeMercadoCarrosGridPreco { width:116px; height:70px; margin-top:40px; position:relative; float:left; }
+.carsaleHomeMercadoCarrosImgOferta { width:164px; height:100px; margin-top:10px; position:relative; float:left; }
+.carsaleHomeMercadoCarrosPrecoIntegral { width:116px; height:20px; font:14px Arial, sans-serif; text-align:left; color:#3c3c3c; text-decoration:none; position:relative; float:left; }
+.carsaleHomeMercadoCarrosPrecoIntegral a { text-decoration:none; color:#3c3c3c; }
+.carsaleHomeMercadoCarrosPrecoIntegral a:hover { text-decoration:underline; color:#3c3c3c; }
+.carsaleHomeMercadoCarrosPrecoOferta { width:116px; height:20px; padding-top:14px; font:16px Arial, sans-serif; font-weight:bold; text-align:left; color:#194c7f; text-decoration:none; position:relative; float:left; }
+.carsaleHomeMercadoCarrosPrecoOferta a { text-decoration:none; color:#194c7f; }
+.carsaleHomeMercadoCarrosPrecoOferta a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleHomeMercadoCarrosGridBlindados { width:307px; height:290px; margin-top:17px; background-color:#e6e6e6; position:relative; float:left; }
+.carsaleHomeMercadoCarrosBlindadosTitulo { width:283px; height:20px; margin-left:12px; margin-right:12px; padding-top:8px; padding-bottom:10px; border-bottom:1px #a3a3a3 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMercadoCarrosBlindadosTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleHomeMercadoCarrosBlindadosTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleHomeMercadoCarrosBlindadosOferta { width:283px; height:170px; margin-left:12px; margin-right:12px; border-bottom:1px #bcbec0 solid; border-top:1px #fff solid; background-image:url('../img/homeCarsaleBgBlindados.gif'); background-repeat:no-repeat; float:left; position:relative; }
+.carsaleHomeMercadoCarrosBlindadosOfertaTxt { width:283px; height:20px; margin-left:12px; margin-right:12px; padding-top:8px; padding-bottom:10px; border-top:1px #fff solid; border-bottom:1px #a3a3a3 solid; font:16px Arial, sans-serif; color:#000; text-align:center; float:left; position:relative; }
+.carsaleHomeMercadoCarrosBlindadosOfertaTxt a { text-decoration:none; color:#000; }
+.carsaleHomeMercadoCarrosBlindadosOfertaTxt a:hover { text-decoration:underline; color:#000; }
+.carsaleHomeMercadoCarrosBlindadosBtn  { margin:0px; padding:0px; }
+.carsaleHomeMercadoCarrosBlindadosBtn a {  width:287px; height:14px; margin-left:10px; margin-right:10px; margin-top:8px; margin-bottom:8px; padding-top:2px; padding-bottom:4px; background-color:#9d9d9d; color:#fff; font:12px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleHomeMercadoCarrosBlindadosBtn a:hover { background: #383838 center center; text-decoration:none; color:#dedede;}
+.carsaleHomeMercadoCarrosGridAnuncie { width:307px; height:174px; margin-top:17px; background-color:#e6e6e6; position:relative; float:left; }
+.carsaleHomeMercadoCarrosGridAnuncieTitulo { width:283px; height:20px; margin-left:12px; margin-right:12px; padding-top:8px; padding-bottom:10px; border-bottom:1px #a3a3a3 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMercadoCarrosGridAnuncieTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleHomeMercadoCarrosGridAnuncieTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleHomeMercadoCarrosGridAnuncieTxt { width:283px; height:50px; margin-left:12px; margin-right:12px; padding-top:26px; padding-bottom:18px; border-top:1px #fff solid; border-bottom:1px #a3a3a3 solid; font:16px Arial, sans-serif; color:#000; text-align:center; float:left; position:relative; }
+.carsaleHomeMercadoCarrosGridAnuncieTxt a { text-decoration:none; color:#000; }
+.carsaleHomeMercadoCarrosGridAnuncieTxt a:hover { text-decoration:underline; color:#000; }
+.carsaleHomeMercadoCarrosGridAnuncieBtn  { margin:0px; padding:0px; }
+.carsaleHomeMercadoCarrosGridAnuncieBtn a {  width:287px; height:14px; margin-left:10px; margin-right:10px; margin-top:8px; margin-bottom:8px; padding-top:2px; padding-bottom:4px; background-color:#9d9d9d; color:#fff; font:12px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleHomeMercadoCarrosGridAnuncieBtn a:hover { background: #383838 center center; text-decoration:none; color:#dedede;}
+.carsaleHomeMercadoCarrosGridCompraFacil { width:307px; height:174px; margin-top:17px; background-color:#e6e6e6; position:relative; float:left; }
+.carsaleHomeMercadoCarrosGridCompraFacilTitulo { width:283px; height:20px; margin-left:12px; margin-right:12px; padding-top:8px; padding-bottom:10px; border-bottom:1px #a3a3a3 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.carsaleHomeMercadoCarrosGridCompraFacilTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleHomeMercadoCarrosGridCompraFacilTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleHomeMercadoCarrosGridCompraFacilTxt { width:283px; height:50px; margin-left:12px; margin-right:12px; padding-top:26px; padding-bottom:18px; border-top:1px #fff solid; border-bottom:1px #a3a3a3 solid; font:14px Arial, sans-serif; color:#000; text-align:center; float:left; position:relative; }
+.carsaleHomeMercadoCarrosGridCompraFacilTxt a { text-decoration:none; color:#000; }
+.carsaleHomeMercadoCarrosGridCompraFacilTxt a:hover { text-decoration:underline; color:#000; }
+.carsaleHomeMercadoCarrosGridCompraFacilBtn  { margin:0px; padding:0px; }
+.carsaleHomeMercadoCarrosGridCompraFacilBtn a {  width:130px; height:14px; margin-left:12px; margin-right:10px; margin-top:8px; margin-bottom:8px; padding-top:2px; padding-bottom:4px; background-color:#9d9d9d; color:#fff; font:12px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleHomeMercadoCarrosGridCompraFacilBtn a:hover { background: #383838 center center; text-decoration:none; color:#dedede;}
+/*---LANDING-PAGE---COMPRAR---*/
+.landComprarBg { width:584px; height:auto; margin-bottom:8px; background-color:#e6e6e6; float:left; position:relative; }
+.landComprarExplorador { width:254px; height:64px; background-color:#e6e6e6; padding-top:18px; text-align:center; font:12px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; overflow:hidden;}
+.landComprarExplorador a { text-decoration:none; color:#000; }
+.landComprarExplorador a:hover { text-decoration:underline; color:#000; }
+.landComprarBuscaRapida { width:566px; height:26px; padding-top:10px; padding-bottom:8px; border-bottom:1px #bcbec0 solid; float:left; position:relative; }
+.landComprarBuscaRapidaTxt { width:90px; height:14px; padding-top:5px; padding-left:22px; font:12px Arial, sans-serif; color:#000; float:left; position:relative;}
+.landComprarBuscaRapidaInput { width:430px; height:20px; float:left; position:relative;}
+.landComprarBuscaInput { position:relative; float:left; overflow:visible; }
+input.landComprarBuscaInputBox { width:430px; height:20px; color:#000; padding-left:10px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; }
+.landComprarBuscaInput input.landComprarBuscaBox:focus { outline:none; color:#000; }
+.landComprarFormColunaA { width:268px; height:170px; padding-top:20px; padding-left:14px; border-right:1px #bcbec0 solid; float:left; position:relative; }
+.landComprarFormColunaB { width:283px; height:170px; float:left; position:relative; }
+.landComprarFormResultLine { width:262px; height:24px; margin-bottom:8px; float:left; position:relative;  }
+.landComprarFormTxtSelect { width:56px; height:22px; margin-bottom:8px; padding-top:4px; margin-right:8px; font:12px Arial, sans-serif; font-weight:bold; color:#000; float:left; position:relative; }
+.landComprarFormSelect { width:190px; height:21px; color:#000; padding-left:8px; padding-top:2px; padding-bottom:2px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.landComprarFormSelectDuoDir { width:90px; height:22px; color:#000; padding-left:4px; padding-top:2px; padding-bottom:2px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.landComprarFormSelectDuoEsq { width:90px; height:22px; color:#000; margin-left:6px; padding-left:4px; padding-top:2px; padding-bottom:2px; margin-bottom:12px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.landComprarFormTituloOpcionais { width:160px; height:18px; padding-left:12px; padding-top:12px; padding-bottom:8px; border-bottom:1px #bcbec0 solid; font:14px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.landComprarFormGridMaisOpcionais { width:111px; height:30px; margin-top:8px; margin-bottom:10px; border-bottom:1px #bcbec0 solid; position:relative; float:left; }
+.landComprarFormBtnMaisOpcionais { margin:0px; padding:0px; display:inline-block; }
+.landComprarFormBtnMaisOpcionais a { width:70px; height:20px; padding-top:4px; padding-left:10px; padding-right:10px; background-color:#f4f4f4; color:#000; font:12px Arial, sans-serif; text-align:center; text-decoration:none; position:relative; display:inline-block; }
+.landComprarFormBtnMaisOpcionais a:hover { background:#838383; text-decoration:none; font-weight:bold; color:#fff; display:inline-block; }
+.landComprarFormOpcionaisItem { width:130px; height:20px; padding-top:6px; padding-left:10px; font:11px Arial, sans-serif; color:#000; float:left; position:relative; }
+.landComprarFormBtnBuscar { width:566px; height:35px; margin-left:8px; margin-top:0px; margin-bottom:8px; background-color:#e6e6e6; float:left; position:relative; }
+/*---CONTEUDO-EDITORIAL---*/
+.conteudoEditorialCentralizador { width:988px; height:auto; margin-top:8px; margin-left:auto; margin-right:auto; position:relative; padding-top:20px; overflow:hidden;}
+.conteudoEditorialColunaA { width:254px; height:auto; margin-right:20px; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialColunaB { width:574px; height:auto; margin-right:20px; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialColunaC { width:120px; height:auto; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialNav { width:254px; height:auto; margin-bottom:20px; float:left; position:relative;}
+.conteudoEditorialNavHeader { width:236px; height:36px; background-color:#f0f0f0; padding-top:8px; padding-left:18px; font:22px Arial, sans-serif; font-weight:bold; color:#194c7f; border-top:8px #cb2026 solid; border-bottom:1px #cb2026 dashed; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialNavBtn { width:236px; height:36px; padding-top:8px; padding-left:18px; font:22px Arial, sans-serif; font-weight:bold; color:#cb2026; border-bottom:1px #cb2026 dashed; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialNavBtn a { text-decoration:none; color:#cb2026;}
+.conteudoEditorialNavBtn a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialTitulo { width:520px; height:24px; padding-left:10px; padding-top:8px; font:22px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialImg_TV { width:574px; height:225px; margin-top:10px; float:left; position:relative; }
+.conteudoEditorialTvChamada { width:520px; height:24px; padding-left:10px; padding-top:8px; font:22px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialTvChamada a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialTvChamada a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialTvLinhaFina { width:564px; height:16px; padding-left:10px; padding-top:10px; padding-bottom:12px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialTvLinhaFina a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialTvLinhaFina a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialGridDestaqueA { width:277px; height:210px; margin-right:20px; margin-top:10px; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialGridDestaqueB { width:277px; height:210px; margin-top:10px; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialDestaqueImg { width:277px; height:125px; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialDestaqueTitulo { width:257px; height:20px; padding-left:10px; padding-top:8px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialDestaqueTitulo a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialDestaqueTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialDestaqueLinhaFina { width:257px; height:30px; padding-left:10px; padding-top:10px; padding-bottom:12px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialDestaqueLinhaFina a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialDestaqueLinhaFina a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialColunaSecundario { width:277px; height:auto; float:left; position:relative; }
+.conteudoEditorialGridSecundario { width:277px; height:auto; margin-top:10px; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialGridSecundarioA { width:277px; height:auto; margin-top:10px; float:left; position:relative; }
+.conteudoEditorialGridSecundarioColunaA { width:135px; height:auto; margin-right:7px; float:left; position:relative; }
+.conteudoEditorialGridSecundarioColunaB { width:135px; height:auto; float:left; position:relative; }
+.conteudoEditorialSecundarioImg { width:135px; height:60px; float:left; position:relative; }
+.conteudoEditorialSecundarioTitulo { width:257px; height:20px; padding-left:10px; padding-top:8px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialSecundarioTitulo a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialSecundarioTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialSecundarioLinhaFina { width:115px; height:auto; padding-left:10px; padding-top:10px; padding-bottom:12px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialSecundarioLinhaFina a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialSecundarioLinhaFina a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialGridNoticias { width:277px; height:auto; margin-left:20px; float:left; position:relative; }
+.conteudoEditorialTituloNoticias { width:172px; height:18px; padding-top:8px; padding-left:6px; padding-bottom:12px; border-bottom:1px #bcbec0 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialTituloNoticias a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialTituloNoticias a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialGridMaisNoticias { width:98px; height:30px; margin-top:8px; border-bottom:1px #bcbec0 solid; position:relative; float:left; }
+.conteudoEditorialBtnMaisNoticias { margin:0px; padding:0px; display:inline-block; }
+.conteudoEditorialBtnMaisNoticias a { width:70px; height:20px; padding-top:4px; padding-left:10px; padding-right:10px; background-color:#f4f4f4; color:#194c7f; font:12px Arial, sans-serif; text-align:center; text-decoration:none; position:relative; display:inline-block; }
+.conteudoEditorialBtnMaisNoticias a:hover { background:#e3e3e3; text-decoration:none;  color:#194c7f; display:inline-block; }
+.conteudoEditorialNoticia { width:267px; height:auto; padding-left:10px; padding-top:8px; padding-bottom:10px; border-bottom:1px #bcbec0 solid; font:12px Arial, sans-serif; color:#cb2026; float:left; position:relative; }
+.conteudoEditorialNoticia a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialNoticia a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialGridTerciarios { width:277px; height:42px; border-bottom:1px #bcbec0 solid; padding-bottom:10px; margin-top:10px; margin-right:20px; float:left; position:relative; }
+.conteudoEditorialTerciariosImg { width:68px; height:42px; float:left; position:relative; }
+.conteudoEditorialTerciariosTxt { width:190px; height:42px; padding-left:10px; font:12px Arial, sans-serif; color:#cb2026; float:left; position:relative; }
+.conteudoEditorialTerciariosTxt a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialTerciariosTxt a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialTerciariosTitulo { width:265px; height:22px; border-bottom:1px #bcbec0 solid; font:18px Arial, sans-serif; font-weight:bold; color:#194c7f; padding-bottom:10px; margin-top:16px; margin-right:20px; padding-left:12px; float:left; position:relative; }
+.conteudoEditorialMercadoCarrosGridBusca { width:254px; height:243px; background-color:#e6e6e6; position:relative; float:left; }
+.conteudoEditorialMercadoCarrosBuscaTitulo { width:230px; height:20px; margin-left:12px; margin-right:12px; padding-top:8px; padding-bottom:10px; border-bottom:1px #a3a3a3 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialMercadoCarrosBuscaTitulo a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialMercadoCarrosBuscaTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialMercadoCarrosGridFiltrosBusca { width:230px; height:120px; margin-left:12px; margin-right:12px; padding-top:22px; padding-bottom:22px; border-bottom:1px #bcbec0 solid; border-top:1px #fff solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialMercadoCarrosLineFiltrosBusca { width:230px; height:22px; margin-bottom:4px; float:left; position:relative; }
+.conteudoEditorialMercadoCarrosFiltrosBuscaTxt { width:54px; height:14px; padding-top:4px; font:12px Arial, sans-serif; color:#000; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialMercadoCarrosFiltrosBuscaSelect { width:176px; height:22px; color:#000; padding-left:8px; padding-top:2px; padding-bottom:2px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; }
+.conteudoEditorialMercadoCarrosFiltrosBuscaSelectDuoDir { width:94px; height:22px; margin-right:12px; color:#000; padding-left:8px; padding-top:2px; padding-bottom:2px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; }
+.conteudoEditorialMercadoCarrosFiltrosBuscaSelectDuoEsq { width:70px; height:22px; color:#000; padding-left:8px; padding-top:2px; padding-bottom:2px; font:12px Arial, sans-serif; color:#000; font-weight:bold; border:1px #c0c0c0 solid; background-color:#fff; position:relative; float:left; }
+.conteudoEditorialMercadoCarrosFiltrosBuscaBtn  { margin:0px; padding:0px; }
+.conteudoEditorialMercadoCarrosFiltrosBuscaBtn a {  width:230px; height:14px; margin-left:10px; margin-right:10px; margin-top:8px; margin-bottom:8px; padding-top:2px; padding-bottom:4px; background-color:#9d9d9d; color:#fff; font:12px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; float:left; position:relative; }
+.conteudoEditorialMercadoCarrosFiltrosBuscaBtn a:hover { background: #383838 center center; text-decoration:none; color:#dedede;}
+.conteudoEditorialTvChamadaMultimidia { width:auto; height:24px; padding-left:10px; padding-right:8px; padding-top:8px; font:22px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialTvChamadaMultimidia a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialTvChamadaMultimidia a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialTvChamadaMultimidiaData { width:auto; height:16px; padding-right:16px; padding-top:16px; font:14px Arial, sans-serif; color:#c5c6c6; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialDestaqueTituloMultimidia { width:auto; height:20px; padding-left:10px; padding-right:8px; padding-top:8px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialDestaqueTituloMultimidia a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialDestaqueTituloMultimidia a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialDestaqueTituloMultimidiaData { width:auto; height:14px; padding-right:16px; padding-top:11px; font:14px Arial, sans-serif; color:#c5c6c6; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialGridDestaqueMultimidiaA { width:277px; height:220px; margin-right:20px; margin-top:10px; float:left; position:relative; }
+.conteudoEditorialGridDestaqueMultimidiaB { width:277px; height:220px; margin-top:10px; float:left; position:relative; }
+.conteudoEditorialColunaSecundarioA { width:277px; height:auto; margin-right:20px; float:left; position:relative; }
+.conteudoEditorialColunaSecundarioB { width:277px; height:auto; float:left; position:relative; }
+.conteudoEditorialTerciariosMultimidiaData { width:80px; height:14px; padding-top:4px; padding-left:10px; font:12px Arial, sans-serif; color:#c5c6c6; float:left; position:relative; }
+.conteudoEditorialTerciariosMultimidiaTxt { width:140px; height:auto; padding-left:10px; font:12px Arial, sans-serif; color:#cb2026; float:left; position:relative; }
+.conteudoEditorialTerciariosMultimidiaTxt a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialTerciariosMultimidiaTxt a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialGridTerciariosMultimidia { width:277px; height:80px; border-bottom:1px #bcbec0 solid; padding-bottom:10px; margin-top:10px; margin-right:20px; float:left; position:relative; }
+.conteudoEditorialTerciariosMultimidiaImg { width:120px; height:78px; float:left; position:relative; }
+
+
+/*---CONTEUDO-EDITORIAL---14/02/2012---MUDANÇAS-DE---STEPHEN---*/
+.conteudoEditorialOpcao2Centralizador { width:988px; height:auto; margin-top:10px; margin-left:auto; margin-right:auto; position:relative; overflow:hidden;}
+.conteudoEditorialOpcao2ColunaA { width:135px; height:auto; margin-right:12px; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialOpcao2ColunaB { width:530px; height:auto; margin-right:8px; float:left; position:relative;}
+.conteudoEditorialOpcao2ColunaC { width:302px; height:1400px; float:left; position:relative; }
+.conteudoEditorialOpcao2Nav { width:135px; height:auto; float:left; position:relative;}
+.conteudoEditorialOpcao2NavHeader { width:135px; height:24px; background-color:#f0f0f0; padding-top:8px; padding-left:18px; font:14px Arial, sans-serif; font-weight:bold; color:#194c7f; border-top:6px #cb2026 solid; border-bottom:1px #c4c4c4 dashed; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialOpcao2NavBtn { width:127px; height:22px; padding-top:8px; padding-left:8px; font:12px Arial, sans-serif; font-weight:bold; color:#cb2026; border-bottom:1px #c4c4c4 dashed; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialOpcao2NavBtn a { text-decoration:none; color:#cb2026;}
+.conteudoEditorialOpcao2NavBtn a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialOpcao2Publicidade { width:135px; height:600px; padding-top:14px; padding-bottom:14px; background-color:#e6e6e6; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialOpcao2Banner { width:120px; height:600px; margin-left:7px; border:1px #bcbec0 solid; float:left; position:relative; overflow:hidden;}
+.conteudoEditorialOpcao2Titulo { width:520px; height:24px; padding-left:10px; padding-top:8px; font:22px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2Img_TV { width:530px; height:245px; border:0 none; margin-top:10px; float:left; position:relative; }
+a.conteudoEditorialOpcao2Img_TV, a.conteudoEditorialOpcao2Img_TV img { width:530px; height:245px; border:0 none; float:left; position:relative; float:left; overflow:hidden; }
+a.conteudoEditorialOpcao2Img_TV:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:8px; width:524px; height:239px; }
+a.conteudoEditorialOpcao2Img_TV:hover img { margin-left:-2px; margin-top:-2px; }
+.conteudoEditorialOpcao2TvChamada { width:520px; height:24px; padding-left:10px; padding-top:8px; font:22px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2TvChamada a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialOpcao2TvChamada a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialOpcao2TvLinhaFina { width:520px; height:16px; padding-left:10px; padding-top:10px; padding-bottom:20px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2TvLinhaFina a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialOpcao2TvLinhaFina a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialOpcao2ColunaDestaque_P_A { width:260px; height:240px; border-bottom:1px #d4d4d4 solid; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.conteudoEditorialOpcao2ColunaDestaque_P_B { width:260px; height:240px; margin-left:10px; border-top:1px #d4d4d4 solid; position:relative; float:left; }
+.conteudoEditorialOpcao2GridDestaque_P { width:260px; height:110px; margin-bottom:3px; margin-top:8px; border-bottom:1px #d4d4d4 solid; position:relative; float:left; }
+.conteudoEditorialOpcao2DestaqueImg_P { width:144px; height:100px; float:left; position:relative; }
+a.conteudoEditorialOpcao2DestaqueImg_P, a.conteudoEditorialOpcao2DestaqueImg_P img {  width:144px; height:100px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.conteudoEditorialOpcao2DestaqueImg_P:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:138px; height:94px; }
+a.conteudoEditorialOpcao2DestaqueImg_P:hover img { margin-left:-2px; margin-top:-2px; }
+.conteudoEditorialOpcao2DestaqueImg_Equipe { width:82px; height:98px; float:left; position:relative; }
+a.conteudoEditorialOpcao2DestaqueImg_Equipe, a.conteudoEditorialOpcao2DestaqueImg_Equipe img {  width:82px; height:98px; border:0 none; float:left; position:relative; float: left; overflow:hidden; }
+a.conteudoEditorialOpcao2DestaqueImg_Equipe:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:76px; height:92px; }
+a.conteudoEditorialOpcao2DestaqueImg_Equipe:hover img { margin-left:-2px; margin-top:-2px; }
+.conteudoEditorialOpcao2DestaqueTitulo_P { width:106px; height:20px; padding-left:8px; font:16px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2DestaqueTitulo_P a { text-decoration:none; color:#194c7f;}
+.conteudoEditorialOpcao2DestaqueTitulo_P a:hover { text-decoration:underline; color:#194c7f;}
+.conteudoEditorialOpcao2DestaqueTxt_P { width:106px; height:70px; padding-top:6px; padding-left:8px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2DestaqueTxt_P a { text-decoration:none; color:#cb2026;}
+.conteudoEditorialOpcao2DestaqueTxt_P a:hover { text-decoration:underline; color:#cb2026;}
+.conteudoEditorialOpcao2GridDestaque_P { width:260px; height:110px; margin-bottom:3px; margin-top:8px; border-bottom:1px #d4d4d4 solid; position:relative; float:left; }
+.conteudoEditorialOpcao2GridDestaque_Equipe { width:260px; height:232px; margin-bottom:3px; margin-top:8px; border-bottom:1px #d4d4d4 solid; position:relative; float:left; }
+.conteudoEditorialOpcao2DestaqueTitulo_Equipe { width:160px; height:46px; padding-left:8px; font:16px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2DestaqueTitulo_Equipe a { text-decoration:none; color:#194c7f;}
+.conteudoEditorialOpcao2DestaqueTitulo_Equipe a:hover { text-decoration:underline; color:#194c7f;}
+.conteudoEditorialOpcao2DestaqueTxt_Equipe { width:166px; height:46px; padding-top:6px; padding-left:8px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2DestaqueTxt_Equipe a { text-decoration:none; color:#cb2026;}
+.conteudoEditorialOpcao2DestaqueTxt_Equipe a:hover { text-decoration:underline; color:#cb2026;}
+.conteudoEditorialOpcao2GridDestaque_EquipeTxt { width:260px; height:110px; padding-top:14px; font:12px Arial, sans-serif; color:#5a5a5a; position:relative; float:left; }
+.conteudoEditorialOpcao2GridDestaque_EquipeTxt a { text-decoration:none; color:#5a5a5a; }
+.conteudoEditorialOpcao2GridDestaque_EquipeTxt a:hover { text-decoration:underline; color:#5a5a5a; }
+.conteudoEditorialOpcao2GridDestaque_EquipeTxtBtn { padding-top:6px; font:12px Arial, sans-serif; color:#194c7f; font-style:italic; position:relative; float:left; }
+.conteudoEditorialOpcao2GridDestaque_EquipeTxtBtn a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialOpcao2GridDestaque_EquipeTxtBtn a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialOpcao2TituloGridMiniaturas { width:520px; height:16px; padding-left:10px; padding-top:26px; padding-bottom:16px;  border-bottom:1px #d4d4d4 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2TituloGridMiniaturas a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialOpcao2TituloGridMiniaturas a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialOpcao2GridDestaqueA { width:277px; height:210px; margin-right:20px; margin-top:10px; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialOpcao2GridDestaqueB { width:277px; height:210px; margin-top:10px; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialOpcao2DestaqueImg { width:277px; height:125px; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialOpcao2DestaqueTitulo { width:257px; height:20px; padding-left:10px; padding-top:8px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2DestaqueTitulo a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialOpcao2DestaqueTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialOpcao2DestaqueLinhaFina { width:257px; height:30px; padding-left:10px; padding-top:10px; padding-bottom:12px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2DestaqueLinhaFina a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialOpcao2DestaqueLinhaFina a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialOpcao2ColunaSecundarioA { width:256px; height:auto; margin-right:18px; float:left; position:relative; }
+.conteudoEditorialOpcao2ColunaSecundarioB { width:256px; height:auto; float:left; position:relative; }
+.conteudoEditorialOpcao2GridSecundario { width:277px; height:auto; margin-top:10px; float:left; position:relative; border-bottom:1px #bcbec0 solid; }
+.conteudoEditorialOpcao2GridSecundarioA { width:277px; height:auto; margin-top:10px; float:left; position:relative; }
+.conteudoEditorialOpcao2GridSecundarioColunaA { width:135px; height:auto; margin-right:7px; float:left; position:relative; }
+.conteudoEditorialOpcao2GridSecundarioColunaB { width:135px; height:auto; float:left; position:relative; }
+.conteudoEditorialOpcao2SecundarioImg { width:135px; height:60px; float:left; position:relative; }
+.conteudoEditorialOpcao2SecundarioTitulo { width:257px; height:20px; padding-left:10px; padding-top:8px; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2SecundarioTitulo a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialOpcao2SecundarioTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialOpcao2SecundarioLinhaFina { width:115px; height:auto; padding-left:10px; padding-top:10px; padding-bottom:12px; font:14px Arial, sans-serif; color:#cb2026; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2SecundarioLinhaFina a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialOpcao2SecundarioLinhaFina a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialOpcao2GridNoticias { width:302px; height:auto; float:left; position:relative; }
+.conteudoEditorialOpcao2TituloNoticias { width:198px; height:18px; padding-top:8px; padding-left:6px; padding-bottom:12px; border-bottom:1px #bcbec0 solid; font:18px Arial, sans-serif; color:#194c7f; font-weight:bold; float:left; position:relative; }
+.conteudoEditorialOpcao2TituloNoticias a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialOpcao2TituloNoticias a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialOpcao2GridMaisNoticias { width:98px; height:30px; margin-top:8px; border-bottom:1px #bcbec0 solid; position:relative; float:left; }
+.conteudoEditorialOpcao2BtnMaisNoticias { margin:0px; padding:0px; display:inline-block; }
+.conteudoEditorialOpcao2BtnMaisNoticias a { width:70px; height:20px; padding-top:4px; padding-left:10px; padding-right:10px; background-color:#f4f4f4; color:#194c7f; font:12px Arial, sans-serif; text-align:center; text-decoration:none; position:relative; display:inline-block; }
+.conteudoEditorialOpcao2BtnMaisNoticias a:hover { background:#e3e3e3; text-decoration:none;  color:#194c7f; display:inline-block; }
+.conteudoEditorialOpcao2Noticia { width:292px; height:auto; padding-left:10px; padding-top:8px; padding-bottom:10px; border-bottom:1px #bcbec0 solid; font:12px Arial, sans-serif; color:#cb2026; float:left; position:relative; }
+.conteudoEditorialOpcao2Noticia a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialOpcao2Noticia a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialOpcao2GridTerciarios { width:256px; height:42px; border-bottom:1px #bcbec0 solid; padding-bottom:10px; margin-top:10px; float:left; position:relative; }
+.conteudoEditorialOpcao2TerciariosImg { width:68px; height:42px; border:0 none; float:left; position:relative; }
+a.conteudoEditorialOpcao2TerciariosImg, a.conteudoEditorialOpcao2TerciariosImg img { width:68px; height:42px; border:0 none; float:left; position:relative; float:left; overflow:hidden; }
+a.conteudoEditorialOpcao2TerciariosImg:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:62px; height:36px; }
+a.conteudoEditorialOpcao2TerciariosImg:hover img { margin-left:-2px; margin-top:-2px; }
+.conteudoEditorialOpcao2TerciariosTxt { width:160px; height:42px; padding-left:10px; font:12px Arial, sans-serif; color:#cb2026; float:left; position:relative; }
+.conteudoEditorialOpcao2TerciariosTxt a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialOpcao2TerciariosTxt a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialOpcao2GridPublicidadeColunaCTxt { width:300px; height:16px; padding-top:26px; font:9px Arial, sans-serif; color:#8c8c8c; text-align:right; position:relative; float:left; }
+.conteudoEditorialOpcao2PublicidadeColunaC { width:300px; height:250px; background-color:#e6e6e6; border:1px #bcbec0 solid; float:left; position:relative;}
+.conteudoEditorialOpcao2DestaqueColunaC { width:302px; height:304px; margin-top:10px; margin-bottom:19px; background-color:#ededed; float:left; position:relative;}
+.conteudoEditorialOpcao2DestaqueColunaCTitulo { width:260px; height:24px; padding-top:16px; padding-bottom:20px; padding-left:20px; padding-right:20px; font:22px Arial, sans-serif; color:#194c7f; font-weight:bold; text-align:left; position:relative; float:left;}
+.conteudoEditorialOpcao2DestaqueColunaCTitulo a { text-decoration:none; color:#194c7f; }
+.conteudoEditorialOpcao2DestaqueColunaCTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.conteudoEditorialOpcao2DestaqueColunaCTxt { width:260px; height:54px; padding-top:24px; padding-left:20px; padding-right:20px; font:16px Arial, sans-serif; color:#cb2026; font-weight:bold; text-align:left; position:relative; float:left;}
+.conteudoEditorialOpcao2DestaqueColunaCTxt a { text-decoration:none; color:#cb2026; }
+.conteudoEditorialOpcao2DestaqueColunaCTxt a:hover { text-decoration:underline; color:#cb2026; }
+.conteudoEditorialOpcao2DestaqueColunaCImg { width:260px; height:156px; margin-left:20px; border:0 none; float:left; position:relative; }
+a.conteudoEditorialOpcao2DestaqueColunaCImg, a.conteudoEditorialOpcao2DestaqueColunaCImg img { width:260px; height:156px; border:0 none; float:left; position:relative; float:left; overflow:hidden; }
+a.conteudoEditorialOpcao2DestaqueColunaCImg:hover { border:4px #194C7F solid; margin-left:18px; margin-top:-2px; width:254px; height:150px; }
+a.conteudoEditorialOpcao2DestaqueColunaCImg:hover img { margin-left:-2px; margin-top:-2px; }
+.conteudoEditorialOpcao2DestaqueColunaCImg300 { width:302px; height:202px; border:0 none; float:left; position:relative; }
+a.conteudoEditorialOpcao2DestaqueColunaCImg300, a.conteudoEditorialOpcao2DestaqueColunaCImg300 img { width:302px; height:202px; border:0 none; float:left; position:relative; float:left; overflow:hidden; }
+a.conteudoEditorialOpcao2DestaqueColunaCImg300:hover { border:4px #194C7F solid; margin-left:-2px; margin-top:-2px; width:296px; height:196px; }
+a.conteudoEditorialOpcao2DestaqueColunaCImg300:hover img { margin-left:-2px; margin-top:-2px; }
+
+/*---CARSALE---NOTÍCIA---DESCRIÇÃO---*/
+.carsaleNoticiaInternaColuna_Noticia { width:640px; height:auto; border-right:1px #eeeeee solid; margin-top:12px; padding-right:23px; position:relative; float:left; }
+.carsaleNoticiaInternaColuna_Publicidade { width:300px; height:auto; margin-top:12px; margin-left:23px; position:relative; float:left; }
+.carsaleNoticiaInternaData { width:640px; height:auto; padding-top:12px; font:11px Arial, sans-serif; color:#848484; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaEditoria { width:640px; height:auto; padding-top:2px; font:16px Arial, sans-serif; color:#194c7f; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaTitulo { width:640px; height:auto; padding-top:22px; font:27px Arial, sans-serif; color:#194c7f; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaLinhaFina { width:640px; height:auto; padding-top:4px; font:17px Arial, sans-serif; color:#cc2027; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaAutor { width:640px; height:auto; padding-top:18px; padding-bottom:10px; font:12px Arial, sans-serif; color:#848484; text-align:left; border-bottom:1px #eeeeee solid; position:relative; float:left; }
+.carsaleNoticiaInternaMidiasSociais { width:640px; height:21px; padding-top:6px; position:relative; float:left; }
+.carsaleNoticiaInternaMidiasSociaisBtns { width:auto; height:21px; margin-left:30px; position:relative; float:right; }
+.carsaleNoticiaInternaBgImg { width:640px; height:auto; margin-top:12px; background-color:#f3f3f3; position:relative; float:left; }
+.carsaleNoticiaInternaImg { width:574px; height:auto; margin:30px 32px 30px 32px; background-color:#f3f3f3; border:1px #bababa solid; position:relative; float:left; }
+.carsaleNoticiaInternaTxt { width:640px; height:auto; padding-top:22px; padding-bottom:20px; font:14px Arial, sans-serif; color:#525252; border-bottom:1px #eeeeee solid; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaTxt input { width:auto; height:auto; margin:0px 0px 12px 0px; border:30px #f3f3f3 solid; position:relative; float:left; }
+.carsaleNoticiaInternaTxt img { width:auto; height:auto; margin:0px 0px 12px 0px; border:30px #f3f3f3 solid; position:relative; float:left; }
+.carsaleNoticiaInternaTxt input img { width:auto; height:auto; margin:0px 0px 12px 0px; border:30px #f3f3f3 solid; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaGridNoticiasRelacionadas { width:640px; height:auto; padding-bottom:16px; border-bottom:1px #eeeeee solid; position:relative; float:left; }
+.carsaleNoticiaInternaNoticiasRelacionadasLinhaFina { width:640px; height:auto; padding-top:12px; font:14px Arial, sans-serif; color:#4f4f4f; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaNoticiasRelacionadasTitulo { width:640px; height:auto; font:20px Arial, sans-serif; color:#cb2026; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaNoticiasRelacionadasTitulo a { text-decoration:none; color:#cb2026; }
+.carsaleNoticiaInternaNoticiasRelacionadasTitulo a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleNoticiaInternaNoticiasRelacionadasGap { width:640px; height:22px; position:relative; float:left; }
+.carsaleNoticiaInternaGaleriaTitulo { width:640px; height:auto; padding-top:18px; font:16px Arial, sans-serif; color:#194c7f; font-weight:bold; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaGaleriaBgImg { width:640px; height:auto; margin-top:6px; background-color:#f3f3f3; position:relative; float:left; }
+.carsaleNoticiaInternaGaleriaImg { width:96px; height:60px; margin:12px 22px 12px 34px; border:1px #bababa solid; position:relative; float:left; }
+a.carsaleNoticiaInternaGaleriaImg, a.carsaleNoticiaInternaGaleriaImg img { width:96px; height:60px; position:relative; float:left; overflow:hidden; }
+a.carsaleNoticiaInternaGaleriaImg:hover { width:90px; height:54px; margin:11px 22px 12px 34px; border:4px #194c7f solid; }
+a.carsaleNoticiaInternaGaleriaImg:hover img { margin-left:-3px; margin-top:-2px; }
+.carsaleNoticiaInternaGaleriaBtn { width:200px; height:auto; margin-top:6px; padding-top:4px; color:#194c7f; font:16px Arial, sans-serif; font-weight:bold; text-align:left; text-decoration:none; float:left; position:relative; }
+.carsaleNoticiaInternaGaleriaBtn a { text-decoration:none; color:#194c7f; }
+.carsaleNoticiaInternaGaleriaBtn a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleNoticiaInternaGaleriaBtnStroke { width:640px; height:4px; margin-top:4px; border-bottom:1px #eeeeee solid; position:relative; float:left; }
+.carsaleNoticiaInternaLeiaMaisGridNoticias { width:640px; height:auto; margin-top:28px; padding-bottom:16px; border-bottom:1px #eeeeee solid; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisGridTxt { width:640px; height:auto; padding-top:16px; border-top:1px #eeeeee solid; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisTxt { width:143px; height:auto; padding-right:16px; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisTxtData { width:143px; height:auto; font:11px Arial, sans-serif; color:#848484; text-align:left; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisTxtTitulo { width:143px; height:auto; padding-top:12px; font:16px Arial, sans-serif; color:#000; text-align:left; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisTxtTitulo a { text-decoration:none; color:#000; }
+.carsaleNoticiaInternaLeiaMaisTxtTitulo a:hover { text-decoration:underline; color:#000; }
+.carsaleNoticiaInternaLeiaMaisTxtSubTitulo { width:143px; height:auto; padding-top:14px; font:12px Arial, sans-serif; color:#848484; text-align:left; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisTxtSubTitulo a { text-decoration:none; color:#848484; }
+.carsaleNoticiaInternaLeiaMaisTxtSubTitulo a:hover { text-decoration:underline; color:#848484; }
+.carsaleNoticiaInternaLeiaMaisBtn { width:143px; height:auto; padding-top:12px; font:12px Arial, sans-serif; color:#cb2026; text-align:left; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisBtn a { text-decoration:none; color:#cb2026; }
+.carsaleNoticiaInternaLeiaMaisBtn a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleNoticiaInternaVejaTambemEditoria { width:300px; height:auto; padding-top:14px; font:16px Arial, sans-serif; color:#525252; text-align:left; float:left; position:relative; }
+.carsaleNoticiaInternaVejaTambemTituloEditoria { width:300px; height:auto; padding-bottom:10px; font:26px Arial, sans-serif; color:#194c7f; text-align:left; float:left; position:relative; }
+.carsaleNoticiaInternaVejaTambemTituloEditoria a { text-decoration:none; color:#194c7f; }
+.carsaleNoticiaInternaVejaTambemTituloEditoria a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleNoticiaInternaGridVejaTambem { width:300px; height:auto; padding-top:10px; padding-bottom:10px; border-top:1px #eeeeee solid; float:left; position:relative; }
+.carsaleNoticiaInternaVejaTambemColunaA { width:120px; height:auto; position:relative; float:left; }
+.carsaleNoticiaInternaVejaTambemColunaB { width:174px; height:auto; position:relative; float:left; }
+.carsaleNoticiaInternaVejaTambemImg { width:120px; height:78px; position:relative; float:left; }
+a.carsaleNoticiaInternaVejaTambemImg, a.carsaleNoticiaInternaVejaTambemImg img { width:120px; height:78px; position:relative; float:left; overflow:hidden; }
+a.carsaleNoticiaInternaVejaTambemImg:hover { width:114px; height:72px; margin:-2px 0px 0px 0px; border:4px #194c7f solid; }
+a.carsaleNoticiaInternaVejaTambemImg:hover img { margin-left:-4px; margin-top:-2px; }
+.carsaleNoticiaInternaVejaTambemData { width:100px; height:auto; font:11px Arial, sans-serif; color:#848484; text-align:left; padding-top:4px; float:left; position:relative; }
+.carsaleNoticiaInternaVejaTambemTitulo { width:164px; height:auto; padding-left:10px; font:15px Arial, sans-serif; color:#194c7f; text-align:left; float:left; position:relative; }
+.carsaleNoticiaInternaVejaTambemTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleNoticiaInternaVejaTambemTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleNoticiaInternaVejaTambemSubTitulo { width:164px; height:auto; padding-left:10px; padding-top:6px; font:12px Arial, sans-serif; color:#cb2026; text-align:left; float:left; position:relative; }
+.carsaleNoticiaInternaVejaTambemSubTitulo a { text-decoration:none; color:#cb2026; }
+.carsaleNoticiaInternaVejaTambemSubTitulo a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleNoticiaInternaLeiaMaisGridTitulo { width:640px; height:28px; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisTituloNoticias { width:550px; height:auto; padding-bottom:8px; font:26px Arial, sans-serif; color:#194c7f; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisTituloNoticias a { text-decoration:none; color:#194c7f;}
+.carsaleNoticiaInternaLeiaMaisTituloNoticias a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleNoticiaInternaLeiaMaisBtnMaisNoticias  { margin:0px; padding:0px; }
+.carsaleNoticiaInternaLeiaMaisBtnMaisNoticias a {  width:90px; height:16px; text-align:center; padding-top:4px; padding-bottom:2px; margin-top:6px; margin-bottom:6px; background-color:#eeeeee; color:#194c7f; font:12px Arial, sans-serif; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleNoticiaInternaLeiaMaisBtnMaisNoticias a:hover { background: #e0e0e0 center center; text-decoration:none; color:#cb2026;}
+.carsaleNoticiaInternaLeiaMaisTxtNoticias { width:640px; height:12px; padding-bottom:10px; padding-top:10px; font:12px Arial, sans-serif; color:#cb2026; float:left; position:relative; border-top:1px #eeeeee solid;}
+.carsaleNoticiaInternaLeiaMaisTxtNoticias a { text-decoration:none; color:#cb2026;}
+.carsaleNoticiaInternaLeiaMaisTxtNoticias a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleNoticiaInternaPublicidadeFullTxt { width:640px; height:auto; padding-top:12px; font:11px Arial, sans-serif; color:#7f7f7f; text-align:right; position:relative; float:left; }
+.carsaleNoticiaInternaBgPublicidadeFull { width:640px; height:auto; margin-top:2px; margin-bottom:10px; background-color:#f3f3f3; position:relative; float:left; }
+.carsaleNoticiaInternaPublicidadeFullImg { width:468px; height:60px; margin:14px 86px 14px 86px; background-color:#f3f3f3; border:1px #bababa solid; position:relative; float:left; }
+.carsaleNoticiaInternaPublicidadeRetanguloTxt { width:300px; height:auto; position:relative; margin-top:14px; font:11px Arial, sans-serif; color:#848484; float:left; }
+.carsaleNoticiaInternaPublicidadeRetanguloImg { width:300px; height:250px; background-color:#eeeeee; border:1px #eeeeee solid; position:relative; float:left; }
+.carsaleHomePublicidadeRetangulo300x300Img { width:300px; height:300px; border:1px #DBDADA solid; position:relative; float:left; }
+.carsaleNoticiaInternaUltimasNoticiasGridNoticias { width:300px; height:auto; margin-top:14px; padding-bottom:14px; float:left; position:relative; }
+.carsaleNoticiaInternaUltimasNoticiasGridTitulo { width:300px; height:28px; float:left; position:relative; }
+.carsaleNoticiaInternaUltimasNoticiasTituloNoticias { width:210px; height:20px; padding-bottom:8px; font:18px Arial, sans-serif; color:#194c7f; float:left; position:relative; }
+.carsaleNoticiaInternaUltimasNoticiasTituloNoticias a { text-decoration:none; color:#194c7f;}
+.carsaleNoticiaInternaUltimasNoticiasTituloNoticias a:hover { text-decoration:underline; color:#194c7f;}
+.carsaleNoticiaInternaUltimasNoticiasBtnMaisNoticias  { margin:0px; padding:0px; }
+.carsaleNoticiaInternaUltimasNoticiasBtnMaisNoticias a {  width:90px; height:16px; text-align:center; padding-top:4px; padding-bottom:2px; margin-bottom:6px; background-color:#eeeeee; color:#194c7f; font:12px Arial, sans-serif; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleNoticiaInternaUltimasNoticiasBtnMaisNoticias a:hover { background: #e0e0e0 center center; text-decoration:none; color:#cb2026;}
+.carsaleNoticiaInternaUltimasNoticiasTxtNoticias { width:300px; height:12px; padding-bottom:10px; padding-top:10px; font:12px Arial, sans-serif; color:#cb2026; float:left; position:relative; border-top:1px #eeeeee solid;}
+.carsaleNoticiaInternaUltimasNoticiasTxtNoticias a { text-decoration:none; color:#cb2026;}
+.carsaleNoticiaInternaUltimasNoticiasTxtNoticias a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleNoticiaInternaGridForm { width:640px; height:auto; margin-top:8px; border-top:1px #eeeeee solid; position:relative; float:left; }
+.carsaleNoticiaInternaFormTitulo { width:640px; height:auto; padding-top:12px; padding-bottom:14px; font:16px Arial, sans-serif; color:#000; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaLineForm { width:640px; height:auto; padding-top:8px; position:relative; float:left; }
+.carsaleNoticiaInternaTxtForm { width:90px; height:auto; padding-top:4px; padding-right:10px; font:14px Arial, sans-serif; color:#000; text-align:right; position:relative; float:left; }
+.carsaleNoticiaInternaTxtLegendaForm { width:400px; height:auto; padding-top:2px; padding-left:100px; font:10px Arial, sans-serif; color:#000; text-align:left; position:relative; float:left; }
+.carsaleNoticiaInternaInputTextFormBox { position:relative; float:left; }
+input.carsaleNoticiaInternaInputTextForm { width:534px; height:23px; font:14px Arial, sans-serif; color:#000; margin:0px 0px 0px 0px; padding:0px 0px 0px 4px;
+    background-color:#f0f0f0; border:1px #cdcdcd solid; float:left; }
+.carsaleNoticiaInternaInputTextFormBox input.carsaleNoticiaInternaInputTextForm:focus { outline:none; }
+.carsaleNoticiaInternaTextAreaFormBox { position:relative; float:left; }
+textarea.carsaleNoticiaInternaTextAreaForm { width:534px; height:80px; font:14px Arial, sans-serif; color:#000; margin:0px 0px 0px 0px; padding:4px 0px 0px 4px;
+    background-color:#f0f0f0; border:1px #cdcdcd solid; float:left;}
+.carsaleNoticiaInternaTextAreaFormBox textarea.carsaleNoticiaInternaTextAreaForm:focus { outline:none; }
+.carsaleNoticiaInternaFormBtn  { margin:0px; padding:0px; }
+.carsaleNoticiaInternaFormBtn a {  width:178px; height:15px; margin-left:14px; padding-top:4px; padding-bottom:4px; background-color:#f0f0f0; border:1px #cdcdcd solid; color:#000; font:14px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; float:right; position:relative; }
+.carsaleNoticiaInternaFormBtn a:hover { background:#636363 center center; text-decoration:none; color:#fff;}
+
+
+/*---CARSALE---AVALIAÇÕES---INTERNA---*/
+.carsaleAvaliacaoGrigBtnMateria { width:640px; height:auto; border-bottom:1px #eeeeee solid; position:relative; float:left; }
+.carsaleAvaliacaoBtnMateria { width:auto; height:auto; padding-top:10px; padding-bottom:10px; padding-left:36px; padding-right:50px; font:14px Arial, sans-serif; color:#cb2026; text-align:left;position:relative; float:left; }
+.carsaleAvaliacaoBtnMateria a { text-decoration:none; color:#cb2026;}
+.carsaleAvaliacaoBtnMateria a:hover { text-decoration:underline; color:#cb2026;}
+.carsaleAvaliacaoGrigTabelaBg { width:640px; height:auto; margin-top:20px; background-color:#f3f3f3; position:relative; float:left; }
+.carsaleAvaliacaoGrigTabela { width:574px; height:auto; margin:35px 35px 35px 35px; border:1px #d3d3d3 solid; background-color:#fff; position:relative; float:left; }
+.carsaleAvaliacaoTabelaTitulo { width:574px; height:auto; padding-top:10px; padding-bottom:10px; font:20px Arial, sans-serif; color:#194c7f; text-align:center; position:relative; float:left; }
+.carsaleAvaliacaoTabelaLinha_B { width:574px; height:auto; background-color:#ffffff; border-top:1px #d3d3d3 solid; position:relative; float:left; }
+.carsaleAvaliacaoTabelaLinha_A { width:574px; height:auto; background-color:#f3f3f3; border-top:1px #d3d3d3 solid; position:relative; float:left; }
+.carsaleAvaliacaoTabelaDesc { width:120px; height:auto; font:12px Arial, sans-serif; color:#414141; text-align:right; padding-top:4px; padding-bottom:4px; padding-right:16px; position:relative; float:left; }
+.carsaleAvaliacaoTabelaEstrelaUmCarro { width:360px; height:auto; font:12px Arial, sans-serif; color:#414141; text-align:left; border-left:1px #d3d3d3 solid; padding-left:16px; padding-top:6px; padding-bottom:6px; padding-right:16px; position:relative; float:left; }
+.carsaleAvaliacaoTabelaEstrelaDoisCarros { width:186px; height:auto; font:12px Arial, sans-serif; color:#414141; text-align:left; border-left:1px #d3d3d3 solid; padding-left:16px; padding-top:6px; padding-bottom:6px; padding-right:16px; position:relative; float:left; }
+.carsaleAvaliacaoTabelaEstrelaTresCarros { width:110px; height:auto; font:12px Arial, sans-serif; color:#414141; text-align:left; border-left:1px #d3d3d3 solid; padding-left:16px; padding-top:6px; padding-bottom:6px; padding-right:16px; position:relative; float:left; }
+.carsaleAvaliacaoTabelaDescG { width:120px; height:auto; font:12px Arial, sans-serif; color:#414141; text-align:right; padding-top:16px; padding-bottom:12px; padding-right:16px; position:relative; float:left; }
+.carsaleAvaliacaoTabelaEstrelaG { width:auto; height:auto; font:14px Arial, sans-serif; color:#414141; font-weight:bold; text-align:left; padding-left:16px; padding-top:16px; padding-bottom:12px; position:relative; float:left; }
+.carsaleAvaliacaoTabelaEstrelaUmCarroG { width:360px; height:auto; font:12px Arial, sans-serif; font-weight:bold; color:#414141; text-align:left; border-left:1px #d3d3d3 solid; padding-left:16px; padding-top:16px; padding-bottom:12px; padding-right:16px; position:relative; float:left; }
+.carsaleAvaliacaoTabelaEstrelaDoisCarrosG { width:186px; height:auto; font:12px Arial, sans-serif; font-weight:bold; color:#414141; text-align:left; border-left:1px #d3d3d3 solid; padding-left:16px; padding-top:16px; padding-bottom:12px; padding-right:16px; position:relative; float:left; }
+.carsaleAvaliacaoTabelaEstrelaTresCarrosG { width:110px; height:auto; font:12px Arial, sans-serif; font-weight:bold; color:#414141; text-align:left; border-left:1px #d3d3d3 solid; padding-left:16px; padding-top:16px; padding-bottom:12px; padding-right:16px; position:relative; float:left; }
+
+
+/*---CARSALE---CAPA---EDITORIA---*/
+.carsaleColuna_Editorial { width:640px; height:auto; border-right:1px #eeeeee solid; margin-top:16px; padding-right:23px; position:relative; float:left; }
+.carsaleColuna_Publicidade { width:300px; height:auto; margin-top:16px; margin-left:23px; position:relative; float:left; }
+.carsaleEditorialTitulo { width:640px; height:auto; padding-bottom:4px; font:27px Arial, sans-serif; color:#194c7f; border-bottom:1px #194c7f solid; text-align:left; position:relative; float:left; }
+.carsaleEditorialTituloLinha { width:100px; height:4px; margin-right:540px; background-color:#194c7f; position:relative; float:left; }
+.carsaleColuna_EditorialPrimaria { width:312px; height:auto; padding-top:12px; padding-right:16px; position:relative; float:left; }
+.carsaleColuna_EditorialSecundaria { width:312px; height:510px; padding-top:12px; position:relative; float:left; }
+.carsaleImgEditorialPrimariaMargem { width:312px; height:auto; background-color:#f3f3f3; position:relative; float:left; }
+.carsaleImgEditorialPrimaria { width:260px; height:156px; margin:24px 24px 24px 24px; background-color:#f3f3f3; border:1px #bababa solid; position:relative; float:left; }
+a.carsaleImgEditorialPrimaria, a.carsaleImgEditorialPrimaria img { width:260px; height:156px; background-color:#f3f3f3; position:relative; float:left; overflow:hidden; }
+a.carsaleImgEditorialPrimaria:hover { width:254px; height:150px; margin:24px 24px 24px 24px; border:4px #194c7f solid; }
+a.carsaleImgEditorialPrimaria:hover img { margin-left:-3px; margin-top:-3px; }
+.carsaleMateriaPrimariaTitulo { width:312px; height:auto; padding-top:20px; font:24px Arial, sans-serif; color:#194c7f; text-align:left; position:relative; float:left; }
+.carsaleMateriaPrimariaTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleMateriaPrimariaTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleMateriaPrimariaTxt { width:312px; height:auto; padding-top:16px; font:16px Arial, sans-serif; color:#535353; text-align:left; position:relative; float:left; }
+.carsaleMateriaPrimariaTxt a { text-decoration:none; color:#535353; }
+.carsaleMateriaPrimariaTxt a:hover { text-decoration:underline; color:#535353; }
+.carsaleMateriaPrimariaBtn { width:312px; height:auto; padding-top:16px; font:12px Arial, sans-serif; color:#848484; text-align:left; position:relative; float:left; }
+.carsaleMateriaPrimariaBtn a { text-decoration:none; color:#848484; }
+.carsaleMateriaPrimariaBtn a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleEditorialSecundariaMargem { width:312px; height:auto; margin-bottom:16px; background-color:#f3f3f3; position:relative; float:left; }
+.carsaleImgEditorialSecundaria { width:144px; height:100px; margin:24px 0px 0px 24px; background-color:#f3f3f3; border:1px #bababa solid; position:relative; float:left; }
+a.carsaleImgEditorialSecundaria, a.carsaleImgEditorialSecundaria img { width:144px; height:100px; background-color:#f3f3f3; position:relative; float:left; overflow:hidden; }
+a.carsaleImgEditorialSecundaria:hover { width:138px; height:94px; margin:24px 0px 0px 24px; border:4px #194c7f solid; }
+a.carsaleImgEditorialSecundaria:hover img { margin-left:-3px; margin-top:-3px; }
+.carsaleMateriaSecundariaTitulo { width:120px; height:auto; padding-top:24px; padding-left:12px; font:19px Arial, sans-serif; color:#194c7f; text-align:left; position:relative; float:left; }
+.carsaleMateriaSecundariaTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleMateriaSecundariaTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleMateriaSecundariaTxt { width:274px; height:auto; padding-top:12px; padding-left:24px; font:12px Arial, sans-serif; color:#535353; text-align:left; position:relative; float:left; }
+.carsaleMateriaSecundariaTxt a { text-decoration:none; color:#535353; }
+.carsaleMateriaSecundariaTxt a:hover { text-decoration:underline; color:#535353; }
+.carsaleMateriaSecundariaBtn { width:274px; height:auto; padding-top:8px; padding-bottom:12px; padding-left:24px; font:12px Arial, sans-serif; color:#848484; text-align:left; position:relative; float:left; }
+.carsaleMateriaSecundariaBtn a { text-decoration:none; color:#848484; }
+.carsaleMateriaSecundariaBtn a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleEditorialLinha { width:640px; height:4px; padding-bottom:14px; margin-top:18px; border-top:1px #eeeeee solid; text-align:left; position:relative; float:left; }
+.carsaleMateriaGridTerciaria { width:640px; height:auto; border-bottom:1px #eeeeee solid; float:left; position:relative; }
+.carsaleMateriaGridTerciariaTitulo { width:640px; height:auto; padding-bottom:6px; font:26px Arial, sans-serif; color:#535353; float:left; position:relative; }
+.carsaleMateriaTerciariaGridTxt { width:640px; height:auto; padding-top:16px; border-top:1px #eeeeee solid; float:left; position:relative; }
+.carsaleMateriaTerciariaColunaTxt { width:144px; height:auto; padding-right:16px; float:left; position:relative; }
+.carsaleMateriaTerciariaMargem { width:144px; height:100px; background-color:#f3f3f3; position:relative; float:left; }
+.carsaleImgMateriaTerciaria { width:120px; height:78px; margin:11px 11px 11px 11px; background-color:#f3f3f3; border:1px #bababa solid; position:relative; float:left; }
+a.carsaleImgMateriaTerciaria, a.carsaleImgMateriaTerciaria img { width:120px; height:78px; background-color:#f3f3f3; position:relative; float:left; overflow:hidden; }
+a.carsaleImgMateriaTerciaria:hover { width:114px; height:72px; margin:11px 11px 11px 11px; border:4px #194c7f solid; }
+a.carsaleImgMateriaTerciaria:hover img { margin-left:-3px; margin-top:-3px; }
+.carsaleMateriaTerciariaTitulo { width:144px; height:auto; padding-top:12px; padding-bottom:16px; font:16px Arial, sans-serif; color:#194c7f; text-align:left; position:relative; float:left; }
+.carsaleMateriaTerciariaTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleMateriaTerciariaTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleMateriaTerciariaBtn  { margin:0px; padding:0px; }
+.carsaleMateriaTerciariaBtn a {  width:640px; height:auto; padding-top:8px; padding-bottom:6px; border-bottom:1px #eeeeee solid; color:#535353; font:18px Arial, sans-serif; text-align:center; text-decoration:none; float:left; position:relative; }
+.carsaleMateriaTerciariaBtn a:hover { background: #eeeeee center center; text-decoration:underline; color:#194c7f;}
+.carsaleEditorialPublicidadeRetanguloTxt { width:300px; height:auto; position:relative; margin-top:2px; margin-bottom:14px; font:11px Arial, sans-serif; color:#848484; float:left; }
+.carsaleEditorialPublicidadeRetanguloImg { width:300px; height:250px; background-color:#f4f4f4; border:1px #eeeeee solid; position:relative; float:left; }
+.carsaleColunaPublicidadeNavTitulo { width:300px; height:auto; padding-bottom:4px; font:27px Arial, sans-serif; color:#194c7f; border-bottom:1px #194c7f solid; text-align:left; position:relative; float:left; }
+.carsaleColunaPublicidadeNavTituloLinha { width:100px; height:4px; background-color:#194c7f; position:relative; float:left; }
+.carsaleColunaPublicidadeNavGrid { width:300px; height:auto; padding-top:12px; padding-bottom:20px; position:relative; float:left; }
+.carsaleColunaPublicidadeNavColuna_A { width:140px; height:auto; padding-right:20px; position:relative; float:left; }
+.carsaleColunaPublicidadeNavColuna_B { width:140px; height:auto; position:relative; float:left; }
+.carsaleColunaPublicidadeNavBtn  { margin:0px; padding:0px; }
+.carsaleColunaPublicidadeNavBtn a { width:140px; height:auto; padding-bottom:4px; padding-top:4px; font:12px Arial, sans-serif; color:#194c7f; border-bottom:1px #e5e5e5 solid; text-align:left; text-decoration:none; position:relative; float:left; }
+.carsaleColunaPublicidadeNavBtn a:hover { text-decoration:underline; color:#cb2026;}
+/*---CARSALE---ÍNDICE---COM---FOTO---*/
+.carsaleIndiceGridTxt { width:640px; height:auto; padding-top:16px; border-bottom:1px #eeeeee solid; float:left; position:relative; }
+.carsaleIndiceColunaTxt { width:144px; height:auto; padding-right:16px; float:left; position:relative; }
+.carsaleIndiceMargem { width:144px; height:100px; background-color:#f3f3f3; position:relative; float:left; }
+.carsaleImgIndice { width:120px; height:78px; margin:11px 11px 11px 11px; background-color:#f3f3f3; border:1px #bababa solid; position:relative; float:left; }
+a.carsaleImgIndice, a.carsaleImgIndice img { width:120px; height:78px; background-color:#f3f3f3; position:relative; float:left; overflow:hidden; }
+a.carsaleImgIndice:hover { width:114px; height:72px; margin:11px 11px 11px 11px; border:4px #194c7f solid; }
+a.carsaleImgIndice:hover img { margin-left:-3px; margin-top:-3px; }
+.carsaleIndiceTxtData { width:143px; height:auto; padding-bottom:10px; font:11px Arial, sans-serif; color:#848484; text-align:left; float:left; position:relative; }
+.carsaleIndiceTitulo { width:144px; height:auto; padding-top:14px; font:16px Arial, sans-serif; color:#194c7f; text-align:left; position:relative; float:left; }
+.carsaleIndiceTitulo a { text-decoration:none; color:#194c7f; }
+.carsaleIndiceTitulo a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleIndiceTxt { width:143px; height:auto; padding-top:14px; font:12px Arial, sans-serif; color:#cb2026; text-align:left; float:left; position:relative; }
+.carsaleIndiceTxt a { text-decoration:none; color:#cb2026; }
+.carsaleIndiceTxt a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleIndiceTxtBtn { width:143px; height:auto; padding-top:12px; padding-bottom:14px; font:12px Arial, sans-serif; color:#848484; text-align:left; float:left; position:relative; }
+.carsaleIndiceTxtBtn a { text-decoration:none; color:#848484; }
+.carsaleIndiceTxtBtn a:hover { text-decoration:underline; color:#848484; }
+.carsaleIndiceBtnBg { width:640px; height:auto; margin-top:8px; background-color:#f3f3f3; border:1px #eeeeee solid; float:left; position:relative; text-align:center; white-space:nowrap; }
+.carsaleIndiceBtnAnterior { padding-top:6px; padding-bottom:2px; display:inline-block; }
+.carsaleIndiceBtnAnterior a { width:80px; height:auto; background-color:#f3f3f3; border-right:1px #858585 solid; font:12px Arial, sans-serif; color:#737373; text-align:left; float:left; position:relative; text-decoration:none; }
+.carsaleIndiceBtnAnterior a:hover { text-decoration:underline; color:#737373; display:inline-block; }
+.carsaleIndiceBtnProxima { padding-top:6px; padding-bottom:2px; display:inline-block; }
+.carsaleIndiceBtnProxima a { width:80px; height:auto; background-color:#f3f3f3; font:12px Arial, sans-serif; color:#737373; text-align:right; float:left; position:relative; display:inline-block; text-decoration:none; }
+.carsaleIndiceBtnProxima a:hover { text-decoration:underline; color:#737373; display:inline-block; }
+.carsaleIndiceTxtPaginacao { width:640px; height:auto; padding-top:12px; padding-bottom:12px; font:12px Arial, sans-serif; color:#737373; text-align:center; border-bottom:1px #eeeeee solid; float:left; position:relative; }
+
+.carsaleLogoErro { width:134px; height:34px; margin-right:500px; padding-bottom:34px; position:relative; float:left; }
+.carsaleTituloErro { width:640px; height:auto; padding-bottom:4px; font:18px Arial, sans-serif; color:#cb2026; text-align:left; position:relative; float:left; }
+.carsaleTxtErro { width:640px; height:auto; padding-bottom:24px; font:16px Arial, sans-serif; color:#535353; text-align:left; position:relative; float:left; }
+.carsaleTxtErro a { text-decoration:underline; color:#535353; }
+.carsaleTxtErro a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleOopsErro { width:640px; height:auto; padding-bottom:24px; font:27px Arial, sans-serif; color:#194c7f; text-align:left; position:relative; float:left; }
+
+/*---CARSALE---ÍNDICE-DE-NOTÍCIAS---*/
+.carsaleIndicelistaGridTxt { width:640px; height:auto; padding-top:6px; padding-bottom:6px; border-bottom:1px #eeeeee solid; float:left; position:relative; }
+.carsaleIndicelistaEditoria { width:90px; height:auto; padding-top:1px; padding-right:16px; padding-left:10px; font:12px Arial, sans-serif; color:#cb2026; text-align:right; float:left; position:relative; }
+.carsaleIndicelistaEditoria a { text-decoration:none; color:#cb2026; }
+.carsaleIndicelistaEditoria a:hover { text-decoration:underline; color:#cb2026; }
+.carsaleIndicelistaData { width:36px; height:auto; padding-top:2px; padding-right:16px; font:11px Arial, sans-serif; color:#949494; text-align:center; float:left; position:relative; }
+.carsaleIndicelistaData a { text-decoration:none; color:#949494; }
+.carsaleIndicelistaData a:hover { text-decoration:underline; color:#949494; }
+.carsaleIndicelistaTxt { width:470px; height:auto; font:14px Arial, sans-serif; color:#194c7f; text-align:left; float:left; position:relative; }
+.carsaleIndicelistaTxt a { text-decoration:none; color:#194c7f; }
+.carsaleIndicelistaTxt a:hover { text-decoration:underline; color:#194c7f; }
+.carsaleIndiceData { width:640px; height:auto; padding-top:22px; padding-bottom:4px; font:14px Arial, sans-serif; color:#545454; border-bottom:1px #545454 solid; text-align:left; position:relative; float:left; }
+.carsaleIndiceDataLinha { width:100px; height:4px; margin-right:540px; background-color:#949494; position:relative; float:left; }
+
+/* Filipe Inicio */
+input.error {border: 1px solid #f00; color: #f00;}
+.error {color: #f00;}
+#errorMessages {display: none; text-align: center;}
+
+.exploradorGridFiltrosImg input, .exploradorCarrosQuantidade img, .exploradorCarrosFechar a,
+.exploradorCarros input, .opiniao, .noticia {display: none;}
+.exploradorCarros:hover, .exploradorCarrosHover {background-image: url('../img/exploradorGridCarrosHover.gif');}
+.exploradorBtnCarrosPaginacaoOfertasAtual a {color: #fff;}
+
+.exploradorTabelaGridVersao, .exploradorTabelaLineVersao {height: auto;}
+.exploradorTabelaCarroFechar {height: 18px;}
+.exploradorTabelaCarroFechar a {display: none;}
+/* Filipe Fim */
