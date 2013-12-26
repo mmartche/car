@@ -352,16 +352,20 @@ switch ($_GET[type]) {
 		$sqlMO = "SELECT id, place FROM megaOferta WHERE idFeature = '".$_GET[idFeature]."'";
 		$queryMO = mysql_query($sqlMO) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		if (mysql_num_rows($queryMO) > 0 ){
-			echo '[{"response":"false", "errorNumber":"#355", "reason":"Already exist"}]';
+			$sqlUp = "UPDATE `megaOferta` SET `price` = '".$_GET[price]."' AND `dateLimit` = '".$_GET[dateLimit]."' AND `place` = '".$_GET[place]."' WHERE `idFeature` = '".$_GET[idFeature]."'";
+			mysql_query($sqlUp) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+			echo '[{"response":"true", "errorNumber":"#355", "reason":"Already exist, updated"}]';
 		} else {
 			$sql = "INSERT INTO megaOferta (`idFeature`, `price`, `dateLimit`, `place`) VALUES ('".$_GET[idFeature]."', '".$_GET[price]."', '".$_GET[dateLimit]."', '".$_GET[place]."')";
 			$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 			//$res = mysql_fetch_array($query);
-			echo '{
-					"id":"'.mysql_insert_id().'",
-					"name":"'.$_GET[name].'"
-				}';
+			echo '[{"response":"true", "id":"'.mysql_insert_id().'"}]';
 		}
+		break;
+	case 'megaRemove':
+		$sqlRM = "DELETE from `megaOferta` WHERE idFeature = '".$_GET[idFeature]."'";
+		mysql_query($sqlRM) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+		echo '[{"response":"true", "reason":"Item removed"}]';
 		break;
 
 	case 'checkSearch':

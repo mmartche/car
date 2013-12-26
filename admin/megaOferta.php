@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="styles//jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="styles/index.css" />
+	<link rel="stylesheet" type="text/css" href="styles/explorer.css" />
 </head>
 <body name="searchList">
 <?
@@ -65,9 +66,12 @@ include ("./scripts/conectDB.php");
 					while ($resMO = mysql_fetch_array($query_mo)) {
 				?>
 				<li class="liMO">
-					<img src="http://carsale.uol.com.br/foto/<?=$resMO[picture]?>_g.jpg?>" />
-					<span><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
-					<span><?=$resMO[price]?></span>
+					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
+					<img class="imgLiMO" src="http://carsale.uol.com.br/foto/<?=$resMO[picture]?>_p.jpg?>" />
+					<span class="priceLiMO">R$ <?=$resMO[price]?></span>
+					<span class="dateLimitLiMO">Válido até: <?=$resMO[dateLimit]?></span>
+					<span class="placeLiMO">Exibindo em: <?=$resMO[place]?></span>
+					<div class="removeItem" onclick="removeItemMega(this,'<?=$resMO[idFeature]?>')">remover</div>
 				</li>
 				<? } ?>
 			</ul>
@@ -98,22 +102,22 @@ include ("./scripts/conectDB.php");
 				</li>
 				<li class="resultFilter">
 					<form action="?filter=true" method="post">
-					<div class="rfItems"><input type="checkbox" name="filterActive" id="chkRSActive" 
-					<? if ($_POST[filterActive] == "n") echo 'checked="checked"'; ?> 
-					value="n" onchange="submit()" style="width:10px;display:none;" />
-					<label for="chkRSActive"><? if ($_POST[filterActive] == "n") echo 'Ver Ativados'; else echo 'Ver Desativos'; ?></label>
-					</div>
-					<div class="rfManufacturer"><input type="text" name="filterManuf" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" value="<?=$_POST[filterManuf]?>" /></div>
-					<div class="rfModel"><input type="text" name="filterModel" id="txtRSModel" onkeyup="filterFields('rsModel',this)" value="<?=$_POST[filterModel]?>" /></div>
-					<div class="rfVersion"><input type="text" name="filterVersion" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)" value="<?=$_POST[filterVersion]?>" /></div>
-					<div class="rfYearModel"><input type="text" name="filterYearModel" id="txtRSYearModel" onkeyup="filterFields('rsYearModel',this)" value="<?=$_POST[filterYearModel]?>" /></div>
-					<div class="rfYearProduced"><input type="text" name="filterYearProduced" id="txtRSYearProduced" onkeyup="filterFields('rsYearProduced',this)" value="<?=$_POST[filterYearProduced]?>" /></div>
-					<div class="rfEngine"><input type="text" name="filterEngine" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" value="<?=$_POST[filterEngine]?>" /></div>
-					<div class="rfGear"><input type="text" name="filterGear" id="txtRSGear" onkeyup="filterFields('rsGear',this)" value="<?=$_POST[filterGear]?>" /></div>
-					<div class="rfFuel"><input type="text" name="filterFuel" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" value="<?=$_POST[filterFuel]?>" /></div>
-					<div class="rfSteering"><input type="text" name="filterSteering" id="txtRSSteering" onkeyup="filterFields('rsSteering',this)" value="<?=$_POST[filterSteering]?>" /></div>
-					<div class="rfPrice"><input type="text" name="filterPrice" id="txtRSPrice" onkeyup="filterFields('rsPrice',this)" value="<?=$_POST[filterPrice]?>" /></div>
-					<div class="rfSubmit"><input type="submit" value="Pesquisar" /></div>
+						<div class="rfItems"><input type="checkbox" name="filterActive" id="chkRSActive" 
+						<? if ($_POST[filterActive] == "n") echo 'checked="checked"'; ?> 
+						value="n" onchange="submit()" style="width:10px;display:none;" />
+						<label for="chkRSActive"><? if ($_POST[filterActive] == "n") echo 'Ver Ativados'; else echo 'Ver Desativos'; ?></label>
+						</div>
+						<div class="rfManufacturer"><input type="text" name="filterManuf" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" value="<?=$_POST[filterManuf]?>" /></div>
+						<div class="rfModel"><input type="text" name="filterModel" id="txtRSModel" onkeyup="filterFields('rsModel',this)" value="<?=$_POST[filterModel]?>" /></div>
+						<div class="rfVersion"><input type="text" name="filterVersion" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)" value="<?=$_POST[filterVersion]?>" /></div>
+						<div class="rfYearModel"><input type="text" name="filterYearModel" id="txtRSYearModel" onkeyup="filterFields('rsYearModel',this)" value="<?=$_POST[filterYearModel]?>" /></div>
+						<div class="rfYearProduced"><input type="text" name="filterYearProduced" id="txtRSYearProduced" onkeyup="filterFields('rsYearProduced',this)" value="<?=$_POST[filterYearProduced]?>" /></div>
+						<div class="rfEngine"><input type="text" name="filterEngine" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" value="<?=$_POST[filterEngine]?>" /></div>
+						<div class="rfGear"><input type="text" name="filterGear" id="txtRSGear" onkeyup="filterFields('rsGear',this)" value="<?=$_POST[filterGear]?>" /></div>
+						<div class="rfFuel"><input type="text" name="filterFuel" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" value="<?=$_POST[filterFuel]?>" /></div>
+						<div class="rfSteering"><input type="text" name="filterSteering" id="txtRSSteering" onkeyup="filterFields('rsSteering',this)" value="<?=$_POST[filterSteering]?>" /></div>
+						<div class="rfPrice"><input type="text" name="filterPrice" id="txtRSPrice" onkeyup="filterFields('rsPrice',this)" value="<?=$_POST[filterPrice]?>" /></div>
+						<div class="rfSubmit"><input type="submit" value="Pesquisar" /></div>
 					</form>
 				</li>
 
@@ -145,6 +149,7 @@ include ("./scripts/conectDB.php");
 							<input type="text" id="addMegaDateLimit_<?=$res[id]?>" class="addMegaDateLimit" placeholder="Data Limite" value="" /><br />
 							<div class="btnClone btnButton"onclick="addMega(<?=$res[id]?>)" title="Adicionar a lista" alt="Adicioanr a lista">Adicionar</div>
 							<input type="hidden" id="addMegaName_<?=$res[id]?>" value="<?=$res[modelName]?>-<?=$res[versionName]?>" />
+							<input type="text" id="addMegaPicture_<?=$res[id]?>" value="<?=$res[picture]?>" />
 							<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
 						</div>
 						<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
@@ -158,6 +163,7 @@ include ("./scripts/conectDB.php");
 							<div class="rsFuel"><?=$res[fuel]?></div>
 							<div class="rsSteering"><?=$res[steering]?></div>
 							<div class="rsSegment"><?=$res[segmentName]?></div>
+							<div class="rsPicture"><?=$res[picture]?></div>
 						</a>
 					</li>
 					<? }  ?>
@@ -171,17 +177,32 @@ include ("./scripts/conectDB.php");
 </div>
 <script type="text/javascript">
 	function addMega(id) {
+		// TODO: validar da onde que vem a imagem, se tiver .jpg é do server novo, senao adicionar o _p
 		price = $("#addMegaPrice_"+id).val(),
 		place = $("#addMegaPlace_"+id).val(),
 		dateLimit = $("#addMegaDateLimit_"+id).val(),
-		name = $("#addMegaName_"+id).val();
+		name = $("#addMegaName_"+id).val(),
+		picture = $("#addMegaPicture_"+id).val();
+
 		console.log('api/index.php?type=mega&idFeature='+id+'&price='+price+'&place='+place+'&dateLimit='+dateLimit+'&name='+name);
 		$.getJSON('api/index.php?type=mega&idFeature='+id+'&price='+price+'&place='+place+'&dateLimit='+dateLimit+'&name='+name, function(data) {
 			if(data[0].response == "true"){
 				console.log("item adicionado");
-				$(".ulMO").append('<li class="liMO"><img src="http://carsale.uol.com.br/foto/'+data[0].picture+'_g.jpg?>" /><span>'+data[0].name+'</span><span>'+data[0].price+'</span></li>');
+				$(".ulMO").append('<li class="liMO"><img src="http://carsale.uol.com.br/foto/'+picture+'_p.jpg?>" /><span>'+name+'</span><span>'+price+'</span><div class="removeItem" onclick="removeItemMega(this,"'+id+'")">remover</div></li>');
 			} else {
-				alert(data[0].reason);
+				// alert(data[0].reason);
+				console.log(data[0].reason);
+			}
+		});
+	}
+	function removeItemMega (obj,idFeature){
+		// console.log($(obj).parent());
+		$.getJSON('api/index.php?type=megaRemove&idFeature='+idFeature, function(data) {
+			if(data[0].response == "true"){
+				console.log(data[0].reason);
+				$(obj).parent().remove();
+			} else {
+				// alert(data[0].reason);
 				console.log(data[0].reason);
 			}
 		});
