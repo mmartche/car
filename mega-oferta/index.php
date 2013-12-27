@@ -107,7 +107,13 @@ include ("../scripts/conectDB.php");
 			<div class="megaOfertasCarsaleOferta">
 				<div class="megaOfertasCarsaleTituloOferta"><a href="/classificado/campanha/visualizar/259/explorador"><?=$resN[modelName]."<br />".$res[versionName]?></a></div>
 				<div class="megaOfertasCarsaleImgBgOferta">
-					<div class="megaOfertasCarsaleImgOferta"><a href="/classificado/campanha/visualizar/259/explorador"><img alt="" title="" border="0" src="<?=$resN[picture]?>"></a></div>
+				<?
+				if( strpos($resN[picture], ".") === false) {
+					$tempPicture = "http://carsale.uol.com.br/foto/".$resN[picture]."_p.jpg";
+				} else {
+					$tempPicture = "../carImages/".$resN[picture];
+				} ?>
+					<div class="megaOfertasCarsaleImgOferta"><a href="/classificado/campanha/visualizar/259/explorador"><img alt="" title="" border="0" src="<?=$tempPicture?>"></a></div>
 					<div class="megaOfertasCarsaleValorOferta"><a href="/classificado/campanha/visualizar/259/explorador">R$ <?=$resN[price]?> </a></div>
 				</div>
 				<div class="megaOfertasCarsaleTxtOferta textoBold"><a href="/classificado/campanha/visualizar/259/explorador"><?=$resN[dateLimit]?></a></div>
