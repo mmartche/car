@@ -251,7 +251,7 @@ switch ($_GET[type]) {
 	case 'askModel':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
-		$sql_search = "SELECT id, name, idSegment active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+		$sql_search = "SELECT id, name, idSegment1 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -261,7 +261,7 @@ switch ($_GET[type]) {
 					"label":"'.$resM[name].'",
 					"category": "Modelo",
 					"table":"model",
-					"segmentId":"'.$resM[idSegment].'",
+					"segmentId":"'.$resM[idSegment1].'",
 					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';

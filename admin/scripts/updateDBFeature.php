@@ -44,7 +44,7 @@ switch ($_POST[action]) {
 			mysql_query($sqlUpdate) or die (" error #10");
 		break;
 		case 'model':
-			$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `name` = '".$_POST[modelName]."', `idSegment` = '".$_POST[idSegment]."' ,`description` = '".$_POST[description]."' WHERE `id` = '".$_POST[modelId]."'";
+			$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `name` = '".$_POST[modelName]."', `idSegment1` = '".$_POST[idSegment1]."' ,`description` = '".$_POST[description]."' WHERE `id` = '".$_POST[modelId]."'";
 			mysql_query($sqlUpdate) or die (" error #15");
 		break;
 		case 'version':
@@ -206,7 +206,7 @@ switch ($_POST[action]) {
 			$manufacturerId = $_POST[manufacturerId];
 		}
 		if ($_POST[modelId] == "") {
-			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[idSegment]."','".$_POST[description]."','s') ";
+			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment1`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[idSegment1]."','".$_POST[description]."','s') ";
 			mysql_query($sqlAdd) or die (mysql_error()." error #206");
 			$modelId = mysql_insert_id();
 			echo "<br>mode".$modelId;

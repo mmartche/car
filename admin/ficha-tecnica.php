@@ -156,7 +156,7 @@ include ("./scripts/conectDB.php");
 								</a>
 							</li>
 						<? } 
-						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, segment.name as segmentName, feature.price FROM manufacturer, model, version, feature, segment WHERE model.idSegment = segment.id and feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 100";
+						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, segment.name as segmentName, feature.price FROM manufacturer, model, version, feature, segment WHERE model.idSegment1 = segment.id and feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 100";
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
