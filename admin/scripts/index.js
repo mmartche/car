@@ -197,13 +197,13 @@ $(document).ready(function(){
 				}
 				if (yesOpt == true) {
 					*/
-					l = $("#optionsOptions span").length-2;
+					l = $("#resultOptions span").length;
 					$("#resultOptions").prepend('<span>'+
-							'<input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" />'+
+							'<input type="checkbox" name="chOpt'+l+'" checked="true" value="s" />'+
 							'<input type="hidden" name="txtOpt'+l+'" value="'+optId+'" />'+
 							'<label title="'+textTemp+'">'+name+'</label>'+
 							'</span>');
-					l++;
+					// l++;
 					$("#lengthOptions").val(l);
 				//}
 				$("#txtOptionsId").val("");
@@ -220,13 +220,13 @@ $(document).ready(function(){
 					newId = data[0].insertId;
 				}
 				if (yesOpt == true) {
-					l = $("#optionsOptions span").length-2;
+					l = $("#resultOptions span").length;
 					$("#resultOptions").prepend('<span>'+
-							'<input type="checkbox" name="rdOpt'+l+'" checked="true" value="s" />'+
+							'<input type="checkbox" name="chOpt'+l+'" checked="true" value="s" />'+
 							'<input type="hidden" name="txtOpt'+l+'" value="'+newId+'" />'+
 							'<label title="'+textTemp+'">'+name+'</label>'+
 							'</span>');
-					l++;
+					// l++;
 					$("#lengthOptions").val(l);
 				}
 				$("#txtOptionsId").val("");
@@ -349,9 +349,9 @@ function checkFields() {
 function activeItem (item,table,obj) {
 	$.getJSON('api/index.php?type=activeItem&idItem='+item+'&category='+table, function(data) {
 		if(data[0].response == "true"){
-			if (data[0].responseMsg == "active") {
+			if (data[0].reason == "active") {
 				$(obj).parents("li.resultItem").removeClass("desactive");
-			} else if (data[0].responseMsg == "desactive") {
+			} else if (data[0].reason == "desactive") {
 				$(obj).parents("li.resultItem").addClass("desactive");
 			}
 		} else {
@@ -517,9 +517,9 @@ $.widget( "custom.combobox", {
       			var optTemp;
 	  			$.getJSON('api/index.php?type=askVersion&mainId='+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
-						//console.log(val.label,"====",ui.item.option.value);
+						// console.log(val.label,"====",ui.item.option.value,"_----"+val.idSegment1);
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
-						$("#idSegment").parent().find("input").val(val.segmentName);
+						$("#idSegment1").parent().find("input").val(val.idSegment1);
 					});
 					$("#versionName option").remove();
 					$("#versionName").append(optTemp);
@@ -826,8 +826,11 @@ $(function() {
 	$( "#manufacturerName" ).combobox();
 	$( "#modelName" ).combobox();
 	$( "#versionName" ).combobox();
-	$( "#idSegment" ).combobox();
+	$( "#idSegment1" ).combobox();
+	$( "#idSegment2" ).combobox();
+	$( "#idSegment3" ).combobox();
 	$( "#txtFuel" ).combobox();
+	$( "#txtGear").combobox();
 	$( "#txtOptionsName" ).combobox();
 	$( "#colorAplication" ).combobox();
 	$( "#colorType" ).combobox();

@@ -157,7 +157,7 @@ switch ($_POST[action]) {
 			$sqlDelOpts = "delete from `optionsFeature` WHERE `idFeature` = '".$_POST[featureId]."'";
 			mysql_query($sqlDelOpts) or die (" error #158");
 			$o=0;
-			for ($i=0;$i<$_POST[lengthOptions];$i++){
+			for ($i=0;$i<=$_POST[lengthOptions];$i++){
 				$optIdOption = "txtOpt".$i;
 				$optChoice = "chOpt".$i;
 				if ($_POST[$optChoice] == "s") {
@@ -165,9 +165,11 @@ switch ($_POST[action]) {
 					$valuesOptInput .= "(NULL, '".$_POST[featureId]."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', now(), now(), '')";
 					$o++;
 				}
+				echo $_POST[$optIdOption]."PPPPP".$_POST[$optChoice];
 			}
 			if ($valuesOptInput != ""){
 				$sqlAddOpts = "insert into `optionsFeature` (`id`, `idFeature`, `idOption`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
+				echo $sqlAddOpts;
 				mysql_query($sqlAddOpts) or die (" error #171");
 			}
 
@@ -287,7 +289,7 @@ switch ($_POST[action]) {
 ?>
 <script> 
 alert("Atualizado");
-window.location="../index.php"; 
+// window.location="../index.php"; 
 </script>
 <a href="../index.php">Voltar a Home</a>
 

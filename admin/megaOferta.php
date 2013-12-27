@@ -134,7 +134,7 @@ include ("./scripts/conectDB.php");
 					if ($_POST[filterPrice] != "") { $filterSql .= " AND feature.price like ('%".$_POST[filterPrice]."%') "; }
 					if ($_POST[filterActive] == "n") { $filterSql .= " AND feature.active = 'n' "; } else { $filterSql .= " AND feature.active != 'n' "; }
 
-					$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc limit 400";
+					$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc limit 400";
 					//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 					$query_search = mysql_query($sql_search) or die (mysql_error()." error #180");
 					while ($res = mysql_fetch_array($query_search)) {
@@ -142,14 +142,14 @@ include ("./scripts/conectDB.php");
 					<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
 						<div class="rsItems">
 							<select id="addMegaPlace_<?=$res[id]?>">
-								<option value="carrousel">Destaque (Rotativo/TV)</option>
+								<option value="carousel">Destaque (Rotativo/TV)</option>
 								<option value="normal">Secundárias</option>
 							</select><br />
 							<input type="text" id="addMegaPrice_<?=$res[id]?>" placeholder="Preço" value="" /><br />
 							<input type="text" id="addMegaDateLimit_<?=$res[id]?>" class="addMegaDateLimit" placeholder="Data Limite" value="" /><br />
 							<div class="btnClone btnButton"onclick="addMega(<?=$res[id]?>)" title="Adicionar a lista" alt="Adicioanr a lista">Adicionar</div>
 							<input type="hidden" id="addMegaName_<?=$res[id]?>" value="<?=$res[modelName]?>-<?=$res[versionName]?>" />
-							<input type="text" id="addMegaPicture_<?=$res[id]?>" value="<?=$res[picture]?>" />
+							<input type="hidden" id="addMegaPicture_<?=$res[id]?>" value="<?=$res[picture]?>" />
 							<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
 						</div>
 						<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
@@ -160,10 +160,26 @@ include ("./scripts/conectDB.php");
 							<div class="rsYearProduced"><?=$res[yearProduced]?></div>
 							<div class="rsEngine"><?=$res[engine]?></div>
 							<div class="rsGear"><?=$res[gear]?></div>
-							<div class="rsFuel"><?=$res[fuel]?></div>
+							<div class="rsFuel">
+							<?
+							switch (strtolower($res[fuel])) {
+								case 'g':
+									echo "Gasolina";
+									break;
+								case 'f':
+									echo "Flex";
+									break;
+								case 'e':
+									echo "Ethanol";
+									break;
+								case 'd':
+									echo "Diesel";
+									break;
+							}
+							?>
+							</div>
 							<div class="rsSteering"><?=$res[steering]?></div>
-							<div class="rsSegment"><?=$res[segmentName]?></div>
-							<div class="rsPicture"><?=$res[picture]?></div>
+							<div class="rsPrice">R$ <?=$res[price]?></div>
 						</a>
 					</li>
 					<? }  ?>
@@ -188,7 +204,7 @@ include ("./scripts/conectDB.php");
 		$.getJSON('api/index.php?type=mega&idFeature='+id+'&price='+price+'&place='+place+'&dateLimit='+dateLimit+'&name='+name, function(data) {
 			if(data[0].response == "true"){
 				console.log("item adicionado");
-				$(".ulMO").append('<li class="liMO"><img src="http://carsale.uol.com.br/foto/'+picture+'_p.jpg?>" /><span>'+name+'</span><span>'+price+'</span><div class="removeItem" onclick="removeItemMega(this,"'+id+'")">remover</div></li>');
+				$(".ulMO").append('<li class="liMO"><img src="http://carsale.uol.com.br/foto/'+picture+'_p.jpg" /><span>'+name+'</span><span>'+price+'</span><div class="removeItem" onclick="removeItemMega(this,"'+id+'")">remover</div></li>');
 			} else {
 				// alert(data[0].reason);
 				console.log(data[0].reason);

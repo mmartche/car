@@ -271,7 +271,7 @@ header .btnDelForm {
 	border: 1px solid;
 }
 .resultList {
-	width: 2105px;
+	width: 1840px;
 }
 .resultContent {
 	cursor: pointer;
@@ -292,6 +292,7 @@ header .btnDelForm {
 .resultData>ul>li>a {
 	display: block;
 	overflow: hidden;
+	height: 50px;
 }
 .resultContent:hover {
 	background-color: #d1dae3 !important;
@@ -306,8 +307,8 @@ header .btnDelForm {
 	border-right: 1px dotted;
 	height: 100%;
 	margin: 1px;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	/*text-overflow: ellipsis;
+	white-space: nowrap;*/
 	overflow: hidden;
 	width: 150px;
 	font-size: 17px;
@@ -510,8 +511,8 @@ header .btnDelForm {
     float:left;
     margin-right:1em;
     text-align:center;
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 360px;
+    min-height: 170px;
     background-repeat: no-repeat;
     background-position:50%, 50%;
 }
@@ -573,17 +574,3 @@ input[type="checkbox"] {
 }
 
 
-
-.megaOfertaData {
-	height: 300px;
-	overflow: scroll;
-}
-.rhItems, .rfItems, .rsItems {
-	width: 250px;
-}
-.btnClone {
-	padding: 5px 10px;
-	float: none;
-	margin: auto;
-	height: 30px;
-}

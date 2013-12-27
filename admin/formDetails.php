@@ -49,21 +49,21 @@ if ($_GET[action] == "new") {
 	}
 } elseif ($_GET[action] == "clone") {
 	//$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
-	$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.price, feature.description, feature.active, feature.dateCreate, feature.dateUpdate, segment.id as segmentId,  segment.name as segmentName from feature, manufacturer, model, version, segment where segment.id = model.idSegment and feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
+	$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.price, feature.description, feature.active, feature.dateCreate, feature.dateUpdate, model.idSegment1, model.idSegment2, model.idSegment3 from feature, manufacturer, model, version where  feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
 } else {
 	switch ($_GET[category]) {
 		case 'manufacturer':
 			$sql_search = "SELECT id as manufacturerId, name as manufacturerName, description from manufacturer where id = '".$_GET[vehicle]."'";
 			break;
 		case 'model':
-			$sql_search = "SELECT model.id as modelId, model.name as modelName, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.description, segment.id as segmentId, segment.name as segmentName from model, manufacturer, segment where segment.id = model.idSegment and model.idManufacturer = manufacturer.id and model.id = '".$_GET[vehicle]."'";
+			$sql_search = "SELECT model.id as modelId, model.name as modelName, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.description, model.idSegment1, model.idSegment2, model.idSegment3 from model, manufacturer where model.idManufacturer = manufacturer.id and model.id = '".$_GET[vehicle]."'";
 			break;
 		case 'version':
 			$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, version.description FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id AND version.id = '".$_GET[vehicle]."'";
 			break;
 		case 'feature':
 			//$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
-			$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.active, feature.dateCreate, feature.dateUpdate, feature.description, feature.price, segment.id as segmentId, segment.name as segmentName from feature, manufacturer, model, version, segment where segment.id = model.idSegment and feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
+			$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.active, feature.dateCreate, feature.dateUpdate, feature.description, feature.price, model.idSegment1, model.idSegment2, model.idSegment3 from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
 			break;
 	}
 }
@@ -182,13 +182,13 @@ $res = mysql_fetch_array($query_search);
 			?>
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="checkFields()" enctype="multipart/form-data">
-		<input type="text" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
+		<input type="hidden" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="hidden" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="hidden" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="hidden" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="hidden" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="hidden" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?
@@ -239,17 +239,68 @@ $res = mysql_fetch_array($query_search);
 							} ?>
 						</select>
 					</span><br />
-					<span><label>Segmento:</label>
-						<select  name="idSegment" id="idSegment">
-							<?
-							$sqlSeg = "SELECT id, name from segment order by name";
-						    $querySeg = mysql_query($sqlSeg);
-						    while ($resSeg = mysql_fetch_array($querySeg)) {
-							?>
-							<option value="<?=$resSeg[id]?>" <? if ($res[segmentId] == $resSeg[id]) echo 'selected="selected"'; ?> ><?=$resSeg[name]?></option>
-							<? } ?>
+					<?
+					$flagSeg=0;
+					$optsArray = array();
+					$sqlSeg = "SELECT id, name from segment order by name";
+				    $querySeg = mysql_query($sqlSeg);
+				    while ($resSeg = mysql_fetch_array($querySeg)) {
+						$optsArray[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+						// $optList .= '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+						if ($resSeg[id] == $res[idSegment1]) {
+							$optSeg1=$flagSeg;
+						}
+						if ($resSeg[id] == $res[idSegment2]) {
+							$optSeg2=$flagSeg;
+						}
+						if ($resSeg[id] == $res[idSegment3]) {
+							$optSeg3=$flagSeg;
+						}
+						$flagSeg++;
+					} ?> 
+					<span><label>Segmento 1:</label>
+						<select  name="idSegment1" id="idSegment1">
+						<?
+						// echo $optList;
+						
+						for ($i=0; $i < count($optsArray); $i++) { 
+							if ($i == $optSeg1) {
+								echo str_replace("<option", "<option checked='checked' ",$optsArray[$i]);
+							} else {
+								echo $optsArray[$i];
+							}
+						}
+						
+						?>
 						</select>
 					</span><br />
+					<span><label>Segmento 2:</label>
+						<select  name="idSegment2" id="idSegment2">
+						<?
+						for ($i=0; $i < count($optsArray); $i++) { 
+							if ($i == $optSeg2) {
+								echo str_replace("<option", "<option checked='checked'",$optsArray[$i]);
+							} else {
+								echo $optsArray[$i];
+							}
+						}
+						?>
+						</select>
+					</span><br />
+					<span><label>Segmento 3:</label>
+						<select  name="idSegment3" id="idSegment3">
+						<?
+						for ($i=0; $i < count($optsArray); $i++) { 
+							if ($i == $optSeg3) {
+								echo str_replace("<option", "<option checked='checked'",$optsArray[$i]);
+							} else {
+								echo $optsArray[$i];
+							}
+						}
+						?>
+						</select>
+					</span><br />
+
 					<span><label>Descrição:</label><textarea name="description" id="txtDescription"><?=$res[description]?></textarea></span>
 					<?
 					break;
@@ -342,15 +393,65 @@ $res = mysql_fetch_array($query_search);
 						</select>
 						<!--input type="text" id="versionName" value="<?=$res[versionName]?>" /-->
 					</span><br />
-					<span><label>Segmento:</label>
-						<select  name="idSegment" id="idSegment">
-							<?
-							$sqlSeg = "SELECT id, name from segment order by name";
-						    $querySeg = mysql_query($sqlSeg);
-						    while ($resSeg = mysql_fetch_array($querySeg)) {
-							?>
-							<option value="<?=$resSeg[id]?>" <? if ($res[segmentId] == $resSeg[id]) echo 'selected="selected"'; ?> ><?=$resSeg[name]?></option>
-							<? } ?>
+					<?
+					$flagSeg=0;
+					$optsArray = array();
+					$sqlSeg = "SELECT id, name from segment order by name";
+				    $querySeg = mysql_query($sqlSeg);
+				    while ($resSeg = mysql_fetch_array($querySeg)) {
+						$optsArray[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+						// $optList .= '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+						if ($resSeg[id] == $res[idSegment1]) {
+							$optSeg1=$flagSeg;
+						}
+						if ($resSeg[id] == $res[idSegment2]) {
+							$optSeg2=$flagSeg;
+						}
+						if ($resSeg[id] == $res[idSegment3]) {
+							$optSeg3=$flagSeg;
+						}
+						$flagSeg++;
+					} ?> 
+					<span><label>Segmento 1:</label>
+						<select  name="idSegment1" id="idSegment1">
+						<?
+						// echo $optList;
+						
+						for ($i=0; $i < count($optsArray); $i++) { 
+							if ($i == $optSeg1) {
+								echo str_replace("<option", "<option checked='checked' ",$optsArray[$i]);
+							} else {
+								echo $optsArray[$i];
+							}
+						}
+						
+						?>
+						</select>
+					</span><br />
+					<span><label>Segmento 2:</label>
+						<select  name="idSegment2" id="idSegment2">
+						<?
+						for ($i=0; $i < count($optsArray); $i++) { 
+							if ($i == $optSeg2) {
+								echo str_replace("<option", "<option checked='checked'",$optsArray[$i]);
+							} else {
+								echo $optsArray[$i];
+							}
+						}
+						?>
+						</select>
+					</span><br />
+					<span><label>Segmento 3:</label>
+						<select  name="idSegment3" id="idSegment3">
+						<?
+						for ($i=0; $i < count($optsArray); $i++) { 
+							if ($i == $optSeg3) {
+								echo str_replace("<option", "<option checked='checked'",$optsArray[$i]);
+							} else {
+								echo $optsArray[$i];
+							}
+						}
+						?>
 						</select>
 					</span><br />
 					<span><label>Ano do Modelo:</label><input type="text" name="yearModel" id="txtYearModel" value="<?=$res[yearModel]?>" /></span><br />
@@ -375,7 +476,12 @@ $res = mysql_fetch_array($query_search);
 					<span><label>Consumo (km/l) na cidade:</label><input type="text" name="consumptionCity" id="txtConsumptionCity" value="<?=$res[consumptionCity]?>" /></span><br />
 					<span><label>Consumo (km/l) na estrada:</label><input type="text" name="consumptionRoad" id="txtConsumptionRoad" value="<?=$res[consumptionRoad]?>" /></span><br />
 					<span><label>Direção:</label><input type="text" name="steering" id="txtSteering" value="<?=$res[steering]?>" /></span><br />
-					<span><label>Câmbio:</label><input type="text" name="gear" id="txtGear" value="<?=$res[gear]?>" /></span><br />
+					<span><label>Câmbio:</label>
+						<select  name="gear" id="txtGear">
+							<option>Câmbio</option>
+							<option value="F"><?=$res[gear]?></option>
+						</select><br />
+						<!-- <input type="text" name="gear" id="txtGear" value="<?=$res[gear]?>" /></span><br /> -->
 					<span><label>Tração:</label><input type="text" name="traction" id="txtTraction" value="<?=$res[traction]?>" /></span><br />
 					<span><label>Rodas:</label><input type="text" name="wheels" id="txtWheels" value="<?=$res[wheels]?>" /></span><br />
 					<span><label>Suspensão dianteira:</label><input type="text" name="frontSuspension" id="txtFrontSuspension" value="<?=$res[frontSuspension]?>" /></span><br />
@@ -629,6 +735,7 @@ $res = mysql_fetch_array($query_search);
 						</span>
 						<div id="resultOptions">
 						<?
+						$lengthOptionsTotal = mysql_num_rows($queryOptF)-1;
 						while ($resOptF = mysql_fetch_array($queryOptF)) {
 						?>
 							<span>

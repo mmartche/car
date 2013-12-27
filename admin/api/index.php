@@ -272,7 +272,7 @@ switch ($_GET[type]) {
 	case 'askVersion':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' and model.id = '".$_GET[mainId]."' "; }
-		$sql_v = "SELECT version.id, version.name, model.active from version, model where version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by version.name";
+		$sql_v = "SELECT version.id, version.name, model.active, model.idSegment1, model.idSegment2, model.idSegment3 from version, model where version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by version.name";
 		
 		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
 		$m = 0;
@@ -283,6 +283,9 @@ switch ($_GET[type]) {
 					"label":"'.$resM[name].'",
 					"category": "Versão",
 					"table":"version",
+					"idSegment1":"'.$resM[idSegment1].'",
+					"idSegment2":"'.$resM[idSegment2].'",
+					"idSegment3":"'.$resM[idSegment3].'",
 					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';

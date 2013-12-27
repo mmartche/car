@@ -1,0 +1,61 @@
+.content {
+	width: 970px;
+}
+.carousel {
+	background-image: url('http://carsale.uol.com.br/classificado/img/ofertasBanner.png');
+	width: 970px;
+	height: 327px;
+	overflow: hidden;
+	border-radius: 15px;
+}
+.item {
+	overflow: hidden;
+}
+.carousel-image {
+	margin: auto;
+	padding-top: 100px;
+	width: 350px;
+	height: 167px;
+}
+.carousel-caption {
+	width: 230px;
+	left: 660px;
+	top: 115px;
+	height: auto;
+	color: #531313;
+	font-size: 32px;
+	text-decoration: none;
+	font-weight: bold;
+}
+.carousel-title {
+	left: 60px;
+	top: 135px;
+	color: #585858;
+	font-size: 20px;
+}
+.carousel-opacity {
+	font-size: 14px;
+
+}
+.carousel-version {
+	color: #425182;
+	font-size: 14px;
+}
+.carousel-indicators li {
+	border-color: #000;
+}
+.carousel-indicators .active {
+	background-color: #000;
+}
+/*OFERTAS*/
+.megaOfertasCarsaleImgOferta, .megaOfertasCarsaleTituloOferta{
+	width: 100%;
+	height: auto;
+}
+.megaOfertasCarsaleValorOferta {
+	width: 185px;
+	padding: 18px 0 0 0;
+}
+.megaOfertasCarsaleOferta {
+	margin: 10px 5px;
+}

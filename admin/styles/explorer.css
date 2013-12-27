@@ -45,3 +45,14 @@
 	float: left;
 	width: 250px;
 }
+
+.megaOfertaData {
+	height: 300px;
+	overflow: scroll;
+}
+.btnClone {
+	padding: 5px 10px;
+	float: none;
+	margin: auto;
+	height: 30px;
+}
