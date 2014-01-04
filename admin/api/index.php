@@ -5,8 +5,6 @@ include ("../scripts/conectDB.php");
 
 //$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
 
-
-
 switch ($_GET[type]) {
  	case 'askInput':
 		echo "[";
@@ -253,7 +251,11 @@ switch ($_GET[type]) {
 		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		$sql_search = "SELECT id, name, idSegment1, idSegment2, idSegment3 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+=======
+		$sql_search = "SELECT id, name, idSegment1 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 =======
 		$sql_search = "SELECT id, name, idSegment1 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
 >>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
@@ -271,7 +273,11 @@ switch ($_GET[type]) {
 					"table":"model",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 					"segmentId1":"'.$resM[idSegment1].'",
+=======
+					"segmentId":"'.$resM[idSegment1].'",
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 =======
 					"segmentId":"'.$resM[idSegment1].'",
 >>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e

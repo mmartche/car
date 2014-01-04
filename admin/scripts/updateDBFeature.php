@@ -46,6 +46,7 @@ switch ($_POST[action]) {
 		case 'model':
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if ($_POST[modelId] == "") {
 				$sqlUpdate = "INSERT INTO `model` ('idManufacturer', 'modelName', 'idSegment1', 'idSegment2', 'idSegment3', 'description') VALUES ('".$_POST[idManufacturer]."','".$_POST[modelName]."','".$_POST[txtidSegment1]."','".$_POST[txtidSegment2]."','".$_POST[txtidSegment3]."','".$_POST[description]."')";
 			} else {
@@ -54,6 +55,8 @@ switch ($_POST[action]) {
 			echo $sqlUpdate;
 			mysql_query($sqlUpdate) or die (" error #55");
 =======
+=======
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 =======
 >>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 			$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `name` = '".$_POST[modelName]."', `idSegment1` = '".$_POST[idSegment1]."' ,`description` = '".$_POST[description]."' WHERE `id` = '".$_POST[modelId]."'";
@@ -222,7 +225,11 @@ switch ($_POST[action]) {
 		if ($_POST[modelId] == "") {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment1`, `idSegment2`, `idSegment3`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[txtidSegment1]."','".$_POST[txtidSegment2]."','".$_POST[txtidSegment3]."','".$_POST[description]."','s') ";
+=======
+			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment1`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[idSegment1]."','".$_POST[description]."','s') ";
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 =======
 			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment1`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[idSegment1]."','".$_POST[description]."','s') ";
 >>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e

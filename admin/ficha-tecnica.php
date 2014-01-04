@@ -158,7 +158,11 @@ include ("./scripts/conectDB.php");
 						<? } 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName as segmentName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%'))";
+=======
+						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, segment.name as segmentName, feature.price FROM manufacturer, model, version, feature, segment WHERE model.idSegment1 = segment.id and feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 100";
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 =======
 						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, segment.name as segmentName, feature.price FROM manufacturer, model, version, feature, segment WHERE model.idSegment1 = segment.id and feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%')) limit 100";
 >>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
