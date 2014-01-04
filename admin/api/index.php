@@ -10,7 +10,7 @@ include ("../scripts/conectDB.php");
 switch ($_GET[type]) {
  	case 'askInput':
 		echo "[";
-		$sql_s_manuf = "select id, name, active from manufacturer where name like ('%".$_GET[term]."%') limit 100";
+		$sql_s_manuf = "select id, name, active from manufacturer where name like ('%".$_GET[term]."%')";
 		$query_s_manuf = mysql_query($sql_s_manuf);
 		// or die ($sql_s_manuf." error #15");
 		$m = 0;
@@ -26,7 +26,7 @@ switch ($_GET[type]) {
 				}';
 			$m++;
 		}
-		$sql_search = "select id, name, active from model where name like ('%".$_GET[term]."%') limit 100";
+		$sql_search = "select id, name, active from model where name like ('%".$_GET[term]."%')";
 		$query_search = mysql_query($sql_search);
 		// or die (" error #30");
 		$l = 0;
@@ -42,7 +42,7 @@ switch ($_GET[type]) {
 				}';
 			$l++;
 		}
-		$sql_v = "select id, name, active from version where name like ('%".$_GET[term]."%') limit 100";
+		$sql_v = "select id, name, active from version where name like ('%".$_GET[term]."%')";
 		$query_v = mysql_query($sql_v);
 		// or die (mysql_error()." error #40");
 		$v = 0;
@@ -63,7 +63,7 @@ switch ($_GET[type]) {
 
 	case 'terms':
 		//echo $sql_search;
-		if ($_GET[table] != "") { $filterSearch = "AND ".$_GET[table].".id = '".$_GET[idField]."' limit 100"; }
+		if ($_GET[table] != "") { $filterSearch = "AND ".$_GET[table].".id = '".$_GET[idField]."'"; }
 		elseif ($_GET[term] != "") { 
 		//search all about the term
 		}
@@ -251,7 +251,15 @@ switch ($_GET[type]) {
 	case 'askModel':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
-		$sql_search = "SELECT id, name, idSegment active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+<<<<<<< HEAD
+<<<<<<< HEAD
+		$sql_search = "SELECT id, name, idSegment1, idSegment2, idSegment3 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+=======
+		$sql_search = "SELECT id, name, idSegment1 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
+=======
+		$sql_search = "SELECT id, name, idSegment1 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -261,7 +269,15 @@ switch ($_GET[type]) {
 					"label":"'.$resM[name].'",
 					"category": "Modelo",
 					"table":"model",
-					"segmentId":"'.$resM[idSegment].'",
+<<<<<<< HEAD
+<<<<<<< HEAD
+					"segmentId1":"'.$resM[idSegment1].'",
+=======
+					"segmentId":"'.$resM[idSegment1].'",
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
+=======
+					"segmentId":"'.$resM[idSegment1].'",
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';
@@ -277,6 +293,18 @@ switch ($_GET[type]) {
 		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
+			if ($nameSeg == "") {
+				$sSeg1 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment1]."'";
+				$qSeg1 = mysql_query($sSeg1);
+				$rSeg1 = mysql_fetch_array($qSeg1);
+				$sSeg2 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment2]."'";
+				$qSeg2 = mysql_query($sSeg2);
+				$rSeg2 = mysql_fetch_array($qSeg2);
+				$sSeg3 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment3]."'";
+				$qSeg3 = mysql_query($sSeg3);
+				$rSeg3 = mysql_fetch_array($qSeg3);
+				$nameSeg = "ok";
+			}
 			if ($m > 0) { echo ","; }
 			echo '{
 					"id":"'.$resM[id].'",
@@ -284,8 +312,11 @@ switch ($_GET[type]) {
 					"category": "Versão",
 					"table":"version",
 					"idSegment1":"'.$resM[idSegment1].'",
+					"segmentName1":"'.$rSeg1[name].'",
 					"idSegment2":"'.$resM[idSegment2].'",
+					"segmentName2":"'.$rSeg2[name].'",
 					"idSegment3":"'.$resM[idSegment3].'",
+					"segmentName3":"'.$rSeg3[name].'",
 					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';
@@ -386,10 +417,7 @@ switch ($_GET[type]) {
 			echo '[{"response":"false", "reason":"Incomplete Info"}]';
 		}
 		break;
-
 }
-
-$sql_full = "select manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, version.description as versionDescription, version.idSegment1, feature.id as id, feature.idManufacturer as manufacturerId, feature.idModel modelId, feature.idVersion versionId, feature.yearProduced, feature.yearModel, feature.doors, feature.passagers, feature.motor, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLenght, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.active, feature.dateCreate, feature.dateUpdate from feature, manufacturer, model, version where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
 
 
 

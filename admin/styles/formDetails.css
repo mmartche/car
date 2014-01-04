@@ -22,6 +22,7 @@ footer {
 	border: 1px dotted;
 	padding:10px;
 	margin-right: 50px;
+	width: 750px;
 }
 .dataColLeft span {
 	display: block;
@@ -97,4 +98,24 @@ footer {
 }
 .border {
 	border: 1px solid;
+}
+.updateOpt {
+	display: block;
+}
+#resultOptions span {
+	position: relative;
+}
+.removeOpt {
+	width: 20px;
+	height: 20px;
+	border: 1px dotted;
+	text-align: center;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: none;
+}
+.optionsFields span:hover .removeOpt {
+	display: inline;
 }

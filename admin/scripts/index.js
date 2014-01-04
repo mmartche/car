@@ -6,6 +6,11 @@ function submitForm(){
 	fixFields();
 }
 $(document).ready(function(){
+	$('input[type=text]').on('keyup', function(e) {
+	    if (e.which == 13) {
+	        e.preventDefault();
+	    }
+	});
 	
 	$("#txtPicture").change(function(e){
         if(typeof FileReader == "undefined") return true;
@@ -83,27 +88,26 @@ $(document).ready(function(){
 		cIId = $("#colorId").val(),
 		cName = $("#colorName").val(),
 		cColor = $("#colorSelected").val(),
-		cApp = $("#colorAplication").val(),
+		// cApp = $("#colorAplication").val(),
 		cType = $("#colorType").val(),
 		cPrice = $("#colorPrice").val();
 		cLength = $("#optionsColor span").length-1;
 		//console.log('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice);
 		if (cColor.length == "6") {
-			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
+			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
 				//console.log(data[0].response,data[0].insertId);
 				if(data[0].response == "true"){
 					//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
 					
 					if (cIId.length == 0) {
-					$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+' - '+cApp+'<br />R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputApp" name="colorInputApp'+cLength+'" value="'+cApp+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+					$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
 						$("#colorLength").val(cLength+1);
 					} else {
 						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputName").val(cName);
 						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputColor").val(cColor);
-						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputApp").val(cApp);
 						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputType").val(cType);
 						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputPrice").val(cPrice);
-						$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+' - '+cApp+ '\n R$ '+cPrice);
+						$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+' \n R$ '+cPrice);
 						$("#optionsColor").find("span[colorId="+cIId+"] #colorSelector div").css("backgroundColor", "#"+cColor);
 						$("#optionsColor span").show();
 					}
@@ -177,68 +181,87 @@ $(document).ready(function(){
 		price = $("#txtOptionsPrice").val();
 		manufacturerId = $("#manufacturerId").val();
 		text = textTemp.split(";");
-		yesOpt=false;
-		console.log(optId,codOpt ,textTemp,name ,price,manufacturerId,text,yesOpt);
+		numCheck = $("#txtOptNumCheck").val();
+		// console.log("!",optId,"@",codOpt,"#" ,textTemp,"(",name ,"-",price,"+",manufacturerId,"=",text,"/",numCheck);
 		//add db
 		if (optId != "") {
-			console.log('asdsda&field=name&text='+name);
-			/*$.getJSON('api/index.php?type=checkSearch&idItem='+optId+'&table=optionsManufacturer&field=name&text='+name, function(data) {
-				if (data[0].response == "true"){
-					yesOpt = true;
-					newId = optId;
-				} else {
-					console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price);
-					$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
-						if(data[0].response == "true"){
-							yesOpt=true;
-							newId = data[0].insertId;
-						}
-					});
-				}
-				if (yesOpt == true) {
-					*/
-					l = $("#resultOptions span").length;
-					$("#resultOptions").prepend('<span>'+
-							'<input type="checkbox" name="chOpt'+l+'" checked="true" value="s" />'+
-							'<input type="hidden" name="txtOpt'+l+'" value="'+optId+'" />'+
-							'<label title="'+textTemp+'">'+name+'</label>'+
-							'</span>');
-					// l++;
-					$("#lengthOptions").val(l);
-				//}
-				$("#txtOptionsId").val("");
-				$("#txtOptionsCode").val("");
-				$("#textAreaOptionsAdd").val("");
-				$("#txtOptionsName").val("");
-				$("#txtOptionsPrice").val("");
-			//});
+			// console.log('asdsda&field=name&text='+name);
+			// // $.getJSON('api/index.php?type=updateOption&idItem='+optId+'&value='+price, function(data) {
+			// // 	if (data[0].response == "true"){
+			// // 		console.log(data[0].reason);
+			// // 	} else {
+			// // 		console.log(data[0].reason);
+			// // 	}
+			// // });
+			if (numCheck != "") {
+				//find inputs
+				optItem = "#optItem"+numCheck;
+
+				$(optItem+" #optIdOpt").val(optId);
+				$(optItem+" #optPrice").val(price);
+				$(optItem+" #optCode").val(codOpt);
+				$(optItem+" #lblOptions").attr("title",textTemp);
+				$(optItem+" #lblOptions").text(name);
+				$(optItem).removeClass("hide");
+				// $(optItem+" #lblOptions").text(name);
+				// console.log($(optItem+" #optIdOpt"));
+			} else {
+				l = $("#resultOptions span").length;
+
+				$("#resultOptions").prepend('<span id="optItem'+l+'">'+
+				'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')">'+
+					'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
+					'<input type="text" id="txtOptIdFeature" value="" />'+
+					'<input type="text" id="optIdOpt" name="txtOpt'+l+'" value="'+optId+'" />'+
+					'<input type="text" id="optPrice" name="txtOptPrice'+l+'" value="'+price+'" />'+
+					'<input type="text" id="optCode" value="'+codOpt+'" />'+
+					'<label id="lblOptions" title="'+textTemp+'">'+name+'</label>'+
+				'</div>'+
+				'<label for="chOpt'+l+'" class="removeOpt" onclick="removeOpt(this,'+l+')">X</label>'+
+			'</span>');
+						// '<input type="checkbox" name="chOpt'+l+'" checked="true" value="s" />'+
+						// '<input type="hidden" name="txtOpt'+l+'" value="'+optId+'" />'+
+						// '<label title="'+textTemp+'">'+name+'</label>'+
+				// l++;
+				$("#lengthOptions").val(l);
+			}
+			$("#txtOptionsId").val("");
+			$("#txtOptionsCode").val("");
+			$("#textAreaOptionsAdd").val("");
+			$("#textAreaOptionsAdd").text("");
+			$("#txtOptionsName").val("");
+			$("#txtOptionsPrice").val("");
+			$("#txtOptNumCheck").val("");
 		} else {
 			console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price);
 			$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
 				if(data[0].response == "true"){
-					yesOpt=true;
 					newId = data[0].insertId;
-				}
-				if (yesOpt == true) {
 					l = $("#resultOptions span").length;
-					$("#resultOptions").prepend('<span>'+
-							'<input type="checkbox" name="chOpt'+l+'" checked="true" value="s" />'+
-							'<input type="hidden" name="txtOpt'+l+'" value="'+newId+'" />'+
-							'<label title="'+textTemp+'">'+name+'</label>'+
-							'</span>');
+					$("#resultOptions").prepend('<span id="optItem'+l+'">'+
+						'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')">'+
+							'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
+							'<input type="text" id="txtOptIdFeature" value="" />'+
+							'<input type="text" id="optIdOpt" name="txtOpt'+l+'" value="'+newId+'" />'+
+							'<input type="text" id="optPrice" name="txtOptPrice'+l+'" value="'+price+'" />'+
+							'<input type="text" id="optCode" value="'+codOpt+'" />'+
+							'<label id="lblOptions" title="'+textTemp+'">'+name+'</label>'+
+						'</div>'+
+						'<label for="chOpt'+l+'" class="removeOpt" onclick="removeOpt(this,'+l+')">X</label>'+
+					'</span>');
 					// l++;
 					$("#lengthOptions").val(l);
 				}
 				$("#txtOptionsId").val("");
 				$("#txtOptionsCode").val("");
 				$("#textAreaOptionsAdd").val("");
+				$("#textAreaOptionsAdd").text("");
 				$("#txtOptionsName").val("");
 				$("#txtOptionsPrice").val("");
+				$("#txtOptNumCheck").val("");
 			});
 		}
-		
 		//add form
-
 
 
 		//captura opcao global
@@ -295,6 +318,30 @@ function fixFields(){
 	//fix all inputs // counters // flags before submit
 	return true;
 }
+function updateOpt(obj,numCheck) {
+	optIdOpt = $(obj).children("#optIdOpt").val(),
+	code = $(obj).children("#optCode").val(),
+	price = $(obj).children("#optPrice").val(),
+	nameOpt = $(obj).children("#lblOptions").text(),
+	optValue = $(obj).children("#lblOptions").attr("title"),
+	optIdFeature = $(obj).children("#txtOptIdFeature").val();
+	$("#txtOptionsCode").val(code);
+	$("#txtOptionsPrice").val(price);
+	$("#textAreaOptionsAdd").text(optValue);
+	$("#textAreaOptionsAdd").val(optValue);
+	$("#txtOptNumCheck").val(numCheck);
+	$("#txtOptionsName").val(optIdOpt);
+	$("#txtOptionsName").parent().find("input[name=txtOptionsName]").val(nameOpt);
+	$("#txtOptionsPrice").attr("disabled",false);
+	// $("#textAreaOptionsAdd").attr("disabled",false);
+	// $("#txtOptionsCode").attr("disabled",false);
+	$("#txtOptionsId").val(optIdOpt);
+	$("#txtOptionsPrice").focus();
+
+}
+function removeOpt (obj,numCheck){
+	$(obj).parent("span").toggleClass("hide");
+}
 function updateColor(obj,idColor,table) {
 	cIId = $(obj).children("#colorInputId").val();
 	cIName = $(obj).children("#colorInputName").val();
@@ -342,9 +389,16 @@ function filterFields(fieldName,obj){
 		}
 	}	
 }
-function checkFields() {
+function checkFields(e) {
 	//valida o que vai ser
-	return false;
+	console.log(e.which,e.keyCode);
+	if (e.keyCode == 13) {
+        // var tb = document.getElementById("scriptBox");
+        // eval(tb.value);
+        alert("A");
+        return false;
+    }
+	// return false;
 }
 function activeItem (item,table,obj) {
 	$.getJSON('api/index.php?type=activeItem&idItem='+item+'&category='+table, function(data) {
@@ -373,8 +427,13 @@ function checkSearch(id,text,field,table) {
 		}
 	});
 }
+function updateInput(value,target) {
+	$("input[name=txt"+target+"]").val(value);
+}
 //onKeyPress="return(formata_valor(this,'.',',',8,2,event))";
 function format_price(fld, milSep, decSep, qtint, qtdec, e){
+	//desativando a funcao
+	return true;
 	// fld = campo receptor da digita
 	// milsep = caracter para separar de milhar: "." ou ","
 	// decsep = caracter para separar decimal: "," ou "."
@@ -520,6 +579,11 @@ $.widget( "custom.combobox", {
 						// console.log(val.label,"====",ui.item.option.value,"_----"+val.idSegment1);
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
 						$("#idSegment1").parent().find("input").val(val.idSegment1);
+						$("input[name=idSegment1]").val(val.segmentName1);
+						$("#idSegment2").parent().find("input").val(val.idSegment2);
+						$("input[name=idSegment2]").val(val.segmentName2);
+						$("#idSegment3").parent().find("input").val(val.idSegment3);
+						$("input[name=idSegment3]").val(val.segmentName3);
 					});
 					$("#versionName option").remove();
 					$("#versionName").append(optTemp);
@@ -540,11 +604,21 @@ $.widget( "custom.combobox", {
 						$("#txtOptionsCode").attr("disabled",true);
 						$("#txtOptionsPrice").val(val.price);
 						$("#txtOptionsPrice").attr("disabled",false);
+						$("#textAreaOptionsAdd").val(val.optValue);
 						$("#textAreaOptionsAdd").text(val.optValue);
 						$("#textAreaOptionsAdd").attr("disabled",true);
 					});
 				});
 				$("#txtOptionsId").val(ui.item.option.value);
+	    		break;
+	    	case "idSegment1":
+	    		updateInput(ui.item.option.value,'idSegment1');
+	    		break;
+	    	case "idSegment2":
+	    		updateInput(ui.item.option.value,'idSegment2');
+	    		break;
+	    	case "idSegment3":
+	    		updateInput(ui.item.option.value,'idSegment3');
 	    		break;
       	}
       },
@@ -627,7 +701,7 @@ $.widget( "custom.combobox", {
     if ( valid ) {
       return;
     }
-    	console.log($(this.input),this.input[0].name);
+    	// console.log($(this.input),this.input[0].name);
 
 
 	switch (this.input[0].name) {
@@ -652,6 +726,17 @@ $.widget( "custom.combobox", {
 			$("#txtOptionsCode").val("");
 			$("#txtOptionsPrice").attr("disabled",false);
 			$("#txtOptionsPrice").val("");
+			$("#txtOptionsCode").focus();
+			break;
+		case "idSegment1":
+			//add no bd
+			updateInput('','idSegment1');
+			break;
+		case "idSegment2":
+			updateInput('','idSegment2');
+			break;
+		case "idSegment3":
+			updateInput('','idSegment3');
 			break;
     }
     /*
@@ -817,6 +902,7 @@ $(function() {
 			},
 			focus: function( event, ui ) {
 				$("#textAreaOptionsAdd").val(ui.item.optValue);
+				$("#textAreaOptionsAdd").text(ui.item.optValue);
 				$("#txtOptionsId").val(ui.item.id);
 				$("#txtOptionsPrice").val(ui.item.price);
 				$("#txtOptionsCode").val(ui.item.code);
@@ -830,7 +916,7 @@ $(function() {
 	$( "#idSegment2" ).combobox();
 	$( "#idSegment3" ).combobox();
 	$( "#txtFuel" ).combobox();
-	$( "#txtGear").combobox();
+	// $( "#txtGear").combobox();
 	$( "#txtOptionsName" ).combobox();
 	$( "#colorAplication" ).combobox();
 	$( "#colorType" ).combobox();

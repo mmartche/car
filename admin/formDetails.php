@@ -85,7 +85,7 @@ $res = mysql_fetch_array($query_search);
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
-					<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
+					<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
 					<a href='?category=model&action=new&vehicle=<?=$res[manufacturerId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>
 					<!--input type="button" value="Atualizar" class="btnSave btnButton" /-->
 					<?
@@ -100,7 +100,7 @@ $res = mysql_fetch_array($query_search);
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
-						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
+						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
 						<a href='?category=version&action=new&vehicle=<?=$res[modelId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-->
 					<?
@@ -115,7 +115,7 @@ $res = mysql_fetch_array($query_search);
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
-						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
+						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
 						<a href='?category=feature&action=new&vehicle=<?=$res[versionId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-->	
 					<?
@@ -131,7 +131,7 @@ $res = mysql_fetch_array($query_search);
 					<?
 				} elseif ($_GET[action] == "update") {
 					?>
-						<a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a>
+						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
 						<a href='?category=feature&action=clone&vehicle=<?=$res[featureId]?>' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-\-->
 					<?
@@ -181,14 +181,14 @@ $res = mysql_fetch_array($query_search);
 			}
 			?>
 		</ol>
-		<form action="scripts/updateDBFeature.php" method="post" onsubmit="checkFields()" enctype="multipart/form-data">
-		<input type="hidden" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
+		<form action="scripts/updateDBFeature.php" method="post" onsubmit="return checkFields(this)" enctype="multipart/form-data">
+		<input type="text" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="hidden" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="hidden" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="hidden" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="hidden" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="hidden" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?
@@ -241,61 +241,70 @@ $res = mysql_fetch_array($query_search);
 					</span><br />
 					<?
 					$flagSeg=0;
-					$optsArray = array();
+
+					$optsArray1 = array();$optsArray2 = array();$optsArray3 = array();
+					$optsArray1[] = $optsArray2[] = $optsArray3[] = '<option>Segmento</option>';
 					$sqlSeg = "SELECT id, name from segment order by name";
 				    $querySeg = mysql_query($sqlSeg);
 				    while ($resSeg = mysql_fetch_array($querySeg)) {
-						$optsArray[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+						// $optsArray1[] = '<option value="'.$resSeg[id].'" >'.$resSeg[id].'</option>';
 						// $optList .= '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
 						if ($resSeg[id] == $res[idSegment1]) {
+							$optsArray1[] = '<option selected="selected" value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+							$optsArray2[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+							$optsArray3[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
 							$optSeg1=$flagSeg;
-						}
-						if ($resSeg[id] == $res[idSegment2]) {
+						} elseif ($resSeg[id] == $res[idSegment2]) {
+							$optsArray1[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+							$optsArray2[] = '<option selected="selected" value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+							$optsArray3[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
 							$optSeg2=$flagSeg;
-						}
-						if ($resSeg[id] == $res[idSegment3]) {
+						} elseif ($resSeg[id] == $res[idSegment3]) {
+							$optsArray1[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+							$optsArray2[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+							$optsArray3[] = '<option selected="selected" value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
 							$optSeg3=$flagSeg;
+						} else {
+							$optsArray1[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+							$optsArray2[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
+							$optsArray3[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
 						}
 						$flagSeg++;
-					} ?> 
+					}
+					 ?> 
 					<span><label>Segmento 1:</label>
-						<select  name="idSegment1" id="idSegment1">
+						<input type="hidden" name="txtidSegment1" value="<?=$res[idSegment1]?>">
+						<select id="idSegment1">
 						<?
 						// echo $optList;
 						
-						for ($i=0; $i < count($optsArray); $i++) { 
-							if ($i == $optSeg1) {
-								echo str_replace("<option", "<option checked='checked' ",$optsArray[$i]);
-							} else {
-								echo $optsArray[$i];
-							}
+						for ($i=0; $i < count($optsArray1); $i++) { 
+							// if ($i == $optSeg1) {
+							// 	echo str_replace("<option", "<option checked='checked' ",$optsArray1[$i]);
+							// } else {
+							// }
+								echo $optsArray1[$i];
 						}
 						
 						?>
 						</select>
 					</span><br />
 					<span><label>Segmento 2:</label>
-						<select  name="idSegment2" id="idSegment2">
+						<input type="hidden" name="txtidSegment2" value="<?=$res[idSegment2]?>">
+						<select id="idSegment2">
 						<?
-						for ($i=0; $i < count($optsArray); $i++) { 
-							if ($i == $optSeg2) {
-								echo str_replace("<option", "<option checked='checked'",$optsArray[$i]);
-							} else {
-								echo $optsArray[$i];
-							}
+						for ($i=0; $i < count($optsArray2); $i++) { 
+							echo $optsArray2[$i];
 						}
 						?>
 						</select>
 					</span><br />
 					<span><label>Segmento 3:</label>
-						<select  name="idSegment3" id="idSegment3">
+						<input type="hidden" name="txtidSegment3" value="<?=$res[idSegment3]?>">
+						<select  id="idSegment3">
 						<?
-						for ($i=0; $i < count($optsArray); $i++) { 
-							if ($i == $optSeg3) {
-								echo str_replace("<option", "<option checked='checked'",$optsArray[$i]);
-							} else {
-								echo $optsArray[$i];
-							}
+						for ($i=0; $i < count($optsArray3); $i++) { 
+							echo $optsArray3[$i];
 						}
 						?>
 						</select>
@@ -398,6 +407,7 @@ $res = mysql_fetch_array($query_search);
 					$optsArray = array();
 					$sqlSeg = "SELECT id, name from segment order by name";
 				    $querySeg = mysql_query($sqlSeg);
+				    $optsArray[] = '<option>Segmento</option>';
 				    while ($resSeg = mysql_fetch_array($querySeg)) {
 						$optsArray[] = '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
 						// $optList .= '<option value="'.$resSeg[id].'" >'.$resSeg[name].'</option>';
@@ -413,13 +423,14 @@ $res = mysql_fetch_array($query_search);
 						$flagSeg++;
 					} ?> 
 					<span><label>Segmento 1:</label>
-						<select  name="idSegment1" id="idSegment1">
+						<input type="hidden" name="txtidSegment1" value="<?=$res[idSegment1]?>">
+						<select  id="idSegment1" disabled="disabled">
 						<?
 						// echo $optList;
 						
 						for ($i=0; $i < count($optsArray); $i++) { 
 							if ($i == $optSeg1) {
-								echo str_replace("<option", "<option checked='checked' ",$optsArray[$i]);
+								echo str_replace("<option", "<option selected='selected' ",$optsArray[$i]);
 							} else {
 								echo $optsArray[$i];
 							}
@@ -429,11 +440,12 @@ $res = mysql_fetch_array($query_search);
 						</select>
 					</span><br />
 					<span><label>Segmento 2:</label>
-						<select  name="idSegment2" id="idSegment2">
+						<input type="hidden" name="txtidSegment2" value="<?=$res[idSegment2]?>">
+						<select  id="idSegment2" disabled="disabled">
 						<?
 						for ($i=0; $i < count($optsArray); $i++) { 
 							if ($i == $optSeg2) {
-								echo str_replace("<option", "<option checked='checked'",$optsArray[$i]);
+								echo str_replace("<option", "<option selected='selected'",$optsArray[$i]);
 							} else {
 								echo $optsArray[$i];
 							}
@@ -442,11 +454,12 @@ $res = mysql_fetch_array($query_search);
 						</select>
 					</span><br />
 					<span><label>Segmento 3:</label>
-						<select  name="idSegment3" id="idSegment3">
+						<input type="hidden" name="txtidSegment3" value="<?=$res[idSegment3]?>">
+						<select  id="idSegment3" disabled="disabled">
 						<?
 						for ($i=0; $i < count($optsArray); $i++) { 
 							if ($i == $optSeg3) {
-								echo str_replace("<option", "<option checked='checked'",$optsArray[$i]);
+								echo str_replace("<option", "<option selected='selected'",$optsArray[$i]);
 							} else {
 								echo $optsArray[$i];
 							}
@@ -477,11 +490,11 @@ $res = mysql_fetch_array($query_search);
 					<span><label>Consumo (km/l) na estrada:</label><input type="text" name="consumptionRoad" id="txtConsumptionRoad" value="<?=$res[consumptionRoad]?>" /></span><br />
 					<span><label>Direção:</label><input type="text" name="steering" id="txtSteering" value="<?=$res[steering]?>" /></span><br />
 					<span><label>Câmbio:</label>
-						<select  name="gear" id="txtGear">
+					<!-- <select  name="gear" id="txtGear">
 							<option>Câmbio</option>
 							<option value="F"><?=$res[gear]?></option>
-						</select><br />
-						<!-- <input type="text" name="gear" id="txtGear" value="<?=$res[gear]?>" /></span><br /> -->
+						</select><br /> -->
+						<input type="text" name="gear" id="txtGear" value="<?=$res[gear]?>" /></span><br />
 					<span><label>Tração:</label><input type="text" name="traction" id="txtTraction" value="<?=$res[traction]?>" /></span><br />
 					<span><label>Rodas:</label><input type="text" name="wheels" id="txtWheels" value="<?=$res[wheels]?>" /></span><br />
 					<span><label>Suspensão dianteira:</label><input type="text" name="frontSuspension" id="txtFrontSuspension" value="<?=$res[frontSuspension]?>" /></span><br />
@@ -554,115 +567,149 @@ $res = mysql_fetch_array($query_search);
 					<label class="subTitle">ACESSÓRIOS</label>
 					<div class="optionsFeatures optionsFields">
 						<span>
-							<input type="checkbox" name="dualFrontAirBag" value="s" <? if (strtolower($res[dualFrontAirBag]) == "s") { echo 'checked="true"'; } ?> />
-							Airbag duplo frontal
+							<input type="checkbox" id="dualFrontAirBag" name="dualFrontAirBag" value="s" <? if (strtolower($res[dualFrontAirBag]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="dualFrontAirBag">Airbag duplo frontal</label>
 						</span>
 						<span>
-							<input type="checkbox" name="alarm" value="s" <? if (strtolower($res[alarm]) == "s") { echo 'checked="true"'; } ?> />
-							Alarme
+							<input type="checkbox" id="alarm" name="alarm" value="s" <? if (strtolower($res[alarm]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="alarm">Alarme</label>
 						</span>
 						<span>
-							<input type="checkbox" name="airConditioning" value="s" <? if (strtolower($res[airConditioning]) == "s") { echo 'checked="true"'; } ?> />
-							Ar condicionado</span>
+							<input type="checkbox" id="airConditioning" name="airConditioning" value="s" <? if (strtolower($res[airConditioning]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="airConditioning">Ar condicionado</label>
+						</span>
 						<span>
-							<input type="checkbox" name="hotAir" value="s" <? if (strtolower($res[hotAir]) == "s") { echo 'checked="true"'; } ?> />
-							Ar quente</span>
+							<input type="checkbox" id="hotAir" name="hotAir" value="s" <? if (strtolower($res[hotAir]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="hotAir">Ar quente</label>
+						</span>
 						<span>
-							<input type="checkbox" name="leatherSeat" value="s" <? if (strtolower($res[leatherSeat]) == "s") { echo 'checked="true"'; } ?> />
-							Banco de couro</span>
+							<input type="checkbox" id="leatherSeat" name="leatherSeat" value="s" <? if (strtolower($res[leatherSeat]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="leatherSeat">Banco de couro</label>
+						</span>
 						<span>
-							<input type="checkbox" name="heightAdjustment" value="s" <? if (strtolower($res[heightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
-							Banco do motorista com regulagem de altura</span>
+							<input type="checkbox" id="heightAdjustment" name="heightAdjustment" value="s" <? if (strtolower($res[heightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="heightAdjustment">Banco do motorista com regulagem de altura</label>
+						</span>
 						<span>
-							<input type="checkbox" name="rearSeatSplit" value="s" <? if (strtolower($res[rearSeatSplit]) == "s") { echo 'checked="true"'; } ?> />
-							Banco traseiro bipartido</span>
+							<input type="checkbox" id="rearSeatSplit" name="rearSeatSplit" value="s" <? if (strtolower($res[rearSeatSplit]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="rearSeatSplit">Banco traseiro bipartido</label>
+						</span>
 						<span>
-							<input type="checkbox" name="bluetoothSpeakerphone" value="s" <? if (strtolower($res[bluetoothSpeakerphone]) == "s") { echo 'checked="true"'; } ?> />
-							Bluetooth com viva-voz</span>
+							<input type="checkbox" id="bluetoothSpeakerphone" name="bluetoothSpeakerphone" value="s" <? if (strtolower($res[bluetoothSpeakerphone]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="bluetoothSpeakerphone">Bluetooth com viva-voz</label>
+						</span>
 						<span>
-							<input type="checkbox" name="bonnetSea" value="s" <? if (strtolower($res[bonnetSea]) == "s") { echo 'checked="true"'; } ?> />
-							Capota marítima</span>
+							<input type="checkbox" id="bonnetSea" name="bonnetSea" value="s" <? if (strtolower($res[bonnetSea]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="bonnetSea">Capota marítima</label>
+						</span>
 						<span>
-							<input type="checkbox" name="onboardComputer" value="s" <? if (strtolower($res[onboardComputer]) == "s") { echo 'checked="true"'; } ?> />
-							Computador de bordo</span>
+							<input type="checkbox" id="onboardComputer" name="onboardComputer" value="s" <? if (strtolower($res[onboardComputer]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="onboardComputer">Computador de bordo</label>
+						</span>
 						<span>
-							<input type="checkbox" name="accelerationCounter" value="s" <? if (strtolower($res[accelerationCounter]) == "s") { echo 'checked="true"'; } ?> />
-							Conta giros</span>
+							<input type="checkbox" id="accelerationCounter" name="accelerationCounter" value="s" <? if (strtolower($res[accelerationCounter]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="accelerationCounter">Conta giros</label>
+						</span>
 						<span>
-							<input type="checkbox" name="rearWindowDefroster" value="s" <? if (strtolower($res[rearWindowDefroster]) == "s") { echo 'checked="true"'; } ?> />
-							Desembaçador de vidro traseiro</span>
+							<input type="checkbox" id="rearWindowDefroster" name="rearWindowDefroster" value="s" <? if (strtolower($res[rearWindowDefroster]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="rearWindowDefroster">Desembaçador de vidro traseiro</label>
+						</span>
 						<span>
-							<input type="checkbox" name="electricSteering" value="s" <? if (strtolower($res[electricSteering]) == "s") { echo 'checked="true"'; } ?> />
-							Direção elétrica</span>
+							<input type="checkbox" id="electricSteering" name="electricSteering" value="s" <? if (strtolower($res[electricSteering]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="electricSteering">Direção elétrica</label>
+						</span>
 						<span>
-							<input type="checkbox" name="hydraulicSteering" value="s" <? if (strtolower($res[hydraulicSteering]) == "s") { echo 'checked="true"'; } ?> />
-							Direção hidráulica</span>
+							<input type="checkbox" id="hydraulicSteering" name="hydraulicSteering" value="s" <? if (strtolower($res[hydraulicSteering]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="hydraulicSteering">Direção hidráulica</label>
+						</span>
 						<span>
-							<input type="checkbox" name="sidesteps" value="s" <? if (strtolower($res[sidesteps]) == "s") { echo 'checked="true"'; } ?> />
-							Estribos laterais</span>
+							<input type="checkbox" id="sidesteps" name="sidesteps" value="s" <? if (strtolower($res[sidesteps]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="sidesteps">Estribos laterais</label>
+						</span>
 						<span>
-							<input type="checkbox" name="fogLamps" value="s" <? if (strtolower($res[fogLamps]) == "s") { echo 'checked="true"'; } ?> />
-							Faróis de neblina/milha</span>
+							<input type="checkbox" id="fogLamps" name="fogLamps" value="s" <? if (strtolower($res[fogLamps]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="fogLamps">Faróis de neblina/milha</label>
+						</span>
 						<span>
-							<input type="checkbox" name="xenonHeadlights" value="s" <? if (strtolower($res[xenonHeadlights]) == "s") { echo 'checked="true"'; } ?> />
-							Faróis xenon</span>
+							<input type="checkbox" id="xenonHeadlights" name="xenonHeadlights" value="s" <? if (strtolower($res[xenonHeadlights]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="xenonHeadlights">Faróis xenon</label>
+						</span>
 						<span>
-							<input type="checkbox" name="absBrake" value="s" <? if (strtolower($res[absBrake]) == "s") { echo 'checked="true"'; } ?> />
-							Freios Abs</span>
+							<input type="checkbox" id="absBrake" name="absBrake" value="s" <? if (strtolower($res[absBrake]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="absBrake">Freios Abs</label>
+						</span>
 						<span>
-							<input type="checkbox" name="integratedGPSPanel" value="s" <? if (strtolower($res[integratedGPSPanel]) == "s") { echo 'checked="true"'; } ?> />
-							GPS integrado ao painel</span>
+							<input type="checkbox" id="integratedGPSPanel" name="integratedGPSPanel" value="s" <? if (strtolower($res[integratedGPSPanel]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="integratedGPSPanel">GPS integrado ao painel</label>
+						</span>
 						<span>
-							<input type="checkbox" name="rearWindowWiper" value="s" <? if (strtolower($res[rearWindowWiper]) == "s") { echo 'checked="true"'; } ?> />
-							Limpador de vidro traseiro</span>
+							<input type="checkbox" id="rearWindowWiper" name="rearWindowWiper" value="s" <? if (strtolower($res[rearWindowWiper]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="rearWindowWiper">Limpador de vidro traseiro</label>
+						</span>
 						<span>
-							<input type="checkbox" name="bumper" value="s" <? if (strtolower($res[bumper]) == "s") { echo 'checked="true"'; } ?> />
-							Para choque na cor do veículo</span>
+							<input type="checkbox" id="bumper" name="bumper" value="s" <? if (strtolower($res[bumper]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="bumper">Para choque na cor do veículo</label>
+						</span>
 						<span>
-							<input type="checkbox" name="autopilot" value="s" <? if (strtolower($res[autopilot]) == "s") { echo 'checked="true"'; } ?> />
-							Piloto automático</span>
+							<input type="checkbox" id="autopilot" name="autopilot" value="s" <? if (strtolower($res[autopilot]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="autopilot">Piloto automático</label>
+						</span>
 						<span>
-							<input type="checkbox" name="bucketProtector" value="s" <? if (strtolower($res[bucketProtector]) == "s") { echo 'checked="true"'; } ?> />
-							Protetor de caçamba</span>
+							<input type="checkbox" id="bucketProtector" name="bucketProtector" value="s" <? if (strtolower($res[bucketProtector]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="bucketProtector">Protetor de caçamba</label>
+						</span>
 						<span>
-							<input type="checkbox" name="roofRack" value="s" <? if (strtolower($res[roofRack]) == "s") { echo 'checked="true"'; } ?> />
-							Rack de teto</span>
+							<input type="checkbox" id="roofRack" name="roofRack" value="s" <? if (strtolower($res[roofRack]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="roofRack">Rack de teto</label>
+						</span>
 						<span>
-							<input type="checkbox" name="cdplayerUSBInput" value="s" <? if (strtolower($res[cdplayerUSBInput]) == "s") { echo 'checked="true"'; } ?> />
-							checkbox cd player com entrada USB</span>
+							<input type="checkbox" id="cdplayerUSBInput" name="cdplayerUSBInput" value="s" <? if (strtolower($res[cdplayerUSBInput]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="cdplayerUSBInput">CD player com entrada USB</label>
+						</span>
 						<span>
-							<input type="checkbox" name="headlightsHeightAdjustment" value="s" <? if (strtolower($res[headlightsHeightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
-							Regulagem de altura dos faróis</span>
+							<input type="checkbox" id="headlightsHeightAdjustment" name="headlightsHeightAdjustment" value="s" <? if (strtolower($res[headlightsHeightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="headlightsHeightAdjustment">Regulagem de altura dos faróis</label>
+						</span>
 						<span>
-							<input type="checkbox" name="rearviewElectric" value="s" <? if (strtolower($res[rearviewElectric]) == "s") { echo 'checked="true"'; } ?> />
-							Retrovisor elétrico</span>
+							<input type="checkbox" id="rearviewElectric" name="rearviewElectric" value="s" <? if (strtolower($res[rearviewElectric]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="rearviewElectric">Retrovisor elétrico</label>
+						</span>
 						<span>
-							<input type="checkbox" name="alloyWheels" value="s" <? if (strtolower($res[alloyWheels]) == "s") { echo 'checked="true"'; } ?> />
-							Rodas de liga leve</span>
+							<input type="checkbox" id="alloyWheels" name="alloyWheels" value="s" <? if (strtolower($res[alloyWheels]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="alloyWheels">Rodas de liga leve</label>
+						</span>
 						<span>
-							<input type="checkbox" name="rainSensor" value="s" <? if (strtolower($res[rainSensor]) == "s") { echo 'checked="true"'; } ?> />
-							Sensor de chuva</span>
+							<input type="checkbox" id="rainSensor" name="rainSensor" value="s" <? if (strtolower($res[rainSensor]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="rainSensor">Sensor de chuva</label>
+						</span>
 						<span>
-							<input type="checkbox" name="parkingSensor" value="s" <? if (strtolower($res[parkingSensor]) == "s") { echo 'checked="true"'; } ?> />
-							Sensor de estacionamento</span>
+							<input type="checkbox" id="parkingSensor" name="parkingSensor" value="s" <? if (strtolower($res[parkingSensor]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="parkingSensor">Sensor de estacionamento</label>
+						</span>
 						<span>
-							<input type="checkbox" name="isofix" value="s" <? if (strtolower($res[isofix]) == "s") { echo 'checked="true"'; } ?> />
-							Sistema Isofix para cadeira de criança</span>
+							<input type="checkbox" id="isofix" name="isofix" value="s" <? if (strtolower($res[isofix]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="isofix">Sistema Isofix para cadeira de criança</label>
+						</span>
 						<span>
-							<input type="checkbox" name="sunroof" value="s" <? if (strtolower($res[sunroof]) == "s") { echo 'checked="true"'; } ?> />
-							Teto solar</span>
+							<input type="checkbox" id="sunroof" name="sunroof" value="s" <? if (strtolower($res[sunroof]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="sunroof">Teto solar</label>
+						</span>
 						<span>
-							<input type="checkbox" name="electricLock" value="s" <? if (strtolower($res[electricLock]) == "s") { echo 'checked="true"'; } ?> />
-							Trava elétrica</span>
+							<input type="checkbox" id="electricLock" name="electricLock" value="s" <? if (strtolower($res[electricLock]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="electricLock">Trava elétrica</label>
+						</span>
 						<span>
-							<input type="checkbox" name="electricWindow" value="s" <? if (strtolower($res[electricWindow]) == "s") { echo 'checked="true"'; } ?> />
-							Vidro elétrico</span>
+							<input type="checkbox" id="electricWindow" name="electricWindow" value="s" <? if (strtolower($res[electricWindow]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="electricWindow">Vidro elétrico</label>
+						</span>
 						<span>
-							<input type="checkbox" name="rearElectricWindow" value="s" <? if (strtolower($res[rearElectricWindow]) == "s") { echo 'checked="true"'; } ?> />
-							Vidro elétrico traseiro</span>
+							<input type="checkbox" id="rearElectricWindow" name="rearElectricWindow" value="s" <? if (strtolower($res[rearElectricWindow]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="rearElectricWindow">Vidro elétrico traseiro</label>
+						</span>
 						<span>
-							<input type="checkbox" name="steeringWheelAdjustment" value="s" <? if (strtolower($res[steeringWheelAdjustment]) == "s") { echo 'checked="true"'; } ?> />
-							Volante com regulagem de altura</span>
+							<input type="checkbox" id="steeringWheelAdjustment" name="steeringWheelAdjustment" value="s" <? if (strtolower($res[steeringWheelAdjustment]) == "s") { echo 'checked="true"'; } ?> />
+							<label for="steeringWheelAdjustment">Volante com regulagem de altura</label>
+						</span>
 					</div>
 				</div>
 				<? } ?>
@@ -704,7 +751,7 @@ $res = mysql_fetch_array($query_search);
 				<?
 				if ($_GET[category] != "model" && $_GET[category] != "version"){
 				$iOptM=0;
-				$sqlOptF = "SELECT optionsFeature.idOption, optionsManufacturer.name, optionsManufacturer.options from optionsFeature, optionsManufacturer where idFeature = '".$res[featureId]."' and idOption = optionsManufacturer.id order by `name` desc";
+				$sqlOptF = "SELECT optionsFeature.id as optId, optionsFeature.idOption, optionsManufacturer.name, optionsManufacturer.options, optionsFeature.price, optionsManufacturer.code from optionsFeature, optionsManufacturer where idFeature = '".$res[featureId]."' and idOption = optionsManufacturer.id order by `name` desc";
 				$queryOptF = mysql_query($sqlOptF) or die (" error #320");
 				$lengthOptF = mysql_num_rows($queryOptF);
 				?>
@@ -714,6 +761,7 @@ $res = mysql_fetch_array($query_search);
 						<span class="spanOptions">insira novos itens sepando a cada linha</span>
 						<span class="inputOptions">
 							<input type="hidden" name="txtOptionsId" id="txtOptionsId" />
+							<input type="hidden" name="txtOptNumCheck" id="txtOptNumCheck" />
 							<select  name="txtOptionsName" id="txtOptionsName" placeholder="Nome">
 								<option>Opcionais</option>
 								<?
@@ -728,6 +776,7 @@ $res = mysql_fetch_array($query_search);
 							</select>
 							<input type="text" name="txtOptionsCode" id="txtOptionsCode" placeholder="Código" disabled="disabled"/>
 							<!--input type="text" name="txtOptionsName" id="txtOptionsName" placeholder="Nome" /-->
+							<!-- <label for="txtOptionsPrice">R$</label> -->
 							<input type="text" name="txtOptionsPrice" id="txtOptionsPrice" placeholder="Valor" onKeyPress="return(format_price(this,'.','',8,0,event))" disabled="disabled" />
 							<textarea name="textAreaOptionsAdd" id="textAreaOptionsAdd" placeholder="Opcionais" disabled="disabled"></textarea>
 							<input type="button" id="btnOptionsAdd" value="Adicionar Opcionais" />
@@ -738,17 +787,23 @@ $res = mysql_fetch_array($query_search);
 						$lengthOptionsTotal = mysql_num_rows($queryOptF)-1;
 						while ($resOptF = mysql_fetch_array($queryOptF)) {
 						?>
-							<span>
-								<input type="checkbox" name="chOpt<?=$iOptM?>" value="s" checked="checked" />
-								<input type="hidden" name="txtOpt<?=$iOptM?>" value="<?=$resOptF[idOption]?>" />
-								<label title="<?=$resOptF[options]?>"><?=$resOptF[name]?></label>
+							<span id="optItem<?=$iOptM?>">
+								<div class="updateOpt" onclick="updateOpt(this,'<?=$iOptM?>')">
+									<input class="hide" type="checkbox" id="chOpt<?=$iOptM?>" name="chOpt<?=$iOptM?>" value="s" checked="checked" />
+									<input type="hidden" id="txtOptIdFeature" value="<?=$resOptF[optId]?>" />
+									<input type="hidden" id="optIdOpt" name="txtOpt<?=$iOptM?>" value="<?=$resOptF[idOption]?>" />
+									<input type="hidden" id="optPrice" name="txtOptPrice<?=$iOptM?>" value="<?=$resOptF[price]?>" />
+									<input type="hidden" id="optCode" value="<?=$resOptF[code]?>" />
+									<label id="lblOptions" title="<?=$resOptF[options]?>"><?=$resOptF[name]?></label>
+								</div>
+								<label for="chOpt<?=$iOptM?>" class="removeOpt" onclick="removeOpt(this,'<?=$iOptM?>')">X</label>
 							</span>
 							<?
 							$iOptM++;
 							$filterOpt .= " and id != '".$resOptF[idOption]."'";
 						}
 						?>
-						<? /* DESABLED, USING JS
+						<? /* DISABLED, USING JS
 						<label>Opcionais referente a Montadora '<?=$res[manufacturerName]?>'</label><br />
 						<?
 					$sqlOptM = "SELECT * from optionsManufacturer where idManufacturer = '".$res[manufacturerId]."' ".$filterOpt." order by `name` asc";
@@ -817,11 +872,10 @@ $res = mysql_fetch_array($query_search);
 								<div class="divColor">
 									<div style="background-color: #<?=$resColor[hexa]?>;"></div>
 								</div>
-								<span id="textColor"><?=$resColor[name]." - ".$resColor[type]." - ".$resColor[application]."<br />R$ ".$resColor[price]?></span>
+								<span id="textColor"><?=$resColor[name]." - ".$resColor[type]."<br />R$ ".$resColor[price]?></span>
 								<input type="hidden" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
 								<input type="hidden" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=$resColor[name]?>" />
 								<input type="hidden" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
-								<input type="hidden" id="colorInputApp" name="colorInputApp<?=$iColor?>" value="<?=$resColor[application]?>" />
 								<input type="hidden" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=$resColor[type]?>" />
 								<input type="hidden" id="colorInputPrice" name="colorInputPrice<?=$iColor?>" value="<?=$resColor[price]?>" />
 								<input type="hidden" id="colorInputTable" name="colorInputTable<?=$iColor?>" value="<?=$tableColor?>" />
@@ -844,10 +898,10 @@ $res = mysql_fetch_array($query_search);
 							<!--input type="button" value="Adicionar" id="btnPictureAdd" /-->
 							<? if ($res[picture] != "") { 
 								//if ($res[picture].split("/", string))
-								$bgImgPicture = 'style="background-image:url(\'../carImages/'.$res[picture].'\')"'; 
+								// $bgImgPicture = 'style="background-image:url(\'../carImages/'.$res[picture].'\')"'; 
 							} ?>
 							<textarea class="image-preview" disabled="disabled" <?=$bgImgPicture?>></textarea>
-							<div class="oldPicture"><span class="subTitleAllItems">Imagem do cadastro atual</span><img src="http://carsale.uol.com.br/foto/<?=$res[picture]?>_g.jpg" /></div>
+							<div class="oldPicture"><span class="subTitleAllItems">Imagem do cadastro atual</span><img src="http://carsale.uol.com.br/foto/<?=$res[picture]?>_g.jpg" /><img src="../carImages/<?=$res[picture]?>" /></div>
 						<!--ol class="listPictures" id="listPictures">
 							<li><img src="../carImages/<?=$res[picture]?>">
 							<img src="<? echo $res[manufacturerName]."-".$res[modelName]."-".$res[versionName]."-".$res[featureId].".jpg"; ?>"></li>

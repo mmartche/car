@@ -44,8 +44,21 @@ switch ($_POST[action]) {
 			mysql_query($sqlUpdate) or die (" error #10");
 		break;
 		case 'model':
-			$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `name` = '".$_POST[modelName]."', `idSegment` = '".$_POST[idSegment]."' ,`description` = '".$_POST[description]."' WHERE `id` = '".$_POST[modelId]."'";
+<<<<<<< HEAD
+<<<<<<< HEAD
+			if ($_POST[modelId] == "") {
+				$sqlUpdate = "INSERT INTO `model` ('idManufacturer', 'modelName', 'idSegment1', 'idSegment2', 'idSegment3', 'description') VALUES ('".$_POST[idManufacturer]."','".$_POST[modelName]."','".$_POST[txtidSegment1]."','".$_POST[txtidSegment2]."','".$_POST[txtidSegment3]."','".$_POST[description]."')";
+			} else {
+				$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `name` = '".$_POST[modelName]."', `idSegment1` = '".$_POST[txtidSegment1]."' ,`idSegment2` = '".$_POST[txtidSegment2]."' ,`idSegment3` = '".$_POST[txtidSegment3]."' ,`description` = '".$_POST[description]."' WHERE `id` = ".$_POST[modelId]."";
+			}
+			echo $sqlUpdate;
+			mysql_query($sqlUpdate) or die (" error #55");
+=======
+=======
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
+			$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `name` = '".$_POST[modelName]."', `idSegment1` = '".$_POST[idSegment1]."' ,`description` = '".$_POST[description]."' WHERE `id` = '".$_POST[modelId]."'";
 			mysql_query($sqlUpdate) or die (" error #15");
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 		break;
 		case 'version':
 			$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[modelName]."', `anoFabIni` = '".$_POST[anoFabIni]."', `anoFabFim` = '".$_POST[anoFabFim]."', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
@@ -160,17 +173,18 @@ switch ($_POST[action]) {
 			for ($i=0;$i<=$_POST[lengthOptions];$i++){
 				$optIdOption = "txtOpt".$i;
 				$optChoice = "chOpt".$i;
+				$optPrice = "txtOptPrice".$i;
 				if ($_POST[$optChoice] == "s") {
 					if ($o > 0) { $valuesOptInput .= ","; }
-					$valuesOptInput .= "(NULL, '".$_POST[featureId]."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', now(), now(), '')";
+					$valuesOptInput .= "('".$_POST[featureId]."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', '".$_POST[$optPrice]."', now(), now(), '')";
 					$o++;
 				}
-				echo $_POST[$optIdOption]."PPPPP".$_POST[$optChoice];
+				// echo $_POST[$optIdOption]."PPPPP".$_POST[$optChoice];
 			}
 			if ($valuesOptInput != ""){
-				$sqlAddOpts = "insert into `optionsFeature` (`id`, `idFeature`, `idOption`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
-				echo $sqlAddOpts;
-				mysql_query($sqlAddOpts) or die (" error #171");
+				$sqlAddOpts = "insert into `optionsFeature` (`idFeature`, `idOption`, `option`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
+				// echo $sqlAddOpts;
+				mysql_query($sqlAddOpts) or die (mysql_error()." error #171");
 			}
 
 			//color
@@ -206,7 +220,15 @@ switch ($_POST[action]) {
 			$manufacturerId = $_POST[manufacturerId];
 		}
 		if ($_POST[modelId] == "") {
-			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[idSegment]."','".$_POST[description]."','s') ";
+<<<<<<< HEAD
+<<<<<<< HEAD
+			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment1`, `idSegment2`, `idSegment3`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[txtidSegment1]."','".$_POST[txtidSegment2]."','".$_POST[txtidSegment3]."','".$_POST[description]."','s') ";
+=======
+			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment1`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[idSegment1]."','".$_POST[description]."','s') ";
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
+=======
+			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment1`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[idSegment1]."','".$_POST[description]."','s') ";
+>>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 			mysql_query($sqlAdd) or die (mysql_error()." error #206");
 			$modelId = mysql_insert_id();
 			echo "<br>mode".$modelId;
@@ -251,14 +273,15 @@ switch ($_POST[action]) {
 		for ($i=0;$i<$_POST[lengthOptions];$i++){
 			$optIdOption = "txtOpt".$i;
 			$optChoice = "chOpt".$i;
+			$optPrice = "txtOptPrice".$i;
 			if ($_POST[$optChoice] == "s") {
 				if ($o > 0) { $valuesOptInput .= ","; }
-				$valuesOptInput .= "(NULL, '".$fetId."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', now(), now(), '')";
+				$valuesOptInput .= "('".$fetId."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', '".$_POST[$optPrice]."' now(), now(), '')";
 				$o++;
 			}
 		}
 		if ($valuesOptInput != ""){
-			$sqlAddOpts = "insert into `optionsFeature` (`id`, `idFeature`, `idOption`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
+			$sqlAddOpts = "insert into `optionsFeature` (`idFeature`, `idOption`, `option`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
 			mysql_query($sqlAddOpts) or die (" error #200");
 			//echo $sqlAddOpts;
 		}
@@ -289,7 +312,7 @@ switch ($_POST[action]) {
 ?>
 <script> 
 alert("Atualizado");
-// window.location="../index.php"; 
+window.location="../index.php"; 
 </script>
 <a href="../index.php">Voltar a Home</a>
 

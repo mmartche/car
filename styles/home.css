@@ -927,5 +927,11 @@ HELPER
 text-overflow: ellipsis;
 white-space: nowrap;
 
+h1, nav, aside {
+transition: all .3s;
+-moz-transition: all .3s;
+-webkit-transition: all .3s;
+-o-transition: all .3s;
+}
 
 */
