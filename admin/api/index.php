@@ -249,19 +249,7 @@ switch ($_GET[type]) {
 	case 'askModel':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 		$sql_search = "SELECT id, name, idSegment1, idSegment2, idSegment3 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
-=======
-		$sql_search = "SELECT id, name, idSegment1 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
->>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
-=======
-		$sql_search = "SELECT id, name, idSegment1 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
->>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
-=======
-		$sql_search = "SELECT id, name, idSegment1 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
->>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -271,19 +259,9 @@ switch ($_GET[type]) {
 					"label":"'.$resM[name].'",
 					"category": "Modelo",
 					"table":"model",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 					"segmentId1":"'.$resM[idSegment1].'",
-=======
-					"segmentId":"'.$resM[idSegment1].'",
->>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
-=======
-					"segmentId":"'.$resM[idSegment1].'",
->>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
-=======
-					"segmentId":"'.$resM[idSegment1].'",
->>>>>>> b7a61f75bda02f858785c20d04910db1b2608e7e
+					"segmentId2":"'.$resM[idSegment2].'",
+					"segmentId3":"'.$resM[idSegment3].'",
 					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';
