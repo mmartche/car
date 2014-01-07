@@ -48,6 +48,11 @@ include ("../scripts/conectDB.php");
 	?>
 	
 </header>
+<?
+// print_r(count($_POST[segments]));
+$_POST[segments] = (count($_POST[segments]) ==0 ) ? array() : $_POST[segments];
+$_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filterSerie];
+?>
 <div class="content">
 	<div class="columnMiddle">
 		<div class="contentMiddle">
@@ -66,142 +71,142 @@ include ("../scripts/conectDB.php");
 	                $queryThumb = mysql_query($sqlThumb) or die ("error #65");
 	                while ($resThumb = mysql_fetch_array($queryThumb)) {
 	                ?>
-	                    <div class="exploradorGridFiltrosImg">
-	                        <input type="checkbox" class="inputExpForm" id="chkExpForm<?=$resThumb[id]?>" name="segmentos[].id" value="<?=$resThumb[id]?>">
-	                        <label for="chkExpForm<?=$resThumb[id]?>"><img class="thumbExpForm" src="./images/explorer/thumb/<?=$resThumb[id]?>.png" alt="<?=$resThumb[name]?>" title="<?=$resThumb[name]?>" /></a>
+	                    <div class="exploradorGridFiltrosImg <? if (in_array($resThumb[id], $_POST[segments])) { echo 'filterChecked'; } ?> ">
+	                        <input type="checkbox" class="inputExpForm" id="chkExpForm<?=$resThumb[id]?>" name="segments[]" value="<?=$resThumb[id]?>" <? if (in_array($resThumb[id], $_POST[segments])) { echo ' checked="checked" '; } ?> />
+	                        <label for="chkExpForm<?=$resThumb[id]?>" class="thumbExpForm thumbF<?=$resThumb[id]?>" alt="<?=$resThumb[name]?>" title="<?=$resThumb[name]?>" /><?=$resThumb[name]?></label>
 	                    </div>
 	                <? } ?>
 	                </div>
-	                <div class="exploradorGridFiltrosBtnBuscar">
-	                    <input type="submit" value="Buscar" id="btnSearch" name="btnSearch" />
-	                </div>
+	                
 	            </div>
 
 	            <div class="exploradorGridFiltrosColunaA" >
 	                <div class="exploradorGridFiltrosColunaATitulo">Quanto você pretende gastar ?</div>
-	                <div class="exploradorGridFiltrosInputText">
+	                <div class="exploradorGridFiltrosInputText">     
 	                    <div class="exploradorGridFiltrosInputTextLine">
                         	<label for="priceIni">De:</label>
-                            <input type="text" name="priceIni" id="priceIni">
+                            <input type="text" name="priceIni" id="priceIni" value="<?=$_POST[priceIni]?>" />
                         </div>
 	                    <div class="exploradorGridFiltrosInputTextLine">
 	                        <label for="priceFinal">Até:</label>
-                            <input type="text" name="priceFinal" id="priceFinal">
+                            <input type="text" name="priceFinal" id="priceFinal" value="<?=$_POST[priceFinal]?>" />
 	                    </div>
 	                </div>
-	                <div class="exploradorGridFiltrosColunaATitulo">Quais opcionais não podem faltar ?</div>
-	                <ul class="exploradorGridFiltrosChecks">
-						<li>
-							<input type="checkbox" class="chkFormExp" name="dualFrontAirBag" value="s" <? if (strtolower($res[dualFrontAirBag]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Airbag duplo frontal</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="alarm" value="s" <? if (strtolower($res[alarm]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Alarme</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="airConditioning" value="s" <? if (strtolower($res[airConditioning]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Ar condicionado</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="hotAir" value="s" <? if (strtolower($res[hotAir]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Ar quente</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="leatherSeat" value="s" <? if (strtolower($res[leatherSeat]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Banco de couro</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="heightAdjustment" value="s" <? if (strtolower($res[heightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Banco do motorista com regulagem de altura</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="rearSeatSplit" value="s" <? if (strtolower($res[rearSeatSplit]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Banco traseiro bipartido</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="bluetoothSpeakerphone" value="s" <? if (strtolower($res[bluetoothSpeakerphone]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Bluetooth com viva-voz</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="bonnetSea" value="s" <? if (strtolower($res[bonnetSea]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Capota marítima</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="onboardComputer" value="s" <? if (strtolower($res[onboardComputer]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Computador de bordo</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="accelerationCounter" value="s" <? if (strtolower($res[accelerationCounter]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Conta giros</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="rearWindowDefroster" value="s" <? if (strtolower($res[rearWindowDefroster]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Desembaçador de vidro traseiro</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="electricSteering" value="s" <? if (strtolower($res[electricSteering]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Direção elétrica</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="hydraulicSteering" value="s" <? if (strtolower($res[hydraulicSteering]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Direção hidráulica</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="sidesteps" value="s" <? if (strtolower($res[sidesteps]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Estribos laterais</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="fogLamps" value="s" <? if (strtolower($res[fogLamps]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Faróis de neblina/milha</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="xenonHeadlights" value="s" <? if (strtolower($res[xenonHeadlights]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Faróis xenon</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="absBrake" value="s" <? if (strtolower($res[absBrake]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Freios Abs</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="integratedGPdlel" value="s" <? if (strtolower($res[integratedGPdlel]) == "s") { echo 'checked="true"'; } ?> />
-							<label>GPS integrado ao painel</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="rearWindowWiper" value="s" <? if (strtolower($res[rearWindowWiper]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Limpador de vidro traseiro</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="bumper" value="s" <? if (strtolower($res[bumper]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Para choque na cor do veículo</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="autopilot" value="s" <? if (strtolower($res[autopilot]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Piloto automático</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="bucketProtector" value="s" <? if (strtolower($res[bucketProtector]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Protetor de caçamba</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="roofRack" value="s" <? if (strtolower($res[roofRack]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Rack de teto</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="cdplayerUSBInput" value="s" <? if (strtolower($res[cdplayerUSBInput]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Cd player com entrada USB</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="headlightsHeightAdjustment" value="s" <? if (strtolower($res[headlightsHeightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Regulagem de altura dos faróis</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="rearviewElectric" value="s" <? if (strtolower($res[rearviewElectric]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Retrovisor elétrico</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="alloyWheels" value="s" <? if (strtolower($res[alloyWheels]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Rodas de liga leve</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="rainSensor" value="s" <? if (strtolower($res[rainSensor]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Sensor de chuva</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="parkingSensor" value="s" <? if (strtolower($res[parkingSensor]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Sensor de estacionamento</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="isofix" value="s" <? if (strtolower($res[isofix]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Sistema Isofix para cadeira de criança</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="sunroof" value="s" <? if (strtolower($res[sunroof]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Teto solar</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="electricLock" value="s" <? if (strtolower($res[electricLock]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Trava elétrica</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="electricWindow" value="s" <? if (strtolower($res[electricWindow]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Vidro elétrico</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="rearElectricWindow" value="s" <? if (strtolower($res[rearElectricWindow]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Vidro elétrico traseiro</label></li>
-						<li>
-							<input type="checkbox" class="chkFormExp" name="steeringWheelAdjustment" value="s" <? if (strtolower($res[steeringWheelAdjustment]) == "s") { echo 'checked="true"'; } ?> />
-							<label>Volante com regulagem de altura</label></li>
-	                </ul>
+	                <div class="exploradorGridFiltrosColunaATitulo" onclick="toggleClass('.exploradorGridFiltrosChecks','check')">Quais opcionais não podem faltar ?</div>
 	            </div>
 	        </div>
+	        <ul class="exploradorGridFiltrosChecks check" >
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="dualFrontAirBag" <? if (in_array("dualFrontAirBag",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> /><label>Airbag duplo frontal</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="alarm" <? if (in_array("alarm",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> /> 
+					<label>Alarme</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="airConditioning" <? if (in_array("airConditioning",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Ar condicionado</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="hotAir" <? if (in_array("hotAir",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Ar quente</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="leatherSeat" <? if (in_array("leatherSeat",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Banco de couro</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="heightAdjustment" <? if (in_array("heightAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Banco do motorista com regulagem de altura</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearSeatSplit" <? if (in_array("rearSeatSplit",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Banco traseiro bipartido</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bluetoothSpeakerphone" <? if (in_array("bluetoothSpeakerphone",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Bluetooth com viva-voz</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bonnetSea" <? if (in_array("bonnetSea",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Capota marítima</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="onboardComputer" <? if (in_array("onboardComputer",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Computador de bordo</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="accelerationCounter" <? if (in_array("accelerationCounter",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Conta giros</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearWindowDefroster" <? if (in_array("rearWindowDefroster",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Desembaçador de vidro traseiro</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricSteering" <? if (in_array("electricSteering",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Direção elétrica</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="hydraulicSteering" <? if (in_array("hydraulicSteering",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Direção hidráulica</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="sidesteps" <? if (in_array("sidesteps",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Estribos laterais</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="fogLamps" <? if (in_array("fogLamps",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Faróis de neblina/milha</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="xenonHeadlights" <? if (in_array("xenonHeadlights",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Faróis xenon</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="absBrake" <? if (in_array("absBrake",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Freios Abs</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="integratedGPdlel" <? if (in_array("integratedGPdlel",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>GPS integrado ao painel</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearWindowWiper" <? if (in_array("rearWindowWiper",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Limpador de vidro traseiro</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bumper" <? if (in_array("bumper",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Para choque na cor do veículo</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="autopilot" <? if (in_array("autopilot",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Piloto automático</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bucketProtector" <? if (in_array("bucketProtector",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Protetor de caçamba</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="roofRack" <? if (in_array("roofRack",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Rack de teto</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="cdplayerUSBInput" <? if (in_array("cdplayerUSBInput",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Cd player com entrada USB</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="headlightsHeightAdjustment" <? if (in_array("headlightsHeightAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Regulagem de altura dos faróis</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearviewElectric" <? if (in_array("rearviewElectric",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Retrovisor elétrico</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="alloyWheels" <? if (in_array("alloyWheels",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Rodas de liga leve</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rainSensor" <? if (in_array("rainSensor",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Sensor de chuva</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="parkingSensor" <? if (in_array("parkingSensor",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Sensor de estacionamento</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="isofix" <? if (in_array("isofix",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Sistema Isofix para cadeira de criança</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="sunroof" <? if (in_array("sunroof",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Teto solar</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricLock" <? if (in_array("electricLock",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Trava elétrica</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricWindow" <? if (in_array("electricWindow",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Vidro elétrico</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearElectricWindow" <? if (in_array("rearElectricWindow",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Vidro elétrico traseiro</label></li>
+				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="steeringWheelAdjustment" <? if (in_array("steeringWheelAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Volante com regulagem de altura</label></li>
+	        </ul>
+	        <div class="exploradorGridFiltrosBtnBuscar">
+                <input type="submit" value="Buscar" class="btnExploradorFilter" id="btnSearch" name="btnSearch" />
+            </div>
 	    </form>
 	</div>
 </div>
@@ -211,88 +216,119 @@ include ("../scripts/conectDB.php");
 <div class="sContent">
 	<div class="exploradorTitulo">Clique nos carros para compará-los:</div>
 	<ul class="ulCarList">
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem">
-			<img src="" class="imgCarSelect" />
-		</li>
-		<li class="liCarItem btnMore">
+		<?
+		// $x = ($myvalue == 99) ? "x is 99": "x is not 99";
+		for ($i=0; $i < count($_POST[segments]); $i++) {
+			$filterSeg .= ($i > 0 ? " or " : "(");
+			$filterSeg .= " (model.idSegment1 = '".$_POST[segments][$i]."' or model.idSegment2 = '".$_POST[segments][$i]."' or model.idSegment3 = '".$_POST[segments][$i]."') ";
+			$and = " and ";
+		}
+		$filterSeg .= ($filterSeg != "" ? ")" : ""); 
+		if ($_POST[filterPriceIni]) {
+			$filterPriceIni = " and feature.price > '".$_POST[filterPriceIni]."' ";
+			$and = " and ";
+		}
+		if ($_POST[filterPriceFinal]) {
+			$filterPriceFinal = " and feature.price < '".$_POST[filterPriceFinal]."' ";
+			$and = " and ";
+		}
+		for ($i=0; $i < count($_POST[filterSerie]); $i++) {
+			$filterItems .= ($i > 0 ? " and " : " and (");
+			$filterItems .= " feature.".$_POST[filterSerie][$i]." = 's' ";
+			$and = " and ";
+		}
+		$filterItems .= ($filterItems != "" ? ")" : ""); 
+		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version WHERE feature.idVersion = version.id and version.idModel = model.id".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
+		// echo $sqlFilter;
+		$queryFilter = mysql_query($sqlFilter) or die ("error #240");
+		while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
+			<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)">
+			<?
+			if (file_exists("http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg")) {
+				$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
+			} elseif (file_exists("../carImages/".$resFilter[picture])) {
+				$picture = "../carImages/".$resFilter[picture];
+			} elseif (file_exists("../carImagesMegaOferta/".$resFilter[picture])) {
+				$picture = "../carImages/".$resFilter[picture];
+			} else {
+				$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
+			}
+			?>
+				<img src="<?=$picture?>" class="imgCarSelect" />
+				<label><?=$resFilter[modelName]?> - <?=$resFilter[versionName]?></label>
+			</li>
+		<?
+		}
+		?>
+
+
+<!-- 		<li class="liCarItem btnMore">
 			<div id="btnSearchMore" class="btnSearchMore">Buscar mais</div>
-		</li>
+		</li> -->
 	</ul>
 
 </div>
 <!--END FORM SELECT UR CAR -->
 <? } ?>
 
-<div class="bannerExplorer" id="bannermenu" class="menu affix" data-spy="affix" data-offset-top="1000">banner</div>
+<!-- <div class="bannerExplorer" id="bannermenu" class="menu affix" data-spy="affix" data-offset-top="100" data-offset-bottom="2500">banner</div> -->
+<div class="bannerExplorer" id="bannermenu">banner</div>
 
 <div class="exploradorTabela" id="exploradorTabela">
-        <div class="exploradorTabelaLineCarros">
-            <div class="exploradorTabelaGridCarro"><img alt="" title="" src="/classificado/img/exploradorTituloTabelaComparativa.gif"></div>
-            <div class="exploradorTabelaGridCarro veiculo0">
-                <div class="exploradorTabelaGridCarroOculta"></div>
-                <div class="exploradorTabelaCarroFechar"><a href="#989" class="excluirComparacao" id="excluirComparacao0" style="display: inline;">x</a></div>
-                <div class="exploradorTabelaCarroNumeracao">1</div>
-                <div class="exploradorTabelaCarroImg"><img alt="" title="" src="http://carsale.uol.com.br/images/ofertas/toyotaEtiosCross061213_g.gif"></div>
-                <div class="exploradorTabelaCarroModelo">Toyota Etios Cross*</div>
-                <div class="exploradorTabelaCarroValor">R$ 45.690</div>
-            </div>
-            <div class="exploradorTabelaGridCarro veiculo1">
-                <div class="exploradorTabelaGridCarroOculta"></div>
-                <div class="exploradorTabelaCarroFechar"><a href="#832" class="excluirComparacao" id="excluirComparacao1" style="display: inline;">x</a></div>
-                <div class="exploradorTabelaCarroNumeracao">2</div>
-                <div class="exploradorTabelaCarroImg"><img alt="" title="" src="http://carsale.uol.com.br/images/ofertas/nissanGrandLivina201411092013_g.gif"></div>
-                <div class="exploradorTabelaCarroModelo">Nissan Grand Livina*</div>
-                <div class="exploradorTabelaCarroValor">R$ 52.390</div>
-            </div>
-            <div class="exploradorTabelaGridCarro veiculo2">
-                <div class="exploradorTabelaGridCarroOculta"></div>
-                <div class="exploradorTabelaCarroFechar"><a href="#218" class="excluirComparacao" id="excluirComparacao2" style="display: inline;">x</a></div>
-                <div class="exploradorTabelaCarroNumeracao">3</div>
-                <div class="exploradorTabelaCarroImg"><img alt="" title="" src="http://carsale.uol.com.br/images/ofertas/outback2011_g.gif"></div>
-                <div class="exploradorTabelaCarroModelo">Subaru Outback*</div>
-                <div class="exploradorTabelaCarroValor">R$ 180.000</div>
-            </div>
-            <div class="exploradorTabelaGridCarro veiculo3">
-                <div class="exploradorTabelaGridCarroOculta"></div>
-                <div class="exploradorTabelaCarroFechar"><a href="" class="excluirComparacao" id="excluirComparacao3" style="display: none;">x</a></div>
-                <div class="exploradorTabelaCarroNumeracao">4</div>
-                <div class="exploradorTabelaCarroImg"><img alt="" title="" src="/classificado/img/exploradorGhostTabelaComparativa.gif"></div>
-                <div class="exploradorTabelaCarroModelo"></div>
-                <div class="exploradorTabelaCarroValor"></div>
-            </div>
+         <div class="exploradorTabelaLineCarros">
+            <div class="exploradorTabelaGridCarro"><img alt="" title="" src="http://carsale.uol.com.br/classificado/img/exploradorTituloTabelaComparativa.gif"></div>
+            
+        </div>
+        <div class="resultFilter" id="resultFilter">
+        	<div class="column">
+		        <ul class="titleItems">
+                	<li class="liFilterItem">Airbag duplo frontal</li>
+                	<li class="liFilterItem">Ar condicionado</li>
+                	<li class="liFilterItem">Banco motorista com reg. de altura</li>
+                	<li class="liFilterItem">Desembaçador de vidro traseiro</li>
+                	<li class="liFilterItem">Direção hidráulica</li>
+                	<li class="liFilterItem">Freios ABS</li>
+                	<li class="liFilterItem">Limpador de vidro traseiro</li>
+                	<li class="liFilterItem">Para-choque na cor do veículo</li>
+                	<li class="liFilterItem">Radio CD player com entrada USB</li>
+                	<li class="liFilterItem">Retrovisor elétrico</li>
+                	<li class="liFilterItem">Travas elétricas</li>
+                	<li class="liFilterItem">Vidros elétricos</li>
+                	<li class="liFilterItem">Alarme</li>
+                	<li class="liFilterItem">Ar quente</li>
+                	<li class="liFilterItem">Banco traseiro bipartido</li>
+                	<li class="liFilterItem">Banco de couro</li>
+                	<li class="liFilterItem">Computador de bordo</li>
+                	<li class="liFilterItem">Bluetooth com viva voz</li>
+                	<li class="liFilterItem">Conta-giros</li>
+                	<li class="liFilterItem">Farois de milha</li>
+                	<li class="liFilterItem">Farois de xenônio</li>
+                	<li class="liFilterItem">GPS integrado ao painel</li>
+                	<li class="liFilterItem">Piloto automático</li>
+                	<li class="liFilterItem">Regulagem de altura dos farois</li>
+                	<li class="liFilterItem">Rodas de liga leve</li>
+                	<li class="liFilterItem">Sensor de estacionamento</li>
+                	<li class="liFilterItem">Sensor de chuva e/ou crepuscular</li>
+                	<li class="liFilterItem">Sistema isofix para cadeira infantil</li>
+                	<li class="liFilterItem">Teto solar</li>
+                	<li class="liFilterItem">Vidros elétricos traseiros</li>
+                	<li class="liFilterItem">Volante com regulagem de altura</li>
+                	<li class="liFilterItem">Capota marítima</li>
+                	<li class="liFilterItem">Estribos laterais</li>
+                	<li class="liFilterItem">Protetor de caçamba</li>
+                	<li class="liFilterItem">Rack de teto</li>
+		        </ul>
+		        <div class="headerTitle">Motor</div>
+		        <ul class="titleItems">
+		        	<li>Motor</li>
+		        	<li>Alimentacao</li>
+		        	<li>Combustivel</li>
+		        	<li>Potencia</li>
+	        	</ul>
+            </div>            
         </div>
 
-        <div class="exploradorTabelaLineVersao">
+        <!-- <div class="exploradorTabelaLineVersao">
             <div class="exploradorTabelaGridVersao">
                 <div class="exploradorTabelaVersaoTxt">Escolha outras marcas &gt;&gt;</div>
                 <div class="exploradorTabelaVersaoTxt">Escolha outros modelos &gt;&gt;</div>
@@ -618,218 +654,10 @@ include ("../scripts/conectDB.php");
                 <option value="">Escolha uma versão</option></select>
             </div>
 
-        </div>
+        </div> -->
 
-        <div class="exploradorTabelaLineOpcionais">
-            <div class="exploradorTabelaGridOpcionais">
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Airbag duplo frontal</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Ar condicionado</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Banco motorista com reg. de altura</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Desembaçador de vidro traseiro</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Direção hidráulica</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Freios ABS</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Limpador de vidro traseiro</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Para-choque na cor do veículo</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Radio CD player com entrada USB</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Retrovisor elétrico</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Travas elétricas</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Vidros elétricos</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Alarme</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Ar quente</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Banco traseiro bipartido</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Banco de couro</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Computador de bordo</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Bluetooth com viva voz</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Conta-giros</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Farois de milha</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Farois de xenônio</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">GPS integrado ao painel</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Piloto automático</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Regulagem de altura dos farois</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Rodas de liga leve</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Sensor de estacionamento</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Sensor de chuva e/ou crepuscular</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Sistema isofix para cadeira infantil</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Teto solar</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Vidros elétricos traseiros</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Volante com regulagem de altura</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Capota marítima</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Estribos laterais</div>
-                <div class="exploradorTabelaOpcionaisTxtBgWhite">Protetor de caçamba</div>
-                <div class="exploradorTabelaOpcionaisTxtBgGray">Rack de teto</div>
-            </div>
-            <div class="exploradorTabelaGridOpcionais veiculo0">
-                <div class="exploradorTabelaOpcionaisImgBgGray airBagDuploFrontal"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite arCondicionado"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray bancoMotoristaRegulagemAltura"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite desembacadorVidroTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray direcaoHidraulica"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite freioAbs"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray limpadorVidroTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite parachoqueCorVeiculo"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray radioCdPlayerEntradaUsb"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite retrovisorEletrico"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray travaEletrica"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite vidroEletrico"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray alarme"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite arQuente"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray bancoTraseiroBipartido"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite bancoCouro"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray computadorBordo"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite bloetoothVivaVoz"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray contaGiros"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite faroisMilha"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray faroisXenon"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite gpsIntegradoPainel"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray pilotoAutomatico"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite regulagemAlturaFarois"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray rodaLigaLevel"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite sensorEstacionamento"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray sensorChuva"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite sistemaIsofixCadeiraCrianca"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray tetoSolar"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite vidroEletricoTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray volanteRegulagemAutura"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite capotaMaritima"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray estriboxLaterais"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite protetorCacamba"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray rackTeto"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-            </div>
-            <div class="exploradorTabelaGridOpcionais veiculo1">
-                <div class="exploradorTabelaOpcionaisImgBgGray airBagDuploFrontal"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite arCondicionado"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray bancoMotoristaRegulagemAltura"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite desembacadorVidroTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray direcaoHidraulica"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite freioAbs"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray limpadorVidroTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite parachoqueCorVeiculo"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray radioCdPlayerEntradaUsb"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite retrovisorEletrico"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray travaEletrica"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite vidroEletrico"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray alarme"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite arQuente"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray bancoTraseiroBipartido"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite bancoCouro"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray computadorBordo"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite bloetoothVivaVoz"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray contaGiros"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite faroisMilha"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray faroisXenon"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite gpsIntegradoPainel"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray pilotoAutomatico"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite regulagemAlturaFarois"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray rodaLigaLevel"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite sensorEstacionamento"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray sensorChuva"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite sistemaIsofixCadeiraCrianca"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray tetoSolar"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite vidroEletricoTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray volanteRegulagemAutura"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite capotaMaritima"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray estriboxLaterais"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite protetorCacamba"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray rackTeto"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-            </div>
-            <div class="exploradorTabelaGridOpcionais veiculo2">
-                <div class="exploradorTabelaOpcionaisImgBgGray airBagDuploFrontal"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite arCondicionado"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray bancoMotoristaRegulagemAltura"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite desembacadorVidroTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray direcaoHidraulica"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite freioAbs"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray limpadorVidroTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite parachoqueCorVeiculo"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray radioCdPlayerEntradaUsb"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite retrovisorEletrico"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray travaEletrica"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite vidroEletrico"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray alarme"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite arQuente"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray bancoTraseiroBipartido"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite bancoCouro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray computadorBordo"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite bloetoothVivaVoz"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray contaGiros"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite faroisMilha"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray faroisXenon"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite gpsIntegradoPainel"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray pilotoAutomatico"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite regulagemAlturaFarois"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray rodaLigaLevel"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite sensorEstacionamento"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray sensorChuva"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite sistemaIsofixCadeiraCrianca"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray tetoSolar"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite vidroEletricoTraseiro"><img src="/classificado/img/exploradorTabelaCheck.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray volanteRegulagemAutura"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite capotaMaritima"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray estriboxLaterais"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite protetorCacamba"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray rackTeto"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-            </div>
-            <div class="exploradorTabelaGridOpcionais_B veiculo3">
-                <div class="exploradorTabelaOpcionaisImgBgGray_B airBagDuploFrontal"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B arCondicionado"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B bancoMotoristaRegulagemAltura"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B desembacadorVidroTraseiro"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B direcaoHidraulica"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B freioAbs"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B limpadorVidroTraseiro"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B parachoqueCorVeiculo"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B radioCdPlayerEntradaUsb"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B retrovisorEletrico"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B travaEletrica"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B vidroEletrico"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B alarme"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B arQuente"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B bancoTraseiroBipartido"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B bancoCouro"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B computadorBordo"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B bloetoothVivaVoz"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B contaGiros"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B faroisMilha"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B faroisXenon"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B gpsIntegradoPainel"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B pilotoAutomatico"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B regulagemAlturaFarois"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B rodaLigaLevel"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B sensorEstacionamento"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B sensorChuva"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B sistemaIsofixCadeiraCrianca"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B tetoSolar"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B vidroEletricoTraseiro"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B volanteRegulagemAutura"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B capotaMaritima"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B estriboxLaterais"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgWhite_B protetorCacamba"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-                <div class="exploradorTabelaOpcionaisImgBgGray_B rackTeto"><img src="/classificado/img/exploradorTabelaNone.gif"></div>
-            </div>
-        </div>
         <div class="exploradorTabelaLineBtn">
-            <div class="exploradorTabelaGridBase"><img alt="" title="" src="/classificado/img/exploradorBaseTabelaComparativa2.gif"></div>
-            <div class="exploradorTabelaGridBase veiculo0">
-                <div class="exploradorTabelaBtnFicha"><a href="/classificado/fichatecnica/68139" id="fichaTecnica0" style="display: inline;">Ficha Técnica</a></div>
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="noticia0" class="noticia" style="display: inline;">Testes e Notícias</a></div>
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="opiniao0" class="opiniao" style="display: none;">Opinião do Dono</a></div>
-
-            </div>
-            <div class="exploradorTabelaGridBase veiculo1">
-                <div class="exploradorTabelaBtnFicha"><a href="/classificado/fichatecnica/66762" id="fichaTecnica1" style="display: inline;">Ficha Técnica</a></div>
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="noticia1" class="noticia" style="display: inline;">Testes e Notícias</a></div>
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="opiniao1" class="opiniao" style="display: inline;">Opinião do Dono</a></div>
-            </div>
-            <div class="exploradorTabelaGridBase veiculo2">
-                <div class="exploradorTabelaBtnFicha"><a href="/classificado/fichatecnica/66957" id="fichaTecnica2" style="display: inline;">Ficha Técnica</a></div>
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="noticia2" class="noticia" style="display: inline;">Testes e Notícias</a></div>
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="opiniao2" class="opiniao" style="display: inline;">Opinião do Dono</a></div>
-            </div>
-            <div class="exploradorTabelaGridBase veiculo3">
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="fichaTecnica3" style="display: none;">Ficha Técnica</a></div>
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="noticia3" class="noticia" style="display: none;">Testes e Notícias</a></div>
-                <div class="exploradorTabelaBtnFicha"><a href="javascript:void(0);" id="opiniao3" class="opiniao" style="display: none;">Opinião do Dono</a></div>
-            </div>
+            <div class="exploradorTabelaGridBase"><img alt="" title="" src="http://carsale.uol.com.br/classificado/img/exploradorBaseTabelaComparativa2.gif"></div>
         </div>
     </div>
 

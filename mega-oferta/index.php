@@ -33,6 +33,7 @@ include ("../scripts/conectDB.php");
 	<link rel="stylesheet" type="text/css" href="../styles/home.css" />
 	<link rel="stylesheet" type="text/css" href="../styles/explorador.css" />
 	<link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsaleMegaOfertas.css" />
+	<link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsale.css?no_cache=20120305">
 	<link rel="stylesheet" type="text/css" href="../styles/megaOferta.css" />
 </head>
 <body>
@@ -54,7 +55,10 @@ include ("../scripts/conectDB.php");
 			<!-- Indicators -->
 				<ol class="carousel-indicators">
 					<? 
-					$sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'carousel' ORDER by place";
+					$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place = 'carousel' GROUP BY megaOferta.id order by megaOferta.place";
+
+					// $sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'carousel' ORDER by place";
+
 					$query = mysql_query($sql) or die (mysql_error());
 					for ($i=0; $i < mysql_num_rows($query); $i++) { 
 					?>
@@ -70,20 +74,17 @@ include ("../scripts/conectDB.php");
 					while ($resItem = mysql_fetch_array($query)) {
 					?>
 						<div class="item <? if ($r == 0) echo ' active'; ?>">
+							<a href="./detalhes-mega-oferta.php?veiculo=<?=$resItem[megaOfertaId]?>">
 							<div class="carousel-title carousel-caption">
 								<h3><?=$resItem[modelName]?></h3>
 							</div>
-							<?
-							if( strpos($resItem[picture], ".") === false) { ?>
-								<img class="carousel-image" src="http://carsale.uol.com.br/foto/<?=$resItem[picture]?>_g.jpg" alt="<?=$resItem[modelName]?>" class="carrosselImg" title="<?=$resItem[modelName]?>" />
-							<? } else { ?>
-								<img class="carousel-image" src="../carImages/<?=$resItem[picture]?>" alt="<?=$resItem[modelName]?>" class="carrosselImg" title="<?=$resItem[modelName]?>" />
-							<? } ?>
+							<img class="carousel-image" src="../carImagesMegaOferta/<?=$resItem[picture]?>" alt="<?=$resItem[modelName]?>" class="carrosselImg" title="<?=$resItem[modelName]?>" />
 							<div class="carousel-caption">
 								<h4>R$ <?=$resItem[price]?></h4>
 								<div class="carousel-opacity"><?=$resItem[dateLimit]?></div>
 								<div class="carousel-version"><?=$resItem[versionName]?></div>
 							</div>
+							</a>
 						</div>
 					<? $r++; } ?>
 				</div>
@@ -100,32 +101,36 @@ include ("../scripts/conectDB.php");
 			</div>
 			<!-- END CAROUSEL -->
 			<?
-			$sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'normal' ORDER by place";
-					$query = mysql_query($sql) or die (mysql_error());
+			// $sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'normal' ORDER by place";
+			$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place != 'carousel' GROUP BY megaOferta.id order by megaOferta.place";
+			$query = mysql_query($sql) or die (mysql_error());
+			$arrayModalVersion = array();
 			while ($resN = mysql_fetch_array($query)) {
+				$arrayModalVersion[] = $resN[versionId];
 			?>
 			<div class="megaOfertasCarsaleOferta">
-				<div class="megaOfertasCarsaleTituloOferta"><a href="/classificado/campanha/visualizar/259/explorador"><?=$resN[modelName]."<br />".$res[versionName]?></a></div>
+				<div class="megaOfertasCarsaleTituloOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[modelName]."<br />".$res[versionName]?></a></div>
 				<div class="megaOfertasCarsaleImgBgOferta">
-				<?
-				if( strpos($resN[picture], ".") === false) {
-					$tempPicture = "http://carsale.uol.com.br/foto/".$resN[picture]."_p.jpg";
-				} else {
-					$tempPicture = "../carImages/".$resN[picture];
-				} ?>
-					<div class="megaOfertasCarsaleImgOferta"><a href="/classificado/campanha/visualizar/259/explorador"><img alt="" title="" border="0" src="<?=$tempPicture?>"></a></div>
-					<div class="megaOfertasCarsaleValorOferta"><a href="/classificado/campanha/visualizar/259/explorador">R$ <?=$resN[price]?> </a></div>
+				<?	$tempPicture = "../carImagesMegaOferta/".$resN[picture]; ?>
+					<div class="megaOfertasCarsaleImgOferta">
+						<a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">
+							<img alt="" title="" border="0" class="imgMegaOfertaNormal" src="<?=$tempPicture?>">
+						</a>
+					</div>
+					<div class="megaOfertasCarsaleValorOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">R$ <?=$resN[price]?> </a></div>
 				</div>
-				<div class="megaOfertasCarsaleTxtOferta textoBold"><a href="/classificado/campanha/visualizar/259/explorador"><?=$resN[dateLimit]?></a></div>
-				<div class="megaOfertasCarsaleTxtOferta"><a href="/classificado/campanha/visualizar/259/explorador">Cat.: <?=$resN[versionName]?></a></div>
-				<div class="megaOfertasCarsaleTxtOferta"><a href="/classificado/fichatecnica/68084" id="fichaTecnica1">Ficha Técnica</a></div>
-				<div class="megaOfertasCarsaleBtnComprarOferta"><a href="/classificado/campanha/visualizar/259/explorador">comprar</a></div>
+				<div class="megaOfertasCarsaleTxtOferta textoBold"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[dateLimit]?></a></div>
+				<div class="megaOfertasCarsaleTxtOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">Cat.: <?=$resN[versionName]?></a></div>
+				<div class="megaOfertasCarsaleTxtOferta"><a data-toggle="modal" data-target="#feature_<?=$resN[versionId]?>" id="fichaTecnica1">Ficha Técnica</a></div>
+				<div class="megaOfertasCarsaleBtnComprarOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">comprar</a></div>
 			</div>
 			<? } ?>
 		</div>
 	</div>
 </div>
+<!-- Modals -->
 <?
+include ("../scripts/modalFeatureMakup.php");
 include ("../includes/footer.php");
 ?>
 
@@ -161,6 +166,8 @@ function updateField(obj){
 		$("#expModel").append(optTemp);
 	});
 }
+
+
 </script>
 
 </body>

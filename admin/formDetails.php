@@ -182,13 +182,13 @@ $res = mysql_fetch_array($query_search);
 			?>
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="return checkFields(this)" enctype="multipart/form-data">
-		<input type="text" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
+		<input type="text" class="hide" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="text" class="hide" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="text" class="hide" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="text" class="hide" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="text" class="hide" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="text" class="hide" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?

@@ -1,3 +1,9 @@
+h1, nav, aside, .exploradorGridFiltrosChecks {
+transition: all .3s;
+-moz-transition: all .3s;
+-webkit-transition: all .3s;
+-o-transition: all .3s;
+}
 .contentMiddle {
 	width: auto;
 }
@@ -65,7 +71,7 @@
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
-.btnExpSearch .btnButton{
+.btnExpSearch .btnButton, .btnExploradorFilter{
 	width: 100%;
 	height: 30px;
 	font: 18px Arial, sans-serif;
@@ -108,6 +114,7 @@
 	float: left;
 	position: relative;
 	overflow: hidden;
+	height: auto;
 }
 .exploradorBgInterno {
 	height: auto;
@@ -123,23 +130,33 @@
 	background-color: #e6e6e6;
 	overflow: hidden;
 }
+.exploradorGridFiltros {
+	/*margin-bottom: 100px;*/
+	height: 265px;
+}
 .exploradorGridFiltrosColunaB, .exploradorGridFiltrosColunaA {
 	float: left;
 }
 .exploradorGridFiltrosColunaA {
-	width: 347px;
+	width: 380px;
 	border: 1px solid #ccc;
+	height: 265px;
 }
 .exploradorGridFiltrosColunaB {
-	width: 620px;
+	width: 589px;
 }
 .thumbExpForm {
 	width: 100px;
 	height: 100px;
-	border:1px solid red;
+	border:1px solid transparent;
 	border-radius: 10px;
+	background: url("http://carsale.uol.com.br/classificado/img/btnFiltroCategoriaEntrada.gif") 0 0 transparent no-repeat;
 }
 .thumbExpForm:hover{
+	/*border-color: red;*/
+	background: url("http://carsale.uol.com.br/classificado/img/btnFiltroCategoriaEntradaHover.gif") 0 0 transparent no-repeat;
+}
+.filterChecked .thumbExpForm{
 	border-color: red;
 }
 .exploradorGridFiltrosGridImg {
@@ -160,6 +177,7 @@
 	color: #000;
 	font-weight: bold;
 	text-align: left;
+	height: auto;
 }
 .exploradorGridFiltrosColunaATitulo {
 	padding: 10px;
@@ -167,15 +185,25 @@
 	color: #000;
 	font-weight: bold;
 	text-align: left;
-	border-top: 1px solid #ccc;
+	height: auto;
+	width: 100%;
+	cursor: pointer;
 }
 .exploradorGridFiltrosChecks {
-	height: 250px;
+	height: 200px;
 	overflow: scroll;
 	padding: 0 0 0 10px;
+	width: 100%;
+	bottom: 0;
+}
+.exploradorGridFiltrosChecks.check {
+	background-color: #ccc;
+	height: 0;
 }
 .exploradorGridFiltrosChecks label {
-	width: 235px;
+	width: 217px;
+	font-size: 13px;
+	padding-top: 3px;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
@@ -190,10 +218,12 @@
 .exploradorGridFiltrosInputTextLine {
 	overflow: hidden;
 	margin-bottom: 10px;
+
 }
 .exploradorGridFiltrosInputTextLine label {
 	width: 30px;
 	float: left;
+	margin-right: 10px;
 }
 .exploradorGridFiltrosInputTextLine input {
 	float: left;
@@ -201,6 +231,8 @@
 }
 .exploradorGridFiltrosInputText {
 	padding: 10px;
+	height: auto;
+	width: 100%;
 }
 
 .bannerExplorer {
@@ -217,6 +249,7 @@
 .ulCarList {
 	overflow: scroll;
 	height: 400px;
+	width: 100%;
 	float: left;
 	background-color: #fff;
 }
@@ -227,7 +260,11 @@
 	overflow: hidden;
 	float: left;
 	margin: 10px;
+	text-align: center;
+	font-size: 13px;
+	border-radius: 10px;
 }
+.liCarItem label {}
 .liCarItem:hover {
 	background-color: #ddd;
 }
@@ -252,11 +289,50 @@
 }
 
 
-
-
-
-
-
+.column {
+	float: left;
+	border: 1px solid #fff;
+	width: 193px;
+}
+.headerTitle {
+	height: 50px;
+	padding: 12px;
+	font-size: 21px;
+	background-color: #fff;
+}
+.titleItems>li:nth-child(odd) {
+	background-color: #eee;
+}
+.titleItems>li {
+	font-size: 11px;
+	height: 25px;
+	overflow: hidden;
+	padding: 6px;
+}
+.descItems>li:nth-child(odd) {
+	background-color: #eee;
+}
+.descItems>li {
+	background-color: #fff;
+	overflow: hidden;
+	text-align: center;
+	padding: 5px 0;
+	height: 25px;
+	font-size: 11px;
+}
+.exploradorGridFiltrosBtnBuscar {
+	height: auto;
+	widows: 100%;
+}
+.btnExploradorFilter{
+	margin: 10px;
+}
+.resultFilter {
+	overflow: scroll;
+	display: block;
+	width: 100%;
+	height: 300px;
+}
 
 
 

@@ -11,3 +11,17 @@ ok-modificar o campo feature.items para uma nova tabela separando cada item num 
 
 HOME
 -separar o css do header e footer
+-barra uol
+
+MEGA OFERTA
+*admin: 
+-ordernar
+-editar
+-add name
+
+*front:
+-chat
+-banner
+-omniture
+-change css to local
+-email (send & layout)

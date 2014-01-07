@@ -365,23 +365,32 @@ switch ($_GET[type]) {
 		}
 		echo "]";
 		break;
-	case 'mega':
-	//api/index.php?type=mega&idFeature=5&price=123&p=carrousel&dateLimit=12/12/2013&name=undefined 
+	case 'megaInfo':
 		$sqlMO = "SELECT id, place FROM megaOferta WHERE idFeature = '".$_GET[idFeature]."'";
 		$queryMO = mysql_query($sqlMO) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
-		if (mysql_num_rows($queryMO) > 0 ){
-			$sqlUp = "UPDATE `megaOferta` SET `price` = '".$_GET[price]."' AND `dateLimit` = '".$_GET[dateLimit]."' AND `place` = '".$_GET[place]."' WHERE `idFeature` = '".$_GET[idFeature]."'";
-			mysql_query($sqlUp) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
-			echo '[{"response":"true", "errorNumber":"#355", "reason":"Already exist, updated"}]';
-		} else {
-			$sql = "INSERT INTO megaOferta (`idFeature`, `price`, `dateLimit`, `place`) VALUES ('".$_GET[idFeature]."', '".$_GET[price]."', '".$_GET[dateLimit]."', '".$_GET[place]."')";
+		echo '[{"response":"true", "insertId":"'.mysql_insert_id().'", "reason":"Already exist, updated"}]';
+		// if (mysql_num_rows($queryMO) > 0 ){
+			// $sqlUp = "UPDATE `megaOferta` SET `price` = '".$_GET[price]."' AND `dateLimit` = '".$_GET[dateLimit]."' AND `place` = '".$_GET[place]."' WHERE `idFeature` = '".$_GET[idFeature]."'";
+			// mysql_query($sqlUp) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+		// }
+		break;
+	case 'megaAdd':
+	//api/index.php?type=mega&idFeature=5&price=123&p=carrousel&dateLimit=12/12/2013&name=undefined 
+		// $sqlMO = "SELECT id, place FROM megaOferta WHERE idFeature = '".$_GET[idFeature]."'";
+		// $queryMO = mysql_query($sqlMO) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+		// if (mysql_num_rows($queryMO) > 0 ){
+		// 	$sqlUp = "UPDATE `megaOferta` SET `price` = '".$_GET[price]."' AND `dateLimit` = '".$_GET[dateLimit]."' AND `place` = '".$_GET[place]."' WHERE `idFeature` = '".$_GET[idFeature]."'";
+		// 	mysql_query($sqlUp) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+		// 	echo '[{"response":"true", "errorNumber":"#355", "reason":"Already exist, updated"}]';
+		// } else {
+			$sql = "INSERT INTO megaOferta (`manufacturerId`,`modelId`,`versionId`,`featureId`,`price`,`place`,`description`,`picture`,`dateIni`,`dateLimit`,`dateUpdate`) VALUES ('".$_GET[manufacturerId]."','".$_GET[modelId]."','".$_GET[versionId]."','".$_GET[featureId]."','".$_GET[price]."','".$_GET[place]."','".$_GET[description]."','".$_GET[picture]."','".$_GET[dateIni]."','".$_GET[dateLimit]."',now())";
 			$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 			//$res = mysql_fetch_array($query);
 			echo '[{"response":"true", "id":"'.mysql_insert_id().'"}]';
-		}
+		// }
 		break;
 	case 'megaRemove':
-		$sqlRM = "DELETE from `megaOferta` WHERE idFeature = '".$_GET[idFeature]."'";
+		$sqlRM = "DELETE from `megaOferta` WHERE `id` = '".$_GET[idItem]."'";
 		mysql_query($sqlRM) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		echo '[{"response":"true", "reason":"Item removed"}]';
 		break;
@@ -400,6 +409,15 @@ switch ($_GET[type]) {
 		} else {
 			echo '[{"response":"false", "reason":"Incomplete Info"}]';
 		}
+		break;
+
+	case 'askExplorer':
+		$sql = "SELECT model.name from feature, version, model where feature.idVersion = version.id and version.idModel = model.id = '".$_GET[idModel]."'";
+		// $query = mysql_query($sql) or die ('[{"response":"false", "reason":"error #416"}]');
+		// while ($res = mysql_fetch_array($query)) {
+		// 	//aee
+		// }
+		echo '[{"response":"true", "reason":""}]';
 		break;
 }
 

@@ -296,7 +296,7 @@ switch ($_POST[action]) {
 ?>
 <script> 
 alert("Atualizado");
-window.location="../index.php"; 
+window.location="../ficha-tecnica.php"; 
 </script>
 <a href="../index.php">Voltar a Home</a>
 

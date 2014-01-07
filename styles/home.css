@@ -934,4 +934,9 @@ transition: all .3s;
 -o-transition: all .3s;
 }
 
+cor sim cor nao (listra)
+.resultData>ul>li:nth-child(odd)>a {
+	background-color: #eee;
+}
+
 */

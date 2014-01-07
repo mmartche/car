@@ -52,9 +52,15 @@
 	width: 100%;
 	height: auto;
 }
+.imgMegaOfertaNormal {
+	overflow: hidden;
+	display: block;
+	max-height: 100px;
+	margin: auto;
+}
 .megaOfertasCarsaleValorOferta {
 	width: 185px;
-	padding: 18px 0 0 0;
+	padding: 8px 0 0 0;
 }
 .megaOfertasCarsaleOferta {
 	margin: 10px 5px;

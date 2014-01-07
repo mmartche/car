@@ -47,3 +47,13 @@ $(document).ready(function(){
 */
 	});
 });
+function checkImage(address){
+	$.get(address)
+    .done(function() { 
+        // Do something now you know the image exists.
+        return true;
+    }).fail(function() { 
+        // Image doesn't exist - do something else.
+        return false;
+    });
+}

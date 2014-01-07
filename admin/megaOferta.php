@@ -16,7 +16,7 @@
 	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery-ui.js"></script>
 	<script type="text/javascript" src="scripts/colorpicker.js"></script>
-	<script type="text/javascript" src="scripts/index.js"></script>
+	<script type="text/javascript" src="scripts/megaOferta.js"></script>
 	
 	<link rel="stylesheet" href="styles//jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
@@ -26,6 +26,49 @@
 <body name="searchList">
 <?
 include ("./scripts/conectDB.php");
+
+function uploadFile ($manufacturerId,$modelId,$versionId) {
+	$allowedExts = array("gif", "jpeg", "jpg", "png");
+	$temp = explode(".", $_FILES["file"]["name"]);
+	$extension = end($temp);
+	if ((($_FILES["file"]["type"] == "image/gif")
+	|| ($_FILES["file"]["type"] == "image/jpeg")
+	|| ($_FILES["file"]["type"] == "image/jpg")
+	|| ($_FILES["file"]["type"] == "image/pjpeg")
+	|| ($_FILES["file"]["type"] == "image/x-png")
+	|| ($_FILES["file"]["type"] == "image/png"))
+	&& in_array($extension, $allowedExts)) {
+	// && ($_FILES["file"]["size"] < 20000) ==> check the file size
+		if ($_FILES["file"]["error"] > 0) {
+			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+		} else {
+			$_FILES["file"]["name"] = $manufacturerId."-".$modelId."-".$versionId.".".end($temp);
+			// echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+			// echo "Type: " . $_FILES["file"]["type"] . "<br>";
+			// echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+			// echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+				//if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
+					//echo $_FILES["file"]["name"] . " already exists. ";
+				//} else {
+					move_uploaded_file($_FILES["file"]["tmp_name"],
+					"../carImagesMegaOferta/" . $_FILES["file"]["name"]);
+					// echo "Stored in: " . "../carImagesMegaOferta/" . $_FILES["file"]["name"];
+					return $_FILES["file"]["name"];
+				//}
+		}
+	} else {
+		echo "Invalid file";
+	}
+}
+
+if($_POST[btnAddMegaOferta] == "Adicionar") {
+	$picTemp = uploadFile($_POST[manufacturerId],$_POST[modelId],$_POST[versionId]);
+	if ($picTemp != "") {
+		$picTempSql = "`picture` = '".$picTemp."',";
+	}
+	$sql = "INSERT INTO megaOferta (`manufacturerId`,`modelId`,`versionId`,`featureId`,`price`,`place`,`description`,`picture`,`dateIni`,`dateLimit`,`dateUpdate`) VALUES ('".$_POST[manufacturerId]."','".$_POST[modelId]."','".$_POST[versionId]."','".$_POST[featureId]."','".$_POST[price]."','".$_POST[place]."','".$_POST[description]."','".$picTemp."','".$_POST[dateIni]."','".$_POST[dateLimit]."',now())";
+	mysql_query($sql) or die("#error 35");
+}
 ?>
 
 <div class="body">
@@ -41,23 +84,39 @@ include ("./scripts/conectDB.php");
 	<button type="submit" class="btn">Search</button>
 	</div>
 	</form-->
-	<div class="formSearch">
-		<form action="." method="get" >
-			<div class="ui-widget">
-				<input id="askInput" class="askInput" name="askInput" placeholder="Digite o que quer encontrar" />
-				<input id="askType" class="askType" name="askType" />
-			</div>
-			<div class="ui-widget result-box">
-				Result:
-				<div id="log" class="ui-widget-content log-box"></div>
-			</div>
-			<!--div id="resultSearch" class="resultSearch"></div-->
-			<input type="submit" value="Buscar" class="btnButton btnSearch" />
-		</form>
-	</div>
+	<form onsubmit="" action="#" method="post" enctype="multipart/form-data">
+		<div>
+			<select name="manufacturer" id="manufacturerName">
+				<option>Escolha uma Marca</option>
+				<?
+			    $sqlManuf = "SELECT id, name from manufacturer order by name";
+			    $queryManuf = mysql_query($sqlManuf);
+			    while ($resManuf = mysql_fetch_array($queryManuf)) {
+			    	?>
+			    	<option value="<?=$resManuf[id]?>"><?=$resManuf[name]?></option>
+			    	<?
+			    }
+			    ?>
+			</select>
+			<select name="modelName" id="modelName"></select>
+			<select name="versionName" id="versionName"></select>
+			<input type="text" name="price" id="price" placeholder="Preço" />
+			<input type="text" name="description" id="description" placeholder="Descrição" />
+			<input type="checkbox" name="place" id="place" value="carousel" /><label for="place">Aparecer em destaque?</label>
+			<input type="submit" name="btnAddMegaOferta" value="Adicionar" />
+			<input type="hidden" name="manufacturerId" id="manufacturerId" />
+			<input type="hidden" name="modelId" id="modelId" />
+			<input type="hidden" name="versionId" id="versionId" />
+			<!-- <input type="button" value="Limpar Campos" id="btnClean" /> -->
+			<input type="hidden" name="dateIni" id="dateIni" class="addMegaDate" />
+			<input type="hidden" name="dateLimit" id="dateLimit" class="addMegaDate" />
+			<input type="file" name="file" id="picture" placeholder="Imagem" />
+			<textarea class="image-preview" disabled="disabled"></textarea>
+		</div>
+	</form>
 	<div class="content">
 		<?
-		$sql_mo = "SELECT megaOferta.idFeature, megaOferta.price, megaOferta.place, megaOferta.dateLimit, version.name as versionName, model.name as modelName, feature.picture FROM megaOferta, manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id AND megaOferta.idFeature = feature.id";
+		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place";
 		$query_mo = mysql_query($sql_mo) or die (mysql_error());
 		?>
 		<div class="megaOfertaData">
@@ -67,123 +126,13 @@ include ("./scripts/conectDB.php");
 				?>
 				<li class="liMO">
 					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
-					<img class="imgLiMO" src="http://carsale.uol.com.br/foto/<?=$resMO[picture]?>_p.jpg?>" />
+					<img class="imgLiMO" src="../carImagesMegaOferta/<?=$resMO[picture]?>" />
 					<span class="priceLiMO">R$ <?=$resMO[price]?></span>
 					<span class="dateLimitLiMO">Válido até: <?=$resMO[dateLimit]?></span>
 					<span class="placeLiMO">Exibindo em: <?=$resMO[place]?></span>
-					<div class="removeItem" onclick="removeItemMega(this,'<?=$resMO[idFeature]?>')">remover</div>
+					<div class="removeItem" onclick="removeItemMega(this,'<?=$resMO[megaOfertaId]?>')">remover</div>
 				</li>
 				<? } ?>
-			</ul>
-		</div>
-		<!--ol class="breadcrumb">
-			<li><a href=".">Home</a></li>
-			<li><a href="?search=manufacturer">Montadoras</a></li>
-			<li><a href="?search=model">Modelos</a></li>
-			<li class="active">Versao</li>
-		</ol-->
-		<div class="resultSearch">
-			<ul class="resultList">
-				<li class="resultHeader">
-				<?
-				$queryUrl = "&filterActive=".$_GET[filterActive]."&filterManuf=".$_GET[filterManuf]."&filterModel=".$_GET[filterModel]."&filterVersion=".$_GET[filterVersion]."&filterYearModel=".$_GET[filterYearModel]."&filterYearProduced=".$_GET[filterYearProduced]."&filterEngine=".$_GET[filterEngine]."&filterGear=".$_GET[filterGear]."&filterFuel=".$_GET[filterFuel]."&filterPrice=".$_GET[filterPrice];
-				?>
-					<div class="rhItems"></div>
-					<div class="rhManufacturer">Montadora</div>
-					<div class="rhModel">Modelo</div>
-					<div class="rhVersion">Versão</div>
-					<div class="rhYearModel">AnoModelo</a></div>
-					<div class="rhYearProduced">AnoFabricação</a></div>
-					<div class="rhEngine">Motor</div>
-					<div class="rhGear">Câmbio</div>
-					<div class="rhFuel">Combustível</div>
-					<div class="rhSteering">Direção</div>
-					<div class="rhPrice">Preço</div>
-				</li>
-				<li class="resultFilter">
-					<form action="?filter=true" method="post">
-						<div class="rfItems"><input type="checkbox" name="filterActive" id="chkRSActive" 
-						<? if ($_POST[filterActive] == "n") echo 'checked="checked"'; ?> 
-						value="n" onchange="submit()" style="width:10px;display:none;" />
-						<label for="chkRSActive"><? if ($_POST[filterActive] == "n") echo 'Ver Ativados'; else echo 'Ver Desativos'; ?></label>
-						</div>
-						<div class="rfManufacturer"><input type="text" name="filterManuf" id="txtRSManufacturer" onkeyup="filterFields('rsManufacturer',this)" value="<?=$_POST[filterManuf]?>" /></div>
-						<div class="rfModel"><input type="text" name="filterModel" id="txtRSModel" onkeyup="filterFields('rsModel',this)" value="<?=$_POST[filterModel]?>" /></div>
-						<div class="rfVersion"><input type="text" name="filterVersion" id="txtRSVersion" onkeyup="filterFields('rsVersion',this)" value="<?=$_POST[filterVersion]?>" /></div>
-						<div class="rfYearModel"><input type="text" name="filterYearModel" id="txtRSYearModel" onkeyup="filterFields('rsYearModel',this)" value="<?=$_POST[filterYearModel]?>" /></div>
-						<div class="rfYearProduced"><input type="text" name="filterYearProduced" id="txtRSYearProduced" onkeyup="filterFields('rsYearProduced',this)" value="<?=$_POST[filterYearProduced]?>" /></div>
-						<div class="rfEngine"><input type="text" name="filterEngine" id="txtRSEngine" onkeyup="filterFields('rsEngine',this)" value="<?=$_POST[filterEngine]?>" /></div>
-						<div class="rfGear"><input type="text" name="filterGear" id="txtRSGear" onkeyup="filterFields('rsGear',this)" value="<?=$_POST[filterGear]?>" /></div>
-						<div class="rfFuel"><input type="text" name="filterFuel" id="txtRSFuel" onkeyup="filterFields('rsFuel',this)" value="<?=$_POST[filterFuel]?>" /></div>
-						<div class="rfSteering"><input type="text" name="filterSteering" id="txtRSSteering" onkeyup="filterFields('rsSteering',this)" value="<?=$_POST[filterSteering]?>" /></div>
-						<div class="rfPrice"><input type="text" name="filterPrice" id="txtRSPrice" onkeyup="filterFields('rsPrice',this)" value="<?=$_POST[filterPrice]?>" /></div>
-						<div class="rfSubmit"><input type="submit" value="Pesquisar" /></div>
-					</form>
-				</li>
-
-				<li class="resultData"><ul>
-				<?
-					if ($_POST[filterManuf] != "") { $filterSql .= " AND manufacturer.name like ('%".$_POST[filterManuf]."%') "; }
-					if ($_POST[filterModel] != "") { $filterSql .= " AND model.name like ('%".$_POST[filterModel]."%') "; }
-					if ($_POST[filterVersion] != "") { $filterSql .= " AND version.name like ('%".$_POST[filterVersion]."%') "; }
-					if ($_POST[filterYearModel] != "") { $filterSql .= " AND feature.yearModel  like ('%".$_POST[filterYearModel]."%') "; }
-					if ($_POST[filterYearProduced] != "") { $filterSql .= " AND feature.yearProduced like ('%".$_POST[filterYearProduced]."%') "; }
-					if ($_POST[filterEngine] != "") { $filterSql .= " AND feature.engine like ('%".$_POST[filterEngine]."%') "; }
-					if ($_POST[filterGear] != "") { $filterSql .= " AND feature.gear like ('%".$_POST[filterGear]."%') "; }
-					if ($_POST[filterFuel] != "") { $filterSql .= " AND feature.fuel like ('%".$_POST[filterFuel]."%') "; }
-					if ($_POST[filterPrice] != "") { $filterSql .= " AND feature.price like ('%".$_POST[filterPrice]."%') "; }
-					if ($_POST[filterActive] == "n") { $filterSql .= " AND feature.active = 'n' "; } else { $filterSql .= " AND feature.active != 'n' "; }
-
-					$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc limit 400";
-					//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
-					$query_search = mysql_query($sql_search) or die (mysql_error()." error #180");
-					while ($res = mysql_fetch_array($query_search)) {
-					?>
-					<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
-						<div class="rsItems">
-							<select id="addMegaPlace_<?=$res[id]?>">
-								<option value="carousel">Destaque (Rotativo/TV)</option>
-								<option value="normal">Secundárias</option>
-							</select><br />
-							<input type="text" id="addMegaPrice_<?=$res[id]?>" placeholder="Preço" value="" /><br />
-							<input type="text" id="addMegaDateLimit_<?=$res[id]?>" class="addMegaDateLimit" placeholder="Data Limite" value="" /><br />
-							<div class="btnClone btnButton"onclick="addMega(<?=$res[id]?>)" title="Adicionar a lista" alt="Adicioanr a lista">Adicionar</div>
-							<input type="hidden" id="addMegaName_<?=$res[id]?>" value="<?=$res[modelName]?>-<?=$res[versionName]?>" />
-							<input type="hidden" id="addMegaPicture_<?=$res[id]?>" value="<?=$res[picture]?>" />
-							<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
-						</div>
-						<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
-							<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
-							<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
-							<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
-							<div class="rsYearModel"><?=$res[yearModel]?></div>
-							<div class="rsYearProduced"><?=$res[yearProduced]?></div>
-							<div class="rsEngine"><?=$res[engine]?></div>
-							<div class="rsGear"><?=$res[gear]?></div>
-							<div class="rsFuel">
-							<?
-							switch (strtolower($res[fuel])) {
-								case 'g':
-									echo "Gasolina";
-									break;
-								case 'f':
-									echo "Flex";
-									break;
-								case 'e':
-									echo "Ethanol";
-									break;
-								case 'd':
-									echo "Diesel";
-									break;
-							}
-							?>
-							</div>
-							<div class="rsSteering"><?=$res[steering]?></div>
-							<div class="rsPrice">R$ <?=$res[price]?></div>
-						</a>
-					</li>
-					<? }  ?>
-				</ul></li>
 			</ul>
 		</div>
 	</div>
@@ -191,46 +140,5 @@ include ("./scripts/conectDB.php");
 		Copyright 2013 carsale.com.br - Todos os direitos reservados
 	</footer>
 </div>
-<script type="text/javascript">
-	function addMega(id) {
-		// TODO: validar da onde que vem a imagem, se tiver .jpg é do server novo, senao adicionar o _p
-		price = $("#addMegaPrice_"+id).val(),
-		place = $("#addMegaPlace_"+id).val(),
-		dateLimit = $("#addMegaDateLimit_"+id).val(),
-		name = $("#addMegaName_"+id).val(),
-		picture = $("#addMegaPicture_"+id).val();
-
-		console.log('api/index.php?type=mega&idFeature='+id+'&price='+price+'&place='+place+'&dateLimit='+dateLimit+'&name='+name);
-		$.getJSON('api/index.php?type=mega&idFeature='+id+'&price='+price+'&place='+place+'&dateLimit='+dateLimit+'&name='+name, function(data) {
-			if(data[0].response == "true"){
-				console.log("item adicionado");
-				$(".ulMO").append('<li class="liMO"><img src="http://carsale.uol.com.br/foto/'+picture+'_p.jpg" /><span>'+name+'</span><span>'+price+'</span><div class="removeItem" onclick="removeItemMega(this,"'+id+'")">remover</div></li>');
-			} else {
-				// alert(data[0].reason);
-				console.log(data[0].reason);
-			}
-		});
-	}
-	function removeItemMega (obj,idFeature){
-		// console.log($(obj).parent());
-		$.getJSON('api/index.php?type=megaRemove&idFeature='+idFeature, function(data) {
-			if(data[0].response == "true"){
-				console.log(data[0].reason);
-				$(obj).parent().remove();
-			} else {
-				// alert(data[0].reason);
-				console.log(data[0].reason);
-			}
-		});
-	}
-$(document).ready(function(){
-	$(".addMegaDateLimit").focusin(function(){
-		if ($(this).is(".hasDatepicker") == false) {
-			$(this).datepicker();
-			$(this).datepicker( "option", "dateFormat", "yy-mm-dd" );
-		}
-	})
-});
-</script>
 </body>
 </html>
