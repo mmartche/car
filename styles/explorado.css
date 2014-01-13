@@ -349,7 +349,6 @@ input.exploradorGridFiltroInputBox { width:250px; height:25px; color:#000; paddi
 .exploradorCarrosTxt a { text-decoration:none; color:#000; }
 .exploradorCarrosTxt a:hover { text-decoration:underline; color:#cb2026; }
 .exploradorCarrosBgHover { width:180px; height:115px; margin-top:-107px; float:left; z-index:10; position:relative; }
-.exploradorTabela { width:970px; height:auto; position:relative; float:left; }
 .exploradorTabelaLineCarros { width:970px; height:192px; border-bottom:1px #bcbec0 solid; border-top:1px #63666a solid; position:relative; float:left; }
 .exploradorTabelaLineCarrosB { width:970px; height:192px; border-bottom:1px #bcbec0 solid; position:relative; float:left; }
 .exploradorTabelaLineVersao { width:970px; height:auto; border-bottom:1px #63666a solid; position:relative; float:left; }

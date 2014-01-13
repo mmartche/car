@@ -412,12 +412,97 @@ switch ($_GET[type]) {
 		break;
 
 	case 'askExplorer':
-		$sql = "SELECT model.name from feature, version, model where feature.idVersion = version.id and version.idModel = model.id = '".$_GET[idModel]."'";
-		// $query = mysql_query($sql) or die ('[{"response":"false", "reason":"error #416"}]');
-		// while ($res = mysql_fetch_array($query)) {
-		// 	//aee
-		// }
-		echo '[{"response":"true", "reason":""}]';
+		$sql = "SELECT feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.pictureThumb,feature.pictureMedium,feature.pictureLarge,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, version.name as versionName, model.name as modelName from feature, version, model where feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ORDER BY feature.yearProduced DESC limit 1 ";
+		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"error #416"}]');
+		$result="[";
+		$loop=0;
+		while ($res = mysql_fetch_array($query)) {
+			$result .= ($loop > 0 ? "," : "");
+			$result.='{
+				"response":"true",
+				"modelName":"'.$res[modelName].'",
+				"versionName":"'.$res[versionName].'",
+		        "code":"'.$res[code].'",
+		        "engine":"'.$res[engine].'",
+		        "doors":"'.$res[doors].'",
+		        "acceleration":"'.$res[acceleration].'",
+		        "passagers":"'.$res[passagers].'",
+		        "speedMax":"'.$res[speedMax].'",
+		        "powerMax":"'.$res[powerMax].'",
+		        "steering":"'.$res[steering].'",
+		        "fuel":"'.$res[fuel].'",
+		        "feeding":"'.$res[feeding].'",
+		        "torque":"'.$res[torque].'",
+		        "traction":"'.$res[traction].'",
+		        "frontSuspension":"'.$res[frontSuspension].'",
+		        "rearSuspension":"'.$res[rearSuspension].'",
+		        "frontBrake":"'.$res[frontBrake].'",
+		        "wheels":"'.$res[wheels].'",
+		        "dimensionLength":"'.$res[dimensionLength].'",
+		        "dimensionHeight":"'.$res[dimensionHeight].'",
+		        "dimensionWidth":"'.$res[dimensionWidth].'",
+		        "rearBrake":"'.$res[rearBrake].'",
+		        "weight":"'.$res[weight].'",
+		        "trunk":"'.$res[trunk].'",
+		        "tank":"'.$res[tank].'",
+		        "dimensionSignAxes":"'.$res[dimensionSignAxes].'",
+		        "warranty":"'.$res[warranty].'",
+		        "gear":"'.$res[gear].'",
+		        "consumptionCity":"'.$res[consumptionCity].'",
+		        "consumptionRoad":"'.$res[consumptionRoad].'",
+		        "yearModel":"'.$res[yearModel].'",
+		        "yearProduced":"'.$res[yearProduced].'",
+		        "picture":"'.$res[picture].'",
+		        "pictureThumb":"'.$res[pictureThumb].'",
+		        "pictureMedium":"'.$res[pictureMedium].'",
+		        "pictureLarge":"'.$res[pictureLarge].'",
+		        "dualFrontAirBag":"'.$res[dualFrontAirBag].'",
+		        "electricSteering":"'.$res[electricSteering].'",
+		        "hydraulicSteering":"'.$res[hydraulicSteering].'",
+		        "airConditioning":"'.$res[airConditioning].'",
+		        "leatherSeat":"'.$res[leatherSeat].'",
+		        "alarm":"'.$res[alarm].'",
+		        "autoGear":"'.$res[autoGear].'",
+		        "absBrake":"'.$res[absBrake].'",
+		        "traction4x4":"'.$res[traction4x4].'",
+		        "countryOrigin":"'.$res[countryOrigin].'",
+		        "hotAir":"'.$res[hotAir].'",
+		        "heightAdjustment":"'.$res[heightAdjustment].'",
+		        "rearSeatSplit":"'.$res[rearSeatSplit].'",
+		        "bluetoothSpeakerphone":"'.$res[bluetoothSpeakerphone].'",
+		        "bonnetSea":"'.$res[bonnetSea].'",
+		        "onboardComputer":"'.$res[onboardComputer].'",
+		        "accelerationCounter":"'.$res[accelerationCounter].'",
+		        "rearWindowDefroster":"'.$res[rearWindowDefroster].'",
+		        "sidesteps":"'.$res[sidesteps].'",
+		        "fogLamps":"'.$res[fogLamps].'",
+		        "xenonHeadlights":"'.$res[xenonHeadlights].'",
+		        "integratedGPSPanel":"'.$res[integratedGPSPanel].'",
+		        "rearWindowWiper":"'.$res[rearWindowWiper].'",
+		        "bumper":"'.$res[bumper].'",
+		        "autopilot":"'.$res[autopilot].'",
+		        "bucketProtector":"'.$res[bucketProtector].'",
+		        "roofRack":"'.$res[roofRack].'",
+		        "cdplayerUSBInput":"'.$res[cdplayerUSBInput].'",
+		        "headlightsHeightAdjustment":"'.$res[headlightsHeightAdjustment].'",
+		        "rearviewElectric":"'.$res[rearviewElectric].'",
+		        "alloyWheels":"'.$res[alloyWheels].'",
+		        "rainSensor":"'.$res[rainSensor].'",
+		        "parkingSensor":"'.$res[parkingSensor].'",
+		        "isofix":"'.$res[isofix].'",
+		        "sunroof":"'.$res[sunroof].'",
+		        "electricLock":"'.$res[electricLock].'",
+		        "electricWindow":"'.$res[electricWindow].'",
+		        "rearElectricWindow":"'.$res[rearElectricWindow].'",
+		        "steeringWheelAdjustment":"'.$res[steeringWheelAdjustment].'",
+		        "description":"'.$res[description].'",
+		        "active":"'.$res[active].'",
+		        "price":"'.$res[price].'"
+			}';
+			$loop++;
+		}
+		$result.="]";
+		print_r($result);
 		break;
 }
 

@@ -238,9 +238,9 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 			$and = " and ";
 		}
 		$filterItems .= ($filterItems != "" ? ")" : ""); 
-		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version WHERE feature.idVersion = version.id and version.idModel = model.id".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
+		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version WHERE feature.idVersion = version.id and version.idModel = model.id and (feature.active ='s' or feature.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
 		// echo $sqlFilter;
-		$queryFilter = mysql_query($sqlFilter) or die ("error #240");
+		$queryFilter = mysql_query($sqlFilter) or die (mysql_error()."error #240");
 		while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
 			<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)">
 			<?
@@ -282,41 +282,44 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
         <div class="resultFilter" id="resultFilter">
         	<div class="column">
 		        <ul class="titleItems">
-                	<li class="liFilterItem">Airbag duplo frontal</li>
-                	<li class="liFilterItem">Ar condicionado</li>
-                	<li class="liFilterItem">Banco motorista com reg. de altura</li>
-                	<li class="liFilterItem">Desembaçador de vidro traseiro</li>
-                	<li class="liFilterItem">Direção hidráulica</li>
-                	<li class="liFilterItem">Freios ABS</li>
-                	<li class="liFilterItem">Limpador de vidro traseiro</li>
-                	<li class="liFilterItem">Para-choque na cor do veículo</li>
-                	<li class="liFilterItem">Radio CD player com entrada USB</li>
-                	<li class="liFilterItem">Retrovisor elétrico</li>
-                	<li class="liFilterItem">Travas elétricas</li>
-                	<li class="liFilterItem">Vidros elétricos</li>
-                	<li class="liFilterItem">Alarme</li>
-                	<li class="liFilterItem">Ar quente</li>
-                	<li class="liFilterItem">Banco traseiro bipartido</li>
-                	<li class="liFilterItem">Banco de couro</li>
-                	<li class="liFilterItem">Computador de bordo</li>
-                	<li class="liFilterItem">Bluetooth com viva voz</li>
-                	<li class="liFilterItem">Conta-giros</li>
-                	<li class="liFilterItem">Farois de milha</li>
-                	<li class="liFilterItem">Farois de xenônio</li>
-                	<li class="liFilterItem">GPS integrado ao painel</li>
-                	<li class="liFilterItem">Piloto automático</li>
-                	<li class="liFilterItem">Regulagem de altura dos farois</li>
-                	<li class="liFilterItem">Rodas de liga leve</li>
-                	<li class="liFilterItem">Sensor de estacionamento</li>
-                	<li class="liFilterItem">Sensor de chuva e/ou crepuscular</li>
-                	<li class="liFilterItem">Sistema isofix para cadeira infantil</li>
-                	<li class="liFilterItem">Teto solar</li>
-                	<li class="liFilterItem">Vidros elétricos traseiros</li>
-                	<li class="liFilterItem">Volante com regulagem de altura</li>
-                	<li class="liFilterItem">Capota marítima</li>
-                	<li class="liFilterItem">Estribos laterais</li>
-                	<li class="liFilterItem">Protetor de caçamba</li>
-                	<li class="liFilterItem">Rack de teto</li>
+		        	<li class="liFilterItem">AirBag frontal</li>
+					<li class="liFilterItem">Direção elétrica</li>
+					<li class="liFilterItem">Direção Hidráulica</li>
+					<li class="liFilterItem">Ar condicionado</li>
+					<li class="liFilterItem">Banco de couro</li>
+					<li class="liFilterItem">Alarme</li>
+					<li class="liFilterItem">Câmbio automático</li>
+					<li class="liFilterItem">Freio ABS</li>
+					<li class="liFilterItem">Tração 4x4</li>
+					<li class="liFilterItem">Ar quente</li>
+					<li class="liFilterItem">Ajuste de altura</li>
+					<li class="liFilterItem">Banco traseiro bipartido</li>
+					<li class="liFilterItem">Bluetooth com viva-voz</li>
+					<li class="liFilterItem">Capota marítima</li>
+					<li class="liFilterItem">Computador de bordo</li>
+					<li class="liFilterItem">Conta giros</li>
+					<li class="liFilterItem">Desembaçador do para-brisa traseiro</li>
+					<li class="liFilterItem">Estribos laterais</li>
+					<li class="liFilterItem">Faróis de neblina/milha</li>
+					<li class="liFilterItem">Faróis de xenon</li>
+					<li class="liFilterItem">GPS Integrado ao painel</li>
+					<li class="liFilterItem">Limpador de vidro traseiro</li>
+					<li class="liFilterItem">Para choque na cor do veículo</li>
+					<li class="liFilterItem">Piloto automático</li>
+					<li class="liFilterItem">Protetor de caçamba</li>
+					<li class="liFilterItem">Rack no teto</li>
+					<li class="liFilterItem">CD player com entrada USB</li>
+					<li class="liFilterItem">Regulagem de altura dos faróis</li>
+					<li class="liFilterItem">Retrovisor elétrico</li>
+					<li class="liFilterItem">Rodas de liga leve</li>
+					<li class="liFilterItem">Sensor de chuva</li>
+					<li class="liFilterItem">Sensor de estacionamento</li>
+					<li class="liFilterItem">Sistema Isofix para cadeira de criança</li>
+					<li class="liFilterItem">Teto solar</li>
+					<li class="liFilterItem">Trava elétrica</li>
+					<li class="liFilterItem">Vidro elétrico</li>
+					<li class="liFilterItem">Vidro traseiro elétrico</li>
+					<li class="liFilterItem">Volante com regulagem de altura</li>
 		        </ul>
 		        <div class="headerTitle">Motor</div>
 		        <ul class="titleItems">
@@ -324,6 +327,28 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 		        	<li>Alimentacao</li>
 		        	<li>Combustivel</li>
 		        	<li>Potencia</li>
+		        	<li>Torque</li>
+	        	</ul>
+	        	 <div class="headerTitle">Desempenho</div>
+		        <ul class="titleItems">
+		        	<li>Aceleração</li>
+		        	<li>Velocidade</li>
+		        	<li>Consumo na cidade</li>
+		        	<li>Consumo na estrada</li>
+	        	</ul>
+	        	 <div class="headerTitle">Dimensões</div>
+		        <ul class="titleItems">
+		        	<li>Comprimento</li>
+		        	<li>Largura</li>
+		        	<li>Altura</li>
+		        	<li>Entre Eixos</li>
+	        	</ul>
+	        	 <div class="headerTitle">Geral</div>
+		        <ul class="titleItems">
+		        	<li>Ano do Modelo</li>
+		        	<li>Ano de Produção</li>
+		        	<li>Portas</li>
+		        	<li>Passageiros</li>
 	        	</ul>
             </div>            
         </div>
