@@ -77,7 +77,7 @@ function addFilter (obj,idModel) {
             divResultCar += checkItem(data[0].steeringWheelAdjustment);
             divResultCar += '</ul>'+
             	'<div class="headerTitle"></div>'+
-		        '<ul class="titleItems">'+
+		        '<ul class="descItems">'+
 		        	'<li>'+data[0].engine+'</li>'+
 		        	'<li>'+data[0].feeding+'</li>'+
                     '<li>'+data[0].fuel+'</li>'+
@@ -85,21 +85,21 @@ function addFilter (obj,idModel) {
 		        	'<li>'+data[0].torque+'</li>'+
 	        	'</ul>'+
                 '<div class="headerTitle"></div>'+
-                '<ul class="titleItems">'+
+                '<ul class="descItems">'+
                     '<li>'+data[0].acceleration+'</li>'+
                     '<li>'+data[0].speedMax+'</li>'+
                     '<li>'+data[0].consumptionCity+'</li>'+
                     '<li>'+data[0].consumptionRoad+'</li>'+
                 '</ul>'+
                 '<div class="headerTitle"></div>'+
-                '<ul class="titleItems">'+
+                '<ul class="descItems">'+
                     '<li>'+data[0].dimensionLength+'</li>'+
                     '<li>'+data[0].dimensionHeight+'</li>'+
                     '<li>'+data[0].dimensionWidth+'</li>'+
                     '<li>'+data[0].dimensionSignAxes+'</li>'+
                 '</ul>'+
                 '<div class="headerTitle"></div>'+
-                '<ul class="titleItems">'+
+                '<ul class="descItems">'+
                     '<li>'+data[0].yearModel+'</li>'+
                     '<li>'+data[0].yearProduced+'</li>'+
                     '<li>'+data[0].doors+'</li>'+

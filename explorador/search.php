@@ -329,27 +329,29 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 		        	<li>Potencia</li>
 		        	<li>Torque</li>
 	        	</ul>
-	        	 <div class="headerTitle">Desempenho</div>
+	        	<div class="headerTitle">Desempenho</div>
 		        <ul class="titleItems">
 		        	<li>Aceleração</li>
 		        	<li>Velocidade</li>
 		        	<li>Consumo na cidade</li>
 		        	<li>Consumo na estrada</li>
 	        	</ul>
-	        	 <div class="headerTitle">Dimensões</div>
+	        	<div class="headerTitle">Dimensões</div>
 		        <ul class="titleItems">
 		        	<li>Comprimento</li>
 		        	<li>Largura</li>
 		        	<li>Altura</li>
 		        	<li>Entre Eixos</li>
 	        	</ul>
-	        	 <div class="headerTitle">Geral</div>
+	        	<div class="headerTitle">Geral</div>
 		        <ul class="titleItems">
 		        	<li>Ano do Modelo</li>
 		        	<li>Ano de Produção</li>
 		        	<li>Portas</li>
 		        	<li>Passageiros</li>
 	        	</ul>
+	        	<div class="headerTitle">Opcionais</div>
+	        	
             </div>            
         </div>
 

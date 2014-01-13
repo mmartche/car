@@ -412,7 +412,7 @@ switch ($_GET[type]) {
 		break;
 
 	case 'askExplorer':
-		$sql = "SELECT feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.pictureThumb,feature.pictureMedium,feature.pictureLarge,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, version.name as versionName, model.name as modelName from feature, version, model where feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ORDER BY feature.yearProduced DESC limit 1 ";
+		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.pictureThumb,feature.pictureMedium,feature.pictureLarge,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, version.name as versionName, model.name as modelName from feature, version, model where feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ORDER BY feature.yearProduced DESC limit 1 ";
 		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"error #416"}]');
 		$result="[";
 		$loop=0;
@@ -497,8 +497,23 @@ switch ($_GET[type]) {
 		        "steeringWheelAdjustment":"'.$res[steeringWheelAdjustment].'",
 		        "description":"'.$res[description].'",
 		        "active":"'.$res[active].'",
-		        "price":"'.$res[price].'"
-			}';
+		        "price":"'.$res[price].'"';
+			$sqlOpt = "SELECT optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsFeature.price as priceFeature from optionsManufacturer, optionsFeature WHERE optionsFeature.idOption = optionsManufacturer.id and optionsFeature.idFeature = '".$res[featureId]."'";
+			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #502");
+			$result.= ',"options":';
+			$loopOpt=0;
+			while ($resOpt = mysql_fetch_array($queryOpt)) {
+				$result .= ($loopOpt > 0 ? "," : "");
+		        $result.='{
+	        		"id":"'.$resOpt[id].'",
+		        	"code":"'.$resOpt[code].'",
+		        	"name":"'.$resOpt[name].'",
+		        	"items":"'.$resOpt[options].'",
+		        	"price":"'.$resOpt[priceFeature].'"
+		        	}';
+		        $loopOpt++;
+			}
+			$result.='}';
 			$loop++;
 		}
 		$result.="]";
