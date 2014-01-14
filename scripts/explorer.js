@@ -42,7 +42,7 @@ function addFilter (obj,idModel) {
                 '<div class="exploradorTabelaCarroNumeracao">'+carsLength+'</div>'+
                 '<div class="exploradorTabelaCarroImg"><img alt="'+data[0].modelName+'" title="'+data[0].modelName+'" src="http://carsale.uol.com.br/foto/'+data[0].picture+'_p.jpg"></div>'+
                 '<div class="exploradorTabelaCarroModelo">'+data[0].modelName+' - '+data[0].versionName+'</div>'+
-                '<div class="exploradorTabelaCarroValor">'+data[0].price+'</div>'+
+                '<div class="exploradorTabelaCarroValor">R$ '+data[0].price+'</div>'+
             '</div>';
             $(".exploradorTabelaLineCarros").append(divTitleCar);
 
