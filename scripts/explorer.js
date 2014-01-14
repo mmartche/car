@@ -15,6 +15,16 @@ function checkItem (input){
         return '<li class="liFilterItem no">-</li>';
     }
 }
+function excluirComparacao(obj){
+    $(obj).parent(".exploradorTabelaGridCarro").remove();
+    number = $(obj).parent().children(".exploradorTabelaCarroNumeracao").text();
+    $(".column")[number].remove();
+    qnt = $(".exploradorTabelaCarroNumeracao").length;
+    for (i = 0; i < qnt; i++) {
+        console.log(i,$(".exploradorTabelaCarroNumeracao")[i]);
+        $(".exploradorTabelaCarroNumeracao")[i].innerText = i+1;
+    };
+}
 
 function addFilter (obj,idModel) {
 	var qntSerie=34, qntMotor=5, qntGeral=4, qntDesempenho=4, qntDimensao=4;
@@ -25,12 +35,12 @@ function addFilter (obj,idModel) {
 		console.log('888888',data[0].response);
 		if(data[0].response == "true"){
             //count cars showed
-            var carsLength = 0;
+            var carsLength = $(".column").length;
             var divTitleCar = '<div class="exploradorTabelaGridCarro veiculo'+carsLength+'">'+
                 '<div class="exploradorTabelaGridCarroOculta"></div>'+
-                '<div class="exploradorTabelaCarroFechar"><a href="" class="excluirComparacao" id="excluirComparacao'+carsLength+'" style="display: none;">x</a></div>'+
+                '<div class="excluirComparacao" id="excluirComparacao'+carsLength+'" onclick="excluirComparacao(this)" >x</div>'+
                 '<div class="exploradorTabelaCarroNumeracao">'+carsLength+'</div>'+
-                '<div class="exploradorTabelaCarroImg"><img alt="'+data[0].modelName+'" title="'+data[0].modelName+'" src="'+data[0].picture+'"></div>'+
+                '<div class="exploradorTabelaCarroImg"><img alt="'+data[0].modelName+'" title="'+data[0].modelName+'" src="http://carsale.uol.com.br/foto/'+data[0].picture+'_p.jpg"></div>'+
                 '<div class="exploradorTabelaCarroModelo">'+data[0].modelName+' - '+data[0].versionName+'</div>'+
                 '<div class="exploradorTabelaCarroValor">'+data[0].price+'</div>'+
             '</div>';
@@ -113,7 +123,7 @@ function addFilter (obj,idModel) {
                 '<div class="exploradorTabelaBtnFicha"><a id="noticia0" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
                 '<div class="exploradorTabelaBtnFicha"><a id="opiniao0" class="opiniao">Opinião do Dono</a></div>'+
             '</div>';
-			$(".exploradorTabelaLineBtn").append(divFooterCar);
+			//$(".exploradorTabelaLineBtn").append(divFooterCar);
 		} else {
 			console.log(data[0].reason);
 		}

@@ -54,7 +54,7 @@ include ("../scripts/conectDB.php");
 				<h3 class="secTitle">Já tem algum carro em mente?</h3>
 				<div class="secSubTitle"><span>Então começe por aqui</span></div>
 				<div class="expHomeForm">
-					<form action="#" method="post">
+					<form action="search.php" method="post">
 						<select class="expInputSelect" name="expManufacturer" id="expSelectManufacturer" onchange="updateField(this)">
 							<option>Montadora</option>
 							<?
@@ -70,7 +70,7 @@ include ("../scripts/conectDB.php");
 						<select class="expInputSelect" id="expModel" name="expModel">
 							<option>Escolha uma montadora primeiro</option>
 						</select>
-						<div class="btnExpSearch"><div class="btnPadding"><input type="button" class="btnButton" value="Ir para comparativo" /></div></div>
+						<div class="btnExpSearch"><div class="btnPadding"><input type="submit" class="btnButton" value="Ir para comparativo" /></div></div>
 					</form>
 				</div>
 			</section>
