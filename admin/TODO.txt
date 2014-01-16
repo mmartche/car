@@ -25,3 +25,7 @@ MEGA OFERTA
 -omniture
 -change css to local
 -email (send & layout)
+
+
+EXPLORADOR
+- quando selectiona um item na busca, adiciona ele no form abaixo do botao para mostrar opcoes

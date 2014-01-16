@@ -417,6 +417,23 @@ switch ($_GET[type]) {
 		$result="[";
 		$loop=0;
 		while ($res = mysql_fetch_array($query)) {
+			switch (strtolower($res[fuel])) {
+			 	case 'g':
+					$fuelType = "Gasolina";
+			 		break;
+			 	case 'f':
+			 		$fuelType = "Flex";
+			 		break;
+			 	case 'a':
+			 		$fuelType = "Alcool";
+			 		break;
+			 	case 'd':
+			 		$fuelType = "Diesel";
+			 		break;
+			 	default:
+			 		$fuelType = "";
+			 		break;
+			}
 			$result .= ($loop > 0 ? "," : "");
 			$result.='{
 				"response":"true",
@@ -430,7 +447,7 @@ switch ($_GET[type]) {
 		        "speedMax":"'.$res[speedMax].'",
 		        "powerMax":"'.$res[powerMax].'",
 		        "steering":"'.$res[steering].'",
-		        "fuel":"'.$res[fuel].'",
+		        "fuel":"'.$fuelType.'",
 		        "feeding":"'.$res[feeding].'",
 		        "torque":"'.$res[torque].'",
 		        "traction":"'.$res[traction].'",

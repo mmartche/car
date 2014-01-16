@@ -150,13 +150,17 @@ transition: all .3s;
 	height: 100px;
 	border:1px solid transparent;
 	border-radius: 10px;
-	background: url("http://carsale.uol.com.br/classificado/img/btnFiltroCategoriaEntrada.gif") 0 0 transparent no-repeat;
+	text-align: center;
+	/*background: url("http://carsale.uol.com.br/classificado/img/btnFiltroCategoriaEntrada.gif") 0 0 transparent no-repeat;*/
 }
 .thumbExpForm:hover{
-	/*border-color: red;*/
-	background: url("http://carsale.uol.com.br/classificado/img/btnFiltroCategoriaEntradaHover.gif") 0 0 transparent no-repeat;
+	border-color: #ccc;
+	/*background: url("http://carsale.uol.com.br/classificado/img/btnFiltroCategoriaEntradaHover.gif") 0 0 transparent no-repeat;*/
 }
 .filterChecked .thumbExpForm{
+	border-color: red;
+}
+.filterChecked .thumbExpForm:hover{
 	border-color: red;
 }
 .exploradorGridFiltrosGridImg {

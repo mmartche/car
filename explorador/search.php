@@ -220,7 +220,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 		// $x = ($myvalue == 99) ? "x is 99": "x is not 99";
 		for ($i=0; $i < count($_POST[segments]); $i++) {
 			$filterSeg .= ($i > 0 ? " or " : "(");
-			$filterSeg .= " (model.idSegment1 = '".$_POST[segments][$i]."' or model.idSegment2 = '".$_POST[segments][$i]."' or model.idSegment3 = '".$_POST[segments][$i]."') ";
+			$filterSeg .= " and (model.idSegment1 = '".$_POST[segments][$i]."' or model.idSegment2 = '".$_POST[segments][$i]."' or model.idSegment3 = '".$_POST[segments][$i]."') ";
 			$and = " and ";
 		}
 		$filterSeg .= ($filterSeg != "" ? ")" : ""); 
@@ -238,9 +238,9 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 			$and = " and ";
 		}
 		$filterItems .= ($filterItems != "" ? ")" : ""); 
-		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version WHERE feature.idVersion = version.id and version.idModel = model.id and (feature.active ='s' or feature.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
+		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version WHERE feature.idVersion = version.id and version.idModel = model.id and (feature.active ='s' or feature.active != 'n') ".$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
 		// echo $sqlFilter;
-		$queryFilter = mysql_query($sqlFilter) or die (mysql_error()."error #240");
+		$queryFilter = mysql_query($sqlFilter) or die ($sqlFilter.mysql_error()."error #240");
 		while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
 			<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)">
 			<?
