@@ -65,3 +65,15 @@
 .megaOfertasCarsaleOferta {
 	margin: 10px 5px;
 }
+.megaOfertasCarsaleFormColunaInput {
+	width: 480px;
+}
+.megaOfertasCarsaleFormLineInput {
+	height: 38px;
+}
+input.megaOfertasCarsaleFormTrocaInputBox {
+	width: 116px;
+}
+input.megaOfertasCarsaleFormInputDddBox {
+	width: 56px;
+}

@@ -46,7 +46,36 @@ function addFilter (obj,idModel) {
             '</div>';
             $(".exploradorTabelaLineCarros").append(divTitleCar);
 
-            divResultCar = '<div class="column">'+'<ul class="descItems">';
+            divResultCar = '<div class="column"><div class="headerTitle"></div>'+
+                '<ul class="descItems">'+
+                    '<li>'+data[0].engine+'</li>'+
+                    '<li>'+data[0].feeding+'</li>'+
+                    '<li>'+data[0].fuel+'</li>'+
+                    '<li>'+data[0].powerMax+'</li>'+
+                    '<li>'+data[0].torque+'</li>'+
+                '</ul>'+
+                '<div class="headerTitle"></div>'+
+                '<ul class="descItems">'+
+                    '<li>'+data[0].acceleration+'</li>'+
+                    '<li>'+data[0].speedMax+'</li>'+
+                    '<li>'+data[0].consumptionCity+'</li>'+
+                    '<li>'+data[0].consumptionRoad+'</li>'+
+                '</ul>'+
+                '<div class="headerTitle"></div>'+
+                '<ul class="descItems">'+
+                    '<li>'+data[0].dimensionLength+'</li>'+
+                    '<li>'+data[0].dimensionHeight+'</li>'+
+                    '<li>'+data[0].dimensionWidth+'</li>'+
+                    '<li>'+data[0].dimensionSignAxes+'</li>'+
+                '</ul>'+
+                '<div class="headerTitle"></div>'+
+                '<ul class="descItems">'+
+                    '<li>'+data[0].yearModel+'</li>'+
+                    '<li>'+data[0].yearProduced+'</li>'+
+                    '<li>'+data[0].doors+'</li>'+
+                    '<li>'+data[0].passagers+'</li>'+
+                '</ul>';
+            divResultCar += '<div class="headerTitle"></div><ul class="descItems">';
             divResultCar += checkItem(data[0].dualFrontAirBag);
             divResultCar += checkItem(data[0].electricSteering);
             divResultCar += checkItem(data[0].hydraulicSteering);
@@ -86,35 +115,6 @@ function addFilter (obj,idModel) {
             divResultCar += checkItem(data[0].rearElectricWindow);
             divResultCar += checkItem(data[0].steeringWheelAdjustment);
             divResultCar += '</ul>'+
-            	'<div class="headerTitle"></div>'+
-		        '<ul class="descItems">'+
-		        	'<li>'+data[0].engine+'</li>'+
-		        	'<li>'+data[0].feeding+'</li>'+
-                    '<li>'+data[0].fuel+'</li>'+
-                    '<li>'+data[0].powerMax+'</li>'+
-		        	'<li>'+data[0].torque+'</li>'+
-	        	'</ul>'+
-                '<div class="headerTitle"></div>'+
-                '<ul class="descItems">'+
-                    '<li>'+data[0].acceleration+'</li>'+
-                    '<li>'+data[0].speedMax+'</li>'+
-                    '<li>'+data[0].consumptionCity+'</li>'+
-                    '<li>'+data[0].consumptionRoad+'</li>'+
-                '</ul>'+
-                '<div class="headerTitle"></div>'+
-                '<ul class="descItems">'+
-                    '<li>'+data[0].dimensionLength+'</li>'+
-                    '<li>'+data[0].dimensionHeight+'</li>'+
-                    '<li>'+data[0].dimensionWidth+'</li>'+
-                    '<li>'+data[0].dimensionSignAxes+'</li>'+
-                '</ul>'+
-                '<div class="headerTitle"></div>'+
-                '<ul class="descItems">'+
-                    '<li>'+data[0].yearModel+'</li>'+
-                    '<li>'+data[0].yearProduced+'</li>'+
-                    '<li>'+data[0].doors+'</li>'+
-                    '<li>'+data[0].passagers+'</li>'+
-                '</ul>'+
             '</div>';
             $("#resultFilter").append(divResultCar);
 

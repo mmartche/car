@@ -21,7 +21,7 @@ header {
 	margin: auto;
 }
 .logo {
-	background: url("../images/logo-175x70.png") no-repeat;
+	background: url("../images/logo-header.png") no-repeat;
 	text-indent: -999em;
 	float: left;
 	margin: 10px 0 0 20px;
@@ -114,7 +114,7 @@ header {
 	width: 80px;
 }
 .menu.affix .nav li.menuHome:first-child > a {
-	background: url("../images/logo-80x28.png") no-repeat 10px 5px;
+	background: url("../images/logo-home.png") no-repeat 10px 5px;
 	text-indent: -99em;
 	width: 100px;
 	height: 38px;
@@ -331,7 +331,7 @@ overflow: hidden;
 }
 .chamadaH1 {
 	float: left;
-	width: 300px;
+	width: 500px;
 	margin: 0 10px 10px 0;
 	border-top: 1px dotted #ccc;
 	overflow: hidden;

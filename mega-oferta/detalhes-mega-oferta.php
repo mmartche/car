@@ -109,33 +109,33 @@ if (file_exists("http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg")) {
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label for="estado"><span class="obigatorio">*</span>Estado:</label></div>
                         <select class="input_text12" name="propostaMegaOferta.unidadeFederativa.id" id="estado">
                             <option value="">Selecione:</option>                            
-                                <option value="01">AC</option>                            
-                                <option value="02">AL</option>                            
-                                <option value="04">AM</option>                            
-                                <option value="03">AP</option>                            
-                                <option value="05">BA</option>                            
-                                <option value="06">CE</option>                            
-                                <option value="07">DF</option>                            
-                                <option value="08">ES</option>                            
-                                <option value="10">GO</option>                            
-                                <option value="11">MA</option>                            
-                                <option value="14">MG</option>                            
-                                <option value="13">MS</option>                            
-                                <option value="12">MT</option>                            
-                                <option value="15">PA</option>                            
-                                <option value="16">PB</option>                            
-                                <option value="18">PE</option>                            
-                                <option value="19">PI</option>                            
-                                <option value="17">PR</option>                            
-                                <option value="20">RJ</option>                            
-                                <option value="21">RN</option>                            
-                                <option value="23">RO</option>                            
-                                <option value="09">RR</option>                            
-                                <option value="22">RS</option>                            
-                                <option value="25">SC</option>                            
-                                <option value="27">SE</option>                            
-                                <option value="26">SP</option>                            
-                                <option value="24">TO</option>                            
+                                <option value="AC">AC</option>                            
+                                <option value="AL">AL</option>                            
+                                <option value="AM">AM</option>                            
+                                <option value="AP">AP</option>                            
+                                <option value="BA">BA</option>                            
+                                <option value="CE">CE</option>                            
+                                <option value="DF">DF</option>                            
+                                <option value="ES">ES</option>                            
+                                <option value="GO">GO</option>                            
+                                <option value="MA">MA</option>                            
+                                <option value="MG">MG</option>                            
+                                <option value="MS">MS</option>                            
+                                <option value="MT">MT</option>                            
+                                <option value="PA">PA</option>                            
+                                <option value="PB">PB</option>                            
+                                <option value="PE">PE</option>                            
+                                <option value="PI">PI</option>                            
+                                <option value="PR">PR</option>                            
+                                <option value="RJ">RJ</option>                            
+                                <option value="RN">RN</option>                            
+                                <option value="RO">RO</option>                            
+                                <option value="RR">RR</option>                            
+                                <option value="RS">RS</option>                            
+                                <option value="SC">SC</option>                            
+                                <option value="SE">SE</option>                            
+                                <option value="SP">SP</option>                            
+                                <option value="TO">TO</option>                            
                         </select>
 
                         <div class="cidadeFrm"><label for="cidade"><span class="obigatorio">*</span>Cidade:</label></div>

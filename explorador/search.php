@@ -211,7 +211,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	</div>
 </div>
 <!--FIM DO FORM FILTER -->
-<? if ($_POST[btnSearch] == "Buscar") { ?>
+<? if (($_POST[btnSearch] == "Buscar") || ($_POST[expModel] != "")) { ?>
 <!-- FORM SELECT UR CAR -->
 <div class="sContent">
 	<div class="exploradorTitulo">Clique nos carros para compará-los:</div>
@@ -220,10 +220,17 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 		// $x = ($myvalue == 99) ? "x is 99": "x is not 99";
 		for ($i=0; $i < count($_POST[segments]); $i++) {
 			$filterSeg .= ($i > 0 ? " or " : "(");
-			$filterSeg .= " and (model.idSegment1 = '".$_POST[segments][$i]."' or model.idSegment2 = '".$_POST[segments][$i]."' or model.idSegment3 = '".$_POST[segments][$i]."') ";
+			$filterSeg .= " (model.idSegment1 = '".$_POST[segments][$i]."' or model.idSegment2 = '".$_POST[segments][$i]."' or model.idSegment3 = '".$_POST[segments][$i]."') ";
 			$and = " and ";
 		}
 		$filterSeg .= ($filterSeg != "" ? ")" : ""); 
+		if ($_POST[expModel] != "") {
+			$sqlExp = "SELECT idSegment1 from model WHERE id = '".$_POST[expModel]."'";
+			$qExp = mysql_query($sqlExp);
+			$reExp = mysql_fetch_array($qExp);
+			$filterSeg = " (model.idSegment1 = '".$reExp[idSegment1]."' or model.idSegment2 = '".$reExp[idSegment1]."' or model.idSegment3 = '".$reExp[idSegment1]."') ";
+			$and = " and ";
+		}
 		if ($_POST[filterPriceIni]) {
 			$filterPriceIni = " and feature.price > '".$_POST[filterPriceIni]."' ";
 			$and = " and ";
@@ -238,25 +245,31 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 			$and = " and ";
 		}
 		$filterItems .= ($filterItems != "" ? ")" : ""); 
-		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version WHERE feature.idVersion = version.id and version.idModel = model.id and (feature.active ='s' or feature.active != 'n') ".$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
-		// echo $sqlFilter;
+		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version WHERE feature.idVersion = version.id and version.idModel = model.id and (feature.active ='s' or feature.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
+		//echo $sqlFilter;
 		$queryFilter = mysql_query($sqlFilter) or die ($sqlFilter.mysql_error()."error #240");
-		while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
-			<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)">
+		if (mysql_num_rows($queryFilter) > 0) {
+			while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
+				<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)">
+				<?
+				if (file_exists("http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg")) {
+					$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
+				} elseif (file_exists("../carImages/".$resFilter[picture])) {
+					$picture = "../carImages/".$resFilter[picture];
+				} elseif (file_exists("../carImagesMegaOferta/".$resFilter[picture])) {
+					$picture = "../carImages/".$resFilter[picture];
+				} else {
+					$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
+				}
+				?>
+					<img src="<?=$picture?>" class="imgCarSelect" />
+					<label><?=$resFilter[modelName]?> - <?=$resFilter[versionName]?></label>
+				</li>
 			<?
-			if (file_exists("http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg")) {
-				$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
-			} elseif (file_exists("../carImages/".$resFilter[picture])) {
-				$picture = "../carImages/".$resFilter[picture];
-			} elseif (file_exists("../carImagesMegaOferta/".$resFilter[picture])) {
-				$picture = "../carImages/".$resFilter[picture];
-			} else {
-				$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
 			}
-			?>
-				<img src="<?=$picture?>" class="imgCarSelect" />
-				<label><?=$resFilter[modelName]?> - <?=$resFilter[versionName]?></label>
-			</li>
+		} else {
+		?>
+		<div>Nenhum resultado encontrado</div>
 		<?
 		}
 		?>
@@ -281,6 +294,36 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
         </div>
         <div class="resultFilter" id="resultFilter">
         	<div class="column">
+        		<div class="headerTitle">Motor</div>
+		        <ul class="titleItems">
+		        	<li>Motor</li>
+		        	<li>Alimentacao</li>
+		        	<li>Combustivel</li>
+		        	<li>Potencia</li>
+		        	<li>Torque</li>
+	        	</ul>
+	        	<div class="headerTitle">Desempenho</div>
+		        <ul class="titleItems">
+		        	<li>Aceleração</li>
+		        	<li>Velocidade</li>
+		        	<li>Consumo na cidade</li>
+		        	<li>Consumo na estrada</li>
+	        	</ul>
+	        	<div class="headerTitle">Dimensões</div>
+		        <ul class="titleItems">
+		        	<li>Comprimento</li>
+		        	<li>Largura</li>
+		        	<li>Altura</li>
+		        	<li>Entre Eixos</li>
+	        	</ul>
+	        	<div class="headerTitle">Geral</div>
+		        <ul class="titleItems">
+		        	<li>Ano do Modelo</li>
+		        	<li>Ano de Produção</li>
+		        	<li>Portas</li>
+		        	<li>Passageiros</li>
+	        	</ul>
+        		<div class="headerTitle">Itens de série</div>
 		        <ul class="titleItems">
 		        	<li class="liFilterItem">AirBag frontal</li>
 					<li class="liFilterItem">Direção elétrica</li>
@@ -321,35 +364,6 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 					<li class="liFilterItem">Vidro traseiro elétrico</li>
 					<li class="liFilterItem">Volante com regulagem de altura</li>
 		        </ul>
-		        <div class="headerTitle">Motor</div>
-		        <ul class="titleItems">
-		        	<li>Motor</li>
-		        	<li>Alimentacao</li>
-		        	<li>Combustivel</li>
-		        	<li>Potencia</li>
-		        	<li>Torque</li>
-	        	</ul>
-	        	<div class="headerTitle">Desempenho</div>
-		        <ul class="titleItems">
-		        	<li>Aceleração</li>
-		        	<li>Velocidade</li>
-		        	<li>Consumo na cidade</li>
-		        	<li>Consumo na estrada</li>
-	        	</ul>
-	        	<div class="headerTitle">Dimensões</div>
-		        <ul class="titleItems">
-		        	<li>Comprimento</li>
-		        	<li>Largura</li>
-		        	<li>Altura</li>
-		        	<li>Entre Eixos</li>
-	        	</ul>
-	        	<div class="headerTitle">Geral</div>
-		        <ul class="titleItems">
-		        	<li>Ano do Modelo</li>
-		        	<li>Ano de Produção</li>
-		        	<li>Portas</li>
-		        	<li>Passageiros</li>
-	        	</ul>
 	        	<div class="headerTitle">Opcionais</div>
 	        	
             </div>            
