@@ -10,7 +10,7 @@ $(document).ready(function(){
 		//do
 		var nextMenu = "#sub"+$(this).attr("id");
 		//var next = $(this).children(".dropdown-menu");
-		console.log(nextMenu);
+		//console.log(nextMenu);
 		$(".subMenuLi ul").css("display","none");
 		$(nextMenu).css("display","none").slideToggle();
 		//$(this+" .dropdown-menu").slideToggle();

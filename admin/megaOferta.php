@@ -78,32 +78,39 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 			<span>Sistema administrativo - Mega Oferta</span>
 		</h2>
 	</header>
+	<ol class="breadcrumb">
+		<li><a href="index.php">Home</a></li>
+	</ol>
 	<!--form class="form-search">
 	<div class="input-append">
 	<input type="text" class="span2 search-query">
 	<button type="submit" class="btn">Search</button>
 	</div>
 	</form-->
-	<form onsubmit="" action="#" method="post" enctype="multipart/form-data">
-		<div>
-			<select name="manufacturer" id="manufacturerName">
-				<option>Escolha uma Marca</option>
-				<?
-			    $sqlManuf = "SELECT id, name from manufacturer order by name";
-			    $queryManuf = mysql_query($sqlManuf);
-			    while ($resManuf = mysql_fetch_array($queryManuf)) {
-			    	?>
-			    	<option value="<?=$resManuf[id]?>"><?=$resManuf[name]?></option>
-			    	<?
-			    }
-			    ?>
-			</select>
-			<select name="modelName" id="modelName"></select>
-			<select name="versionName" id="versionName"></select>
-			<input type="text" name="price" id="price" placeholder="Preço" />
-			<input type="text" name="description" id="description" placeholder="Descrição" />
-			<input type="checkbox" name="place" id="place" value="carousel" /><label for="place">Aparecer em destaque?</label>
-			<input type="submit" name="btnAddMegaOferta" value="Adicionar" />
+	<form onsubmit="" action="#" method="post" enctype="multipart/form-data" style="overflow:hidden">
+		<div class="megaDiv">
+			<div class="MegaSelects">
+				<select name="manufacturer" id="manufacturerName">
+					<option>Escolha uma Marca</option>
+					<?
+				    $sqlManuf = "SELECT id, name from manufacturer order by name";
+				    $queryManuf = mysql_query($sqlManuf);
+				    while ($resManuf = mysql_fetch_array($queryManuf)) {
+				    	?>
+				    	<option value="<?=$resManuf[id]?>"><?=$resManuf[name]?></option>
+				    	<?
+				    }
+				    ?>
+				</select>
+				<select name="modelName" id="modelName"></select>
+				<select name="versionName" id="versionName"></select>
+			</div>
+			<div class="megaInputs">
+				<input type="text" name="price" id="price" placeholder="Preço" />
+				<input type="text" name="description" id="description" placeholder="Descrição" />
+				<input type="checkbox" name="place" id="place" value="carousel" /><label for="place">Aparecer em destaque?</label>
+				<input type="submit" name="btnAddMegaOferta" value="Adicionar" />
+			</div>
 			<input type="hidden" name="manufacturerId" id="manufacturerId" />
 			<input type="hidden" name="modelId" id="modelId" />
 			<input type="hidden" name="versionId" id="versionId" />
@@ -116,7 +123,7 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 	</form>
 	<div class="content">
 		<?
-		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place";
+		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc";
 		$query_mo = mysql_query($sql_mo) or die (mysql_error());
 		?>
 		<div class="megaOfertaData">
@@ -128,8 +135,15 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
 					<img class="imgLiMO" src="../carImagesMegaOferta/<?=$resMO[picture]?>" />
 					<span class="priceLiMO">R$ <?=$resMO[price]?></span>
-					<span class="dateLimitLiMO">Válido até: <?=$resMO[dateLimit]?></span>
-					<span class="placeLiMO">Exibindo em: <?=$resMO[place]?></span>
+					<!--span class="dateLimitLiMO">Válido até: <?=$resMO[dateLimit]?></span-->
+					<?php
+						if ($resMO[place] == 'carousel') {
+							$placeName = " Em destaque";
+						} else {
+							$placeName = "Secundária";
+						}
+					?>
+					<span class="placeLiMO">Exibindo em: <?=$placeName?></span>
 					<div class="removeItem" onclick="removeItemMega(this,'<?=$resMO[megaOfertaId]?>')">remover</div>
 				</li>
 				<? } ?>

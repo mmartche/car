@@ -437,6 +437,7 @@ switch ($_GET[type]) {
 			$result .= ($loop > 0 ? "," : "");
 			$result.='{
 				"response":"true",
+				"featureId":"'.$res[featureId].'",
 				"modelName":"'.$res[modelName].'",
 				"versionName":"'.$res[versionName].'",
 		        "code":"'.$res[code].'",
@@ -517,7 +518,7 @@ switch ($_GET[type]) {
 			$result.= (mysql_num_rows($queryOpt) > 0 ? ',"options":' : "");
 			$loopOpt=0;
 			while ($resOpt = mysql_fetch_array($queryOpt)) {
-				$result .= ($loopOpt > 0 ? "," : "");
+				$result .= ($loopOpt > 0 ? "," : "[");
 		        $result.='{
 	        		"id":"'.$resOpt[id].'",
 		        	"code":"'.$resOpt[code].'",
@@ -527,7 +528,7 @@ switch ($_GET[type]) {
 		        	}';
 		        $loopOpt++;
 			}
-			$result.='}';
+			$result.=']}';
 			$loop++;
 		}
 		$result.="]";

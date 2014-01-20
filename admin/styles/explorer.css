@@ -5,6 +5,7 @@
 	text-align: center;
 	position: relative;
 	margin: 5px 15px;
+	overflow: hidden;
 }
 .removeItem {
 	display: none;
@@ -47,7 +48,7 @@
 }
 
 .megaOfertaData {
-	height: 300px;
+	
 	overflow: scroll;
 }
 .btnClone {
@@ -55,4 +56,13 @@
 	float: none;
 	margin: auto;
 	height: 30px;
+}
+.megaDiv {
+	position: relative;
+}
+.megaSelects {
+
+}
+.megaInputs {
+	margin: 10px 0;
 }

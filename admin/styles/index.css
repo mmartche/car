@@ -3,6 +3,18 @@ ul, li, h1 {
 	margin: 0;
 	padding: 0;
 }
+.menuIndex {
+	width: 300px;
+	margin: auto;
+}
+.menuIndex li {
+	text-align: center;
+	border: 1px solid;
+}
+.menuIndex li a {
+	display: block;
+	padding: 5px;
+}
 #btnSerieAdd, #btnOptionsAdd, #btnColorAdd {
 	background: #eceff3; /* Old browsers */
 	background: -moz-linear-gradient(top,  #eceff3 16%, #bfc9d7 55%, #97a4b7 100%); /* FF3.6+ */

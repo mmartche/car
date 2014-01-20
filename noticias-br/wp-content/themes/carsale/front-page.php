@@ -14,7 +14,7 @@
 		<?php
 		$args = array(
 					
-					'posts_per_page' => 2
+					'posts_per_page' => 2,
 				);
 
 		$latest_news = 	new WP_Query($args);
@@ -27,7 +27,7 @@
 
 			<?php the_excerpt(); ?>
 
-			<a href="<?php the_permalink(); ?>">Leia Mais &raquio;</a>
+			<a href="<?php the_permalink(); ?>">Leia Mais &raquo;</a>
 		</article>
 
 		<?php endwhile; endif; ?>
