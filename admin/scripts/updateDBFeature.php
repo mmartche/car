@@ -32,7 +32,7 @@ function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
 				//}
 		}
 	} else {
-		//echo "Invalid file";
+		echo "Invalid file";
 	}
 }
 

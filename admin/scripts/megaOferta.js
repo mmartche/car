@@ -128,6 +128,7 @@ $.widget( "custom.combobox", {
 					// $("#versionName").parent().find("input").val("");
 					$("#versionId").val("");
           $("#manufacturerId").val(ui.item.option.value);
+          $("#versionDetails").addClass("hide");
 				});
 				//TODO: change opts
 	      		break;
@@ -143,10 +144,13 @@ $.widget( "custom.combobox", {
   					// $("#versionName").parent().find("input").val("");
           });
           $("#modelId").val(ui.item.option.value);
+          $("#versionDetails").addClass("hide");
 	      	break;
     		case "versionName":
     			//change modelName
     			$("#versionId").val(ui.item.option.value);
+          $("#versionDetails").attr("href","./formDetails.php?vehicle="+ui.item.option.value+"&category=feature&action=viewVersion");
+          $("#versionDetails").removeClass("hide");
       		break;
       	}
       },

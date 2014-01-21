@@ -104,6 +104,7 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 				</select>
 				<select name="modelName" id="modelName"></select>
 				<select name="versionName" id="versionName"></select>
+				<a id="versionDetails" class="hide" href="#" target="_blank">Veja a Ficha Tecnica desta Versão</a>
 			</div>
 			<div class="megaInputs">
 				<input type="text" name="price" id="price" placeholder="Preço" />

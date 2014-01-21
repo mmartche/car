@@ -63,13 +63,20 @@ if ($_GET[action] == "new") {
 			break;
 		case 'feature':
 			//$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
-			$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.active, feature.dateCreate, feature.dateUpdate, feature.description, feature.price, model.idSegment1, model.idSegment2, model.idSegment3 from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
+			$typeSearch = ($_GET[action] == "viewVersion" ? "feature.idVersion" : "feature.id");
+			$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.active, feature.dateCreate, feature.dateUpdate, feature.description, feature.price, model.idSegment1, model.idSegment2, model.idSegment3 from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and ".$typeSearch." = '".$_GET[vehicle]."'";
 			break;
 	}
 }
 if ($_GET[category]) {
-$query_search = mysql_query($sql_search) or die (mysql_error()." error #50");
-$res = mysql_fetch_array($query_search);
+$query_search = mysql_query($sql_search) or die ("error #73");
+	if (mysql_num_rows($query_search) > 0 ) {
+		$res = mysql_fetch_array($query_search);
+	} else {
+		$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, version.description FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id AND version.id = '".$_GET[vehicle]."'";
+		$query_searchN = mysql_query($sql_search) or die (" error #79");
+		$res = mysql_fetch_array($query_searchN);
+	}
 }
 ?>
 <div class="body">
@@ -158,6 +165,7 @@ $res = mysql_fetch_array($query_search);
 	<div class="content">
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
+			<li><a href="ficha-tecnica.php">Listagem</a></li>
 			<?
 			switch ($_GET[category]) {
 				case 'manufacturer':
@@ -182,7 +190,10 @@ $res = mysql_fetch_array($query_search);
 			?>
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="return checkFields(this)" enctype="multipart/form-data">
-		<input type="text" class="hide" name="action" id="action" value="<?=$_GET[action]?>" placeholder="action" />
+		<?
+		$actionType = (mysql_num_rows($query_search) > 0 ? "update" : "new");
+		?>
+		<input type="text" class="hide" name="action" id="action" value="<?=$actionType?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
 		<input type="text" class="hide" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
 		<input type="text" class="hide" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />

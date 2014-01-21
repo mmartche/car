@@ -81,7 +81,7 @@ include ("../scripts/conectDB.php");
 							<img class="carousel-image" src="../carImagesMegaOferta/<?=$resItem[picture]?>" alt="<?=$resItem[modelName]?>" class="carrosselImg" title="<?=$resItem[modelName]?>" />
 							<div class="carousel-caption">
 								<h4>R$ <?=$resItem[price]?></h4>
-								<div class="carousel-opacity"><?=$resItem[dateLimit]?></div>
+								<!--div class="carousel-opacity"><?=$resItem[dateLimit]?></div-->
 								<div class="carousel-version"><?=$resItem[versionName]?></div>
 							</div>
 							</a>
@@ -119,7 +119,7 @@ include ("../scripts/conectDB.php");
 					</div>
 					<div class="megaOfertasCarsaleValorOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">R$ <?=$resN[price]?> </a></div>
 				</div>
-				<div class="megaOfertasCarsaleTxtOferta textoBold"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[dateLimit]?></a></div>
+				<!--div class="megaOfertasCarsaleTxtOferta textoBold"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[dateLimit]?></a></div-->
 				<div class="megaOfertasCarsaleTxtOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">Cat.: <?=$resN[versionName]?></a></div>
 				<div class="megaOfertasCarsaleTxtOferta"><a data-toggle="modal" data-target="#feature_<?=$resN[versionId]?>" id="fichaTecnica1">Ficha Técnica</a></div>
 				<div class="megaOfertasCarsaleBtnComprarOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">comprar</a></div>

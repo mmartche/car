@@ -5,13 +5,16 @@ include ("../scripts/conectDB.php");
 $sql = "SELECT * from megaOferta where id = '".$_GET[veiculo]."'";
 $query = mysql_query($sql);
 $res = mysql_fetch_array($query);
-if (file_exists("http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg")) {
-	$picture = "http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg";
+if (file_exists("../carImagesMegaOferta/".$res[picture])) {
+    $picture = "../carImagesMegaOferta/".$res[picture];
 } elseif (file_exists("../carImages/".$res[picture])) {
-	$picture = "../carImages/".$res[picture];
-} elseif (file_exists("../carImagesMegaOferta/".$res[picture])) {
-	$picture = "../carImages/".$res[picture];
+    $picture = "../carImages/".$res[picture];
+} elseif (file_exists("http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg")) {
+    $picture = "http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg";
+} else {
+    $picture = "http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg";
 }
+
 ?>
 <!DOCTYPE html>
 <html>
