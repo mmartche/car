@@ -926,17 +926,17 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 			<? switch ($_GET[action]) {
 				case 'update':
 					?>
-					<input type="submit" value="ATUALIZAR" class="btnSave btnButton">
+					<input type="button" value="ATUALIZAR" class="btnSave btnButton" onclick="submit()">
 					<?
 					break;
 				case 'new':
 					?>
-					<input type="submit" value="INCLUIR" class="btnSave btnButton">
+					<input type="button" value="INCLUIR" class="btnSave btnButton" onclick="submit()">
 					<?
 					break;
 				default:
 					?>
-					<input type="submit" value="SALVAR" class="btnSave btnButton">
+					<input type="button" value="SALVAR" class="btnSave btnButton" onclick="submit()">
 					<?
 					break;
 			}

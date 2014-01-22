@@ -170,6 +170,7 @@ $(document).ready(function(){
 	$("#btnRemoveAllSeries").click(function(){
 		$("#lengthSerie").val("0");
 		$("#resultSerie span").remove();
+		$("#textAreaSerieAdd").text("");
 	});
 	$("#btnOptionsAdd").click(function(){
 		//dados
