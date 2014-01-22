@@ -528,7 +528,8 @@ switch ($_GET[type]) {
 		        	}';
 		        $loopOpt++;
 			}
-			$result.=']}';
+			$result.=($loopOpt>0 ? "]" : "");
+			$result.='}';
 			$loop++;
 		}
 		$result.="]";

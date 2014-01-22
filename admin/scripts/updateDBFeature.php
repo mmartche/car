@@ -144,6 +144,12 @@ switch ($_POST[action]) {
 			WHERE `feature`.`id` = '".$_POST[featureId]."' ;";
 		
 			mysql_query($sqlUpdate) or die (mysql_error()." error #90");
+
+			//segment
+			$sqlUpSeg = "UPDATE `model` set `idSegment1` = '".$_POST[txtidSegment1]."', `idSegment2` = '".$_POST[txtidSegment2]."', `idSegment3` = '".$_POST[txtidSegment3]."' WHERE id = '".$_POST[modelId]."'";
+			echo $sqlUpSeg;
+			mysql_query($sqlUpSeg) or die ("error #150");
+
 			//serie
 			$sqlDelSeries = "delete from `serieFeature` WHERE `idFeature` = '".$_POST[featureId]."'";
 			mysql_query($sqlDelSeries) or die (" error #95");

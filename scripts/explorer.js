@@ -32,7 +32,7 @@ function addFilter (obj,idModel) {
 	//search info
     console.log('../admin/api/index.php?type=askExplorer&idModel='+idModel);
 	$.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel, function(data) {
-		//console.log('888888',data[0].response);
+		// console.log('888888',data[0].response);
 		if(data[0].response == "true"){
             //count cars showed
             var carsLength = $(".column").length;
@@ -118,12 +118,13 @@ function addFilter (obj,idModel) {
             '<div class="headerTitle"></div>'+
                 '<ul class="descItems">';
 
-            $.each( data[0].options, function( index, item ) {
-                //if ( item.category != currentCategory ) {
-
-                divResultCar += '<li class="liFilterItem optList"><b>'+item.name+'</b><br>'+item.items+'<br>R$ '+item.price+'</li>';
-            });
+            if (data[0].options) {
+                $.each( data[0].options, function( index, item ) {
+                    divResultCar += '<li class="liFilterItem optList"><b>'+item.name+'</b><br>'+item.items+'<br>R$ '+item.price+'</li>';
+                });
+            }
             divResultCar += '</ul></div>';
+
             $("#resultFilter").append(divResultCar);
 
             var divFooterCar = '<div class="exploradorTabelaGridBase veiculo0">'+
