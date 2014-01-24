@@ -171,6 +171,9 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="cdplayerUSBInput" <? if (in_array("cdplayerUSBInput",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
 					<label>Cd player com entrada USB</label></li>
 				<li>
+					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="radio" <? if (in_array("radio",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+					<label>Cd player com entrada USB</label></li>
+				<li>
 					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="headlightsHeightAdjustment" <? if (in_array("headlightsHeightAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
 					<label>Regulagem de altura dos faróis</label></li>
 				<li>

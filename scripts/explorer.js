@@ -103,6 +103,7 @@ function addFilter (obj,idModel) {
             divResultCar += checkItem(data[0].bucketProtector);
             divResultCar += checkItem(data[0].roofRack);
             divResultCar += checkItem(data[0].cdplayerUSBInput);
+            divResultCar += checkItem(date[0].radio);
             divResultCar += checkItem(data[0].headlightsHeightAdjustment);
             divResultCar += checkItem(data[0].rearviewElectric);
             divResultCar += checkItem(data[0].alloyWheels);

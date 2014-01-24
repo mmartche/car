@@ -319,6 +319,11 @@ function fixFields(){
 	//fix all inputs // counters // flags before submit
 	return true;
 }
+function removeTempImg() {
+	$("#txtPicture").val("");
+	$(".image-preview").attr("style","");
+	return false;
+}
 function updateOpt(obj,numCheck) {
 	optIdOpt = $(obj).children("#optIdOpt").val(),
 	code = $(obj).children("#optCode").val(),
@@ -921,6 +926,7 @@ $(function() {
 	$( "#txtOptionsName" ).combobox();
 	$( "#colorAplication" ).combobox();
 	$( "#colorType" ).combobox();
+	$("#countryOrigin").combobox();
 	
 //	codOpt = $("#txtOptionsCode").val();
 //		name = $("#txtOptionsName").val();

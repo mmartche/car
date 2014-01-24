@@ -154,6 +154,7 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
                 "bucketProtector":"'.$resF[bucketProtector].'",
                 "roofRack":"'.$resF[roofRack].'",
                 "cdplayerUSBInput":"'.$resF[cdplayerUSBInput].'",
+                "radio":"'.$resF[radio].'";
                 "headlightsHeightAdjustment":"'.$resF[headlightsHeightAdjustment].'",
                 "rearviewElectric":"'.$resF[rearviewElectric].'",
                 "alloyWheels":"'.$resF[alloyWheels].'",

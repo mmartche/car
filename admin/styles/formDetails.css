@@ -51,6 +51,7 @@ footer {
 	border: 1px solid;
 	padding:10px;
 	overflow: hidden;
+	position: relative;
 }
 .optionsFields span {
 	width: 250px;
@@ -118,4 +119,9 @@ footer {
 }
 .optionsFields span:hover .removeOpt {
 	display: inline;
+}
+.btnRemoveTempImg {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
 }
