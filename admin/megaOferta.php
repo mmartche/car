@@ -88,6 +88,8 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 	</div>
 	</form-->
 	<form onsubmit="" action="#" method="post" enctype="multipart/form-data" style="overflow:hidden">
+		<input type="text" name="megaOfertaId" class="megaOfertaId" id="megaOfertaId" />
+		<input type="text" name="orderMega" class="orderMega" id="orderMega" /> 
 		<div class="megaDiv">
 			<div class="MegaSelects">
 				<select name="manufacturer" id="manufacturerName">
@@ -109,8 +111,6 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 			<div class="megaInputs">
 				<input type="text" name="price" id="price" placeholder="Preço" />
 				<input type="text" name="description" id="description" placeholder="Descrição" />
-				<input type="checkbox" name="place" id="place" value="carousel" /><label for="place">Aparecer em destaque?</label>
-				<input type="submit" name="btnAddMegaOferta" value="Adicionar" />
 			</div>
 			<input type="hidden" name="manufacturerId" id="manufacturerId" />
 			<input type="hidden" name="modelId" id="modelId" />
@@ -118,34 +118,48 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 			<!-- <input type="button" value="Limpar Campos" id="btnClean" /> -->
 			<input type="hidden" name="dateIni" id="dateIni" class="addMegaDate" />
 			<input type="hidden" name="dateLimit" id="dateLimit" class="addMegaDate" />
-			<input type="file" name="file" id="picture" placeholder="Imagem" />
+			<input type="file" class="filePicture" name="file" id="picture" placeholder="Imagem" />
 			<textarea class="image-preview" disabled="disabled"></textarea>
+			<div class="megaInputs">
+				<input type="checkbox" name="place" id="place" value="carousel" /><label for="place">Aparecer em destaque?</label>
+				<input type="submit" name="btnAddMegaOferta" value="Adicionar" />
+			</div>
 		</div>
 	</form>
 	<div class="content">
 		<?
-		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc";
+		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc, `order` asc";
 		$query_mo = mysql_query($sql_mo) or die (mysql_error());
 		?>
 		<div class="megaOfertaData">
 			<ul class="ulMO">
 				<?
 					while ($resMO = mysql_fetch_array($query_mo)) {
-				?>
-				<li class="liMO">
-					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
-					<img class="imgLiMO" src="../carImagesMegaOferta/<?=$resMO[picture]?>" />
-					<span class="priceLiMO">R$ <?=$resMO[price]?></span>
-					<!--span class="dateLimitLiMO">Válido até: <?=$resMO[dateLimit]?></span-->
-					<?php
+						if (($placeHr != "") && ($resMO[place] != $placeHr)) {
+							echo '<hr style="width:100%" />';
+							$placeHr = $resMO[place];
+						} else {
+							$placeHr = $resMO[place];
+						}
 						if ($resMO[place] == 'carousel') {
 							$placeName = " Em destaque";
 						} else {
 							$placeName = "Secundária";
 						}
-					?>
+				?>
+				<li class="liMO">
+					<div class="orderMega">
+						<div class="upOrder" id="upOrder" onclick="orderMega(this,'upOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[order]?>')">/\</div>
+						<div class="numberOrder" id="numberOrder"><?=$resMO[order]?></div>
+						<div class="downOrder" id="downOrder" onclick="orderMega(this,'downOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[order]?>')">\/</div>
+					</div>
+					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
+					<img class="imgLiMO" src="../carImagesMegaOferta/<?=$resMO[picture]?>" />
+					<span class="priceLiMO">R$ <?=$resMO[price]?></span>
+					<!--span class="dateLimitLiMO">Válido até: <?=$resMO[dateLimit]?></span-->
 					<span class="placeLiMO">Exibindo em: <?=$placeName?></span>
-					<div class="removeItem" onclick="removeItemMega(this,'<?=$resMO[megaOfertaId]?>')">remover</div>
+					<div class="removeItem" onclick="removeItemMega(this,'<?=$resMO[megaOfertaId]?>')">Remover</div>
+					<div class="updateItem" onclick="updateItemMega(this,'<?=$resMO[megaOfertaId]?>')">Editar</div>
 				</li>
 				<? } ?>
 			</ul>

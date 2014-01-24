@@ -60,9 +60,32 @@ $(document).ready(function(){
     });
   });
 });
+  
+  function orderMega(obj,type,idItem) {
+    //TO DO: change li order at front 
+    numOrder = $(obj).parent().children("#numberOrder").text();
+    if (type == "downOrder") {
+      numOrder--;
+    } else if (type == "upOrder") {
+      numOrder++;
+    } else {
+      numOrder = 0;
+    }
+    console.log(numOrder);
+    if (numOrder > 0 ){
+      $.getJSON('api/index.php?type=upOrder&mainId='+idItem+'&numOrder='+numOrder, function(data) {
+        if (data[0].response == "true") {
+          $(obj).parent().children("#numberOrder").text(numOrder);
+          //$(obj).parent().children("#downOrder").attr("onclick","orderMega(this,'downOrder','"+idItem+"','"+numOrder+"')");
+          //$(obj).parent().children("#upOrder").attr("onclick","orderMega(this,'upOrder','"+idItem+"','"+numOrder+"')");
+        }
+      });
+    }
+  }
+
   function removeItemMega (obj,idItem){
     // console.log($(obj).parent());
-    console.log('api/index.php?type=megaRemove&idItem='+idItem);
+    //console.log('api/index.php?type=megaRemove&idItem='+idItem);
     $.getJSON('api/index.php?type=megaRemove&idItem='+idItem, function(data) {
       if(data[0].response == "true"){
         console.log(data[0].reason);
@@ -72,6 +95,33 @@ $(document).ready(function(){
         console.log(data[0].reason);
       }
     });
+  }
+
+  function updateItemMega (obj,idItem) {
+    //catch all data from <li>
+    numOrder = $(obj).parent().children("#numberOrder").text();
+    //$(obj).parent().children("");
+    $.getJSON('api/index.php?type=searchMega&idItem='+idItem, function(data) {
+      if(data[0].response == "true"){
+        //put on form
+        $(#)
+        $("#megaOfertaId").val(data[0].megaOfertaId);
+        $("#manufacturerId").val(data[0].manufacturerId);
+        $("#manufacturerName").parent().find("input").val(data[0].manufacturerName);
+        $("#modelId").val(data[0].modelId);
+        $("#modelName").val(data[0].modelName);
+        $("#versionId").val(data[0].versionId);
+        $("#versionName").val(data[0].versionName);
+        $("#price").val(data[0].price);
+        $("#place").val(data[0].place);
+        $("#order").val(data[0].order);
+        $("#description").val(data[0].description);
+        $("#picture").val(data[0].picture);
+      }
+    });
+
+
+    //form submit need check if exist
   }
 
 $.widget( "custom.combobox", {

@@ -21,15 +21,30 @@
 	padding: 4px 0;
 	color: #fff;
 }
-.liMO:hover .removeItem {
+.updateItem {
+	display: none;
+	position: absolute;
+	top: 30px;
+	right: 0;
+	border: 1px solid;
+	width: 70px;
+	height: 30px;
+	text-align: center;
+	cursor: pointer;
+	background-color: green;
+	padding: 4px 0;
+	color: #fff;
+}
+.liMO:hover .removeItem, .liMO:hover .updateItem {
 	display: inline;
 }
 .titleLiMO {
-	padding: 10px;
+	padding: 10px 10px 10px 50px;
 	background-color: #eee;
 	float: left;
 	width: 100%;
 	margin-bottom: 10px;
+	min-height: 62px;
 }
 .imgLiMO {
 	float: left;
@@ -64,5 +79,31 @@
 
 }
 .megaInputs {
-	margin: 10px 0;
+	margin: 10px 0 10px 10px;
+	float: left;
+	width: 100%;
+}
+.filePicture {
+	overflow: hidden;
+}
+.orderMega {
+	position: absolute;
+}
+.upOrder {
+	float: left;
+	cursor: pointer;
+	border: 1px solid;
+	margin: 5px;
+	padding: 5px;
+}
+.downOrder {
+	float: left;
+	cursor: pointer;
+	border: 1px solid;
+	margin: 5px;
+	padding: 5px;
+}
+.numberOrder {
+	float: left;
+	padding: 10px 0;
 }

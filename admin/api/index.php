@@ -536,6 +536,36 @@ switch ($_GET[type]) {
 		$result.="]";
 		print_r($result);
 		break;
+
+	case 'upOrder':
+		$sql = "UPDATE `megaOferta` set `order` = '".$_GET[numOrder]."' WHERE id = '".$_GET[mainId]."'";
+		mysql_query($sql) or die ('[{"response":"false", "reason":"#error 542"}]');
+		echo '[{"response":"true", "reason":"order changed"}]';
+		break;
+
+	case 'searchMega':
+		$sqlMega = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, manufacturer.id as manufacturerId, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.id = '".$_GET[idItem]."'";
+		$queryMega = mysql_query($sqlMega) or die ('[{"response":"false", "reason":"#error 548"}]');
+		$resMega = mysql_fetch_array($queryMega);
+		echo '[{
+			"response":"true",
+			"megaOfertaId":"'.$resMega[megaOfertaId].'",
+			"manufacturerId":"'.$resMega[manufacturerId].'",
+			"manufacturerName":"'.$resMega[manufacturerName].'",
+			"modelId":"'.$resMega[modelId].'",
+			"modelName":"'.$resMega[modelName].'",
+			"versionId":"'.$resMega[versionId].'",
+			"versionName":"'.$resMega[versionName].'",
+			"price":"'.$resMega[price].'",
+			"place":"'.$resMega[place].'",
+			"order":"'.$resMega[order].'",
+			"description":"'.$resMega[description].'",
+			"picture":"'.$resMega[picture].'"
+		}]';
+
+		break;
+
+
 }
 
 

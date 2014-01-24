@@ -193,13 +193,13 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 		<?
 		$actionType = (mysql_num_rows($query_search) > 0 ? "update" : "new");
 		?>
-		<input type="text" class="hide" name="action" id="action" value="<?=$actionType?>" placeholder="action" />
+		<input type="text" class="text" name="action" id="action" value="<?=$actionType?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="text" class="hide" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="text" class="hide" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="text" class="hide" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="text" class="hide" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="text" class="hide" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="text" class="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="text" class="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="text" class="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="text" class="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="text" class="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?
@@ -253,7 +253,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 					<?
 					$flagSeg=0;
 
-					$optsArray1 = array();$optsArray2 = array();$optsArray3 = array();
+					$optsArray1 = array(); $optsArray2 = array(); $optsArray3 = array();
 					$optsArray1[] = $optsArray2[] = $optsArray3[] = '<option>Segmento</option>';
 					$sqlSeg = "SELECT id, name from segment order by name";
 				    $querySeg = mysql_query($sqlSeg);
