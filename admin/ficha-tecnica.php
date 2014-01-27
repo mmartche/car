@@ -41,6 +41,9 @@ include ("./scripts/conectDB.php");
 			</div>
 		</h2>
 	</header>
+	<ol class="breadcrumb">
+		<li><a href="index.php">Home</a></li>
+	</ol>
 	<!--form class="form-search">
 	<div class="input-append">
 	<input type="text" class="span2 search-query">

@@ -104,7 +104,6 @@ $(document).ready(function(){
     $.getJSON('api/index.php?type=searchMega&idItem='+idItem, function(data) {
       if(data[0].response == "true"){
         //put on form
-        
         $("#megaOfertaId").val(data[0].megaOfertaId);
         $("#manufacturerId").val(data[0].manufacturerId);
         $("#manufacturerName").parent().find("input[name=manufacturerName]").val(data[0].manufacturerName);

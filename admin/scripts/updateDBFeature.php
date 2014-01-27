@@ -181,7 +181,6 @@ switch ($_POST[action]) {
 			}
 			if ($valuesOptInput != ""){
 				$sqlAddOpts = "insert into `optionsFeature` (`idFeature`, `idOption`, `option`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
-				// echo $sqlAddOpts;
 				mysql_query($sqlAddOpts) or die (mysql_error()." error #171");
 			}
 
@@ -213,7 +212,7 @@ switch ($_POST[action]) {
 			$sqlAdd = "INSERT INTO `manufacturer` (`name`, `active`, `description`) VALUES ('".$_POST[manufacturerName]."','s','".$_POST[description]."')";
 			mysql_query($sqlAdd) or die ("error #200");
 			$manufacturerId = mysql_insert_id();
-			echo "<br>manu:".$manufacturerId;
+			//echo "<br>manufacturer:".$manufacturerId;
 		} else {
 			$manufacturerId = $_POST[manufacturerId];
 		}
@@ -221,20 +220,23 @@ switch ($_POST[action]) {
 			$sqlAdd = "INSERT into `model` (`idManufacturer`, `name`, `idSegment1`, `idSegment2`, `idSegment3`, `description`, `active`) VALUES ('".$manufacturerId."','".$_POST[modelName]."','".$_POST[txtidSegment1]."','".$_POST[txtidSegment2]."','".$_POST[txtidSegment3]."','".$_POST[description]."','s') ";
 			mysql_query($sqlAdd) or die (mysql_error()." error #206");
 			$modelId = mysql_insert_id();
-			echo "<br>mode".$modelId;
+			echo "<br>model:".$modelId;
 		} else {
 			$modelId = $_POST[modelId];
+			$sqlUpSeg = "UPDATE `model` set `idSegment1` = '".$_POST[txtidSegment1]."', `idSegment2` = '".$_POST[txtidSegment2]."', `idSegment3` = '".$_POST[txtidSegment3]."' WHERE id = '".$modelId."'";
+			echo $sqlUpSeg;
+			mysql_query($sqlUpSeg) or die ("error #228");
 		}
 		if ($_POST[versionId] == "") {
 			$sqlAdd = "INSERT INTO `version` (`idManufacturer`,`idModel`,`name`, `description`) VALUES ('".$manufacturerId."','".$modelId."','".$_POST[versionName]."','".$_POST[description]."')";
-			mysql_query($sqlAdd) or die (mysql_error()." error #213");
+			mysql_query($sqlAdd) or die (mysql_error()." error #231");
 			$versionId = mysql_insert_id();
-			echo "<br>vers".$versionId;
+			//echo "<br>version:".$versionId;
 		} else {
 			$versionId = $_POST[versionId];
 		}
 		
-		//TO DO: check if exist image cloned before then add
+		//TO DO: check if exist image cloned before then add                       
 		$picTemp = uploadFile($_POST[manufacturerName],$_POST[modelName],$_POST[versionName],$_POST[featureId]);
 		if ($picTemp != "") {
 			$picTempSql = "`picture`, ";
@@ -243,11 +245,9 @@ switch ($_POST[action]) {
 		$sqlAdd = "INSERT INTO `feature` (`idModel`, `idVersion`, `code`, `yearProduced`, `yearModel`, `doors`, `passagers`, `engine`, `feeding`, `fuel`, `powerMax`, `torque`, `acceleration`, `speedMax`, `consumptionCity`, `consumptionRoad`, `gear`, `traction`, `steering`, `wheels`, `frontSuspension`, `rearSuspension`, `frontBrake`, `rearBrake`, `dimensionLength`, `dimensionWidth`, `dimensionHeight`, `dimensionSignAxes`, `weight`, `trunk`, `tank`, `warranty`, `countryOrigin`, `dualFrontAirBag`, `alarm`, `airConditioning`, `hotAir`, `leatherSeat`, `heightAdjustment`, `rearSeatSplit`, `bluetoothSpeakerphone`, `bonnetSea`, `onboardComputer`, `accelerationCounter`, `rearWindowDefroster`, `electricSteering`, `hydraulicSteering`, `sidesteps`, `fogLamps`, `xenonHeadlights`, `absBrake`, `integratedGPSPanel`, `rearWindowWiper`, `bumper`, `autopilot`, `bucketProtector`, `roofRack`, `cdplayerUSBInput`, `radio`, `headlightsHeightAdjustment`, `rearviewElectric`, `alloyWheels`, `rainSensor`, `parkingSensor`, `isofix`, `sunroof`, `electricLock`, `electricWindow`, `rearElectricWindow`, `steeringWheelAdjustment`,`price`,`description`, ".$picTempSql." `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$modelId."','".$versionId."','".$_POST[code]."','".$_POST[yearProduced]."','".$_POST[yearModel]."','".$_POST[doors]."','".$_POST[passagers]."','".$_POST[engine]."','".$_POST[feeding]."','".$_POST[fuel]."','".$_POST[powerMax]."','".$_POST[torque]."','".$_POST[acceleration]."','".$_POST[speedMax]."','".$_POST[consumptionCity]."','".$_POST[consumptionRoad]."','".$_POST[gear]."','".$_POST[traction]."','".$_POST[steering]."','".$_POST[wheels]."','".$_POST[frontSuspension]."','".$_POST[rearSuspension]."','".$_POST[frontBrake]."','".$_POST[rearBrake]."','".$_POST[dimensionLength]."','".$_POST[dimensionWidth]."','".$_POST[dimensionHeight]."','".$_POST[dimensionSignAxes]."','".$_POST[weight]."','".$_POST[trunk]."','".$_POST[tank]."','".$_POST[warranty]."','".$_POST[countryOrigin]."','".$_POST[dualFrontAirBag]."','".$_POST[alarm]."','".$_POST[airConditioning]."','".$_POST[hotAir]."','".$_POST[leatherSeat]."','".$_POST[heightAdjustment]."','".$_POST[rearSeatSplit]."','".$_POST[bluetoothSpeakerphone]."','".$_POST[bonnetSea]."','".$_POST[onboardComputer]."','".$_POST[accelerationCounter]."','".$_POST[rearWindowDefroster]."','".$_POST[electricSteering]."','".$_POST[hydraulicSteering]."','".$_POST[sidesteps]."','".$_POST[fogLamps]."','".$_POST[xenonHeadlights]."','".$_POST[absBrake]."','".$_POST[integratedGPSPanel]."','".$_POST[rearWindowWiper]."','".$_POST[bumper]."','".$_POST[autopilot]."','".$_POST[bucketProtector]."','".$_POST[roofRack]."','".$_POST[cdplayerUSBInput]."','".$_POST[radio]."','".$_POST[headlightsHeightAdjustment]."','".$_POST[rearviewElectric]."','".$_POST[alloyWheels]."','".$_POST[rainSensor]."','".$_POST[parkingSensor]."','".$_POST[isofix]."','".$_POST[sunroof]."','".$_POST[electricLock]."','".$_POST[electricWindow]."','".$_POST[rearElectricWindow]."','".$_POST[steeringWheelAdjustment]."','".$_POST[price]."','".$_POST[description]."',".$picTempValue."'".$_POST[active]."',now(),now(),'')";
 	
 		mysql_query($sqlAdd) or die ("error #227");
+		//echo $sqlAdd;
 		$fetId = mysql_insert_id();
 
-		//segment
-		$sqlUpSeg = "UPDATE `model` set `idSegment1` = '".$_POST[txtidSegment1]."', `idSegment2` = '".$_POST[txtidSegment2]."', `idSegment3` = '".$_POST[txtidSegment3]."' WHERE id = '".$modelId."'";
-		mysql_query($sqlUpSeg) or die ("error #250");
 
 		//echo $fetId;
 		//serie
@@ -271,13 +271,14 @@ switch ($_POST[action]) {
 			$optPrice = "txtOptPrice".$i;
 			if ($_POST[$optChoice] == "s") {
 				if ($o > 0) { $valuesOptInput .= ","; }
-				$valuesOptInput .= "('".$fetId."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', '".$_POST[$optPrice]."' now(), now(), '')";
+				$valuesOptInput .= "('".$fetId."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', '".$_POST[$optPrice]."', now(), now(), '')";
 				$o++;
 			}
 		}
 		if ($valuesOptInput != ""){
 			$sqlAddOpts = "insert into `optionsFeature` (`idFeature`, `idOption`, `option`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
-			mysql_query($sqlAddOpts) or die (" error #200");
+			echo $sqlAddOpts;
+			mysql_query($sqlAddOpts) or die (" error #280");
 			//echo $sqlAddOpts;
 		}
 
@@ -307,7 +308,7 @@ switch ($_POST[action]) {
 ?>
 <script> 
 alert("Atualizado");
-window.location="../ficha-tecnica.php"; 
+/*window.location="../ficha-tecnica.php"; */
 </script>
 <a href="../index.php">Voltar a Home</a>
 

@@ -356,11 +356,6 @@ input.exploradorGridFiltroInputBox { width:250px; height:25px; color:#000; paddi
 .exploradorTabelaLineBtn { width:970px; height:auto; position:relative; float:left; }
 .exploradorTabelaGridCarro { width:194px; height:192px; margin-left:-1px; border-left:1px #bcbec0 solid; position:relative; float:left; }
 .exploradorTabelaGridCarroOculta { width:194px; height:4px; overflow:visible; position:relative; float:left; }
-.exploradorTabelaCarroFechar  { margin:0px; padding:0px; }
-.exploradorTabelaCarroNumeracao { width:194px; height:18px; padding-bottom:10px; margin-top:-4px; font:18px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; position:relative; float:left; }
-.exploradorTabelaCarroImg { width:141px; height:80px; padding-left:26px; padding-right:26px; padding-top:2px; position:relative; float:left; }
-.exploradorTabelaCarroModelo { width:194px; height:auto; padding-top:4px; font:16px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; position:relative; float:left; }
-.exploradorTabelaCarroValor { width:194px; height:14px; padding-top:2px; font:14px Arial, sans-serif; font-weight:bold; text-align:center; text-decoration:none; position:relative; float:left; }
 .exploradorTabelaGridVersao { width:194px; height:auto; margin-left:-1px; border-left:1px #bcbec0 solid; position:relative; float:left; }
 .exploradorTabelaVersaoSelect { width:174px; height:20px; margin-left:10px; margin-top:8px; margin-bottom:10px; background-color:#e6e6e6; border:1px #c0c0c0 solid; font:12px Arial, sans-serif; font-weight:bold; color:#000; text-align:left; position:relative; float:left; }
 .exploradorTabelaVersaoTxt { width:194px; height:auto; padding-top:12px; padding-bottom:10px; font:12px Arial, sans-serif; font-weight:bold; text-align:center; color:#4d4f4c; position:relative; float:left; }

@@ -191,15 +191,16 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="return checkFields(this)" enctype="multipart/form-data">
 		<?
-		$actionType = (mysql_num_rows($query_search) > 0 ? "update" : "new");
+		//$actionType = (mysql_num_rows($query_search) > 0 ? "update" : "new");
+		$actionType = $_GET[action];
 		?>
-		<input type="text" class="text" name="action" id="action" value="<?=$actionType?>" placeholder="action" />
+		<input type="hidden" class="text" name="action" id="action" value="<?=$actionType?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
-		<input type="text" class="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
-		<input type="text" class="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
-		<input type="text" class="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
-		<input type="text" class="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
-		<input type="text" class="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
+		<input type="hidden" class="text" name="featureId" id="featureId" value="<?=$fetId?>" placeholder="featureId" />
+		<input type="hidden" class="text" name="manufacturerId" id="manufacturerId" value="<?=$res[manufacturerId]?>" placeholder="manufacturerId" />
+		<input type="hidden" class="text" name="modelId" id="modelId" value="<?=$res[modelId]?>" placeholder="modelId" />
+		<input type="hidden" class="text" name="versionId" id="versionId" value="<?=$res[versionId]?>" placeholder="versionId" />
+		<input type="hidden" class="text" name="category" id="category" value="<?=$_GET[category]?>" placeholder="category" />
 		<div class="dataContent">
 			<div class="dataColLeft">
 			<?
@@ -414,7 +415,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 						<!--input type="text" id="versionName" value="<?=$res[versionName]?>" /-->
 					</span><br />
 					<?
-					$flagSeg=0;
+					$flagSeg=1;
 					$optsArray = array();
 					$sqlSeg = "SELECT id, name from segment order by name";
 				    $querySeg = mysql_query($sqlSeg);
@@ -432,9 +433,10 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 							$optSeg3=$flagSeg;
 						}
 						$flagSeg++;
+
 					} ?> 
 					<span><label>Segmento 1:</label>
-						<input type="hidden" name="txtidSegment1" value="<?=$res[idSegment1]?>">
+						<input type="hidden" style="width:30px;" name="txtidSegment1" value="<?=$res[idSegment1]?>">
 						<select  id="idSegment1" disabled="disabled">
 						<?
 						// echo $optList;
@@ -451,7 +453,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 						</select>
 					</span><br />
 					<span><label>Segmento 2:</label>
-						<input type="hidden" name="txtidSegment2" value="<?=$res[idSegment2]?>">
+						<input type="hidden" style="width:30px;" name="txtidSegment2" value="<?=$res[idSegment2]?>">
 						<select  id="idSegment2" disabled="disabled">
 						<?
 						for ($i=0; $i < count($optsArray); $i++) { 
@@ -465,7 +467,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 						</select>
 					</span><br />
 					<span><label>Segmento 3:</label>
-						<input type="hidden" name="txtidSegment3" value="<?=$res[idSegment3]?>">
+						<input type="hidden" style="width:30px;" name="txtidSegment3" value="<?=$res[idSegment3]?>">
 						<select  id="idSegment3" disabled="disabled">
 						<?
 						for ($i=0; $i < count($optsArray); $i++) { 
@@ -701,11 +703,11 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 						</span>
 						<span>
 							<input type="checkbox" id="cdplayerUSBInput" name="cdplayerUSBInput" value="s" <? if (strtolower($res[cdplayerUSBInput]) == "s") { echo 'checked="true"'; } ?> />
-							<label for="cdplayerUSBInput">CD player com entrada USB</label>
+							<label for="cdplayerUSBInput">Rádio CD player com entrada USB</label>
 						</span>
 						<span>
 							<input type="checkbox" id="radio" name="radio" value="s" <? if (strtolower($res[radio]) == "s") { echo 'checked="true"'; } ?> />
-							<label for="radio">Rádio</label>
+							<label for="radio">Rádio FM</label>
 						</span>
 						<span>
 							<input type="checkbox" id="headlightsHeightAdjustment" name="headlightsHeightAdjustment" value="s" <? if (strtolower($res[headlightsHeightAdjustment]) == "s") { echo 'checked="true"'; } ?> />
@@ -825,7 +827,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 						</span>
 						<div id="resultOptions">
 						<?
-						$lengthOptionsTotal = mysql_num_rows($queryOptF)-1;
+						$lengthOptionsTotal = mysql_num_rows($queryOptF);
 						while ($resOptF = mysql_fetch_array($queryOptF)) {
 						?>
 							<span id="optItem<?=$iOptM?>">
@@ -835,7 +837,8 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 									<input type="hidden" id="optIdOpt" name="txtOpt<?=$iOptM?>" value="<?=$resOptF[idOption]?>" />
 									<input type="hidden" id="optPrice" name="txtOptPrice<?=$iOptM?>" value="<?=$resOptF[price]?>" />
 									<input type="hidden" id="optCode" value="<?=$resOptF[code]?>" />
-									<label id="lblOptions" title="<?=$resOptF[options]?>"><?=$resOptF[name]?></label>
+									<label id="lblOptions" title="<?=$resOptF[options]?>"><?=$resOptF[name]?></label><br />
+									<label>R$<?=$resOptF[price]?></label>
 								</div>
 								<label for="chOpt<?=$iOptM?>" class="removeOpt" onclick="removeOpt(this,'<?=$iOptM?>')">X</label>
 							</span>
@@ -952,7 +955,11 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 			                ?>
 							<textarea class="image-preview" disabled="disabled" <?=$bgImgPicture?>></textarea>
 							<input type="button" class="btnRemoveTempImg" onclick="removeTempImg()" value="Remover imagem temporaria" />
-							<div class="oldPicture"><span class="subTitleAllItems">Imagem do cadastro atual</span><img src="<?=$picture?>" /></div>
+							<div class="oldPicture"><span class="subTitleAllItems">Imagem do cadastro atual</span>
+								<? if ($_GET[action] == "update") { ?>
+								<img src="<?=$picture?>" />
+								<? } ?>
+							</div>
 						<!--ol class="listPictures" id="listPictures">
 							<li><img src="../carImages/<?=$res[picture]?>">
 							<img src="<? echo $res[manufacturerName]."-".$res[modelName]."-".$res[versionName]."-".$res[featureId].".jpg"; ?>"></li>

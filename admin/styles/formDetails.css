@@ -105,6 +105,8 @@ footer {
 }
 #resultOptions span {
 	position: relative;
+	margin: 1px;
+	border: 1px solid;
 }
 .removeOpt {
 	width: 20px;

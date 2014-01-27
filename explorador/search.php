@@ -57,7 +57,8 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	<div class="columnMiddle">
 		<div class="contentMiddle">
 			<h2 class="expTitle"><b>Explorador Carsale</b><span>Encontre o carro perfeito para você</span></h2>
-			
+
+<? if ($_POST[expModel] == "") { ?>			
 <div id="formularioSegmentos" class="formExplorer">
 	<div class="exploradorTitulo">Preencha um ou mais campos:</div>
 	<div class="exploradorBgInterno">
@@ -213,6 +214,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	    </form>
 	</div>
 </div>
+<? } ?>
 <!--FIM DO FORM FILTER -->
 <? if (($_POST[btnSearch] == "Buscar") || ($_POST[expModel] != "")) { ?>
 <!-- FORM SELECT UR CAR -->
@@ -325,6 +327,8 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 		        	<li>Ano de Produção</li>
 		        	<li>Portas</li>
 		        	<li>Passageiros</li>
+		        	<li>País</li>
+		        	<li>Garantia</li>
 	        	</ul>
         		<div class="headerTitle">Itens de série</div>
 		        <ul class="titleItems">
@@ -354,7 +358,8 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 					<li class="liFilterItem">Piloto automático</li>
 					<li class="liFilterItem">Protetor de caçamba</li>
 					<li class="liFilterItem">Rack no teto</li>
-					<li class="liFilterItem">CD player com entrada USB</li>
+					<li class="liFilterItem">Radio CD player com entrada USB</li>
+					<li class="liFilterItem">Radio FM</li>
 					<li class="liFilterItem">Regulagem de altura dos faróis</li>
 					<li class="liFilterItem">Retrovisor elétrico</li>
 					<li class="liFilterItem">Rodas de liga leve</li>

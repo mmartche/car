@@ -188,6 +188,14 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
             	<div class="dealerFichaTecnicaDescLineTxtA">Ocupantes</div>
                 <div class="dealerFichaTecnicaDescLineTxtB"><?=$resF[passagers]?></div>
             </div>
+            <div class="dealerFichaTecnicaDescClaroLine">
+                <div class="dealerFichaTecnicaDescLineTxtA">País</div>
+                <div class="dealerFichaTecnicaDescLineTxtB"><?=$resF[countryOrigin]?></div>
+            </div>
+            <div class="dealerFichaTecnicaDescClaroLine">
+                <div class="dealerFichaTecnicaDescLineTxtA">Garantia</div>
+                <div class="dealerFichaTecnicaDescLineTxtB"><?=$resF[warranty]?></div>
+            </div>
             <div class="dealerFichaTecnicaTituloDesc">Motor</div>
             <div class="dealerFichaTecnicaDescEscuroLine">
             	<div class="dealerFichaTecnicaDescLineTxtA">Motor</div>
