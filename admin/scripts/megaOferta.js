@@ -104,19 +104,27 @@ $(document).ready(function(){
     $.getJSON('api/index.php?type=searchMega&idItem='+idItem, function(data) {
       if(data[0].response == "true"){
         //put on form
-        $(#)
+        
         $("#megaOfertaId").val(data[0].megaOfertaId);
         $("#manufacturerId").val(data[0].manufacturerId);
-        $("#manufacturerName").parent().find("input").val(data[0].manufacturerName);
-        $("#modelId").val(data[0].modelId);
-        $("#modelName").val(data[0].modelName);
+        $("#manufacturerName").parent().find("input[name=manufacturerName]").val(data[0].manufacturerName);
+        $("#modelId").val(data[0].modelId );
+        $("#modelName").parent().find("input[name=modelName]").val(data[0].modelName);
         $("#versionId").val(data[0].versionId);
-        $("#versionName").val(data[0].versionName);
+        $("#versionName").parent().find("input[name=versionName]").val(data[0].versionName);
         $("#price").val(data[0].price);
-        $("#place").val(data[0].place);
-        $("#order").val(data[0].order);
+        if (data[0].place == "carousel") { $("#place").attr("checked","checked"); }
+        $("#orderMega").val(data[0].order);
         $("#description").val(data[0].description);
-        $("#picture").val(data[0].picture);
+        $(".image-preview").attr("style","background-image:url(../carImagesMegaOferta/"+data[0].picture+")");
+        $("#btnAddMegaOferta").val("Atualizar");
+        if ($("#cancelRequest").length == 0) {
+          $("#btnAddMegaOferta").parent(".megaInputs").append('<input type="button" id="cancelRequest" value="Cancelar" />');
+          $("#cancelRequest").click(function(){
+            $("#btnAddMegaOferta").val("Adicionar");
+            $(this).remove();
+          });
+        }
       }
     });
 

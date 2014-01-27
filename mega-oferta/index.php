@@ -32,8 +32,8 @@ include ("../scripts/conectDB.php");
 	<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="../styles/home.css" />
 	<link rel="stylesheet" type="text/css" href="../styles/explorador.css" />
-	<link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsaleMegaOfertas.css" />
-	<link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsale.css?no_cache=20120305">
+	<!--link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsaleMegaOfertas.css" /-->
+	<!--link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsale.css?no_cache=20120305"-->
 	<link rel="stylesheet" type="text/css" href="../styles/megaOferta.css" />
 </head>
 <body>

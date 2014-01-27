@@ -2,8 +2,8 @@
 session_start();
 $_SESSION["tokenTime"] = time();
 include ("../scripts/conectDB.php");
-$sql = "SELECT * from megaOferta where id = '".$_GET[veiculo]."'";
-$query = mysql_query($sql);
+$sql = "SELECT *, model.name as modelName, version.name as versionName from megaOferta, version, model where megaOferta.versionId = version.id and megaOferta.modelId = model.id and megaOferta.id = '".$_GET[veiculo]."'";
+$query = mysql_query($sql) or die ($sql);
 $res = mysql_fetch_array($query);
 if (file_exists("../carImagesMegaOferta/".$res[picture])) {
     $picture = "../carImagesMegaOferta/".$res[picture];
@@ -44,8 +44,8 @@ if (file_exists("../carImagesMegaOferta/".$res[picture])) {
 
 	<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="../styles/home.css" />
-	<link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsaleMegaOfertas.css" />
-	<link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsale.css?no_cache=20120305">
+	<link rel="stylesheet" type="text/css" href="../styles/megaOfertaOld.css" />
+	<!--link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsale.css?no_cache=20120305"-->
 	<link rel="stylesheet" type="text/css" href="../styles/megaOferta.css" />
 </head>
 <body>
@@ -83,7 +83,7 @@ if (file_exists("../carImagesMegaOferta/".$res[picture])) {
                 <input type="hidden" name="propostaMegaOferta.megaOferta.versao.id" value="1605">
                 <input type="hidden" name="propostaMegaOferta.megaOferta.preco" value="131500.0">
                 <div class="megaOfertasCarsaleFormColunaInput">
-                    <div class="megaOfertasCarsaleFormModelo"><?=$res[name]?></div>
+                    <div class="megaOfertasCarsaleFormModelo"><?=$res[modelName]?> - <?=$res[versionName]?></div>
                     <div class="megaOfertasCarsaleFormCatalogo"></div>
                     <div class="megaOfertasCarsaleFormPreco">R$ <?=$res[price]?> <span style="font-size:14px;"></span></div>
                     <div class="megaOfertasCarsaleFormBtnFicha"><a data-toggle="modal" data-target="#feature_<?=$res[versionId]?>" id="fichaTecnica">Ficha Técnica</a></div>

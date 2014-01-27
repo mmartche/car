@@ -39,7 +39,7 @@
 	display: inline;
 }
 .titleLiMO {
-	padding: 10px 10px 10px 50px;
+	padding: 10px 10px 10px 70px;
 	background-color: #eee;
 	float: left;
 	width: 100%;
@@ -51,7 +51,8 @@
 }
 .priceLiMO {
 	float: left;
-	width: 250px;
+	width: 100%;
+	text-align: center;
 }
 .dateLimitLiMO {
 	float: left;
@@ -59,9 +60,14 @@
 }
 .placeLiMO {
 	float: left;
-	width: 250px;
+	width: 100%;
+	text-align: center;
 }
-
+.descLiMO {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
 .megaOfertaData {
 	
 	overflow: scroll;
@@ -82,6 +88,13 @@
 	margin: 10px 0 10px 10px;
 	float: left;
 	width: 100%;
+}
+.megaInputs p {
+	width: 350px;
+}
+.megaInputs .inputDesc{
+	float: right;
+	width: 250px;
 }
 .filePicture {
 	overflow: hidden;

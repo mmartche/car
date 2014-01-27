@@ -1,7 +1,7 @@
 <?
 $arrayModalVersion = array_unique($arrayModalVersion);
 for ($i=0; $i < count($arrayModalVersion); $i++) { 
-	$sqlF = "SELECT *, feature.id as featureId, max(yearModel), megaOferta.picture as pictureMO, version.name as versionName from feature, megaOferta, version WHERE feature.idVersion = megaOferta.versionId and  feature.idVersion = '".$arrayModalVersion[$i]."' and feature.idVersion = version.id GROUP by feature.id";
+	$sqlF = "SELECT *, feature.id as featureId, max(yearModel), megaOferta.picture as pictureMO, version.name as versionName, model.name as modelName from feature, megaOferta, version, model WHERE feature.idVersion = megaOferta.versionId and version.idModel = model.id and feature.idVersion = '".$arrayModalVersion[$i]."' and feature.idVersion = version.id GROUP by feature.id";
 	$queryF = mysql_query($sqlF) or die(mysql_error()."error #5");
 	$resF = mysql_fetch_array($queryF);
 ?>
@@ -37,7 +37,7 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel"><?=$resF[versionName]?> - <?=$resF[pictureMO]?></h4>
+        <h4 class="modal-title" id="myModalLabel"><?=$resF[modelName]?> - <?=$resF[versionName]?></h4>
       </div>
       <div class="modal-body">
         <div class="dealerFichaTecnicaBgInterno">

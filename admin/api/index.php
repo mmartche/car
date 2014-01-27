@@ -390,6 +390,7 @@ switch ($_GET[type]) {
 		// }
 		break;
 	case 'megaRemove':
+		//TO DO: remove or edit image name file
 		$sqlRM = "DELETE from `megaOferta` WHERE `id` = '".$_GET[idItem]."'";
 		mysql_query($sqlRM) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		echo '[{"response":"true", "reason":"Item removed"}]';

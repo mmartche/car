@@ -1,0 +1,495 @@
+@charset "utf-8";
+/*
+CARSALE S/A - Avenida do Estado, 5.200, Cambuci, São Paulo, SP, Brasil
+TELEFONE - (11) 3274 5900
+E - MAIL - carsale@carsale.com.br
+
+CARSALE
+*/
+html, body, div, span, applet, object, iframe, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+body { margin:0 0 0 0; background-color:#fafafa; }
+/*---CARSALE---MEGA-OFERTAS---*/
+@font-face { font-family: 'DINPro-Regular'; src: url('../fonts/DINPro-Regular.woff') format('woff'), url('../fonts/DINPro-Regular.ttf') format('truetype'), url('../fonts/DINPro-Regular.eot') format('eot'), url('../fonts/DINPro-Regular') format('svg'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'PFDinDisplayProMedium'; src: url('../fonts/pfdindisplaypro-medium-webfont.eot'); src: url('../fonts/pfdindisplaypro-medium-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/pfdindisplaypro-medium-webfont.woff') format('woff'), url('../fonts/pfdindisplaypro-medium-webfont.ttf') format('truetype'),url('../fonts/pfdindisplaypro-medium-webfont.svg#PFDinDisplayProMedium') format('svg');}
+/*---CARSALE---MEGA-OFERTAS---VEÍCULOS-EM-OFERTA---*/
+.megaOfertasCarsaleCentralizador { width:988px; height:auto; padding-top:5px; margin-left:auto; margin-right:auto; position:relative; overflow:hidden;
+z-index:0;
+}
+.megaOfertasCarsaleHeader { width:988px; height:278px; background-image:url('../img/megaOfertasCarsaleHeaderBg.jpg'); background-repeat:no-repeat; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleBtnDireitaHeader { overflow:visible; }
+.megaOfertasCarsaleBtnDireitaHeader a { width:34px; height:34px; margin-left:20px; margin-right:20px; margin-top:135px; margin-bottom:95px; font:2px 'DINPro-Regular', Arial, sans-serif; color:#1166ac; text-align:left; text-decoration:none; background-image:url('../img/megaOfertasCarsaleHeaderBtnDireita.jpg'); background-repeat:no-repeat; float:left; position:relative; }
+.megaOfertasCarsaleBtnDireitaHeader a:hover { background-image:url('../img/megaOfertasCarsaleHeaderBtnDireitaHover.jpg'); background-repeat:no-repeat; text-decoration:none; color:#1166ac; }
+.megaOfertasCarsaleBtnEsquerdaHeader { overflow:visible; }
+.megaOfertasCarsaleBtnEsquerdaHeader a { width:34px; height:34px; margin-left:20px; margin-right:20px; margin-top:135px; margin-bottom:95px; font:2px 'DINPro-Regular', Arial, sans-serif; color:#1166ac; text-align:left; text-decoration:none; background-image:url('../img/megaOfertasCarsaleHeaderBtnEsquerda.jpg'); background-repeat:no-repeat; float:left; position:relative; }
+.megaOfertasCarsaleBtnEsquerdaHeader a:hover { background-image:url('../img/megaOfertasCarsaleHeaderBtnEsquerdaHover.jpg'); background-repeat:no-repeat; text-decoration:none; color:#1166ac; }
+.megaOfertasCarsaleHeaderTv { width:838px; height:200px; margin-top:60px; color:#1574c4; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleHeaderTv a { text-decoration:none; color:#1574c4; }
+.megaOfertasCarsaleHeaderTv a:hover { text-decoration:underline; color:#1574c4; }
+.megaOfertasCarsaleGridOfertas { width:988px; height:auto; padding-top:20px; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleOferta { width:230px; height:auto; padding-left:8px; padding-right:8px; margin-bottom:50px; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleTituloOferta { width:210px; height:auto; padding-left:10px; padding-right:10px; font:24px 'PFDinDisplayProMedium', Arial, sans-serif; color:#205488; text-align:center; position:relative; float:left; overflow:hidden;
+
+ }
+.megaOfertasCarsaleTituloOferta a { text-decoration:none; color:#294cc4; } /*#205488   */
+.megaOfertasCarsaleTituloOferta a:hover { text-decoration:underline; color:#205488; }
+.megaOfertasCarsaleImgBgOferta { width:183px; height:184px; margin-top:8px; margin-left:23px; margin-right:23px; margin-bottom:12px; background-image:url('../img/megaOfertasCarsaleOfertasBg.jpg'); background-repeat:no-repeat; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleImgBgOferta2013 { width:183px; height:184px; margin-top:8px; margin-left:23px; margin-right:23px; margin-bottom:12px; background-image:url('../img/megaOfertasCarsaleOfertas2013Bg.jpg'); background-repeat:no-repeat; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleImgOferta { width:141px; height:80px; padding-top:40px; padding-left:21px; padding-right:21px; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleValorOferta { width:141px; height:80px; padding-top:25px; padding-left:21px; padding-right:21px; font:18px 'DINPro-Regular', Arial, sans-serif; color:#531313; text-align:center; position:relative; float:left; overflow:hidden;
+
+ }
+.megaOfertasCarsaleValorOferta a { text-decoration:none; color:#531313; }
+.megaOfertasCarsaleValorOferta a:hover { text-decoration:underline; color:black; }
+.megaOfertasCarsaleTxtOferta { width:210px; height:auto; padding-left:10px; padding-right:10px; font:14px 'DINPro-Regular', Arial, sans-serif; color:#5c5c5c; text-align:center; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleTxtOferta a { text-decoration:none; color:#5c5c5c; }
+.megaOfertasCarsaleTxtOferta a:hover { text-decoration:underline; color:#5c5c5c; }
+.megaOfertasCarsaleBtnComprarOferta { overflow:visible; }
+.megaOfertasCarsaleBtnComprarOferta a { width:123px; height:27px; margin-left:53px; margin-right:53px; margin-top:10px; padding-top:4px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#ffffff; text-align:center; text-decoration:none; background-image:url('../img/megaOfertasCarsaleOfertaBtn.png'); background-repeat:no-repeat; text-transform:uppercase; float:left; position:relative; }     
+.megaOfertasCarsaleBtnComprarOferta a:hover { background-image:url('../img/megaOfertasCarsaleOfertaBtnHover.png'); background-repeat:no-repeat; text-decoration:none; color:#fff; }
+/*---CARSALE---MEGA-OFERTAS---FORMULÁRIO---*/
+.megaOfertasCarsaleFormBg {
+width:988px;
+/*height:1117px;*/
+height:auto;
+margin-bottom:20px;
+/*background-image:url('../img/megaOfertasCarsaleFormBg.jpg');
+background-repeat:no-repeat;*/
+position:relative;
+float:left;
+overflow:hidden; 
+}
+.megaOfertasCarsaleFormColunaTxt {
+ width:494px; 
+ height:auto; 
+ /*adding-left:50px; 
+ padding-right:50px; */
+ padding-top:20px; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormColunaInput {
+width:450px;
+height:auto;
+padding-left:18px;
+padding-right:20px;
+/*padding-top:28px;*/
+position:relative;
+float:right;
+overflow:hidden; 
+}
+.megaOfertasCarsaleFormImg {
+width:auto;
+height:auto;
+position:relative; float:left; overflow:hidden; 
+}
+.megaOfertasCarsaleFormTitulo {
+width:99%;
+height:auto;
+ 
+font:28px 'DINPro-Regular', Arial, sans-serif;
+color:#3e3e3e; text-align:center; position:relative; float:left; overflow:hidden; 
+font-weight:bold;
+margin-top:10px;
+border-top:4px solid #ff0000;
+
+padding:15px 0px 15px 0px;
+width:519px;
+
+}
+.megaOfertasCarsaleFormTxt {
+width:99%;
+height:auto; 
+font:14px 'DINPro-Regular', Arial, sans-serif;
+color:#3e3e3e;
+text-align:left;
+position:relative;
+float:left; overflow:hidden;
+padding:10px 5px 15px 5px;
+
+border-top:1px solid #eb9612;
+border-bottom:1px solid #eb9612;
+
+}
+.megaOfertasCarsaleFormModelo { width:auto; height:auto; padding-left:34px; padding-right:20px; font:28px 'DINPro-Regular', Arial, sans-serif; color:#0f5c9c; text-align:left; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormCatalogo { width:auto; height:auto; padding-top:10px; font:16px 'DINPro-Regular', Arial, sans-serif; color:#0f5c9c; text-align:left; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormPreco { width:426px; height:auto; padding-left:34px; padding-bottom:4px; font:24px 'DINPro-Regular', Arial, sans-serif; color:#000; text-align:left; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormBtnFicha { width:426px; height:auto; padding-left:34px; padding-bottom:16px; font:14px 'DINPro-Regular', Arial, sans-serif; color:#8d8d8d; text-align:left; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormBtnFicha a { text-decoration:underline; color:#000; }
+.megaOfertasCarsaleFormBtnFicha a:hover { text-decoration:underline; color:#0f5c9c; }
+.megaOfertasCarsaleFormPrecoLine { width:460px; height:4px; border-top:1px #fff solid; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormLineInput { width:460px; height:28px; padding-top:10px; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormLineInputB { width:460px; height:auto; padding:3px 0px 3px 0px; position:relative; float:left; overflow:hidden; }
+
+.megaOfertasCarsaleFormTxtLegenda {
+width:100px;
+height:22px;
+padding-top:6px;
+padding-right:10px;
+font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:right; position:relative; float:left; overflow:hidden; 
+
+}
+.cidadeFrm{
+width:50px;
+height:22px;
+padding-top:6px;
+padding-left:5px;
+font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:right; position:relative; float:left; overflow:hidden; 
+}
+.megaOfertasCarsaleFormTxtLegendaB { width:84px; height:22px; padding-top:6px; padding-right:10px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:right; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormTxtLegendaC { width:142px; height:22px; padding-top:6px; padding-right:10px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:right; position:relative; float:left; overflow:hidden; }
+/*---CARSALE---MEGA-OFERTAS---INPUT-TEXT---*/
+.megaOfertasCarsaleFormInput { position:relative; float:left; overflow:visible; }
+input.megaOfertasCarsaleFormInputBox { width:336px; height:28px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputTxt.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px;  }
+@media \0screen { input.megaOfertasCarsaleFormInputBox { width:346px; height:28px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInput.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px;  } }
+.megaOfertasCarsaleFormInput input.megaOfertasCarsaleFormInputBox:focus { background-image:url('../img/megaOfertasCarsaleInputFocus.gif'); background-repeat:no-repeat; background-color:#efefef;  color:#000; outline:none; border:none; }
+input.megaOfertasCarsaleFormInputDddBox { width:46px; height:28px; padding-left:12px; margin-right:22px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputDdd.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px;  }
+@media \0screen { input.megaOfertasCarsaleFormInputDddBox { width:46px; height:28px; padding-left:12px; margin-right:22px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputDdd.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none;padding-top:6px;} }
+.megaOfertasCarsaleFormInput input.megaOfertasCarsaleFormInputDddBox:focus { background-image:url('../img/megaOfertasCarsaleInputDddFocus.gif'); background-repeat:no-repeat; background-color:#efefef;  color:#000; outline:none; border:none; }
+input.megaOfertasCarsaleFormInputDddAlertBox { width:46px; height:28px; padding-left:12px; margin-right:22px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputDddAlert.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px;  }
+@media \0screen { input.megaOfertasCarsaleFormInputDddAlertBox { width:46px; height:28px; padding-left:12px; margin-right:22px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputDddAlert.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none;padding-top:6px;} }
+.megaOfertasCarsaleFormInput input.megaOfertasCarsaleFormInputDddAlertBox:focus { background-image:url('../img/megaOfertasCarsaleInputDddAlert.gif'); background-repeat:no-repeat; background-color:#efefef;  color:#000; outline:none; border:none; }
+input.megaOfertasCarsaleFormInputTelefoneBox { width:244px; height:28px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputTelefone.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px;  }
+@media \0screen { input.megaOfertasCarsaleFormInputTelefoneBox { width:244px; height:28px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputTelefone.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none;padding-top:6px;} }
+.megaOfertasCarsaleFormInput input.megaOfertasCarsaleFormInputTelefoneBox:focus { background-image:url('../img/megaOfertasCarsaleInputTelefoneFocus.gif'); background-repeat:no-repeat; background-color:#efefef; color:#000; outline:none; border:none; }
+input.megaOfertasCarsaleFormInputTelefoneAlertBox { width:244px;; height:28px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputTelefoneAlert.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px;  }
+@media \0screen { input.megaOfertasCarsaleFormInputTelefoneAlertBox { width:244px; height:28px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputTelefoneAlert.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none;padding-top:6px;} }
+.megaOfertasCarsaleFormInput input.megaOfertasCarsaleFormInputTelefoneAlertBox:focus { background-image:url('../img/megaOfertasCarsaleInputTelefoneAlert.gif'); background-repeat:no-repeat; background-color:#efefef; color:#000; outline:none; border:none; }
+.megaOfertasCarsaleFormSelect { width:332px; height:26px; margin-top:1px; margin-left:2px; padding-top:3px; padding-left:6px; background-color:#fff; border:1px #c0c0c0 solid; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:left; position:relative; float:left; }
+.megaOfertasCarsaleFormSelectCor { width:118px; height:26px; margin-top:1px; margin-left:2px; padding-top:3px; padding-left:6px; background-color:#fff; border:1px #c0c0c0 solid; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:left; position:relative; float:left; }
+.megaOfertasCarsaleFormSelectUf { width:106px; height:26px; margin-top:1px; margin-left:2px; padding-top:3px; padding-left:6px; background-color:#fff; border:1px #c0c0c0 solid; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:left; position:relative; float:left; }
+.megaOfertasCarsaleFormTxtCheck { width:auto; height:auto; padding-top:2px; padding-right:20px; padding-left:2px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:right; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleFormCheckBox { width:auto; height:auto; position:relative; float:left; overflow:hidden; }
+input.megaOfertasCarsaleFormTrocaInputBox { width:106px; height:28px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputTrocaTxt.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px;  }
+@media \0screen { input.megaOfertasCarsaleFormTrocaInputBox { width:106px; height:28px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputTrocaTxt.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px;  } }
+.megaOfertasCarsaleFormInput input.megaOfertasCarsaleFormTrocaInputBox:focus { background-image:url('../img/megaOfertasCarsaleInputTrocaTxtFocus.gif'); background-repeat:no-repeat; background-color:#efefef;  color:#000; outline:none; border:none; }
+.megaOfertasCarsaleFormLineMsgInput { width:460px; height:auto; padding-top:10px; position:relative; float:left; overflow:hidden; }
+textarea.megaOfertasCarsaleFormMsgInputBox {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #5f5f5f;
+	width: 333px;
+	height: 115px;
+	background-color: #FFF;
+	border:1px solid gray;
+	background-color:#fcf5d1;
+		-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding:3px;
+/*
+width:306px;
+height:64px;
+padding-left:12px;
+padding-top:12px;
+padding-bottom:12px;
+padding-right:12px;
+font:14px 'PFDinDisplayProMedium', Arial, sans-serif;
+color:#4c4c4c;
+background-image:url('../img/megaOfertasCarsaleInputMsg.gif');
+background-repeat:no-repeat;
+background-color:#efefef;
+position:relative;
+float:left;
+border:none;
+*padding-top:6px; *height:70px;
+*/
+}
+@media \0screen { textarea.megaOfertasCarsaleFormMsgBox { width:306px; height:64px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputMsg.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; padding-top:12px; overflow:visible;} }
+.megaOfertasCarsaleFormInput textarea.megaOfertasCarsaleFormMsgBox:focus { background-image:url('../img/megaOfertasCarsaleInputMsgFocus.gif'); background-repeat:no-repeat; background-color:#efefef;  color:#000; outline:none; border:none; }
+textarea.megaOfertasCarsaleFormMsgAlertBox { width:304px; height:64px; padding-left:12px; padding-top:12px; padding-bottom:12px; padding-right:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputMsgAlert.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; *padding-top:6px; *height:70px; }
+@media \0screen { textarea.megaOfertasCarsaleFormMsgAlertBox { width:306px; height:64px; padding-left:12px; font:14px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; background-image:url('../img/megaOfertasCarsaleInputMsgAlert.gif'); background-repeat:no-repeat; background-color:#efefef; position:relative; float:left; border:none; padding-top:12px; overflow:visible;} }
+.megaOfertasCarsaleFormInput textarea.megaOfertasCarsaleFormMsgAlertBox:focus { background-image:url('../img/megaOfertasCarsaleInputMsgAlert.gif'); background-repeat:no-repeat; background-color:#efefef;  color:#000; outline:none; border:none; }
+/*
+.megaOfertasCarsaleFormBtn input { margin-top:0px; padding:0px; }
+.megaOfertasCarsaleFormBtn input { width:330px; height:27px; font:16px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; text-align:center; text-decoration:none; background-image:url('../img/megaOfertasCarsaleBtnForm.gif'); background-repeat:no-repeat; float:left; position:relative; cursor:pointer; border:none; }
+.megaOfertasCarsaleFormBtn input:hover { background-image:url('../img/megaOfertasCarsaleBtnFormHover.gif'); background-repeat:no-repeat; text-decoration:none; color:#fff; }
+*/
+
+.megaOfertasCarsaleTxtAsterisco { width:336px; height:28px; font-style:italic; font:12px 'PFDinDisplayProMedium', Arial, sans-serif; color:#4c4c4c; position:relative; float:left; border:none; *padding-top:6px;  }
+
+.textoBold{font-weight: bold;}
+
+/** Filipe - Estilos banner rotativo HTML adaptado da Sandrecar **/
+.ofertaBanner { width:970px; height:327px; background-image:url('../img/ofertasBanner.png'); background-repeat:no-repeat; position:relative; float:left; overflow:hidden; z-index:40;
+margin-left:8px;
+}
+.btnEsquerda { overflow:visible; }
+.btnEsquerda a {
+ width:34px;
+ height:34px;
+ margin-left:20px;
+ margin-right:10px;
+ margin-top:-174px;
+ color:#1165ab;
+ font-size:1px;
+ text-align:left;
+ text-decoration:none;
+ background-image:url('../img/btnBanner1a.png');
+ background-position: 0px 0px; background-repeat:no-repeat;
+ float:left; position:relative;
+ z-index:50; }
+ 
+ .btnEsquerda a:hover {
+ width:34px;
+ height:34px;
+ margin-left:20px;
+ margin-right:10px;
+ margin-top:-174px;
+ color:#1165ab;
+ font-size:1px;
+ text-align:left;
+ text-decoration:none;
+ background-image:url('../img/btnBanner1b.png');
+ background-position: 0px 0px; background-repeat:no-repeat;
+ float:left; position:relative;
+ z-index:50; }
+ 
+ 
+/*.btnEsquerda a:hover{
+width:34px;
+height:34px;
+background-image:url('../img/btnBanner1b.png');
+background-position: 0px -34px; background-repeat:no-repeat;
+text-decoration:none; color:#1166ac;
+z-index:55; 
+}
+
+
+.btnDireita { overflow:visible; }
+.btnDireita a {
+width:34px;
+height:34px;
+margin-left:20px;
+margin-right:20px;
+margin-top:-174px;
+color:#1165ab;
+font-size:1px;
+text-align:left;
+text-decoration:none;
+background-image:url('../img/btnBanner1b.png');
+background-position: -34px 0px;
+background-repeat:no-repeat;
+float:right;
+position:relative;
+z-index:60; }
+.btnDireita a:hover {
+background-image:url('../img/btnBanner.png');
+background-position: -34px -34px;
+background-repeat:no-repeat;
+text-decoration:none;
+color:#1166ac;
+ }
+ */
+ 
+ 
+.btnDireita { overflow:visible; }
+.btnDireita a {
+ width:34px;
+ height:34px;
+ margin-left:20px;
+ margin-right:10px;
+ margin-top:-174px;
+ color:#1165ab;
+ font-size:1px;
+ text-align:right;
+ text-decoration:none;
+ background-image:url('../img/btnBanner2a.png');
+ background-position: 0px 0px; background-repeat:no-repeat;
+ float:right; position:relative;
+ z-index:50; }
+ 
+ .btnDireita a:hover {
+ width:34px;
+ height:34px;
+ margin-left:20px;
+ margin-right:10px;
+ margin-top:-174px;
+ color:#1165ab;
+ font-size:1px;
+ text-align:right;
+ text-decoration:none;
+ background-image:url('../img/btnBanner2b.png');
+ background-position: 0px 0px; background-repeat:no-repeat;
+ float:right; position:relative;
+ z-index:50; }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+.txtEsquerda { overflow:visible; }
+.txtEsquerda a { width:190px; height:auto; margin:153px 0px 12px 66px; font-family:Arial, Helvetica, sans-serif; color:#585858; font-size:20px; text-align:right; text-decoration:none; float:left; position:relative; font-weight:bold; }
+.txtEsquerda a:hover { text-decoration:underline; color:black; }
+.ofertaImg { width:350px; height:167px; margin:80px 0px 60px 40px; float:left; position:relative; z-index:10; }
+.txtDireita { overflow:visible; }
+.txtDireita a { width:190px; height:auto; margin:153px 0px 12px 66px; font-family:Arial, Helvetica, sans-serif; color:#531313; font-size:32px; text-align:left; text-decoration:none; float:left; position:relative; font-weight:bold;}
+.txtDireita a:hover { text-decoration:underline; color:black; }
+.txtDireitaCores { width:190px; height:auto; padding:0px 0px 6px 66px; font-family:Arial, Helvetica, sans-serif; color:black; font-size:14px; text-align:left; text-decoration:none; float:left; position:relative; }
+.txtDireitaCat { width:190px; height:auto; padding:0px 0px 12px 66px; font-family:Arial, Helvetica, sans-serif; color:#425182; font-size:14px; text-align:left; text-decoration:none; float:left; position:relative; }
+/** Filipe - Fim **/
+
+/*
+Mega Oferta - Formulário    bgTit.gif   logoMegaOferta.png
+*/
+#tituloMegaOf{
+ 
+	
+	width:988px;
+	background-image:url('../img/bgTitMegaOferta12.png');
+	background-repeat:no-repeat;
+	padding:2px 1px 2px 1px;
+}
+.boxLogoMegaOfer{
+ 
+	height:70px;
+	width:987px;
+	background-image:url('../img/bgTitMegaOferta3.png');
+	background-repeat:no-repeat;
+}
+/*
+.bgPalcoCar{
+	background-image:url('../img/apreCar.png');
+	background-repeat:no-repeat;
+	background-position:center;
+	background-position:bottom;
+	
+	height:110px;
+}
+*/
+.input_frm {
+	font-size: 12px;
+	font-family: Arial;
+	color: rgb(79, 79, 79);
+	width: 328px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #cccccc;
+	height: 18px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+	padding-left: 2px;
+	background-color:#fcf5d1;
+}
+.input_ddd {
+	font-size: 12px;
+	font-family: Arial;
+	color: rgb(79, 79, 79);
+	width: 18px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #cccccc;
+	height: 18px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+	padding-left: 2px;
+	background-color:#fcf5d1;
+	float:left;
+}
+.input_tel {
+	font-size: 12px;
+	font-family: Arial;
+	color: rgb(79, 79, 79);
+	width: 80px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #cccccc;
+	height: 18px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+	padding-left: 2px;
+	background-color:#fcf5d1;
+	margin-left:5px;
+ 
+}
+.input_text12 {
+	font-size: 12px;
+	font-family: Arial;
+	color: rgb(79, 79, 79);
+	width: 85px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #cccccc;
+	height: 28px;
+	padding-top: 4px;
+	padding-bottom: 3px;
+	padding-right: 2px;
+	float:left;
+	background-color:#FFFF99;
+}
+
+.input_Cidade {
+	font-size: 12px;
+	font-family: Arial;
+	color: rgb(79, 79, 79);
+	width: 185px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #cccccc;
+	height: 18px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+	padding-left: 2px;
+	background-color:#fcf5d1;
+	margin-left:5px;
+ }
+ 
+ .opcaoCorAlt {
+	font-size: 12px;
+	font-family: Arial;
+	color: rgb(79, 79, 79);
+	width: 335px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #cccccc;
+	height: 28px;
+	padding-top: 4px;
+	padding-bottom: 3px;
+	padding-right: 2px;
+	float:left;
+	background-color:#FFFF99;
+}
+ 
+.txtObs {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000;
+	width: 306px;
+	height: 115px;
+	background-color: #FFF;
+}
+.obigatorio{
+color:red;
+}
+
+.buttonFrmMo {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  width:340px;
+  color: #ffffff;
+  font-size: 14px;
+  padding:2px;
+  text-decoration: none;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  border: solid #d91c71 0px;
+  background: #29b02d;
+}
+.buttonFrmMo:hover {
+  background: #249227;
+}

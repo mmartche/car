@@ -57,17 +57,24 @@ function uploadFile ($manufacturerId,$modelId,$versionId) {
 				//}
 		}
 	} else {
-		echo "Invalid file";
+		echo "Imagem incorreta";
 	}
 }
 
-if($_POST[btnAddMegaOferta] == "Adicionar") {
-	$picTemp = uploadFile($_POST[manufacturerId],$_POST[modelId],$_POST[versionId]);
-	if ($picTemp != "") {
-		$picTempSql = "`picture` = '".$picTemp."',";
-	}
-	$sql = "INSERT INTO megaOferta (`manufacturerId`,`modelId`,`versionId`,`featureId`,`price`,`place`,`description`,`picture`,`dateIni`,`dateLimit`,`dateUpdate`) VALUES ('".$_POST[manufacturerId]."','".$_POST[modelId]."','".$_POST[versionId]."','".$_POST[featureId]."','".$_POST[price]."','".$_POST[place]."','".$_POST[description]."','".$picTemp."','".$_POST[dateIni]."','".$_POST[dateLimit]."',now())";
-	mysql_query($sql) or die("#error 35");
+switch ($_POST[btnAddMegaOferta]) {
+	case 'Adicionar':
+		$picTemp = uploadFile($_POST[manufacturerId],$_POST[modelId],$_POST[versionId]);
+		$sql = "INSERT INTO megaOferta (`manufacturerId`,`modelId`,`versionId`,`featureId`,`price`,`place`,`description`,`picture`,`dateIni`,`dateLimit`,`dateUpdate`) VALUES ('".$_POST[manufacturerId]."','".$_POST[modelId]."','".$_POST[versionId]."','".$_POST[featureId]."','".$_POST[price]."','".$_POST[place]."','".$_POST[description]."','".$picTemp."','".$_POST[dateIni]."','".$_POST[dateLimit]."',now())";
+		mysql_query($sql) or die("#error 71");
+		break;
+	case 'Atualizar':
+		$picTemp = uploadFile($_POST[manufacturerId],$_POST[modelId],$_POST[versionId]);
+		if ($picTemp != "") {
+			$picTempSql = "`picture` = '".$picTemp."',";
+		}
+		$sql = "UPDATE `megaOferta` SET `manufacturerId` = '".$_POST[manufacturerId]."', `modelId` = '".$_POST[modelId]."', `versionId` = '".$_POST[versionId]."', `featureId` = '".$_POST[featureId]."', `price` = '".$_POST[price]."', `place` = '".$_POST[place]."', `description` = '".$_POST[description]."', ".$picTempSql." `dateIni` = '".$_POST[dateIni]."', `dateLimit` = '".$_POST[dateLimit]."', `dateUpdate` = now() WHERE `id` = '".$_POST[megaOfertaId]."'";
+		mysql_query($sql) or die("#error 79");
+		break;
 }
 ?>
 
@@ -88,8 +95,8 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 	</div>
 	</form-->
 	<form onsubmit="" action="#" method="post" enctype="multipart/form-data" style="overflow:hidden">
-		<input type="text" name="megaOfertaId" class="megaOfertaId" id="megaOfertaId" />
-		<input type="text" name="orderMega" class="orderMega" id="orderMega" /> 
+		<input type="hidden" name="megaOfertaId" class="megaOfertaId" id="megaOfertaId" />
+		<input type="hidden" name="orderMega" class="orderMega" id="orderMega" /> 
 		<div class="megaDiv">
 			<div class="MegaSelects">
 				<select name="manufacturer" id="manufacturerName">
@@ -109,8 +116,8 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 				<a id="versionDetails" class="hide" href="#" target="_blank">Veja a Ficha Tecnica desta Versão</a>
 			</div>
 			<div class="megaInputs">
-				<input type="text" name="price" id="price" placeholder="Preço" />
-				<input type="text" name="description" id="description" placeholder="Descrição" />
+				<p><label for="price">R$</label><input class="inputDesc" type="text" name="price" id="price" placeholder="Preço" /></p>
+				<p><label for="description">Descriçao:</label><input class="inputDesc" type="text" name="description" id="description" placeholder="Descrição" /></p>
 			</div>
 			<input type="hidden" name="manufacturerId" id="manufacturerId" />
 			<input type="hidden" name="modelId" id="modelId" />
@@ -122,7 +129,7 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 			<textarea class="image-preview" disabled="disabled"></textarea>
 			<div class="megaInputs">
 				<input type="checkbox" name="place" id="place" value="carousel" /><label for="place">Aparecer em destaque?</label>
-				<input type="submit" name="btnAddMegaOferta" value="Adicionar" />
+				<input type="submit" name="btnAddMegaOferta" id="btnAddMegaOferta" value="Adicionar" />
 			</div>
 		</div>
 	</form>
@@ -149,14 +156,15 @@ if($_POST[btnAddMegaOferta] == "Adicionar") {
 				?>
 				<li class="liMO">
 					<div class="orderMega">
-						<div class="upOrder" id="upOrder" onclick="orderMega(this,'upOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[order]?>')">/\</div>
+						<div class="downOrder" id="downOrder" onclick="orderMega(this,'downOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[order]?>')">/\</div>
 						<div class="numberOrder" id="numberOrder"><?=$resMO[order]?></div>
-						<div class="downOrder" id="downOrder" onclick="orderMega(this,'downOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[order]?>')">\/</div>
+						<div class="upOrder" id="upOrder" onclick="orderMega(this,'upOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[order]?>')">\/</div>
 					</div>
 					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
 					<img class="imgLiMO" src="../carImagesMegaOferta/<?=$resMO[picture]?>" />
 					<span class="priceLiMO">R$ <?=$resMO[price]?></span>
 					<!--span class="dateLimitLiMO">Válido até: <?=$resMO[dateLimit]?></span-->
+					<span class="descLiMO"><?=$resMO[description]?></span>
 					<span class="placeLiMO">Exibindo em: <?=$placeName?></span>
 					<div class="removeItem" onclick="removeItemMega(this,'<?=$resMO[megaOfertaId]?>')">Remover</div>
 					<div class="updateItem" onclick="updateItemMega(this,'<?=$resMO[megaOfertaId]?>')">Editar</div>

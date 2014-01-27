@@ -1,7 +1,7 @@
 body {
 	font-family: arial !important;
 }
-ul, li, h1,h2,h3,h4,h5,p {
+ul,ol,li, h1,h2,h3,h4,h5,p {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -10,7 +10,7 @@ a img {
 	border: 1px solid transparent;
 }
 a img:hover{
-	border: 1px solid #cb2026;
+	/*border: 1px solid #cb2026;*/
 }
 #uolBar {
 	height: 30px;
