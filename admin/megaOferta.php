@@ -22,6 +22,11 @@
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="styles/index.css" />
 	<link rel="stylesheet" type="text/css" href="styles/explorer.css" />
+	<style type="text/css">
+.custom-combobox-input {
+	width: 360px;
+}
+	</style>
 </head>
 <body name="searchList">
 <?
@@ -94,9 +99,8 @@ switch ($_POST[btnAddMegaOferta]) {
 	<button type="submit" class="btn">Search</button>
 	</div>
 	</form-->
-	<form onsubmit="" action="#" method="post" enctype="multipart/form-data" style="overflow:hidden">
+	<form onsubmit="" action="#" method="post" enctype="multipart/form-data" style="overflow:hidden" class="formMega"  data-spy="affix" data-offset-top="145">
 		<input type="hidden" name="megaOfertaId" class="megaOfertaId" id="megaOfertaId" />
-		<input type="hidden" name="orderMega" class="orderMega" id="orderMega" /> 
 		<div class="megaDiv">
 			<div class="MegaSelects">
 				<select name="manufacturer" id="manufacturerName">
@@ -118,6 +122,7 @@ switch ($_POST[btnAddMegaOferta]) {
 			<div class="megaInputs">
 				<p><label for="price">R$</label><input class="inputDesc" type="text" name="price" id="price" placeholder="Preço" /></p>
 				<p><label for="description">Descriçao:</label><input class="inputDesc" type="text" name="description" id="description" placeholder="Descrição" /></p>
+				<p><label for="orderMega">Ordem: </label><input type="text" name="orderMega" class="inputDesc" id="orderMega" /> </p>
 			</div>
 			<input type="hidden" name="manufacturerId" id="manufacturerId" />
 			<input type="hidden" name="modelId" id="modelId" />
@@ -133,7 +138,7 @@ switch ($_POST[btnAddMegaOferta]) {
 			</div>
 		</div>
 	</form>
-	<div class="content">
+	<div class="content contentMega">
 		<?
 		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc, `order` asc";
 		$query_mo = mysql_query($sql_mo) or die (mysql_error());
@@ -143,7 +148,7 @@ switch ($_POST[btnAddMegaOferta]) {
 				<?
 					while ($resMO = mysql_fetch_array($query_mo)) {
 						if (($placeHr != "") && ($resMO[place] != $placeHr)) {
-							echo '<hr style="width:100%" />';
+							echo '<hr style="width:100%" /><h2 class="subTitleMega">Chamada Secundária</h2>';
 							$placeHr = $resMO[place];
 						} else {
 							$placeHr = $resMO[place];

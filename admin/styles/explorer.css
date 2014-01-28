@@ -120,3 +120,22 @@
 	float: left;
 	padding: 10px 0;
 }
+.formMega {
+	border: 1px dotted;
+	width: 362px;
+	overflow: scroll;
+}
+.formMega.affix{
+	top: 0;
+}
+.contentMega {
+	margin-left: 360px;
+	position: absolute;
+	top: 145px;
+}
+.subTitleMega {
+	text-align: center;
+}
+.checkedEditMega {
+	border: solid green;
+}

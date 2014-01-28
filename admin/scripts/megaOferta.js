@@ -99,6 +99,7 @@ $(document).ready(function(){
 
   function updateItemMega (obj,idItem) {
     //catch all data from <li>
+    $(".liMO").removeClass("checkedEditMega");
     numOrder = $(obj).parent().children("#numberOrder").text();
     //$(obj).parent().children("");
     $.getJSON('api/index.php?type=searchMega&idItem='+idItem, function(data) {
@@ -122,12 +123,14 @@ $(document).ready(function(){
           $("#cancelRequest").click(function(){
             $("#btnAddMegaOferta").val("Adicionar");
             $(this).remove();
+            $(".liMO").removeClass("checkedEditMega");
           });
         }
+        $(obj).parent(".liMO").addClass("checkedEditMega");
       }
     });
-
-
+    
+    //window.scrollTo(0,0);
     //form submit need check if exist
   }
 
