@@ -55,7 +55,7 @@ include ("../scripts/conectDB.php");
 			<!-- Indicators -->
 				<ol class="carousel-indicators">
 					<? 
-					$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place = 'carousel' GROUP BY megaOferta.id order by megaOferta.place";
+					$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place = 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`order` asc";
 
 					// $sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'carousel' ORDER by place";
 
@@ -102,7 +102,7 @@ include ("../scripts/conectDB.php");
 			<!-- END CAROUSEL -->
 			<?
 			// $sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'normal' ORDER by place";
-			$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place != 'carousel' GROUP BY megaOferta.id order by megaOferta.place";
+			$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place != 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`order` asc";
 			$query = mysql_query($sql) or die (mysql_error());
 			$arrayModalVersion = array();
 			while ($resN = mysql_fetch_array($query)) {

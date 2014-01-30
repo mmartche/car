@@ -140,7 +140,7 @@ switch ($_POST[btnAddMegaOferta]) {
 	</form>
 	<div class="content contentMega">
 		<?
-		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc, `order` asc";
+		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc, `order` asc";
 		$query_mo = mysql_query($sql_mo) or die (mysql_error());
 		?>
 		<div class="megaOfertaData">
@@ -171,6 +171,7 @@ switch ($_POST[btnAddMegaOferta]) {
 					<!--span class="dateLimitLiMO">Válido até: <?=$resMO[dateLimit]?></span-->
 					<span class="descLiMO"><?=$resMO[description]?></span>
 					<span class="placeLiMO">Exibindo em: <?=$placeName?></span>
+					<span><a href="./formDetails.php?vehicle=<?=$resMO[versionId]?>&category=feature&action=viewVersion" target="_blank">Ficha Técnica</a></span>
 					<div class="removeItem" onclick="removeItemMega(this,'<?=$resMO[megaOfertaId]?>')">Remover</div>
 					<div class="updateItem" onclick="updateItemMega(this,'<?=$resMO[megaOfertaId]?>')">Editar</div>
 				</li>

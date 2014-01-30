@@ -191,8 +191,8 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="return checkFields(this)" enctype="multipart/form-data">
 		<?
-		//$actionType = (mysql_num_rows($query_search) > 0 ? "update" : "new");
-		$actionType = $_GET[action];
+		$actionType = (mysql_num_rows($query_search) > 0 ? "update" : "new");
+		//$actionType = $_GET[action];
 		?>
 		<input type="hidden" class="text" name="action" id="action" value="<?=$actionType?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
@@ -831,14 +831,14 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 						while ($resOptF = mysql_fetch_array($queryOptF)) {
 						?>
 							<span id="optItem<?=$iOptM?>">
-								<div class="updateOpt" onclick="updateOpt(this,'<?=$iOptM?>')">
+								<div class="updateOpt" onclick="updateOpt(this,'<?=$iOptM?>')" title="<?=$resOptF[options]?>">
 									<input class="hide" type="checkbox" id="chOpt<?=$iOptM?>" name="chOpt<?=$iOptM?>" value="s" checked="checked" />
 									<input type="hidden" id="txtOptIdFeature" value="<?=$resOptF[optId]?>" />
 									<input type="hidden" id="optIdOpt" name="txtOpt<?=$iOptM?>" value="<?=$resOptF[idOption]?>" />
 									<input type="hidden" id="optPrice" name="txtOptPrice<?=$iOptM?>" value="<?=$resOptF[price]?>" />
 									<input type="hidden" id="optCode" value="<?=$resOptF[code]?>" />
-									<label id="lblOptions" title="<?=$resOptF[options]?>"><?=$resOptF[name]?></label><br />
-									<label>R$<?=$resOptF[price]?></label>
+									<label id="lblOptions"><?=$resOptF[name]?></label><br />
+									<label>R$ <?=$resOptF[price]?></label>
 								</div>
 								<label for="chOpt<?=$iOptM?>" class="removeOpt" onclick="removeOpt(this,'<?=$iOptM?>')">X</label>
 							</span>

@@ -209,15 +209,15 @@ $(document).ready(function(){
 			} else {
 				l = $("#resultOptions span").length;
 
-				$("#resultOptions").prepend('<span id="optItem'+l+'">'+
+				$("#resultOptions").prepend('<span id="optItem'+l+'" title="'+textTemp+'">'+
 				'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')">'+
 					'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
 					'<input type="hidden" id="txtOptIdFeature" value="" />'+
 					'<input type="hidden" id="optIdOpt" name="txtOpt'+l+'" value="'+optId+'" />'+
 					'<input type="hidden" id="optPrice" name="txtOptPrice'+l+'" value="'+price+'" />'+
 					'<input type="hidden" id="optCode" value="'+codOpt+'" />'+
-					'<label id="lblOptions" title="'+textTemp+'">'+name+'</label>'+
-					'<label>'+price+'</label>'+
+					'<label id="lblOptions">'+name+'</label><br />'+
+					'<label>R$ '+price+'</label>'+
 				'</div>'+
 				'<label for="chOpt'+l+'" class="removeOpt" onclick="removeOpt(this,'+l+')">X</label>'+
 			'</span>');
@@ -241,14 +241,14 @@ $(document).ready(function(){
 					newId = data[0].insertId;
 					l = $("#resultOptions span").length;
 					$("#resultOptions").prepend('<span id="optItem'+l+'">'+
-						'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')">'+
+						'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')" title="'+textTemp+'">'+
 							'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
 							'<input type="hidden" id="txtOptIdFeature" value="" />'+
 							'<input type="hidden" id="optIdOpt" name="txtOpt'+l+'" value="'+newId+'" />'+
 							'<input type="hidden" id="optPrice" name="txtOptPrice'+l+'" value="'+price+'" />'+
 							'<input type="hidden" id="optCode" value="'+codOpt+'" />'+
-							'<label id="lblOptions" title="'+textTemp+'">'+name+'</label>'+
-							'<label>'+price+'</label>'+
+							'<label id="lblOptions">'+name+'</label><br />'+
+							'<label>R$ '+price+'</label>'+
 						'</div>'+
 						'<label for="chOpt'+l+'" class="removeOpt" onclick="removeOpt(this,'+l+')">X</label>'+
 					'</span>');

@@ -259,7 +259,7 @@ transition: all .3s;
 }
 .liCarItem {
 	width: 170px;
-	height: 100px;
+	height: 110px;
 	border: 1px solid;
 	overflow: hidden;
 	float: left;
@@ -270,7 +270,7 @@ transition: all .3s;
 }
 .liCarItem label {}
 .liCarItem:hover {
-	background-color: #ddd;
+	background-color: #eee;
 }
 .liCarItem.selected {
 	background-color: #999;

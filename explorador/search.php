@@ -250,25 +250,27 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 			$and = " and ";
 		}
 		$filterItems .= ($filterItems != "" ? ")" : ""); 
-		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version WHERE feature.idVersion = version.id and version.idModel = model.id and (feature.active ='s' or feature.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
+		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version, manufacturer WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and (feature.active ='s' or feature.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
 		// echo $sqlFilter;
 		$queryFilter = mysql_query($sqlFilter) or die ($sqlFilter.mysql_error()."error #240");
 		if (mysql_num_rows($queryFilter) > 0) {
 			while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
 				<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)">
 				<?
-				if (file_exists("http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg")) {
+				if (file_exists("http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif")) {
+					$picture = "http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif";
+				} elseif (file_exists("http://carsale.uol.com.br/foto/".$resFilter[picture]."_g.jpg")) {
 					$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
 				} elseif (file_exists("../carImages/".$resFilter[picture])) {
 					$picture = "../carImages/".$resFilter[picture];
 				} elseif (file_exists("../carImagesMegaOferta/".$resFilter[picture])) {
 					$picture = "../carImages/".$resFilter[picture];
 				} else {
-					$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
+					$picture = "http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif";
 				}
 				?>
 					<img src="<?=$picture?>" class="imgCarSelect" />
-					<label><?=$resFilter[modelName]?> - <?=$resFilter[versionName]?></label>
+					<label><?=$resFilter[manufacturerName]?> - <?=$resFilter[modelName]?></label>
 				</li>
 			<?
 			}

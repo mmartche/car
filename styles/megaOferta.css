@@ -93,7 +93,7 @@ z-index:0;
 .megaOfertasCarsaleHeaderTv a { text-decoration:none; color:#1574c4; }
 .megaOfertasCarsaleHeaderTv a:hover { text-decoration:underline; color:#1574c4; }
 .megaOfertasCarsaleGridOfertas { width:988px; height:auto; padding-top:20px; position:relative; float:left; overflow:hidden; }
-.megaOfertasCarsaleOferta { width:230px; height:auto; padding-left:8px; padding-right:8px; margin-bottom:50px; position:relative; float:left; overflow:hidden; }
+.megaOfertasCarsaleOferta { width:230px; height:350px; padding-left:8px; padding-right:8px; margin-bottom:20px; position:relative; float:left; overflow:hidden; }
 .megaOfertasCarsaleTituloOferta { width:210px; height:auto; padding-left:10px; padding-right:10px; font:24px 'PFDinDisplayProMedium', Arial, sans-serif; color:#205488; text-align:center; position:relative; float:left; overflow:hidden;
 
  }
