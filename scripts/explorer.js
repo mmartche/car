@@ -31,12 +31,13 @@ function addFilter (obj,idModel) {
 	//ve qntos items ja estao no resultado
 	//search info
     idVersion = $(obj).val();
+    var carsLength = $(".column").length;
     //console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
-	$.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion, function(data) {
-		// console.log('888888',data[0].response);
-		if(data[0].response == "true"){
+    $.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion, function(data) {
+    if (carsLength < 5) {
+        // console.log('888888',data[0].response);
+        if(data[0].response == "true"){
             //count cars showed
-            var carsLength = $(".column").length;
             if ($(obj).attr("id") == "optVersion") { carsLength--; }
             var divTitleCar = '<div class="exploradorTabelaGridCarro veiculo'+carsLength+'">'+
                 '<div class="exploradorTabelaGridCarroOculta"></div>'+
@@ -164,6 +165,7 @@ function addFilter (obj,idModel) {
     		$("#optVersion").change(function(){
                 console.log($(this).val());
             });*/
+    }
 	});
 	//add to result
 	// add class no filtro

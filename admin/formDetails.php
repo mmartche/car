@@ -191,7 +191,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 		</ol>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="return checkFields(this)" enctype="multipart/form-data">
 		<?
-		$actionType = (mysql_num_rows($query_search) > 0 ? "update" : "new");
+		$actionType = ((mysql_num_rows($query_search) > 0) && ($_GET[action] != "clone") ? "update" : "new");
 		//$actionType = $_GET[action];
 		?>
 		<input type="hidden" class="text" name="action" id="action" value="<?=$actionType?>" placeholder="action" />
