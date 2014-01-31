@@ -30,7 +30,7 @@ include ("./scripts/conectDB.php");
 
 <div class="body">
 	<header>
-		<h1 class="logo"><span class="logoText logoRed">Car</span><span class="logoText logoBlack">sale</span></h1>
+		<h1 class="logo"><a href="/"><span class="logoText logoRed">Car</span><span class="logoText logoBlack">sale</span></a></h1>
 	</header>
 	<div class="content">
 		<ul class="menuIndex">
