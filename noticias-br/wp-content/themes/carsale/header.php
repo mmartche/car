@@ -90,12 +90,14 @@
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
 					<li><a href="/carsale/noticias/" title="">Notícias</a></li>
-					<li><a href="" title="">Segredos</a></li>
-					<li><a href="" title="">Testes</a></li>
-					<li><a href="" title="">Lançamentos</a></li>
-					<li><a href="http://carsale.uol.com.br/blog/" title="">Blog do CarSale</a></li>
-					<li><a href="#" title="">Carros Verdes</a></li>
-					<li><a href="" title="">Alta Rodagem</a></li>
+					<?php
+					$args = array(
+								'title'=>'',
+								'orderby'=>'count',
+								'title_li'=>'',
+								);
+					wp_list_categories($args); 
+					?>
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuInterativo">
 					<li><a href="#" title="">Opniāo do Dono</a></li>

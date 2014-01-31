@@ -5,11 +5,12 @@
 		<?php if (have_posts()): while(have_posts()): the_post(); ?>
 			<article <?php post_class();?>>
 				<h2><?php the_title(); ?></h2>
-				<h3><?php the_author(); ?> tem <?php echo number_format_i18n( get_the_author_posts() ); ?> 
-posts
-				<span><?php the_date(); ?></span></h3>
+				<h3><?php the_author(); ?> tem <?php echo number_format_i18n( get_the_author_posts() ); ?> </h3>
+				<h4><?php the_date(); ?></h4>
 				<hr />
-				<?php the_content(); ?>
+				<div class="news-content">
+					<?php the_content(); ?>
+				</div>
 			</article>
 			<div class="about-author">
 				<?php the_author_description(); the_author_link();  ?>
