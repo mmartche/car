@@ -2,8 +2,58 @@
 	width: 680px;
 }
 .latest-news .post.format-standard {
-	border: 1px solid;
+	border-bottom: 1px dotted;
+	padding: 10px 0 10px 10px;
 }
 .about-author {
 	border: 1px solid;
+}
+.news-content:first-letter{
+	font-size: 35px;
+}
+.list-category {
+	float: right;
+	width: 140px;
+	text-align: center;
+	padding: 2px;
+	background-color: red;
+}
+.list-category a {
+	color: #fff;
+}
+.title-page {
+	height: 50px;
+	position: relative;
+}
+.title-background {
+	background-color: red;
+	text-align: right;
+	height: 30px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.title-name {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 20px 10px 0;
+	background-color: red;
+	color: #fff;
+}
+.list-separator {
+
+}
+.list-title {
+	overflow: hidden;
+}
+.list-title a{
+	color: #000;
+	font-weight: normal;
+}
+.list-hour {
+	color: #ccc;
+}
+.read-more-categories {
+
 }

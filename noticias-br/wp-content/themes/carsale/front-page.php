@@ -1,18 +1,22 @@
 <?php get_header(); ?>
 <div class="content">
 	<div class="columnMiddle">
-	<h2>Ultimas noticias</h2>
-		<ol class="latest-news" place="front-page#2">
+	<h2 class="title-page">
+		<span class="title-background"></span>
+		<span class="title-name">Notícias</span>
+	</h2>
+		<ol class="latest-news">
 			<?php
 			$args = array(		
 						'posts_per_page' => 10,
 					);
 			$latest_news = 	new WP_Query($args);
 			if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
+			<li class="list-separator"><?php the_date('d/m','',''); ?></li>
 			<li <?php post_class(); ?>>
-				<h3><?php the_title(); ?></h3>
-				<h4><?php the_category(); ?></h4>
-				<a href="<?php the_permalink(); ?>">Leia Mais &raquo;</a>
+				<h4 class="list-category"><?php the_category(); ?></h4>
+				<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<span class="list-hour"><?php the_date('h','',''); ?>[hora do post]</span>
 			</li>
 			<?php endwhile; endif;  ?>
 			<?php wp_reset_query(); ?>
@@ -24,20 +28,24 @@
 				TM.display();
 			</script>
 		</div>
-		<uL>
-		<?php $args = array (
-			'orderby' => 'count',
-			'order' => 'ASC',
-			'style' => 'list',
-			'show_count' => 1,
-			'hide_empty' => 0,
-			'title_li' => '',
-			'number' => 10,
-			'depth' => -1,
-			);
-		wp_list_categories($args);
-		?>
-		</ul>
+		<div class="read-more-categories">
+			<span class="title-background"></span>
+			<span class="title-name">Canais</span>
+			<ul class="read-more-categories">
+			<?php $args = array (
+				'orderby' => 'count',
+				'order' => 'ASC',
+				'style' => 'list',
+				'show_count' => 1,
+				'hide_empty' => 0,
+				'title_li' => '',
+				'number' => 10,
+				'depth' => -1,
+				);
+			wp_list_categories($args);
+			?>
+			</ul>
+		</div>
 		<div class="tm-ads banner300" id="banner-300x600">
 			<script type="text/javascript">
 				TM.display();
