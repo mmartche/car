@@ -31,6 +31,21 @@
 			<li><strong><a href="<?php echo get_category_link($category->term_id);?>" title="View all posts filed under <?php echo $category->name; ?>">Mais Noticias '<?php echo $category->name; ?>'  &raquo;</a></strong></li>
 		<?php endforeach; ?>
 		</ul>
+		<?php /* FOI INSTALADO UM PLUGIN, PRECISO DO SECRET ID ?>
+		<!--div style="background-color:#fafafa; width:640px; padding-top:20px; float:left; position:relative;" id="new_coment">
+            <div id="fb-root" class=" fb_reset"><div style="position: absolute; height: 0pt; width: 0pt;"></div></div>
+			  <div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) {return;}
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=162820543751733";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+
+			<div class="fb-comments" data-href="<?php the_permalink(); ?>" data-num-posts="3" data-width="640"></div>  
+        </div-->
+		*/ ?>
 	</div>
 	<div class="contentRight">
 		<div class="tm-ads banner300" id="banner-300x250">

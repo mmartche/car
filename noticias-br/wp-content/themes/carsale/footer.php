@@ -2,7 +2,6 @@
 		</div><!-- #main -->
 <hr />
 		<footer id="colophon" class="site-footer" role="contentinfo">
-Footer
 			<?php /* get_sidebar( 'footer' ); */ ?>
 
 			<div class="site-info">
