@@ -292,9 +292,9 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 <? } ?>
 
 <!-- <div class="bannerExplorer" id="bannermenu" class="menu affix" data-spy="affix" data-offset-top="100" data-offset-bottom="2500">banner</div> -->
-<div class="bannerExplorer" id="bannermenu">banner</div>
+	<div class="bannerExplorer" id="bannermenu">banner</div>
 
-<div class="exploradorTabela" id="exploradorTabela">
+	<div class="exploradorTabela" id="exploradorTabela">
          <div class="exploradorTabelaLineCarros">
             <div class="exploradorTabelaGridCarro"><img alt="" title="" src="http://carsale.uol.com.br/classificado/img/exploradorTituloTabelaComparativa.gif"></div>
             
@@ -382,7 +382,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
             <div class="exploradorTabelaGridBase"><img alt="" title="" src="http://carsale.uol.com.br/classificado/img/exploradorBaseTabelaComparativa2.gif"></div>
         </div>
     </div>
-
+    <div id="modalFeature" class="modalFeature"></div>
 		</div>
 	</div>
 </div>

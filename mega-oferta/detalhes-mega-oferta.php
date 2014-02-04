@@ -2,6 +2,7 @@
 session_start();
 $_SESSION["tokenTime"] = time();
 include ("../scripts/conectDB.php");
+include ("../admin/scripts/functions.php");
 $sql = "SELECT *, model.name as modelName, version.name as versionName from megaOferta, version, model where megaOferta.versionId = version.id and megaOferta.modelId = model.id and megaOferta.id = '".$_GET[veiculo]."'";
 $query = mysql_query($sql) or die ($sql);
 $res = mysql_fetch_array($query);
@@ -85,7 +86,7 @@ if (file_exists("../carImagesMegaOferta/".$res[picture])) {
                 <div class="megaOfertasCarsaleFormColunaInput">
                     <div class="megaOfertasCarsaleFormModelo"><?=$res[modelName]?> - <?=$res[versionName]?></div>
                     <div class="megaOfertasCarsaleFormCatalogo"></div>
-                    <div class="megaOfertasCarsaleFormPreco">R$ <?=$res[price]?> <span style="font-size:14px;"></span></div>
+                    <div class="megaOfertasCarsaleFormPreco">R$ <?=formatToPrice($res[price])?> <span style="font-size:14px;"></span></div>
                     <div class="megaOfertasCarsaleFormBtnFicha"><a data-toggle="modal" data-target="#feature_<?=$res[versionId]?>" id="fichaTecnica">Ficha Técnica</a></div>
                     <div class="megaOfertasCarsaleFormPrecoLine"></div>
                     <div class="megaOfertasCarsaleFormLineInput">

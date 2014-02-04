@@ -31,56 +31,8 @@
 <body name="searchList">
 <?
 include ("./scripts/conectDB.php");
+include ("./scripts/functions.php");
 
-function uploadFile ($manufacturerId,$modelId,$versionId) {
-	$allowedExts = array("gif", "jpeg", "jpg", "png");
-	$temp = explode(".", $_FILES["file"]["name"]);
-	$extension = end($temp);
-	if ((($_FILES["file"]["type"] == "image/gif")
-	|| ($_FILES["file"]["type"] == "image/jpeg")
-	|| ($_FILES["file"]["type"] == "image/jpg")
-	|| ($_FILES["file"]["type"] == "image/pjpeg")
-	|| ($_FILES["file"]["type"] == "image/x-png")
-	|| ($_FILES["file"]["type"] == "image/png"))
-	&& in_array($extension, $allowedExts)) {
-	// && ($_FILES["file"]["size"] < 20000) ==> check the file size
-		if ($_FILES["file"]["error"] > 0) {
-			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-		} else {
-			$_FILES["file"]["name"] = $manufacturerId."-".$modelId."-".$versionId.".".end($temp);
-			// echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-			// echo "Type: " . $_FILES["file"]["type"] . "<br>";
-			// echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-			// echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-				//if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
-					//echo $_FILES["file"]["name"] . " already exists. ";
-				//} else {
-					move_uploaded_file($_FILES["file"]["tmp_name"],
-					"../carImagesMegaOferta/" . $_FILES["file"]["name"]);
-					// echo "Stored in: " . "../carImagesMegaOferta/" . $_FILES["file"]["name"];
-					return $_FILES["file"]["name"];
-				//}
-		}
-	} else {
-		echo "Imagem incorreta";
-	}
-}
-
-switch ($_POST[btnAddMegaOferta]) {
-	case 'Adicionar':
-		$picTemp = uploadFile($_POST[manufacturerId],$_POST[modelId],$_POST[versionId]);
-		$sql = "INSERT INTO megaOferta (`manufacturerId`,`modelId`,`versionId`,`featureId`,`price`,`place`,`description`,`picture`,`dateIni`,`dateLimit`,`dateUpdate`) VALUES ('".$_POST[manufacturerId]."','".$_POST[modelId]."','".$_POST[versionId]."','".$_POST[featureId]."','".$_POST[price]."','".$_POST[place]."','".$_POST[description]."','".$picTemp."','".$_POST[dateIni]."','".$_POST[dateLimit]."',now())";
-		mysql_query($sql) or die("#error 71");
-		break;
-	case 'Atualizar':
-		$picTemp = uploadFile($_POST[manufacturerId],$_POST[modelId],$_POST[versionId]);
-		if ($picTemp != "") {
-			$picTempSql = "`picture` = '".$picTemp."',";
-		}
-		$sql = "UPDATE `megaOferta` SET `manufacturerId` = '".$_POST[manufacturerId]."', `modelId` = '".$_POST[modelId]."', `versionId` = '".$_POST[versionId]."', `featureId` = '".$_POST[featureId]."', `price` = '".$_POST[price]."', `place` = '".$_POST[place]."', `description` = '".$_POST[description]."', ".$picTempSql." `dateIni` = '".$_POST[dateIni]."', `dateLimit` = '".$_POST[dateLimit]."', `dateUpdate` = now() WHERE `id` = '".$_POST[megaOfertaId]."'";
-		mysql_query($sql) or die("#error 79");
-		break;
-}
 ?>
 
 <div class="body">
@@ -99,7 +51,8 @@ switch ($_POST[btnAddMegaOferta]) {
 	<button type="submit" class="btn">Search</button>
 	</div>
 	</form-->
-	<form onsubmit="" action="#" method="post" enctype="multipart/form-data" style="overflow:hidden" class="formMega"  data-spy="affix" data-offset-top="145">
+	<form action="./scripts/addMegaOferta.php" method="post" enctype="multipart/form-data" style="overflow:hidden">
+		<div class="formMega"  data-spy="affix" data-offset-top="145">
 		<input type="hidden" name="megaOfertaId" class="megaOfertaId" id="megaOfertaId" />
 		<div class="megaDiv">
 			<div class="MegaSelects">
@@ -137,15 +90,17 @@ switch ($_POST[btnAddMegaOferta]) {
 				<input type="submit" name="btnAddMegaOferta" id="btnAddMegaOferta" value="Adicionar" />
 			</div>
 		</div>
+		</div>
 	</form>
 	<div class="content contentMega">
 		<?
-		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc, `order` asc";
+		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc, `orderMega` asc";
 		$query_mo = mysql_query($sql_mo) or die (mysql_error());
 		?>
 		<div class="megaOfertaData">
 			<ul class="ulMO">
 				<?
+				echo '<hr style="width:100%" /><h2 class="subTitleMega">Chamada em Destaque</h2>';
 					while ($resMO = mysql_fetch_array($query_mo)) {
 						if (($placeHr != "") && ($resMO[place] != $placeHr)) {
 							echo '<hr style="width:100%" /><h2 class="subTitleMega">Chamada Secundária</h2>';
@@ -161,9 +116,9 @@ switch ($_POST[btnAddMegaOferta]) {
 				?>
 				<li class="liMO">
 					<div class="orderMega">
-						<div class="downOrder" id="downOrder" onclick="orderMega(this,'downOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[order]?>')">/\</div>
-						<div class="numberOrder" id="numberOrder"><?=$resMO[order]?></div>
-						<div class="upOrder" id="upOrder" onclick="orderMega(this,'upOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[order]?>')">\/</div>
+						<div class="downOrder" id="downOrder" onclick="orderMega(this,'downOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[orderMega]?>')">/\</div>
+						<div class="numberOrder" id="numberOrder"><?=$resMO[orderMega]?></div>
+						<div class="upOrder" id="upOrder" onclick="orderMega(this,'upOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[orderMega]?>')">\/</div>
 					</div>
 					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=$resMO[versionName]?></span>
 					<img class="imgLiMO" src="../carImagesMegaOferta/<?=$resMO[picture]?>" />

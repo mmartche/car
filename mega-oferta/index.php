@@ -2,6 +2,7 @@
 session_start();
 $_SESSION["tokenTime"] = time();
 include ("../scripts/conectDB.php");
+include ("../admin/scripts/functions.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,7 +56,7 @@ include ("../scripts/conectDB.php");
 			<!-- Indicators -->
 				<ol class="carousel-indicators">
 					<? 
-					$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place = 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`order` asc";
+					$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place = 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`orderMega` asc";
 
 					// $sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'carousel' ORDER by place";
 
@@ -80,9 +81,10 @@ include ("../scripts/conectDB.php");
 							</div>
 							<img class="carousel-image" src="../carImagesMegaOferta/<?=$resItem[picture]?>" alt="<?=$resItem[modelName]?>" class="carrosselImg" title="<?=$resItem[modelName]?>" />
 							<div class="carousel-caption">
-								<h4>R$ <?=$resItem[price]?></h4>
+								<h4>R$ <?=formatToPrice($resItem[price])?></h4>
 								<!--div class="carousel-opacity"><?=$resItem[dateLimit]?></div-->
 								<div class="carousel-version"><?=$resItem[versionName]?></div>
+								<div class="carousel-desc"><?=$resItem[description]?></div>
 							</div>
 							</a>
 						</div>
@@ -102,7 +104,7 @@ include ("../scripts/conectDB.php");
 			<!-- END CAROUSEL -->
 			<?
 			// $sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'normal' ORDER by place";
-			$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place != 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`order` asc";
+			$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place != 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`orderMega` asc";
 			$query = mysql_query($sql) or die (mysql_error());
 			$arrayModalVersion = array();
 			while ($resN = mysql_fetch_array($query)) {
@@ -117,7 +119,7 @@ include ("../scripts/conectDB.php");
 							<img alt="" title="" border="0" class="imgMegaOfertaNormal" src="<?=$tempPicture?>">
 						</a>
 					</div>
-					<div class="megaOfertasCarsaleValorOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">R$ <?=$resN[price]?> </a></div>
+					<div class="megaOfertasCarsaleValorOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">R$ <?=formatToPrice($resN[price])?> </a></div>
 				</div>
 				<!--div class="megaOfertasCarsaleTxtOferta textoBold"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[dateLimit]?></a></div-->
 				<div class="megaOfertasCarsaleTxtOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">Cat.: <?=$resN[versionName]?></a></div>

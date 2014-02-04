@@ -26,6 +26,7 @@
 <body name="searchList">
 <?
 include ("./scripts/conectDB.php");
+include ("./scripts/functions.php");
 ?>
 
 <div class="body">
@@ -197,7 +198,7 @@ include ("./scripts/conectDB.php");
 									?>
 									</div>
 									<div class="rsSteering"><?=$res[steering]?></div>
-									<div class="rsPrice">R$ <?=$res[price]?></div>
+									<div class="rsPrice">R$ <?=formatToPrice($res[price])?></div>
 								</a>
 							</li>
 						<? } 
@@ -251,7 +252,7 @@ include ("./scripts/conectDB.php");
 									?>
 									</div>
 								<div class="rsSteering"><?=$res[steering]?></div>
-								<div class="rsPrice">R$ <?=$res[price]?></div>
+								<div class="rsPrice">R$ <?=formatToPrice($res[price])?></div>
 							</a>
 						</li>
 						<? } 

@@ -384,7 +384,7 @@ switch ($_GET[type]) {
 		// 	echo '[{"response":"true", "errorNumber":"#355", "reason":"Already exist, updated"}]';
 		// } else {
 			$sql = "INSERT INTO megaOferta (`manufacturerId`,`modelId`,`versionId`,`featureId`,`price`,`place`,`description`,`picture`,`dateIni`,`dateLimit`,`dateUpdate`) VALUES ('".$_GET[manufacturerId]."','".$_GET[modelId]."','".$_GET[versionId]."','".$_GET[featureId]."','".$_GET[price]."','".$_GET[place]."','".$_GET[description]."','".$_GET[picture]."','".$_GET[dateIni]."','".$_GET[dateLimit]."',now())";
-			$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+			//$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 			//$res = mysql_fetch_array($query);
 			echo '[{"response":"true", "id":"'.mysql_insert_id().'"}]';
 		// }

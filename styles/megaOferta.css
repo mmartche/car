@@ -41,6 +41,10 @@
 	color: #425182;
 	font-size: 14px;
 }
+.carousel-desc {
+	font-size: 14px;
+	font-weight: normal;
+}
 .carousel-indicators li {
 	border-color: #000;
 }

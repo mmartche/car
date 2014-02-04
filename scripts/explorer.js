@@ -145,12 +145,40 @@ function addFilter (obj,idModel) {
             }
             $(".exploradorTabelaLineCarros").append(divTitleCar);
             $("#resultFilter").append(divResultCar);
-            var divFooterCar = '<div class="exploradorTabelaGridBase veiculo0">'+
-                '<div class="exploradorTabelaBtnFicha"><a href="/classificado/fichatecnica/68139" id="fichaTecnica0" style="display: inline;">Ficha Técnica</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><a id="noticia0" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><a id="opiniao0" class="opiniao">Opinião do Dono</a></div>'+
+            var divFooterCar = '<div class="exploradorTabelaGridBase veiculo">'+
+                '<div class="exploradorTabelaBtnFicha"><a data-toggle="modal" data-target="#modalFeatureItem" id="fichaTecnica" style="display: inline;">Ficha Técnica</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><a id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><a id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
             '</div>';
-			//$(".exploradorTabelaLineBtn").append(divFooterCar);
+			$(".exploradorTabelaLineBtn").append(divFooterCar);
+
+            modalTemp = '<div class="modal fade" id="modalFeatureItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+                  '<div class="modal-dialog">'+
+                    '<div class="modal-content">'+
+                      '<div class="modal-header">'+
+                        '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'+
+                        '<h4 class="modal-title" id="myModalLabel"><?=$resF[modelName]?> - <?=$resF[versionName]?></h4>'+
+                      '</div>'+
+                      '<div class="modal-body">'+
+                        '<div class="dealerFichaTecnicaBgInterno">'+
+                            '<div class="dealerFichaTecnicaTitulo">Ficha Técnica</div>'+
+                            '<div class="dealerFichaTecnicaImg"><img src="<?=$picture?>"></div>'+
+                            '<div class="dealerFichaTecnicaTxtCarro"></div>'+
+                            '<div class="dealerFichaTecnicaTxtLegenda">Foto meramente ilustrativa</div>'+
+                            '<div class="dealerFichaTecnicaTituloDesc">Itens de série inclusos</div>'+
+                            '<div class="descriptionItem">'+
+                                '<div class="descItemSerie"><?=$resIS[description]?></div>'+
+                            '</div>'+
+                            '</div>'+
+                        '</div>'+
+                      '<div class="modal-footer">'+
+                        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>';
+
+            $("#modalFeature").append(modalTemp);
 
                 counterExp = 1;
                 $.each($(".exploradorTabelaCarroNumeracao") , function( index, item ) {

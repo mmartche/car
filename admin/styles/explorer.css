@@ -123,7 +123,7 @@
 .formMega {
 	border: 1px dotted;
 	width: 362px;
-	overflow: scroll;
+	overflow: hidden;
 }
 .formMega.affix{
 	top: 0;
