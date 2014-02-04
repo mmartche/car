@@ -28,10 +28,12 @@
 				TM.display();
 			</script>
 		</div>
-		<div class="read-more-categories">
-			<span class="title-background"></span>
-			<span class="title-name">Canais</span>
-			<ul class="read-more-categories">
+		<div class="more-categories">
+			<h2 class="title-more">
+				<span class="title-background"></span>
+				<span class="title-name">Canais</span>
+			</h2>
+			<ul class="ul-more-categories">
 			<?php $args = array (
 				'orderby' => 'count',
 				'order' => 'ASC',

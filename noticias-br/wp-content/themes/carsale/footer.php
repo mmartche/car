@@ -1,12 +1,31 @@
 
 		</div><!-- #main -->
 <hr />
+<div class="modal fade" id="comunicar-erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel"> - </h4>
+      </div>
+      <div class="modal-body">
+        <form>
+        	<p>?</p>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
 		<footer id="colophon" class="site-footer" role="contentinfo">
 			<?php /* get_sidebar( 'footer' ); */ ?>
 
 			<div class="site-info">
 				<?php do_action( 'carsale_credits' ); ?>
-				<a href="<?php echo esc_url( __( 'http://carsale.com.br/', 'carsale' ) ); ?>">my site</a>
+				<a href="<?php echo esc_url( __( 'http://carsale.com.br/', 'carsale' ) ); ?>"></a>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 	</div><!-- #page -->
@@ -69,6 +88,7 @@
     </div>
 	<div class="copyright">Av do Estado, 5200, CEP: 01516-000, São Paulo - SP   ---   	Copyright 2000-2013 Carsale.com.br - Todos os direitos reservados</div>
 </footer>
+
 
 
 </body>

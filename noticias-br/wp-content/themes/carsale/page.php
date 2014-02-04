@@ -1,7 +1,6 @@
 <?php get_header(); ?>
-<div class="content">
+<div class="content" place="page">
 	<div class="columnMiddle">
-	<h2>Álbuns</h2>
 		<ol class="latest-news">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			<li <?php post_class(); ?>>
@@ -19,20 +18,27 @@
 				TM.display();
 			</script>
 		</div>
-		<uL>
-		<?php $args = array (
-			'orderby' => 'count',
-			'order' => 'ASC',
-			'style' => 'list',
-			'show_count' => 1,
-			'hide_empty' => 0,
-			'title_li' => '',
-			'number' => 10,
-			'depth' => -1,
-			);
-		wp_list_categories($args);
-		?>
-		</ul>
+		<div class="more-categories">
+			<h2 class="title-more">
+				<span class="title-background"></span>
+				<span class="title-name">Canais</span>
+			</h2>
+			<ul class="ul-more-categories">
+			<?php $args = array (
+				'orderby' => 'count',
+				'order' => 'ASC',
+				'style' => 'list',
+				'show_count' => 1,
+				'hide_empty' => 0,
+				'title_li' => '',
+				'number' => 10,
+				'depth' => -1,
+				);
+			wp_list_categories($args);
+			?>
+			</ul>
+		</div>
+
 		<div class="tm-ads banner300" id="banner-300x600">
 			<script type="text/javascript">
 				TM.display();
