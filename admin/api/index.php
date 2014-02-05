@@ -542,7 +542,7 @@ switch ($_GET[type]) {
 			while ($resSerieItem = mysql_fetch_array($querySerieItem)) {
 				$result .= ($loopOpt > 0 ? "," : "[");
 		        $result.='{
-		        	"description":"'.$resSerieItem[description].'"
+		        	"description":"'.utf8_decode($resSerieItem[description]).'"
 		        	}';
 		        $loopOpt++;
 			}
