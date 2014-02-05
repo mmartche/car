@@ -151,6 +151,7 @@ transition: all .3s;
 	border:1px solid transparent;
 	border-radius: 10px;
 	text-align: center;
+	font-size: 13px;
 	/*background: url("http://carsale.uol.com.br/classificado/img/btnFiltroCategoriaEntrada.gif") 0 0 transparent no-repeat;*/
 }
 .thumbExpForm:hover{
@@ -364,12 +365,70 @@ transition: all .3s;
 
 
 
+.dealerFichaTecnicaImg {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.dealerFichaTecnicaTituloDesc, .dealerFichaTecnicaDescClaroLine, .dealerFichaTecnicaDescEscuroLine, .dealerFichaTecnicaTitulo {
+    height: auto;
+    min-height: 25px;
+}
+.dealerFichaTecnicaBgInterno {
+    width: 100%;
+    overflow: hidden;
+}
+.modal-body {
+    overflow: hidden;
+}
+.descriptionItem {
+    float: left;
+    width: 100%;
+}
+.descItemSerie {
+    font: 11px Arial, sans-serif;
+    padding: 5px;
+}
+.descriptionItem>div:nth-child(odd) {
+    background-color: #ccc;
+}
+.exploradorTabelaBtnFicha {
+	cursor: pointer;
+}
 
 
 
-
-
-
+/*THUMBS SEARCH FORM */
+.car1 {
+	background: url('../images/explorador-thumbs/hatch.jpg') 8px 50px no-repeat
+}
+.car2 {
+	background: url('../images/explorador-thumbs/sedan.jpg') 1px 50px no-repeat
+}
+.car3 {
+	background: url('../images/explorador-thumbs/carro-de-entrada.jpg') 15px 50px no-repeat
+}
+.car4 {
+	background: url('../images/explorador-thumbs/aventureiro.jpg') 5px 50px no-repeat
+}
+.car5 {
+	background: url('../images/explorador-thumbs/conversivel.jpg') 1px 50px no-repeat
+}
+.car6 {
+	background: url('../images/explorador-thumbs/minivan.jpg') 13px 50px no-repeat
+}
+.car7 {
+	background: url('../images/explorador-thumbs/perua-stationwagon.jpg') 2px 50px no-repeat
+}
+.car8 {
+	background: url('../images/explorador-thumbs/picape.jpg') 0px 50px no-repeat
+}
+.car9 {
+	background: url('../images/explorador-thumbs/utilitario-comercial.jpg') 0px 50px no-repeat
+}
+.car10 {
+	background: url('../images/explorador-thumbs/suv.jpg') 1px 50px no-repeat
+}
 
 
 

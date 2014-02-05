@@ -519,7 +519,7 @@ switch ($_GET[type]) {
 		        "active":"'.$res[active].'",
 		        "price":"'.$res[price].'"';
 			$sqlOpt = "SELECT optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsFeature.price as priceFeature from optionsManufacturer, optionsFeature WHERE optionsFeature.idOption = optionsManufacturer.id and optionsFeature.idFeature = '".$res[featureId]."'";
-			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #502");
+			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #522");
 			$result.= (mysql_num_rows($queryOpt) > 0 ? ',"options":' : "");
 			$loopOpt=0;
 			while ($resOpt = mysql_fetch_array($queryOpt)) {
@@ -534,8 +534,39 @@ switch ($_GET[type]) {
 		        $loopOpt++;
 			}
 			$result.=($loopOpt>0 ? "]" : "");
+
+			$sqlSerieItem = "SELECT description from serieFeature WHERE idFeature = '".$res[featureId]."' order by description asc";
+			$querySerieItem = mysql_query($sqlSerieItem) or die (mysql_error()."error #539");
+			$result.= (mysql_num_rows($querySerieItem) > 0 ? ',"serieItems":' : "");
+			$loopOpt=0;
+			while ($resSerieItem = mysql_fetch_array($querySerieItem)) {
+				$result .= ($loopOpt > 0 ? "," : "[");
+		        $result.='{
+		        	"description":"'.$resSerieItem[description].'"
+		        	}';
+		        $loopOpt++;
+			}
+			$result.=($loopOpt>0 ? "]" : "");
+
+			$sqlColors = "SELECT colorFeature.hexa, colorFeature.code, colorFeature.name, colorFeature.type, max(colorManufacturer.price) as price from colorFeature, colorManufacturer WHERE colorFeature.idFeature = '".$res[featureId]."' and colorFeature.idManufacturer = colorManufacturer.idManufacturer group by colorFeature.hexa order by colorFeature.name asc";
+			$queryColors = mysql_query($sqlColors) or die (mysql_error()."error #552");
+			$result.= (mysql_num_rows($queryColors) > 0 ? ',"colors":' : "");
+			$loopOpt=0;
+			while ($resColors = mysql_fetch_array($queryColors)) {
+				$result .= ($loopOpt > 0 ? "," : "[");
+		        $result.='{
+		        	"name":"'.$resColors[name].'",
+		        	"code":"'.$resColors[code].'",
+		        	"hexa":"'.$resColors[hexa].'",
+		        	"type":"'.$resColors[type].'",
+		        	"price":"'.$resColors[price].'"
+		        	}';
+		        $loopOpt++;
+			}
+			$result.=($loopOpt>0 ? "]" : "");
+
 			$sqlVrs = "SELECT version.id, version.name from version, feature WHERE feature.idVersion = version.id and version.idModel = '".$res[modelId]."' group by version.id";
-			$queryVrs = mysql_query($sqlVrs) or die (mysql_error()."error #532");
+			$queryVrs = mysql_query($sqlVrs) or die (mysql_error()."error #552");
 			$result.= (mysql_num_rows($queryVrs) > 0 ? ',"sameModel":' : "");
 			$loopOpt=0;
 			while ($resVrs = mysql_fetch_array($queryVrs)) {

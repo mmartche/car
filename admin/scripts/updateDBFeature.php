@@ -203,10 +203,10 @@ switch ($_POST[action]) {
 				$colorHex = $_POST["colorInputColor".$i];
 				$colorType = $_POST["colorInputType".$i];
 				if ($i > 0) { $valuesColorInput .= ","; }
-				$valuesColorInput .= "(NULL, '".$_POST[featureId]."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputType".$i]."', now(), now(), NULL)";
+				$valuesColorInput .= "(NULL, '".$_POST[featureId]."', '".$_POST[manufacturerId]."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputType".$i]."', now(), now(), NULL)";
 			}
 			if ($valuesColorInput != ""){
-				$sqlAddColor = "insert into `colorFeature` (`id`, `idFeature`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
+				$sqlAddColor = "insert into `colorFeature` (`id`, `idFeature`, `idManufacturer`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
 				mysql_query($sqlAddColor) or die (mysql_error()." error #126");
 				echo "<br />#211".$sqlAddColor;
 			}

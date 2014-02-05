@@ -19,6 +19,7 @@ function excluirComparacao(obj){
     $(obj).parent(".exploradorTabelaGridCarro").remove();
     number = $(obj).parent().children(".exploradorTabelaCarroNumeracao").text();
     $(".column")[number].remove();
+    $(".exploradorTabelaGridBase")[number].remove();
     qnt = $(".exploradorTabelaCarroNumeracao").length;
     for (i = 0; i < qnt; i++) {
         console.log(i,$(".exploradorTabelaCarroNumeracao")[i]);
@@ -32,9 +33,9 @@ function addFilter (obj,idModel) {
 	//search info
     idVersion = $(obj).val();
     var carsLength = $(".column").length;
-    //console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
+    ///console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
     $.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion, function(data) {
-    if (carsLength < 5) {
+    if (carsLength < 6) {
         // console.log('888888',data[0].response);
         if(data[0].response == "true"){
             //count cars showed
@@ -137,48 +138,81 @@ function addFilter (obj,idModel) {
             }
             divResultCar += '</ul></div>';
 
-            if ($(obj).attr("id") == "optVersion") {
-                tableNum = $(obj).parentsUntil("#exploradorTabelaGridCarro").children(".exploradorTabelaCarroNumeracao").text();
-                console.log(tableNum);
-                $(".exploradorTabelaGridCarro")[tableNum].remove();
-                $(".column")[tableNum].remove();
-            }
-            $(".exploradorTabelaLineCarros").append(divTitleCar);
-            $("#resultFilter").append(divResultCar);
             var divFooterCar = '<div class="exploradorTabelaGridBase veiculo">'+
-                '<div class="exploradorTabelaBtnFicha"><a data-toggle="modal" data-target="#modalFeatureItem" id="fichaTecnica" style="display: inline;">Ficha Técnica</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><a data-toggle="modal" data-target="#modalFeatureItem'+data[0].featureId+'" id="fichaTecnica'+data[0].featureId+'" style="display: inline;">Ficha Técnica</a></div>'+
                 '<div class="exploradorTabelaBtnFicha"><a id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
                 '<div class="exploradorTabelaBtnFicha"><a id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
             '</div>';
-			$(".exploradorTabelaLineBtn").append(divFooterCar);
 
-            modalTemp = '<div class="modal fade" id="modalFeatureItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+
+            modalTemp = '<div class="modal fade" id="modalFeatureItem'+data[0].featureId+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
                   '<div class="modal-dialog">'+
                     '<div class="modal-content">'+
                       '<div class="modal-header">'+
                         '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'+
-                        '<h4 class="modal-title" id="myModalLabel"><?=$resF[modelName]?> - <?=$resF[versionName]?></h4>'+
+                        '<h4 class="modal-title" id="myModalLabel">'+data[0].modelName+' - '+data[0].versionName+'</h4>'+
                       '</div>'+
                       '<div class="modal-body">'+
                         '<div class="dealerFichaTecnicaBgInterno">'+
                             '<div class="dealerFichaTecnicaTitulo">Ficha Técnica</div>'+
-                            '<div class="dealerFichaTecnicaImg"><img src="<?=$picture?>"></div>'+
+                            '<div class="dealerFichaTecnicaImg"><img src="http://carsale.uol.com.br/foto/'+data[0].picture+'_g.jpg"></div>'+
                             '<div class="dealerFichaTecnicaTxtCarro"></div>'+
                             '<div class="dealerFichaTecnicaTxtLegenda">Foto meramente ilustrativa</div>'+
                             '<div class="dealerFichaTecnicaTituloDesc">Itens de série inclusos</div>'+
-                            '<div class="descriptionItem">'+
-                                '<div class="descItemSerie"><?=$resIS[description]?></div>'+
-                            '</div>'+
+                            '<div class="descriptionItem">';
+                            if (data[0].serieItems ) {
+                                $.each( data[0].serieItems, function( index, item ) {
+                                    modalTemp += '<div class="descItemSerie">'+item.description+'</div>';
+                                });
+                            } else {
+                                modalTemp += '<div class="descItemSerie">Nenhum item encontrado</div>';
+                            }
+                modalTemp += '</div>'+
+
+                            '<div class="dealerFichaTecnicaTituloDesc">Opcionais</div>'+
+                            '<div class="descriptionItem">';
+                            if (data[0].options ) {
+                                $.each( data[0].options, function( index, item ) {
+                                    modalTemp += '<div class="descItemSerie"><b>'+item.name+'</b><br />'+item.items+'<br />R$ '+item.price+'</div>';
+                                });
+                            } else {
+                                modalTemp += '<div class="descItemSerie">Nenhum item encontrado</div>';
+                            }
+                modalTemp += '</div>'+
+
+                            '<div class="dealerFichaTecnicaTituloDesc">Cores disponíveis</div>'+
+                            '<div class="descriptionItem">';
+                            if (data[0].colors ) {
+                                $.each( data[0].colors, function( index, item ) {
+                                    modalTemp += '<div class="descItemSerie">'+item.hexa+'</div>';
+                                });
+                            } else {
+                                modalTemp += '<div class="descItemSerie">Nenhum item encontrado</div>';
+                            }
+                modalTemp += '</div>'+
+
                             '</div>'+
                         '</div>'+
                       '<div class="modal-footer">'+
-                        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                        '<button type="button" class="btn btn-default" data-dismiss="modal">Fechar  </button>'+
                       '</div>'+
                     '</div>'+
                   '</div>'+
                 '</div>';
 
-            $("#modalFeature").append(modalTemp);
+            if ($(obj).attr("id") == "optVersion") {
+                tableNum = $(obj).parentsUntil("#exploradorTabelaGridCarro").children(".exploradorTabelaCarroNumeracao").text();
+//                console.log(tableNum);
+                $(".exploradorTabelaGridCarro")[tableNum].remove();
+                $(".column")[tableNum].remove();
+                $(".exploradorTabelaGridBase")[tableNum].remove();
+            }
+            if (carsLength < 5) {
+                $(".exploradorTabelaLineCarros").append(divTitleCar);
+                $("#resultFilter").append(divResultCar);
+                $(".exploradorTabelaLineBtn").append(divFooterCar);
+                $("#modalFeature").append(modalTemp);
+            }
 
                 counterExp = 1;
                 $.each($(".exploradorTabelaCarroNumeracao") , function( index, item ) {

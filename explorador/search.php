@@ -72,7 +72,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	                $queryThumb = mysql_query($sqlThumb) or die ("error #65");
 	                while ($resThumb = mysql_fetch_array($queryThumb)) {
 	                ?>
-	                    <div class="exploradorGridFiltrosImg <? if (in_array($resThumb[id], $_POST[segments])) { echo 'filterChecked'; } ?> ">
+	                    <div class="exploradorGridFiltrosImg <? if (in_array($resThumb[id], $_POST[segments])) { echo 'filterChecked'; } ?> car<?=$resThumb[id]?>">
 	                        <input type="checkbox" class="inputExpForm" id="chkExpForm<?=$resThumb[id]?>" name="segments[]" value="<?=$resThumb[id]?>" <? if (in_array($resThumb[id], $_POST[segments])) { echo ' checked="checked" '; } ?> />
 	                        <label for="chkExpForm<?=$resThumb[id]?>" class="thumbExpForm thumbF<?=$resThumb[id]?>" alt="<?=$resThumb[name]?>" title="<?=$resThumb[name]?>" /><?=$resThumb[name]?></label>
 	                    </div>
@@ -375,11 +375,23 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 					<li class="liFilterItem">Volante com regulagem de altura</li>
 		        </ul>
 	        	<div class="headerTitle">Opcionais</div>
+
 	        	
             </div>            
         </div>
         <div class="exploradorTabelaLineBtn">
             <div class="exploradorTabelaGridBase"><img alt="" title="" src="http://carsale.uol.com.br/classificado/img/exploradorBaseTabelaComparativa2.gif"></div>
+        </div>
+    </div>
+    <div class="exploradorCentralizadorOfertas" id="informacaoPrecos" style="">
+        <div class="exploradorBg">
+            <div class="exploradorBgInterno">
+                <div class="exploradorTxtLegalTabela">
+                    * Os preços acima são apenas uma referência. Eles estão baseados em nossa pesquisa de mercado e representam apenas uma estimativa.
+                    Os valores foram apurados na Grande São Paulo para carros de cor sólida, sem frete.
+                    Preços podem variar ao longo do tempo e de acordo com a região. Fotos meramente ilustrativas.
+                </div>
+            </div>
         </div>
     </div>
     <div id="modalFeature" class="modalFeature"></div>
