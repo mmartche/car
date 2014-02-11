@@ -802,33 +802,33 @@ $(function() {
 						}
 						data += '<div class="rsItems">';
 						switch (val.category) {
-							case "manufacturer":
-								data += '<a class="btnClone btnButton" href="formDetails.php?category=model&action=new&vehicle='+val.idItem+'" title="Incluir Modelo para esta Montadora" alt="Incluir Modelo para esta Montadora">Novo modelo</a>';
-								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'manufacturer\',this)"></div>';
+							case "ft_manufacturer":
+								data += '<a class="btnClone btnButton" href="formDetails.php?category=ft_model&action=new&vehicle='+val.idItem+'" title="Incluir Modelo para esta Montadora" alt="Incluir Modelo para esta Montadora">Novo modelo</a>';
+								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'ft_manufacturer\',this)"></div>';
 							break;
-							case "model":
-								data += '<a class="btnClone btnButton" href="formDetails.php?category=version&action=new&vehicle='+val.idItem+'" title="Incluir Versão para este Modelo" alt="Incluir Versão para este Modelo">Nova versão</a>';
-								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'model\',this)"></div>';
+							case "ft_model":
+								data += '<a class="btnClone btnButton" href="formDetails.php?category=ft_version&action=new&vehicle='+val.idItem+'" title="Incluir Versão para este Modelo" alt="Incluir Versão para este Modelo">Nova versão</a>';
+								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'ft_model\',this)"></div>';
 							break;
-							case "version":
-								data += '<a class="btnClone btnButton" href="formDetails.php?category=feature&action=new&vehicle='+val.idItem+'" title="Incluir Ficha Técnica para esta Versão" alt="Incluir Ficha Técnica para esta Versão">Nova Ficha</a>';
-								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'version\',this)"></div>';
+							case "ft_version":
+								data += '<a class="btnClone btnButton" href="formDetails.php?category=ft_feature&action=new&vehicle='+val.idItem+'" title="Incluir Ficha Técnica para esta Versão" alt="Incluir Ficha Técnica para esta Versão">Nova Ficha</a>';
+								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'ft_version\',this)"></div>';
 							break;
-							case "feature":
-								data += '<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle='+val.idItem+'" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>';
-								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'feature\',this)"></div>';
+							case "ft_feature":
+								data += '<a class="btnClone btnButton" href="formDetails.php?category=ft_feature&action=clone&vehicle='+val.idItem+'" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>';
+								data += '<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem('+val.idItem+',\'ft_feature\',this)"></div>';
 							break;
 						}
 						data += '</div>'+
 						'<a href="formDetails.php?vehicle='+val.idItem+'&category='+val.category+'&search=" class="resultContent">'+
 							'<div class="rsManufacturer" title="'+val.manufacturerName+'">'+val.manufacturerName+'</div>';
-						if (val.category == "model" || val.category == "version" || val.category == "feature") {
+						if (val.category == "ft_model" || val.category == "ft_version" || val.category == "ft_feature") {
 						data += '<div class="rsModel" title="'+val.modelName+'">'+val.modelName+'</div>';
 						}
-						if (val.category == "feature" || val.category == "version") {
+						if (val.category == "ft_feature" || val.category == "ft_version") {
 						data += '<div class="rsVersion" title="'+val.versionName+'">'+val.versionName+'</div>';
 						}
-						if (val.category == "feature") {
+						if (val.category == "ft_feature") {
 						data +='<div class="rsYearModel" title="'+val.yearModel+'">'+val.yearModel+'</div>'+
 							'<div class="rsYearProduced" title="'+val.yearProduced+'">'+val.yearProduced+'</div>'+
 							'<div class="rsEngine" title="'+val.engine+'">'+val.engine+'</div>'+

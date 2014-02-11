@@ -8,7 +8,7 @@ include ("../scripts/conectDB.php");
 switch ($_GET[type]) {
  	case 'askInput':
 		echo "[";
-		$sql_s_manuf = "select id, name, active from manufacturer where name like ('%".$_GET[term]."%')";
+		$sql_s_manuf = "select id, name, active from ft_manufacturer where name like ('%".$_GET[term]."%')";
 		$query_s_manuf = mysql_query($sql_s_manuf);
 		// or die ($sql_s_manuf." error #15");
 		$m = 0;
@@ -19,12 +19,12 @@ switch ($_GET[type]) {
 					"label":"'.$resM[name].'",
 					"category": "Montadora",
 					"active":"'.$resM[active].'",
-					"table":"manufacturer",
+					"table":"ft_manufacturer",
 					"value":"'.$resM[name].'"
 				}';
 			$m++;
 		}
-		$sql_search = "select id, name, active from model where name like ('%".$_GET[term]."%')";
+		$sql_search = "select id, name, active from ft_model where name like ('%".$_GET[term]."%')";
 		$query_search = mysql_query($sql_search);
 		// or die (" error #30");
 		$l = 0;
@@ -35,12 +35,12 @@ switch ($_GET[type]) {
 					"label":"'.$res[name].'",
 					"category": "Modelo",
 					"active":"'.$res[active].'",
-					"table":"model",
+					"table":"ft_model",
 					"value":"'.$res[name].'"
 				}';
 			$l++;
 		}
-		$sql_v = "select id, name, active from version where name like ('%".$_GET[term]."%')";
+		$sql_v = "select id, name, active from ft_version where name like ('%".$_GET[term]."%')";
 		$query_v = mysql_query($sql_v);
 		// or die (mysql_error()." error #40");
 		$v = 0;
@@ -51,7 +51,7 @@ switch ($_GET[type]) {
 					"label":"'.$resV[name].'",
 					"category": "Versão",
 					"active":"'.$resV[active].'",
-					"table":"version",
+					"table":"ft_version",
 					"value":"'.$resV[name].'"
 				}';
 			$l++;
@@ -67,8 +67,8 @@ switch ($_GET[type]) {
 		}
 		echo "[";
 		//ALL MANUFACTURES
-		if ($_GET[table] == "manufacturer") {
-			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, active FROM manufacturer WHERE id = '".$_GET[idField]."'";
+		if ($_GET[table] == "ft_manufacturer") {
+			$sqlTerm = "SELECT ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, active FROM ft_manufacturer WHERE id = '".$_GET[idField]."'";
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #70");
 			$l = 0;
 			while ($res = mysql_fetch_array($queryTerm)) {
@@ -86,7 +86,7 @@ switch ($_GET[type]) {
 						"versionName":"'.$res[versionName].'",
 						"yearProduced":"'.$res[yearProduced].'",
 						"yearModel":"'.$res[yearModel].'",
-						"category": "manufacturer",
+						"category": "ft_manufacturer",
 						"active":"'.$res[active].'",
 						"value":"",
 						"name":""
@@ -95,8 +95,8 @@ switch ($_GET[type]) {
 			}
 		}
 		//ALL MODELS
-		if ($_GET[table] == "manufacturer" || $_GET[table] == "model") {
-			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, model.active FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id ".$filterSearch;
+		if ($_GET[table] == "ft_manufacturer" || $_GET[table] == "ft_model") {
+			$sqlTerm = "SELECT ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_model.active FROM ft_manufacturer, ft_model WHERE ft_model.idManufacturer = ft_manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #95");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
@@ -113,7 +113,7 @@ switch ($_GET[type]) {
 						"versionName":"'.$res[versionName].'",
 						"yearProduced":"'.$res[yearProduced].'",
 						"yearModel":"'.$res[yearModel].'",
-						"category": "model",
+						"category": "ft_model",
 						"active":"'.$res[active].'",
 						"value":"",
 						"name":""
@@ -122,8 +122,8 @@ switch ($_GET[type]) {
 			}
 		}
 		//ALL VERSIONS
-		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
-			$sqlTerm = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, version.active FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+		if ($_GET[table] == "manufacturer" || $_GET[table] == "ft_model" || $_GET[table] == "ft_version" || $_GET[table] == "ft_feature") {
+			$sqlTerm = "SELECT ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName, ft_version.active FROM ft_manufacturer, ft_model, ft_version WHERE ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #120");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
@@ -140,7 +140,7 @@ switch ($_GET[type]) {
 						"versionName":"'.$res[versionName].'",
 						"yearProduced":"'.$res[yearProduced].'",
 						"yearModel":"'.$res[yearModel].'",
-						"category": "version",
+						"category": "ft_version",
 						"active":"'.$res[active].'",
 						"value":"",
 						"name":""
@@ -149,8 +149,8 @@ switch ($_GET[type]) {
 			}
 		}
 		//ALL ALL
-		if ($_GET[table] == "manufacturer" || $_GET[table] == "model" || $_GET[table] == "version" || $_GET[table] == "feature") {
-			$sqlTerm = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, feature.active FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSearch;
+		if ($_GET[table] == "ft_manufacturer" || $_GET[table] == "ft_model" || $_GET[table] == "ft_version" || $_GET[table] == "ft_feature") {
+			$sqlTerm = "SELECT ft_feature.id as featureId, ft_feature.yearProduced, ft_feature.yearModel, ft_feature.engine, ft_feature.gear, ft_feature.fuel, ft_feature.steering, ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName, ft_feature.active FROM ft_manufacturer, ft_model, ft_version, ft_feature WHERE ft_feature.idVersion = ft_version.id AND ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id ".$filterSearch;
 			$queryTerm = mysql_query($sqlTerm) or die (mysql_error()." // ".$sqlTerm." error #150");
 			while ($res = mysql_fetch_array($queryTerm)) {
 				if($l>0) {echo ",";}
@@ -174,7 +174,7 @@ switch ($_GET[type]) {
 						"segment1":"'.$res[segment1].'",
 						"segment2":"'.$res[segment2].'",
 						"segment3":"'.$res[segment3].'",
-						"category": "feature",
+						"category": "ft_feature",
 						"active":"'.$res[active].'",
 						"value":"",
 						"name":""
@@ -186,16 +186,16 @@ switch ($_GET[type]) {
 		break;
 
 	case 'addOption':
-		$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
+		$sql_addOpt = "insert into `ft_optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
 		mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		break;
 
 	case 'addColor':
 		if ($_GET[cId] != "") {
-			$sql_addColor = "UPDATE colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE id = '".$_GET[cId]."'";
+			$sql_addColor = "UPDATE ft_colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE id = '".$_GET[cId]."'";
 		} else {
-			$sql_addColor = "INSERT into `colorManufacturer` (`idManufacturer`, `name`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";
+			$sql_addColor = "INSERT into `ft_colorManufacturer` (`idManufacturer`, `name`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";
 		}
 		mysql_query($sql_addColor) or die ('[{"response":"false","error":"error #198","reason":"'.mysql_error().$sql_addColor.'"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
@@ -229,7 +229,7 @@ switch ($_GET[type]) {
 
 	case 'askManuf':
 		echo "[";
-		$sql_s_manuf = "SELECT id, name, active from manufacturer where name like ('%".$_GET[term]."%') ORDER by name";
+		$sql_s_manuf = "SELECT id, name, active from ft_manufacturer where name like ('%".$_GET[term]."%') ORDER by name";
 		$query_s_manuf = mysql_query($sql_s_manuf) or die ($sql_s_manuf." error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -238,7 +238,7 @@ switch ($_GET[type]) {
 					"id":"'.$resM[id].'",
 					"label":"'.$resM[name].'",
 					"category": "Montadora",
-					"table":"manufacturer",
+					"table":"ft_manufacturer",
 					"active":"'.$resM[active].'",
 					"value":"'.$resM[name].'"
 				}';
@@ -249,7 +249,7 @@ switch ($_GET[type]) {
 	case 'askModel':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
-		$sql_search = "SELECT id, name, idSegment1, idSegment2, idSegment3 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+		$sql_search = "SELECT id, name, idSegment1, idSegment2, idSegment3 active from ft_model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -258,7 +258,7 @@ switch ($_GET[type]) {
 					"id":"'.$resM[id].'",
 					"label":"'.$resM[name].'",
 					"category": "Modelo",
-					"table":"model",
+					"table":"ft_model",
 					"segmentId1":"'.$resM[idSegment1].'",
 					"segmentId2":"'.$resM[idSegment2].'",
 					"segmentId3":"'.$resM[idSegment3].'",
@@ -271,20 +271,20 @@ switch ($_GET[type]) {
 		break;
 	case 'askVersion':
 		echo "[";
-		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' and model.id = '".$_GET[mainId]."' "; }
-		$sql_v = "SELECT version.id, version.name, model.active, model.idSegment1, model.idSegment2, model.idSegment3 from version, model where version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by version.name";
+		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' and ft_model.id = '".$_GET[mainId]."' "; }
+		$sql_v = "SELECT ft_version.id, ft_version.name, ft_model.active, ft_model.idSegment1, ft_model.idSegment2, ft_model.idSegment3 from ft_version, ft_model where ft_version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by ft_version.name";
 		
 		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
 			if ($nameSeg == "") {
-				$sSeg1 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment1]."'";
+				$sSeg1 = "SELECT ft_segment.name from ft_segment WHERE ft_segment.id = '".$resM[idSegment1]."'";
 				$qSeg1 = mysql_query($sSeg1);
 				$rSeg1 = mysql_fetch_array($qSeg1);
-				$sSeg2 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment2]."'";
+				$sSeg2 = "SELECT ft_segment.name from ft_segment WHERE ft_segment.id = '".$resM[idSegment2]."'";
 				$qSeg2 = mysql_query($sSeg2);
 				$rSeg2 = mysql_fetch_array($qSeg2);
-				$sSeg3 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment3]."'";
+				$sSeg3 = "SELECT ft_segment.name from ft_segment WHERE ft_segment.id = '".$resM[idSegment3]."'";
 				$qSeg3 = mysql_query($sSeg3);
 				$rSeg3 = mysql_fetch_array($qSeg3);
 				$nameSeg = "ok";
@@ -294,7 +294,7 @@ switch ($_GET[type]) {
 					"id":"'.$resM[id].'",
 					"label":"'.$resM[name].'",
 					"category": "Versão",
-					"table":"version",
+					"table":"ft_version",
 					"idSegment1":"'.$resM[idSegment1].'",
 					"segmentName1":"'.$rSeg1[name].'",
 					"idSegment2":"'.$resM[idSegment2].'",
@@ -325,7 +325,7 @@ switch ($_GET[type]) {
 		break;
 
 	case 'askOption':
-		$sql = "SELECT optionsManufacturer.id, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price, optionsManufacturer.code, manufacturer.name as manufacturerName FROM optionsManufacturer, manufacturer WHERE manufacturer.id = optionsManufacturer.idManufacturer and  optionsManufacturer.idManufacturer = '".$_GET[manufacturerId]."'";
+		$sql = "SELECT ft_optionsManufacturer.id, ft_optionsManufacturer.name, ft_optionsManufacturer.options, ft_optionsManufacturer.price, ft_optionsManufacturer.code, ft_manufacturer.name as manufacturerName FROM ft_optionsManufacturer, ft_manufacturer WHERE ft_manufacturer.id = ft_optionsManufacturer.idManufacturer and  ft_optionsManufacturer.idManufacturer = '".$_GET[manufacturerId]."'";
 		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resOpt = mysql_fetch_array($query)) {
@@ -334,7 +334,7 @@ switch ($_GET[type]) {
 					"id":"'.$resOpt[id].'",
 					"label":"'.$resOpt[name].'",
 					"category": "Opcional",
-					"table":"optionsManufacturer",
+					"table":"ft_optionsManufacturer",
 					"value":"'.$resOpt[name].'",
 					"optValue":"'.$resOpt[options].'",
 					"price":"'.$resOpt[price].'",
@@ -346,7 +346,7 @@ switch ($_GET[type]) {
 		echo "]";
 		break;
 	case 'askOptionValue':
-		$sql = "SELECT id, name, options, price, code FROM optionsManufacturer WHERE id = '".$_GET[optId]."'";
+		$sql = "SELECT id, name, options, price, code FROM ft_optionsManufacturer WHERE id = '".$_GET[optId]."'";
 		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resOpt = mysql_fetch_array($query)) {
@@ -355,7 +355,7 @@ switch ($_GET[type]) {
 					"id":"'.$resOpt[id].'",
 					"label":"'.$resOpt[name].'",
 					"category": "Opcional",
-					"table":"optionsManufacturer",
+					"table":"ft_optionsManufacturer",
 					"value":"'.$resOpt[name].'",
 					"optValue":"'.$resOpt[options].'",
 					"price":"'.$resOpt[price].'",
@@ -413,8 +413,8 @@ switch ($_GET[type]) {
 		break;
 
 	case 'askExplorer':
-	$a = ($_GET[idVersion] == "" || $_GET[idVersion] == "0"  ? "" : " and version.id = '".$_GET[idVersion]."' ");
-		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.radio,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, version.id as versionId, version.name as versionName, model.id as modelId, model.name as modelName from feature, version, model where feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ".$a." ORDER BY feature.yearProduced DESC limit 1 ";
+	$a = ($_GET[idVersion] == "" || $_GET[idVersion] == "0"  ? "" : " and ft_version.id = '".$_GET[idVersion]."' ");
+		$sql = "SELECT ft_feature.id as featureId, ft_feature.code,ft_feature.engine,ft_feature.doors,ft_feature.acceleration,ft_feature.passagers,ft_feature.speedMax,ft_feature.powerMax,ft_feature.steering,ft_feature.fuel,ft_feature.feeding,ft_feature.torque,ft_feature.traction,ft_feature.frontSuspension,ft_feature.rearSuspension,ft_feature.frontBrake,ft_feature.wheels,ft_feature.dimensionLength,ft_feature.dimensionHeight,ft_feature.dimensionWidth,ft_feature.rearBrake,ft_feature.weight,ft_feature.trunk,ft_feature.tank,ft_feature.dimensionSignAxes,ft_feature.warranty,ft_feature.gear,ft_feature.consumptionCity,ft_feature.consumptionRoad,ft_feature.yearModel,ft_feature.yearProduced,ft_feature.items,ft_feature.picture,ft_feature.dualFrontAirBag,ft_feature.electricSteering,ft_feature.hydraulicSteering,ft_feature.airConditioning,ft_feature.leatherSeat,ft_feature.alarm,ft_feature.autoGear,ft_feature.absBrake,ft_feature.traction4x4,ft_feature.dateCreate,ft_feature.countryOrigin,ft_feature.dateUpdate,ft_feature.hotAir,ft_feature.heightAdjustment,ft_feature.rearSeatSplit,ft_feature.bluetoothSpeakerphone,ft_feature.bonnetSea,ft_feature.onboardComputer,ft_feature.accelerationCounter,ft_feature.rearWindowDefroster,ft_feature.sidesteps,ft_feature.fogLamps,ft_feature.xenonHeadlights,ft_feature.integratedGPSPanel,ft_feature.rearWindowWiper,ft_feature.bumper,ft_feature.autopilot,ft_feature.bucketProtector,ft_feature.roofRack,ft_feature.cdplayerUSBInput,ft_feature.radio,ft_feature.headlightsHeightAdjustment,ft_feature.rearviewElectric,ft_feature.alloyWheels,ft_feature.rainSensor,ft_feature.parkingSensor,ft_feature.isofix,ft_feature.sunroof,ft_feature.electricLock,ft_feature.electricWindow,ft_feature.rearElectricWindow,ft_feature.steeringWheelAdjustment,ft_feature.description,ft_feature.active,ft_feature.userUpdate,ft_feature.price, ft_version.id as versionId, ft_version.name as versionName, ft_model.id as modelId, ft_model.name as modelName from ft_feature, ft_version, ft_model where ft_feature.idVersion = ft_version.id and ft_version.idModel = ft_model.id and ft_model.id = '".$_GET[idModel]."' ".$a." ORDER BY ft_feature.yearProduced DESC limit 1 ";
 		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'error #416"}]');
 		$result="[";
 		$loop=0;
@@ -433,7 +433,7 @@ switch ($_GET[type]) {
 			 		$fuelType = "Diesel";
 			 		break;
 			 	default:
-			 		$fuelType = "";
+			 		$fuelType = $res[fuel];
 			 		break;
 			}
 			$result .= ($loop > 0 ? "," : "");
@@ -518,7 +518,7 @@ switch ($_GET[type]) {
 		        "description":"'.$res[description].'",
 		        "active":"'.$res[active].'",
 		        "price":"'.$res[price].'"';
-			$sqlOpt = "SELECT optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsFeature.price as priceFeature from optionsManufacturer, optionsFeature WHERE optionsFeature.idOption = optionsManufacturer.id and optionsFeature.idFeature = '".$res[featureId]."'";
+			$sqlOpt = "SELECT ft_optionsManufacturer.code, ft_optionsManufacturer.name, ft_optionsManufacturer.options, ft_optionsManufacturer.price as priceManufacturer, ft_optionsVersion.price as priceFeature from ft_optionsManufacturer, ft_optionsVersion WHERE ft_optionsVersion.idOption = ft_optionsManufacturer.id and ft_optionsVersion.idFeature = '".$res[featureId]."'";
 			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #522");
 			$result.= (mysql_num_rows($queryOpt) > 0 ? ',"options":' : "");
 			$loopOpt=0;
@@ -535,7 +535,7 @@ switch ($_GET[type]) {
 			}
 			$result.=($loopOpt>0 ? "]" : "");
 
-			$sqlSerieItem = "SELECT description from serieFeature WHERE idFeature = '".$res[featureId]."' order by description asc";
+			$sqlSerieItem = "SELECT description from ft_serieFeature WHERE idFeature = '".$res[featureId]."' order by description asc";
 			$querySerieItem = mysql_query($sqlSerieItem) or die (mysql_error()."error #539");
 			$result.= (mysql_num_rows($querySerieItem) > 0 ? ',"serieItems":' : "");
 			$loopOpt=0;
@@ -548,7 +548,7 @@ switch ($_GET[type]) {
 			}
 			$result.=($loopOpt>0 ? "]" : "");
 
-			$sqlColors = "SELECT colorFeature.hexa, colorFeature.code, colorFeature.name, colorFeature.type, max(colorManufacturer.price) as price from colorFeature, colorManufacturer WHERE colorFeature.idFeature = '".$res[featureId]."' and colorFeature.idManufacturer = colorManufacturer.idManufacturer group by colorFeature.hexa order by colorFeature.name asc";
+			$sqlColors = "SELECT ft_colorFeature.hexa, ft_colorFeature.code, ft_colorFeature.name, ft_colorFeature.type, max(ft_colorManufacturer.price) as price from ft_colorFeature, ft_colorManufacturer WHERE ft_colorFeature.idFeature = '".$res[featureId]."' and ft_colorFeature.idManufacturer = ft_colorManufacturer.idManufacturer group by ft_colorFeature.hexa order by ft_colorFeature.name asc";
 			$queryColors = mysql_query($sqlColors) or die (mysql_error()."error #552");
 			$result.= (mysql_num_rows($queryColors) > 0 ? ',"colors":' : "");
 			$loopOpt=0;
@@ -565,7 +565,7 @@ switch ($_GET[type]) {
 			}
 			$result.=($loopOpt>0 ? "]" : "");
 
-			$sqlVrs = "SELECT version.id, version.name from version, feature WHERE feature.idVersion = version.id and version.idModel = '".$res[modelId]."' group by version.id";
+			$sqlVrs = "SELECT ft_version.id, ft_version.name from ft_version, ft_feature WHERE ft_feature.idVersion = ft_version.id and ft_version.idModel = '".$res[modelId]."' group by ft_version.id";
 			$queryVrs = mysql_query($sqlVrs) or die (mysql_error()."error #552");
 			$result.= (mysql_num_rows($queryVrs) > 0 ? ',"sameModel":' : "");
 			$loopOpt=0;
@@ -592,7 +592,7 @@ switch ($_GET[type]) {
 		break;
 
 	case 'searchMega':
-		$sqlMega = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, manufacturer.id as manufacturerId, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.id = '".$_GET[idItem]."'";
+		$sqlMega = "SELECT megaOferta.id as megaOfertaId, ft_manufacturer.name as manufacturerName, ft_manufacturer.id as manufacturerId, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, ft_manufacturer, ft_model, ft_version WHERE megaOferta.manufacturerId = ft_manufacturer.id and megaOferta.versionId = ft_version.id AND megaOferta.modelId = ft_model.id and megaOferta.id = '".$_GET[idItem]."'";
 		$queryMega = mysql_query($sqlMega) or die ('[{"response":"false", "reason":"#error 548"}]');
 		$resMega = mysql_fetch_array($queryMega);
 		echo '[{

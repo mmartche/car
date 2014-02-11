@@ -2,8 +2,6 @@
 <html>
 <head>
 	<link rel="shortcut icon" />
-
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	
 	<!--meta http-equiv="Pragma" content="no-cache"/-->
 	<meta name="robots" content="nofollow" />
@@ -35,10 +33,10 @@ include ("./scripts/functions.php");
 		<h2>
 			<span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='#' class='btnButton btnNewForm'>Novo Cadastro</a>
 			<div class="newChoice">
-				<a href="formDetails.php?action=new&category=manufacturer" class="btnButton">Montadora</a>
-				<a href="formDetails.php?action=new&category=model" class="btnButton">Modelo</a>
-				<a href="formDetails.php?action=new&category=version" class="btnButton">Versão</a>
-				<a href="formDetails.php?action=new&category=feature" class="btnButton">Ficha Técnica</a>
+				<a href="formDetails.php?action=new&category=ft_manufacturer" class="btnButton">Montadora</a>
+				<a href="formDetails.php?action=new&category=ft_model" class="btnButton">Modelo</a>
+				<a href="formDetails.php?action=new&category=ft_version" class="btnButton">Versão</a>
+				<a href="formDetails.php?action=new&category=ft_feature" class="btnButton">Ficha Técnica</a>
 			</div>
 		</h2>
 	</header>
@@ -114,64 +112,64 @@ include ("./scripts/functions.php");
 				<li class="resultData"><ul>
 				<?
 					if ($_GET[askInput] != "") {
-						$sqlTerm = "SELECT manufacturer.id as id, manufacturer.name as manufacturerName FROM manufacturer WHERE name like ('%".$_GET[askInput]."%') ORDER by name";
+						$sqlTerm = "SELECT ft_manufacturer.id as id, ft_manufacturer.name as manufacturerName FROM ft_manufacturer WHERE name like ('%".$_GET[askInput]."%') ORDER by name";
 						$query_search = mysql_query($sqlTerm) or die ($sqlTerm. mysql_error()." error #135");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<a class="btnClone btnButton" href="?category=model&action=new&vehicle=<?=$res[id]?>" title="Incluir Modelo para esta Montadora" alt="Incluir Modelo para esta Montadora">Novo modelo</a>
+									<a class="btnClone btnButton" href="?category=ft_model&action=new&vehicle=<?=$res[id]?>" title="Incluir Modelo para esta Montadora" alt="Incluir Modelo para esta Montadora">Novo modelo</a>
 									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'manufacturer',this)"></div>
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=manufacturer&action=update" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=ft_manufacturer&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 								</a>
 							</li>
 						<? }
-						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.id as id, model.name as modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id and model.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name";
+						$sqlTerm = "SELECT ft_manufacturer.name as manufacturerName, ft_model.id as id, ft_model.name as modelName FROM ft_manufacturer, ft_model WHERE ft_model.idManufacturer = ft_manufacturer.id and ft_model.name like ('%".$_GET[askInput]."%') ORDER by ft_manufacturer.name, ft_model.name";
 						$query_search = mysql_query($sqlTerm) or die (" error #150");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<a class="btnClone btnButton" href="?category=version&action=new&vehicle=<?=$res[id]?>" title="Incluir Versão para este Modelo" alt="Incluir Versão para este Modelo">Nova versão</a>
+									<a class="btnClone btnButton" href="?category=ft_version&action=new&vehicle=<?=$res[id]?>" title="Incluir Versão para este Modelo" alt="Incluir Versão para este Modelo">Nova versão</a>
 									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'model',this)"></div>
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=model&action=update" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=ft_model&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 								</a>
 							</li>
 						<? }
-						$sqlTerm = "SELECT manufacturer.name as manufacturerName, model.name as modelName, version.id as id, version.name as versionName  FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id and version.name like ('%".$_GET[askInput]."%') ORDER by manufacturer.name, model.name, version.name";
+						$sqlTerm = "SELECT ft_manufacturer.name as manufacturerName, ft_model.name as modelName, ft_version.id as id, ft_version.name as versionName  FROM ft_manufacturer, ft_model, ft_version WHERE ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id and ft_version.name like ('%".$_GET[askInput]."%') ORDER by ft_manufacturer.name, ft_model.name, ft_version.name";
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<a class="btnClone btnButton" href="?category=feature&action=new&vehicle=<?=$res[id]?>" title="Incluir Ficha Técnica para esta Versão" alt="Incluir Ficha Técnica para esta Versão">Nova Ficha</a>
+									<a class="btnClone btnButton" href="?category=ft_feature&action=new&vehicle=<?=$res[id]?>" title="Incluir Ficha Técnica para esta Versão" alt="Incluir Ficha Técnica para esta Versão">Nova Ficha</a>
 									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'version',this)"></div>
 									<!--div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div-->
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=version&action=update" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=ft_version&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
 								</a>
 							</li>
 						<? } 
-						$sqlTerm = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id and (version.name like ('%".$_GET[askInput]."%') or model.name like ('%".$_GET[askInput]."%'))";
+						$sqlTerm = "SELECT ft_feature.id as id, ft_feature.yearProduced, ft_feature.yearModel, ft_feature.engine, ft_feature.gear, ft_feature.fuel, ft_feature.steering, ft_manufacturer.name as manufacturerName, ft_model.name as modelName, ft_version.name as versionName, ft_feature.price FROM ft_manufacturer, ft_model, ft_version, ft_feature WHERE ft_feature.idVersion = ft_version.id AND ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id and (ft_version.name like ('%".$_GET[askInput]."%') or ft_model.name like ('%".$_GET[askInput]."%'))";
 
 						$query_search = mysql_query($sqlTerm) or die (" error #165");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
+									<a class="btnClone btnButton" href="formDetails.php?category=ft_feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
 									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>
 									<!--div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div-->
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=ft_feature&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
@@ -194,6 +192,9 @@ include ("./scripts/functions.php");
 										case 'd':
 											echo "Diesel";
 											break;
+										default:
+											echo $res[fuel];
+											break;
 									}
 									?>
 									</div>
@@ -203,29 +204,29 @@ include ("./scripts/functions.php");
 							</li>
 						<? } 
 					} else {
-						if ($_POST[filterManuf] != "") { $filterSql .= " AND manufacturer.name like ('%".$_POST[filterManuf]."%') "; }
-						if ($_POST[filterModel] != "") { $filterSql .= " AND model.name like ('%".$_POST[filterModel]."%') "; }
-						if ($_POST[filterVersion] != "") { $filterSql .= " AND version.name like ('%".$_POST[filterVersion]."%') "; }
-						if ($_POST[filterYearModel] != "") { $filterSql .= " AND feature.yearModel  like ('%".$_POST[filterYearModel]."%') "; }
-						if ($_POST[filterYearProduced] != "") { $filterSql .= " AND feature.yearProduced like ('%".$_POST[filterYearProduced]."%') "; }
-						if ($_POST[filterEngine] != "") { $filterSql .= " AND feature.engine like ('%".$_POST[filterEngine]."%') "; }
-						if ($_POST[filterGear] != "") { $filterSql .= " AND feature.gear like ('%".$_POST[filterGear]."%') "; }
-						if ($_POST[filterFuel] != "") { $filterSql .= " AND feature.fuel like ('%".$_POST[filterFuel]."%') "; }
-						if ($_POST[filterPrice] != "") { $filterSql .= " AND feature.price like ('%".$_POST[filterPrice]."%') "; }
-						if ($_POST[filterActive] == "n") { $filterSql .= " AND feature.active = 'n' "; } else { $filterSql .= " AND feature.active != 'n' "; }
+						if ($_POST[filterManuf] != "") { $filterSql .= " AND ft_manufacturer.name like ('%".$_POST[filterManuf]."%') "; }
+						if ($_POST[filterModel] != "") { $filterSql .= " AND ft_model.name like ('%".$_POST[filterModel]."%') "; }
+						if ($_POST[filterVersion] != "") { $filterSql .= " AND ft_version.name like ('%".$_POST[filterVersion]."%') "; }
+						if ($_POST[filterYearModel] != "") { $filterSql .= " AND ft_feature.yearModel  like ('%".$_POST[filterYearModel]."%') "; }
+						if ($_POST[filterYearProduced] != "") { $filterSql .= " AND ft_feature.yearProduced like ('%".$_POST[filterYearProduced]."%') "; }
+						if ($_POST[filterEngine] != "") { $filterSql .= " AND ft_feature.engine like ('%".$_POST[filterEngine]."%') "; }
+						if ($_POST[filterGear] != "") { $filterSql .= " AND ft_feature.gear like ('%".$_POST[filterGear]."%') "; }
+						if ($_POST[filterFuel] != "") { $filterSql .= " AND ft_feature.fuel like ('%".$_POST[filterFuel]."%') "; }
+						if ($_POST[filterPrice] != "") { $filterSql .= " AND ft_feature.price like ('%".$_POST[filterPrice]."%') "; }
+						if ($_POST[filterActive] == "n") { $filterSql .= " AND ft_feature.active = 'n' "; } else { $filterSql .= " AND ft_feature.active != 'n' "; }
 
-						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc";
+						$sql_search = "SELECT ft_feature.id as id, ft_feature.yearProduced, ft_feature.yearModel, ft_feature.engine, ft_feature.gear, ft_feature.fuel, ft_feature.steering, ft_feature.picture, ft_feature.active, ft_manufacturer.name as manufacturerName, ft_model.name as modelName, ft_version.name as versionName, ft_feature.price FROM ft_manufacturer, ft_model, ft_version, ft_feature WHERE ft_feature.idVersion = ft_version.id AND ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc";
 						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 						$query_search = mysql_query($sql_search) or die (mysql_error()." error #180");
 						while ($res = mysql_fetch_array($query_search)) {
 						?>
 						<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
 							<div class="rsItems">
-								<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
+								<a class="btnClone btnButton" href="formDetails.php?category=ft_feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
 								<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>
 								<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
 							</div>
-							<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
+							<a href="formDetails.php?vehicle=<?=$res[id]?>&category=ft_feature&action=update" class="resultContent">
 								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 								<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 								<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
