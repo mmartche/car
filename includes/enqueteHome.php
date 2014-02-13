@@ -9,9 +9,9 @@ $criptHora = md5($horaEnquete);
 		<div class="enqueteFigure">
 			<div class="enqFigure">
 				<div class="enqCheckRight"></div>
-				<img src="./images/testes/carro251x155.jpg" class="enqueteImg" />
+				<img alt="" title="" src="./images/testes/carro251x155.jpg" class="enqueteImg" />
 			</div>
-			<img src="./images/question.png" class="enqueteSubImg" />
+			<img alt="" title="" src="./images/question.png" class="enqueteSubImg" />
 		</div>
 		<form action="#" onsubmit="return votaEnquete(this);" id="enqueteHome" class="enqueteForm">
 		<input type="hidden" name="enqueteId" value="123" />
@@ -149,7 +149,7 @@ $criptHora = md5($horaEnquete);
 				<h5 class="captchaTitle">Digite o código de validaçāo</h5>
 				<input type="text" placeholder="digite" class="captchaInput" />
 				<div id="captcha" class="captchaCaptcha">
-					<img src="./scripts/geraCaptcha.php?code=<?=$criptHora?>" alt="Informe este código no campo abaixo" />
+					<img alt="Informe o código" title="Informe o código" src="./scripts/geraCaptcha.php?code=<?=$criptHora?>" alt="Informe este código no campo abaixo" />
 				</div>
 				<input type="submit" id="btnConfirmaVoto" name="btnSubmitEnquete" value="Confirma Voto" class="btnSubmitEnquete" />
 			</div>

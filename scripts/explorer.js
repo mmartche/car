@@ -33,7 +33,7 @@ function addFilter (obj,idModel) {
 	//search info
     idVersion = $(obj).val();
     var carsLength = $(".column").length;
-    ///console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
+    console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
     $.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion, function(data) {
     if (carsLength < 6) {
         // console.log('888888',data[0].response);

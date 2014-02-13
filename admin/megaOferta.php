@@ -94,7 +94,7 @@ include ("./scripts/functions.php");
 	</form>
 	<div class="content contentMega">
 		<?
-		$sql_mo = "SELECT megaOferta.id as megaOfertaId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, ft_manufacturer, ft_model, ft_version WHERE megaOferta.manufacturerId = ft_manufacturer.id and megaOferta.ft_versionId = ft_version.id AND megaOferta.modelId = ft_model.id GROUP BY megaOferta.id order by megaOferta.place desc, `orderMega` asc";
+		$sql_mo = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id order by megaOferta.place desc, `orderMega` asc";
 		$query_mo = mysql_query($sql_mo) or die (mysql_error());
 		?>
 		<div class="megaOfertaData">

@@ -22,7 +22,7 @@ include("./scripts/conectDB.php");
 	<script type="text/javascript" src="scripts/colorpicker.js"></script>
 	<script type="text/javascript" src="scripts/index.js"></script>
 	
-	<link rel="stylesheet" href="styles/jquery-ui.css" />
+	<link rel="stylesheet" href="styles//jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="styles/colorpicker.css" />
 	
@@ -34,37 +34,37 @@ include("./scripts/conectDB.php");
 <?
 if ($_GET[action] == "new") {
 	switch ($_GET[category]) {
-		case 'ft_manufacturer':
-			$sql_search = "SELECT id as manufacturerId, name as manufacturerName, description from ft_manufacturer where id = '".$_GET[vehicle]."'";
+		case 'manufacturer':
+			$sql_search = "SELECT id as manufacturerId, name as manufacturerName, description from manufacturer where id = '".$_GET[vehicle]."'";
 			break;
-		case 'ft_model':
-			$sql_search = "SELECT id as manufacturerId, name as manufacturerName, description from ft_manufacturer where id = '".$_GET[vehicle]."'";
+		case 'model':
+			$sql_search = "SELECT id as manufacturerId, name as manufacturerName, description from manufacturer where id = '".$_GET[vehicle]."'";
 			break;
-		case 'ft_version':
-			$sql_search = "SELECT ft_model.id as modelId, ft_model.name as modelName, ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.description from ft_model, ft_manufacturer where ft_model.idManufacturer = ft_manufacturer.id and ft_model.id = '".$_GET[vehicle]."'";
+		case 'version':
+			$sql_search = "SELECT model.id as modelId, model.name as modelName, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.description from model, manufacturer where model.idManufacturer = manufacturer.id and model.id = '".$_GET[vehicle]."'";
 			break;
-		case 'ft_feature':
-			$sql_search = "SELECT ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName FROM ft_manufacturer, ft_model, ft_version WHERE ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id AND ft_version.id = '".$_GET[vehicle]."'";
+		case 'feature':
+			$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id AND version.id = '".$_GET[vehicle]."'";
 			break;
 	}
 } elseif ($_GET[action] == "clone") {
 	//$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
-	$sql_search = "SELECT ft_feature.id as featureId, ft_manufacturer.id as manufacturerId, ft_model.id as modelId, ft_version.id as versionId, ft_manufacturer.name as manufacturerName, ft_manufacturer.description as manufacturerDescription, ft_model.name as modelName, ft_model.description as modelDescription, ft_version.name as versionName, ft_feature.yearProduced, ft_feature.yearModel, ft_feature.items as itemsSerie, ft_feature.doors, ft_feature.passagers, ft_feature.engine, ft_feature.feeding, ft_feature.fuel, ft_feature.powerMax, ft_feature.torque, ft_feature.acceleration, ft_feature.speedMax, ft_feature.consumptionCity, ft_feature.consumptionRoad, ft_feature.steering, ft_feature.gear, ft_feature.traction, ft_feature.wheels, ft_feature.frontSuspension, ft_feature.rearSuspension, ft_feature.frontBrake, ft_feature.rearBrake, ft_feature.dimensionLength, ft_feature.dimensionWidth, ft_feature.dimensionHeight, ft_feature.dimensionSignAxes, ft_feature.weight, ft_feature.trunk, ft_feature.tank, ft_feature.warranty, ft_feature.countryOrigin, ft_feature.dualFrontAirBag, ft_feature.alarm, ft_feature.airConditioning, ft_feature.hotAir, ft_feature.leatherSeat, ft_feature.heightAdjustment, ft_feature.rearSeatSplit, ft_feature.bluetoothSpeakerphone, ft_feature.bonnetSea, ft_feature.onboardComputer, ft_feature.accelerationCounter, ft_feature.rearWindowDefroster, ft_feature.electricSteering, ft_feature.hydraulicSteering, ft_feature.sidesteps, ft_feature.fogLamps, ft_feature.xenonHeadlights, ft_feature.absBrake, ft_feature.integratedGPSPanel, ft_feature.rearWindowWiper, ft_feature.bumper, ft_feature.autopilot, ft_feature.bucketProtector, ft_feature.roofRack, ft_feature.cdplayerUSBInput, ft_feature.radio, ft_feature.headlightsHeightAdjustment, ft_feature.rearviewElectric, ft_feature.alloyWheels, ft_feature.rainSensor, ft_feature.parkingSensor, ft_feature.isofix, ft_feature.sunroof, ft_feature.electricLock, ft_feature.electricWindow, ft_feature.rearElectricWindow, ft_feature.steeringWheelAdjustment, ft_feature.picture, ft_feature.price, ft_feature.description, ft_feature.active, ft_feature.dateCreate, ft_feature.dateUpdate, ft_model.idSegment1, ft_model.idSegment2, ft_model.idSegment3 from ft_feature, ft_manufacturer, ft_model, ft_version where  ft_feature.idVersion = ft_version.id and ft_version.idModel = ft_model.id and ft_model.idManufacturer = ft_manufacturer.id  and ft_feature.id = '".$_GET[vehicle]."'";
+	$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.radio, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.price, feature.description, feature.active, feature.dateCreate, feature.dateUpdate, model.idSegment1, model.idSegment2, model.idSegment3 from feature, manufacturer, model, version where  feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
 } else {
 	switch ($_GET[category]) {
-		case 'ft_manufacturer':
-			$sql_search = "SELECT id as manufacturerId, name as manufacturerName, description from ft_manufacturer where id = '".$_GET[vehicle]."'";
+		case 'manufacturer':
+			$sql_search = "SELECT id as manufacturerId, name as manufacturerName, description from manufacturer where id = '".$_GET[vehicle]."'";
 			break;
-		case 'ft_model':
-			$sql_search = "SELECT ft_model.id as modelId, ft_model.name as modelName, ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.description, ft_model.idSegment1, ft_model.idSegment2, ft_model.idSegment3 from ft_model, ft_manufacturer where ft_model.idManufacturer = ft_manufacturer.id and ft_model.id = '".$_GET[vehicle]."'";
+		case 'model':
+			$sql_search = "SELECT model.id as modelId, model.name as modelName, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.description, model.idSegment1, model.idSegment2, model.idSegment3 from model, manufacturer where model.idManufacturer = manufacturer.id and model.id = '".$_GET[vehicle]."'";
 			break;
-		case 'ft_version':
-			$sql_search = "SELECT ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName, ft_version.description FROM ft_manufacturer, ft_model, ft_version WHERE ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id AND ft_version.id = '".$_GET[vehicle]."'";
+		case 'version':
+			$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, version.description FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id AND version.id = '".$_GET[vehicle]."'";
 			break;
-		case 'ft_feature':
+		case 'feature':
 			//$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
-			$typeSearch = ($_GET[action] == "viewVersion" ? "ft_feature.idVersion" : "ft_feature.id");
-			$sql_search = "SELECT ft_feature.id as featureId, ft_manufacturer.id as manufacturerId, ft_model.id as modelId, ft_version.id as versionId, ft_manufacturer.name as manufacturerName, ft_manufacturer.description as manufacturerDescription, ft_model.name as modelName, ft_model.description as modelDescription, ft_version.name as versionName, ft_feature.yearProduced, ft_feature.yearModel, ft_feature.items as itemsSerie, ft_feature.doors, ft_feature.passagers, ft_feature.engine, ft_feature.feeding, ft_feature.fuel, ft_feature.powerMax, ft_feature.torque, ft_feature.acceleration, ft_feature.speedMax, ft_feature.consumptionCity, ft_feature.consumptionRoad, ft_feature.steering, ft_feature.gear, ft_feature.traction, ft_feature.wheels, ft_feature.frontSuspension, ft_feature.rearSuspension, ft_feature.frontBrake, ft_feature.rearBrake, ft_feature.dimensionLength, ft_feature.dimensionWidth, ft_feature.dimensionHeight, ft_feature.dimensionSignAxes, ft_feature.weight, ft_feature.trunk, ft_feature.tank, ft_feature.warranty, ft_feature.countryOrigin, ft_feature.dualFrontAirBag, ft_feature.alarm, ft_feature.airConditioning, ft_feature.hotAir, ft_feature.leatherSeat, ft_feature.heightAdjustment, ft_feature.rearSeatSplit, ft_feature.bluetoothSpeakerphone, ft_feature.bonnetSea, ft_feature.onboardComputer, ft_feature.accelerationCounter, ft_feature.rearWindowDefroster, ft_feature.electricSteering, ft_feature.hydraulicSteering, ft_feature.sidesteps, ft_feature.fogLamps, ft_feature.xenonHeadlights, ft_feature.absBrake, ft_feature.integratedGPSPanel, ft_feature.rearWindowWiper, ft_feature.bumper, ft_feature.autopilot, ft_feature.bucketProtector, ft_feature.roofRack, ft_feature.cdplayerUSBInput, ft_feature.radio, ft_feature.headlightsHeightAdjustment, ft_feature.rearviewElectric, ft_feature.alloyWheels, ft_feature.rainSensor, ft_feature.parkingSensor, ft_feature.isofix, ft_feature.sunroof, ft_feature.electricLock, ft_feature.electricWindow, ft_feature.rearElectricWindow, ft_feature.steeringWheelAdjustment, ft_feature.picture, ft_feature.active, ft_feature.dateCreate, ft_feature.dateUpdate, ft_feature.description, ft_feature.price, ft_model.idSegment1, ft_model.idSegment2, ft_model.idSegment3 from ft_feature, ft_manufacturer, ft_model, ft_version where ft_feature.idVersion = ft_version.id and ft_version.idModel = ft_model.id and ft_model.idManufacturer = ft_manufacturer.id  and ".$typeSearch." = '".$_GET[vehicle]."'";
+			$typeSearch = ($_GET[action] == "viewVersion" ? "feature.idVersion" : "feature.id");
+			$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.radio, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.active, feature.dateCreate, feature.dateUpdate, feature.description, feature.price, model.idSegment1, model.idSegment2, model.idSegment3 from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and ".$typeSearch." = '".$_GET[vehicle]."'";
 			break;
 	}
 }
@@ -73,7 +73,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 	if (mysql_num_rows($query_search) > 0 ) {
 		$res = mysql_fetch_array($query_search);
 	} else {
-		$sql_search = "SELECT ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName, ft_version.description FROM ft_manufacturer, ft_model, ft_version WHERE ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id AND ft_version.id = '".$_GET[vehicle]."'";
+		$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, version.description FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id AND version.id = '".$_GET[vehicle]."'";
 		$query_searchN = mysql_query($sql_search) or die (" error #79");
 		$res = mysql_fetch_array($query_searchN);
 	}
@@ -84,7 +84,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 		<h1 class="logo"><span class="logoText logoRed">Car</span><span class="logoText logoBlack">sale</span></h1>
 		<?
 		switch ($_GET[category]) {
-			case 'ft_manufacturer':
+			case 'manufacturer':
 				echo "<h2><span>Sistema administrativo - Cadastro de Montadoras</span>";
 				if ($_GET[action] == "new") {
 					?>
@@ -93,13 +93,13 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				} elseif ($_GET[action] == "update") {
 					?>
 					<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
-					<a href='?category=ft_model&action=new&vehicle=<?=$res[manufacturerId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>
+					<a href='?category=model&action=new&vehicle=<?=$res[manufacturerId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>
 					<!--input type="button" value="Atualizar" class="btnSave btnButton" /-->
 					<?
 				}
 				echo "</h2>";
 				break;
-			case 'ft_model':
+			case 'model':
 				echo "<h2><span>Sistema administrativo - Cadastro de Versão</span>";
 				if ($_GET[action] == "new") {
 					?>
@@ -108,13 +108,13 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				} elseif ($_GET[action] == "update") {
 					?>
 						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
-						<a href='?category=ft_version&action=new&vehicle=<?=$res[modelId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>
+						<a href='?category=version&action=new&vehicle=<?=$res[modelId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-->
 					<?
 				}
 				echo "</h2>";
 				break;
-			case 'ft_version':
+			case 'version':
 				echo "<h2><span>Sistema administrativo - Cadastro de Modelo</span>";
 				if ($_GET[action] == "new") {
 					?>
@@ -123,14 +123,14 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				} elseif ($_GET[action] == "update") {
 					?>
 						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
-						<a href='?category=ft_feature&action=new&vehicle=<?=$res[versionId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>
+						<a href='?category=feature&action=new&vehicle=<?=$res[versionId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-->	
 					<?
 				}
 
 				echo"</h2>";
 				break;
-			case 'ft_feature':
+			case 'feature':
 				echo "<h2><span>Sistema administrativo - Ficha Técnica de veículos</span>";
 				if ($_GET[action] == "new" || $_GET[action] == "clone") {
 					?>
@@ -139,7 +139,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				} elseif ($_GET[action] == "update") {
 					?>
 						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
-						<a href='?category=ft_feature&action=clone&vehicle=<?=$res[featureId]?>' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>
+						<a href='?category=feature&action=clone&vehicle=<?=$res[featureId]?>' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-\-->
 					<?
 				}
@@ -168,22 +168,22 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 			<li><a href="ficha-tecnica.php">Listagem</a></li>
 			<?
 			switch ($_GET[category]) {
-				case 'ft_manufacturer':
+				case 'manufacturer':
 					?><li class="active" title="Editar Montadora"><?=$res[manufacturerName]?></li><?
 					break;
-				case 'ft_model':
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=ft_manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+				case 'model':
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
 					<li class="active" title="Editar Modelo"><?=$res[modelName]?></li><?
 					break;
-				case 'ft_version':
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=ft_manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
-					<li><a href="?vehicle=<?=$res[modelId]?>&category=ft_model&action=update" title="Editar Modelo"><?=$res[modelName]?></a></li>
+				case 'version':
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=$res[modelName]?></a></li>
 					<li class="active" title="Editar Versão"><?=$res[versionName]?></li><?
 					break;
 				default:
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=ft_manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
-					<li><a href="?vehicle=<?=$res[modelId]?>&category=ft_model&action=update" title="Editar Modelo"><?=$res[modelName]?></a></li>
-					<li><a href="?vehicle=<?=$res[versionId]?>&category=ft_version&action=update" title="Editar Versão"><?=$res[versionName]?></a></li>
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=$res[modelName]?></a></li>
+					<li><a href="?vehicle=<?=$res[versionId]?>&category=version&action=update" title="Editar Versão"><?=$res[versionName]?></a></li>
 					<li class="active" title="Editar Ficha Técnica">Ficha Técnica</li><?
 					break;
 			}
@@ -206,7 +206,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 			<?
 			//////// filtros dos inputs
 			switch ($_GET[category]) {
-				case 'ft_manufacturer':
+				case 'manufacturer':
 					?>
 					<span><label>Montadora:</label>
 						<select  id="manufacturerName">
@@ -224,7 +224,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 					<span><label>Descrição:</label><textarea name="description" id="txtDescription"><?=$res[description]?></textarea></span>
 					<?
 					break;
-				case 'ft_model':
+				case 'model':
 					?>
 					<span><label>Montadora:</label>
 						<select  id="manufacturerName">
@@ -256,7 +256,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 
 					$optsArray1 = array(); $optsArray2 = array(); $optsArray3 = array();
 					$optsArray1[] = $optsArray2[] = $optsArray3[] = '<option>Segmento</option>';
-					$sqlSeg = "SELECT id, name from ft_segment order by name";
+					$sqlSeg = "SELECT id, name from segment order by name";
 				    $querySeg = mysql_query($sqlSeg);
 				    while ($resSeg = mysql_fetch_array($querySeg)) {
 						// $optsArray1[] = '<option value="'.$resSeg[id].'" >'.$resSeg[id].'</option>';
@@ -325,7 +325,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 					<span><label>Descrição:</label><textarea name="description" id="txtDescription"><?=$res[description]?></textarea></span>
 					<?
 					break;
-				case 'ft_version':
+				case 'version':
 					?>
 					<span><label>Montadora:</label>
 						<select  id="manufacturerName">
@@ -369,7 +369,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 					<span><label>Descrição:</label><textarea name="description" id="txtDescription"><?=$res[description]?></textarea></span>
 					<?
 					break;
-				case 'ft_feature':
+				case 'feature':
 					?>
 					<span id="spanManufacturerName">
 						<label>Montadora</label>
@@ -417,7 +417,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 					<?
 					$flagSeg=1;
 					$optsArray = array();
-					$sqlSeg = "SELECT id, name from ft_segment order by name";
+					$sqlSeg = "SELECT id, name from segment order by name";
 				    $querySeg = mysql_query($sqlSeg);
 				    $optsArray[] = '<option>Segmento</option>';
 				    while ($resSeg = mysql_fetch_array($querySeg)) {
@@ -600,11 +600,11 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 			</div>
 			<div class="dataColRight">
 			<?
-			if ($_GET[category] != "ft_manufacturer" && $_GET[category] != "ft_model" && $_GET[category] != "ft_version") {
+			if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") {
 			?>
 				<div class="dataFeatures dataFields">
 					<label class="subTitle">ACESSÓRIOS</label>
-					<div class="optionsFeatures optionsFields">
+					<div class="optionsVersions optionsFields">
 						<span>
 							<input type="checkbox" id="dualFrontAirBag" name="dualFrontAirBag" value="s" <? if (strtolower($res[dualFrontAirBag]) == "s") { echo 'checked="true"'; } ?> />
 							<label for="dualFrontAirBag">Airbag duplo frontal</label>
@@ -757,9 +757,9 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				</div>
 				<? } ?>
 				<?
-				if ($_GET[category] != "ft_manufacturer" && $_GET[category] != "ft_model" && $_GET[category] != "ft_version") {
+				if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") {
 				$iSerie = 0;
-				$sqlSerie = "SELECT * from ft_serieFeature where idFeature = '".$res[featureId]."' order by `option` desc, `description` asc";
+				$sqlSerie = "SELECT * from serieFeature where idFeature = '".$res[featureId]."' order by `option` desc, `description` asc";
 				$querySerie = mysql_query($sqlSerie) or die (" error #300");
 				$lengthSerie = mysql_num_rows($querySerie);
 				?>
@@ -792,9 +792,9 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				</div>
 				<? } ?>
 				<?
-				if ($_GET[category] != "ft_model" && $_GET[category] != "ft_manufacturer"){
+				if ($_GET[category] != "model" && $_GET[category] != "version"){
 				$iOptM=0;
-				$sqlOptF = "SELECT ft_optionsVersion.id as optId, ft_optionsVersion.idOption, ft_optionsManufacturer.name, ft_optionsManufacturer.options, ft_optionsVersion.price, ft_optionsManufacturer.code from ft_optionsVersion, ft_optionsManufacturer where idVersion = '".$res[versionId]."' and idOption = ft_optionsManufacturer.id order by `name` desc";
+				$sqlOptF = "SELECT optionsVersion.id as optId, optionsVersion.id, optionsManufacturer.name, optionsManufacturer.options, optionsVersion.price, optionsManufacturer.code from optionsVersion, optionsManufacturer where optionsVersion.yearModel = '".$res[yearModel]."' and idVersion = '".$res[versionId]."' and optionsVersion.code = optionsManufacturer.code order by `code` asc, `name` desc";
 				$queryOptF = mysql_query($sqlOptF) or die (" error #800");
 				$lengthOptF = mysql_num_rows($queryOptF);
 				?>
@@ -808,8 +808,8 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 							<select  name="txtOptionsName" id="txtOptionsName" placeholder="Nome">
 								<option>Opcionais</option>
 								<?
-								$sqlOptManuf = "SELECT id, name from ft_optionsManufacturer where idManufacturer = '".$res[manufacturerId]."' order by code";
-								$queryOptManuf = mysql_query($sqlOptManuf) or die (mysql_error()." error #813");
+								$sqlOptManuf = "SELECT id, name, code from optionsManufacturer where idManufacturer = '".$res[manufacturerId]."' order by code asc";
+								$queryOptManuf = mysql_query($sqlOptManuf) or die ("error #812");
 								while ($resOptManuf = mysql_fetch_array($queryOptManuf)) {
 								?>
 								<option value="<?=$resOptManuf[id]?>" ><?=$resOptManuf[name]?></option>
@@ -836,8 +836,8 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 									<input type="hidden" id="txtOptIdFeature" value="<?=$resOptF[optId]?>" />
 									<input type="hidden" id="optIdOpt" name="txtOpt<?=$iOptM?>" value="<?=$resOptF[idOption]?>" />
 									<input type="hidden" id="optPrice" name="txtOptPrice<?=$iOptM?>" value="<?=$resOptF[price]?>" />
-									<input type="hidden" id="optCode" value="<?=$resOptF[code]?>" />
-									<label id="lblOptions"><?=$resOptF[name]?></label><br />
+									<input type="hidden" id="optCode" name="txtOptCode" value="<?=$resOptF[code]?>" />
+									<label id="lblOptions" title="<?=$resOptF[options]?>"><?=$resOptF[name]?></label><br />
 									<label>R$ <?=$resOptF[price]?></label>
 								</div>
 								<label for="chOpt<?=$iOptM?>" class="removeOpt" onclick="removeOpt(this,'<?=$iOptM?>')">X</label>
@@ -850,7 +850,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 						<? /* DISABLED, USING JS
 						<label>Opcionais referente a Montadora '<?=$res[manufacturerName]?>'</label><br />
 						<?
-					$sqlOptM = "SELECT * from ft_optionsManufacturer where idManufacturer = '".$res[manufacturerId]."' ".$filterOpt." order by `name` asc";
+					$sqlOptM = "SELECT * from optionsManufacturer where idManufacturer = '".$res[manufacturerId]."' ".$filterOpt." order by `name` asc";
 					$queryOptM = mysql_query($sqlOptM) or die (" error #420");
 					$lengthOptM = mysql_num_rows($queryOptM);
 					$lengthOptionsTotal = $lengthOptF+$lengthOptM;
@@ -873,17 +873,16 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				</div>
 				<? } ?>
 				<?
-				if ($_GET[category] != "ft_manufacturer" && $_GET[category] != "ft_model" && $_GET[category] != "ft_version") { 
-					if ($_GET[category] != "ft_model"){
+				if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") { 
+					if ($_GET[category] != "model"){
 					$iColor = 0;
-					//if ($_GET[category] == "ft_manufacturer") {
-						$sqlColor = "SELECT ft_colorVersion.id, ft_colorManufacturer.code, ft_colorManufacturer.name, ft_colorManufacturer.hexa, ft_colorVersion.price, ft_colorVersion.application, ft_colorManufacturer.type from ft_colorVersion, ft_colorManufacturer WHERE ft_colorVersion.idVersion = '".$res[versionId]."' and ft_colorVersion.code = ft_colorManufacturer.code";
-						$tableColor = "ft_colorVersion";
+					//if ($_GET[category] == "manufacturer") {
+						$sqlColor = "SELECT * from colorManufacturer WHERE idManufacturer = '".$res[manufacturerId]."'";
+						$tableColor = "colorManufacturer";
 					/*} else {
 						$sqlColor = "SELECT * from colorFeature where idVersion = '".$res[modelId]."'";
 						$tableColor = "colorFeature";
 					}*/
-					// echo $sqlColor;
 					$queryColor = mysql_query($sqlColor) or die (" error #450");
 					$lengthColor = mysql_num_rows($queryColor);
 					?>
@@ -913,7 +912,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 							<? while ($resColor = mysql_fetch_array($queryColor)) { ?>
 							<span  colorId="<?=$resColor[id]?>">
 								<div class="delColor" onclick="deleteColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">X</div>
-							<div class="updateColor" onclick="updateColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">
+							<div class="updateColor" onclick="updateColor(this,<?=$resColor[id]?>,'<?=$tableColor?>')">
 								<div class="divColor">
 									<div style="background-color: #<?=$resColor[hexa]?>;"></div>
 								</div>
@@ -934,7 +933,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 					</div>
 					<? } 
 				} ?>
-				<? if ($_GET[category] != "ft_manufacturer" && $_GET[category] != "ft_model" && $_GET[category] != "ft_version") { ?>
+				<? if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") { ?>
 				<div class="dataPicture dataFields">
 					<label class="subTitle">FOTO</label>
 					<div class="optionsPicture optionsFields">
@@ -995,7 +994,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 		</div>
 		</form>
 		<?
-		if (($_GET[category] == "ft_manufacturer" || $_GET[category] == "ft_model" || $_GET[category] == "ft_version") && $_GET[action] != "new") {
+		if (($_GET[category] == "manufacturer" || $_GET[category] == "model" || $_GET[category] == "version") && $_GET[action] != "new") {
 		?>
 		<!--div class="relations">
 			<span>Itens relacionados</span>
@@ -1031,20 +1030,20 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 					<li class="resultData"><ul>
 					<?
 					switch ($_GET[category]) {
-						case 'ft_manufacturer':
-							$sql_relat = "SELECT ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name AS modelName FROM ft_manufacturer, ft_model WHERE ft_model.idManufacturer = ft_manufacturer.id AND ft_model.idManufacturer = '".$res[manufacturerId]."'";
+						case 'manufacturer':
+							$sql_relat = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name AS modelName FROM manufacturer, model WHERE model.idManufacturer = manufacturer.id AND model.idManufacturer = '".$res[manufacturerId]."'";
 							$sqlField = "modelId";
-							$categoryRelat = "ft_model";
+							$categoryRelat = "model";
 						break;
-						case 'ft_model':
-							$sql_relat = "SELECT ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName FROM ft_manufacturer, ft_model, ft_version WHERE ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id AND ft_version.idModel = '".$res[modelId]."'";
+						case 'model':
+							$sql_relat = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version WHERE version.idModel = model.id AND model.idManufacturer = manufacturer.id AND version.idModel = '".$res[modelId]."'";
 							$sqlField = "versionId";
-							$categoryRelat = "ft_version";
+							$categoryRelat = "version";
 							break;
-						case 'ft_version':
-							$sql_relat = "SELECT ft_feature.id as featureId, ft_feature.yearProduced, ft_feature.yearModel, ft_feature.engine, ft_manufacturer.id as manufacturerId, ft_manufacturer.name as manufacturerName, ft_model.id as modelId, ft_model.name as modelName, ft_version.id as versionId, ft_version.name as versionName FROM ft_manufacturer, ft_model, ft_version, ft_feature WHERE ft_feature.idVersion = ft_version.id AND ft_version.idModel = ft_model.id AND ft_model.idManufacturer = ft_manufacturer.id AND ft_feature.idVersion = '".$res[versionId]."'";
+						case 'version':
+							$sql_relat = "SELECT feature.id as featureId, feature.yearProduced, feature.yearModel, feature.engine, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id AND feature.idVersion = '".$res[versionId]."'";
 							$sqlField = "featureId";
-							$categoryRelat = "ft_feature";
+							$categoryRelat = "feature";
 							break;
 					}
 						$query_relat = mysql_query($sql_relat) or die (mysql_error()."error #495");
@@ -1053,11 +1052,11 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 						<li class="resultItem <? if ($resRelat[active] == "n") { echo "desactive"; } ?>" idDB="<?=$resRelat[id]?>">
 							<div class="rsItems">
 								<? if ($res[versionId] != "") { ?>
-								<a class="btnClone btnButton" href="formDetails.php?category=ft_feature&action=clone&vehicle=<?=$resRelat[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
+								<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$resRelat[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
 								<? } ?>
 								<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$resRelat[id]?>,'feature',this)"></div>
 							</div>
-							<a href="formDetails.php?vehicle=<?=$resRelat[id]?>&category=ft_feature&action=update" class="resRelatultContent">
+							<a href="formDetails.php?vehicle=<?=$resRelat[id]?>&category=feature&action=update" class="resRelatultContent">
 								<div class="rsManufacturer" title="<?=$resRelat[manufacturerName]?>"><?=$resRelat[manufacturerName]?></div>
 								<div class="rsModel" title="<?=$resRelat[modelName]?>"><?=$resRelat[modelName]?></div>
 								<div class="rsVersion" title="<?=$resRelat[versionName]?>"><?=$resRelat[versionName]?></div>

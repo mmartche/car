@@ -93,7 +93,8 @@ $_SESSION["tokenTime"] = time();
 			include ("includes/ultNot.php");
 			include ("includes/chamadaHome.php");
 			include ("includes/carrosselVideos.php");
-			include("includes/enqueteHome.php");
+			include ("includes/chamadasH2.php");
+			// include("includes/enqueteHome.php");
 			?>
 			<div class="banner-325x200">
 				<img src="http://localhost/carsale/carsaleHOME/img/opiniaodoDono.jpg" alt="..." title="" />

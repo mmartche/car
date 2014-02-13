@@ -29,6 +29,7 @@ function uploadFile ($manufacturerId,$modelId,$versionId) {
 					"../../carImagesMegaOferta/" . $_FILES["file"]["name"]);
 					 //echo "Stored in: " . "../carImagesMegaOferta/" . $_FILES["file"]["name"];
 					return $_FILES["file"]["name"];
+					// echo "string";
 				}
 		}
 	} else {

@@ -70,15 +70,15 @@ order by [Linha_Segmento].[numLinha] desc
 /* ESQUEMA DAS TABELAS PARA O BD NOVO EM WP */
 
 
-/* NOTICIAS */
+/* NOTICIAS */ VERIFICAR SE EXISTE TABELA COM FICHA TECNICA E RANKING
 SELECT 
-IDnoticia,Titulo,SubTitulo,img_arquivo,AutorFoto,Texto,dtCriacao
+IDnoticia,Titulo,SubTitulo,img_arquivo,LinkVideo,AutorFoto,Texto,dtCriacao
 FROM UltNotWeb, ultnotweb_imagem
 WHERE UltNotWeb.IDnoticia = ultnotweb_imagem.idnoticia AND ultnotweb_imagem.img_tipo = 'Ap'
 
 
-juntar os campos SubTitulo,img_arquivo,AutorFoto,Texto no esquema:
-<p>[Subtitulo]</p><p><img src="http://carsale.uol.com.br/asp/img/Apres/[img_arquivo]" class="article-image" alt="[AutorFoto]" title="[Titulo]" /></p>[Texto]
+juntar os campos SubTitulo,img_arquivo,LinkVideo,AutorFoto,Texto no esquema:
+<p>[Subtitulo]</p><p><img src="http://carsale.uol.com.br/asp/img/Apres/[img_arquivo]" class="article-image" alt="[AutorFoto]" title="[Titulo]" />[LinkVideo]</p>[Texto]
 
 validar se a matéria possui galeria, videos e tabela
 
@@ -95,6 +95,18 @@ insert into `wp_posts` (`ID`,`post_title`,`post_content`,`post_date`,`post_autho
 /* GALERIA DE FOTOS */
 http://carsale.uol.com.br/asp/img/Album/...
 
+SELECT     TOP 1000 ultnotweb_imagem.idnoticia, ultnotweb_imagem.img_tipo, ultnotweb_imagem.img_arquivo, UltNotWeb.Titulo, UltNotWeb.SubTitulo
+FROM         ultnotweb_imagem INNER JOIN
+                      UltNotWeb ON ultnotweb_imagem.idnoticia = UltNotWeb.IDnoticia
+WHERE     (ultnotweb_imagem.img_tipo = 'Ab')
+ORDER BY ultnotweb_imagem.idnoticia DESC
+
+
+
+SELECT     TOP 1000 idnoticia, img_arquivo_zoom, img_ordem
+FROM         ultnotweb_imagem
+WHERE     (img_tipo = 'Ab')
+ORDER BY idnoticia DESC, img_ordem
 
 
 /* TABELAS */
