@@ -129,8 +129,13 @@ header {
 	margin-top: 39px;
 }
 .subMenuLi .subMenu {
-	width: 100%;
+	width: 955px;
 	background-color: darkred;
+	padding: 0;
+	margin: 0 15px;
+	border-radius: 15px;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
 }
 .subMenu a {
 	margin: 0 !important;
@@ -920,6 +925,29 @@ footer .footerCompraImg:hover {
 }
 .frameTw {
 	width: 259px; height: 20px;
+}
+.doubleBanner {
+	margin: 0 0 10px 0;
+	overflow: hidden;
+}
+.doubleBanner .banner120x600 {
+	background-color: darkblue;
+	width: 120px;
+	height: 600px;
+	float: left;
+	margin: 0 15px;
+}
+.bannerMegaOfertaTopo {
+	background-color: darkblue;
+	width: 675px;
+	height: 165px;
+	margin: 0 0 15px 0;
+}
+.bannerExploradorTopo {
+	float: right;
+	width: 175px;
+	height: 285px;
+	border: 1px solid;
 }
 /*
 HELPER

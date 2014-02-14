@@ -74,28 +74,36 @@ order by [Linha_Segmento].[numLinha] desc
 SELECT 
 IDnoticia,Titulo,SubTitulo,img_arquivo,LinkVideo,AutorFoto,Texto,dtCriacao
 FROM UltNotWeb, ultnotweb_imagem
-WHERE UltNotWeb.IDnoticia = ultnotweb_imagem.idnoticia AND ultnotweb_imagem.img_tipo = 'Ap'
+WHERE UltNotWeb.IDnoticia = ultnotweb_imagem.idnoticia 
 
+
+validar se a matéria possui galeria ou tabela, para cada caso segue como será impresso
+galeria
+[wppa type="slide" album="<[idNoticia]>"]
+tabela
+[table id="<[idNoticia]>" /]
 
 juntar os campos SubTitulo,img_arquivo,LinkVideo,AutorFoto,Texto no esquema:
-<p>[Subtitulo]</p><p><img src="http://carsale.uol.com.br/asp/img/Apres/[img_arquivo]" class="article-image" alt="[AutorFoto]" title="[Titulo]" />[LinkVideo]</p>[Texto]
-
-validar se a matéria possui galeria, videos e tabela
+<p>[Subtitulo]</p><p><img src="http://carsale.uol.com.br/asp/img/Apres/<[img_arquivo]>" class="article-image" alt="<[AutorFoto]>" title="<[Titulo]>" /><[LinkVideo]></p><[Texto]><p>(tag album ou tabela)
 
 resultado esperado:
-('IDnoticia','Titulo','(TextoConcatenado)','dtCriacao'
-(todos com aspas simples)
-
-adicionar no final: ,2,'publish','open','',0,0,'post');
+('IDnoticia','Titulo','<(TextoConcatenado)>','dtCriacao',2,'publish','open','<[(titulo com encoding url)]>',0,0,'post');
+(todos cercados com aspas simples, pois no corpo da matéria existe diversas tags com aspas dupla)
 
 
-insert into `wp_posts` (`ID`,`post_title`,`post_content`,`post_date`,`post_author`,`post_status`,`ping_status`,`post_name`,`post_parent`,`menu_order`,`post_type`) values *
+insert into `wp_posts` (`ID`,`post_title`,`post_content`,`post_date`,`post_author`,`post_status`,`ping_status`,`post_name`,`post_parent`,`menu_order`,`post_type`) values 
 
+(12303,'Clássico: Gol GTI com mecânica Audi e 350 cv, um quadrado nervoso','<p>Modelo recebeu toda a mecƒnica do Audi A3, com ˆnfase especial na prepara‡Æo para rua</p>
+<p><object width="574" height="320" id="player_14836375"><param value="true" name="allowfullscreen"/><param value="http://player.mais.uol.com.br/embed_v2.swf?mediaId=14836375&p=related" name="movie"/><param value="always" name="allowscriptaccess"/><param value="window" name="wmode"/><embed id="player_14836375" width="574" height="320" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" src="http://player.mais.uol.com.br/embed_v2.swf?mediaId=14836375&p=related" wmode="window" /></embed><noscript><a href="http://mais.uol.com.br/view/14836375">Garagem do Bellote TV: Gol GTI (350 cv)</a></noscript></object></p><p>A uni&atilde;o entre Volkswagen e Audi &eacute; uma realidade h&aacute; alguns anos. Motores, tecnologia e outros conhecimentos s&atilde;o compartilhados em busca de desenvolvimento para as duas marcas. As parcerias e joint ventures, ali&aacute;s, s&atilde;o bem comuns no meio automotivo.</p>
+<p>Mas para o dono desse Gol GTI a id&eacute;ia foi um pouco mais al&eacute;m. O exemplar recebeu toda a mec&acirc;nica do Audi A3, com &ecirc;nfase especial na prepara&ccedil;&atilde;o para rua. Desse modo ele traz uma nova turbina da Garrett e desenvolve 350 cv, com torque de 37 kgfm.</p>
+<p style="text-align: left;">O trabalho pesado incluiu freios a disco ventilados nas quatro rodas, transmiss&atilde;o com engrenagens especiais e embreagem de cer&acirc;mica. Nesse caso temos uma combina&ccedil;&atilde;o explosiva entre um conceituado esportivo nacional e a precis&atilde;o da mec&acirc;nica alem&atilde;.</p>
+<p style="text-align: center;"><iframe width="574" height="320" frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/bvF1pLRh8W4"></iframe></p>
+<p style="text-align: center;"><a target="_blank" href="http://www.garagemdobellote.com.br/"><input width="580" type="image" height="126" src="http://carsale.uol.com.br/_imgs/bellote-ok%281%29.jpg" /></a></p>[wppa type="slide" album="12303"][/wppa]','2014-01-24 11:18:00',2,'publish','open','Classico-Gol-GTI-com-mecanica-Audi-e-350-cv',0,0,'post');
 
 /* GALERIA DE FOTOS */
 http://carsale.uol.com.br/asp/img/Album/...
 
-SELECT     TOP 1000 ultnotweb_imagem.idnoticia, ultnotweb_imagem.img_tipo, ultnotweb_imagem.img_arquivo, UltNotWeb.Titulo, UltNotWeb.SubTitulo
+SELECT     ultnotweb_imagem.idnoticia, ultnotweb_imagem.img_tipo, ultnotweb_imagem.img_arquivo, UltNotWeb.Titulo, UltNotWeb.SubTitulo
 FROM         ultnotweb_imagem INNER JOIN
                       UltNotWeb ON ultnotweb_imagem.idnoticia = UltNotWeb.IDnoticia
 WHERE     (ultnotweb_imagem.img_tipo = 'Ab')
