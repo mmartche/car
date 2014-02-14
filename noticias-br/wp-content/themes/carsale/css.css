@@ -1,0 +1,16 @@
+table
+{
+border-collapse:separate;
+empty-cells:hide;
+}
+p:empty
+{
+width:100px;
+height:20px;
+background:#ff0000;
+}
+a:after {content: " (" attr(href) ")";}
+table.ex1 {table-layout:auto}
+table.ex2 {table-layout:fixed}
+::selection {color:red;background:yellow;}
+::-moz-selection {color:red;background:yellow;}
