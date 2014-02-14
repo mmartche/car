@@ -1,0 +1,1 @@
+<div class="bannerMegaOferta"><img src="http://carsale.uol.com.br/novosite/images/banner05022014.jpg" alt="Mega Ofertas Carsale" title="Mega Ofertas Carsale" /></div>

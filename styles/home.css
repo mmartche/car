@@ -107,8 +107,8 @@ header {
 	background-color: #c2232a;
 }
 .dropdown-menu li a {
-	margin: 10px 0;
-	padding: 5px 20px;
+	padding: 0px 15px;
+	font-size: 19px;
 }
 .menu.affix .active > a {
 	width: 80px;
@@ -129,8 +129,12 @@ header {
 	margin-top: 39px;
 }
 .subMenuLi .subMenu {
-	width: 100%;
+	width: 950px;
 	background-color: darkred;
+	margin: 0 20px;
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	border-radius: 15px;
 }
 .subMenu a {
 	margin: 0 !important;
@@ -810,6 +814,16 @@ overflow: hidden;
 	width: 665px;
 	margin: 0 10px 10px 0;
 }
+.doubleBanner .banner120x600 {
+	float: left;
+	margin: 0 15px;
+	margin-bottom: 10px;
+}
+.banner120x600 {
+	width: 120px;
+	height: 600px;
+	background-color: darkblue;
+}
 .fbSocialLike {
 	
 }
@@ -920,6 +934,20 @@ footer .footerCompraImg:hover {
 }
 .frameTw {
 	width: 259px; height: 20px;
+}
+.bannerMegaOferta {
+	width: 675px;
+	height: 165px;
+	background-color: darkblue;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.bannerExploradorTopo {
+	width: 180px;
+	height: 290px;
+	background-color: darkblue;
+	overflow: hidden;
+	float: right;
 }
 /*
 HELPER

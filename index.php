@@ -90,6 +90,7 @@ $_SESSION["tokenTime"] = time();
 		<div class="contentMiddle">
 			
 			<?
+		include ("includes/bannerTopMiddle.php");
 			include ("includes/ultNot.php");
 			include ("includes/chamadaHome.php");
 			include ("includes/carrosselVideos.php");
@@ -111,6 +112,10 @@ $_SESSION["tokenTime"] = time();
 				<script type="text/javascript">
 					TM.display();
 				</script>
+			</div>
+			<div class="doubleBanner">
+				<div class="banner120x600"></div>
+				<div class="banner120x600"></div>
 			</div>
 			<div class="fbSocialLike">
 				<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;width=300&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;show_border=true&amp;appId=441715265891994" style="border:none; overflow:hidden; width:300px; height:258px;" ></iframe>

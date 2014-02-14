@@ -78,10 +78,10 @@ WHERE UltNotWeb.IDnoticia = ultnotweb_imagem.idnoticia AND ultnotweb_imagem.img_
 
 
 juntar os campos SubTitulo,img_arquivo,LinkVideo,AutorFoto,Texto no esquema:
-<p>[Subtitulo]</p><p><img src="http://carsale.uol.com.br/asp/img/Apres/[img_arquivo]" class="article-image" alt="[AutorFoto]" title="[Titulo]" />[LinkVideo]</p>[Texto]
+<p>[Subtitulo]</p><p><img src="http://carsale.uol.com.br/asp/img/Apres/[img_arquivo]" class="article-image" alt="[AutorFoto]" title="[Titulo]" />[LinkVideo][Tabela]</p>[Texto]
 
 validar se a matéria possui galeria, videos e tabela
-
+[wppa id=1234][table id=1234]
 resultado esperado:
 ('IDnoticia','Titulo','(TextoConcatenado)','dtCriacao'
 (todos com aspas simples)
