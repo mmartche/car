@@ -9,7 +9,7 @@
 // proximo item 
 
 // "idnoticia","img_arquivo_zoom","img_ordem"|
-
+echo "string";
 $listaFull = '
 (12390,"Audi-S1-2.jpg",1,"redator","publish",0,[name],0,0,0),
 (12390,"Audi-S1-13.jpg",2,"redator","publish",0,[name],0,0,0),
@@ -35,46 +35,6 @@ for ($i=0; $i < count($arrayImgs); $i++) {
 	// 	echo "Essa img ".$imgTemp." nao foi encontrada";
 	// }
 }
-
-
-
-
-function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
-	$allowedExts = array("gif", "jpeg", "jpg", "png");
-	$temp = explode(".", $_FILES["file"]["name"]);
-	$extension = end($temp);
-	if ((($_FILES["file"]["type"] == "image/gif")
-	|| ($_FILES["file"]["type"] == "image/jpeg")
-	|| ($_FILES["file"]["type"] == "image/jpg")
-	|| ($_FILES["file"]["type"] == "image/pjpeg")
-	|| ($_FILES["file"]["type"] == "image/x-png")
-	|| ($_FILES["file"]["type"] == "image/png"))
-	&& in_array($extension, $allowedExts)) {
-	// && ($_FILES["file"]["size"] < 20000) ==> check the file size
-		if ($_FILES["file"]["error"] > 0) {
-			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-		} else {
-			$_FILES["file"]["name"] = $manufacturerName."-".$modelName."-".$versionName."-".$featureId.".".end($temp);
-			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-			echo "Type: " . $_FILES["file"]["type"] . "<br>";
-			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-			echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-				if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
-					echo $_FILES["file"]["name"] . " already exists. ";
-				} else {
-					move_uploaded_file($_FILES["file"]["tmp_name"],
-					"../../carImages/" . $_FILES["file"]["name"]);
-					echo "Stored in: " . "../../carImages/" . $_FILES["file"]["name"];
-					return $_FILES["file"]["name"];
-				}
-		}
-	} else {
-		echo "Invalid file";
-	}
-}
-
-
-
 
 
 
