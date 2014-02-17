@@ -396,6 +396,26 @@ transition: all .3s;
 	cursor: pointer;
 }
 
+.divColor {
+	width: 36px;
+	height: 36px;
+	background-color: #eee;
+}
+.divColor {
+	position: relative;
+	width: 36px;
+	height: 36px;
+	background: url(../admin/images/colorpicker/select.png) no-repeat;
+	padding: 0 0 0 40px;
+}
+.divColor div {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 30px;
+	height: 30px;
+	
+}
 
 
 /*THUMBS SEARCH FORM */

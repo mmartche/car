@@ -22,7 +22,7 @@ function excluirComparacao(obj){
     $(".exploradorTabelaGridBase")[number].remove();
     qnt = $(".exploradorTabelaCarroNumeracao").length;
     for (i = 0; i < qnt; i++) {
-        console.log(i,$(".exploradorTabelaCarroNumeracao")[i]);
+        //console.log(i,$(".exploradorTabelaCarroNumeracao")[i]);
         $(".exploradorTabelaCarroNumeracao")[i].innerText = i+1;
     };
 }
@@ -184,7 +184,7 @@ function addFilter (obj,idModel) {
                             '<div class="descriptionItem">';
                             if (data[0].colors ) {
                                 $.each( data[0].colors, function( index, item ) {
-                                    modalTemp += '<div class="descItemSerie">'+item.hexa+'</div>';
+                                    modalTemp += '<div class="descItemSerie"><div class="divColor"><div style="background-color: #'+item.hexa+';"></div>'+item.name+'</div></div>';
                                 });
                             } else {
                                 modalTemp += '<div class="descItemSerie">Nenhum item encontrado</div>';

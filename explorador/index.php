@@ -126,6 +126,7 @@ var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
 function updateField(obj){
 	$("#expModel option").remove();
 	var optTemp;
+	console.log('../admin/api/index.php?type=askModel&mainId='+obj.value);
 	$.getJSON('../admin/api/index.php?type=askModel&mainId='+obj.value, function(data) {
 		$.each(data, function(key, val) {
 			optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';

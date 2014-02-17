@@ -259,8 +259,8 @@ switch ($_GET[type]) {
 		break;
 	case 'askModel':
 		echo "[";
-		if ($_GET[mainId] != "") { $mainId = " and idManufacturer = '".$_GET[mainId]."' "; }
-		$sql_search = "SELECT id, name, idSegment1, idSegment2, idSegment3 active from model where name like ('%".$_GET[term]."%') ".$mainId." ORDER by name";
+		if ($_GET[mainId] != "") { $mainId = " and model.idManufacturer = '".$_GET[mainId]."' "; }
+		$sql_search = "SELECT model.id, model.name, model.idSegment1, model.idSegment2, model.idSegment3, model.active from model, version, feature where feature.idVersion = version.id and version.idModel = model.id and model.name like ('%".$_GET[term]."%') ".$mainId." GROUP BY model.id ORDER by model.name";
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -424,7 +424,7 @@ switch ($_GET[type]) {
 		break;
 
 	case 'askExplorer':
-	$a = ($_GET[idVersion] == "" || $_GET[idVersion] == "0"  ? "" : " and version.id = '".$_GET[idVersion]."' ");
+		$a = ($_GET[idVersion] == "" || $_GET[idVersion] == "0" || $_GET[idVersion] == "undefined" ? "" : " and version.id = '".$_GET[idVersion]."' ");
 		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.radio,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, version.id as versionId, version.name as versionName, model.id as modelId, model.name as modelName from feature, version, model where feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ".$a." ORDER BY feature.yearProduced DESC limit 1 ";
 		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'error #416"}]');
 		$result="[";
