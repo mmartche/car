@@ -797,6 +797,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				$sqlOptF = "SELECT optionsVersion.id as optId, optionsVersion.id, optionsManufacturer.name, optionsManufacturer.options, optionsVersion.price, optionsManufacturer.code from optionsVersion, optionsManufacturer where optionsVersion.yearModel = '".$res[yearModel]."' and idVersion = '".$res[versionId]."' and optionsVersion.code = optionsManufacturer.code order by `code` asc, `name` desc";
 				$queryOptF = mysql_query($sqlOptF) or die (" error #800");
 				$lengthOptF = mysql_num_rows($queryOptF);
+				// echo $sqlOptF;
 				?>
 				<div class="dataOptions dataFields">
 					<label class="subTitle">OPCIONAIS</label>
@@ -836,7 +837,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 									<input type="hidden" id="txtOptIdFeature" value="<?=$resOptF[optId]?>" />
 									<input type="hidden" id="optIdOpt" name="txtOpt<?=$iOptM?>" value="<?=$resOptF[idOption]?>" />
 									<input type="hidden" id="optPrice" name="txtOptPrice<?=$iOptM?>" value="<?=$resOptF[price]?>" />
-									<input type="hidden" id="optCode" name="txtOptCode" value="<?=$resOptF[code]?>" />
+									<input type="hidden" id="optCode" name="txtOptCode<?=$iOptM?>" value="<?=$resOptF[code]?>" />
 									<label id="lblOptions" title="<?=$resOptF[options]?>"><?=$resOptF[name]?></label><br />
 									<label>R$ <?=$resOptF[price]?></label>
 								</div>
@@ -876,14 +877,14 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") { 
 					if ($_GET[category] != "model"){
 					$iColor = 0;
-					//if ($_GET[category] == "manufacturer") {
+					if ($_GET[category] == "manufacturer") {
 						$sqlColor = "SELECT * from colorManufacturer WHERE idManufacturer = '".$res[manufacturerId]."'";
 						$tableColor = "colorManufacturer";
-					/*} else {
-						$sqlColor = "SELECT * from colorFeature where idVersion = '".$res[modelId]."'";
-						$tableColor = "colorFeature";
-					}*/
-					$queryColor = mysql_query($sqlColor) or die (" error #450");
+					} else {
+						$sqlColor = "SELECT colorVersion.id, colorManufacturer.name, colorManufacturer.code, colorManufacturer.hexa, colorManufacturer.type, colorManufacturer.application, colorVersion.price from colorVersion, colorManufacturer where colorVersion.code = colorManufacturer.code and  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."'";
+						$tableColor = "colorVersion";
+					}
+					$queryColor = mysql_query($sqlColor) or die (" error #886");
 					$lengthColor = mysql_num_rows($queryColor);
 					?>
 					<div class="dataColor dataFields">
@@ -893,6 +894,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 								<div id="colorSelector" class="divColor"><div></div></div>
 								<input type="hidden" id="colorId" />
 								<input type="text" id="colorSelected" placeholder="Cor em hexa" /><br />
+								<input type="text" id="colorCode" placeholder="Código" /><br />
 								<input type="text" id="colorName" placeholder="Nome" /><br />
 								<select  id="colorType">
 									<option value="Sólida" >Sólida</option>
@@ -912,16 +914,17 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 							<? while ($resColor = mysql_fetch_array($queryColor)) { ?>
 							<span  colorId="<?=$resColor[id]?>">
 								<div class="delColor" onclick="deleteColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">X</div>
-							<div class="updateColor" onclick="updateColor(this,<?=$resColor[id]?>,'<?=$tableColor?>')">
+							<div class="updateColor" onclick="updateColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">
 								<div class="divColor">
 									<div style="background-color: #<?=$resColor[hexa]?>;"></div>
 								</div>
-								<span id="textColor"><?=$resColor[name]." - ".$resColor[type]."<br />R$ ".$resColor[price]?></span>
+								<span id="textColor"><?=$resColor[name]." - ".$resColor[type]."<br />".$resColor[code]." => R$ ".$resColor[price]?></span>
 								<input type="hidden" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
 								<input type="hidden" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=$resColor[name]?>" />
 								<input type="hidden" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
 								<input type="hidden" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=$resColor[type]?>" />
 								<input type="hidden" id="colorInputPrice" name="colorInputPrice<?=$iColor?>" value="<?=$resColor[price]?>" />
+								<input type="hidden" id="colorInputCode" name="colorInputCode<?=$iColor?>" value="<?=$resColor[code]?>" />
 								<input type="hidden" id="colorInputTable" name="colorInputTable<?=$iColor?>" value="<?=$tableColor?>" />
 							</div>
 							</span>

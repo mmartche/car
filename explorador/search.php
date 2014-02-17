@@ -251,7 +251,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 		}
 		$filterItems .= ($filterItems != "" ? ")" : ""); 
 		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version, manufacturer WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and (feature.active ='s' or feature.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
-		// echo $sqlFilter;
+		echo $sqlFilter;
 		$queryFilter = mysql_query($sqlFilter) or die ($sqlFilter.mysql_error()."error #240");
 		if (mysql_num_rows($queryFilter) > 0) {
 			while ($resFilter = mysql_fetch_array($queryFilter)) { ?>

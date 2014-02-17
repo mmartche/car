@@ -186,16 +186,27 @@ switch ($_GET[type]) {
 		break;
 
 	case 'addOption':
-		$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
-		mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
-		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
+		$checkDB = "select id from `optionsManufacturer where code = '".$_GET[codopt]."'";
+		$checkQ = mysql_query($checkDB);
+		if (mysql_num_rows($checkQ) > 0) {
+			$optIdEx = mysql_fetch_array($checkQ);
+			$sql_addOpt = "UPDATE `optionsManufacturer SET (`idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[name]."', `options` = '".$_GET[text]."', `price` = '".$_GET[price]."', `active` = 's', `dateUpdate` = now()) WHERE code = '".$_GET[codopt]."'";
+			mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
+			echo '[{"response":"true","insertId":"'.$optIdEx[id].'","reason":"Same code"}]';
+		} else {
+			$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
+			mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
+			echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
+		}
 		break;
 
 	case 'addColor':
-		if ($_GET[cId] != "") {
-			$sql_addColor = "UPDATE colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE id = '".$_GET[cId]."'";
+		$checkColor = "SELECT id from colorManufacturer where code = '".$_GET[ccode]."'";
+		$chColor = mysql_query($checkColor);
+		if (mysql_num_rows($chColor) > 0 ) {
+			$sql_addColor = "UPDATE colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE code = '".$_GET[ccode]."'";
 		} else {
-			$sql_addColor = "INSERT into `colorManufacturer` (`idManufacturer`, `name`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";
+			$sql_addColor = "INSERT into `colorManufacturer` (`idManufacturer`, `name`, `code`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[ccode]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";			
 		}
 		mysql_query($sql_addColor) or die ('[{"response":"false","error":"error #198","reason":"'.mysql_error().$sql_addColor.'"}]');
 		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
@@ -518,7 +529,7 @@ switch ($_GET[type]) {
 		        "description":"'.$res[description].'",
 		        "active":"'.$res[active].'",
 		        "price":"'.$res[price].'"';
-			$sqlOpt = "SELECT optionsVersion.id, optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsVersion.price as priceFeature from optionsManufacturer, optionsVersion WHERE optionsVersion.code = optionsManufacturer.code and optionsVersion.idVersion = '".$res[versionId]."'";
+			$sqlOpt = "SELECT optionsVersion.id, optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsVersion.price as priceFeature from optionsManufacturer, optionsVersion WHERE optionsVersion.code = optionsManufacturer.code and optionsVersion.idVersion = '".$res[versionId]."' and optionsVersion.yearModel = '".$res[yearModel]."'";
 			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #522");
 			$result.= (mysql_num_rows($queryOpt) > 0 ? ',"options":' : "");
 			$loopOpt=0;
@@ -528,7 +539,7 @@ switch ($_GET[type]) {
 	        		"id":"'.$resOpt[id].'",
 		        	"code":"'.$resOpt[code].'",
 		        	"name":"'.$resOpt[name].'",
-		        	"items":"'.$resOpt[options].'",
+		        	"items":"'.str_replace(array("\r", "\n"), "", $resOpt[options]).'",
 		        	"price":"'.$resOpt[priceFeature].'"
 		        	}';
 		        $loopOpt++;
@@ -549,7 +560,8 @@ switch ($_GET[type]) {
 			$result.=($loopOpt>0 ? "]" : "");
 
 			// $sqlColors = "SELECT colorFeature.hexa, colorFeature.code, colorFeature.name, colorFeature.type, max(colorManufacturer.price) as price from colorFeature, colorManufacturer WHERE colorFeature.idFeature = '".$res[featureId]."' and colorFeature.idManufacturer = colorManufacturer.idManufacturer group by colorFeature.hexa order by colorFeature.name asc";
-			$sqlColors = "SELECT colorVersion.hexa, colorVersion.code, colorVersion.name, colorVersion.type, max(colorManufacturer.price) as price from colorVersion, colorManufacturer WHERE colorVersion.idVersion = '".$res[versionId]."' and colorVersion.code = colorManufacturer.code group by colorVersion.hexa order by colorVersion.name asc";
+			$sqlColors = "SELECT colorVersion.id, colorManufacturer.name, colorManufacturer.code, colorManufacturer.hexa, colorManufacturer.type, colorManufacturer.application, colorVersion.price from colorVersion, colorManufacturer where colorVersion.code = colorManufacturer.code and  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."'";
+			// $sqlColors = "SELECT colorVersion.hexa, colorVersion.code, colorVersion.name, colorVersion.type, max(colorManufacturer.price) as price from colorVersion, colorManufacturer WHERE colorVersion.idVersion = '".$res[versionId]."' and colorVersion.yearModel = '".$res[yearModel]."' and colorVersion.code = colorManufacturer.code group by colorVersion.hexa order by colorVersion.name asc";
 			$queryColors = mysql_query($sqlColors) or die (mysql_error()."error #552");
 			$result.= (mysql_num_rows($queryColors) > 0 ? ',"colors":' : "");
 			$loopOpt=0;

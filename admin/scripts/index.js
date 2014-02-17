@@ -91,16 +91,17 @@ $(document).ready(function(){
 		// cApp = $("#colorAplication").val(),
 		cType = $("#colorType").val(),
 		cPrice = $("#colorPrice").val();
+		cCode = $("#colorCode").val();
 		cLength = $("#optionsColor span").length-1;
 		//console.log('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice);
-		if (cColor.length == "6") {
-			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
+		if (cColor.length == "6" && cCode != "") {
+			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ccode='+cCode+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
 				//console.log(data[0].response,data[0].insertId);
 				if(data[0].response == "true"){
 					//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
 					
 					if (cIId.length == 0) {
-					$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+					$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
 						$("#colorLength").val(cLength+1);
 					} else {
 						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputName").val(cName);
@@ -124,7 +125,7 @@ $(document).ready(function(){
 				}
 			});
 		} else {
-			alert("Precisa ser 6 números, contei "+cColor.length);
+			alert("Precisa ser 6 números na cor hexadecimal e código preenchido");
 		}
 		//$(".delColor").click(function(){
 			
@@ -216,7 +217,7 @@ $(document).ready(function(){
 					'<input type="hidden" id="txtOptIdFeature" value="" />'+
 					'<input type="hidden" id="optIdOpt" name="txtOpt'+l+'" value="'+optId+'" />'+
 					'<input type="hidden" id="optPrice" name="txtOptPrice'+l+'" value="'+price+'" />'+
-					'<input type="hidden" id="optCode" value="'+codOpt+'" />'+
+					'<input type="hidden" id="optCode" name="txtOptCode'+l+'" value="'+codOpt+'" />'+
 					'<label id="lblOptions">'+name+'</label><br />'+
 					'<label>R$ '+price+'</label>'+
 				'</div>'+
@@ -247,7 +248,7 @@ $(document).ready(function(){
 							'<input type="hidden" id="txtOptIdFeature" value="" />'+
 							'<input type="hidden" id="optIdOpt" name="txtOpt'+l+'" value="'+newId+'" />'+
 							'<input type="hidden" id="optPrice" name="txtOptPrice'+l+'" value="'+price+'" />'+
-							'<input type="hidden" id="optCode" value="'+codOpt+'" />'+
+							'<input type="hidden" id="optCode" name="txtOptCode'+l+'" value="'+codOpt+'" />'+
 							'<label id="lblOptions">'+name+'</label><br />'+
 							'<label>R$ '+price+'</label>'+
 						'</div>'+
@@ -356,12 +357,14 @@ function updateColor(obj,idColor,table) {
 	cIName = $(obj).children("#colorInputName").val();
 	cISelect = $(obj).children("#colorInputColor").val();
 	cIPrice = $(obj).children("#colorInputPrice").val();
+	cCode = $(obj).children("#colorInputCode").val();
 	cIApp = $(obj).children("#colorInputApp").val();
 	cIType = $(obj).children("#colorInputType").val();
 	$("#colorId").val(cIId);
 	$("#colorName").val(cIName),
 	$("#colorSelected").val(cISelect),
 	$("#colorPrice").val(cIPrice),
+	$("#colorCode").val(cCode),
 	$("#colorAplication").val(cIApp),
 	$("#colorAplication").parent().find("input[name=colorAplication]").val(cIApp),
 	$("#colorType").val(cIType),

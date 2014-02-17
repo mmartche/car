@@ -173,7 +173,7 @@ switch ($_POST[action]) {
 
 			//options
 			$sqlDelOpts = "delete from `optionsVersion` WHERE `idVersion` = '".$_POST[versionId]."' and yearModel = '".$_POST[yearModel]."'";
-			mysql_query($sqlDelOpts) or die (" error #158");
+			mysql_query($sqlDelOpts) or die (" error #176");
 			echo "<br />#177".$sqlDelOpts;
 			$o=0;
 			for ($i=0;$i<=$_POST[lengthOptions];$i++){
@@ -183,34 +183,35 @@ switch ($_POST[action]) {
 				$optPrice = "txtOptPrice".$i;
 				if ($_POST[$optChoice] == "s") {
 					if ($o > 0) { $valuesOptInput .= ","; }
-					$valuesOptInput .= "('".$_POST[versionId]."', '".$_POST[$optIdOption]."', '".$_POST[$codeOpt]."', '".$_POST[$optChoice]."', '".$_POST[$optPrice]."', '".$_POST[yearModel]."' , now(), now(), '')";
+					$valuesOptInput .= "('".$_POST[versionId]."', '".$_POST[manufacturerId]."' , '".$_POST[$optIdOption]."', '".$_POST[$codeOpt]."', '".$_POST[$optChoice]."', '".$_POST[$optPrice]."', '".$_POST[yearModel]."' , now(), now(), '')";
 					$o++;
 				}
 				// echo $_POST[$optIdOption]."PPPPP".$_POST[$optChoice];
 			}
 			if ($valuesOptInput != ""){
-				$sqlAddOpts = "insert into `optionsVersion` (`idVersion`, `idOption`, `code`, `option`, `price`, `yearModel`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
+				$sqlAddOpts = "insert into `optionsVersion` (`idVersion`, `idManufacturer`, `idOption`, `code`, `option`, `price`, `yearModel`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
 				mysql_query($sqlAddOpts) or die (mysql_error()." error #191");
 				echo "<br />#193".$sqlAddOpts;
 			}
 
-			//color
-			$sqlDelColor = "delete from `colorFeature` where `idFeature` = '".$_POST[featureId]."'"; 
-			mysql_query($sqlDelColor) or die (mysql_error()." error #199");
-			echo "<br />#199".$sqlDelColor;
-			for ($i=0;$i<$_POST[colorLength];$i++){
-				$colorName = $_POST["colorInputName".$i];
-				$colorApp = $_POST["colorInputApp".$i];
-				$colorHex = $_POST["colorInputColor".$i];
-				$colorType = $_POST["colorInputType".$i];
-				if ($i > 0) { $valuesColorInput .= ","; }
-				$valuesColorInput .= "(NULL, '".$_POST[featureId]."', '".$_POST[manufacturerId]."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputType".$i]."', now(), now(), NULL)";
-			}
-			if ($valuesColorInput != ""){
-				$sqlAddColor = "insert into `colorFeature` (`id`, `idFeature`, `idManufacturer`, `name`, `hexa`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
-				mysql_query($sqlAddColor) or die (mysql_error()." error #126");
-				echo "<br />#211".$sqlAddColor;
-			}
+			// //color
+			// $sqlDelColor = "delete from `colorVersion` where `idVersion` = '".$_POST[versionId]."' and yearModel = '",$_POST[yearModel]."'"; 
+			// mysql_query($sqlDelColor) or die (" error #199");
+			// echo "<br />#199".$sqlDelColor;
+			// for ($i=0;$i<$_POST[colorLength];$i++){
+			// 	$colorName = $_POST["colorInputName".$i];
+			// 	$colorApp = $_POST["colorInputApp".$i];
+			// 	$colorHex = $_POST["colorInputColor".$i];
+			// 	$colorType = $_POST["colorInputType".$i];
+			// 	$colorCode = $_POST["colorInputCode".$i];
+			// 	if ($i > 0) { $valuesColorInput .= ","; }
+			// 	$valuesColorInput .= "('".$_POST[versionId]."', '".$_POST[manufacturerId]."', '".$colorName."', '".$colorHex."','".$colorCode."', '".$colorApp."', '".$colorType."', now(), now(), NULL)";
+			// }
+			// if ($valuesColorInput != ""){
+			// 	$sqlAddColor = "insert into `colorVersion` (`idVerion`, `idManufacturer`, `name`, `hexa`, `code`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
+			// 	mysql_query($sqlAddColor) or die (mysql_error()." error #126");
+			// 	echo "<br />#211".$sqlAddColor;
+			// }
 
 			//pictures
 			//uploadFile();
@@ -220,6 +221,7 @@ switch ($_POST[action]) {
 	
 	case 'new':
 	case 'clone':
+	//TO DO: clonar foto
 		if ($_POST[manufacturerId] == "") {
 			$sqlAdd = "INSERT INTO `manufacturer` (`name`, `active`, `description`) VALUES ('".$_POST[manufacturerName]."','s','".$_POST[description]."')";
 			mysql_query($sqlAdd) or die ("error #200");
@@ -283,22 +285,22 @@ switch ($_POST[action]) {
 
 		//options
 		$o=0;
-		for ($i=0;$i<$_POST[lengthOptions];$i++){
+		for ($i=0;$i<=$_POST[lengthOptions];$i++){
 			$optIdOption = "txtOpt".$i;
 			$optChoice = "chOpt".$i;
+			$codeOpt = "txtOptCode".$i;
 			$optPrice = "txtOptPrice".$i;
 			if ($_POST[$optChoice] == "s") {
 				if ($o > 0) { $valuesOptInput .= ","; }
-				$valuesOptInput .= "('".$fetId."', '".$_POST[$optIdOption]."', '".$_POST[$optChoice]."', '".$_POST[$optPrice]."', now(), now(), '')";
+				$valuesOptInput .= "('".$versionId."', '".$_POST[$optIdOption]."', '".$_POST[$codeOpt]."', '".$_POST[$optChoice]."', '".$_POST[$optPrice]."', '".$_POST[yearModel]."' , now(), now(), '')";
 				$o++;
 			}
+			// echo $_POST[$optIdOption]."PPPPP".$_POST[$optChoice];
 		}
 		if ($valuesOptInput != ""){
-			$sqlAddOpts = "insert into `optionsVersion` (`idVersion`, `idOption`, `option`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
-			echo $sqlAddOpts;
-			mysql_query($sqlAddOpts) or die (" error #280");
-			echo "<br />#299".$sqlAddOpts;
-			//echo $sqlAddOpts;
+			$sqlAddOpts = "insert into `optionsVersion` (`idVersion`, `idOption`, `code`, `option`, `price`, `yearModel`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesOptInput;
+			mysql_query($sqlAddOpts) or die (mysql_error()." error #191");
+			echo "<br />#302".$sqlAddOpts;
 		}
 
 		//color
@@ -316,6 +318,16 @@ switch ($_POST[action]) {
 			echo "<br />#315".$sqlAddColor;
 			//echo $sqlAddColor;
 		}
+		//color
+		for ($i=0;$i<$_POST[colorLength];$i++){
+			if ($i > 0) { $valuesColorInput .= ","; }
+			$valuesColorInput .= "('".$versionId."', '".$manufacturerId."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."','".$_POST["colorInputCode".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputType".$i]."', now(), now(), NULL)";
+		}
+		if ($valuesColorInput != ""){
+			$sqlAddColor = "insert into `colorVersion` (`idVerion`, `idManufacturer`, `name`, `hexa`, `code`, `application`, `type`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
+			mysql_query($sqlAddColor) or die (mysql_error()." error #126");
+			echo "<br />#2321".$sqlAddColor;
+		}
 	break;
 }
 
@@ -328,7 +340,7 @@ switch ($_POST[action]) {
 ?>
 <script> 
 alert("Atualizado");
-window.location="../ficha-tecnica.php";
+// window.location="../ficha-tecnica.php";
 </script>
 <a href="../index.php">Voltar a Home</a>
 

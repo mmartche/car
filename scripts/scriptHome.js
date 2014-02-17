@@ -46,6 +46,7 @@ $(document).ready(function(){
 		//$("#inputStatus2").addClass("checked");
 */
 	});
+	// console.log($(".tablepress td"));
 });
 function checkImage(address){
 	$.get(address)

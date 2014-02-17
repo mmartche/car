@@ -266,7 +266,7 @@
 	color: #fff;
 	background-color: #4d5869;
 	text-transform: uppercase;
-	border-radius:5px 5px 0 0;
+	border-radius:0 0 5px 5px;
 }
 .tablepress-table-name:before{
 	content: ">> ";
@@ -276,8 +276,8 @@
 	color: #fff;
 	font-size: 16px;
 	padding: 5px 15px;
-	margin: 0 0 10px 0;
-	border-radius: 0 0 5px 5px;
+	margin: 0;
+	border-radius: 5px 5px 0 0;
 }
 .tablepress {
 	padding: 5px;

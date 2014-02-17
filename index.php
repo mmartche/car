@@ -88,7 +88,7 @@ $_SESSION["tokenTime"] = time();
 		?>
 		
 		<div class="contentMiddle">
-			
+		
 			<?
 		include ("includes/bannerTopMiddle.php");
 			include ("includes/ultNot.php");
@@ -97,8 +97,10 @@ $_SESSION["tokenTime"] = time();
 			include ("includes/chamadasH2.php");
 			// include("includes/enqueteHome.php");
 			?>
-			<div class="banner-325x200">
-				<img src="http://localhost/carsale/carsaleHOME/img/opiniaodoDono.jpg" alt="..." title="" />
+			<div class="banner-325x200 banner-content">
+				<img class="bannerContent" src="http://carsale.uol.com.br/novosite/images/segredos.jpg" alt="..." title="" />
+				<img class="bannerContent" src="http://carsale.uol.com.br/novosite/images/blogCarsale.jpg" alt="" title="" />
+				<img class="bannerCorretora" src="http://carsale.uol.com.br/novosite/images/Auto_online_120x218.jpg" alt="" title="" />
 			</div>
 			
 		</div>

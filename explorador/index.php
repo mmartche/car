@@ -58,7 +58,7 @@ include ("../scripts/conectDB.php");
 						<select class="expInputSelect" name="expManufacturer" id="expSelectManufacturer" onchange="updateField(this)">
 							<option>Montadora</option>
 							<?
-							$sql = "select id, name from manufacturer order by name";
+							$sql = "select manufacturer.id, manufacturer.name from manufacturer, model, version, feature WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id group by name ORDER by name";
 							$query = mysql_query($sql) or die ("error #62");
 							while ($res = mysql_fetch_array($query)) {
 							?>
