@@ -14,6 +14,10 @@
 			if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
 			<li class="list-separator"><?php the_date('d/m','',''); ?></li>
 			<li <?php post_class(); ?>>
+				<?php	
+				if ( has_post_thumbnail() ) {
+					the_post_thumbnail();
+				} ?>
 				<h4 class="list-category"><?php the_category(); ?></h4>
 				<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 				<span class="list-hour"><?php the_date('h','',''); ?>[hora do post]</span>

@@ -32,7 +32,12 @@
 			foreach($posts as $post) :
 				?>
 				<li>
-					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>">
+					<?php if ( has_post_thumbnail() ) {
+						the_post_thumbnail();
+					} 
+ 						the_title(); ?>
+ 					</a>
 					<span class="read-more-date">aa<?php the_date('d/m/Y H:i'); ?></span>
 				</li>
 
@@ -79,7 +84,11 @@
 				$latest_news = 	new WP_Query($args);
 				if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
 				<li>
-					<h3 class="read-more-name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
+						<?php if ( has_post_thumbnail() ) {
+							the_post_thumbnail();
+						} 
+						the_title(); ?></a></h3>
 					<span class="read-more-date"><?php the_date('d/m/Y H:i'); ?></span>
 				</li>
 				<?php endwhile; endif;  ?>

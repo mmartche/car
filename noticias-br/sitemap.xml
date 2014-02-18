@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://localhost/carsale/noticias-br/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.8" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.4" -->
-<!-- generated-on="16 de February de 2014 21:37" -->
+<!-- generated-on="18 de February de 2014 03:37" -->
 <!-- Debug: Total comment count: 0 -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
 		<loc>http://localhost/carsale/noticias-br/</loc>
-		<lastmod>2014-02-16T21:37:12+00:00</lastmod>
+		<lastmod>2014-02-18T03:37:00+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
 	</url>
 <!-- Debug: Start Postings -->
+<!-- Debug: Priority report of postID 12361: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/noticias/2014/02/05/fiat-mostra-punto-aventureiro-em-nova-dli/</loc>
+		<lastmod>2014-02-18T03:37:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
 <!-- Debug: Priority report of postID 12365: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/sem-categoria/2014/02/06/vw-mostra-fusca-com-motor-de-560-cv-e-4wd/</loc>
-		<lastmod>2014-02-16T21:37:12+00:00</lastmod>
+		<lastmod>2014-02-18T03:31:41+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -29,9 +36,9 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 12356: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 12357: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/noticias/2014/02/05/Rolls-Royce-prepara-nova-serie-do-Phantom/</loc>
+		<loc>http://localhost/carsale/noticias-br/lancamentos/2014/02/05/VW-revela-os-precos-de-todas-as-versoes-do-Up/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -64,16 +71,16 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 12361: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 12355: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/noticias/2014/02/05/Fiat-mostra-Punto-aventureiro-em-Nova Dli/</loc>
+		<loc>http://localhost/carsale/noticias-br/lancamentos/2014/02/04/VW-Up-parte-de-R-26900/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 12355: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 12356: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/lancamentos/2014/02/04/VW-Up-parte-de-R-26900/</loc>
+		<loc>http://localhost/carsale/noticias-br/noticias/2014/02/05/Rolls-Royce-prepara-nova-serie-do-Phantom/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -88,13 +95,6 @@
 <!-- Debug: Priority report of postID 12358: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/noticias/2014/02/05/Ford-divulga-v¡deo-com-detalhes-do-Ka-seda/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 12357: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/lancamentos/2014/02/05/VW-revela-os-precos-de-todas-as-versoes-do-Up/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
