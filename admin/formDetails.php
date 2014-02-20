@@ -794,10 +794,9 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 				<?
 				if ($_GET[category] != "model" && $_GET[category] != "version"){
 				$iOptM=0;
-				$sqlOptF = "SELECT optionsVersion.id as optId, optionsVersion.id, optionsManufacturer.name, optionsManufacturer.options, optionsVersion.price, optionsManufacturer.code from optionsVersion, optionsManufacturer where optionsVersion.yearModel = '".$res[yearModel]."' and idVersion = '".$res[versionId]."' and optionsVersion.code = optionsManufacturer.code order by `code` asc, `name` desc";
+				$sqlOptF = "SELECT optionsVersion.id as optId, optionsVersion.id, optionsManufacturer.name, optionsManufacturer.options, optionsVersion.price, optionsManufacturer.code from optionsVersion, optionsManufacturer where optionsVersion.yearModel = '".$res[yearModel]."' and idVersion = '".$res[versionId]."' and optionsVersion.code = optionsManufacturer.code and optionsManufacturer.idManufacturer = '".$res[manufacturerId]."' order by `code` asc, `name` desc";
 				$queryOptF = mysql_query($sqlOptF) or die (" error #800");
 				$lengthOptF = mysql_num_rows($queryOptF);
-				// echo $sqlOptF;
 				?>
 				<div class="dataOptions dataFields">
 					<label class="subTitle">OPCIONAIS</label>
@@ -963,6 +962,11 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 								<img src="<?=$picture?>" />
 								<? } ?>
 							</div>
+							<? if ($_GET[action] == "clone") { ?>
+							<div class="clonePicture"><span class="subTitleAllItems">Atenção, o sistema não consegue clonar imagens, salve esta imagem e adicione ela novamente</span>
+								<img src="<?=$picture?>" />
+							</div>
+							<? } ?>
 						<!--ol class="listPictures" id="listPictures">
 							<li><img src="../carImages/<?=$res[picture]?>">
 							<img src="<? echo $res[manufacturerName]."-".$res[modelName]."-".$res[versionName]."-".$res[featureId].".jpg"; ?>"></li>

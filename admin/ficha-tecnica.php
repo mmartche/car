@@ -214,10 +214,14 @@ include ("./scripts/functions.php");
 						if ($_POST[filterPrice] != "") { $filterSql .= " AND feature.price like ('%".$_POST[filterPrice]."%') "; }
 						if ($_POST[filterActive] == "n") { $filterSql .= " AND feature.active = 'n' "; } else { $filterSql .= " AND feature.active != 'n' "; }
 
-						$sql_search = "SELECT feature.id as id, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc";
+						$sql_search = "SELECT feature.id as id, version.id as versionId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc";
 						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
+						//var_dump($sql_search);
 						$query_search = mysql_query($sql_search) or die (mysql_error()." error #180");
 						while ($res = mysql_fetch_array($query_search)) {
+							//if ($versionTemp == "") { $versionTemp = $res[versionId]; }
+							if ($versionTemp != $res[versionId]) {
+								$versionTemp = $res[versionId];
 						?>
 						<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
 							<div class="rsItems">
@@ -255,7 +259,7 @@ include ("./scripts/functions.php");
 								<div class="rsPrice">R$ <?=formatToPrice($res[price])?></div>
 							</a>
 						</li>
-						<? } 
+						<? } }
 					} ?>
 				</ul></li>
 			</ul>

@@ -94,120 +94,127 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	                    </div>
 	                </div>
 	                <div class="exploradorGridFiltrosColunaATitulo" onclick="toggleClass('.exploradorGridFiltrosChecks','check')">Quais opcionais não podem faltar ?</div>
+					<ul class="exploradorGridFiltrosChecks check" >
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="dualFrontAirBag" <? if (in_array("dualFrontAirBag",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> /><label>Airbag duplo frontal</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="airConditioning" <? if (in_array("airConditioning",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Ar condicionado</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricSteering" <? if (in_array("electricSteering",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Direção elétrica</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="hydraulicSteering" <? if (in_array("hydraulicSteering",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Direção hidráulica</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="cdplayerUSBInput" <? if (in_array("cdplayerUSBInput",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Cd player com USB</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="radio" <? if (in_array("radio",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Rádio</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricLock" <? if (in_array("electricLock",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Trava elétrica</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricWindow" <? if (in_array("electricWindow",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Vidro elétrico</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="absBrake" <? if (in_array("absBrake",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Freios Abs</label></li>
+
+
+
+						
+			        </ul>
 	            </div>
 	        </div>
-	        <ul class="exploradorGridFiltrosChecks check" >
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="dualFrontAirBag" <? if (in_array("dualFrontAirBag",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> /><label>Airbag duplo frontal</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="alarm" <? if (in_array("alarm",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> /> 
-					<label>Alarme</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="airConditioning" <? if (in_array("airConditioning",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Ar condicionado</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="hotAir" <? if (in_array("hotAir",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Ar quente</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="leatherSeat" <? if (in_array("leatherSeat",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Banco de couro</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="heightAdjustment" <? if (in_array("heightAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Banco do motorista com regulagem de altura</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearSeatSplit" <? if (in_array("rearSeatSplit",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Banco traseiro bipartido</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bluetoothSpeakerphone" <? if (in_array("bluetoothSpeakerphone",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Bluetooth com viva-voz</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bonnetSea" <? if (in_array("bonnetSea",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Capota marítima</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="onboardComputer" <? if (in_array("onboardComputer",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Computador de bordo</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="accelerationCounter" <? if (in_array("accelerationCounter",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Conta giros</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearWindowDefroster" <? if (in_array("rearWindowDefroster",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Desembaçador de vidro traseiro</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricSteering" <? if (in_array("electricSteering",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Direção elétrica</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="hydraulicSteering" <? if (in_array("hydraulicSteering",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Direção hidráulica</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="sidesteps" <? if (in_array("sidesteps",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Estribos laterais</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="fogLamps" <? if (in_array("fogLamps",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Faróis de neblina/milha</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="xenonHeadlights" <? if (in_array("xenonHeadlights",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Faróis xenon</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="absBrake" <? if (in_array("absBrake",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Freios Abs</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="integratedGPdlel" <? if (in_array("integratedGPdlel",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>GPS integrado ao painel</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearWindowWiper" <? if (in_array("rearWindowWiper",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Limpador de vidro traseiro</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bumper" <? if (in_array("bumper",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Para choque na cor do veículo</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="autopilot" <? if (in_array("autopilot",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Piloto automático</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bucketProtector" <? if (in_array("bucketProtector",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Protetor de caçamba</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="roofRack" <? if (in_array("roofRack",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Rack de teto</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="cdplayerUSBInput" <? if (in_array("cdplayerUSBInput",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Cd player com entrada USB</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="radio" <? if (in_array("radio",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Cd player com entrada USB</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="headlightsHeightAdjustment" <? if (in_array("headlightsHeightAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Regulagem de altura dos faróis</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearviewElectric" <? if (in_array("rearviewElectric",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Retrovisor elétrico</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="alloyWheels" <? if (in_array("alloyWheels",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Rodas de liga leve</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rainSensor" <? if (in_array("rainSensor",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Sensor de chuva</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="parkingSensor" <? if (in_array("parkingSensor",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Sensor de estacionamento</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="isofix" <? if (in_array("isofix",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Sistema Isofix para cadeira de criança</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="sunroof" <? if (in_array("sunroof",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Teto solar</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricLock" <? if (in_array("electricLock",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Trava elétrica</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="electricWindow" <? if (in_array("electricWindow",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Vidro elétrico</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearElectricWindow" <? if (in_array("rearElectricWindow",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Vidro elétrico traseiro</label></li>
-				<li>
-					<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="steeringWheelAdjustment" <? if (in_array("steeringWheelAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
-					<label>Volante com regulagem de altura</label></li>
-	        </ul>
+	        		<ul class="exploradorGridFiltrosChecks check" >
+				        <li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="alarm" <? if (in_array("alarm",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> /> 
+							<label>Alarme</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="hotAir" <? if (in_array("hotAir",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Ar quente</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="leatherSeat" <? if (in_array("leatherSeat",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Banco de couro</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="heightAdjustment" <? if (in_array("heightAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Banco do motorista com regulagem de altura</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearSeatSplit" <? if (in_array("rearSeatSplit",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Banco traseiro bipartido</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bluetoothSpeakerphone" <? if (in_array("bluetoothSpeakerphone",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Bluetooth com viva-voz</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bonnetSea" <? if (in_array("bonnetSea",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Capota marítima</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="onboardComputer" <? if (in_array("onboardComputer",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Computador de bordo</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="accelerationCounter" <? if (in_array("accelerationCounter",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Conta giros</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearWindowDefroster" <? if (in_array("rearWindowDefroster",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Desembaçador de vidro traseiro</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="sidesteps" <? if (in_array("sidesteps",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Estribos laterais</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="fogLamps" <? if (in_array("fogLamps",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Faróis de neblina/milha</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="xenonHeadlights" <? if (in_array("xenonHeadlights",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Faróis xenon</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="integratedGPdlel" <? if (in_array("integratedGPdlel",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>GPS integrado ao painel</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearWindowWiper" <? if (in_array("rearWindowWiper",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Limpador de vidro traseiro</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bumper" <? if (in_array("bumper",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Para choque na cor do veículo</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="autopilot" <? if (in_array("autopilot",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Piloto automático</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="bucketProtector" <? if (in_array("bucketProtector",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Protetor de caçamba</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="roofRack" <? if (in_array("roofRack",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Rack de teto</label></li>
+						
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="headlightsHeightAdjustment" <? if (in_array("headlightsHeightAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Regulagem de altura dos faróis</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearviewElectric" <? if (in_array("rearviewElectric",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Retrovisor elétrico</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="alloyWheels" <? if (in_array("alloyWheels",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Rodas de liga leve</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rainSensor" <? if (in_array("rainSensor",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Sensor de chuva</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="parkingSensor" <? if (in_array("parkingSensor",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Sensor de estacionamento</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="isofix" <? if (in_array("isofix",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Sistema Isofix para cadeira de criança</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="sunroof" <? if (in_array("sunroof",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Teto solar</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="rearElectricWindow" <? if (in_array("rearElectricWindow",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Vidro elétrico traseiro</label></li>
+						<li>
+							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="steeringWheelAdjustment" <? if (in_array("steeringWheelAdjustment",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
+							<label>Volante com regulagem de altura</label></li>
+					</ul>
 	        <div class="exploradorGridFiltrosBtnBuscar">
                 <input type="submit" value="Buscar" class="btnExploradorFilter" id="btnSearch" name="btnSearch" />
             </div>

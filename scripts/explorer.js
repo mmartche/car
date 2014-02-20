@@ -160,6 +160,12 @@ function addFilter (obj,idModel) {
                             '<div class="dealerFichaTecnicaTxtLegenda">Foto meramente ilustrativa</div>'+
                             '<div class="dealerFichaTecnicaTituloDesc">Itens de série inclusos</div>'+
                             '<div class="descriptionItem">';
+                            if (data[0].itemsSerie ) {
+                                itemsTemp = data[0].itemsSerie.split(",");
+                                $.each( itemsTemp, function( index, item ) {
+                                    modalTemp += '<div class="descItemSerie">'+item+'</div>';
+                                });
+                            }
                             if (data[0].serieItems ) {
                                 $.each( data[0].serieItems, function( index, item ) {
                                     modalTemp += '<div class="descItemSerie">'+item.description+'</div>';
@@ -184,7 +190,7 @@ function addFilter (obj,idModel) {
                             '<div class="descriptionItem">';
                             if (data[0].colors ) {
                                 $.each( data[0].colors, function( index, item ) {
-                                    modalTemp += '<div class="descItemSerie"><div class="divColor"><div style="background-color: #'+item.hexa+';"></div>'+item.name+'</div></div>';
+                                    modalTemp += '<div class="descItemSerie"><div class="divColor"><div style="background-color: #'+item.hexa+';"></div>'+item.name+'<br />R$ '+item.price+'</div></div>';
                                 });
                             } else {
                                 modalTemp += '<div class="descItemSerie">Nenhum item encontrado</div>';

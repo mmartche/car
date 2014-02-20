@@ -93,7 +93,7 @@ $(document).ready(function(){
 		cPrice = $("#colorPrice").val();
 		cCode = $("#colorCode").val();
 		cLength = $("#optionsColor span").length-1;
-		//console.log('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&capp='+cApp+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice);
+		console.log('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ctype='+cType+'&ccode='+cCode+'&table='+cTable+'&cprice='+cPrice);
 		if (cColor.length == "6" && cCode != "") {
 			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ccode='+cCode+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
 				//console.log(data[0].response,data[0].insertId);
@@ -120,7 +120,7 @@ $(document).ready(function(){
 					$("#colorSelector div").css("backgroundColor", "#ffffff");
 					$("#btnColorAdd").val("Adicionar");
 				} else {
-					console.log(data[0].reason);
+					alert(data[0].reason);
 					//$("#resultOptions").prepend('<label>''</label>');
 				}
 			});
