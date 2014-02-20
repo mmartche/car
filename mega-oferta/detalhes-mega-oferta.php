@@ -3,11 +3,11 @@ session_start();
 $_SESSION["tokenTime"] = time();
 include ("../scripts/conectDB.php");
 include ("../admin/scripts/functions.php");
-$sql = "SELECT *, model.name as modelName, version.name as versionName from megaOferta, version, model where megaOferta.versionId = version.id and megaOferta.modelId = model.id and megaOferta.id = '".$_GET[veiculo]."'";
+$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.yearModel, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.dateLimit, feature.picture FROM megaOferta, manufacturer, model, version, feature WHERE feature.idVersion = version.id and feature.yearModel = megaOferta.yearModel and megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.id = '".$_GET[veiculo]."'";
 $query = mysql_query($sql) or die ($sql);
 $res = mysql_fetch_array($query);
-if (file_exists("../carImagesMegaOferta/".$res[picture])) {
-    $picture = "../carImagesMegaOferta/".$res[picture];
+if (file_exists("../carImages/".$res[picture])) {
+    $picture = "../carImages/".$res[picture];
 } elseif (file_exists("../carImages/".$res[picture])) {
     $picture = "../carImages/".$res[picture];
 } elseif (file_exists("http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg")) {
@@ -326,6 +326,8 @@ if (file_exists("../carImagesMegaOferta/".$res[picture])) {
 <? 
 $arrayModalVersion = array();
 $arrayModalVersion[] = $res[versionId];
+$arrayModalYear = array();
+$arrayModalYear[] = $res[yearModel];
 include ("../scripts/modalFeatureMakup.php");
 include ("../includes/footer.php");
 ?>

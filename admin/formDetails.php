@@ -63,13 +63,13 @@ if ($_GET[action] == "new") {
 			break;
 		case 'feature':
 			//$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and feature.id = '".$_GET[vehicle]."'";
-			$typeSearch = ($_GET[action] == "viewVersion" ? "feature.idVersion" : "feature.id");
+			$typeSearch = ($_GET[action] == "viewVersion" ? " feature.yearModel = '".$_GET[yearModel]."' and feature.idVersion" : "feature.id");
 			$sql_search = "SELECT feature.id as featureId, manufacturer.id as manufacturerId, model.id as modelId, version.id as versionId, manufacturer.name as manufacturerName, manufacturer.description as manufacturerDescription, model.name as modelName, model.description as modelDescription, version.name as versionName, feature.yearProduced, feature.yearModel, feature.items as itemsSerie, feature.doors, feature.passagers, feature.engine, feature.feeding, feature.fuel, feature.powerMax, feature.torque, feature.acceleration, feature.speedMax, feature.consumptionCity, feature.consumptionRoad, feature.steering, feature.gear, feature.traction, feature.wheels, feature.frontSuspension, feature.rearSuspension, feature.frontBrake, feature.rearBrake, feature.dimensionLength, feature.dimensionWidth, feature.dimensionHeight, feature.dimensionSignAxes, feature.weight, feature.trunk, feature.tank, feature.warranty, feature.countryOrigin, feature.dualFrontAirBag, feature.alarm, feature.airConditioning, feature.hotAir, feature.leatherSeat, feature.heightAdjustment, feature.rearSeatSplit, feature.bluetoothSpeakerphone, feature.bonnetSea, feature.onboardComputer, feature.accelerationCounter, feature.rearWindowDefroster, feature.electricSteering, feature.hydraulicSteering, feature.sidesteps, feature.fogLamps, feature.xenonHeadlights, feature.absBrake, feature.integratedGPSPanel, feature.rearWindowWiper, feature.bumper, feature.autopilot, feature.bucketProtector, feature.roofRack, feature.cdplayerUSBInput, feature.radio, feature.headlightsHeightAdjustment, feature.rearviewElectric, feature.alloyWheels, feature.rainSensor, feature.parkingSensor, feature.isofix, feature.sunroof, feature.electricLock, feature.electricWindow, feature.rearElectricWindow, feature.steeringWheelAdjustment, feature.picture, feature.active, feature.dateCreate, feature.dateUpdate, feature.description, feature.price, model.idSegment1, model.idSegment2, model.idSegment3 from feature, manufacturer, model, version where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and ".$typeSearch." = '".$_GET[vehicle]."'";
 			break;
 	}
 }
 if ($_GET[category]) {
-$query_search = mysql_query($sql_search) or die ("error #73");
+$query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 	if (mysql_num_rows($query_search) > 0 ) {
 		$res = mysql_fetch_array($query_search);
 	} else {
@@ -958,7 +958,7 @@ $query_search = mysql_query($sql_search) or die ("error #73");
 							<textarea class="image-preview" disabled="disabled" <?=$bgImgPicture?>></textarea>
 							<input type="button" class="btnRemoveTempImg" onclick="removeTempImg()" value="Remover imagem temporaria" />
 							<div class="oldPicture"><span class="subTitleAllItems">Imagem do cadastro atual</span>
-								<? if ($_GET[action] == "update") { ?>
+								<? if ($_GET[action] == "update" || $_GET[action] == "viewVersion") { ?>
 								<img src="<?=$picture?>" />
 								<? } ?>
 							</div>

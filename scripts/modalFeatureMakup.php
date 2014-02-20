@@ -1,7 +1,7 @@
 <?
 $arrayModalVersion = array_unique($arrayModalVersion);
 for ($i=0; $i < count($arrayModalVersion); $i++) { 
-	$sqlF = "SELECT *, feature.id as featureId, max(yearModel), megaOferta.picture as pictureMO, version.name as versionName, model.name as modelName from feature, megaOferta, version, model WHERE feature.idVersion = megaOferta.versionId and version.idModel = model.id and feature.idVersion = '".$arrayModalVersion[$i]."' and feature.idVersion = version.id GROUP by feature.id";
+	$sqlF = "SELECT *, feature.id as featureId, max(feature.yearModel), feature.picture, version.name as versionName, model.name as modelName from feature, megaOferta, version, model, manufacturer WHERE feature.idVersion = version.id and feature.yearModel = '".$arrayModalYear[$i]."' and feature.idVersion = '".$arrayModalVersion[$i]."' and megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id";
 	$queryF = mysql_query($sqlF) or die(mysql_error()."error #5");
 	$resF = mysql_fetch_array($queryF);
 ?>
@@ -43,9 +43,7 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
         <div class="dealerFichaTecnicaBgInterno">
             <div class="dealerFichaTecnicaTitulo">Ficha Técnica</div>
             <?
-                if (file_exists("../carImagesMegaOferta/".$resF[pictureMO])) {
-                    $picture = "../carImagesMegaOferta/".$resF[pictureMO];
-                } elseif (file_exists("../carImages/".$resF[picture])) {
+                if (file_exists("../carImages/".$resF[picture])) {
                     $picture = "../carImages/".$resF[picture];
                 } elseif (file_exists("http://carsale.uol.com.br/foto/".$resF[picture]."_g.jpg")) {
                     $picture = "http://carsale.uol.com.br/foto/".$resF[picture]."_g.jpg";

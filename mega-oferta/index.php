@@ -56,7 +56,9 @@ include ("../admin/scripts/functions.php");
 			<!-- Indicators -->
 				<ol class="carousel-indicators">
 					<? 
-					$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place = 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`orderMega` asc";
+					$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.yearModel, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.dateLimit, feature.picture FROM megaOferta, manufacturer, model, version, feature WHERE feature.idVersion = version.id and feature.yearModel = megaOferta.yearModel and megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place = 'carousel' GROUP BY megaOferta.id order by megaOferta.place desc, `orderMega` asc";
+
+					//$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place = 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`orderMega` asc";
 
 					// $sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'carousel' ORDER by place";
 
@@ -73,13 +75,20 @@ include ("../admin/scripts/functions.php");
 					<?
 					$r=0;
 					while ($resItem = mysql_fetch_array($query)) {
+						if (file_exists("../carImages/".$resItem[picture])) {
+		                    $picture = "../carImages/".$resItem[picture];
+		                } elseif (file_exists("http://carsale.uol.com.br/foto/".$resItem[picture]."_g.jpg")) {
+		                    $picture = "http://carsale.uol.com.br/foto/".$resItem[picture]."_g.jpg";
+		                } else {
+		                    $picture = "http://carsale.uol.com.br/foto/".$resItem[picture]."_g.jpg";
+		                }
 					?>
 						<div class="item <? if ($r == 0) echo ' active'; ?>">
 							<a href="./detalhes-mega-oferta.php?veiculo=<?=$resItem[megaOfertaId]?>">
 							<div class="carousel-title carousel-caption">
 								<h3><?=$resItem[modelName]?></h3>
 							</div>
-							<img class="carousel-image" src="../carImagesMegaOferta/<?=$resItem[picture]?>" alt="<?=$resItem[modelName]?>" class="carrosselImg" title="<?=$resItem[modelName]?>" />
+							<img class="carousel-image" src="<?=$picture?>" alt="<?=$resItem[modelName]?>" class="carrosselImg" title="<?=$resItem[modelName]?>" />
 							<div class="carousel-caption">
 								<h4>R$ <?=formatToPrice($resItem[price])?></h4>
 								<!--div class="carousel-opacity"><?=$resItem[dateLimit]?></div-->
@@ -104,19 +113,29 @@ include ("../admin/scripts/functions.php");
 			<!-- END CAROUSEL -->
 			<?
 			// $sql = "SELECT model.name as modelName, version.name as versionName, megaOferta.price, place, dateLimit, feature.picture FROM megaOferta, model, version, feature WHERE megaOferta.idFeature = feature.id and feature.idVersion = version.id and version.idModel = model.id AND place = 'normal' ORDER by place";
-			$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place != 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`orderMega` asc";
+			$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.yearModel, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.dateLimit, feature.picture FROM megaOferta, manufacturer, model, version, feature WHERE feature.idVersion = version.id and feature.yearModel = megaOferta.yearModel and megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place != 'carousel' GROUP BY megaOferta.id order by megaOferta.place desc, `orderMega` asc";
+
+//			$sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.place != 'carousel' GROUP BY megaOferta.id order by megaOferta.place, `megaOferta`.`orderMega` asc";
 			$query = mysql_query($sql) or die (mysql_error());
 			$arrayModalVersion = array();
+			$arrayModalYear = array();
 			while ($resN = mysql_fetch_array($query)) {
 				$arrayModalVersion[] = $resN[versionId];
+				$arrayModalYear[] = $resN[yearModel];
+				if (file_exists("../carImages/".$resN[picture])) {
+                    $picture = "../carImages/".$resN[picture];
+                } elseif (file_exists("http://carsale.uol.com.br/foto/".$resN[picture]."_g.jpg")) {
+                    $picture = "http://carsale.uol.com.br/foto/".$resN[picture]."_g.jpg";
+                } else {
+                    $picture = "http://carsale.uol.com.br/foto/".$resN[picture]."_g.jpg";
+                }
 			?>
 			<div class="megaOfertasCarsaleOferta">
 				<div class="megaOfertasCarsaleTituloOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[modelName]."<br />".$res[versionName]?></a></div>
 				<div class="megaOfertasCarsaleImgBgOferta">
-				<?	$tempPicture = "../carImagesMegaOferta/".$resN[picture]; ?>
 					<div class="megaOfertasCarsaleImgOferta">
 						<a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">
-							<img alt="" title="" border="0" class="imgMegaOfertaNormal" src="<?=$tempPicture?>">
+							<img alt="" title="" border="0" class="imgMegaOfertaNormal" src="<?=$picture?>">
 						</a>
 					</div>
 					<div class="megaOfertasCarsaleValorOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">R$ <?=formatToPrice($resN[price])?> </a></div>

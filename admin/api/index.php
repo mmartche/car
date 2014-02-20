@@ -403,7 +403,6 @@ switch ($_GET[type]) {
 		// }
 		break;
 	case 'megaRemove':
-		//TO DO: remove or edit image name file
 		$sqlRM = "DELETE from `megaOferta` WHERE `id` = '".$_GET[idItem]."'";
 		mysql_query($sqlRM) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		echo '[{"response":"true", "reason":"Item removed"}]';
@@ -608,8 +607,8 @@ switch ($_GET[type]) {
 		break;
 
 	case 'searchMega':
-		$sqlMega = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, manufacturer.id as manufacturerId, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.place, megaOferta.order, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.id = '".$_GET[idItem]."'";
-		$queryMega = mysql_query($sqlMega) or die ('[{"response":"false", "reason":"#error 548"}]');
+		$sqlMega = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, manufacturer.id as manufacturerId, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.yearModel, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.picture, megaOferta.dateLimit FROM megaOferta, manufacturer, model, version WHERE megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.id = '".$_GET[idItem]."'";
+		$queryMega = mysql_query($sqlMega) or die ('[{"response":"false", "reason":"'.mysql_error().'#error 612"}]');
 		$resMega = mysql_fetch_array($queryMega);
 		echo '[{
 			"response":"true",
@@ -621,12 +620,28 @@ switch ($_GET[type]) {
 			"versionId":"'.$resMega[versionId].'",
 			"versionName":"'.$resMega[versionName].'",
 			"price":"'.$resMega[price].'",
+			"yearModel":"'.$resMega[yearModel].'",
 			"place":"'.$resMega[place].'",
-			"order":"'.$resMega[order].'",
+			"orderMega":"'.$resMega[orderMega].'",
 			"description":"'.$resMega[description].'",
 			"picture":"'.$resMega[picture].'"
 		}]';
 
+		break;
+
+	case 'askYear':
+		$sqlY = "SELECT yearModel from manufacturer, model, version, feature where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and model.id = '".$_GET[modelId]."' and version.id = '".$_GET[versionId]."' and manufacturer.id = '".$_GET[manufacturerId]."' order by yearModel desc"; 
+		$qY = mysql_query($sqlY) or die('[{"response":"false", "reason":"'.mysql_error().'#error 635"}]');
+		$m=0; echo "[";
+		while ($resY = mysql_fetch_array($qY)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+				"response":"true",
+				"yearModel":"'.$resY[yearModel].'"
+				}';
+			$m++;
+		}
+		echo "]";
 		break;
 
 

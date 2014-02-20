@@ -40,7 +40,7 @@ function uploadFile ($manufacturerId,$modelId,$versionId) {
 switch ($_POST[btnAddMegaOferta]) {
 	case 'Adicionar':
 		$picTemp = uploadFile($_POST[manufacturerId],$_POST[modelId],$_POST[versionId]);
-		$sqlAddMO = "INSERT INTO megaOferta (`manufacturerId`,`modelId`,`versionId`,`featureId`,`price`,`orderMega`,`place`,`description`,`picture`,`dateIni`,`dateLimit`,`dateUpdate`) VALUES ('".$_POST[manufacturerId]."','".$_POST[modelId]."','".$_POST[versionId]."','".$_POST[featureId]."','".$_POST[price]."','".$_POST[orderMega]."','".$_POST[place]."','".$_POST[description]."','".$picTemp."','".$_POST[dateIni]."','".$_POST[dateLimit]."',now())";
+		$sqlAddMO = "INSERT INTO megaOferta (`manufacturerId`,`modelId`,`versionId`,`featureId`,`price`,`orderMega`,`yearModel`,`place`,`description`,`picture`,`dateIni`,`dateLimit`,`dateUpdate`) VALUES ('".$_POST[manufacturerId]."','".$_POST[modelId]."','".$_POST[versionId]."','".$_POST[featureId]."','".$_POST[price]."','".$_POST[orderMega]."','".$_POST[yearModel]."','".$_POST[place]."','".$_POST[description]."','".$picTemp."','".$_POST[dateIni]."','".$_POST[dateLimit]."',now())";
 		//echo $sqlAddMO;
 		mysql_query($sqlAddMO) or die("#error 71");
 		break;
@@ -49,7 +49,7 @@ switch ($_POST[btnAddMegaOferta]) {
 		if ($picTemp != "") {
 			$picTempSql = "`picture` = '".$picTemp."',";
 		}
-		$sqlUpdateMO = "UPDATE `megaOferta` SET `manufacturerId` = '".$_POST[manufacturerId]."', `modelId` = '".$_POST[modelId]."', `versionId` = '".$_POST[versionId]."', `featureId` = '".$_POST[featureId]."', `price` = '".$_POST[price]."', `orderMega` = '".$_POST[orderMega]."', `place` = '".$_POST[place]."', `description` = '".$_POST[description]."', ".$picTempSql." `dateIni` = '".$_POST[dateIni]."', `dateLimit` = '".$_POST[dateLimit]."', `dateUpdate` = now() WHERE `id` = '".$_POST[megaOfertaId]."'";
+		$sqlUpdateMO = "UPDATE `megaOferta` SET `manufacturerId` = '".$_POST[manufacturerId]."', `modelId` = '".$_POST[modelId]."', `versionId` = '".$_POST[versionId]."', `featureId` = '".$_POST[featureId]."', `price` = '".$_POST[price]."', `orderMega` = '".$_POST[orderMega]."', `yearModel` = '".$_POST[yearModel]."', `place` = '".$_POST[place]."', `description` = '".$_POST[description]."', ".$picTempSql." `dateIni` = '".$_POST[dateIni]."', `dateLimit` = '".$_POST[dateLimit]."', `dateUpdate` = now() WHERE `id` = '".$_POST[megaOfertaId]."'";
 		//echo $sqlUpdateMO;
 		mysql_query($sqlUpdateMO) or die("#error 79");
 		break;

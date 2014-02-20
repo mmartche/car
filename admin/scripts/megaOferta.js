@@ -41,6 +41,7 @@ $(document).ready(function(){
     versionId = $("#versionId").val(), 
     featureId = $("#featureId").val(), 
     price = $("#price").val(), 
+    yearModel = $("#yearModel").val(), 
     place = $("#place:checked").val(), 
     description = $("#description").val(), 
     picture = $("#picture").val(), 
@@ -48,8 +49,8 @@ $(document).ready(function(){
     dateLimit = $("#dateLimit").val(),
     name = $("input[name=manufacturerName]").val()+" - "+$("input[name=modelName]").val()+" - "+$("input[name=versionName]").val();
 
-   console.log('api/index.php?type=megaAdd&manufacturerId='+manufacturerId+'&modelId='+modelId+'&versionId='+versionId+'&featureId='+featureId+'&price='+price+'&place='+place+'&description='+description+'&picture='+picture+'&dateIni='+dateIni+'&dateLimit='+dateLimit);
-    $.getJSON('api/index.php?type=megaAdd&manufacturerId='+manufacturerId+'&modelId='+modelId+'&versionId='+versionId+'&featureId='+featureId+'&price='+price+'&place='+place+'&description='+description+'&picture='+picture+'&dateIni='+dateIni+'&dateLimit='+dateLimit, function(data) {
+   console.log('api/index.php?type=megaAdd&manufacturerId='+manufacturerId+'&modelId='+modelId+'&versionId='+versionId+'&featureId='+featureId+'&price='+price+'&yearModel='+yearModel+'&place='+place+'&description='+description+'&picture='+picture+'&dateIni='+dateIni+'&dateLimit='+dateLimit);
+    $.getJSON('api/index.php?type=megaAdd&manufacturerId='+manufacturerId+'&modelId='+modelId+'&versionId='+versionId+'&featureId='+featureId+'&price='+price+'&yearModel='+yearModel+'&place='+place+'&description='+description+'&picture='+picture+'&dateIni='+dateIni+'&dateLimit='+dateLimit, function(data) {
       if(data[0].response == "true"){
         console.log("item adicionado");
         $(".ulMO").append('<li class="liMO"><img src="http://carsale.uol.com.br/foto/'+picture+'_p.jpg" /><span>'+name+'</span><span>'+price+'</span><div class="removeItem" onclick="removeItemMega(this,"'+data[0].insertId+'")">remover</div></li>');
@@ -85,7 +86,7 @@ $(document).ready(function(){
 
   function removeItemMega (obj,idItem){
     // console.log($(obj).parent());
-    //console.log('api/index.php?type=megaRemove&idItem='+idItem);
+    console.log('api/index.php?type=megaRemove&idItem='+idItem);
     $.getJSON('api/index.php?type=megaRemove&idItem='+idItem, function(data) {
       if(data[0].response == "true"){
         console.log(data[0].reason);
@@ -102,9 +103,11 @@ $(document).ready(function(){
     $(".liMO").removeClass("checkedEditMega");
     numOrder = $(obj).parent().children("#numberOrder").text();
     //$(obj).parent().children("");
+    //console.log('api/index.php?type=searchMega&idItem='+idItem);
     $.getJSON('api/index.php?type=searchMega&idItem='+idItem, function(data) {
       if(data[0].response == "true"){
         //put on form
+        yearModel = data[0].yearModel;
         $("#megaOfertaId").val(data[0].megaOfertaId);
         $("#manufacturerId").val(data[0].manufacturerId);
         $("#manufacturerName").parent().find("input[name=manufacturerName]").val(data[0].manufacturerName);
@@ -113,10 +116,23 @@ $(document).ready(function(){
         $("#versionId").val(data[0].versionId);
         $("#versionName").parent().find("input[name=versionName]").val(data[0].versionName);
         $("#price").val(data[0].price);
-        if (data[0].place == "carousel") { $("#place").attr("checked","checked"); }
-        $("#orderMega").val(data[0].order);
+        if (data[0].place == "carousel") { $("#place").attr("checked","checked"); } else { $("#place").attr("checked",""); }
+        $("#orderMega").val(data[0].orderMega);
+        //$("#yearModel").val(data[0].yearModel);
+        $.getJSON('api/index.php?type=askYear&mainId=&manufacturerId='+$("#manufacturerId").val()+'&modelId='+$("#modelId").val()+'&versionId='+data[0].versionId, function(data) {
+          $("#yearModel option").remove();
+          $.each(data, function(key, val) {
+            if (val.yearModel == yearModel) { 
+              optCheck = 'selected="selected"'; 
+            } else {
+              optCheck = ''; 
+            }
+            optYear = '<option value="'+val.yearModel+'" '+optCheck+'>'+val.yearModel+'</option>';
+            $("#yearModel").append(optYear);
+          });
+        });
         $("#description").val(data[0].description);
-        $(".image-preview").attr("style","background-image:url(../carImagesMegaOferta/"+data[0].picture+")");
+        //$(".image-preview").attr("style","background-image:url(../carImagesMegaOferta/"+data[0].picture+")");
         $("#btnAddMegaOferta").val("Atualizar");
         if ($("#cancelRequest").length == 0) {
           $("#btnAddMegaOferta").parent(".megaInputs").append('<input type="button" id="cancelRequest" value="Cancelar" />');
@@ -132,6 +148,13 @@ $(document).ready(function(){
     
     //window.scrollTo(0,0);
     //form submit need check if exist
+  }
+
+  function showFeature (){
+    vehicle = $("#versionId").val();
+    yearModel = $("#yearModel").val();
+    $("#versionDetails").attr("href","./formDetails.php?vehicle="+vehicle+"&yearModel="+yearModel+"&category=feature&action=viewVersion");
+    $("#versionDetails").removeClass("hide");
   }
 
 $.widget( "custom.combobox", {
@@ -189,6 +212,8 @@ $.widget( "custom.combobox", {
 					$("#versionId").val("");
           $("#manufacturerId").val(ui.item.option.value);
           $("#versionDetails").addClass("hide");
+          $("#yearModel option").remove();
+          $("#yearModel").append('<option value="" >Escolha o modelo</option>');
 				});
 				//TODO: change opts
 	      		break;
@@ -205,12 +230,22 @@ $.widget( "custom.combobox", {
           });
           $("#modelId").val(ui.item.option.value);
           $("#versionDetails").addClass("hide");
+          $("#yearModel option").remove();
+          $("#yearModel").append('<option value="" >Escolha a versão</option>');
 	      	break;
     		case "versionName":
     			//change modelName
+          //console.log('api/index.php?type=askYear&mainId=&manufacturerId='+$("#manufacturerId").val()+'&modelId='+$("#modelId").val()+'&versionId='+ui.item.option.value);
+          $("#yearModel option").remove();
+          $("#yearModel").append('<option value="" >Escolha o ano</option>');
+        $.getJSON('api/index.php?type=askYear&mainId=&manufacturerId='+$("#manufacturerId").val()+'&modelId='+$("#modelId").val()+'&versionId='+ui.item.option.value, function(data) {
+          $.each(data, function(key, val) {
+            console.log(val.yearModel,"====",ui.item.option.value,"_----");
+            $("#yearModel").append('<option value="'+val.yearModel+'" >'+val.yearModel+'</option>');
+          });
     			$("#versionId").val(ui.item.option.value);
-          $("#versionDetails").attr("href","./formDetails.php?vehicle="+ui.item.option.value+"&category=feature&action=viewVersion");
-          $("#versionDetails").removeClass("hide");
+          $("#versionDetails").addClass("hide");
+        });
       		break;
       	}
       },
