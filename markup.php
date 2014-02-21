@@ -57,21 +57,18 @@ $_SESSION["tokenTime"] = time();
 			</li>
 			<li><a href="http://carsale.uol.com.br/compracoletiva/" title="">Compra Coletiva</a></li>
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="/carsale/noticias/" id="menuEditorial" title="">Editorial<span class="caret"></span></a>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="./noticias/" id="menuEditorial" title="">Editorial<span class="caret"></span></a>
 			</li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menuInterativo" title="">Interativo<span class="caret"></span></a>
+			<li>
+				<a class="dropdown-toggle" href="#" id="menuInterativo" title="">Opnião do dono</a>
 			</li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menuMultimidia" title="">Multimidia<span class="caret"></span></a>
-			</li>
-			<li class="dropdown menuLastItem">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menuGuia" title="">Guia do Motorista<span class="caret"></span></a>
+			<li>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menuMultimidia" title="">Corretora</span></a>
 			</li>
 			<li class="subMenuLi">
 				<ul class="subMenu dropdown-menu" id="submenuClassificados">
-					<li><a href="/carsale/explorador/" title="">Explorador</a></li>
-					<li><a href="/carsale/mega-oferta/" title="">Mega Oferta</a></li>
+					<li><a href="./explorador/" title="">Explorador</a></li>
+					<li><a href="./mega-oferta/" title="">Mega Oferta</a></li>
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
 					<li><a href="/carsale/noticias/" title="">Notícias</a></li>
@@ -82,25 +79,9 @@ $_SESSION["tokenTime"] = time();
 					<li><a href="#" title="">Carros Verdes</a></li>
 					<li><a href="" title="">Alta Rodagem</a></li>
 				</ul>
-				<ul class="subMenu dropdown-menu" id="submenuInterativo">
-					<li><a href="#" title="">Opniāo do Dono</a></li>
-					<li><a href="#" title="">Enquete</a></li>
-					<li><a href="#" title="">Forum</a></li>
-					<li><a href="#" title="">Papel de Parede</a></li>
-				</ul>
-				<ul class="subMenu dropdown-menu" id="submenuMultimidia">
-					<li><a href="#" title="">Galeria de Vídeos</a></li>
-					<li><a href="#" title="">Galeria de Fotos</a></li>
-				</ul>
-				<ul class="subMenu dropdown-menu" id="submenuGuia">
-					<li><a href="#" title="">Explorador</a></li>
-					<li><a href="#" title="">Opnião do Dono</a></li>
-					<li><a href="#" title="">CarSale Corretora</a></li>
-				</ul>
 			</li>
 		</ul>
-	</div>
-	<!-- FIM DO MENU -->
+	</div>	<!-- FIM DO MENU -->
 	<div class="socialBar">
         <div class="btnFaceBook">
         	<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;send=false&amp;layout=button_count&amp;width=180&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=31" style="border:none; overflow:hidden; width:108px; height:20px;" ></iframe>
@@ -191,18 +172,20 @@ $_SESSION["tokenTime"] = time();
 		</div>
 		<!-- FIM CARROSSEL -->
 		<!--BANNER LATERAL TOPO -->
-		<div class="chamadaFotoTopo">
-			<a href="#" title=""><img class="img-thumbnail" src="http://carsale.uol.com.br/novosite/images/segredos.jpg" alt="..." title="" /></a>
+		
+		<div class="bannerExplorador">
+			<img src="bannerTopo" title="" alt="">
 		</div>
-		<div class="bannerExplorador"></div>
 		<!-- FIM BANNER LATERAL TOPO -->
 		
 		<div class="contentMiddle">
 			
-			<div class="bannerMegaOfertaTopo"></div>
+			<div class="bannerMegaOfertaTopo">
+				<img src="bannerTopo" title="" alt="">
+			</div>
 
 			<!-- ULTNOT -->
-			<div class="chamadasUltnot">
+			<div id="ultnotGeral" class="chamadasUltnot">
 				<h2><span>Últimas Notícias</span></h2>
 				<div class="chamadaMiddle">
 					<a href="#" title="">
@@ -322,21 +305,30 @@ $_SESSION["tokenTime"] = time();
 				</div>
 			</div>
 
-			<div class="chamadaH2">
-				<a href="#">
-					<img alt="" title="" src="http://carsale.uol.com.br/novosite/images/home/slsmercedes_h3.jpg">
+			<div id="ultnotAvaliacoes" class="chamadasUltnot">
+				<h2><span>Últimas Notícias</span></h2>
+				<div class="chamadaMiddle">
+					<a href="#" title="">
+						<img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" />
+						<span class="span">Novo Golf: Vídeo mostra o processo de criação da sétima geração</span>
+						<p class="ultnotData">19h10</p>
+					</a>
+				</div>
+			</div>
+
+			<div class="doubleBannerContent">
+				<div class="doubleBLeft"></div>
+				<div class="doubleBRight"></div>
+			</div>
+			
+			<div class="chamadaH1 blog">
+				<a href="#" title="">
 					<h3>Mercedes B200 Turbo Sport</h3>
-					<h4>Versão topo de linha do monovolume</h4>
-				</a>
-			</div><div class="chamadaH2">
-				<a href="#">
-					<img alt="" title="" src="http://carsale.uol.com.br/novosite/images/home/slsmercedes_h3.jpg">
-					<h3>Mercedes B200 Turbo Sport</h3>
-					<h4>Versão topo de linha do monovolume</h4>
+					<img alt="" title="" src="http://carsale.uol.com.br/novosite/images/home/slsmercedes_h3.jpg" />
 				</a>
 			</div>
 
-			<div class="banner-325x200">
+			<div class="banner-300x305">
 				<img src="./img/opiniaodoDono.jpg" alt="..." title="" />
 			</div>
 			

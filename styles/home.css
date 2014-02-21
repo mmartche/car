@@ -329,10 +329,6 @@ overflow: hidden;
 .carrosselHome .carousel-inner .item {
 	height: 100%;
 }
-.carrosselVideos {
-	float: left;
-	width: 300px;
-}
 .chamadaH1 {
 	float: left;
 	width: 300px;
@@ -345,8 +341,8 @@ overflow: hidden;
 	background-color: #ddd;
 }
 .chamadaH1 .foto {
-	width: 300px;
-	height: 300px;
+	max-width: 300px;
+	max-height: 300px;
 }
 .chamadaH1 h3 {
 	color: #000;
@@ -506,9 +502,13 @@ overflow: hidden;
 	z-index: 0;
 }
 .carrosselVideos {
+	float: left;
+	width: 675px;
 	padding-top: 10px;
 	border-top: 1px solid #ccc;
-	height: 260px;
+	height: 400px;
+	overflow: hidden;
+	margin-bottom: 20px;
 }
 .carrosselVideos:hover {
 	text-decoration: none;
@@ -528,10 +528,7 @@ overflow: hidden;
 	top: 0;
 }
 .carrosselVideos .carousel-control {
-	height: 150px;
-}
-.carrosselVideos .carousel-indicators {
-	top: 140px;
+	height: 349px;
 }
 .carrosselVideos .carousel-indicators .active {
 	background-color: #fff;
@@ -547,7 +544,7 @@ overflow: hidden;
 	top: 0;
 }
 .carrosselVideos .carrosselImg {
-	height: 160px;
+	height: 360px;
 	width: 100%;
 	overflow: hidden;
 }
@@ -555,7 +552,7 @@ overflow: hidden;
 	width: 100%;
 }
 .carrosselVideosDown .carousel-caption {
-	height: 50px;
+	height: 30px;
 	overflow: hidden;
 	color: #000;
 	text-align: left;
@@ -563,18 +560,15 @@ overflow: hidden;
 	margin-bottom: 10px;
 }
 .carrosselVideosDown .carousel-control {
-	margin-top: 60px;
-}
-.carrosselVideosDown .carousel-indicators {
-	top: 180px;
+	margin-top: 40px;
 }
 .carrosselVideosDown .play-arrow {
-	margin-top: 80px;
+	margin: 180px 300px;
 }
 .chamadasUltnot {
-	width: 360px;
+	width: 365px;
 	float: left;
-	margin: 0 10px 10px 0;
+	margin: 0 5px 10px 0;
 }
 .chamadasUltnot h2 {
 	background-color: #8DA4A8;
@@ -942,17 +936,15 @@ footer .footerCompraImg:hover {
 .frameTw {
 	width: 259px; height: 20px;
 }
-.bannerMegaOferta {
+.bannerMegaOferta, .bannerMegaOfertaTopo {
 	width: 675px;
 	height: 165px;
-	background-color: darkblue;
 	margin-bottom: 20px;
 	overflow: hidden;
 }
-.bannerExploradorTopo {
+.bannerExploradorTopo, .bannerExplorador {
 	width: 180px;
 	height: 290px;
-	background-color: darkblue;
 	overflow: hidden;
 	float: right;
 }
@@ -963,6 +955,30 @@ footer .footerCompraImg:hover {
 .bannerCorretora {
 	position: absolute;
 	right: 0;
+}
+.doubleBannerContent {
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	float: left;
+}
+.banner-300x305 {
+	float: left;
+	width: 300px;
+	height: 305px;
+}
+.chamadaH1.blog {
+	width: 365px;
+	background-color: #b0afaf;
+}
+.chamadaH1.blog h3 {
+	background: url("../images/blog-toy.png") 10px 3px transparent no-repeat;
+	padding:0 5px 0 90px;
+	height: 90px;
+}
+.chamadaH1.blog img {
+	max-width: 365px;
+	max-height: 215px;
 }
 /*
 HELPER
