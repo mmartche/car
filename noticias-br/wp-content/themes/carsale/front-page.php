@@ -7,20 +7,77 @@
 	</h2>
 		<ol class="latest-news">
 			<?php
-			$args = array(		
-						'posts_per_page' => 10,
-					);
-			$latest_news = 	new WP_Query($args);
-			if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
-			<li class="list-separator"><?php the_date('d/m','',''); ?></li>
+$args = array(
+	'posts_per_page'   => 12,
+	'offset'           => 0,
+	'category'         => '',
+	'orderby'          => 'post_date',
+	'order'            => 'DESC',
+	'include'          => '',
+	'exclude'          => '',
+	'meta_key'         => '',
+	'meta_value'       => '',
+	'post_type'        => 'post',
+	'post_mime_type'   => '',
+	'post_parent'      => '',
+	'post_status'      => 'publish',
+	'suppress_filters' => true ); 
+// The Query
+$the_query = new WP_Query( $args );
+
+// The Loop
+if ( $the_query->have_posts() ) {
+        echo '<ul>';
+        $current_date = '';
+	while ( $the_query->have_posts() ) {
+		$the_query->the_post();
+		//$post_date = $post->get_the_time();
+		
+		$hora = get_the_date('h' );
+		$dia = get_the_date('d' );
+
+		var_dump($dia, $hora);
+
+		$post_date = get_the_date();
+		if ($post_date != $current_date) {
+			$current_date = $post_date;
+			echo get_the_date() . " <hr />";
+		}
+		echo '<li>'. the_time() .'-' . get_the_title() . '</li>';
+	}
+        echo '</ul>';
+} else {
+	// no posts found
+}
+/* Restore original Post Data */
+wp_reset_postdata();
+
+exit;
+			if (have_posts()): while(have_posts()): the_post(); ?>
+			<?php
+				$current_date = '';
+				//(isset($current_date)) && 
+				if ($post_date != get_the_date('Y-m-d') || $post_date == "") {
+				$post_date = get_the_date('Y-m-d');
+					echo "<h2>------dia diferente---------</h2>";
+				}
+				if ($post_hour = get_the_date('h') || $post_hour != "") {
+					$post_date = get_the_date('h');
+					echo "<h2>------hora diferente---------</h2>";
+				}
+
+			?>
+			<li class="list-separator">
+			</li>
 			<li <?php post_class(); ?>>
+
 				<?php	
 				if ( has_post_thumbnail() ) {
 					the_post_thumbnail();
 				} ?>
 				<h4 class="list-category"><?php the_category(); ?></h4>
 				<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<span class="list-hour"><?php the_date('h','',''); ?>[hora do post]</span>
+				<span class="list-hour"><?php echo $post_date; ?> => <?php the_date('h'); ?></span>
 			</li>
 			<?php endwhile; endif;  ?>
 			<?php wp_reset_query(); ?>

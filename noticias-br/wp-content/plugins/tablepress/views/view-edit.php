@@ -260,6 +260,7 @@ class TablePress_Edit_View extends TablePress_View {
 		echo "\t\t\t<th class=\"head{$column_class}\"><span class=\"sort-control sort-desc hide-if-no-js\" title=\"" . esc_attr__( 'Sort descending', 'tablepress' ) . "\"><span class=\"sorting-indicator\"></span></span><span class=\"sort-control sort-asc hide-if-no-js\" title=\"" . esc_attr__( 'Sort ascending', 'tablepress' ) . "\"><span class=\"sorting-indicator\"></span></span><span class=\"move-handle\">{$column}</span></th>\n";
 	}
 ?>
+			<th>Class</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -309,6 +310,7 @@ class TablePress_Edit_View extends TablePress_View {
 			$cell = esc_textarea( $cell ); // sanitize, so that HTML is possible in table cells
 			echo "<td{$column_class}><textarea name=\"table[data][{$row_idx}][{$col_idx}]\" id=\"cell-{$column}{$row}\" rows=\"1\">{$cell}</textarea></td>";
 		}
+		echo "<td{$column_class}><textarea name=\"table[data][{$row_idx}][{$col_idx}][style]\" id=\"cell-{$column}{$row}-style\" rows=\"1\"></textarea></td>";
 		echo "<td><span class=\"move-handle\">{$row}</span></td>\n";
 		echo "\t\t</tr>\n";
 	}
