@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<?php /* if (have_posts()) : while(have_posts()) : the_post(); ?>
+	<?php  if (have_posts()) : while(have_posts()) : the_post(); ?>
 		<?php if (is_category()) : ?>
 			<h1>Lista da categoria: <?php single_cat_title(); ?></h1>
 			<h3><?php the_permalink(); ?></h3>
@@ -38,7 +38,7 @@
 		<?php else : ?>
 			<h1>Nenhum post encontrado</h1>
 		<?php endif; ?>
-	<?php endif; */ ?>
+	<?php endif;  ?>
 
 
 <div class="content">
@@ -48,31 +48,36 @@
 		<span class="title-background"></span>
 		<span class="title-name"><?php the_category(); ?></span>
 	</h2>
-		<ol class="latest-news">
+		<ol class="lastest-news">
 			<?php
-			/*$args = array(		
-						'posts_per_page' => 10,
-					);
-			$latest_news = 	new WP_Query($args);
-			if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); */ ?>
-			<?php while(have_posts()) : the_post(); ?>
-				<li class="list-separator"><?php the_date('d/m','',''); ?></li>
-				<li <?php post_class(); ?>>
-					<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					<span class="list-hour"><?php the_date('h','',''); ?>[hora do post]</span>
-				</li>
-			<?php endwhile; rewind_posts(); ?>
-			<?php while (have_posts()) : the_post(); ?>
-				<?php get_template_part( 'content', get_post_format() ); ?>
-			<?php endwhile; ?>
-		<?php else : ?>
-			<ol class="latest-news">
-			<li <?php post_class(); ?>>
-				<h3 class="list-title">Nenhum post encontrado</h3>
+			 while(have_posts()): the_post(); ?>
 			</li>
-			</ol>
-		<?php endif; ?>
+			<?php
+			$hora = get_the_date('h:m' );
+			$dia = get_the_date('d/m/Y' );
+
+			if (!$ch) {	$ch = ""; }
+			if ($ch != $dia) {
+				$ch = $dia;
+				echo '<li class="list-separator">'.$dia.'</li>';
+			}
+			?>
+			<li <?php post_class(); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>
+
+				<?php if ( has_post_thumbnail() ) { ?>
+				<div class="list-thumbPost">
+				<?php 
+					the_post_thumbnail();
+				?>
+				</div>
+				<?php
+				} ?>
+				<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<span class="list-hour"><?php echo $hora; ?> => <?php echo $dia; ?></span>
+			</li>
+			<?php endwhile; endif;  ?>
 			
+			<?php wp_reset_postdata(); ?>
 		</ol>
 	</div>
 	<div class="contentRight">
@@ -91,7 +96,7 @@
 				'orderby' => 'count',
 				'order' => 'ASC',
 				'style' => 'list',
-				'show_count' => 1,
+				'show_count' => 0,
 				'hide_empty' => 0,
 				'title_li' => '',
 				'number' => 10,

@@ -74,12 +74,6 @@
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="/carsale/noticias/" id="menuEditorial" title="">Editorial<span class="caret"></span></a>
 			</li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menuInterativo" title="">Interativo<span class="caret"></span></a>
-			</li>
-			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menuMultimidia" title="">Multimidia<span class="caret"></span></a>
-			</li>
 			<li class="dropdown menuLastItem">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menuGuia" title="">Guia do Motorista<span class="caret"></span></a>
 			</li>

@@ -56,11 +56,16 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 <div class="content">
 	<div class="columnMiddle">
 		<div class="contentMiddle">
-			<h2 class="expTitle"><b>Explorador Carsale</b><span>Encontre o carro perfeito para você</span></h2>
+			<h2 class="expTitle">
+				<div class="titleBar"></div>
+				<div class="titleContent">
+					<b>Explorador Carsale</b>
+					<span>Encontre o carro perfeito para você</span>
+				</div>
+			</h2>
 
 <? if ($_POST[expModel] == "") { ?>			
 <div id="formularioSegmentos" class="formExplorer">
-	<div class="exploradorTitulo">Preencha um ou mais campos:</div>
 	<div class="exploradorBgInterno">
 	    <form action="" name="formExplorer" id="formExplorer" method="post" >
 	        <div class="exploradorGridFiltros">
@@ -74,7 +79,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	                ?>
 	                    <div class="exploradorGridFiltrosImg <? if (in_array($resThumb[id], $_POST[segments])) { echo 'filterChecked'; } ?> car<?=$resThumb[id]?>">
 	                        <input type="checkbox" class="inputExpForm" id="chkExpForm<?=$resThumb[id]?>" name="segments[]" value="<?=$resThumb[id]?>" <? if (in_array($resThumb[id], $_POST[segments])) { echo ' checked="checked" '; } ?> />
-	                        <label for="chkExpForm<?=$resThumb[id]?>" class="thumbExpForm thumbF<?=$resThumb[id]?>" alt="<?=$resThumb[name]?>" title="<?=$resThumb[name]?>" /><?=$resThumb[name]?></label>
+	                        <label for="chkExpForm<?=$resThumb[id]?>" class="thumbExpForm thumbF<?=$resThumb[id]?>" alt="<?=$resThumb[name]?>" title="<?=$resThumb[name]?>" /><span><?=$resThumb[name]?></span></label>
 	                    </div>
 	                <? } ?>
 	                </div>
@@ -93,8 +98,8 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
                             <input type="text" name="priceFinal" id="priceFinal" value="<?=$_POST[priceFinal]?>" />
 	                    </div>
 	                </div>
-	                <div class="exploradorGridFiltrosColunaATitulo" onclick="toggleClass('.exploradorGridFiltrosChecks','check')">Quais opcionais não podem faltar ?</div>
-					<ul class="exploradorGridFiltrosChecks check" >
+	                <div class="exploradorGridFiltrosColunaATitulo">Quais opcionais não podem faltar ?</div>
+					<ul class="exploradorGridFiltrosChecks" >
 						<li>
 							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="dualFrontAirBag" <? if (in_array("dualFrontAirBag",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> /><label>Airbag duplo frontal</label></li>
 						<li>
@@ -109,6 +114,11 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 						<li>
 							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="cdplayerUSBInput" <? if (in_array("cdplayerUSBInput",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
 							<label>Cd player com USB</label></li>
+						<li><a href="#mais-Items"  onclick="toggleClass('.gridFiltrosChecks','check')">Ver mais opções</a></li>
+			        </ul>
+	            </div>
+	        </div>
+	        		<ul class="exploradorGridFiltrosChecks gridFiltrosChecks check" >
 						<li>
 							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="radio" <? if (in_array("radio",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
 							<label>Rádio</label></li>
@@ -121,14 +131,6 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 						<li>
 							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="absBrake" <? if (in_array("absBrake",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
 							<label>Freios Abs</label></li>
-
-
-
-						
-			        </ul>
-	            </div>
-	        </div>
-	        		<ul class="exploradorGridFiltrosChecks check" >
 				        <li>
 							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="alarm" <? if (in_array("alarm",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> /> 
 							<label>Alarme</label></li>
@@ -216,7 +218,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 							<label>Volante com regulagem de altura</label></li>
 					</ul>
 	        <div class="exploradorGridFiltrosBtnBuscar">
-                <input type="submit" value="Buscar" class="btnExploradorFilter" id="btnSearch" name="btnSearch" />
+                <input type="submit" value="Buscar" class="btnButton btnExploradorFilter" id="btnSearch" name="btnSearch" />
             </div>
 	    </form>
 	</div>

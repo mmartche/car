@@ -30,15 +30,19 @@
 			<?php
 			$posts = get_posts('numberposts=4&category='. $category->term_id);
 			foreach($posts as $post) :
+				$hora = get_the_date('h:m' );
+				$dia = get_the_date('d/m/Y' );
 				?>
 				<li>
 					<a href="<?php the_permalink(); ?>">
-					<?php if ( has_post_thumbnail() ) {
-						the_post_thumbnail();
-					} 
+					<?php if ( has_post_thumbnail() ) { ?>
+					<div class="read-more-thumb">
+						<?php	the_post_thumbnail(); ?>
+					</div>
+					<?php } 
  						the_title(); ?>
  					</a>
-					<span class="read-more-date">aa<?php the_date('d/m/Y H:i'); ?></span>
+					<span class="read-more-date"><?php echo ($dia." ".$hora); ?></span>
 				</li>
 
 			<?php endforeach; ?>
@@ -83,13 +87,19 @@
 						);
 				$latest_news = 	new WP_Query($args);
 				if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
-				<li>
+				<?php
+					$hora = get_the_date('h:m' );
+					$dia = get_the_date('d/m/Y' );
+				?>
+				<li class="read-more-li">
 					<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
-						<?php if ( has_post_thumbnail() ) {
-							the_post_thumbnail();
-						} 
+						<?php if ( has_post_thumbnail() ) { ?>
+						<div class="read-more-thumb">
+							<?php the_post_thumbnail(); ?>
+						</div>
+						<?php } 
 						the_title(); ?></a></h3>
-					<span class="read-more-date"><?php the_date('d/m/Y H:i'); ?></span>
+					<span class="read-more-date"><?php echo ($dia." ".$hora); ?></span>
 				</li>
 				<?php endwhile; endif;  ?>
 				<?php wp_reset_query(); ?>
@@ -101,22 +111,37 @@
 				TM.display();
 			</script>
 		</div>
-		<ul class="readMore">
-		<?php
-		//TO DO fix this
-		$categories = get_the_category_list();
-		foreach ($categories as $category) :
-			?>
-			<h2>Mais sobre <?php echo $category->name; ?></h2>
-			<?php
-			$posts = get_posts('numberposts=4&category='. $category->term_id);
-			foreach($posts as $post) :
+		<div class="last-news-component">
+			<h2 class="title-more">
+				<span class="title-background"></span>
+				<span class="title-name">Últimas notícias</span>
+			</h2>
+			<ol>
+				<?php
+				$args = array(		
+							'posts_per_page' => 4,
+
+						);
+				$latest_news = 	new WP_Query($args);
+				if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
+				<?php
+					$hora = get_the_date('h:m' );
+					$dia = get_the_date('d/m/Y' );
 				?>
-				<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-			<?php endforeach; ?>
-			<li><strong><a href="<?php echo get_category_link($category->term_id);?>" title="View all posts filed under <?php echo $category->name; ?>">Mais Noticias '<?php echo $category->name; ?>'  &raquo;</a></strong></li>
-		<?php endforeach; ?>
-		</ul>
+				<li class="read-more-li">
+					<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
+						<?php if ( has_post_thumbnail() ) { ?>
+						<div class="read-more-thumb">
+							<?php the_post_thumbnail(); ?>
+						</div>
+						<?php } 
+						the_title(); ?></a></h3>
+					<span class="read-more-date"><?php echo ($dia." ".$hora); ?></span>
+				</li>
+				<?php endwhile; endif;  ?>
+				<?php wp_reset_query(); ?>
+			</ol>
+		</div>
 		<div class="fbSocialLike">
 			<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;width=300&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;show_border=true&amp;appId=441715265891994" style="border:none; overflow:hidden; width:300px; height:258px;" ></iframe>
 		</div>

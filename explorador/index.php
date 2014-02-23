@@ -49,7 +49,13 @@ include ("../scripts/conectDB.php");
 <div class="content">
 	<div class="columnMiddle">
 		<div class="contentMiddle">
-			<h2 class="expTitle"><b>Explorador Carsale</b><span>Encontre o carro perfeito para você</span></h2>
+			<h2 class="expTitle">
+				<div class="titleBar"></div>
+				<div class="titleContent">
+					<b>Explorador Carsale</b>
+					<span>Encontre o carro perfeito para você</span>
+				</div>
+			</h2>
 			<section class="secExplore">
 				<h3 class="secTitle">Já tem algum carro em mente?</h3>
 				<div class="secSubTitle"><span>Então começe por aqui</span></div>
@@ -58,11 +64,12 @@ include ("../scripts/conectDB.php");
 						<select class="expInputSelect" name="expManufacturer" id="expSelectManufacturer" onchange="updateField(this)">
 							<option>Montadora</option>
 							<?
-							$sql = "select manufacturer.id, manufacturer.name from manufacturer, model, version, feature WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id group by name ORDER by name";
+							$sql = "select manufacturer.id as manufacturerId, manufacturer.name as manufacturerName from manufacturer, model, version, feature WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id group by manufacturer.name ORDER by manufacturer.name";
 							$query = mysql_query($sql) or die ("error #62");
-							while ($res = mysql_fetch_array($query)) {
+							while ($resList = mysql_fetch_array($query)) {
+								// echo "<div>".$resList[manufacturerName]."</div>";
 							?>
-							<option value="<?=$res[id]?>"><?=$res[name]?></option>
+							<option value="<?=$resList[manufacturerId]?>"><?=$resList[manufacturerName]?></option>
 							<?
 							}
 							?>
@@ -77,7 +84,7 @@ include ("../scripts/conectDB.php");
 			<section class="secExplore">
 				<h3 class="secTitle">Não sabe o que quer?</h3>
 				<div class="secSubTitle"><span>Nós Ajudamos você</span></div>
-				<img src="http://carsale.uol.com.br/classificado/img/exploradorperguntasCarros.gif" />
+				<img src="../images/carExplorerQuestion.jpg" />
 				<div class="btnExpSearch"><div class="btnPadding"><a href="search.php" class="btnButton">Explorar</a></div></div>
 			</section>
 		</div>
