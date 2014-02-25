@@ -16,9 +16,9 @@ where [Model].[ForaDeLinha]='N'
 order by [Model].[NumModel] desc
 
 
-select [Model_Segmento].[numModel], [Model_Segmento].[segmento_id]
-from [Model_Segmento]
-order by [Model_Segmento].[numModel] desc
+select [Linha_Segmento].[numLinha], [Linha_Segmento].[segmento_id]
+from [Linha_Segmento]
+order by [Linha_Segmento].[numLinha] desc
 
 
 select [Segmento].[id], [Segmento].[nome]
@@ -27,7 +27,7 @@ from [Segmento]
 
 select [Caract].[NumModel], [Caract].[Motor], [Caract].[Portas], [Caract].[Acelerac], [Caract].[Ocupantes], [Caract].[VelMax], [Caract].[PotMax], [Caract].[Direcao], [Caract].[Combustivel], [Caract].[Alimentacao], [Caract].[Torque], [Caract].[Tracao], [Caract].[SuspDiant], [Caract].[SuspTras], [Caract].[FreioDiant], [Caract].[Rodas], [Caract].[Comprimento], [Caract].[Altura], [Caract].[Largura], [Caract].[FreioTras], [Caract].[Peso], [Caract].[PortaMala], [Caract].[Tanque], [Caract].[EntreEixos], [Caract].[Cambio], [Caract].[ConsCidade], [Caract].[ConsEstrad], [Caract].[AnoMod], [Caract].[AnoFab], [Caract].[ItSerie], [Caract].[Figura], [Caract].[EqAirBag], [Caract].[EqDirHid], [Caract].[EqArCond], [Caract].[EqBcoCou], [Caract].[EqAlarme], [Caract].[EqCamAut], [Caract].[EqFreAbs], [Caract].[EqTra4x4], [Caract].[NumPais]
 from [Caract]
-order by [Caract].[AnoFab], [Caract].[NumModel] desc
+order by [Caract].[AnoFab] desc, [Caract].[NumModel] desc
 
 
 select [PrecPub].[NumModel], [PrecPub].[Ano], [PrecPub].[Valor]
@@ -57,13 +57,6 @@ select [Versao].[id], [Versao].[nome], [Versao].[motor], [Versao].[valor], [Vers
 from [Versao]
 where [Versao].[ativo]=1
 order by [Versao].[numModel] desc, [Versao].[id], [Versao].[ano_modelo] desc
-
-
-select [Linha_Segmento].[numLinha], [Linha_Segmento].[segmento_id]
-from [Linha_Segmento]
-
-order by [Linha_Segmento].[numLinha] desc
-
 
 
 
