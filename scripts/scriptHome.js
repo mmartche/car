@@ -47,7 +47,26 @@ $(document).ready(function(){
 */
 	});
 	// console.log($(".tablepress td"));
+	loadNews();
 });
+function loadNews(local,category){
+	//check if lugar existe
+	//ler json
+	$.getJSON('./scripts/loadNews.php', function(data) {
+		$.each(data, function(key, val) {
+			markupTemp = '<div class="chamadaMiddle">'+
+				'<a href="'+val.permalink+'" title="'+val.title+'">'+
+					'<img class="foto" src="'+val.postThumbnail+'" alt="'+val.title+'" title="'+val.title+'" />'+
+					'<span class="span">'+val.title+'</span>'+
+					'<p class="ultnotData">'+val.thetime+'</p>'+
+				'</a>'+
+			'</div>';
+			$("#ultnotGeral").append(markupTemp);
+		});
+	});
+	//printa
+	//viva
+}
 function checkImage(address){
 	$.get(address)
     .done(function() { 
@@ -58,3 +77,32 @@ function checkImage(address){
         return false;
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

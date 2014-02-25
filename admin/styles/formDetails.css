@@ -77,6 +77,7 @@ footer {
 .divColor {
 	position: relative;
 	width: 36px;
+	overflow: hidden;
 	height: 36px;
 	background: url(../images/colorpicker/select.png);
 }

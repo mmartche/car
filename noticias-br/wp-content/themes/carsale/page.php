@@ -1,6 +1,19 @@
 <?php get_header(); ?>
 <div class="content" place="page">
 	<div class="columnMiddle">
+<?php
+global $query_string;
+
+$query_args = explode("&", $query_string);
+$search_query = array();
+
+foreach($query_args as $key => $string) {
+	$query_split = explode("=", $string);
+	$search_query[$query_split[0]] = urldecode($query_split[1]);
+} // foreach
+
+$search = new WP_Query($search_query);
+?>
 		<ol class="latest-news">
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 			<li <?php post_class(); ?>>

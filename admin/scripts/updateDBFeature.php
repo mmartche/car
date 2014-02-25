@@ -204,11 +204,12 @@ switch ($_POST[action]) {
 				$colorHex = $_POST["colorInputColor".$i];
 			 	$colorType = $_POST["colorInputType".$i];
 			 	$colorCode = $_POST["colorInputCode".$i];
+			 	$colorPrice = $_POST["colorInputPrice".$i];
 			 	if ($i > 0) { $valuesColorInput .= ","; }
-			 	$valuesColorInput .= "('".$_POST[versionId]."', '".$_POST[manufacturerId]."', '".$colorName."', '".$colorHex."','".$colorCode."', '".$colorApp."', '".$colorType."', '".$_POST[yearModel]."', now(), now(), NULL)";
+			 	$valuesColorInput .= "('".$_POST[versionId]."', '".$_POST[manufacturerId]."', '".$colorName."', '".$colorHex."','".$colorCode."', '".$colorApp."', '".$colorType."', '".$_POST[yearModel]."', '".$colorPrice."' ,now(), now(), NULL)";
 			}
 			if ($valuesColorInput != ""){
-			 	$sqlAddColor = "insert into `colorVersion` (`idVersion`, `idManufacturer`, `name`, `hexa`, `code`, `application`, `type`, `yearModel`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
+			 	$sqlAddColor = "insert into `colorVersion` (`idVersion`, `idManufacturer`, `name`, `hexa`, `code`, `application`, `type`, `yearModel`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
 			 	mysql_query($sqlAddColor) or die (mysql_error()." error #126");
 				echo "<br />#211".$sqlAddColor;
 			}
@@ -332,7 +333,7 @@ switch ($_POST[action]) {
 ?>
 <script> 
 alert("Atualizado");
-//window.location="../ficha-tecnica.php";
+window.location="../ficha-tecnica.php";
 </script>
 <a href="../index.php">Voltar a Home</a>
 

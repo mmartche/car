@@ -15,39 +15,43 @@ function checkItem (input){
         return '<li class="liFilterItem no">-</li>';
     }
 }
-function excluirComparacao(obj){
+function excluirComparacao(obj,target){
     $(obj).parent(".exploradorTabelaGridCarro").remove();
     number = $(obj).parent().children(".exploradorTabelaCarroNumeracao").text();
     $(".column")[number].remove();
     $(".exploradorTabelaGridBase")[number].remove();
     qnt = $(".exploradorTabelaCarroNumeracao").length;
+    $(".ulCarList [iddb='"+target+"']").children(".selectedNumber").text("");
+    $(".ulCarList [iddb='"+target+"']").removeClass("selectCar");
     for (i = 0; i < qnt; i++) {
         //console.log(i,$(".exploradorTabelaCarroNumeracao")[i]);
         $(".exploradorTabelaCarroNumeracao")[i].innerText = i+1;
-    };
+        // $(".ulCarList [iddb='"+i+"']").children(".selectedNumber").text(i+1);
+    }
 }
 
-function addFilter (obj,idModel) {
+function addFilter (obj,idModel,version,place) {
+    $(".loadingUlCarList").removeClass("hide");
 	var qntSerie=34, qntMotor=5, qntGeral=4, qntDesempenho=4, qntDimensao=4;
 	//ve qntos items ja estao no resultado
 	//search info
     idVersion = $(obj).val();
     var carsLength = $(".column").length;
-    console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
+    // console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
     $.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion, function(data) {
     if (carsLength < 6) {
         // console.log('888888',data[0].response);
         if(data[0].response == "true"){
             //count cars showed
             if ($(obj).attr("id") == "optVersion") { carsLength--; }
-            var divTitleCar = '<div class="exploradorTabelaGridCarro veiculo'+carsLength+'">'+
+            var divTitleCar = '<div class="exploradorTabelaGridCarro veiculo'+carsLength+'" idli="'+data[0].modelId+'">'+
                 '<div class="exploradorTabelaGridCarroOculta"></div>'+
-                '<div class="excluirComparacao" id="excluirComparacao'+carsLength+'" onclick="excluirComparacao(this)" >x</div>'+
+                '<div class="excluirComparacao" id="excluirComparacao'+carsLength+'" onclick="excluirComparacao(this,\''+data[0].modelId+'\')" >x</div>'+
                 '<div class="exploradorTabelaCarroNumeracao">'+carsLength+'</div>'+
                 '<div class="exploradorTabelaCarroImg"><img alt="'+data[0].modelName+'" title="'+data[0].modelName+'" src="http://carsale.uol.com.br/foto/'+data[0].picture+'_p.jpg"></div>'+
                 '<div class="exploradorTabelaCarroModelo">'+data[0].modelName+'</div>'+
                 '<div class="exploradorTabelaCarroValor">R$ '+data[0].price+'</div>'+
-                '<div class="exploradorOptVersion"><select id="optVersion" onchange="addFilter(this,\''+data[0].modelId+'\',\''+data[0].versionId+'\')"><option value="0">'+data[0].versionName+'</option>';
+                '<div class="exploradorOptVersion"><select id="optVersion" onchange="addFilter(this,\''+data[0].modelId+'\',\''+data[0].versionId+'\',\''+carsLength+'\')"><option value="0">'+data[0].versionName+'</option>';
                 if (data[0].sameModel.length > 1 && data[0].sameModel) {
                     $.each( data[0].sameModel, function( index, item ) {
                         divTitleCar += '<option value='+item.id+'>'+item.name+'</option>';
@@ -133,7 +137,7 @@ function addFilter (obj,idModel) {
 
             if (data[0].options) {
                 $.each( data[0].options, function( index, item ) {
-                    divResultCar += '<li class="liFilterItem optList"><b>'+item.name+'</b><br>'+item.items+'<br>R$ '+item.price+'</li>';
+                    // divResultCar += '<li class="liFilterItem optList"><b>'+item.name+'</b><br>'+item.items+'<br>R$ '+item.price+'</li>';
                 });
             }
             divResultCar += '</ul></div>';
@@ -218,6 +222,8 @@ function addFilter (obj,idModel) {
                 $("#resultFilter").append(divResultCar);
                 $(".exploradorTabelaLineBtn").append(divFooterCar);
                 $("#modalFeature").append(modalTemp);
+                $(obj).addClass('selectCar');
+                // $(obj).children(".selectedNumber").text(carsLength);
             }
 
                 counterExp = 1;
@@ -233,10 +239,11 @@ function addFilter (obj,idModel) {
     		$("#optVersion").change(function(){
                 console.log($(this).val());
             });*/
+    $(".loadingUlCarList").addClass("hide");
     }
-	});
-	//add to result
-	// add class no filtro
+    });
+    //add to result
+    // add class no filtro
 }
 function toggleClass(obj,name,attr){
 	$(obj).toggleClass(name);

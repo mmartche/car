@@ -116,7 +116,7 @@ $(document).ready(function(){
         $("#versionId").val(data[0].versionId);
         $("#versionName").parent().find("input[name=versionName]").val(data[0].versionName);
         $("#price").val(data[0].price);
-        if (data[0].place == "carousel") { $("#place").attr("checked","checked"); } else { $("#place").attr("checked",""); }
+        if (data[0].place == "carousel") { $("#place").attr("checked","checked"); } else { $("#place").removeAttr("checked"); }
         $("#orderMega").val(data[0].orderMega);
         //$("#yearModel").val(data[0].yearModel);
         $.getJSON('api/index.php?type=askYear&mainId=&manufacturerId='+$("#manufacturerId").val()+'&modelId='+$("#modelId").val()+'&versionId='+data[0].versionId, function(data) {

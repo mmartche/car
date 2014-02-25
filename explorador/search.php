@@ -229,6 +229,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 <!-- FORM SELECT UR CAR -->
 <div class="sContent">
 	<div class="exploradorTitulo">Clique nos carros para compará-los:</div>
+	<div class="loadingUlCarList hide"></div>
 	<ul class="ulCarList">
 		<?
 		// $x = ($myvalue == 99) ? "x is 99": "x is not 99";
@@ -264,16 +265,15 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 		$queryFilter = mysql_query($sqlFilter) or die ($sqlFilter.mysql_error()."error #240");
 		if (mysql_num_rows($queryFilter) > 0) {
 			while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
-				<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)">
+				<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)" iddb="<?=$resFilter[modelId]?>">
+				<div class="selectedNumber"></div>
 				<?
-				if (file_exists("http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif")) {
+				if (file_exists("../carImages/".$resFilter[picture])) {
+					$picture = "../carImages/".$resFilter[picture];
+				} elseif (file_exists("http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif")) {
 					$picture = "http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif";
 				} elseif (file_exists("http://carsale.uol.com.br/foto/".$resFilter[picture]."_g.jpg")) {
 					$picture = "http://carsale.uol.com.br/foto/".$resFilter[picture]."_p.jpg";
-				} elseif (file_exists("../carImages/".$resFilter[picture])) {
-					$picture = "../carImages/".$resFilter[picture];
-				} elseif (file_exists("../carImagesMegaOferta/".$resFilter[picture])) {
-					$picture = "../carImages/".$resFilter[picture];
 				} else {
 					$picture = "http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif";
 				}
@@ -383,7 +383,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 					<li class="liFilterItem">Vidro traseiro elétrico</li>
 					<li class="liFilterItem">Volante com regulagem de altura</li>
 		        </ul>
-	        	<div class="headerTitle">Opcionais</div>
+	        	<!-- <div class="headerTitle">Opcionais</div> -->
 
 	        	
             </div>            

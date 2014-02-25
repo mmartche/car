@@ -93,37 +93,46 @@ $(document).ready(function(){
 		cPrice = $("#colorPrice").val();
 		cCode = $("#colorCode").val();
 		cLength = $("#optionsColor span").length-1;
+		if (cName == "") {
+			alert ('Escolha ou digite um nome');
+			return false;
+		}
 		console.log('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ctype='+cType+'&ccode='+cCode+'&table='+cTable+'&cprice='+cPrice);
 		if (cColor.length == "6" && cCode != "") {
-			$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ccode='+cCode+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
-				//console.log(data[0].response,data[0].insertId);
-				if(data[0].response == "true"){
-					//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-					
-					if (cIId.length == 0) {
-					$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
-						$("#colorLength").val(cLength+1);
+			if (cIId.length > 0 && $(this).val() == "Adicionar") { 
+				$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+cIId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+cIId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+					$("#colorLength").val(cLength+1);
+			} else {
+				$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ccode='+cCode+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
+					//console.log(data[0].response,data[0].insertId);
+					if(data[0].response == "true"){
+						//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
+						
+						if (cIId.length == 0) {
+						$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+							$("#colorLength").val(cLength+1);
+						} else {
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputName").val(cName);
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputColor").val(cColor);
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputType").val(cType);
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputPrice").val(cPrice);
+							$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+' <br />'+cCode+' => R$ '+cPrice);
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorSelector div").css("backgroundColor", "#"+cColor);
+							$("#optionsColor span").show();
+						}
+						$("#colorName").val(""),
+						$("#colorSelected").val(""),
+						$("#colorPrice").val(""),
+						//$("#colorAplication").val(""),
+						//$("#colorType").val(""),
+						$("#colorSelector div").css("backgroundColor", "#ffffff");
+						$("#btnColorAdd").val("Adicionar");
 					} else {
-						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputName").val(cName);
-						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputColor").val(cColor);
-						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputType").val(cType);
-						$("#optionsColor").find("span[colorId="+cIId+"] #colorInputPrice").val(cPrice);
-						$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+' \n R$ '+cPrice);
-						$("#optionsColor").find("span[colorId="+cIId+"] #colorSelector div").css("backgroundColor", "#"+cColor);
-						$("#optionsColor span").show();
+						alert(data[0].reason);
+						//$("#resultOptions").prepend('<label>''</label>');
 					}
-					$("#colorName").val(""),
-					$("#colorSelected").val(""),
-					$("#colorPrice").val(""),
-					//$("#colorAplication").val(""),
-					//$("#colorType").val(""),
-					$("#colorSelector div").css("backgroundColor", "#ffffff");
-					$("#btnColorAdd").val("Adicionar");
-				} else {
-					alert(data[0].reason);
-					//$("#resultOptions").prepend('<label>''</label>');
-				}
-			});
+				});
+			}
 		} else {
 			alert("Precisa ser 6 números na cor hexadecimal e código preenchido");
 		}
@@ -559,7 +568,7 @@ $.widget( "custom.combobox", {
         });
         switch ($(ui.item.option.parentElement).attr("id")) {
       		case "manufacturerName":
-	      		var optTemp, optOptMan, optManufacturerName;
+	      		var optTemp, optOptMan, optManufacturerName, optColorMan;
 	  			$.getJSON('api/index.php?type=askModel&mainId='+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
@@ -575,6 +584,7 @@ $.widget( "custom.combobox", {
 				});
 				$("#manufacturerId").val(ui.item.option.value);
 				//TODO: change opts
+				// console.log("api/index.php?type=askOption&manufacturerId="+ui.item.option.value);
 				$.getJSON("api/index.php?type=askOption&manufacturerId="+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
 						optOptMan += '<option value="'+val.id+'" >'+val.label+'</option>';
@@ -583,6 +593,15 @@ $.widget( "custom.combobox", {
 					$("#txtOptionsName option").remove();
 					$("#txtOptionsName").append(optOptMan);
 					//$("#txtOptionsName").parent().find("input").val("Opcionais de "+optManufacturerName);
+				});
+				$.getJSON("api/index.php?type=askColor&manufacturerId="+ui.item.option.value, function(data) {
+					$.each(data, function(key, val) {
+						optColorMan += '<option value="'+val.id+'" >'+val.label+'</option>';
+						optManufacturerName = val.manufacturerName;
+					});
+					$("#txtColorName option").remove();
+					$("#txtColorName").append(optColorMan);
+					//$("#txtColorName").parent().find("input").val("Opcionais de "+optManufacturerName);
 				});
 	      		break;
       		case "modelName":
@@ -605,7 +624,7 @@ $.widget( "custom.combobox", {
 				$("#modelId").val(ui.item.option.value);
 	      		break;
       		case "versionName":
-      			//change modelName
+      			//change modelName 
       			$("#versionId").val(ui.item.option.value);
 	      		break;
 			case "txtOptionsName":
@@ -632,6 +651,26 @@ $.widget( "custom.combobox", {
 	    		break;
 	    	case "idSegment3":
 	    		updateInput(ui.item.option.value,'idSegment3');
+	    		break;
+	    	case "txtColorName":
+	    		var optTemp;
+				// console.log('api/index.php?type=askColorValue&optId='+ui.item.option.value);
+	  			$.getJSON('api/index.php?type=askColorValue&optId='+ui.item.option.value, function(data) {
+					$.each(data, function(key, val) {
+						$("#colorId").val(val.id),
+						$("#colorName").val(val.value);
+						$("#colorSelected").val(val.hexa);
+						$("#colorSelected").attr("disabled",true);
+						$("#colorPrice").val(val.price);
+						// $("#colorPrice").attr("disabled",false);
+						$("#colorCode").val(val.code);
+						$("#colorCode").attr("disabled",true);
+						$("#colorType").val(val.type),
+						$("#colorType").parent().find("input[name=colorType]").val(val.type);
+						$("#colorSelector div").css("backgroundColor", "#"+val.hexa);
+					});
+				});
+				$("#txtOptionsId").val(ui.item.option.value);
 	    		break;
       	}
       },
@@ -750,6 +789,18 @@ $.widget( "custom.combobox", {
 			break;
 		case "idSegment3":
 			updateInput('','idSegment3');
+			break;
+		case "txtColorName":
+			$("#colorName").val("");
+			$("#colorSelected").val("");
+			$("#colorSelected").attr("disabled",false);
+			$("#colorPrice").val("");
+			$("#colorPrice").attr("disabled",false);
+			$("#colorCode").val("");
+			$("#colorCode").attr("disabled",false);
+			// $("#colorType").val(val.type),
+			// $("#colorType").parent().find("input[name=colorType]").val(val.type);
+			$("#colorSelector div").css("backgroundColor", "#fff");
 			break;
     }
     /*
@@ -931,6 +982,7 @@ $(function() {
 	$( "#txtFuel" ).combobox();
 	// $( "#txtGear").combobox();
 	$( "#txtOptionsName" ).combobox();
+	$("#txtColorName").combobox();
 	$( "#colorAplication" ).combobox();
 	$( "#colorType" ).combobox();
 	$("#countryOrigin").combobox();

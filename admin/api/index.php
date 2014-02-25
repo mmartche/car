@@ -201,11 +201,16 @@ switch ($_GET[type]) {
 		break;
 
 	case 'addColor':
+		if ($_GET[cId] != "") {
+			echo '[{"response":"true","error":"#208","reason":"Código já existe","insertcId":"'.$_GET[id].'"}]';
+			break;
+		}
 		$checkColor = "SELECT id from colorManufacturer where code = '".$_GET[ccode]."'";
 		$chColor = mysql_query($checkColor);
 		if (mysql_num_rows($chColor) > 0 ) {
 			//return false
-			echo '[{"response":"false","error":"#208","reason":"Código já existe"}]';
+			$rchC = mysql_fetch_array($chColor);
+			echo '[{"response":"false","error":"#208","reason":"Código já existe","insertId":"'.$rchC[id].'"}]';
 			//$sql_addColor = "UPDATE colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE code = '".$_GET[ccode]."'";
 		} else {
 			$sql_addColor = "INSERT into `colorManufacturer` (`idManufacturer`, `name`, `code`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[ccode]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";			
@@ -349,7 +354,7 @@ switch ($_GET[type]) {
 					"category": "Opcional",
 					"table":"optionsManufacturer",
 					"value":"'.$resOpt[name].'",
-					"optValue":"'.$resOpt[options].'",
+					"optValue":"'.str_replace(array("\r", "\n"), "", $resOpt[options]).'",
 					"price":"'.$resOpt[price].'",
 					"code":"'.$resOpt[code].'",
 					"manufacturerName":"'.$resOpt[manufacturerName].'"
@@ -373,6 +378,49 @@ switch ($_GET[type]) {
 					"optValue":"'.$resOpt[options].'",
 					"price":"'.$resOpt[price].'",
 					"code":"'.$resOpt[code].'"
+				}';
+			$m++;
+		}
+		echo "]";
+		break;
+	case 'askColor':
+		$sql = "SELECT colorManufacturer.id, colorManufacturer.name, colorManufacturer.hexa, colorManufacturer.price, colorManufacturer.code, manufacturer.name as manufacturerName FROM colorManufacturer, manufacturer WHERE manufacturer.id = colorManufacturer.idManufacturer and  colorManufacturer.idManufacturer = '".$_GET[manufacturerId]."'";
+		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+		$m=0; echo "[";
+		while ($resCol = mysql_fetch_array($query)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resCol[id].'",
+					"label":"'.$resCol[name].'",
+					"category": "Color",
+					"table":"colorManufacturer",
+					"value":"'.$resCol[name].'",
+					"hexa":"'.$resCol[hexa].'",
+					"price":"'.$resCol[price].'",
+					"code":"'.$resCol[code].'",
+					"manufacturerName":"'.$resCol[manufacturerName].'"
+				}';
+			$m++;
+		}
+		echo "]";
+		break;
+	case 'askColorValue':
+		$sql = "SELECT id, name, hexa, price, code, application, type FROM colorManufacturer WHERE id = '".$_GET[optId]."'";
+		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+		$m=0; echo "[";
+		while ($resOpt = mysql_fetch_array($query)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resOpt[id].'",
+					"label":"'.$resOpt[name].'",
+					"category": "Color",
+					"table":"colorManufacturer",
+					"value":"'.$resOpt[name].'",
+					"hexa":"'.$resOpt[hexa].'",
+					"price":"'.$resOpt[price].'",
+					"code":"'.$resOpt[code].'",
+					"application":"'.$resOpt[application].'",
+					"type":"'.$resOpt[type].'"
 				}';
 			$m++;
 		}

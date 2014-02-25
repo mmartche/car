@@ -880,7 +880,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						$sqlColor = "SELECT * from colorManufacturer WHERE idManufacturer = '".$res[manufacturerId]."'";
 						$tableColor = "colorManufacturer";
 					} else {
-						$sqlColor = "SELECT colorVersion.id, colorManufacturer.name, colorManufacturer.code, colorManufacturer.hexa, colorManufacturer.type, colorManufacturer.application, colorVersion.price from colorVersion, colorManufacturer where colorVersion.code = colorManufacturer.code and  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."'";
+						$sqlColor = "SELECT colorVersion.id, colorManufacturer.name, colorManufacturer.code, colorManufacturer.hexa, colorManufacturer.type, colorManufacturer.application, colorVersion.price from colorVersion, colorManufacturer where colorVersion.code = colorManufacturer.code and  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."' group by colorManufacturer.code";
 						$tableColor = "colorVersion";
 					}
 					$queryColor = mysql_query($sqlColor) or die (" error #886");
@@ -890,23 +890,35 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						<label class="subTitle">CORES DISPONÍVEIS</label>
 						<div class="optionsColor optionsFields" id="optionsColor">
 							<span>
+								<select  name="txtColorName" id="txtColorName" placeholder="Nome">
+									<option>Nome da cor</option>
+									<?
+									$sqlCorManuf = "SELECT id, name, code from colorManufacturer where idManufacturer = '".$res[manufacturerId]."' order by name asc";
+									$queryCorManuf = mysql_query($sqlCorManuf) or die ("error #897");
+									while ($resCorManuf = mysql_fetch_array($queryCorManuf)) {
+									?>
+									<option value="<?=$resCorManuf[id]?>" ><?=$resCorManuf[name]?></option>
+									<?
+									}
+									?>
+								</select>
+								<input type="hidden" id="colorName" placeholder="Nome" /><br />
 								<div id="colorSelector" class="divColor"><div></div></div>
 								<input type="hidden" id="colorId" />
-								<input type="text" id="colorSelected" placeholder="Cor em hexa" /><br />
-								<input type="text" id="colorCode" placeholder="Código" /><br />
-								<input type="text" id="colorName" placeholder="Nome" /><br />
-								<select  id="colorType">
+								<input type="text" id="colorSelected" placeholder="Cor em hexa" disabled="disabled" /><br />
+								<input type="text" id="colorCode" placeholder="Código" disabled="disabled" /><br />
+								<select  id="colorType" disabled="disabled">
 									<option value="Sólida" >Sólida</option>
 									<option value="Metálica">Metálica</option>
 									<option value="Perolizada">Perolizada</option>
 								</select><br />
+								<input type="text" id="colorPrice" placeholder="Valor" onKeyPress="return(format_price(this,'.','',8,0,event))"  /><br />
 								<!--input type="text" id="colorType" placeholder="Tipo" /-->
 								<!--select  id="colorAplication">
 									<option value="Interna" >Interna</option>
 									<option value="Externa">Externa</option>
 								</select><br /-->
 								<!--input type="text" id="colorAplication" placeholder="Aplicação" /-->
-								<input type="text" id="colorPrice" placeholder="Valor" onKeyPress="return(format_price(this,'.','',8,0,event))" /><br />
 								<input type="button" value="Adicionar" id="btnColorAdd" />
 								<input type="hidden" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
 							</span>
