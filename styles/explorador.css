@@ -533,13 +533,25 @@ transition: all .3s;
 	width: 30px;
 	height: 30px;
 	font-size: 18px;
-	background-color: red;
 	right: 0;
 	border-radius: 20px;
 	padding: 2px;
 	color: #fff;
 }
-
+.exploradorTabelaGridCarro {
+	background-color: #fff;
+}
+.backGroundRepeat {
+	position: absolute;
+	margin-left: 194px;
+}
+.backGroundRepeat .exploradorTabelaCarroImg {
+	margin-top: 40px;
+}
+.colorItems > div {
+float: left;
+width: 178px;
+}
 .loadingUlCarList {
 	position: absolute;
 	width: 100%;

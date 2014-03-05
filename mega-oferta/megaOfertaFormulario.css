@@ -1,0 +1,490 @@
+.expTitle {
+padding: 0;
+margin-bottom: 15px;
+overflow: hidden;
+position: relative;
+height: 70px;
+}
+.titleBar {
+position: absolute;
+width: 100%;
+height: 15px;
+background-color: #f1f1f1;
+top: 16px;
+}
+.titleContent {
+border-left: 5px solid #8b0000;
+padding: 0 5px;
+position: relative;
+overflow: hidden;
+}
+.expTitle span {
+font-size: 20px;
+color: #69747e;
+float: left;
+}
+.expTitle b {
+font-size: 35px;
+color: #3c3e40;
+float: left;
+width: 100%;
+}
+.contentMiddleMegaOferta {
+float: left;
+width: 990px;
+}
+.megaOfertaTituloNomedoCarro {
+padding: 5px;
+font-size: 22px;
+color: #fff;
+font-weight: bold;
+text-align: center;
+height: auto;
+background-color: #3c3e40;
+-moz-box-shadow: 5px 5px 5px #888;
+-webkit-box-shadow: 5px 5px 5px #888;
+box-shadow: 5px 5px 5px #888;
+}
+
+.conteutoSuperiorFormularioMegaOferta{
+height:300px;
+-moz-box-shadow: -5px -5px 5px #888;
+-webkit-box-shadow: 5px 5px 5px #888;
+box-shadow: 5px 5px 5px #888;
+overflow: hidden;
+position: relative;
+
+}
+
+.imgMegaOferta{
+position: relative;
+padding-top:45px;
+padding-left:250px;
+border:0px;
+width: 640px;
+}
+
+.imageBarMegaOferta {
+position: absolute;
+width: 100%;
+height: 100px;
+top: 130px;
+background: rgb(250,250,250); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIyJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwJSIgc3RvcC1jb2xvcj0iI2U5ZTdlNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIyJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjYyJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc0JSIgc3RvcC1jb2xvcj0iI2ViZWFlYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg3JSIgc3RvcC1jb2xvcj0iI2ViZWFlYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmYWZhZmEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left,  rgba(250,250,250,1) 2%, rgba(233,231,231,1) 10%, rgba(250,250,250,1) 22%, rgba(250,250,250,1) 62%, rgba(235,234,234,1) 74%, rgba(235,234,234,1) 87%, rgba(250,250,250,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(2%,rgba(250,250,250,1)), color-stop(10%,rgba(233,231,231,1)), color-stop(22%,rgba(250,250,250,1)), color-stop(62%,rgba(250,250,250,1)), color-stop(74%,rgba(235,234,234,1)), color-stop(87%,rgba(235,234,234,1)), color-stop(100%,rgba(250,250,250,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(250,250,250,1) 2%,rgba(233,231,231,1) 10%,rgba(250,250,250,1) 22%,rgba(250,250,250,1) 62%,rgba(235,234,234,1) 74%,rgba(235,234,234,1) 87%,rgba(250,250,250,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(250,250,250,1) 2%,rgba(233,231,231,1) 10%,rgba(250,250,250,1) 22%,rgba(250,250,250,1) 62%,rgba(235,234,234,1) 74%,rgba(235,234,234,1) 87%,rgba(250,250,250,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(250,250,250,1) 2%,rgba(233,231,231,1) 10%,rgba(250,250,250,1) 22%,rgba(250,250,250,1) 62%,rgba(235,234,234,1) 74%,rgba(235,234,234,1) 87%,rgba(250,250,250,1) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(250,250,250,1) 2%,rgba(233,231,231,1) 10%,rgba(250,250,250,1) 22%,rgba(250,250,250,1) 62%,rgba(235,234,234,1) 74%,rgba(235,234,234,1) 87%,rgba(250,250,250,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#fafafa',GradientType=1 ); /* IE6-8 */
+}
+
+.txtFotoMeramenteIlustrativa{
+font-size:10px;
+text-align:right;
+width:350px;
+}
+
+.valoreFichaTecnica{
+	float:right;
+	width:350px;
+}
+
+.valorMegaOferta1{
+font-size:22px;
+font-weight: bold;
+text-align:right;
+font-family: Tahoma, Geneva, sans-serif;
+}
+
+.valorMegaOferta2{
+font-size:35px;
+font-weight: bold;
+text-align:right;
+font-family: Tahoma, Geneva, sans-serif;
+}
+
+a.linktitlefichaTecnica{
+background-image: url("../megaOfertaHtml/imagens/fichaTecnica.png");
+background-repeat: no-repeat;
+background-position: 0 0;
+padding-left: 26px;
+font-size:12px;
+font-weight: bold;
+color: #3c3e40;
+text-align:right;
+}
+
+a.linktitlefichaTecnica:hover{
+background-image: url("../megaOfertaHtml/imagens/fichaTecnica.png");
+background-repeat: no-repeat;
+background-position: 0 0;
+padding-left: 26px;
+text-decoration: underline;
+color: #3c3e40;
+font-size:12px;
+font-weight: bold;
+text-align:right;
+}
+
+.fichaTecnicaValorPrincipal{
+	 width: 350px;
+}
+
+.fichaTecnicaValorInterna{
+	 width: 210px;
+	 text-align: center;
+}
+
+.comoFuncionaMegaOfertaFormulario {
+width: 99%;
+height: auto;
+font-size: 26px;
+color: #8b0000;
+text-align: center;
+position: relative;
+float: left;
+overflow: hidden;
+font-weight: bold;
+margin-top: 10px;
+padding: 10px 10px 15px 10px;
+width: 519px;
+}
+
+.linhaComoFuncionaMegaOfertaFormulario{
+	height: 5px;
+	background: rgb(134,134,134); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg2ODY4NiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIlIiBzdG9wLWNvbG9yPSIjOGQ4ZDhkIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4ZDhkOGQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left,  rgba(134,134,134,1) 0%, rgba(141,141,141,1) 2%, rgba(250,250,250,1) 100%, rgba(141,141,141,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(134,134,134,1)), color-stop(2%,rgba(141,141,141,1)), color-stop(100%,rgba(250,250,250,1)), color-stop(100%,rgba(141,141,141,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(134,134,134,1) 0%,rgba(141,141,141,1) 2%,rgba(250,250,250,1) 100%,rgba(141,141,141,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(134,134,134,1) 0%,rgba(141,141,141,1) 2%,rgba(250,250,250,1) 100%,rgba(141,141,141,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(134,134,134,1) 0%,rgba(141,141,141,1) 2%,rgba(250,250,250,1) 100%,rgba(141,141,141,1) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(134,134,134,1) 0%,rgba(141,141,141,1) 2%,rgba(250,250,250,1) 100%,rgba(141,141,141,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#868686', endColorstr='#8d8d8d',GradientType=1 ); /* IE6-8 */
+}
+
+.megaOfertasComoFuncionaFormTxt {
+width: 99%;
+height: auto;
+font: 14px;
+color: #3c3e40;
+text-align: left;
+position: relative;
+float: left;
+overflow: hidden;
+padding: 5px 10px 15px 10px;
+text-align:justify;
+}
+
+.megaOfertasComoFuncionaFormTxtTelefone{
+color: #8b0000;
+font-weight: bold;
+}
+
+.preenchimentoObrigatorioTxt{
+ float: right;
+ padding: 62px 0px 0px 0px;
+ font-size: 10px;
+}
+
+.campoObrigatorioMegaOferta{
+color: #8b0000;
+font-size: 10px;
+}
+
+.labelCzFormMegaOferta{
+ 	color: #3c3e40;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.megaOfertasCarsaleFormLineInputB {
+width: 460px;
+height: 30px;
+padding-top: 5px;
+position: relative;
+float: left;
+overflow: hidden;
+}
+
+
+.inputForm_ddd {
+font-size: 12px;
+width: 18px;
+float: left;
+}
+
+.inputForm_tel {
+width: 80px;
+border-radius: 4px;
+height: 18px;
+padding-top: 2px;
+padding-bottom: 2px;
+padding-right: 2px;
+padding-left: 2px;
+margin-left: 5px;
+}
+
+.input_Select {
+font-size: 11px;
+width: 85px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border: 1px solid #cccccc;
+height: 28px;
+padding-top: 4px;
+padding-bottom: 3px;
+padding-right: 2px;
+float: left;
+height: 22px;
+}
+
+.input_frmMegaOferta {
+font-size: 12px;
+width: 340px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border: 1px solid #cccccc;
+height: 18px;
+padding-top: 2px;
+padding-bottom: 2px;
+padding-right: 2px;
+padding-left: 2px;
+}
+
+.input_frmCidadeMegaOferta {
+font-size: 11px;
+width: 200px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border: 1px solid #cccccc;
+height: 18px;
+padding-top: 2px;
+padding-bottom: 2px;
+padding-right: 2px;
+padding-left: 2px;
+margin-left: 5px;
+}
+
+.megaOfertasCarsaleFormColunaInputb {
+width: 465px;
+height: auto;
+padding-left: 18px;
+padding-right: 20px;
+/* padding-top: 28px; */
+position: relative;
+float: right;
+overflow: hidden;
+}
+
+.input_SelectOpcaoCorAlt {
+font-size: 11px;
+color: rgb(79, 79, 79);
+width: 120px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border: 1px solid #cccccc;
+height: 28px;
+padding-top: 4px;
+padding-bottom: 3px;
+padding-right: 2px;
+float: left;
+background-color: #fafafa;
+height: 22px;
+
+}
+
+.telefoneAlternativoFrmB {
+width: 99px;
+height: 22px;
+padding-top: 6px;
+padding-right: 5px;
+font: 14px 'PFDinDisplayProMedium', Arial, sans-serif;
+color: #4c4c4c;
+text-align: right;
+position: relative;
+float: left;
+overflow: hidden;
+}
+
+.exemploFormMegaOfertaTel{
+color: #3c3e40;
+font-size: 9px;
+}
+
+.exemploFormMegaOfertaCel{
+color: #3c3e40;
+font-size: 9px;
+padding-left: 13px;
+}
+
+input.megaOfertasCarsaleFormTrocaInput {
+font-size: 12px;
+color: rgb(79, 79, 79);
+width: 106px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border: 1px solid #cccccc;
+height: 18px;
+padding-top: 2px;
+padding-bottom: 2px;
+padding-right: 2px;
+padding-left: 2px;
+background-color: #fafafa;;
+}
+
+input.megaOfertasCarsaleFormTrocaInputParcelas {
+font-size: 12px;
+color: rgb(79, 79, 79);
+width: 50px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border: 1px solid #cccccc;
+height: 18px;
+padding-top: 2px;
+padding-bottom: 2px;
+padding-right: 2px;
+padding-left: 2px;
+background-color: #fafafa;;
+}
+
+.input_SelectWidht120 {
+font-size: 11px;
+color: rgb(79, 79, 79);
+width: 120px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border: 1px solid #cccccc;
+height: 28px;
+padding-top: 4px;
+padding-bottom: 3px;
+float: left;
+background-color: #fafafa;
+height: 22px;
+}
+
+.textArea_SelectWidhtObservacao 
+{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 12px;
+color: #5f5f5f;
+width: 333px;
+height: 115px;
+background-color: #FFF;
+border: 1px solid gray;
+background-color: #fafafa;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+padding: 3px;
+}
+
+.megaOfertasCarsaleFormTxtLegendaPortas{
+width: 70px;
+height: 22px;
+padding-top: 6px;
+padding-right: 10px;
+font: 14px 'PFDinDisplayProMedium', Arial, sans-serif;
+color: #4c4c4c;
+text-align: right;
+position: relative;
+float: left;
+overflow: hidden;
+}
+
+.megaOfertasCarsaleFormTxtLegendaSeg{
+width: 83px;
+height: 22px;
+padding-top: 6px;
+padding-right: 10px;
+font: 14px 'PFDinDisplayProMedium', Arial, sans-serif;
+color: #4c4c4c;
+text-align: right;
+position: relative;
+float: left;
+overflow: hidden;
+}
+
+.megaOfertasCarsaleFormTxtCheckPrincipais {
+width: 130px;
+height: auto;
+padding-top: 2px;
+padding-right: 20px;
+padding-left: 2px;
+font: 14px 'PFDinDisplayProMedium', Arial, sans-serif;
+color: #4c4c4c;
+text-align: left;
+position: relative;
+float: left;
+overflow: hidden;
+}
+
+.megaOfertasCarsaleFormLineInputBottom {
+width: 460px;
+height: 40px;
+padding-top: 10px;
+position: relative;
+float: left;
+overflow: hidden;
+}
+
+.buttonFrmVm {
+width: 70px;
+height: 25px;
+color: #ffffff;
+background: #f9b5b5; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5YjViNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjIwJSIgc3RvcC1jb2xvcj0iI2JkMTExMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM4YjAwMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #f9b5b5 0%, #bd1111 20%, #8b0000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9b5b5), color-stop(20%,#bd1111), color-stop(100%,#8b0000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #f9b5b5 0%,#bd1111 20%,#8b0000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #f9b5b5 0%,#bd1111 20%,#8b0000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #f9b5b5 0%,#bd1111 20%,#8b0000 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #f9b5b5 0%,#bd1111 20%,#8b0000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9b5b5', endColorstr='#8b0000',GradientType=0 ); /* IE6-8 */
+-moz-box-shadow: 1px 1px 1px #888;
+-webkit-box-shadow: 1px 1px 1px #888;
+box-shadow: 1px 1px 1px #888;
+}
+
+.buttonFrmVm:hover {
+background: #249227;
+}
+
+.sombraDivisoria{
+-moz-box-shadow: 2px 2px 2px #888;
+-webkit-box-shadow: 2px 2px 2px #888;
+box-shadow: 2px 2px 2px #888;
+width: 460px;
+height: 1px;
+padding-top: 5px;
+position: relative;
+float: left;
+overflow: hidden
+}
+
+
+.txtInput {
+	color: rgb(79, 79, 79);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #cccccc;
+	height: 20px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+	padding-left: 2px;
+	background-color: #fafafa;
+}

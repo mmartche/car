@@ -1,5 +1,7 @@
 <?
 session_start();
+
+header('Content-Type: text/html; charset=utf-8');
 $_SESSION["tokenTime"] = time();
 include ("../scripts/conectDB.php");
 ?>
@@ -79,7 +81,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	                ?>
 	                    <div class="exploradorGridFiltrosImg <? if (in_array($resThumb[id], $_POST[segments])) { echo 'filterChecked'; } ?> car<?=$resThumb[id]?>">
 	                        <input type="checkbox" class="inputExpForm" id="chkExpForm<?=$resThumb[id]?>" name="segments[]" value="<?=$resThumb[id]?>" <? if (in_array($resThumb[id], $_POST[segments])) { echo ' checked="checked" '; } ?> />
-	                        <label for="chkExpForm<?=$resThumb[id]?>" class="thumbExpForm thumbF<?=$resThumb[id]?>" alt="<?=$resThumb[name]?>" title="<?=$resThumb[name]?>" /><span><?=$resThumb[name]?></span></label>
+	                        <label for="chkExpForm<?=$resThumb[id]?>" class="thumbExpForm thumbF<?=$resThumb[id]?>" alt="<?=$resThumb[name]?>" title="<?=$resThumb[name]?>" /><span><?=utf8_encode($resThumb[name])?></span></label>
 	                    </div>
 	                <? } ?>
 	                </div>
@@ -260,7 +262,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 			$and = " and ";
 		}
 		$filterItems .= ($filterItems != "" ? ")" : ""); 
-		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version, manufacturer WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and (feature.active ='s' or feature.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by model.name ";
+		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version, manufacturer WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and (version.active ='s' or version.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by manufacturerName, model.name ";
 		//echo $sqlFilter;
 		$queryFilter = mysql_query($sqlFilter) or die ($sqlFilter.mysql_error()."error #240");
 		if (mysql_num_rows($queryFilter) > 0) {
@@ -304,6 +306,24 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	<div class="bannerExplorer" id="bannermenu">banner</div>
 
 	<div class="exploradorTabela" id="exploradorTabela">
+     	<div class="backGroundRepeat">
+     		<div class="exploradorTabelaGridCarro veiculo">
+     			<div class="exploradorTabelaCarroNumeracao">1</div>
+     			<div class="exploradorTabelaCarroImg"><img alt="Escolha um veículo" title="Escolha um veículo" src="../images/explorerCarBlank.jpg"></div>
+     		</div>
+     		<div class="exploradorTabelaGridCarro veiculo">
+     			<div class="exploradorTabelaCarroNumeracao">2</div>
+     			<div class="exploradorTabelaCarroImg"><img alt="Escolha um veículo" title="Escolha um veículo" src="../images/explorerCarBlank.jpg"></div>
+     		</div>
+     		<div class="exploradorTabelaGridCarro veiculo">
+     			<div class="exploradorTabelaCarroNumeracao">3</div>
+     			<div class="exploradorTabelaCarroImg"><img alt="Escolha um veículo" title="Escolha um veículo" src="../images/explorerCarBlank.jpg"></div>
+     		</div>
+     		<div class="exploradorTabelaGridCarro veiculo">
+     			<div class="exploradorTabelaCarroNumeracao">4</div>
+     			<div class="exploradorTabelaCarroImg"><img alt="Escolha um veículo" title="Escolha um veículo" src="../images/explorerCarBlank.jpg"></div>
+     		</div>
+     	</div>
          <div class="exploradorTabelaLineCarros">
             <div class="exploradorTabelaGridCarro"><img alt="" title="" src="http://carsale.uol.com.br/classificado/img/exploradorTituloTabelaComparativa.gif"></div>
             

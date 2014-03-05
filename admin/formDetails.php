@@ -1,4 +1,5 @@
 <?
+header('Content-Type: text/html; charset=utf-8');
 include ("scripts/checkPermissions.php");
 include("./scripts/conectDB.php");
 ?>
@@ -484,8 +485,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					<span><label>Ano de Fabricação:</label><input type="text" name="yearProduced" id="txtYearProduced" value="<?=$res[yearProduced]?>" /></span><br />
 					<span><label>Quantidade de portas:</label><input type="text" name="doors" id="txtDoors" value="<?=$res[doors]?>" /></span><br />
 					<span><label>Quantidade de ocupantes:</label><input type="text" name="passagers" id="txtPassagers" value="<?=$res[passagers]?>" /></span><br />
-					<span><label>Motor:</label><input type="text" name="engine" id="txtEngine" value="<?=$res[engine]?>" /></span><br />
-					<span><label>Alimentação:</label><input type="text" name="feeding" id="txtFeeding"  value="<?=$res[feeding]?>" /></span><br />
+					<span><label>Motor:</label><input type="text" name="engine" id="txtEngine" value="<?=utf8_encode($res[engine])?>" /></span><br />
+					<span><label>Alimentação:</label><input type="text" name="feeding" id="txtFeeding"  value="<?=utf8_encode($res[feeding])?>" /></span><br />
 					<span><label>Combustível:</label>
 						<select  name="fuel" id="txtFuel">
 							<option>Combustível</option>
@@ -768,7 +769,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					<div id="optionsSerie" class="optionsSerie optionsFields">
 						<span class="subTitleSerie">Insira novos itens sepando por , (virgula)</span>
 						<span class="subTextAreaSerie">
-							<textarea name="textAreaSerieAdd" id="textAreaSerieAdd"><? if ($lengthSerie == 0) { echo $res[itemsSerie]; } ?></textarea>
+							<textarea name="textAreaSerieAdd" id="textAreaSerieAdd"><? if ($lengthSerie == 0) { echo utf8_encode($res[itemsSerie]); } ?></textarea>
 							<input type="button" id="btnSerieAdd" value="Adicionar" />
 							<input type="hidden" name="lengthSerie" value="<?=$lengthSerie?>" id="lengthSerie" />
 							<!--CHECK HOW MANY FIELDS AFTER SUBMIT AND W/ ADD SCRIPT -->
@@ -812,7 +813,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 								$queryOptManuf = mysql_query($sqlOptManuf) or die ("error #812");
 								while ($resOptManuf = mysql_fetch_array($queryOptManuf)) {
 								?>
-								<option value="<?=$resOptManuf[id]?>" ><?=$resOptManuf[name]?></option>
+								<option value="<?=$resOptManuf[id]?>" ><?=utf8_encode($resOptManuf[name])?></option>
 								<?
 								}
 								?>
@@ -890,19 +891,19 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						<label class="subTitle">CORES DISPONÍVEIS</label>
 						<div class="optionsColor optionsFields" id="optionsColor">
 							<span>
-								<select  name="txtColorName" id="txtColorName" placeholder="Nome">
+								<select  name="colorName" id="colorName" placeholder="Nome">
 									<option>Nome da cor</option>
 									<?
 									$sqlCorManuf = "SELECT id, name, code from colorManufacturer where idManufacturer = '".$res[manufacturerId]."' order by name asc";
 									$queryCorManuf = mysql_query($sqlCorManuf) or die ("error #897");
 									while ($resCorManuf = mysql_fetch_array($queryCorManuf)) {
 									?>
-									<option value="<?=$resCorManuf[id]?>" ><?=$resCorManuf[name]?></option>
+									<option value="<?=$resCorManuf[id]?>" ><?=utf8_encode($resCorManuf[name])?></option>
 									<?
 									}
 									?>
-								</select>
-								<input type="hidden" id="colorName" placeholder="Nome" /><br />
+								</select><br />
+								<input type="text" id="txtColorName" name="txtColorName" />
 								<div id="colorSelector" class="divColor"><div></div></div>
 								<input type="hidden" id="colorId" />
 								<input type="text" id="colorSelected" placeholder="Cor em hexa" disabled="disabled" /><br />
@@ -923,17 +924,17 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 								<input type="hidden" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
 							</span>
 							<? while ($resColor = mysql_fetch_array($queryColor)) { ?>
-							<span  colorId="<?=$resColor[id]?>">
+							<span name="liColorItem" colorId="<?=$resColor[id]?>">
 								<div class="delColor" onclick="deleteColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">X</div>
 							<div class="updateColor" onclick="updateColor(this,'<?=$resColor[id]?>','<?=$tableColor?>')">
 								<div class="divColor">
 									<div style="background-color: #<?=$resColor[hexa]?>;"></div>
 								</div>
-								<span id="textColor"><?=$resColor[name]." - ".$resColor[type]."<br />".$resColor[code]." => R$ ".$resColor[price]?></span>
+								<span id="textColor"><?=$resColor[name]." - ".utf8_encode($resColor[type])."<br />".$resColor[code]." => R$ ".$resColor[price]?></span>
 								<input type="hidden" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
 								<input type="hidden" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=$resColor[name]?>" />
 								<input type="hidden" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
-								<input type="hidden" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=$resColor[type]?>" />
+								<input type="hidden" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=utf8_encode($resColor[type])?>" />
 								<input type="hidden" id="colorInputPrice" name="colorInputPrice<?=$iColor?>" value="<?=$resColor[price]?>" />
 								<input type="hidden" id="colorInputCode" name="colorInputCode<?=$iColor?>" value="<?=$resColor[code]?>" />
 								<input type="hidden" id="colorInputTable" name="colorInputTable<?=$iColor?>" value="<?=$tableColor?>" />

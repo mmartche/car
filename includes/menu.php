@@ -7,7 +7,7 @@
 			</li>
 			<li><a href="http://carsale.uol.com.br/compracoletiva/" title="">Compra Coletiva</a></li>
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="./noticias/" id="menuEditorial" title="">Editorial<span class="caret"></span></a>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="/noticias/" id="menuEditorial" title="">Editorial<span class="caret"></span></a>
 			</li>
 			<li>
 				<a class="dropdown-toggle" href="#" id="menuInterativo" title="">Opnião do dono</a>
@@ -17,11 +17,11 @@
 			</li>
 			<li class="subMenuLi">
 				<ul class="subMenu dropdown-menu" id="submenuClassificados">
-					<li><a href="./explorador/" title="">Explorador</a></li>
-					<li><a href="./mega-oferta/" title="">Mega Oferta</a></li>
+					<li><a href="/explorador/" title="">Explorador</a></li>
+					<li><a href="/mega-oferta/" title="">Mega Oferta</a></li>
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
-					<li><a href="/carsale/noticias/" title="">Notícias</a></li>
+					<li><a href="/noticias/" title="">Notícias</a></li>
 					<li><a href="" title="">Segredos</a></li>
 					<li><a href="" title="">Testes</a></li>
 					<li><a href="" title="">Lançamentos</a></li>

@@ -1,7 +1,7 @@
 <?
-
+header('Content-Type: application/json; charset=utf-8');
 include ("../scripts/conectDB.php");
-
+mysql_query("SET NAMES 'utf8'");
 
 //$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
 
@@ -202,18 +202,19 @@ switch ($_GET[type]) {
 
 	case 'addColor':
 		if ($_GET[cId] != "") {
-			echo '[{"response":"true","error":"#208","reason":"Código já existe","insertcId":"'.$_GET[id].'"}]';
+			echo '[{"response":"true","error":"#205","reason":"Id já existe","insertcId":"'.$_GET[cId].'"}]';
 			break;
 		}
-		$checkColor = "SELECT id from colorManufacturer where code = '".$_GET[ccode]."'";
+		$checkColor = "SELECT id, name from colorManufacturer where code = '".$_GET[ccode]."'";
 		$chColor = mysql_query($checkColor);
 		if (mysql_num_rows($chColor) > 0 ) {
 			//return false
 			$rchC = mysql_fetch_array($chColor);
-			echo '[{"response":"false","error":"#208","reason":"Código já existe","insertId":"'.$rchC[id].'"}]';
+			echo '[{"response":"false","error":"#213","reason":"Código já existe para a cor '.$rchC[name].'","insertId":"'.$rchC[id].'"}]';
 			//$sql_addColor = "UPDATE colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE code = '".$_GET[ccode]."'";
 		} else {
 			$sql_addColor = "INSERT into `colorManufacturer` (`idManufacturer`, `name`, `code`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[ccode]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";			
+				mysql_query("SET NAMES 'utf8'");
 				mysql_query($sql_addColor) or die ('[{"response":"false","error":"error #198","reason":"'.mysql_error().$sql_addColor.'"}]');
 				echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		}
@@ -384,7 +385,7 @@ switch ($_GET[type]) {
 		echo "]";
 		break;
 	case 'askColor':
-		$sql = "SELECT colorManufacturer.id, colorManufacturer.name, colorManufacturer.hexa, colorManufacturer.price, colorManufacturer.code, manufacturer.name as manufacturerName FROM colorManufacturer, manufacturer WHERE manufacturer.id = colorManufacturer.idManufacturer and  colorManufacturer.idManufacturer = '".$_GET[manufacturerId]."'";
+		$sql = "SELECT colorManufacturer.id, colorManufacturer.name, colorManufacturer.hexa, colorManufacturer.price, colorManufacturer.code, manufacturer.name as manufacturerName FROM colorManufacturer, manufacturer WHERE manufacturer.id = colorManufacturer.idManufacturer and  colorManufacturer.idManufacturer = '".$_GET[manufacturerId]."' order by colorManufacturer.name asc";
 		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resCol = mysql_fetch_array($query)) {
@@ -474,7 +475,10 @@ switch ($_GET[type]) {
 
 	case 'askExplorer':
 		$a = ($_GET[idVersion] == "" || $_GET[idVersion] == "0" || $_GET[idVersion] == "undefined" ? "" : " and version.id = '".$_GET[idVersion]."' ");
-		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.radio,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, version.id as versionId, version.name as versionName, model.id as modelId, model.name as modelName from feature, version, model where feature.active = 's' and feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ".$a." ORDER BY feature.yearProduced DESC limit 1 ";
+		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.radio,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, version.id as versionId, version.name as versionName, model.id as modelId, model.name as modelName from feature, version, model where version.active = 's' and feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ".$a." ORDER BY feature.yearProduced DESC limit 1 ";
+		if ($_GET[action] == "debug") {
+			echo $sql;
+		}
 		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'error #416"}]');
 		$result="[";
 		$loop=0;
@@ -578,7 +582,7 @@ switch ($_GET[type]) {
 		        "description":"'.$res[description].'",
 		        "active":"'.$res[active].'",
 		        "price":"'.$res[price].'",
-		        "itemsSerie": "'.str_replace(array("\r", "\n"), "", $res[items]).'"';
+		        "itemsSerie": "'.str_replace(array("\r", "\n", "\""), "", $res[items]).'"';
 			$sqlOpt = "SELECT optionsVersion.id, optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsVersion.price as priceFeature from optionsManufacturer, optionsVersion WHERE optionsVersion.code = optionsManufacturer.code and optionsVersion.idVersion = '".$res[versionId]."' and optionsVersion.yearModel = '".$res[yearModel]."'";
 			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #522");
 			$result.= (mysql_num_rows($queryOpt) > 0 ? ',"options":' : "");
@@ -589,7 +593,7 @@ switch ($_GET[type]) {
 	        		"id":"'.$resOpt[id].'",
 		        	"code":"'.$resOpt[code].'",
 		        	"name":"'.$resOpt[name].'",
-		        	"items":"'.str_replace(array("\r", "\n"), "", $resOpt[options]).'",
+		        	"items":"'.str_replace("\"", "'", str_replace(array("\r", "\n"), "", $resOpt[options])).'",
 		        	"price":"'.$resOpt[priceFeature].'"
 		        	}';
 		        $loopOpt++;

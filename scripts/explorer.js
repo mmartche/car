@@ -20,29 +20,31 @@ function excluirComparacao(obj,target){
     number = $(obj).parent().children(".exploradorTabelaCarroNumeracao").text();
     $(".column")[number].remove();
     $(".exploradorTabelaGridBase")[number].remove();
-    qnt = $(".exploradorTabelaCarroNumeracao").length;
+    qnt = $(".exploradorTabelaLineCarros .exploradorTabelaCarroNumeracao").length;
     $(".ulCarList [iddb='"+target+"']").children(".selectedNumber").text("");
     $(".ulCarList [iddb='"+target+"']").removeClass("selectCar");
     for (i = 0; i < qnt; i++) {
         //console.log(i,$(".exploradorTabelaCarroNumeracao")[i]);
-        $(".exploradorTabelaCarroNumeracao")[i].innerText = i+1;
+        $(".exploradorTabelaLineCarros .exploradorTabelaCarroNumeracao")[i].innerText = i+1;
         // $(".ulCarList [iddb='"+i+"']").children(".selectedNumber").text(i+1);
     }
 }
 
-function addFilter (obj,idModel,version,place) {
+function addFilter (obj,idModel,idVersion,place) {
     $(".loadingUlCarList").removeClass("hide");
 	var qntSerie=34, qntMotor=5, qntGeral=4, qntDesempenho=4, qntDimensao=4;
 	//ve qntos items ja estao no resultado
 	//search info
     idVersion = $(obj).val();
     var carsLength = $(".column").length;
-    // console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
+    console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
     $.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion, function(data) {
     if (carsLength < 6) {
         // console.log('888888',data[0].response);
         if(data[0].response == "true"){
             //count cars showed
+
+
             if ($(obj).attr("id") == "optVersion") { carsLength--; }
             var divTitleCar = '<div class="exploradorTabelaGridCarro veiculo'+carsLength+'" idli="'+data[0].modelId+'">'+
                 '<div class="exploradorTabelaGridCarroOculta"></div>'+
@@ -144,8 +146,8 @@ function addFilter (obj,idModel,version,place) {
 
             var divFooterCar = '<div class="exploradorTabelaGridBase veiculo">'+
                 '<div class="exploradorTabelaBtnFicha"><a data-toggle="modal" data-target="#modalFeatureItem'+data[0].featureId+'" id="fichaTecnica'+data[0].featureId+'" style="display: inline;">Ficha Técnica</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><a id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><a id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><a href="http://noticias.carsale.uol.com.br/?s='+data[0].modelName+'" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><a href="http://carsale.uol.com.br/opniao/" id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
             '</div>';
 
 
@@ -191,7 +193,7 @@ function addFilter (obj,idModel,version,place) {
                 modalTemp += '</div>'+
 
                             '<div class="dealerFichaTecnicaTituloDesc">Cores disponíveis</div>'+
-                            '<div class="descriptionItem">';
+                            '<div class="descriptionItem colorItems">';
                             if (data[0].colors ) {
                                 $.each( data[0].colors, function( index, item ) {
                                     modalTemp += '<div class="descItemSerie"><div class="divColor"><div style="background-color: #'+item.hexa+';"></div>'+item.name+'<br />R$ '+item.price+'</div></div>';
@@ -202,22 +204,58 @@ function addFilter (obj,idModel,version,place) {
                 modalTemp += '</div>'+
 
                             '</div>'+
-                        '</div>'+
                       '<div class="modal-footer">'+
+                        '</div>'+
                         '<button type="button" class="btn btn-default" data-dismiss="modal">Fechar  </button>'+
                       '</div>'+
                     '</div>'+
                   '</div>'+
                 '</div>';
 
+            // console.log($(obj),$(obj).attr("id"));
+            var cancelAdd;
             if ($(obj).attr("id") == "optVersion") {
+                cancelAdd = true;
                 tableNum = $(obj).parentsUntil("#exploradorTabelaGridCarro").children(".exploradorTabelaCarroNumeracao").text();
-//                console.log(tableNum);
-                $(".exploradorTabelaGridCarro")[tableNum].remove();
+               // console.log(tableNum);
+                // $(".exploradorTabelaLineCarros .exploradorTabelaCarroNumeracao")
+                $(".exploradorTabelaLineCarros .exploradorTabelaGridCarro")[tableNum].remove();
                 $(".column")[tableNum].remove();
                 $(".exploradorTabelaGridBase")[tableNum].remove();
+                $("#modalFeature").append(modalTemp);
+                // console.log("?33?=====lllla==========12=======d",[tableNum]);
+                var arrShowTitle = new Array(), arrShowColumn = new Array(), arrShowFooter = new Array(), counter;
+                $.each($(".exploradorTabelaLineCarros .exploradorTabelaGridCarro") , function( index, item ) {
+                    arrShowTitle[index] = item;
+                    counter = index;
+                    // console.log(item);
+                });
+                $.each($(".column") , function( index, item ) {
+                    arrShowColumn[index] = item;
+                });
+                $.each($(".exploradorTabelaGridBase") , function( index, item ) {
+                    arrShowFooter[index] = item;
+                });
+                for (i = 1; i <= arrShowTitle.length; i++) {
+                    if (i == tableNum) {
+                        // console.log(i,"add +1",tableNum);
+                        $(".exploradorTabelaLineCarros").append(divTitleCar);
+                        $("#resultFilter").append(divResultCar);
+                        $(".exploradorTabelaLineBtn").append(divFooterCar);
+                        $("#modalFeature").append(modalTemp);
+                        $(".exploradorTabelaLineCarros").append(arrShowTitle[i]);
+                        $("#resultFilter").append(arrShowColumn[i]);
+                        $(".exploradorTabelaLineBtn").append(arrShowFooter[i]);
+                    } else {
+                        // console.log(i,"add old",tableNum,arrShowTitle[i]);
+                        $(".exploradorTabelaLineCarros").append(arrShowTitle[i]);
+                        $("#resultFilter").append(arrShowColumn[i]);
+                        $(".exploradorTabelaLineBtn").append(arrShowFooter[i]);
+                        $("#modalFeature").append(modalTemp);
+                    }
+                }
             }
-            if (carsLength < 5) {
+            if (carsLength < 5 && cancelAdd != true) {
                 $(".exploradorTabelaLineCarros").append(divTitleCar);
                 $("#resultFilter").append(divResultCar);
                 $(".exploradorTabelaLineBtn").append(divFooterCar);
@@ -227,7 +265,7 @@ function addFilter (obj,idModel,version,place) {
             }
 
                 counterExp = 1;
-                $.each($(".exploradorTabelaCarroNumeracao") , function( index, item ) {
+                $.each($(".exploradorTabelaLineCarros .exploradorTabelaCarroNumeracao") , function( index, item ) {
                     //$(".exploradorTabelaGridCarro").addClass('veiculo'+tableNum).remove();
                     $(item).text(counterExp);
                     counterExp++;

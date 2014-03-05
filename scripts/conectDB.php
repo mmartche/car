@@ -20,14 +20,23 @@ if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == 'localh
 	define('DB_PASSWORD', 'root');
 	define('DB_HOST', 'localhost');
 } else {
-	$dbHost="db499362938.db.1and1.com";
-	$dbUser="dbo499362938";
-	$dbPassw="carsale";
-	$db="db499362938";
-	define('DB_NAME', 'db499362938');
-	define('DB_USER', 'dbo499362938');
-	define('DB_PASSWORD', 'carsale');
-	define('DB_HOST', 'db499362938.db.1and1.com');
+	$dbHost="localhost";
+	$dbUser="root";
+	$dbPassw="a485618455b4d7471a4e708157096232";
+	$db="carsale";
+	// define('DB_NAME', 'db499362938');
+	// define('DB_USER', 'dbo499362938');
+	// define('DB_PASSWORD', 'carsale');
+	// define('DB_HOST', 'db499362938.db.1and1.com');
+
+	// $dbHost="db499362938.db.1and1.com";
+	// $dbUser="dbo499362938";
+	// $dbPassw="carsale";
+	// $db="db499362938";
+	// define('DB_NAME', 'db499362938');
+	// define('DB_USER', 'dbo499362938');
+	// define('DB_PASSWORD', 'carsale');
+	// define('DB_HOST', 'db499362938.db.1and1.com');
 }
 $conectDB = mysql_connect($dbHost,$dbUser,$dbPassw) or die (mysql_error());
 mysql_select_db($db) or die(mysql_error());

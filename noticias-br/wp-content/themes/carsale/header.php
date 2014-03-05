@@ -25,17 +25,17 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
-	<script type="text/javascript" src="/carsale/scripts/jquery.2.9.3.min.js"></script>
-	<script type="text/javascript" src="/carsale/scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/scripts/jquery.2.9.3.min.js"></script>
+	<script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
 
-	<script type="text/javascript" src="/carsale/scripts/Dfp_home.js"></script>
+	<script type="text/javascript" src="/scripts/Dfp_home.js"></script>
 	<script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
-	<script type="text/javascript" src="/carsale/scripts/scriptHome.js"></script>
-	<script type="text/javascript" src="/carsale/scripts/enquete.js" ></script>
+	<script type="text/javascript" src="/scripts/scriptHome.js"></script>
+	<script type="text/javascript" src="/scripts/enquete.js" ></script>
 
-	<link rel="stylesheet" type="text/css" href="/carsale/styles/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="/carsale/styles/home.css" />
-	<link rel="stylesheet" type="text/css" href="/carsale/styles/internas.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/home.css" />
+	<link rel="stylesheet" type="text/css" href="/styles/internas.css" />
 </head>
 
 <body <?php body_class(); ?>>
@@ -72,7 +72,7 @@
 			</li>
 			<li><a href="http://carsale.uol.com.br/compracoletiva/" title="">Compra Coletiva</a></li>
 			<li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="./noticias/" id="menuEditorial" title="">Editorial<span class="caret"></span></a>
+				<a class="dropdown-toggle" data-toggle="dropdown" href="/noticias/" id="menuEditorial" title="">Editorial<span class="caret"></span></a>
 			</li>
 			<li>
 				<a class="dropdown-toggle" href="#" id="menuInterativo" title="">Opnião do dono</a>
@@ -82,17 +82,23 @@
 			</li>
 			<li class="subMenuLi">
 				<ul class="subMenu dropdown-menu" id="submenuClassificados">
-					<li><a href="./explorador/" title="">Explorador</a></li>
-					<li><a href="./mega-oferta/" title="">Mega Oferta</a></li>
+					<li><a href="/explorador/" title="">Explorador</a></li>
+					<li><a href="/mega-oferta/" title="">Mega Oferta</a></li>
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
-					<li><a href="/carsale/noticias/" title="">Notícias</a></li>
-					<li><a href="" title="">Segredos</a></li>
-					<li><a href="" title="">Testes</a></li>
-					<li><a href="" title="">Lançamentos</a></li>
-					<li><a href="http://carsale.uol.com.br/blog/" title="">Blog do CarSale</a></li>
-					<li><a href="#" title="">Carros Verdes</a></li>
-					<li><a href="" title="">Alta Rodagem</a></li>
+					<li><a href="/noticias/" title="">Notícias</a></li>
+					<?php $args = array (
+						'orderby' => 'count',
+						'order' => 'ASC',
+						'style' => 'list',
+						'show_count' => 0,
+						'hide_empty' => 1,
+						'title_li' => '',
+						'number' => 10,
+						'depth' => -1,
+						);
+					wp_list_categories($args);
+					?>
 				</ul>
 			</li>
 		</ul>

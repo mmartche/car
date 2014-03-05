@@ -86,41 +86,43 @@ $(document).ready(function(){
 			manufacturerId = $("#manufacturerId").val();
 		/*}*/
 		cIId = $("#colorId").val(),
-		cName = $("#colorName").val(),
+		cName = $("input[name=colorName]").val(),
+		cNameFull = $("#txtColorName").val();
 		cColor = $("#colorSelected").val(),
 		// cApp = $("#colorAplication").val(),
 		cType = $("#colorType").val(),
 		cPrice = $("#colorPrice").val();
 		cCode = $("#colorCode").val();
-		cLength = $("#optionsColor span").length-1;
+		cLength = $("#optionsColor span[name=liColorItem]").length;
 		if (cName == "") {
 			alert ('Escolha ou digite um nome');
 			return false;
 		}
-		console.log('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ctype='+cType+'&ccode='+cCode+'&table='+cTable+'&cprice='+cPrice);
+		console.log('api/index.php?type=addColor&cId='+cIId+'&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ctype='+cType+'&ccode='+cCode+'&table='+cTable+'&cprice='+cPrice);
 		if (cColor.length == "6" && cCode != "") {
 			if (cIId.length > 0 && $(this).val() == "Adicionar") { 
-				$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+cIId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+cIId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+				$("#optionsColor").append('<span name="liColorItem"><div class="delColor" title="Remover" onclick="deleteColor(this,\''+cIId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+cIId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
 					$("#colorLength").val(cLength+1);
 			} else {
+				console.log("heueue");
 				$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ccode='+cCode+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
 					//console.log(data[0].response,data[0].insertId);
 					if(data[0].response == "true"){
 						//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-						
 						if (cIId.length == 0) {
-						$("#optionsColor").append('<span><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+						$("#optionsColor").append('<span name="liColorItem"><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
 							$("#colorLength").val(cLength+1);
 						} else {
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputName").val(cName);
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputColor").val(cColor);
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputType").val(cType);
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputPrice").val(cPrice);
-							$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+' <br />'+cCode+' => R$ '+cPrice);
+							$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+'\n'+cCode+' => R$ '+cPrice);
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorSelector div").css("backgroundColor", "#"+cColor);
 							$("#optionsColor span").show();
 						}
 						$("#colorName").val(""),
+						$("#txtColorName").val(""),
 						$("#colorSelected").val(""),
 						$("#colorPrice").val(""),
 						//$("#colorAplication").val(""),
@@ -371,6 +373,8 @@ function updateColor(obj,idColor,table) {
 	cIType = $(obj).children("#colorInputType").val();
 	$("#colorId").val(cIId);
 	$("#colorName").val(cIName),
+	$("#txtColorName").val(cIName),
+	$("#colorName").parent().find("input[name=colorName]").val(cIName),
 	$("#colorSelected").val(cISelect),
 	$("#colorPrice").val(cIPrice),
 	$("#colorCode").val(cCode),
@@ -560,6 +564,7 @@ $.widget( "custom.combobox", {
       });
     this._on( this.input, {
       autocompleteselect: function( event, ui ) {
+      	//WHEN WORK
       	//TODO: change next input value
       	
         ui.item.option.selected = true;
@@ -599,9 +604,9 @@ $.widget( "custom.combobox", {
 						optColorMan += '<option value="'+val.id+'" >'+val.label+'</option>';
 						optManufacturerName = val.manufacturerName;
 					});
-					$("#txtColorName option").remove();
-					$("#txtColorName").append(optColorMan);
-					//$("#txtColorName").parent().find("input").val("Opcionais de "+optManufacturerName);
+					$("#colorName option").remove();
+					$("#colorName").append(optColorMan);
+					//$("#colorName").parent().find("input").val("Opcionais de "+optManufacturerName);
 				});
 	      		break;
       		case "modelName":
@@ -652,13 +657,14 @@ $.widget( "custom.combobox", {
 	    	case "idSegment3":
 	    		updateInput(ui.item.option.value,'idSegment3');
 	    		break;
-	    	case "txtColorName":
+	    	case "colorName":
 	    		var optTemp;
 				// console.log('api/index.php?type=askColorValue&optId='+ui.item.option.value);
 	  			$.getJSON('api/index.php?type=askColorValue&optId='+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
 						$("#colorId").val(val.id),
-						$("#colorName").val(val.value);
+						$("#txtColorName").val(val.value);
+						// $("#colorName").parent().find("input[name=colorName]").val(val.value);
 						$("#colorSelected").val(val.hexa);
 						$("#colorSelected").attr("disabled",true);
 						$("#colorPrice").val(val.price);
@@ -790,8 +796,9 @@ $.widget( "custom.combobox", {
 		case "idSegment3":
 			updateInput('','idSegment3');
 			break;
-		case "txtColorName":
-			$("#colorName").val("");
+		case "colorName":
+			$("#colorId").val("");
+			$("#txtColorName").val("");
 			$("#colorSelected").val("");
 			$("#colorSelected").attr("disabled",false);
 			$("#colorPrice").val("");
@@ -982,7 +989,7 @@ $(function() {
 	$( "#txtFuel" ).combobox();
 	// $( "#txtGear").combobox();
 	$( "#txtOptionsName" ).combobox();
-	$("#txtColorName").combobox();
+	$("#colorName").combobox();
 	$( "#colorAplication" ).combobox();
 	$( "#colorType" ).combobox();
 	$("#countryOrigin").combobox();

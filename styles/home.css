@@ -964,6 +964,12 @@ footer .footerCompraImg:hover {
 	overflow: hidden;
 	float: left;
 }
+.doubleBLeft {
+	float: left;
+}
+.doubleBRight {
+	float: right;
+}
 .banner-300x305 {
 	float: left;
 	width: 300px;

@@ -13,9 +13,9 @@
 				<div class="news-content">
 					<?php the_content(); ?>
 				</div>
+
 			</article>
 			<div class="about-author">
-				<img class="about-author-img" src="#" />
 				<div class="about-author-desc" ><?php the_author_description();?></div>
 				<div class="about-author-link" ><?php the_author_link(); ?></div>
 			</div>
