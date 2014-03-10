@@ -129,7 +129,7 @@ header {
 	width: 80px;
 }
 .menu.affix .nav li.menuHome:first-child > a {
-	background: url("../images/logo-home.png") no-repeat 10px 5px;
+	background: url("../images/sprite.png") no-repeat transparent 0px -46px;
 	text-indent: -99em;
 	width: 100px;
 	height: 38px;

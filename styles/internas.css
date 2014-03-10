@@ -275,7 +275,10 @@ article a {
 	margin-bottom: 25px;
 }
 .read-more-title:before {
-	content: ">> ";
+	
+	content: url("../images/sprite.png") no-repeat transparent -400px -96px;
+	width: 20px;
+	height: 20px;
 }
 .read-more ul {
 	overflow: hidden;
@@ -352,6 +355,7 @@ article a {
 .wppa-container {
 	background-color: #000;
 	position: relative;
+	border-radius: 15px;
 }
 .wppa-nav {
 	background-color: #383838 !important;
@@ -386,11 +390,34 @@ article a {
 	z-index: 90;
 	margin: 0 !important;
 }
-
+#prev-film-arrow-1, #next-film-arrow-1 {
+	display: none;
+}
+#prev-film-arrow-1-1, #next-film-arrow-1-1 {
+	height: 65px !important;
+	display: block;
+	text-align: justify;
+	text-indent: -51em;
+	
+	width: 34px !important;
+}
+#prev-film-arrow-1-1{
+	background: url('../images/sprite.png') -110px -100px transparent no-repeat;
+}
+#next-film-arrow-1-1 {
+	background: url('../images/sprite.png') -140px -100px transparent no-repeat;
+}
+#bbb-1-l:hover {
+	background: url('../images/arrow-normal-left.png') left center transparent no-repeat;
+}
+#bbb-1-r:hover {
+	background: url('../images/arrow-normal-right.png') right center transparent no-repeat;
+}
+.wppa-fulltitle {
+	font-size: 16px;
+	color: #fff;
+}
 /* ALBUM INDICE */
-
-
-
 
 /* TABLES */
 .tablepress-table-name {
@@ -420,4 +447,75 @@ article a {
 	background-color: #617697;
 	color: #fff;
 	font-weight: bold;
+}
+
+.carsaleAvaliacaoGrigTabelaBg {
+width: 640px;
+height: auto;
+margin-top: 20px;
+background-color: #f3f3f3;
+position: relative;
+overflow: hidden;
+border-radius: 15px;
+}
+.carsaleAvaliacaoGrigTabela {
+height: auto;
+margin: 35px 35px 35px 35px;
+border: 1px #d3d3d3 solid;
+background-color: #fff;
+position: relative;
+float: left;
+}
+.carsaleAvaliacaoTabelaTitulo {
+width: 574px;
+height: auto;
+padding-top: 10px;
+padding-bottom: 10px;
+font: 20px Arial, sans-serif;
+color: #194c7f;
+text-align: center;
+position: relative;
+float: left;
+}
+.carsaleAvaliacaoTabelaLinha_A {
+width: 574px;
+height: auto;
+background-color: #f3f3f3;
+border-top: 1px #d3d3d3 solid;
+position: relative;
+float: left;
+}
+.carsaleAvaliacaoTabelaLinha_B {
+width: 574px;
+height: auto;
+background-color: #ffffff;
+border-top: 1px #d3d3d3 solid;
+position: relative;
+float: left;
+}
+.carsaleAvaliacaoTabelaDesc {
+width: 120px;
+height: auto;
+font: 12px Arial, sans-serif;
+color: #414141;
+text-align: right;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-right: 16px;
+position: relative;
+float: left;
+}
+.carsaleAvaliacaoTabelaEstrelaUmCarro {
+width: 360px;
+height: auto;
+font: 12px Arial, sans-serif;
+color: #414141;
+text-align: left;
+border-left: 1px #d3d3d3 solid;
+padding-left: 16px;
+padding-top: 6px;
+padding-bottom: 6px;
+padding-right: 16px;
+position: relative;
+float: left;
 }

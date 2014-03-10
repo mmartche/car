@@ -1,61 +1,10 @@
-			<div class="chamadasUltnot">
+			<div class="chamadasUltnot" id="ultnotGeral">
 				<h2><span>Últimas Notícias</span></h2>
 				<div class="chamadaMiddle">
 					<a href="#" title="">
 						<!--img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" /-->
 						<span class="span">Confira tudo o que rolou no mundo automotivo na última semana</span>
 						<p class="ultnotData">12h20</p>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#" title="">
-						<!--img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" /-->
-						<span class="span">Novo Golf: Vídeo mostra o processo de criação da sétima geração</span>
-						<p class="ultnotData">13h12</p>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#" title="">
-						<!--img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" /-->
-						<span class="span">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</span>
-						<p class="ultnotData">18h00</p>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#" title="">
-						<!--img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" /-->
-						<span class="span">Novo Golf: Vídeo mostra o processo de criação da sétima geração</span>
-						<p class="ultnotData">19h10</p>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#" title="">
-						<!--<img class="fotoRight" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." /-->
-						<!--img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" /-->
-						<span class="span">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</span>
-						<p class="ultnotData">20h00</p>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#" title="">
-						<!--<img class="fotoRight" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." /-->
-						<!--img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" /-->
-						<span class="span">Fim do mistério: novo Volkswagen Golf custará a partir de R$ 67.990</span>
-						<p class="ultnotData">20h40</p>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#" title="">
-						<!--img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" /-->
-						<span class="span">Confira tudo o que rolou no mundo automotivo na última semana</span>
-						<p class="ultnotData">12h20</p>
-					</a>
-				</div>
-				<div class="chamadaMiddle">
-					<a href="#" title="">
-						<!--img class="foto" src="http://carsale.uol.com.br/novosite/images/home/motor-limpeza_h2.jpg" alt="..." title="" /-->
-						<span class="span">Novo Golf: Vídeo mostra o processo de criação da sétima geração</span>
-						<p class="ultnotData">19h10</p>
 					</a>
 				</div>
 				<div class="read-more-link">

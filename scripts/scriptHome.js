@@ -53,7 +53,8 @@ $(document).ready(function(){
 function loadNews(local,category){
 	//check if lugar existe
 	//ler json
-	if (local,category) {
+	var o = $(local);
+	if (o.length > 0) {
 		$.getJSON(category, function(data) {
 			c=0;
 			$.each(data, function(key, val) {
