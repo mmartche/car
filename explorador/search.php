@@ -232,6 +232,12 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 <div class="sContent">
 	<div class="exploradorTitulo">Clique nos carros para compará-los:</div>
 	<div class="loadingUlCarList hide"></div>
+	<div class="loadingText hide">
+		<p>Buscando informações sobre este modelo...</p><br />
+		<p id="responseReasonLoadingCarList">Aguarde</p><br />
+		<div class="loagingImg"></div>
+		<div class="removeLoadingCarList" onclick="removeLoadingCarList()">x</div>
+	</div>
 	<ul class="ulCarList">
 		<?
 		// $x = ($myvalue == 99) ? "x is 99": "x is not 99";

@@ -29,15 +29,19 @@ function excluirComparacao(obj,target){
         // $(".ulCarList [iddb='"+i+"']").children(".selectedNumber").text(i+1);
     }
 }
-
+function removeLoadingCarList() {
+    $(".loadingUlCarList").addClass("hide");
+    $(".loadingText").addClass("hide");
+}
 function addFilter (obj,idModel,idVersion,place) {
     $(".loadingUlCarList").removeClass("hide");
+    $(".loadingText").removeClass("hide");
 	var qntSerie=34, qntMotor=5, qntGeral=4, qntDesempenho=4, qntDimensao=4;
 	//ve qntos items ja estao no resultado
 	//search info
     idVersion = $(obj).val();
     var carsLength = $(".column").length;
-    console.log($(obj),'../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
+    console.log($(obj),'api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
     $.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion, function(data) {
     if (carsLength < 6) {
         // console.log('888888',data[0].response);
@@ -146,7 +150,7 @@ function addFilter (obj,idModel,idVersion,place) {
 
             var divFooterCar = '<div class="exploradorTabelaGridBase veiculo">'+
                 '<div class="exploradorTabelaBtnFicha"><a data-toggle="modal" data-target="#modalFeatureItem'+data[0].featureId+'" id="fichaTecnica'+data[0].featureId+'" style="display: inline;">Ficha Técnica</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><a href="http://noticias.carsale.uol.com.br/?s='+data[0].modelName+'" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><a href="http://noticias.carsale.uol.com.br/noticias/?s='+data[0].modelName+'" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
                 '<div class="exploradorTabelaBtnFicha"><a href="http://carsale.uol.com.br/opniao/" id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
             '</div>';
 
@@ -272,12 +276,14 @@ function addFilter (obj,idModel,idVersion,place) {
                 });
         } else {
             console.log(data[0].reason);
+            $("#responseReasonLoadingCarList").text(data[0].reason);
         }
         /*
     		$("#optVersion").change(function(){
                 console.log($(this).val());
             });*/
     $(".loadingUlCarList").addClass("hide");
+    $(".loadingText").addClass("hide");
     }
     });
     //add to result

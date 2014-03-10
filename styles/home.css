@@ -1,4 +1,4 @@
-body {
+body, a,ul,ol,li, h1,h2,h3,h4,h5,p,div,span,label {
 	font-family: verdana !important;
 }
 ul,ol,li, h1,h2,h3,h4,h5,p {
@@ -27,6 +27,11 @@ header {
 	margin: 10px 0 0 20px;
 	width: 200px;
 	height: 80px;
+}
+.logo a {
+	display: block;
+	width: 180px;
+	height: 75px;
 }
 .menu {
 	margin-bottom: 10px ;
@@ -104,11 +109,21 @@ header {
 	margin-top: 0;
 }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-	background-color: #c2232a;
+	background-color: #9d2121;
 }
 .dropdown-menu li a {
-	padding: 0px 15px;
-	font-size: 19px;
+	/*margin: 5px 20px !important;
+	padding: 0;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #fff;
+	font-size: 16px;*/
+	margin: 0px 0px 0 !important;
+	border-bottom: 1px solid #7a1a1a;
+	font-size: 16px;
+	padding: 8px 0 8px 10px !important;
+}
+.dropdown-menu li a:before {
+	content: "> ";
 }
 .menu.affix .active > a {
 	width: 80px;
@@ -129,6 +144,29 @@ header {
 	margin-top: 39px;
 }
 .subMenuLi .subMenu {
+	background-color: darkred;
+	margin: 0 20px;
+	border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+	border-radius: 15px;
+}
+.subMenuLi #submenuEditorial{
+	left: 473px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.subMenuLi #submenuClassificados{
+	left: 81px;
+	width: 190px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+#submenuClassificados li:last-child a, #submenuEditorial li:last-child a {
+	border-bottom: 0;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+/*.subMenuLi .subMenu {
 	width: 950px;
 	background-color: darkred;
 	margin: 0 20px;
@@ -136,12 +174,14 @@ header {
 	border-top-right-radius: 0 !important;
 	border-radius: 15px;
 }
+*/
 .subMenu a {
 	margin: 0 !important;
 	color: #fff !important;
 }
 .subMenuLi .subMenu li {
-	float: left;
+	/*float: left;*/
+	overflow: hidden;
 }
 .logoBanner {
 	overflow: hidden;
@@ -198,7 +238,7 @@ overflow: hidden;
 }
 
 .txtBuscaNoticias {
-	width: 90px;
+	width: 110px;
 	height: 12px;
 	font-size: 11px;
 	color: #CB2026;
@@ -328,13 +368,16 @@ overflow: hidden;
 .carrosselHome .carousel-inner {
 	height: 100%;
 }
+.carousel-inner a {
+	color: #000;
+}
 .carrosselHome .carousel-inner .item {
 	height: 100%;
 }
 .chamadaH1 {
 	float: left;
 	width: 300px;
-	margin: 0 10px 10px 0;
+	margin: 0 5px 10px 0;
 	border-top: 1px dotted #ccc;
 	overflow: hidden;
 	background-color: #eee;
@@ -507,7 +550,6 @@ overflow: hidden;
 	float: left;
 	width: 675px;
 	padding-top: 10px;
-	border-top: 1px solid #ccc;
 	height: 400px;
 	overflow: hidden;
 	margin-bottom: 20px;
@@ -554,7 +596,7 @@ overflow: hidden;
 	width: 100%;
 }
 .carrosselVideosDown .carousel-caption {
-	height: 30px;
+	height: 27px;
 	overflow: hidden;
 	color: #000;
 	text-align: left;
@@ -568,13 +610,13 @@ overflow: hidden;
 	margin: 180px 300px;
 }
 .chamadasUltnot {
-	width: 365px;
+	width: 370px;
 	float: left;
 	margin: 0 5px 10px 0;
 }
 .chamadasUltnot h2 {
-	background-color: #8DA4A8;
-	padding: 0 0 2px 5px;
+	background-color: #CB2026;
+	padding: 5px 0 2px 0px;
 	margin-bottom: 10px;
 }
 .chamadasUltnot h2 span {
@@ -597,6 +639,10 @@ overflow: hidden;
 	float: left;
 	margin-right: 10px;
 	max-width: 120px;
+}
+.chamadasUltnot .chamadaMiddle .foto img {
+	max-width: 120px;
+	height: auto;
 }
 .chamadasUltnot .chamadaMiddle .fotoRight {
 	float: right;
@@ -966,9 +1012,10 @@ footer .footerCompraImg:hover {
 }
 .doubleBLeft {
 	float: left;
+	margin: 0 !important;
 }
 .doubleBRight {
-	float: right;
+	float: right !important;
 }
 .banner-300x305 {
 	float: left;
@@ -976,7 +1023,7 @@ footer .footerCompraImg:hover {
 	height: 305px;
 }
 .chamadaH1.blog {
-	width: 365px;
+	width: 370px;
 	background-color: #b0afaf;
 }
 .chamadaH1.blog h3 {

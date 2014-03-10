@@ -47,23 +47,31 @@ $(document).ready(function(){
 */
 	});
 	// console.log($(".tablepress td"));
-	loadNews();
+	loadNews('#ultnotGeral','http://noticias.carsale.uol.com.br/noticias/?feed=json');
+	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/noticias/categorias/classicos/?feed=json');
 });
 function loadNews(local,category){
 	//check if lugar existe
 	//ler json
-	$.getJSON('./scripts/loadNews.php', function(data) {
-		$.each(data, function(key, val) {
-			markupTemp = '<div class="chamadaMiddle">'+
-				'<a href="'+val.permalink+'" title="'+val.title+'">'+
-					'<img class="foto" src="'+val.postThumbnail+'" alt="'+val.title+'" title="'+val.title+'" />'+
-					'<span class="span">'+val.title+'</span>'+
-					'<p class="ultnotData">'+val.thetime+'</p>'+
-				'</a>'+
-			'</div>';
-			$("#ultnotGeral").append(markupTemp);
+	if (local,category) {
+		$.getJSON(category, function(data) {
+			c=0;
+			$.each(data, function(key, val) {
+				if (c < 6){
+					c++;
+					console.log("lendo últimas noticias"+local);
+					markupTemp = '<div class="chamadaMiddle">'+
+						'<a href="'+val.permalink+'" title="'+val.title+'">'+
+							'<div class="foto"> '+val.thumbnail+'</div>'+
+							'<span class="span">'+val.title+'</span>'+
+							'<p class="ultnotData">'+val.date+'</p>'+
+						'</a>'+
+					'</div>';
+					$(local).append(markupTemp);
+				}
+			});
 		});
-	});
+	}
 	//printa
 	//viva
 }

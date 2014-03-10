@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php get_header(); 
+global $wp_query;
+?>
 <div class="content">
 	<div class="columnMiddle">
 	<h2 class="title-page">
@@ -10,7 +12,7 @@
 			if (have_posts()): while(have_posts()): the_post(); ?>
 			</li>
 			<?php
-			$hora = get_the_date('h:m' );
+			$hora = get_the_date('h\hm' );
 			$dia = get_the_date('d/m/Y' );
 
 			if (!$ch) {	$ch = ""; }
@@ -22,18 +24,28 @@
 			<li <?php post_class(); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>
 
 				<?php if ( has_post_thumbnail() ) { ?>
-				<div class="list-thumbPost">
+				<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
 				<?php 
 					the_post_thumbnail();
 				?>
-				</div>
+				</a></div>
 				<?php
 				} ?>
 				<h4 class="list-category"><?php the_category(); ?></h4>
 					<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					<span class="list-hour"><?php echo $hora; ?> => <?php echo $dia; ?></span>
+					<span class="list-hour"><?php echo $hora; ?></span>
 			</li>
-			<?php endwhile; endif;  ?>
+			<?php endwhile; ?>
+			<div class="index-pagination">
+				<div class="index-pagination-div">
+					<div class="nav-next alignright"><?php previous_posts_link( 'Anterior' ); ?></div>
+					<?php  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;  ?>
+					<div class="nav-label"><?php echo $paged; ?> de <?php echo $wp_query->max_num_pages; ?></div>
+					<div class="nav-previous alignleft"><?php next_posts_link( 'Próximo' ); ?></div>
+				</div>
+			</div>
+
+			<?php endif;  ?>
 			
 			<?php wp_reset_postdata(); ?>
 		</ol>
@@ -51,7 +63,7 @@
 			</h2>
 			<ul class="ul-more-categories">
 			<?php $args = array (
-				'orderby' => 'count',
+				'orderby' => 'name',
 				'order' => 'ASC',
 				'style' => 'list',
 				'show_count' => 0,

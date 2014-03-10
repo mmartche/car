@@ -248,12 +248,12 @@ $(document).ready(function(){
 			$("#txtOptionsPrice").val("");
 			$("#txtOptNumCheck").val("");
 		} else {
-			console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price);
+			// console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price);
 			$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
 				if(data[0].response == "true"){
 					newId = data[0].insertId;
 					l = $("#resultOptions span").length;
-					$("#resultOptions").prepend('<span id="optItem'+l+'">'+
+					$("#resultOptions").prepend('<span id="optItem'+l+'" title="'+textTemp+'">'+
 						'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')" title="'+textTemp+'">'+
 							'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
 							'<input type="hidden" id="txtOptIdFeature" value="" />'+
@@ -344,11 +344,14 @@ function updateOpt(obj,numCheck) {
 	code = $(obj).children("#optCode").val(),
 	price = $(obj).children("#optPrice").val(),
 	nameOpt = $(obj).children("#lblOptions").text(),
-	optValue = $(obj).children("#lblOptions").attr("title"),
+	optValue = $(obj).attr("title"),
 	optIdFeature = $(obj).children("#txtOptIdFeature").val();
 	$("#txtOptionsCode").val(code);
 	$("#txtOptionsPrice").val(price);
-	$("#textAreaOptionsAdd").text(optValue);
+		var find = ';';
+		var re = new RegExp(find, 'g');
+		optValue = optValue.replace(re, ';\n');
+	$("#textAreaOptionsAdd").text(optValue.replace(';',';\n'));
 	$("#textAreaOptionsAdd").val(optValue);
 	$("#txtOptNumCheck").val(numCheck);
 	$("#txtOptionsName").val(optIdOpt);

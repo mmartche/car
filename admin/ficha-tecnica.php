@@ -181,7 +181,7 @@ include ("./scripts/functions.php");
 									<div class="rsFuel">
 									<?
 									switch (strtolower($res[fuel])) {
-										case 'G':
+										case 'g':
 											echo "Gasolina";
 											break;
 										case 'f':
@@ -192,6 +192,9 @@ include ("./scripts/functions.php");
 											break;
 										case 'd':
 											echo "Diesel";
+											break;
+										default:
+											echo "Outros - ".$res[fuel];
 											break;
 									}
 									?>
@@ -211,11 +214,12 @@ include ("./scripts/functions.php");
 						if ($_POST[filterGear] != "") { $filterSql .= " AND feature.gear like ('%".$_POST[filterGear]."%') "; }
 						if ($_POST[filterFuel] != "") { $filterSql .= " AND feature.fuel like ('%".$_POST[filterFuel]."%') "; }
 						if ($_POST[filterPrice] != "") { $filterSql .= " AND feature.price like ('%".$_POST[filterPrice]."%') "; }
-						if ($_POST[filterActive] == "n") { $filterSql .= " AND version.active = 'n' "; } else { $filterSql .= " AND version.active != 'n' "; }
+						if ($_POST[filterActive] == "n") { $filterSql .= " AND (version.active = 'n' OR feature.active = 'n') "; } else { $filterSql .= " AND (version.active = 's' AND feature.active = 's') "; }
 
 						$sql_search = "SELECT feature.id as id, version.id as versionId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc";
 						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 						// var_dump($sql_search);
+
 						$query_search = mysql_query($sql_search) or die (mysql_error()." error #180");
 						while ($res = mysql_fetch_array($query_search)) {
 							//if ($versionTemp == "") { $versionTemp = $res[versionId]; }
@@ -230,8 +234,8 @@ include ("./scripts/functions.php");
 							</div>
 							<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
 								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
-								<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
-								<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
+								<div class="rsModel" title="<?=$res[modelName]?>"><?=utf8_encode($res[modelName])?></div>
+								<div class="rsVersion" title="<?=$res[versionName]?>"><?=utf8_encode($res[versionName])?></div>
 								<div class="rsYearModel"><?=$res[yearModel]?></div>
 								<div class="rsYearProduced"><?=$res[yearProduced]?></div>
 								<div class="rsEngine"><?=utf8_encode($res[engine])?></div>
@@ -250,6 +254,9 @@ include ("./scripts/functions.php");
 											break;
 										case 'd':
 											echo "Diesel";
+											break;
+										default:
+											echo "Outros - ".$res[fuel];
 											break;
 									}
 									?>

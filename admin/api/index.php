@@ -194,9 +194,10 @@ switch ($_GET[type]) {
 			mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
 			echo '[{"response":"true","insertId":"'.$optIdEx[id].'","reason":"Same code"}]';
 		} else {
+			// $text = real_escape_string(nl2br(htmlspecialchars($_GET['text'])));
 			$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
 			mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
-			echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
+			echo '[{"response":"true","insertId":"'.mysql_insert_id().$_GET[text].'"}]';
 		}
 		break;
 

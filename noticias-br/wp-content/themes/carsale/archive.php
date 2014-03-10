@@ -1,59 +1,18 @@
-<?php get_header(); ?>
-	<?php  if (have_posts()) : while(have_posts()) : the_post(); ?>
-		<?php if (is_category()) : ?>
-			<h1>Lista da categoria: <?php single_cat_title(); ?></h1>
-			<h3><?php the_permalink(); ?></h3>
-		<?php elseif( is_tag()) : ?>
-			<h1>Tags: <?php single_tag_title(); ?></h1>
-			<h3><?php the_permalink(); ?></h3>
-		<?php elseif (is_day()) : ?>
-			<h1>Dia: <?php the_time('F js, Y'); ?></h1>
-			<h3><?php the_permalink(); ?></h3>
-		<?php elseif (is_month()) : ?>
-			<h1>Por mes: <?php the_time('F, Y' ); ?></h1>
-			<h3><?php the_permalink(); ?></h3>
-		<?php elseif(is_year()) : ?>
-			<h1>Por ano: <?php the_time('Y' ); ?> </h1>
-			<h3><?php the_permalink(); ?></h3>
-		<?php elseif(is_author()) : ?>
-			<h1>Autor</h1>
-			<h3><?php the_permalink(); ?></h3>
-		<?php elseif(isset($_GET['paged']) && !empty($_GET['paged'])) : ?>
-			<h1>Arquivo</h1>
-			<h3><?php the_permalink(); ?></h3>
-		<?php endif; ?>
-		<?php endwhile; rewind_posts(); ?>
-			<hr>
-		<?php while (have_posts()) : the_post(); ?>
-			<?php get_template_part( 'content', get_post_format() ); ?>
-		<?php endwhile; ?>
-	<?php else : ?>
-		<?php if(is_category()) : ?>
-			<h1>Mals, tem nada em <?php single_cat_title( ); ?> . ainda.</h1>
-		<?php elseif(is_date()) : ?>
-			<h1>Mals, nao tem post com essa data</h1>
-		<?php elseif (is_author()) : ?>
-			<?php get_userdatabylogin(get_query_var('author_name')); ?>
-			<h1>Mals, nao tem post com <?php echo $userdata->display_name; ?> .inda.</h1>
-		<?php else : ?>
-			<h1>Nenhum post encontrado</h1>
-		<?php endif; ?>
-	<?php endif;  ?>
-
-
+<?php get_header(); 
+global $wp_query;
+?>
 <div class="content">
 	<div class="columnMiddle">
-		<?php if (have_posts()) : ?>
 	<h2 class="title-page">
 		<span class="title-background"></span>
 		<span class="title-name"><?php the_category(); ?></span>
 	</h2>
 		<ol class="lastest-news">
 			<?php
-			 while(have_posts()): the_post(); ?>
+			if (have_posts()): while(have_posts()): the_post(); ?>
 			</li>
 			<?php
-			$hora = get_the_date('h:m' );
+			$hora = get_the_date('h\hm' );
 			$dia = get_the_date('d/m/Y' );
 
 			if (!$ch) {	$ch = ""; }
@@ -65,17 +24,27 @@
 			<li <?php post_class(); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>
 
 				<?php if ( has_post_thumbnail() ) { ?>
-				<div class="list-thumbPost">
+				<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
 				<?php 
 					the_post_thumbnail();
 				?>
-				</div>
+				</a></div>
 				<?php
 				} ?>
-				<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<span class="list-hour"><?php echo $hora; ?> => <?php echo $dia; ?></span>
+					<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<span class="list-hour"><?php echo $hora; ?></span>
 			</li>
-			<?php endwhile; endif;  ?>
+			<?php endwhile; ?>
+			<div class="index-pagination">
+				<div class="index-pagination-div">
+					<div class="nav-next alignright"><?php previous_posts_link( 'Anterior' ); ?></div>
+					<?php  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;  ?>
+					<div class="nav-label"><?php echo $paged; ?> de <?php echo $wp_query->max_num_pages; ?></div>
+					<div class="nav-previous alignleft"><?php next_posts_link( 'Próximo' ); ?></div>
+				</div>
+			</div>
+
+			<?php endif;  ?>
 			
 			<?php wp_reset_postdata(); ?>
 		</ol>
@@ -93,7 +62,7 @@
 			</h2>
 			<ul class="ul-more-categories">
 			<?php $args = array (
-				'orderby' => 'count',
+				'orderby' => 'name',
 				'order' => 'ASC',
 				'style' => 'list',
 				'show_count' => 0,
@@ -116,5 +85,4 @@
 		</div>
 	</div>
 </div>
-
-<?php get_footer( ); ?>
+<?php get_footer(); ?>

@@ -2386,6 +2386,7 @@ window.onpopstate = function(event) {
 
 // The AJAX rendering routine Sync
 function wppaDoAjaxRender(mocc, ajaxurl, newurl) {
+	console.log("iiiiiiiiiiirrraaaaa");
 
 	// Fix the url
 	if ( wppaLang != '' ) ajaxurl += '&lang='+wppaLang;
@@ -2447,6 +2448,7 @@ function wppaDoAjaxRender(mocc, ajaxurl, newurl) {
 		// Run Autocol? 
 		wppaColWidth[mocc] = 0;	// force a recalc and triggers autocol if needed
 	}
+	console.log("done");
 }
 
 // The AJAX rendering routine Async

@@ -22,12 +22,7 @@
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
 					<li><a href="/noticias/" title="">Notícias</a></li>
-					<li><a href="" title="">Segredos</a></li>
-					<li><a href="" title="">Testes</a></li>
-					<li><a href="" title="">Lançamentos</a></li>
-					<li><a href="http://carsale.uol.com.br/blog/" title="">Blog do CarSale</a></li>
-					<li><a href="#" title="">Carros Verdes</a></li>
-					<li><a href="" title="">Alta Rodagem</a></li>
+					
 				</ul>
 			</li>
 		</ul>

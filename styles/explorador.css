@@ -560,6 +560,33 @@ width: 178px;
 	z-index: 10;
 	opacity: .5;
 }
+.loadingText {
+	background-color: #fff;
+	text-align: center;
+	top: 70px;
+	margin: 50px 250px;
+	opacity: 1;
+	padding: 30px;
+	position: absolute;
+	z-index: 11;
+	width: 500px;
+}
+.loagingImg {
+	border:1px solid;
+	width: 30px;
+	height: 30px;
+	margin: auto;
+}
+.removeLoadingCarList {
+	border:1px solid red;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	cursor: pointer;
+	color: red;
+}
 /*THUMBS SEARCH FORM */
 .car1 {
 	background: url('../images/explorador-thumbs/hatch.jpg') 14px 15px no-repeat

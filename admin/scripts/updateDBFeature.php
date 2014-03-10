@@ -345,14 +345,18 @@ switch ($_POST[action]) {
 
 
 
-
-?>
-<script> 
-alert("Atualizado");
-// window.location="../ficha-tecnica.php";
-</script>
-<a href="../index.php">Voltar a Home</a>
-
+if ($_GET[debug] == "true"){ ?>
+	<script> 
+	alert("Atualizado");
+	</script>
+	<a href="../index.php">Voltar a Home</a>
+<? } else { ?>
+	<script> 
+	alert("Atualizado");
+	window.location="../ficha-tecnica.php";
+	</script>
+	<a href="../index.php">Voltar a Home</a>
+<? } ?>
 
 
 
