@@ -18,7 +18,7 @@ global $wp_query;
 			if (!$ch) {	$ch = ""; }
 			if ($ch != $dia) {
 				$ch = $dia;
-				echo '<li class="list-separator">'.$dia.'</li>';
+				echo '<li class="list-separator"><div class="arrow-list-separator"></div>'.$dia.'</li>';
 			}
 			?>
 			<li <?php post_class(); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>

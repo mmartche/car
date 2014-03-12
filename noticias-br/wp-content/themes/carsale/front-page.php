@@ -18,13 +18,13 @@ global $wp_query;
 			if (!$ch) {	$ch = ""; }
 			if ($ch != $dia) {
 				$ch = $dia;
-				echo '<li class="list-separator">'.$dia.'</li>';
+				echo '<li class="list-separator"><div class="arrow-list-separator"></div>'.$dia.'</li>';
 			}
 			?>
 			<li <?php post_class(); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>
 
 				<?php if ( has_post_thumbnail() ) { ?>
-				<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
+				<div class="list-thumbPost imgHover"><a href="<?php the_permalink(); ?>">
 				<?php 
 					the_post_thumbnail();
 				?>
@@ -38,10 +38,10 @@ global $wp_query;
 			<?php endwhile; ?>
 			<div class="index-pagination">
 				<div class="index-pagination-div">
-					<div class="nav-next alignright"><?php previous_posts_link( 'Anterior' ); ?></div>
+					<div class="nav-next alignright"><?php previous_posts_link( '' ); ?></div>
 					<?php  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;  ?>
 					<div class="nav-label"><?php echo $paged; ?> de <?php echo $wp_query->max_num_pages; ?></div>
-					<div class="nav-previous alignleft"><?php next_posts_link( 'Próximo' ); ?></div>
+					<div class="nav-previous alignleft"><?php next_posts_link( '' ); ?></div>
 				</div>
 			</div>
 

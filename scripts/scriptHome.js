@@ -47,8 +47,8 @@ $(document).ready(function(){
 */
 	});
 	// console.log($(".tablepress td"));
-	loadNews('#ultnotGeral','http://noticias.carsale.uol.com.br/noticias/?feed=json');
-	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/noticias/categorias/classicos/?feed=json');
+	loadNews('#ultnotGeral','http://noticias.carsale.uol.com.br/?feed=json');
+	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/categorias/classicos/?feed=json');
 });
 function loadNews(local,category){
 	//check if lugar existe

@@ -40,12 +40,24 @@ margin-right: 15px;
 	float: right;
 	font-size: 12px;
 	padding: 5px;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	border: 1px solid #ccc;
+	border-top-left-radius: 15px;
+	background-color: #fff;
+}
+.arrow-comunicar-erro {
+	background: url("/images/sprite.png") no-repeat transparent -170px -56px;
+	width: 30px;
+	height: 24px;
+	float: left;
 }
 .comunicar-erro a {
 	color: #444757;
-}
-.comunicar-erro:before {
-	content: "|±|";
+	padding: 4px 0;
+	float: left;
+	cursor: pointer;
 }
 /* LAST NEWS */
 .lastest-news .post.format-standard {
@@ -102,8 +114,11 @@ margin-right: 15px;
 	padding-bottom: 3px;
 	margin: 10px 0;
 }
-.list-separator:before {
-	content: ">> ";
+.arrow-list-separator {
+	background: url("/images/sprite.png") no-repeat transparent -400px -102px;
+	width: 20px;
+	height: 18px;
+	float: left;
 }
 .list-title {
 	overflow: hidden;
@@ -164,8 +179,9 @@ margin-right: 15px;
 	width: 50%;
 }
 .ul-more-categories li:before {
-	content: "> ";
+	content: ". ";
 	color: #f55454;
+	background: url("/images/sprite.png") no-repeat transparent -333px -128px;
 }
 .ul-more-categories a {
 	color:#646464;
@@ -184,14 +200,24 @@ margin-right: 15px;
 	width: 80px;
 	height: 25px;
 }
+.index-pagination .nav-previous a {
+	background: url("/images/sprite.png") no-repeat transparent -322px -46px;
+	display: block;
+	height: 25px;
+}
 .index-pagination .nav-next {
 	float: left;
 	width: 80px;
 	height: 25px;
 }
+.index-pagination .nav-next a {
+	background: url("/images/sprite.png") no-repeat transparent -316px -66px;
+	display: block;
+	height: 25px;
+}
 .index-pagination .nav-label {
 	float: left;
-	margin: 0 35px;
+	margin: 0 25px;
 	height: 25px;
 }
 .index-pagination a {
@@ -211,7 +237,7 @@ article a {
 }
 .post-subtitle {
 	margin-bottom: 10px;
-	font-size: 20px;
+	font-size: 19px;
 	color: #3c3e40;
 }
 .post-author {
@@ -274,11 +300,11 @@ article a {
 	padding: 5px;
 	margin-bottom: 25px;
 }
-.read-more-title:before {
-	
-	content: url("../images/sprite.png") no-repeat transparent -400px -96px;
-	width: 20px;
-	height: 20px;
+.arrow-read-more {
+	background: url("/images/sprite.png") no-repeat transparent -400px -100px;
+	width: 15px;
+	height: 24px;
+	float: left;
 }
 .read-more ul {
 	overflow: hidden;

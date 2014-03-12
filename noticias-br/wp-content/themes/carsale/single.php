@@ -24,7 +24,7 @@
 		foreach ($categories as $category) :
 			?>
 		<div class="read-more">
-			<h3 class="read-more-title"><a href="<?php echo get_category_link($category->term_id);?>" title="Ver todas as notícias sobre <?php echo $category->name; ?>">Leia Mais</a></h3>
+			<h3 class="read-more-title"><div class="arrow-read-more"></div><a href="<?php echo get_category_link($category->term_id);?>" title="Ver todas as notícias sobre <?php echo $category->name; ?>">Leia Mais</a></h3>
 		<ul class="ul-read-more">
 		<?php
 				$postIdTemp = get_the_ID(); 
@@ -74,7 +74,7 @@
 			<div class="fb-comments" data-href="<?php the_permalink(); ?>" data-num-posts="3" data-width="640"></div>  
         </div>
         <div class="footer-content">
-        	<div class="comunicar-erro"><a data-toggle="modal" data-target="#comunicar-erro" id="fichaTecnica1">Comunicar erro</a></div>
+        	<div class="comunicar-erro"><div class="arrow-comunicar-erro"></div><a data-toggle="modal" data-target="#comunicar-erro" id="fichaTecnica1">Comunicar erro</a></div>
         </div>
 	</div>
 	<div class="contentRight">
@@ -110,7 +110,7 @@
 						</div>
 						<?php } ?>
 						<div class="read-more-text">
-							<?php the_title(); ?>
+							<?php echo mb_strimwidth(get_the_title(), 0, 50, "..."); ?>
 						</div>
 					</a></h3>
 					<span class="read-more-date"><?php echo ($dia." ".$hora); ?></span>
@@ -153,7 +153,7 @@
 						</div>
 						<?php } ?>
 						<div class="read-more-text">
-							<?php the_title(); ?>
+							<?php echo mb_strimwidth(get_the_title(), 0, 50, "..."); ?>
 						</div>
 					</a></h3>
 					<span class="read-more-date"><?php echo ($dia." ".$hora); ?></span>
