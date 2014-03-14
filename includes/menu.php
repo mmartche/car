@@ -22,7 +22,16 @@
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
 					<li><a href="/noticias/" title="">Notícias</a></li>
-					
+					<li><a href="http://noticias.carsale.uol.com.br/" title="">Últimas</a></li>
+					<li><a href="http://noticias.carsale.uol.com.br/testes/" title="">Testes</a></li>
+					<li><a href="http://noticias.carsale.uol.com.br/lançamentos/" title="">Lançamentos</a></li>
+					<li><a href="http://noticias.carsale.uol.com.br/videos/" title="">Vídeos</a></li>
+					<li><a href="http://noticias.carsale.uol.com.br/classicos/" title="">Clássicos</a></li>
+					<li><a href="http://noticias.carsale.uol.com.br/segredos/" title="">Segredos</a></li>
+					<li><a href="http://noticias.carsale.uol.com.br/carros-verdes/" title="">Carros Verdes</a></li>
+					<li><a href="http://noticias.carsale.uol.com.br/alta-rodagem/" title="">Alta Rodagem</a></li>
+					<!-- <li><a href="http://noticias.carsale.uol.com.br/"/ title="">Enquete</a></li> -->
+					<li><a href="http://noticias.carsale.uol.com.br/blog/" title="">Blog</a></li>
 				</ul>
 			</li>
 		</ul>

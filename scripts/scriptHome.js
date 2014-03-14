@@ -49,8 +49,28 @@ $(document).ready(function(){
 	// console.log($(".tablepress td"));
 	loadNews('#ultnotGeral','http://noticias.carsale.uol.com.br/?feed=json');
 	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/categorias/classicos/?feed=json');
+
+	// var aeee = $.ajax( {
+	// 	url:"http://noticias.carsale.uol.com.br/?feed=json&callbackName=jsonp",
+	// 	crossDomain:true,
+	// 	jsonp: false, 
+	// 	jsonpCallback: "callbackName"
+	// } )
+	// .done(function() {
+	//     console.log( "success" );
+	// })
+	// .fail(function() {
+	//     console.log( "error" );
+	// })
+	// .always(function() {
+	//     console.log( "complete" );
+ //  	});
 });
 function loadNews(local,category){
+	//JSONP
+	// $.getJSON("http://noticias.carsale.uol.com.br/?feed=json&jsonp=Array", function(data){
+ //               console.debug(data[0].title);   // print title of first item to firebug console
+	//        });
 	//check if lugar existe
 	//ler json
 	var o = $(local);

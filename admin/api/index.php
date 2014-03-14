@@ -330,15 +330,19 @@ switch ($_GET[type]) {
 		break;
 
 	case 'activeItem':
-		$select = "SELECT active from ".$_GET[category]." WHERE id = '".$_GET[idItem]."'";
+		$select = "SELECT active, idVersion from ".$_GET[category]." WHERE id = '".$_GET[idItem]."'";
 		$query = mysql_query($select) or die ('[{"response":"false", "errorMsg":"'.mysql_error().'"}]');
 		$resAI = mysql_fetch_array($query);
 		if ($resAI[active] == "n") {
-			$sql_aI = "UPDATE `".$_GET[category]."` SET `active` = 's' WHERE `id` = '".$_GET[idItem]."'";
+			$sql_aI = "UPDATE `version` SET `active` = 's' WHERE `id` = '".$resAI[idVersion]."'; ";
+			mysql_query($sql_aI) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+			$sql_aI = " UPDATE `".$_GET[category]."` SET `active` = 's' WHERE `id` = '".$_GET[idItem]."';";
 			mysql_query($sql_aI) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 			echo '[{"response":"true", "reason":"active"}]';
 		} else {
-			$sql_aI = "UPDATE `".$_GET[category]."` SET `active` = 'n' WHERE `id` = '".$_GET[idItem]."'";
+			$sql_aI = "UPDATE `version` SET `active` = 'n' WHERE `id` = '".$resAI[idVersion]."'; ";
+			mysql_query($sql_aI) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+			$sql_aI = " UPDATE `".$_GET[category]."` SET `active` = 'n' WHERE `id` = '".$_GET[idItem]."';";
 			mysql_query($sql_aI) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 			echo '[{"response":"true", "reason":"desactive"}]';
 		}

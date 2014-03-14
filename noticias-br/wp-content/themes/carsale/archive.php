@@ -12,7 +12,7 @@ global $wp_query;
 			if (have_posts()): while(have_posts()): the_post(); ?>
 			</li>
 			<?php
-			$hora = get_the_date('h\hm' );
+			$hora = get_the_date('H\hm' );
 			$dia = get_the_date('d/m/Y' );
 
 			if (!$ch) {	$ch = ""; }
@@ -37,10 +37,10 @@ global $wp_query;
 			<?php endwhile; ?>
 			<div class="index-pagination">
 				<div class="index-pagination-div">
-					<div class="nav-next alignright"><?php previous_posts_link( 'Anterior' ); ?></div>
+					<div class="nav-next alignright"><?php previous_posts_link( '' ); ?></div>
 					<?php  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;  ?>
 					<div class="nav-label"><?php echo $paged; ?> de <?php echo $wp_query->max_num_pages; ?></div>
-					<div class="nav-previous alignleft"><?php next_posts_link( 'Próximo' ); ?></div>
+					<div class="nav-previous alignleft"><?php next_posts_link( '' ); ?></div>
 				</div>
 			</div>
 

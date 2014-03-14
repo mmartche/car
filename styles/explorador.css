@@ -25,8 +25,8 @@ transition: all .3s;
 	width: 100%;
 }
 .expTitle span {
-	font-size: 20px;
-	color:#69747e;
+	font-size: 15px;
+	color: #3c3e40;
 	float: left;
 }
 .titleContent {
@@ -104,14 +104,14 @@ transition: all .3s;
 	padding: 3px 0 0 0;
 	display: block;
 	color: #fff;
-	background: #353535; /* Old browsers */
-	background: -moz-linear-gradient(top,  #d9d9d9 0%, #353535 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9d9d9), color-stop(100%,#353535)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #d9d9d9 0%,#353535 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #d9d9d9 0%,#353535 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #d9d9d9 0%,#353535 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #d9d9d9 0%,#353535 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#353535',GradientType=0 ); /* IE6-9 */
+	background: rgb(217,217,217);
+	background: -moz-linear-gradient(top,  rgba(217,217,217,1) 0%, rgba(53,53,53,1) 58%, rgba(53,53,53,1) 99%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(217,217,217,1)), color-stop(58%,rgba(53,53,53,1)), color-stop(99%,rgba(53,53,53,1)));
+	background: -webkit-linear-gradient(top,  rgba(217,217,217,1) 0%,rgba(53,53,53,1) 58%,rgba(53,53,53,1) 99%);
+	background: -o-linear-gradient(top,  rgba(217,217,217,1) 0%,rgba(53,53,53,1) 58%,rgba(53,53,53,1) 99%);
+	background: -ms-linear-gradient(top,  rgba(217,217,217,1) 0%,rgba(53,53,53,1) 58%,rgba(53,53,53,1) 99%);
+	background: linear-gradient(to bottom,  rgba(217,217,217,1) 0%,rgba(53,53,53,1) 58%,rgba(53,53,53,1) 99%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#353535',GradientType=0 );
 }
 .btnExpSearch .btnButton:hover {
 	color: #323232;
@@ -345,7 +345,8 @@ transition: all .3s;
 	font-size: 10px;
 }
 .liCarItem:hover {
-	background-color: #eee;
+
+	border-color: #790000;
 }
 .liCarItem.selected {
 	background-color: #999;
@@ -379,17 +380,19 @@ transition: all .3s;
 }
 .headerTitle {
 	height: 42px;
-	padding: 12px 0 0 12px;
-	font-size: 21px;
+	padding: 12px 0 0 10px;
+	font-size: 18px;
 	background-color: #fff;
 	margin-bottom: 10px;
 	border-bottom: 1px solid #67707f;
+	font-weight: bold;
 }
 .titleItems>li:nth-child(odd) {
 	background-color: #eee;
 }
 .titleItems>li {
-	font-size: 13px;
+	font-size: 12px;
+	font-weight: bold;
 	height: 25px;
 	overflow: hidden;
 	padding: 3px 10px;

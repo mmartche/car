@@ -54,7 +54,9 @@ if (file_exists("../carImages/".$res[picture])) {
 <body>
 <script type="text/javascript" src="http://tm.uol.com.br/b/par/parceiros.js"></script>
 
-<div id="uolBar"></div>
+<div id="uolBar">
+<script type="text/javascript" src="http://jsuol.com/barra/parceiro-1024.js?refbusca=carsale&full=true"></script>
+</div>
 <header>
     <?
     include ("../includes/logoBanner.php");

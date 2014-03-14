@@ -58,7 +58,9 @@
 	</div>
 	<?php endif; ?>
 
-	<div id="uolBar"></div>
+	<div id="uolBar">
+		<script type="text/javascript" src="http://jsuol.com/barra/parceiro-1024.js?refbusca=carsale&full=true"></script>
+	</div>
 	<header id="masthead" class="site-header" role="banner">
 	<div class="logoBanner">
 		<h1 class="logo site-title"><a href="http://carsale.com.br" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -92,23 +94,20 @@
 			</li>
 			<li class="subMenuLi">
 				<ul class="subMenu dropdown-menu" id="submenuClassificados">
-					<li><a href="/explorador/" title="">Explorador</a></li>
-					<li><a href="/mega-oferta/" title="">Mega Oferta</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://classificados.carsale.uol.com.br/explorador/" title="">Explorador</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://classificados.carsale.uol.com.br/mega-oferta/" title="">Mega Oferta</a></li>
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
-					<li><a href="/noticias/" title="">Geral</a></li>
-					<?php $args = array (
-						'orderby' => 'name',
-						'order' => 'ASC',
-						'style' => 'list',
-						'show_count' => 0,
-						'hide_empty' => 0,
-						'title_li' => '',
-						'number' => 10,
-						'depth' => -1,
-						);
-					wp_list_categories($args);
-					?>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/" title="">Últimas</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/testes" title="">Testes</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/lancamentos" title="">Lançamentos</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/videos" title="">Vídeos</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/classicos" title="">Clássicos</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/segredos" title="">Segredos</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/carros-verdes" title="">Carros Verdes</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/alta-rodagem" title="">Alta Rodagem</a></li>
+					<!-- <li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/" title="">Enquete</a></li> -->
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/blog" title="">Blog</a></li>
 				</ul>
 			</li>
 		</ul>

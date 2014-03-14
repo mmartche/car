@@ -430,6 +430,7 @@ function checkFields(e) {
 	// return false;
 }
 function activeItem (item,table,obj) {
+	console.log(item,table,obj);
 	$.getJSON('api/index.php?type=activeItem&idItem='+item+'&category='+table, function(data) {
 		if(data[0].response == "true"){
 			if (data[0].reason == "active") {
@@ -438,7 +439,7 @@ function activeItem (item,table,obj) {
 				$(obj).parents("li.resultItem").addClass("desactive");
 			}
 		} else {
-			console.log("Item não desativado"+data[0].errorMsg);
+			console.log("Item não desativado"+data[0].reason);
 		}
 	});
 }

@@ -13,8 +13,7 @@ a img:hover{
 	/*border: 1px solid #cb2026;*/
 }
 #uolBar {
-	height: 30px;
-	background-color: #0ac;
+	height: 35px;
 }
 header {
 	width: 990px;
@@ -120,16 +119,16 @@ header {
 	margin: 0px 0px 0 !important;
 	border-bottom: 1px solid #7a1a1a;
 	font-size: 16px;
-	padding: 8px 0 8px 10px !important;
+	padding: 8px 0 8px 25px !important;
 }
-.dropdown-menu li a:before {
+/*.dropdown-menu li a:before {
 	content: "> ";
-}
+}*/
 .menu.affix .active > a {
 	width: 80px;
 }
 .menu.affix .nav li.menuHome:first-child > a {
-	background: url("../images/sprite.png") no-repeat transparent 0px -46px;
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent 0px -46px;
 	text-indent: -99em;
 	width: 100px;
 	height: 38px;
@@ -182,6 +181,13 @@ header {
 .subMenuLi .subMenu li {
 	/*float: left;*/
 	overflow: hidden;
+}
+.subMenu .arrow-submenu {
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -341px -128px;
+	height: 19px;
+	width: 30px;
+	margin-top: 10px;
+	position: absolute;
 }
 .logoBanner {
 	overflow: hidden;
@@ -573,6 +579,29 @@ overflow: hidden;
 }
 .carrosselVideos .carousel-control {
 	height: 349px;
+	margin-top: 40px;
+}
+.carrosselVideos .carousel-control .icon-prev:before {
+	content: "";
+}
+.carrosselVideos .carousel-control .icon-prev {
+	background: url('http://noticias.carsale.uol.com.br/images/arrow-normal-left.png') center center transparent no-repeat;
+	display: block;
+	height: 85px;
+	width: 45px;
+	left: 15px;
+	top: 40%;
+}
+.carrosselVideos .carousel-control .icon-next:before {
+	content: "";
+}
+.carrosselVideos .carousel-control .icon-next {
+	background: url('http://noticias.carsale.uol.com.br/images/arrow-normal-right.png') center center transparent no-repeat;
+	display: block;
+	height: 85px;
+	width: 45px;
+	left: 70px;
+	top: 40%;
 }
 .carrosselVideos .carousel-indicators .active {
 	background-color: #fff;
@@ -602,9 +631,6 @@ overflow: hidden;
 	text-align: left;
 	font-size: 20px !important;
 	margin-bottom: 10px;
-}
-.carrosselVideosDown .carousel-control {
-	margin-top: 40px;
 }
 .carrosselVideosDown .play-arrow {
 	margin: 180px 300px;

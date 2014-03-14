@@ -16,9 +16,9 @@ where [Model].[ForaDeLinha]='N'
 order by [Model].[NumModel] desc
 
 
-select [Linha_Segmento].[numLinha], [Linha_Segmento].[segmento_id]
-from [Linha_Segmento]
-order by [Linha_Segmento].[numLinha] desc
+select [Model_Segmento].[numModel], [Model_Segmento].[segmento_id]
+from [Model_Segmento]
+order by [Model_Segmento].[numModel] desc
 
 
 select [Segmento].[id], [Segmento].[nome]
@@ -27,7 +27,7 @@ from [Segmento]
 
 select [Caract].[NumModel], [Caract].[Motor], [Caract].[Portas], [Caract].[Acelerac], [Caract].[Ocupantes], [Caract].[VelMax], [Caract].[PotMax], [Caract].[Direcao], [Caract].[Combustivel], [Caract].[Alimentacao], [Caract].[Torque], [Caract].[Tracao], [Caract].[SuspDiant], [Caract].[SuspTras], [Caract].[FreioDiant], [Caract].[Rodas], [Caract].[Comprimento], [Caract].[Altura], [Caract].[Largura], [Caract].[FreioTras], [Caract].[Peso], [Caract].[PortaMala], [Caract].[Tanque], [Caract].[EntreEixos], [Caract].[Cambio], [Caract].[ConsCidade], [Caract].[ConsEstrad], [Caract].[AnoMod], [Caract].[AnoFab], [Caract].[ItSerie], [Caract].[Figura], [Caract].[EqAirBag], [Caract].[EqDirHid], [Caract].[EqArCond], [Caract].[EqBcoCou], [Caract].[EqAlarme], [Caract].[EqCamAut], [Caract].[EqFreAbs], [Caract].[EqTra4x4], [Caract].[NumPais]
 from [Caract]
-order by [Caract].[AnoFab] desc, [Caract].[NumModel] desc
+order by [Caract].[AnoFab], [Caract].[NumModel] desc
 
 
 select [PrecPub].[NumModel], [PrecPub].[Ano], [PrecPub].[Valor]
@@ -59,6 +59,36 @@ where [Versao].[ativo]=1
 order by [Versao].[numModel] desc, [Versao].[id], [Versao].[ano_modelo] desc
 
 
+select [Versao].[numModel], [Versao].[nome], [Versao].[nome_imagem], [Caract].[Figura], [Versao].[ano_modelo], [Versao].[motor], [Versao].[combustivel_id], [Versao].[cambio_id], [Versao].[air_bag_duplo_frontal], [Versao].[ar_condicionado], [Versao].[banco_motorista_regulagem_altura], [Versao].[desembacador_vidro_traseiro], [Versao].[direcao_hidraulica], [Versao].[freio_abs], [Versao].[limpador_vidro_traseiro], [Versao].[parachoque_cor_veiculo], [Versao].[radio_cd_player_entrada_usb], [Versao].[retrovisor_eletrico], [Versao].[trava_eletrica], [Versao].[vidro_eletrico], [Versao].[alarme], [Versao].[ar_quente], [Versao].[banco_traseiro_bipartido], [Versao].[banco_couro], [Versao].[computador_bordo], [Versao].[bluetooth_viva_voz], [Versao].[conta_giros], [Versao].[farois_milha], [Versao].[farois_xenon], [Versao].[gps_integrado_painel], [Versao].[piloto_automatico], [Versao].[regulagem_altura_farois], [Versao].[roda_liga_leve], [Versao].[sensor_estacionamento], [Versao].[sensor_chuva], [Versao].[sistema_isofix_cadeira_crianca], [Versao].[teto_solar], [Versao].[vidro_eletrico_traseiro], [Versao].[volante_regulagem_altura], [Versao].[capota_maritima], [Versao].[estribos_laterais], [Versao].[protetor_cacamba], [Versao].[rack_teto], [Caract].[Portas], [Caract].[Acelerac], [Caract].[Ocupantes], [Caract].[VelMax], [Caract].[PotMax], [Caract].[Direcao], [Caract].[Combustivel], [Caract].[Alimentacao], [Caract].[Torque], [Caract].[Tracao], [Caract].[SuspDiant], [Caract].[SuspTras], [Caract].[FreioDiant], [Caract].[Rodas], [Caract].[Comprimento], [Caract].[Altura], [Caract].[Largura], [Caract].[FreioTras], [Caract].[Peso], [Caract].[PortaMala], [Caract].[Tanque], [Caract].[EntreEixos], [Caract].[Cambio], [Caract].[ConsCidade], [Caract].[ConsEstrad], [Caract].[AnoMod], [Caract].[AnoFab], [Caract].[EqAirBag], [Caract].[EqDirHid], [Caract].[EqArCond], [Caract].[EqBcoCou], [Caract].[EqAlarme], [Caract].[EqCamAut], [Caract].[EqFreAbs], [Caract].[EqTra4x4], [Caract].[NumPais], [Caract].[ItSerie]
+from [Caract], [Versao]
+where [Versao].[ativo]=1 and [Versao].[numModel] = [Caract].[NumModel] and [Caract].[AnoFab] = [Versao].[ano_modelo]
+order by [Versao].[ano_modelo] desc, [Versao].[numModel] desc, [Caract].[AnoFab]
+
+price
+combustivel_id
+cambio_id
+NumPais
+
+
+Æ = ã
+  = á
+ƒ = â
+‚ = é
+ˆ = ê
+“ = ô
+ä = õ
+¢ = ó
+‡ = ç
+¡ = í
+
+
+select [Linha_Segmento].[numLinha], [Linha_Segmento].[segmento_id]
+from [Linha_Segmento]
+
+order by [Linha_Segmento].[numLinha] desc
+
+
+
 
 /* ESQUEMA DAS TABELAS PARA O BD NOVO EM WP */
 
@@ -88,7 +118,8 @@ insert into `wp_posts` (`ID`,`post_title`,`post_content`,`post_date`,`post_autho
 /* GALERIA DE FOTOS */
 http://carsale.uol.com.br/asp/img/Album/...
 
-SELECT     TOP 1000 ultnotweb_imagem.idnoticia, ultnotweb_imagem.img_tipo, ultnotweb_imagem.img_arquivo, UltNotWeb.Titulo, UltNotWeb.SubTitulo
+`id`, `name`, `description`, `cover_linktype`, `owner`, `timestamp`, `upload_limit`, `alt_thumbsize`
+SELECT     ultnotweb_imagem.idnoticia, UltNotWeb.Titulo, UltNotWeb.SubTitulo
 FROM         ultnotweb_imagem INNER JOIN
                       UltNotWeb ON ultnotweb_imagem.idnoticia = UltNotWeb.IDnoticia
 WHERE     (ultnotweb_imagem.img_tipo = 'Ab')
@@ -96,7 +127,22 @@ ORDER BY ultnotweb_imagem.idnoticia DESC
 
 
 
-SELECT     TOP 1000 idnoticia, img_arquivo_zoom, img_ordem
+SELECT     ultnotweb_imagem.idnoticia, ultnotweb_imagem.img_tipo, ultnotweb_imagem.img_arquivo, UltNotWeb.Titulo, UltNotWeb.SubTitulo
+FROM         ultnotweb_imagem INNER JOIN
+                      UltNotWeb ON ultnotweb_imagem.idnoticia = UltNotWeb.IDnoticia
+WHERE     (ultnotweb_imagem.img_tipo = 'Ab')
+ORDER BY ultnotweb_imagem.idnoticia DESC
+
+
+SELECT     TOP 1000 *
+FROM         ultnotweb_imagem
+ORDER BY idnoticia DESC
+
+
+
+
+
+SELECT     idnoticia, img_arquivo_zoom, img_ordem
 FROM         ultnotweb_imagem
 WHERE     (img_tipo = 'Ab')
 ORDER BY idnoticia DESC, img_ordem

@@ -1,25 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://localhost/carsale/noticias-br/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.8" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.4" -->
-<!-- generated-on="11 de March de 2014 21:59" -->
+<!-- generated-on="13 de March de 2014 17:29" -->
 <!-- Debug: Total comment count: 0 -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
 		<loc>http://localhost/carsale/noticias-br/</loc>
-		<lastmod>2014-03-09T18:01:28+00:00</lastmod>
+		<lastmod>2014-03-13T17:29:27+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
 	</url>
 <!-- Debug: Start Postings -->
-<!-- Debug: Priority report of postID 12300: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 12393: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/testes/2014/01/23/nissan-vende-100-mil-unidades-do-leaf/</loc>
-		<lastmod>2014-03-09T18:01:28+00:00</lastmod>
+		<loc>http://localhost/carsale/noticias-br/videos/90-segundos/2014/02/13/nissan-leaf-domina-setor-de-eletricos-na-europa/</loc>
+		<lastmod>2014-03-13T17:29:27+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 12393: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 11399: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2014/02/13/nissan-leaf-domina-setor-de-eletricos-na-europa/</loc>
-		<lastmod>2014-03-09T18:00:37+00:00</lastmod>
+		<loc>http://localhost/carsale/noticias-br/blog/2013/07/24/ford-tem-futuro-promissor-com-carros-eletricos/</loc>
+		<lastmod>2014-03-13T14:23:24+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11426: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/blog/2013/07/28/bmw-lanca-primeiro-eletrico-nesta-segunda-feira/</loc>
+		<lastmod>2014-03-13T14:23:18+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11433: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/blog/2013/07/30/montadoras-japonesas-unem-forcas-por-eletricos/</loc>
+		<lastmod>2014-03-13T14:23:14+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11591: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/blog/2013/08/30/carro-eletrico-em-questao-tem-gente-olhando-o-binoculo-pelo-lado-contrario/</loc>
+		<lastmod>2014-03-13T14:23:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11726: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/blog/2013/09/23/carros-eletricos-terao-recarga-gratis-na-franca/</loc>
+		<lastmod>2014-03-13T14:23:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11751: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/blog/2013/09/29/renault-investe-em-carros-eletricos-no-brasil/</loc>
+		<lastmod>2014-03-13T14:22:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12300: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/blog/2014/01/23/nissan-vende-100-mil-unidades-do-leaf/</loc>
+		<lastmod>2014-03-13T14:22:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12266: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/classicos/2014/01/14/toyota-confirma-lancamento-de-carro-movido-a-hidrogenio-para-2015/</loc>
+		<lastmod>2014-03-13T14:16:01+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -44,24 +93,17 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11726: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/09/23/carros-eletricos-terao-recarga-gratis-na-franca/</loc>
-		<lastmod>2014-03-09T17:25:50+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 12266: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2014/01/14/toyota-confirma-lancamento-de-carro-movido-a-hidrogenio-para-2015/</loc>
-		<lastmod>2014-03-09T17:25:41+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
 <!-- Debug: Priority report of postID 11703: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/classicos/2013/09/19/encontro-confirma-o-baixo-interesse-do-brasil-por-veiculos-eletricos/</loc>
 		<lastmod>2014-03-09T17:25:41+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11331: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/10/brasil-podera-abrir-as-portas-para-os-eletricos/</loc>
+		<lastmod>2014-03-09T17:25:21+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -79,23 +121,9 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11331: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/10/brasil-podera-abrir-as-portas-para-os-eletricos/</loc>
-		<lastmod>2014-03-09T17:25:21+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
 <!-- Debug: Priority report of postID 11395: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/23/renault-nissan-100-mil-eletricos-vendidos/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11399: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/24/ford-tem-futuro-promissor-com-carros-eletricos/</loc>
 		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -117,34 +145,6 @@
 <!-- Debug: Priority report of postID 11496: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/classicos/2013/08/12/novo-chevrolet-volt-podera-rodar-ate-96-km-em-modo-totalmente-eletrico/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11591: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/08/30/carro-eletrico-em-questao-tem-gente-olhando-o-binoculo-pelo-lado-contrario/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11433: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/30/montadoras-japonesas-unem-forcas-por-eletricos/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11751: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/09/29/renault-investe-em-carros-eletricos-no-brasil/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11426: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/28/bmw-lanca-primeiro-eletrico-nesta-segunda-feira/</loc>
 		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
