@@ -22,6 +22,22 @@ include ("../scripts/conectDB.php");
 	<title>Carsale</title>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<?php if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == 'localhost' || $_SERVER['REMOTE_ADDR'] == '::1') { ?>
+			
+		<script type="text/javascript" src="../scripts/jquery.2.9.3.min.js"></script>
+		<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="../scripts/Dfp_home.js"></script>
+		<script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
+		<script type="text/javascript" src="../scripts/scriptHome.js"></script>
+		<script type="text/javascript" src="../scripts/enquete.js" ></script>
+		<script type="text/javascript" src="../scripts/explorer.js"></script>
+		<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../styles/home.css" />
+		<link rel="stylesheet" type="text/css" href="../styles/explorado.css" />
+		<link rel="stylesheet" type="text/css" href="../styles/explorador.css" />
+	<?php } else { ?>
 	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/jquery.2.9.3.min.js"></script>
 	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/bootstrap.min.js"></script>
 
@@ -34,6 +50,7 @@ include ("../scripts/conectDB.php");
 	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/home.css" />
 	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/explorado.css" />
 	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/explorador.css" />
+	<?php } ?>
 
 </head>
 <body>

@@ -212,7 +212,7 @@ margin-right: 15px;
 .index-pagination .nav-previous a {
 	background: url("/images/sprite.png") no-repeat transparent -322px -46px;
 	display: block;
-	height: 25px;
+	height: 23px;
 }
 .index-pagination .nav-next {
 	float: left;
@@ -258,7 +258,7 @@ article a {
 	border-top: 1px solid #3c3e40;
 }
 .post-author-photo {
-	color: #860606;
+	color: ##ad1d1d;
 	font-size: 12px;
 	margin-bottom: 20px;
 }

@@ -9,8 +9,6 @@ $(document).ready(function(){
 	$(".dropdown-toggle").hover(function(){
 		//do
 		var nextMenu = "#sub"+$(this).attr("id");
-		//var next = $(this).children(".dropdown-menu");
-		//console.log(nextMenu);
 		$(".subMenuLi ul").css("display","none");
 		$(nextMenu).css("display","none").slideToggle();
 		//$(this+" .dropdown-menu").slideToggle();
@@ -34,23 +32,12 @@ $(document).ready(function(){
 			$(this).addClass("checked");
 			console.log($(this));
 		}
-//		var $ok = "#inputStatus"+$(this).children("input").val();
-//		console.log($ok.children(".inputStatus"));
-/*
-		console.log( $("input:checked").val() + " is checked!" );
-		var statusCheck = "#inputStatus"+$("input:checked").val();
-			ok = statusCheck.join();
-		//var statusCheck = "#inputStatus2";
-		console.log($(ok));
-		//$(".inputStatus").removeClass("checked");
-		//$("#inputStatus2").addClass("checked");
-*/
 	});
-	// console.log($(".tablepress td"));
-	loadNews('#ultnotGeral','http://noticias.carsale.uol.com.br/?feed=json');
-	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/categorias/classicos/?feed=json');
 
-	// var aeee = $.ajax( {
+	loadNews('#ultnotGeral','http://carsale.uol.com.br/novosite/import-news.asp','5');
+	// loadNews('#ultnotAvaliacoes','http://carsale.uol.com.br/novosite/import-news-testes.asp','3');
+	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/categorias/testes/?feed=json','3');
+	// var aejax = $.ajax( {
 	// 	url:"http://noticias.carsale.uol.com.br/?feed=json&callbackName=jsonp",
 	// 	crossDomain:true,
 	// 	jsonp: false, 
@@ -66,21 +53,15 @@ $(document).ready(function(){
 	//     console.log( "complete" );
  //  	});
 });
-function loadNews(local,category){
-	//JSONP
-	// $.getJSON("http://noticias.carsale.uol.com.br/?feed=json&jsonp=Array", function(data){
- //               console.debug(data[0].title);   // print title of first item to firebug console
-	//        });
-	//check if lugar existe
-	//ler json
+function loadNews(local,category,limit){
 	var o = $(local);
 	if (o.length > 0) {
 		$.getJSON(category, function(data) {
 			c=0;
 			$.each(data, function(key, val) {
-				if (c < 6){
+				if (c < limit){
 					c++;
-					console.log("lendo últimas noticias"+local);
+					// console.log("lendo últimas noticia "+ local);
 					markupTemp = '<div class="chamadaMiddle">'+
 						'<a href="'+val.permalink+'" title="'+val.title+'">'+
 							'<div class="foto"> '+val.thumbnail+'</div>'+
@@ -93,7 +74,7 @@ function loadNews(local,category){
 			});
 		});
 	}
-	//printa
+	//print
 	//viva
 }
 function checkImage(address){

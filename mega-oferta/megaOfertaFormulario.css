@@ -107,7 +107,7 @@ font-family: Tahoma, Geneva, sans-serif;
 }
 
 a.linktitlefichaTecnica{
-background-image: url("../megaOfertaHtml/imagens/fichaTecnica.png");
+background-image: url("./imagens/fichaTecnica.png");
 background-repeat: no-repeat;
 background-position: 0 0;
 padding-left: 26px;
@@ -118,7 +118,7 @@ text-align:right;
 }
 
 a.linktitlefichaTecnica:hover{
-background-image: url("../megaOfertaHtml/imagens/fichaTecnica.png");
+background-image: url("./imagens/fichaTecnica.png");
 background-repeat: no-repeat;
 background-position: 0 0;
 padding-left: 26px;
@@ -417,7 +417,7 @@ overflow: hidden;
 }
 
 .megaOfertasCarsaleFormTxtCheckPrincipais {
-width: 130px;
+width: 165px;
 height: auto;
 padding-top: 2px;
 padding-right: 20px;
@@ -431,17 +431,21 @@ overflow: hidden;
 }
 
 .megaOfertasCarsaleFormLineInputBottom {
-width: 460px;
+width: 100%;
 height: 40px;
 padding-top: 10px;
 position: relative;
-float: left;
+float: right;
 overflow: hidden;
+
+}
+.megaOfertasCarsaleFormBtn {
+	float: right;
 }
 
 .buttonFrmVm {
 width: 70px;
-height: 25px;
+height: 30px;
 color: #ffffff;
 background: #f9b5b5; /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -459,7 +463,14 @@ box-shadow: 1px 1px 1px #888;
 }
 
 .buttonFrmVm:hover {
-background: #249227;
+background: rgb(209,6,6);
+background: -moz-linear-gradient(top, rgba(209,6,6,1) 0%, rgba(189,17,17,1) 80%, rgba(249,181,181,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(209,6,6,1)), color-stop(80%,rgba(189,17,17,1)), color-stop(100%,rgba(249,181,181,1)));
+background: -webkit-linear-gradient(top, rgba(209,6,6,1) 0%,rgba(189,17,17,1) 80%,rgba(249,181,181,1) 100%);
+background: -o-linear-gradient(top, rgba(209,6,6,1) 0%,rgba(189,17,17,1) 80%,rgba(249,181,181,1) 100%);
+background: -ms-linear-gradient(top, rgba(209,6,6,1) 0%,rgba(189,17,17,1) 80%,rgba(249,181,181,1) 100%);
+background: linear-gradient(to bottom, rgba(209,6,6,1) 0%,rgba(189,17,17,1) 80%,rgba(249,181,181,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d10606', endColorstr='#f9b5b5',GradientType=0 );
 }
 
 .sombraDivisoria{
@@ -487,4 +498,8 @@ overflow: hidden
 	padding-right: 2px;
 	padding-left: 2px;
 	background-color: #fafafa;
+}
+
+.megaOfertasCarsaleFormBg {
+	width: 965px !important;
 }

@@ -1,7 +1,7 @@
+<?php
+include('../includes/header.php');
+?>
 <?
-session_start();
-$_SESSION["tokenTime"] = time();
-include ("../scripts/conectDB.php");
 include ("../admin/scripts/functions.php");
 $sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.yearModel, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.dateLimit, feature.picture FROM megaOferta, manufacturer, model, version, feature WHERE feature.idVersion = version.id and feature.yearModel = megaOferta.yearModel and megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.id = '".$_GET[veiculo]."'";
 $query = mysql_query($sql) or die ($sql);
@@ -17,53 +17,6 @@ if (file_exists("../carImages/".$res[picture])) {
 }
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="shortcut icon" href="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-prn1/50192_124345857613786_740480673_q.jpg" />
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <!--meta name="google-site-verification" content="htc5j0tj4c1Fsee2bSoUs42QzGEcsSiviny-uUICt6Y" />
-    <meta property="fb:admins" content="100000868647048" />
-    <meta property="fb:page_id" content="124345857613786" />
-    <meta name="msvalidate.01" content="270B7706358DDE8D5FA26B2B7522BC42" /-->
-    
-    <!--meta http-equiv="Pragma" content="no-cache"/-->
-    <meta name="robots" content="index, follow" />
-    <meta name="description" content="Carsale,o maior e mais completo site de compra e venda direta de veículos na internet, com garantia de fábrica e entrega pela concessionária,Carros novos, Classificados, Notícias Automotivas, Testes e Opinião do Dono" />
-    <meta name="keywords" content="Carsale notícias,Opinião do dono,Opiniao do dono,Classificados,Carros novos,carros okm,Anúncio,Testes / Comparativos,Avaliação de carros,Oferta de carros,Venda de carros" />
-    <title>Carsale</title>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Search The" />
-    <script type="text/javascript" src="http://martche.ca/carsale/scripts/jquery.2.9.3.min.js"></script>
-    <script type="text/javascript" src="http://martche.ca/carsale/scripts/bootstrap.min.js"></script>
-
-    <script type="text/javascript" src="Dfp_home.js"></script>
-    <script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
-    <script type="text/javascript" src="http://martche.ca/carsale/scripts/scriptHome.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="http://martche.ca/carsale/styles/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="http://martche.ca/carsale/styles/home.css" />
-    <link rel="stylesheet" type="text/css" href="http://martche.ca/carsale/styles/megaOfertaOld.css" />
-    <link rel="stylesheet" type="text/css" href="megaOfertaFormulario.css" />
-
-    <!--link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsale.css?no_cache=20120305"-->
-    <link rel="stylesheet" type="text/css" href="../styles/megaOferta.css" />
-</head>
-<body>
-<script type="text/javascript" src="http://tm.uol.com.br/b/par/parceiros.js"></script>
-
-<div id="uolBar">
-<script type="text/javascript" src="http://jsuol.com/barra/parceiro-1024.js?refbusca=carsale&full=true"></script>
-</div>
-<header>
-    <?
-    include ("../includes/logoBanner.php");
-    include ("../includes/menu.php");
-    include ("../includes/socialBar.php");
-    ?>
-</header>
 <div class="content">
     <div class="columnMiddle">
         <div class="contentMiddleMegaOferta"> <!--Alterado!-->
@@ -401,6 +354,9 @@ function updateField(obj){
 
 
 </script>
+<link rel="stylesheet" type="text/css" href="megaOfertaFormulario.css" />
+<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/megaOfertaOld.css" />
+<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/megaOferta.css" />
 
 </body>
 </html>

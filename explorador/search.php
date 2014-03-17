@@ -67,7 +67,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 						<li>
 							<input type="checkbox" class="chkFormExp" name="filterSerie[]" value="cdplayerUSBInput" <? if (in_array("cdplayerUSBInput",$_POST[filterSerie])) { echo 'checked="checked"'; } ?> />
 							<label>Cd player com USB</label></li>
-						<li><a href="#mais-Items"  onclick="toggleClass('.gridFiltrosChecks','check')">Ver mais opções</a></li>
+						<li><div class="arrow-explorer-form-more"></div><a href="#mais-Items"  onclick="toggleClass('.gridFiltrosChecks','check')">Ver mais opções</a></li>
 			        </ul>
 	            </div>
 	        </div>

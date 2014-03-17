@@ -10,9 +10,9 @@ $(document).ready (function(){
 
 function checkItem (input){
     if (input.toLowerCase() == "s"){
-        return '<li class="liFilterItem yes">X</li>';
+        return '<li class="liFilterItem yes"><div class="arrow-explorer-yes">X</div></li>';
     } else {
-        return '<li class="liFilterItem no">-</li>';
+        return '<li class="liFilterItem no"><div class="arrow-explorer-no">-</div></li>';
     }
 }
 function excluirComparacao(obj,target){
@@ -149,9 +149,9 @@ function addFilter (obj,idModel,idVersion,place) {
             divResultCar += '</ul></div>';
 
             var divFooterCar = '<div class="exploradorTabelaGridBase veiculo">'+
-                '<div class="exploradorTabelaBtnFicha"><a data-toggle="modal" data-target="#modalFeatureItem'+data[0].featureId+'" id="fichaTecnica'+data[0].featureId+'" style="display: inline;">Ficha Técnica</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><a href="http://noticias.carsale.uol.com.br/noticias/?s='+data[0].modelName+'" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><a href="http://carsale.uol.com.br/opniao/" id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-feature"></div><a data-toggle="modal" data-target="#modalFeatureItem'+data[0].featureId+'" id="fichaTecnica'+data[0].featureId+'" style="display: inline;">Ficha Técnica</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-news"></div><a href="http://noticias.carsale.uol.com.br/noticias/?s='+data[0].modelName+'" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-opnion"></div><a href="http://carsale.uol.com.br/opniao/" id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
             '</div>';
 
 

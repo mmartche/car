@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://localhost/carsale/noticias-br/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.8" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.4" -->
-<!-- generated-on="13 de March de 2014 17:29" -->
+<!-- generated-on="16 de March de 2014 18:25" -->
 <!-- Debug: Total comment count: 0 -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
 		<loc>http://localhost/carsale/noticias-br/</loc>
-		<lastmod>2014-03-13T17:29:27+00:00</lastmod>
+		<lastmod>2014-03-16T18:25:02+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
 	</url>
 <!-- Debug: Start Postings -->
+<!-- Debug: Priority report of postID 12431: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/blog/2014/03/16/mmm/</loc>
+		<lastmod>2014-03-16T18:25:02+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
 <!-- Debug: Priority report of postID 12393: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/videos/90-segundos/2014/02/13/nissan-leaf-domina-setor-de-eletricos-na-europa/</loc>
@@ -107,13 +114,6 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11336: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/11/china-aposta-em-aluguel-e-venda-de-carros-eletricos/</loc>
-		<lastmod>2014-03-09T17:25:21+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
 <!-- Debug: Priority report of postID 11330: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/10/nissan-ampliara-pontos-de-recarga-rapida-nos-eua/</loc>
@@ -121,16 +121,16 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11395: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 11336: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/23/renault-nissan-100-mil-eletricos-vendidos/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
+		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/11/china-aposta-em-aluguel-e-venda-de-carros-eletricos/</loc>
+		<lastmod>2014-03-09T17:25:21+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11368: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 11496: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/18/carros-eletricos-vao-dominar-os-eua-em-12-anos/</loc>
+		<loc>http://localhost/carsale/noticias-br/classicos/2013/08/12/novo-chevrolet-volt-podera-rodar-ate-96-km-em-modo-totalmente-eletrico/</loc>
 		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -142,9 +142,16 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11496: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 11368: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/08/12/novo-chevrolet-volt-podera-rodar-ate-96-km-em-modo-totalmente-eletrico/</loc>
+		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/18/carros-eletricos-vao-dominar-os-eua-em-12-anos/</loc>
+		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11395: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/23/renault-nissan-100-mil-eletricos-vendidos/</loc>
 		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -155,23 +162,9 @@
 		<changefreq>weekly</changefreq>
 		<priority>0.6</priority>
 	</url>
-<!-- Debug: Priority report of postID 10124: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 11206: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/10/31/chevrolet-sera-lider-em-eletricos-diz-estudo/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11302: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/07/04/setor-tentara-manter-o-crescimento-no-2º-semestre/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11289: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/07/02/honda-e-gm-se-unem-por-celulas-de-combustivel/</loc>
+		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/17/ford-comemora-sucesso-da-frenagem-regenerativa/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -183,9 +176,30 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11206: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 11289: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/17/ford-comemora-sucesso-da-frenagem-regenerativa/</loc>
+		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/07/02/honda-e-gm-se-unem-por-celulas-de-combustivel/</loc>
+		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11302: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/07/04/setor-tentara-manter-o-crescimento-no-2º-semestre/</loc>
+		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10176: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/11/13/toyota-e-a-marca-&amp;quoteco-amigavel&amp;quot-do-ano/</loc>
+		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11050: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/05/21/sao-paulo-sediara-salao-de-veiculos-eletricos-/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -200,13 +214,6 @@
 <!-- Debug: Priority report of postID 11190: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/13/montadoras-dominam-ranking-de-empresas-&amp;quotverdes&amp;quot/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11184: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/12/nissan-esta-entre-as-10-mais-&amp;quotverdes&amp;quot-do-mundo/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -246,9 +253,9 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10176: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 10124: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/11/13/toyota-e-a-marca-&amp;quoteco-amigavel&amp;quot-do-ano/</loc>
+		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/10/31/chevrolet-sera-lider-em-eletricos-diz-estudo/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
@@ -309,6 +316,13 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
+<!-- Debug: Priority report of postID 11184: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/12/nissan-esta-entre-as-10-mais-&amp;quotverdes&amp;quot-do-mundo/</loc>
+		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
 <!-- Debug: Priority report of postID 11177: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/12/ford-comeca-a-produzir-focus-eletrico-na-europa/</loc>
@@ -340,13 +354,6 @@
 <!-- Debug: Priority report of postID 11078: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/05/26/eletricos-e-hibridos-ja-mostram-avancos-nas-vendas/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11050: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/05/21/sao-paulo-sediara-salao-de-veiculos-eletricos-/</loc>
 		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>

@@ -84,7 +84,7 @@
 				$latest_news = 	new WP_Query($args);
 				if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
 				<?php
-					$hora = get_the_date('H\hm' );
+					$hora = get_the_date('H\hi' );
 					$dia = get_the_date('d/m/Y' );
 				?>
 				<li>
@@ -146,7 +146,7 @@
 				$latest_news = 	new WP_Query($args);
 				if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
 				<?php
-					$hora = get_the_date('H\hm' );
+					$hora = get_the_date('H\hi' );
 					$dia = get_the_date('d/m/Y' );
 				?>
 				<li class="read-more-li">
@@ -189,7 +189,7 @@
 				$latest_news = 	new WP_Query($args);
 				if ($latest_news->have_posts()): while($latest_news->have_posts()): $latest_news->the_post(); ?>
 				<?php
-					$hora = get_the_date('H\hm' );
+					$hora = get_the_date('H\hi' );
 					$dia = get_the_date('d/m/Y' );
 				?>
 				<li class="read-more-li">

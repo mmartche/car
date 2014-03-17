@@ -23,19 +23,21 @@ include ("../admin/scripts/functions.php");
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Search The" />
-	<script type="text/javascript" src="../scripts/jquery.2.9.3.min.js"></script>
-	<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/jquery.2.9.3.min.js"></script>
+	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/bootstrap.min.js"></script>
 
 	<script type="text/javascript" src="Dfp_home.js"></script>
 	<script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
-	<script type="text/javascript" src="../scripts/scriptHome.js"></script>
+	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/scriptHome.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="../styles/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="../styles/home.css" />
-	<link rel="stylesheet" type="text/css" href="../styles/explorador.css" />
+	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/home.css" />
+	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/explorador.css" />
 	<!--link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsaleMegaOfertas.css" /-->
 	<!--link rel="stylesheet" type="text/css" href="http://carsale.uol.com.br/classificado/css/carsale.css?no_cache=20120305"-->
-	<link rel="stylesheet" type="text/css" href="../styles/megaOferta.css" />
+	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/megaOferta.css" />
+	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/megaOfertaOld.css" />
+
 </head>
 <body>
 <script type="text/javascript" src="http://tm.uol.com.br/b/par/parceiros.js"></script>

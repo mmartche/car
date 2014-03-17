@@ -20,7 +20,7 @@ include('../includes/header.php');
 							<option>Montadora</option>
 							<?
 							$sql = "select manufacturer.id as manufacturerId, manufacturer.name as manufacturerName from manufacturer, model, version, feature WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id group by manufacturer.name ORDER by manufacturer.name";
-							$query = mysql_query($sql) or die ("error #62");
+							$query = mysql_query($sql) or die (mysql_error()."error #62");
 							while ($resList = mysql_fetch_array($query)) {
 								// echo "<div>".$resList[manufacturerName]."</div>";
 							?>

@@ -87,15 +87,15 @@
 				<a class="dropdown-toggle" data-toggle="dropdown" href="/noticias/" id="menuEditorial" title="">Notícias<span class="caret"></span></a>
 			</li>
 			<li>
-				<a class="dropdown-toggle" href="#" id="menuInterativo" title="">Opinião do dono</a>
+				<a class="dropdown-toggle" href="http://carsale.uol.com.br/novosite/interativo/opdono/" id="menuInterativo" title="">Opinião do dono</a>
 			</li>
 			<li>
-				<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="menuMultimidia" title="">Corretora</span></a>
+				<a class="dropdown-toggle" href="http://carsalecorretora.com.br" id="menuMultimidia" title="">Corretora</span></a>
 			</li>
 			<li class="subMenuLi">
 				<ul class="subMenu dropdown-menu" id="submenuClassificados">
-					<li><div class="arrow-submenu"></div><a href="http://classificados.carsale.uol.com.br/explorador/" title="">Explorador</a></li>
-					<li><div class="arrow-submenu"></div><a href="http://classificados.carsale.uol.com.br/mega-oferta/" title="">Mega Oferta</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://carsale.uol.com.br/classificado/explorador" title="">Explorador</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://carsale.uol.com.br/classificado/mega-oferta/" title="">Mega Oferta</a></li>
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
 					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/" title="">Últimas</a></li>

@@ -10,37 +10,30 @@ $more = 1;
 
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>'; ?>
 <rss version="0.92">
-<channel>
-	<title><?php bloginfo_rss('name'); wp_title_rss(); ?></title>
-	<link><?php bloginfo_rss('url') ?></link>
-	<description><?php bloginfo_rss('description') ?></description>
-	<lastBuildDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_lastpostmodified('GMT'), false); ?></lastBuildDate>
-	<docs>http://backend.userland.com/rss092</docs>
-	<language><?php bloginfo_rss( 'language' ); ?></language>
-
-	<?php
-	/**
-	 * Fires at the end of the RSS Feed Header.
-	 *
-	 * @since 2.0.0
-	 */
-	do_action( 'rss_head' );
-	?>
+<materias>
 
 <?php while (have_posts()) : the_post(); ?>
-	<item>
-		<title><?php the_title_rss() ?></title>
-		<description><![CDATA[<?php the_excerpt_rss() ?>]]></description>
-		<link><?php the_permalink_rss() ?></link>
-		<?php
-		/**
-		 * Fires at the end of each RSS feed item.
-		 *
-		 * @since 2.0.0
-		 */
-		do_action( 'rss_item' );
-		?>
-	</item>
+<?php 
+	$dia = get_the_date('d' );
+	$mes = get_the_date('m' );
+	$ano = get_the_date('Y' );
+	$hora = get_the_date('H' );
+	$minuto = get_the_date('i' );
+?>
+	<materia>
+		<data>
+			<dia><?php echo $dia; ?></dia>
+			<mes><?php echo $mes; ?></mes>
+			<ano><?php echo $ano; ?></ano>
+			<hora><?php echo $hora; ?></hora>
+			<minuto><?php echo $minuto; ?></minuto>
+		</data>
+		<url><?php the_permalink_rss() ?></url>
+		<titulo><?php the_title_rss() ?></titulo>
+		<texto><?php the_permalink_rss() ?></texto>
+		<linkExterno>S</linkExterno>
+	</materia>
+
 <?php endwhile; ?>
-</channel>
+</materias>
 </rss>

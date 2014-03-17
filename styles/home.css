@@ -226,6 +226,7 @@ header {
 }
 .socialBar div {
 	float: left;
+	margin-left: 10px;
 }
 .btnGoogle {
 	margin-top: 3px;
@@ -399,7 +400,7 @@ overflow: hidden;
 	color: #000;
 	padding: 10px 10px 0;
 	margin: 0;
-	font-size: 28px;
+	font-size: 25px;
 	font-weight: bold;
 }
 .chamadaH1 h4 {
@@ -944,7 +945,7 @@ footer {
 	background-color: #ccc;
 }
 .footerMenu {
-	width: 900px;
+	width: 535px;
 	overflow: hidden;
 	margin: auto;
 }
@@ -964,6 +965,7 @@ footer {
 }
 .footerItemsTop {
 	border-bottom: 1px solid #ccc;
+	display: none;
 }
 footer .footerLogoBlog {
 	margin: 20px 0 30px 200px;
@@ -1050,7 +1052,7 @@ footer .footerCompraImg:hover {
 }
 .chamadaH1.blog {
 	width: 370px;
-	background-color: #b0afaf;
+	background-color: #eee;
 }
 .chamadaH1.blog h3 {
 	background: url("../images/blog-toy.png") 10px 3px transparent no-repeat;

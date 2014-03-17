@@ -43,7 +43,7 @@ transition: all .3s;
 	top: 16px;
 }
 .secExplore {
-	width: 395px;
+	width: 385px;
 	margin: 50px 50px 0;
 	float: left;
 	border: 1px solid;
@@ -233,7 +233,7 @@ transition: all .3s;
 .exploradorGridFiltrosChecks {
 	height: 210px;
 	overflow-y: scroll;
-	padding: 10px 0 0 10px;
+	padding: 10px 0 0 5px;
 	width: 100%;
 	bottom: 0;
 }
@@ -243,7 +243,7 @@ transition: all .3s;
 }
 
 .exploradorGridFiltrosChecks label {
-	width: 170px;
+	width: 165px;
 	font-size: 14px;
 	font-weight: normal;
 	padding-top: 3px;
@@ -256,9 +256,6 @@ transition: all .3s;
 	color: #2d2e2f;
 	font-size: 14px;
 	font-weight: normal;
-}
-.exploradorGridFiltrosChecks a:before {
-	content: "\\/ ";
 }
 .exploradorGridFiltrosChecks input[type="checkbox"], .exploradorGridFiltrosChecks input[type="radio"] {
 	vertical-align: top;
@@ -280,7 +277,7 @@ transition: all .3s;
 .exploradorGridFiltrosChecks li {
 	float: left;
 	margin: 0;
-	width: 190px;
+	width: 192px;
 }
 .exploradorGridFiltrosInputTextLine {
 	overflow: hidden;
@@ -393,7 +390,7 @@ transition: all .3s;
 .titleItems>li {
 	font-size: 12px;
 	font-weight: bold;
-	height: 25px;
+	height: 32px;
 	overflow: hidden;
 	padding: 3px 10px;
 }
@@ -405,7 +402,7 @@ transition: all .3s;
 	overflow: hidden;
 	text-align: center;
 	padding: 5px 0;
-	height: 25px;
+	height: 32px;
 	font-size: 11px;
 }
 .exploradorGridFiltrosBtnBuscar {
@@ -437,7 +434,7 @@ transition: all .3s;
 	float: left;
 }
 .liFilterItem.yes {
-	background: url('../images/exploradorCheck.gif') center center transparent no-repeat;
+	/*background: url('../images/exploradorCheck.gif') center center transparent no-repeat;*/
 	text-indent: -99em;
 }
 
@@ -506,14 +503,37 @@ transition: all .3s;
 }
 .exploradorTabelaBtnFicha {
 	cursor: pointer;
-	padding: 10px 0px 10px 50px;
+	padding: 0px 0px 0px 50px;
 	text-align: left;
+	overflow: hidden;
+	height: 25px;
 }
-.exploradorTabelaBtnFicha .noticia:before {
-	content: ">> ";
+.exploradorTabelaGridBase.veiculo {
+	padding-top: 15px;
 }
-.exploradorTabelaBtnFicha .noticia:before {
-	content: ">> ";
+.arrow-explorer-form-more {
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -337px -226px;
+	width: 15px;
+	height: 18px;
+	float: left;
+}
+.arrow-explorer-yes {
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -305px -222px;
+	width: 25px;
+	height: 32px;
+	margin: auto;
+}
+.arrow-explorer-news {
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -206px -225px;
+	width: 25px;
+	height: 25px;
+	float: left;
+}
+.arrow-explorer-feature{
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -179px -225px;
+	width: 25px;
+	height: 25px;
+	float: left;
 }
 .divColor {
 	position: relative;
@@ -581,11 +601,12 @@ width: 178px;
 	margin: auto;
 }
 .removeLoadingCarList {
-	border:1px solid red;
-	width: 30px;
-	height: 30px;
+	width: 17px;
+	height: 18px;
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -241px -230px;
 	position: absolute;
 	top: 0;
+	text-indent: -99em;
 	right: 0;
 	cursor: pointer;
 	color: red;

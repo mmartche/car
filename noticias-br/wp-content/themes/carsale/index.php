@@ -12,7 +12,7 @@ global $wp_query;
 			if (have_posts()): while(have_posts()): the_post(); ?>
 			</li>
 			<?php
-			$hora = get_the_date('H\hm' );
+			$hora = get_the_date('H\hi' );
 			$dia = get_the_date('d/m/Y' );
 
 			if (!$ch) {	$ch = ""; }
