@@ -234,6 +234,12 @@ margin-right: 15px;
 	font-weight: bold;
 	color: #2d2e2f;
 }
+.nextPost {
+	display: none;
+}
+.previousPost {
+	display: none;
+}
 /* POSTS */
 article a {
 	color: #ad1d1d;
@@ -243,6 +249,7 @@ article a {
 	font-size: 32px;
 	color: #3c3e40;
 	margin-bottom: 15px;
+	font-weight: bold;
 }
 .post-subtitle {
 	margin-bottom: 10px;
@@ -339,7 +346,7 @@ article a {
 	padding: 8px 0 10px 5px;
 }
 .read-more-date {
-	font-size: 12px;
+	font-size: 11px;
 	color: #920505;
 	padding: 0px 0 10px 5px;
 	display: block;
@@ -389,7 +396,7 @@ article a {
 	border-left: 0;
 }
 .last-news-component .read-more-thumb img {
-	max-width: 135px;
+	max-width: 160px;
 }
 .read-more-name a{
 	color: #1b1d20;
@@ -398,6 +405,8 @@ article a {
 .read-more-text {
 	height: 55px;
 	padding-top: 3px;
+	font-weight: bold;
+	font-size: 12px;
 }
 
 /* ALBUM INTERNO NEWS */

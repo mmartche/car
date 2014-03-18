@@ -5,7 +5,7 @@
 <div class="content">
 	<div class="columnMiddle">
 		<h2 class="title-page">
-			<span class="title-background"><?php the_date('d/m/Y H:i'); ?></span>
+			<span class="title-background"><?php the_date('d/m/Y H\hi'); ?></span>
 			<span class="title-name"><?php the_category(); ?></span>
 		</h2>
 			<article <?php post_class();?>>
@@ -95,7 +95,7 @@
 						</div>
 						<?php } ?>
 						<div class="read-more-label">
-							<?php echo mb_strimwidth(get_the_title(), 0, 60, "..."); ?>
+							<?php echo mb_strimwidth(get_the_title(), 0, 100, "..."); ?>
  						</div>
  					</a>
 					<span class="read-more-date"><?php echo ($dia." ".$hora); ?></span>
@@ -123,6 +123,8 @@
         <div class="footer-content">
         	<div class="comunicar-erro"><div class="arrow-comunicar-erro"></div><a data-toggle="modal" data-target="#comunicar-erro" id="fichaTecnica1">Comunicar erro</a></div>
         </div>
+        <div class="nextPost"><a href="#">Proximo post</a></div>
+        <div class="previousPost"><a href="#">Anterior</a></div>
 	</div>
 	<div class="contentRight">
 		<div class="tm-ads banner300" id="banner-300x250">
@@ -157,7 +159,7 @@
 						</div>
 						<?php } ?>
 						<div class="read-more-text">
-							<?php echo mb_strimwidth(get_the_title(), 0, 50, "..."); ?>
+							<?php echo mb_strimwidth(get_the_title(), 0, 100, "..."); ?>
 						</div>
 					</a></h3>
 					<span class="read-more-date"><?php echo ($dia." ".$hora); ?></span>
@@ -175,7 +177,7 @@
 		<div class="last-news-component">
 			<h2 class="title-more">
 				<span class="title-background"></span>
-				<span class="title-name">Testes e Comparativos</span>
+				<span class="title-name">Testes</span>
 			</h2>
 			<ol>
 				<?php

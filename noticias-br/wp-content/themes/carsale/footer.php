@@ -91,6 +91,47 @@
         <div class="copyright">Av do Estado, 5200, CEP: 01516-000, São Paulo - SP   ---     Copyright 2000-2013 Carsale.com.br - Todos os direitos reservados</div>
     </footer>
 
+ <!-- SiteCatalyst code version: H.20.2. Copyright 1997-2009 Omniture, Inc. More info available athttp://www.omniture.com -->
+<script language="JavaScript" type="text/javascript" src="http://me.jsuol.com/omtr/carsale.js"></script>
+<script language="JavaScript" type="text/javascript"><!--
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
+<!-- End SiteCatalyst code version: H.20.2. -->  
 
+<?php
+/*
+<script type="text/javascript">
+var uolJsHost = (("https:" == document.location.protocol) ? "https://ssl.carsale.com.br/js/carsale.js" : "http://me.jsuol.com/omtr/carsale.js");
+document.write(unescape("%3Cscript language='JavaScript' src='" + uolJsHost + "' type='text/javascript' %3E%3C/script%3E"));
+</script>
+<script type="text/javascript"><!--
+uol_sc.channel="Carros-parceiros-carsale";
+/ ************* DO NOT ALTER ANYTHING BELOW THIS LINE ! ************** /
+var s_code=uol_sc.t();if(s_code)document.write(s_code)//--></script>
+<!-- End SiteCatalyst code version: H.20.2. -->
+*/
+?>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-10478324-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+ </script>
+
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10478324-4', 'carsale.uol.com.br');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>

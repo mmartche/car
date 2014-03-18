@@ -34,9 +34,9 @@ $(document).ready(function(){
 		}
 	});
 
-	loadNews('#ultnotGeral','http://carsale.uol.com.br/novosite/import-news.asp','5');
+	loadNews('#ultnotGeral','http://carsale.uol.com.br/novosite/import-news.asp','3');
 	// loadNews('#ultnotAvaliacoes','http://carsale.uol.com.br/novosite/import-news-testes.asp','3');
-	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/categorias/testes/?feed=json','3');
+	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/categorias/testes/?feed=json','2');
 	// var aejax = $.ajax( {
 	// 	url:"http://noticias.carsale.uol.com.br/?feed=json&callbackName=jsonp",
 	// 	crossDomain:true,

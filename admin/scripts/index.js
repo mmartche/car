@@ -104,6 +104,67 @@ $(document).ready(function(){
 				$("#optionsColor").append('<span name="liColorItem"><div class="delColor" title="Remover" onclick="deleteColor(this,\''+cIId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+cIId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
 					$("#colorLength").val(cLength+1);
 			} else {
+				$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ccode='+cCode+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
+					//console.log(data[0].response,data[0].insertId);
+					if(data[0].response == "true"){
+						//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
+						if (cIId.length == 0) {
+						$("#optionsColor").append('<span name="liColorItem"><div class="delColor" title="Remover" onclick="deleteColor(this,\''+data[0].insertId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+data[0].insertId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+							$("#colorLength").val(cLength+1);
+						} else {
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputName").val(cName);
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputColor").val(cColor);
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputType").val(cType);
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputPrice").val(cPrice);
+							$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+'\n'+cCode+' => R$ '+cPrice);
+							$("#optionsColor").find("span[colorId="+cIId+"] #colorSelector div").css("backgroundColor", "#"+cColor);
+							$("#optionsColor span").show();
+						}
+						$("#colorName").val(""),
+						$("#txtColorName").val(""),
+						$("#colorSelected").val(""),
+						$("#colorPrice").val(""),
+						//$("#colorAplication").val(""),
+						//$("#colorType").val(""),
+						$("#colorSelector div").css("backgroundColor", "#ffffff");
+						$("#btnColorAdd").val("Adicionar");
+					} else {
+						alert(data[0].reason);
+						//$("#resultOptions").prepend('<label>''</label>');
+					}
+				});
+			}
+		} else {
+			alert("Precisa ser 6 números na cor hexadecimal e código preenchido");
+		}
+		//$(".delColor").click(function(){
+			
+		//});
+	});
+	/*
+	-----antigo addcolor usando como parametro de comparacao idManuf, idVersion, code, yearModel.... impossivel pois existem varios codigos iguais com outras informações nada a ver
+	$("#btnColorAdd").click(function(){
+			cTable = "colorManufacturer"; 
+			manufacturerId = $("#manufacturerId").val();
+		cIId = $("#colorId").val(),
+		cName = $("input[name=colorName]").val(),
+		cNameFull = $("#txtColorName").val();
+		cColor = $("#colorSelected").val(),
+		// cApp = $("#colorAplication").val(),
+		cType = $("#colorType").val(),
+		cPrice = $("#colorPrice").val();
+		cCode = $("#colorCode").val();
+		cLength = $("#optionsColor span[name=liColorItem]").length;
+		if (cName == "") {
+			alert ('Escolha ou digite um nome');
+			return false;
+		}
+		console.log('api/index.php?type=addColor&cId='+cIId+'&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ctype='+cType+'&ccode='+cCode+'&table='+cTable+'&cprice='+cPrice);
+		if (cColor.length == "6" && cCode != "") {
+			if (cIId.length > 0 && $(this).val() == "Adicionar") { 
+				$("#optionsColor").append('<span name="liColorItem"><div class="delColor" title="Remover" onclick="deleteColor(this,\''+cIId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+cIId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
+					$("#colorLength").val(cLength+1);
+			} else {
 				console.log("heueue");
 				$.getJSON('api/index.php?type=addColor&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ccode='+cCode+'&ctype='+cType+'&table='+cTable+'&cprice='+cPrice+'&cId='+cIId, function(data) {
 					//console.log(data[0].response,data[0].insertId);
@@ -142,6 +203,7 @@ $(document).ready(function(){
 			
 		//});
 	});
+	*/
 	$("#btnSerieAdd").click(function(){
 		//captura daods
 		var flag=false;

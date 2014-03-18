@@ -901,7 +901,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 								</select><br />
 								<input type="text" id="txtColorName" name="txtColorName" />
 								<div id="colorSelector" class="divColor"><div></div></div>
-								<input type="hidden" id="colorId" />
+								colorId:<input type="text" id="colorId" />
 								<input type="text" id="colorSelected" placeholder="Cor em hexa" disabled="disabled" /><br />
 								<input type="text" id="colorCode" placeholder="Código" disabled="disabled" /><br />
 								<select  id="colorType" disabled="disabled">
@@ -917,7 +917,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 								</select><br /-->
 								<!--input type="text" id="colorAplication" placeholder="Aplicação" /-->
 								<input type="button" value="Adicionar" id="btnColorAdd" />
-								<input type="hidden" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
+								colorLength:<input type="text" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
 							</span>
 							<? while ($resColor = mysql_fetch_array($queryColor)) { ?>
 							<span name="liColorItem" colorId="<?=$resColor[id]?>">
@@ -927,13 +927,13 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 									<div style="background-color: #<?=$resColor[hexa]?>;"></div>
 								</div>
 								<span id="textColor"><?=utf8_encode($resColor[name])." - ".utf8_encode($resColor[type])."<br />".$resColor[code]." => R$ ".$resColor[price]?></span>
-								<input type="hidden" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
-								<input type="hidden" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=utf8_encode($resColor[name])?>" />
-								<input type="hidden" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
-								<input type="hidden" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=utf8_encode($resColor[type])?>" />
-								<input type="hidden" id="colorInputPrice" name="colorInputPrice<?=$iColor?>" value="<?=$resColor[price]?>" />
-								<input type="hidden" id="colorInputCode" name="colorInputCode<?=$iColor?>" value="<?=$resColor[code]?>" />
-								<input type="hidden" id="colorInputTable" name="colorInputTable<?=$iColor?>" value="<?=$tableColor?>" />
+								colorInputId:<input type="text" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
+								colorInputName:<input type="text" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=utf8_encode($resColor[name])?>" />
+								colorInputColor:<input type="text" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
+								colorInputType:<input type="text" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=utf8_encode($resColor[type])?>" />
+								colorInputPrice:<input type="text" id="colorInputPrice" name="colorInputPrice<?=$iColor?>" value="<?=$resColor[price]?>" />
+								colorInputCode:<input type="text" id="colorInputCode" name="colorInputCode<?=$iColor?>" value="<?=$resColor[code]?>" />
+								colorInputTable:<input type="text" id="colorInputTable" name="colorInputTable<?=$iColor?>" value="<?=$tableColor?>" />
 							</div>
 							</span>
 							<?

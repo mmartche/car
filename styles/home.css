@@ -327,6 +327,7 @@ overflow: hidden;
 	height: 65px;
 	margin: 10px 0 0 0;
 	border: none;
+	background-color: transparent;
 }
 .carrosselHome .carousel-caption {
 	width: 100%;
@@ -344,6 +345,7 @@ overflow: hidden;
 	z-index: 1;
 	font-size: 26px;
 	text-align: left;
+	font-weight: bold;
 }
 .carrosselHome .carousel-caption p {
 	width: 100%;
@@ -608,7 +610,8 @@ overflow: hidden;
 	background-color: #fff;
 }
 .carrosselVideos .play-arrow {
-	background: url("../images/icon_video_play2.png") transparent no-repeat;
+	/*background: url("http://noticias.carsale.uol.com.br/images/sprite.png") -269px -319px transparent no-repeat;*/
+	background: url("https://cdn1.iconfinder.com/data/icons/google_jfk_icons_by_carlosjj/128/youtube.png") center center transparent no-repeat;
 	width: 86px;
 	height: 63px;
 	position: absolute;
@@ -665,10 +668,10 @@ overflow: hidden;
 .chamadasUltnot .chamadaMiddle .foto {
 	float: left;
 	margin-right: 10px;
-	max-width: 120px;
+	max-width: 180px;
 }
 .chamadasUltnot .chamadaMiddle .foto img {
-	max-width: 120px;
+	max-width: 180px;
 	height: auto;
 }
 .chamadasUltnot .chamadaMiddle .fotoRight {
@@ -678,6 +681,8 @@ overflow: hidden;
 }
 .chamadasUltnot .chamadaMiddle .span {
 	color: #000;
+	font-size: 12px;
+	font-weight: bold;
 }
 .chamadasUltnot .ultnotData {
 	color: #888;
