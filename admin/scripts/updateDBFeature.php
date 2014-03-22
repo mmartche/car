@@ -357,28 +357,3 @@ if ($_GET[debug] == "true"){ ?>
 	</script>
 	<a href="../index.php">Voltar a Home</a>
 <? } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

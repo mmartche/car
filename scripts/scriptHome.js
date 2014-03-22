@@ -35,8 +35,27 @@ $(document).ready(function(){
 	});
 
 	loadNews('#ultnotGeral','http://carsale.uol.com.br/novosite/import-news.asp','3');
-	// loadNews('#ultnotAvaliacoes','http://carsale.uol.com.br/novosite/import-news-testes.asp','3');
-	loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/categorias/testes/?feed=json','2');
+	loadNews('#ultnotAvaliacoes','http://carsale.uol.com.br/novosite/import-news-testes.asp','3');
+
+	$(".arrow-next-post").mouseover(function(){
+		$(".next-post").removeClass("hide");
+	});
+	$(".arrow-previous-post").mouseover(function(){
+		$(".previous-post").removeClass("hide");
+	});
+
+	$(".blog-nav-post").mouseover(function(){
+		$(this).removeClass("hide");
+	}).mouseout(function(){
+		$(".previous-post").addClass("hide");
+		$(".next-post").addClass("hide");
+	});
+
+	// $(".blog-nav-post").mouseout(function(){
+	// 	$(".previous-post").addClass("hide");
+	// });
+
+	// loadNews('#ultnotAvaliacoes','http://noticias.carsale.uol.com.br/categorias/testes/?feed=json','2');
 	// var aejax = $.ajax( {
 	// 	url:"http://noticias.carsale.uol.com.br/?feed=json&callbackName=jsonp",
 	// 	crossDomain:true,

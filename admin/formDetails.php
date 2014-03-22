@@ -176,13 +176,13 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					break;
 				case 'version':
 					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
-					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=$res[modelName]?></a></li>
-					<li class="active" title="Editar Versão"><?=$res[versionName]?></li><?
+					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=utf8_encode($res[modelName])?></a></li>
+					<li class="active" title="Editar Versão"><?=utf8_encode($res[versionName])?></li><?
 					break;
 				default:
 					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
-					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=$res[modelName]?></a></li>
-					<li><a href="?vehicle=<?=$res[versionId]?>&category=version&action=update" title="Editar Versão"><?=$res[versionName]?></a></li>
+					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=utf8_encode($res[modelName])?></a></li>
+					<li><a href="?vehicle=<?=$res[versionId]?>&category=version&action=update" title="Editar Versão"><?=utf8_encode($res[versionName])?></a></li>
 					<li class="active" title="Editar Ficha Técnica">Ficha Técnica</li><?
 					break;
 			}
@@ -486,10 +486,12 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					<span><label>Combustível:</label>
 						<select  name="fuel" id="txtFuel">
 							<option>Combustível</option>
-							<option value="F" <? if ($res[fuel] == "F") echo 'selected="selected"'; ?> >Flex</option>
-							<option value="G" <? if ($res[fuel] == "G") echo 'selected="selected"'; ?> >Gasolina</option>
-							<option value="E" <? if ($res[fuel] == "E") echo 'selected="selected"'; ?> >Etanol</option>
-							<option value="D" <? if ($res[fuel] == "D") echo 'selected="selected"'; ?> >Diesel</option>
+							<option value="F" <? if (strtolower($res[fuel]) == "f") echo 'selected="selected"'; ?> >Flex</option>
+							<option value="G" <? if (strtolower($res[fuel]) == "g" || $res[fuel] == "") echo 'selected="selected"'; ?> >Gasolina</option>
+							<option value="E" <? if (strtolower($res[fuel]) == "e") echo 'selected="selected"'; ?> >Etanol</option>
+							<option value="D" <? if (strtolower($res[fuel]) == "d") echo 'selected="selected"'; ?> >Diesel</option>
+							<option value="B" <? if (strtolower($res[fuel]) == "b") echo 'selected="selected"'; ?> >Bio Diesel</option>
+							<option value="H" <? if (strtolower($res[fuel]) == "h") echo 'selected="selected"'; ?> >Hibrido</option>
 						</select>
 					</span><br />
 					<span><label>Potência máxima:</label><input type="text" name="powerMax" id="txtPowerMax" value="<?=$res[powerMax]?>" /></span><br />
@@ -504,13 +506,13 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 							<option>Câmbio</option>
 							<option value="F"><?=$res[gear]?></option>
 						</select><br /> -->
-						<input type="text" name="gear" id="txtGear" value="<?=$res[gear]?>" /></span><br />
+						<input type="text" name="gear" id="txtGear" value="<?=utf8_encode($res[gear])?>" /></span><br />
 					<span><label>Tração:</label><input type="text" name="traction" id="txtTraction" value="<?=$res[traction]?>" /></span><br />
 					<span><label>Rodas:</label><input type="text" name="wheels" id="txtWheels" value="<?=utf8_encode($res[wheels])?>" /></span><br />
-					<span><label>Suspensão dianteira:</label><input type="text" name="frontSuspension" id="txtFrontSuspension" value="<?=$res[frontSuspension]?>" /></span><br />
-					<span><label>Suspensão traseira:</label><input type="text" name="rearSuspension" id="txtRearSuspension" value="<?=$res[rearSuspension]?>" /></span><br />
-					<span><label>Freio dianteiro:</label><input type="text" name="frontBrake" id="txtFrontBrake" value="<?=$res[frontBrake]?>" /></span><br />
-					<span><label>Freio traseiro:</label><input type="text" name="rearBrake" id="txtRearBrake" value="<?=$res[rearBrake]?>" /></span><br />
+					<span><label>Suspensão dianteira:</label><input type="text" name="frontSuspension" id="txtFrontSuspension" value="<?=utf8_encode($res[frontSuspension])?>" /></span><br />
+					<span><label>Suspensão traseira:</label><input type="text" name="rearSuspension" id="txtRearSuspension" value="<?=utf8_decode($res[rearSuspension])?>" /></span><br />
+					<span><label>Freio dianteiro:</label><input type="text" name="frontBrake" id="txtFrontBrake" value="<?=utf8_encode($res[frontBrake])?>" /></span><br />
+					<span><label>Freio traseiro:</label><input type="text" name="rearBrake" id="txtRearBrake" value="<?=utf8_encode($res[rearBrake])?>" /></span><br />
 					<span><label>Dimensão (mm):</label></span><br />
 					<span><label>-Comprimento:</label><input type="text" name="dimensionLength" id="txtDimensionLength" value="<?=$res[dimensionLength]?>" /></span><br />
 					<span><label>-Largura:</label><input type="text" name="dimensionWidth" id="txtDimensionWidth" value="<?=$res[dimensionWidth]?>" /></span><br />
@@ -757,7 +759,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 				if ($_GET[category] != "manufacturer" && $_GET[category] != "model" && $_GET[category] != "version") {
 				$iSerie = 0;
 				$sqlSerie = "SELECT * from serieFeature where idFeature = '".$res[featureId]."' order by `option` desc, `description` asc";
-				$querySerie = mysql_query($sqlSerie) or die (" error #300");
+				$querySerie = mysql_query($sqlSerie) or die (mysql_error()." error 760");
 				$lengthSerie = mysql_num_rows($querySerie);
 				?>
 				<div class="dataSerie dataFields">
@@ -779,7 +781,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 							<span>
 								<input type="checkbox" name="rdSerie<?=$iSerie?>" id="rdSerie<?=$iSerie?>" value="s" <? if ($resSerie[option] == "s") { echo 'checked="checked"'; } ?> />
 								<input type="hidden" name="txtSerie<?=$iSerie?>" id="txtSerie<?=$iSerie?>" value="<?=$resSerie[description]?>" />
-							<?=$resSerie[description]?></span>
+							<?=utf8_encode($resSerie[description])?></span>
 							<?
 							$iSerie++;
 						}
@@ -827,7 +829,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						$lengthOptionsTotal = mysql_num_rows($queryOptF);
 						while ($resOptF = mysql_fetch_array($queryOptF)) {
 						?>
-							<span id="optItem<?=$iOptM?>" title="<?=$resOptF[options]?>">
+							<span id="optItem<?=$iOptM?>" title="<?=$resOptF[options]?>" name="spanOptionsList">
 								<div class="updateOpt" onclick="updateOpt(this,'<?=$iOptM?>')" title="<?=$resOptF[options]?>">
 									<input class="hide" type="checkbox" id="chOpt<?=$iOptM?>" name="chOpt<?=$iOptM?>" value="s" checked="checked" />
 									<input type="hidden" id="txtOptIdFeature" value="<?=$resOptF[optId]?>" />
@@ -877,10 +879,11 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						$sqlColor = "SELECT * from colorManufacturer WHERE idManufacturer = '".$res[manufacturerId]."'";
 						$tableColor = "colorManufacturer";
 					} else {
-						$sqlColor = "SELECT colorVersion.id, colorManufacturer.name, colorManufacturer.code, colorManufacturer.hexa, colorManufacturer.type, colorManufacturer.application, colorVersion.price from colorVersion, colorManufacturer where colorVersion.code = colorManufacturer.code and  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."' group by colorManufacturer.code";
+						// $sqlColor = "SELECT colorVersion.id, colorManufacturer.name, colorManufacturer.code, colorManufacturer.hexa, colorManufacturer.type, colorManufacturer.application, colorVersion.price from colorVersion, colorManufacturer where colorVersion.code = colorManufacturer.code and  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."'";
+						$sqlColor = "SELECT colorVersion.id, colorVersion.name, colorVersion.code, colorVersion.hexa, colorVersion.type, colorVersion.application, colorVersion.price from colorVersion where  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."'";
 						$tableColor = "colorVersion";
 					}
-					$queryColor = mysql_query($sqlColor) or die (" error #886");
+					$queryColor = mysql_query($sqlColor) or die (mysql_error()." error #886");
 					$lengthColor = mysql_num_rows($queryColor);
 					?>
 					<div class="dataColor dataFields">
@@ -899,11 +902,11 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 									}
 									?>
 								</select><br />
-								<input type="text" id="txtColorName" name="txtColorName" />
+								<input type="hidden" id="txtColorName" name="txtColorName" />
 								<div id="colorSelector" class="divColor"><div></div></div>
-								colorId:<input type="text" id="colorId" />
+								<input type="hidden" id="colorId" />
 								<input type="text" id="colorSelected" placeholder="Cor em hexa" disabled="disabled" /><br />
-								<input type="text" id="colorCode" placeholder="Código" disabled="disabled" /><br />
+								<!-- <input type="text" id="colorCode" placeholder="Código" disabled="disabled" /><br /> -->
 								<select  id="colorType" disabled="disabled">
 									<option value="Sólida" >Sólida</option>
 									<option value="Metálica">Metálica</option>
@@ -917,7 +920,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 								</select><br /-->
 								<!--input type="text" id="colorAplication" placeholder="Aplicação" /-->
 								<input type="button" value="Adicionar" id="btnColorAdd" />
-								colorLength:<input type="text" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
+								<input type="hidden" id="colorLength" name="colorLength" value="<?=$lengthColor?>" />
 							</span>
 							<? while ($resColor = mysql_fetch_array($queryColor)) { ?>
 							<span name="liColorItem" colorId="<?=$resColor[id]?>">
@@ -927,13 +930,13 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 									<div style="background-color: #<?=$resColor[hexa]?>;"></div>
 								</div>
 								<span id="textColor"><?=utf8_encode($resColor[name])." - ".utf8_encode($resColor[type])."<br />".$resColor[code]." => R$ ".$resColor[price]?></span>
-								colorInputId:<input type="text" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
-								colorInputName:<input type="text" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=utf8_encode($resColor[name])?>" />
-								colorInputColor:<input type="text" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
-								colorInputType:<input type="text" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=utf8_encode($resColor[type])?>" />
-								colorInputPrice:<input type="text" id="colorInputPrice" name="colorInputPrice<?=$iColor?>" value="<?=$resColor[price]?>" />
-								colorInputCode:<input type="text" id="colorInputCode" name="colorInputCode<?=$iColor?>" value="<?=$resColor[code]?>" />
-								colorInputTable:<input type="text" id="colorInputTable" name="colorInputTable<?=$iColor?>" value="<?=$tableColor?>" />
+								<input type="hidden" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
+								<input type="hidden" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=utf8_encode($resColor[name])?>" />
+								<input type="hidden" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />
+								<input type="hidden" id="colorInputType" name="colorInputType<?=$iColor?>" value="<?=utf8_encode($resColor[type])?>" />
+								<input type="hidden" id="colorInputPrice" name="colorInputPrice<?=$iColor?>" value="<?=$resColor[price]?>" />
+								<input type="hidden" id="colorInputCode" name="colorInputCode<?=$iColor?>" value="<?=$resColor[code]?>" />
+								<input type="hidden" id="colorInputTable" name="colorInputTable<?=$iColor?>" value="<?=$tableColor?>" />
 							</div>
 							</span>
 							<?

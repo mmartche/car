@@ -390,7 +390,7 @@ transition: all .3s;
 .titleItems>li {
 	font-size: 12px;
 	font-weight: bold;
-	height: 32px;
+	height: 40px;
 	overflow: hidden;
 	padding: 3px 10px;
 }
@@ -402,7 +402,7 @@ transition: all .3s;
 	overflow: hidden;
 	text-align: center;
 	padding: 5px 0;
-	height: 32px;
+	height: 40px;
 	font-size: 11px;
 }
 .exploradorGridFiltrosBtnBuscar {

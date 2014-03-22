@@ -29,11 +29,16 @@ select [Caract].[NumModel], [Caract].[Motor], [Caract].[Portas], [Caract].[Acele
 from [Caract]
 order by [Caract].[AnoFab], [Caract].[NumModel] desc
 
-
-select [PrecPub].[NumModel], [PrecPub].[Ano], [PrecPub].[Valor]
+//old
+select [PrecPub].[Ano], [PrecPub].[Valor], [PrecPub].[NumModel]
 from [PrecPub]
 order by [PrecPub].[NumModel] desc, [PrecPub].[Ano] desc
 
+//new
+select [PrecPub].[Valor], [PrecPub].[NumModel]
+from [PrecPub]
+where [PrecPub].[Ano]='Zero'
+order by [PrecPub].[NumModel] desc
 
 select [CoresMod].[IntExt], [CoresMod].[Codigo], [CoresMod].[NumModel], [CoresMod].[NumMont], [CoresMod].[Valor], [CoresMod].[AnoMod]
 from [CoresMod]
@@ -58,6 +63,8 @@ from [Versao]
 where [Versao].[ativo]=1
 order by [Versao].[numModel] desc, [Versao].[id], [Versao].[ano_modelo] desc
 
+tirar nome, valor, valor_mercado, disponibilidade_id
+
 
 select [Versao].[numModel], [Versao].[nome], [Versao].[nome_imagem], [Caract].[Figura], [Versao].[ano_modelo], [Versao].[motor], [Versao].[combustivel_id], [Versao].[cambio_id], [Versao].[air_bag_duplo_frontal], [Versao].[ar_condicionado], [Versao].[banco_motorista_regulagem_altura], [Versao].[desembacador_vidro_traseiro], [Versao].[direcao_hidraulica], [Versao].[freio_abs], [Versao].[limpador_vidro_traseiro], [Versao].[parachoque_cor_veiculo], [Versao].[radio_cd_player_entrada_usb], [Versao].[retrovisor_eletrico], [Versao].[trava_eletrica], [Versao].[vidro_eletrico], [Versao].[alarme], [Versao].[ar_quente], [Versao].[banco_traseiro_bipartido], [Versao].[banco_couro], [Versao].[computador_bordo], [Versao].[bluetooth_viva_voz], [Versao].[conta_giros], [Versao].[farois_milha], [Versao].[farois_xenon], [Versao].[gps_integrado_painel], [Versao].[piloto_automatico], [Versao].[regulagem_altura_farois], [Versao].[roda_liga_leve], [Versao].[sensor_estacionamento], [Versao].[sensor_chuva], [Versao].[sistema_isofix_cadeira_crianca], [Versao].[teto_solar], [Versao].[vidro_eletrico_traseiro], [Versao].[volante_regulagem_altura], [Versao].[capota_maritima], [Versao].[estribos_laterais], [Versao].[protetor_cacamba], [Versao].[rack_teto], [Caract].[Portas], [Caract].[Acelerac], [Caract].[Ocupantes], [Caract].[VelMax], [Caract].[PotMax], [Caract].[Direcao], [Caract].[Combustivel], [Caract].[Alimentacao], [Caract].[Torque], [Caract].[Tracao], [Caract].[SuspDiant], [Caract].[SuspTras], [Caract].[FreioDiant], [Caract].[Rodas], [Caract].[Comprimento], [Caract].[Altura], [Caract].[Largura], [Caract].[FreioTras], [Caract].[Peso], [Caract].[PortaMala], [Caract].[Tanque], [Caract].[EntreEixos], [Caract].[Cambio], [Caract].[ConsCidade], [Caract].[ConsEstrad], [Caract].[AnoMod], [Caract].[AnoFab], [Caract].[EqAirBag], [Caract].[EqDirHid], [Caract].[EqArCond], [Caract].[EqBcoCou], [Caract].[EqAlarme], [Caract].[EqCamAut], [Caract].[EqFreAbs], [Caract].[EqTra4x4], [Caract].[NumPais], [Caract].[ItSerie]
 from [Caract], [Versao]
@@ -70,9 +77,15 @@ cambio_id
 NumPais
 
 
+select [Linha_Segmento].[numLinha], [Linha_Segmento].[segmento_id]
+from [Linha_Segmento]
+order by [Linha_Segmento].[numLinha] desc
+
+
 Æ = ã
   = á
 ƒ = â
+µ = Á
 ‚ = é
 ˆ = ê
 “ = ô
@@ -80,14 +93,60 @@ NumPais
 ¢ = ó
 ‡ = ç
 ¡ = í
+£ = ú
+
+update `feature` set `gear`="Automático" where `gear` = "1";
+update `feature` set `gear`="Manual" where `gear` = "2";
+update `feature` set `fuel`="a" where `fuel` = "1";
+update `feature` set `fuel`="d" where `fuel` = "2";
+update `feature` set `fuel`="g" where `fuel` = "3";
+update `feature` set `fuel`="f" where `fuel` = "4";
+update `feature` set `countryOrigin`="Alemanha" where `countryOrigin` = "1";
+update `feature` set `countryOrigin`="Argentina" where `countryOrigin` = "2";
+update `feature` set `countryOrigin`="Austrália" where `countryOrigin` = "3";
+update `feature` set `countryOrigin`="Áustria" where `countryOrigin` = "4";
+update `feature` set `countryOrigin`="Bélgica" where `countryOrigin` = "5";
+update `feature` set `countryOrigin`="Brasil" where `countryOrigin` = "6";
+update `feature` set `countryOrigin`="Canadá" where `countryOrigin` = "7";
+update `feature` set `countryOrigin`="Coréia do Su" where `countryOrigin` = "8";
+update `feature` set `countryOrigin`="Espanha" where `countryOrigin` = "9";
+update `feature` set `countryOrigin`="Estados Unidos" where `countryOrigin` = "10";
+update `feature` set `countryOrigin`="França" where `countryOrigin` = "12";
+update `feature` set `countryOrigin`="Holanda" where `countryOrigin` = "13";
+update `feature` set `countryOrigin`="Inglaterra" where `countryOrigin` = "14";
+update `feature` set `countryOrigin`="Itália" where `countryOrigin` = "15";
+update `feature` set `countryOrigin`="Japão" where `countryOrigin` = "16";
+update `feature` set `countryOrigin`="México" where `countryOrigin` = "17";
+update `feature` set `countryOrigin`="Suécia" where `countryOrigin` = "18";
+update `feature` set `countryOrigin`="Tailândia" where `countryOrigin` = "19";
+update `feature` set `countryOrigin`="Uruguai" where `countryOrigin` = "20";
+update `feature` set `countryOrigin`="Importado" where `countryOrigin` = "21";
+update `feature` set `countryOrigin`="Importado/Nacional" where `countryOrigin` = "22";
+update `feature` set `countryOrigin`="Suiça" where `countryOrigin` = "23";
 
 
-select [Linha_Segmento].[numLinha], [Linha_Segmento].[segmento_id]
-from [Linha_Segmento]
 
-order by [Linha_Segmento].[numLinha] desc
+"NumModel","Motor","Portas","Acelerac","Ocupantes","VelMax","PotMax","Direcao","Combustivel","Alimentacao","Torque","Tracao","SuspDiant","SuspTras","FreioDiant","Rodas","Comprimento","Altura","Largura","FreioTras","Peso","PortaMala","Tanque","EntreEixos","Cambio","ConsCidade","ConsEstrad","AnoMod","AnoFab","ItSerie","Figura","EqAirBag","EqDirHid","EqArCond","EqBcoCou","EqAlarme","EqCamAut","EqFreAbs","EqTra4x4","NumPais"|
+
+insert ignore into `feature` (`idVersion`,`engine`,`doors`,`acceleration`,`passagers`,`speedMax`,`powerMax`,`steering`,`fuel`,`feeding`,`torque`,`traction`,`frontSuspension`,`rearSuspension`,`frontBrake`,`wheels`,`dimensionLength`,`dimensionHeight`,`dimensionWidth`,`rearBrake`,`weight`,`trunk`,`tank`,`dimensionSignAxes`,`gear`,`consumptionCity`,`consumptionRoad`,`yearModel`,`yearProduced`,`items`,`picture`,`dualFrontAirBag`,`hydraulicSteering`,`airConditioning`,`leatherSeat`,`alarm`,`autoGear`,`absBrake`,`traction4x4`,`countryOrigin`) values 
 
 
+SELECT
+
+ `feature`.`idManufacturer`,  `feature`.`idModel`, `feature`.`idVersion`, `feature`.`passagers`, `feature`.`speedMax`, `feature`.`powerMax`, `feature`.`steering`, `feature`.`feeding`, `feature`.`torque`, `feature`.`traction`, `feature`.`frontSuspension`, `feature`.`rearSuspension`, `feature`.`frontBrake`, `feature`.`wheels`, `feature`.`dimensionLength`, `feature`.`dimensionHeight`, `feature`.`dimensionWidth`, `feature`.`rearBrake`, `feature`.`weight`, `feature`.`trunk`, `feature`.`tank`, `feature`.`dimensionSignAxes`, `feature`.`consumptionCity`, `feature`.`consumptionRoad`, `feature`.`yearModel`, `feature`.`yearProduced`, `feature`.`items`, `feature`.`picture`, 
+`feature-itm`.`engine`, `feature-itm`.`doors`, `feature-itm`.`acceleration`, `feature-itm`.`fuel`, `feature-itm`.`gear`,`feature-itm`.`dualFrontAirBag`, `feature-itm`.`electricSteering`, `feature-itm`.`hydraulicSteering`, `feature-itm`.`airConditioning`, `feature-itm`.`driverSeatHeightAdjustment`, `feature-itm`.`leatherSeat`, `feature-itm`.`alarm`, `feature-itm`.`autoGear`, `feature-itm`.`absBrake`, `feature-itm`.`traction4x4`, `feature-itm`.`dateCreate`, `feature-itm`.`countryOrigin`, `feature-itm`.`dateUpdate`, `feature-itm`.`hotAir`, `feature-itm`.`heightAdjustment`, `feature-itm`.`rearSeatSplit`, `feature-itm`.`bluetoothSpeakerphone`, `feature-itm`.`bonnetSea`, `feature-itm`.`onboardComputer`, `feature-itm`.`accelerationCounter`, `feature-itm`.`rearWindowDefroster`, `feature-itm`.`sidesteps`, `feature-itm`.`fogLamps`, `feature-itm`.`xenonHeadlights`, `feature-itm`.`integratedGPSPanel`, `feature-itm`.`rearWindowWiper`, `feature-itm`.`bumper`, `feature-itm`.`autopilot`, `feature-itm`.`bucketProtector`, `feature-itm`.`roofRack`, `feature-itm`.`cdplayerUSBInput`, `feature-itm`.`electricMirror`, `feature-itm`.`radio`, `feature-itm`.`headlightsHeightAdjustment`, `feature-itm`.`rearviewElectric`, `feature-itm`.`alloyWheels`, `feature-itm`.`rainSensor`, `feature-itm`.`parkingSensor`, `feature-itm`.`isofix`, `feature-itm`.`sunroof`, `feature-itm`.`electricLock`, `feature-itm`.`electricWindow`, `feature-itm`.`rearElectricWindow`, `feature-itm`.`steeringWheelAdjustment`, `feature-itm`.`active`
+FROM feature,  `feature-itm` 
+WHERE feature.idVersion =  `feature-itm`.idVersion
+AND feature.yearModel =  `feature-itm`.yearModel
+ORDER BY feature.idVersion DESC , feature.yearModel DESC 
+
+
+
+//sist novo
+insert into `feature` (`idX`, `name`, `engine`, `price`, `fuel`, `gear`, `dualFrontAirBag`, `airConditioning`, `driverSeatHeightAdjustment`, `rearWindowDefroster`, `hydraulicSteering`, `absBrake`, `rearWindowWiper`, `bumper`, `cdplayerUSBInput`, `electricMirror`, `electricLock`, `electricWindow`, `alarm`, `hotAir`, `rearSeatSplit`, `leatherSeat`, `onboardComputer`, `bluetoothSpeakerphone`, `accelerationCounter`, `fogLamps`, `xenonHeadlights`, `integratedGPSPanel`, `autopilot`, `headlightsHeightAdjustment`, `alloyWheels`, `parkingSensor`, `rainSensor`, `isofix`, `sunroof`, `rearviewElectric`, `heightAdjustment`, `bonnetSea`, `sidesteps`, `bucketProtector`, `roofRack`, `idVersion`, `picture`, `priceMkt`, `active`, `disponibilidade_id`, `yearModel` ) values
+
+//sist velho
+insert ignore into `feature` (`idVersion`,`engine`,`doors`,`acceleration`,`passagers`,`speedMax`,`powerMax`,`steering`,`fuel`,`feeding`,`torque`,`traction`,`frontSuspension`,`rearSuspension`,`frontBrake`,`wheels`,`dimensionLength`,`dimensionHeight`,`dimensionWidth`,`rearBrake`,`weight`,`trunk`,`tank`,`dimensionSignAxes`,`gear`,`consumptionCity`,`consumptionRoad`,`yearModel`,`yearProduced`,`items`,`picture`,`dualFrontAirBag`,`hydraulicSteering`,`airConditioning`,`leatherSeat`,`alarm`,`autoGear`,`absBrake`,`traction4x4`,`countryOrigin`) values 
 
 
 /* ESQUEMA DAS TABELAS PARA O BD NOVO EM WP */

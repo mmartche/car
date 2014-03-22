@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://localhost/carsale/noticias-br/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.8" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.4" -->
-<!-- generated-on="16 de March de 2014 18:25" -->
+<!-- generated-on="21 de March de 2014 22:00" -->
 <!-- Debug: Total comment count: 0 -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
 		<loc>http://localhost/carsale/noticias-br/</loc>
-		<lastmod>2014-03-16T18:25:02+00:00</lastmod>
+		<lastmod>2014-03-21T21:59:40+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
 	</url>
 <!-- Debug: Start Postings -->
-<!-- Debug: Priority report of postID 12431: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 11703: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2014/03/16/mmm/</loc>
-		<lastmod>2014-03-16T18:25:02+00:00</lastmod>
+		<loc>http://localhost/carsale/noticias-br/segredos/2013/09/19/encontro-confirma-o-baixo-interesse-do-brasil-por-veiculos-eletricos/</loc>
+		<lastmod>2014-03-21T21:59:40+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
 <!-- Debug: Priority report of postID 12393: Comments: 0 of 0 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/videos/90-segundos/2014/02/13/nissan-leaf-domina-setor-de-eletricos-na-europa/</loc>
-		<lastmod>2014-03-13T17:29:27+00:00</lastmod>
+		<loc>http://localhost/carsale/noticias-br/videos/2014/02/13/nissan-leaf-domina-setor-de-eletricos-na-europa/</loc>
+		<lastmod>2014-03-21T21:41:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12431: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/blog/2014/03/16/mmm/</loc>
+		<lastmod>2014-03-16T18:25:02+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
@@ -100,13 +107,6 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11703: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/09/19/encontro-confirma-o-baixo-interesse-do-brasil-por-veiculos-eletricos/</loc>
-		<lastmod>2014-03-09T17:25:41+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
 <!-- Debug: Priority report of postID 11331: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/10/brasil-podera-abrir-as-portas-para-os-eletricos/</loc>
@@ -128,13 +128,6 @@
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11496: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/08/12/novo-chevrolet-volt-podera-rodar-ate-96-km-em-modo-totalmente-eletrico/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
 <!-- Debug: Priority report of postID 11364: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/17/toyota-gm-e-vw-a-um-passo-da-lideranca-global/</loc>
@@ -152,6 +145,13 @@
 <!-- Debug: Priority report of postID 11395: Comments: 0 of 0 = 0 points -->
 	<url>
 		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/23/renault-nissan-100-mil-eletricos-vendidos/</loc>
+		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11496: Comments: 0 of 0 = 0 points -->
+	<url>
+		<loc>http://localhost/carsale/noticias-br/classicos/2013/08/12/novo-chevrolet-volt-podera-rodar-ate-96-km-em-modo-totalmente-eletrico/</loc>
 		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>

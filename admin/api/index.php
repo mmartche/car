@@ -206,19 +206,19 @@ switch ($_GET[type]) {
 			echo '[{"response":"true","error":"#205","reason":"Id já existe","insertcId":"'.$_GET[cId].'"}]';
 			break;
 		}
-		$checkColor = "SELECT id, name from colorManufacturer where code = '".$_GET[ccode]."'";
-		$chColor = mysql_query($checkColor);
-		if (mysql_num_rows($chColor) > 0 ) {
-			//return false
-			$rchC = mysql_fetch_array($chColor);
-			echo '[{"response":"false","error":"#213","reason":"Código já existe para a cor '.$rchC[name].'","insertId":"'.$rchC[id].'"}]';
-			//$sql_addColor = "UPDATE colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE code = '".$_GET[ccode]."'";
-		} else {
-			$sql_addColor = "INSERT into `colorManufacturer` (`idManufacturer`, `name`, `code`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[ccode]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";			
-				mysql_query("SET NAMES 'utf8'");
-				mysql_query($sql_addColor) or die ('[{"response":"false","error":"error #198","reason":"'.mysql_error().$sql_addColor.'"}]');
-				echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
-		}
+		// $checkColor = "SELECT id, name from colorManufacturer where code = '".$_GET[ccode]."'";
+		// $chColor = mysql_query($checkColor);
+		// if (mysql_num_rows($chColor) > 0 ) {
+		// 	//return false
+		// 	$rchC = mysql_fetch_array($chColor);
+		// 	echo '[{"response":"false","error":"#213","reason":"Código já existe para a cor '.$rchC[name].'","insertId":"'.$rchC[id].'"}]';
+		// 	//$sql_addColor = "UPDATE colorManufacturer SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[cname]."', `hexa` = '".$_GET[chexa]."', `type` = '".$_GET[ctype]."', `application` = '".$_GET[capp]."', `price` = '".$_GET[cprice]."', `dateUpdate` = now() WHERE code = '".$_GET[ccode]."'";
+		// } else {
+		$sql_addColor = "INSERT into `colorManufacturer` (`idManufacturer`, `name`, `code`, `hexa`, `type`, `application`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('".$_GET[manufacturerId]."', '".$_GET[cname]."', '".$_GET[ccode]."', '".$_GET[chexa]."', '".$_GET[ctype]."', '".$_GET[capp]."', '".$_GET[cprice]."', now(), now(),'')";
+		mysql_query("SET NAMES 'utf8'");
+		mysql_query($sql_addColor) or die ('[{"response":"false","error":"error #198","reason":"'.mysql_error().$sql_addColor.'"}]');
+		echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
+		// }
 		break;
 
 	case 'removeColor':
@@ -480,7 +480,7 @@ switch ($_GET[type]) {
 
 	case 'askExplorer':
 		$a = ($_GET[idVersion] == "" || $_GET[idVersion] == "0" || $_GET[idVersion] == "undefined" ? "" : " and version.id = '".$_GET[idVersion]."' ");
-		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.radio,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, version.id as versionId, version.name as versionName, model.id as modelId, model.name as modelName from feature, version, model where version.active = 's' and feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ".$a." ORDER BY feature.yearProduced DESC limit 1 ";
+		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.radio,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, version.id as versionId, version.name as versionName, model.id as modelId, model.name as modelName from manufacturer, feature, version, model where model.idManufacturer = manufacturer.id and  version.active = 's' and feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ".$a." ORDER BY feature.yearProduced DESC limit 1 ";
 		if ($_GET[action] == "debug") {
 			echo $sql;
 		}
@@ -501,14 +501,22 @@ switch ($_GET[type]) {
 			 	case 'd':
 			 		$fuelType = "Diesel";
 			 		break;
+			 	case 'b':
+				 	$fuelType = "Bio Diesel";
+			 		break;
+			 	case 'h':
+			 		$fuelType = "Hibrido";
+			 		break;
 			 	default:
-			 		$fuelType = "";
+			 		$fuelType = $res[fuel];
 			 		break;
 			}
 			$result .= ($loop > 0 ? "," : "");
 			$result.='{
 				"response":"true",
 				"featureId":"'.$res[featureId].'",
+				"manufacturerId":"'.$res[manufacturerId].'",
+				"manufacturerName":"'.$res[manufacturerName].'",
 				"modelId":"'.$res[modelId].'",
 				"modelName":"'.$res[modelName].'",
 				"versionId":"'.$res[versionId].'",
@@ -618,9 +626,8 @@ switch ($_GET[type]) {
 			}
 			$result.=($loopOpt>0 ? "]" : "");
 
-			// $sqlColors = "SELECT colorFeature.hexa, colorFeature.code, colorFeature.name, colorFeature.type, max(colorManufacturer.price) as price from colorFeature, colorManufacturer WHERE colorFeature.idFeature = '".$res[featureId]."' and colorFeature.idManufacturer = colorManufacturer.idManufacturer group by colorFeature.hexa order by colorFeature.name asc";
-			$sqlColors = "SELECT colorVersion.id, colorManufacturer.name, colorManufacturer.code, colorManufacturer.hexa, colorManufacturer.type, colorManufacturer.application, colorVersion.price from colorVersion, colorManufacturer where colorVersion.code = colorManufacturer.code and  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."'";
-			// $sqlColors = "SELECT colorVersion.hexa, colorVersion.code, colorVersion.name, colorVersion.type, max(colorManufacturer.price) as price from colorVersion, colorManufacturer WHERE colorVersion.idVersion = '".$res[versionId]."' and colorVersion.yearModel = '".$res[yearModel]."' and colorVersion.code = colorManufacturer.code group by colorVersion.hexa order by colorVersion.name asc";
+			// $sqlColors = "SELECT colorVersion.id, colorManufacturer.name, colorManufacturer.code, colorManufacturer.hexa, colorManufacturer.type, colorManufacturer.application, colorVersion.price from colorVersion, colorManufacturer where colorVersion.code = colorManufacturer.code and  idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."'";
+			$sqlColors = "SELECT colorVersion.id, colorVersion.name, colorVersion.code, colorVersion.hexa, colorVersion.type, colorVersion.application, colorVersion.price from colorVersion where idVersion = '".$res[versionId]."' and yearModel = '".$res[yearModel]."'";
 			$queryColors = mysql_query($sqlColors) or die (mysql_error()."error #552");
 			$result.= (mysql_num_rows($queryColors) > 0 ? ',"colors":' : "");
 			$loopOpt=0;

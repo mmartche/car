@@ -1,4 +1,7 @@
 <?php get_header(); 
+if (is_category('blog')) {
+	echo "<script>window.location='".get_permalink()."';</script>";
+}
 global $wp_query;
 ?>
 <div class="content">
@@ -7,47 +10,52 @@ global $wp_query;
 		<span class="title-background"></span>
 		<span class="title-name"><?php the_category(); ?></span>
 	</h2>
-		<ol class="lastest-news">
-			<?php
-			if (have_posts()): while(have_posts()): the_post(); ?>
-			</li>
-			<?php
-			$hora = get_the_date('H\hi' );
-			$dia = get_the_date('d/m/Y' );
+		<?php if (is_category('videos')) { ?>
 
-			if (!$ch) {	$ch = ""; }
-			if ($ch != $dia) {
-				$ch = $dia;
-				echo '<li class="list-separator"><div class="arrow-list-separator"></div>'.$dia.'</li>';
-			}
-			?>
-			<li <?php post_class(); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>
-
-				<?php if ( has_post_thumbnail() ) { ?>
-				<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
-				<?php 
-					the_post_thumbnail();
-				?>
-				</a></div>
+		<?php } else { ?>
+			<?php if (is_category('segredos')) { ?>
+				<img src="http://noticias.carsale.uol.com.br/images/segredosBanner_658x75.jpg" class="imgBannerIndex" />
+			<?php } ?>
+			<ol class="lastest-news">
 				<?php
-				} ?>
-					<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-					<span class="list-hour"><?php echo $hora; ?></span>
-			</li>
-			<?php endwhile; ?>
-			<div class="index-pagination">
-				<div class="index-pagination-div">
-					<div class="nav-next alignright"><?php previous_posts_link( '' ); ?></div>
-					<?php  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;  ?>
-					<div class="nav-label"><?php echo $paged; ?> de <?php echo $wp_query->max_num_pages; ?></div>
-					<div class="nav-previous alignleft"><?php next_posts_link( '' ); ?></div>
-				</div>
-			</div>
+				if (have_posts()): while(have_posts()): the_post(); ?>
+				</li>
+				<?php
+				$hora = get_the_date('H\hi');
+				$dia = get_the_date('d/m/Y');
 
-			<?php endif;  ?>
-			
-			<?php wp_reset_postdata(); ?>
-		</ol>
+				if (!$ch) {	$ch = ""; }
+				if ($ch != $dia) {
+					$ch = $dia;
+					echo '<li class="list-separator"><div class="arrow-list-separator"></div>'.$dia.'</li>';
+				}
+				?>
+				<li <?php post_class(); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>
+
+					<?php if ( has_post_thumbnail() ) { ?>
+					<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
+					<?php 
+						the_post_thumbnail();
+					?>
+					</a></div>
+					<?php
+					} ?>
+						<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+						<span class="list-hour"><?php echo $hora; ?></span>
+				</li>
+				<?php endwhile; ?>
+				<div class="index-pagination">
+					<div class="index-pagination-div">
+						<div class="nav-next alignright"><?php previous_posts_link( '' ); ?></div>
+						<?php  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;  ?>
+						<div class="nav-label"><?php echo $paged; ?> de <?php echo $wp_query->max_num_pages; ?></div>
+						<div class="nav-previous alignleft"><?php next_posts_link( '' ); ?></div>
+					</div>
+				</div>
+				<?php endif;  ?>
+				<?php wp_reset_postdata(); ?>
+			</ol>
+		<?php } ?>
 	</div>
 	<div class="contentRight">
 		<div class="tm-ads banner300" id="banner-300x250">

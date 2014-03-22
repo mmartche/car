@@ -37,6 +37,9 @@ include ("./scripts/conectDB.php");
 			<li><a href="ficha-tecnica.php">EXPLORADOR</a></li>
 			<li><a href="megaOferta.php">MEGA OFERTA</a></li>
 		</ul>
+		<ul class="menuIndex">
+			<li><a href="editNames.php">Editar informações</a></li>
+		</ul>
 	</div>
 	<footer>
 		Copyright 2013 carsale.com.br - Todos os direitos reservados

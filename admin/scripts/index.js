@@ -99,7 +99,7 @@ $(document).ready(function(){
 			return false;
 		}
 		console.log('api/index.php?type=addColor&cId='+cIId+'&manufacturerId='+manufacturerId+'&chexa='+cColor+'&cname='+cName+'&ctype='+cType+'&ccode='+cCode+'&table='+cTable+'&cprice='+cPrice);
-		if (cColor.length == "6" && cCode != "") {
+		if (cColor.length == "6") {
 			if (cIId.length > 0 && $(this).val() == "Adicionar") { 
 				$("#optionsColor").append('<span name="liColorItem"><div class="delColor" title="Remover" onclick="deleteColor(this,\''+cIId+'\',\''+cTable+'\')">X</div><div class="updateColor" onclick="updateColor(this,\''+cIId+'\',\''+cTable+'\')"><div class="divColor"><div style="background-color: #'+cColor+';"></div></div><span id="textColor">'+cName+' - '+cType+'<br />'+cCode+' => R$ '+cPrice+'</span><input type="hidden" id="colorInputId" name="colorInputId'+cLength+'" value="'+cIId+'" /><input type="hidden" id="colorInputName" name="colorInputName'+cLength+'" value="'+cName+'" /><input type="hidden" id="colorInputColor" name="colorInputColor'+cLength+'" value="'+cColor+'" /><input type="hidden" id="colorInputType" name="colorInputType'+cLength+'" value="'+cType+'" /><input type="hidden" id="colorInputCode" name="colorInputCode'+cLength+'" value="'+cCode+'" /><input type="hidden" id="colorInputPrice" name="colorInputPrice'+cLength+'" value="'+cPrice+'" /><input type="hidden" id="colorInputTable" name="colorInputTable'+cLength+'" value="'+cTable+'" /></span>');
 					$("#colorLength").val(cLength+1);
@@ -116,7 +116,7 @@ $(document).ready(function(){
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputColor").val(cColor);
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputType").val(cType);
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorInputPrice").val(cPrice);
-							$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+'\n'+cCode+' => R$ '+cPrice);
+							$("#optionsColor").find("span[colorId="+cIId+"] #textColor").text(cName+' - '+cType+'\n => R$ '+cPrice);
 							$("#optionsColor").find("span[colorId="+cIId+"] #colorSelector div").css("backgroundColor", "#"+cColor);
 							$("#optionsColor span").show();
 						}
@@ -284,7 +284,7 @@ $(document).ready(function(){
 			} else {
 				l = $("#resultOptions span").length;
 
-				$("#resultOptions").prepend('<span id="optItem'+l+'" title="'+textTemp+'">'+
+				$("#resultOptions").prepend('<span id="optItem'+l+'" title="'+textTemp+'" name="spanOptionsList">'+
 				'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')">'+
 					'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
 					'<input type="hidden" id="txtOptIdFeature" value="" />'+
@@ -426,7 +426,9 @@ function updateOpt(obj,numCheck) {
 
 }
 function removeOpt (obj,numCheck){
-	$(obj).parent("span").toggleClass("hide");
+	// $(obj).parent("span").toggleClass("hide");
+	$(obj).parent("span").remove();
+	$("#lengthOptions").val($("#resultOptions span[name=spanOptionsList]").length);
 }
 function updateColor(obj,idColor,table) {
 	cIId = $(obj).children("#colorInputId").val();
@@ -454,15 +456,17 @@ function updateColor(obj,idColor,table) {
 }
 function deleteColor(obj,idColor,table) {
 //	console.log(obj,idColor,table);
-	$.getJSON('api/index.php?type=removeColor&table='+table+'&idColor='+idColor, function(data) {
-		if(data[0].response == "true"){
-			//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
-			$(obj).parent().remove();
-			$("#colorLength").val($("#optionsColor span").length-1);
-		} else {
-			console.log(data[0].reason);
-		}
-	});
+	// $.getJSON('api/index.php?type=removeColor&table='+table+'&idColor='+idColor, function(data) {
+	// 	if(data[0].response == "true"){
+	// 		//optionTemp = $('input[name=rdOptionsAdd]:checked').val();
+	// 		$(obj).parent().remove();
+	// 		$("#colorLength").val($("#optionsColor span[name=liColorItem]").length);
+	// 	} else {
+	// 		console.log(data[0].reason);
+	// 	}
+	// });
+	$(obj).parent().remove();
+	$("#colorLength").val($("#optionsColor span[name=liColorItem]").length);
 }
 function openDetails(featureId){
 	console.log(featureId);

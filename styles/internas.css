@@ -1,3 +1,6 @@
+body a {
+	color:#000;
+}
 .imgHover {
 transition-property: opacity, box-shadow;
 transition-duration: .1s;
@@ -18,6 +21,7 @@ transition-delay: .3s;
 float: left;
 margin-right: 15px;
 }
+
 .ul-read-more li:hover .imgHover, .read-more-li:hover .imgHover , .lastest-news .post.format-standard:hover .imgHover {
 	opacity: 1;
 	box-shadow: 2px 2px 5px #000;
@@ -286,6 +290,138 @@ article a {
 	text-transform: capitalize;
 }
 
+/*BLOG */
+.headerBlog {
+	background: url("http://noticias.carsale.uol.com.br/images/header-blog.png") 0 0 no-repeat transparent;
+	height: 170px;
+	text-indent: -99em;
+}
+.blog-description {
+	border:1px solid #ccc;
+	margin-bottom: 10px;
+}
+.blog-description h3, .blog-about-author h3 {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	padding: 2px 5px;
+	background-color: #a30a0a;
+	color: #f0f4f9;
+	border-color: #c20120;
+	box-shadow: 0px 2px 5px #000;
+}
+.blog-description-content img {
+	width: 270px;
+	height: 165px;
+	margin: 15px;
+}
+.blog-description-content p {
+	padding: 0 10px 5px;
+	text-align: justify;
+}
+.blog-about-author {
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+}
+.blog-about-author-item {
+	padding: 10px;
+}
+.blog-about-author-item .img-author {
+	width: 75px;
+	height: 95px;
+	float: left;
+	margin-right: 10px;
+}
+.img-author.larissa {
+	background: url("http://noticias.carsale.uol.com.br/images/foto-larissa.jpg") 0 0 no-repeat transparent;
+}
+.img-author.giovanna {
+	background: url("http://noticias.carsale.uol.com.br/images/foto-giovanna.jpg") 0 0 no-repeat transparent;
+}
+.img-author.guilherme {
+	background: url("http://noticias.carsale.uol.com.br/images/foto-guilherme.jpg") 0 0 no-repeat transparent;
+}
+.blog-about-author-item h4 {
+	font-size: 14px;
+	color: #ec3e40;
+}
+.blog-about-author-item p {
+	font-size: 12px;
+	color: #1b1d20;
+	min-height: 60px;
+	text-align: justify;
+}
+.blog-about-author-item span{
+	font-size: 11px;
+	color: #8d2527;
+}
+}
+.blog-nav-post.previous-post {
+	transition-property: left,right;
+	transition-duration: .1s;
+	transition-timing-function: linear;
+	transition-delay: .3s;
+	-webkit-transition-property: left,right;
+	-webkit-transition-duration: .1s;
+	-webkit-transition-timing-function: linear;
+	-webkit-transition-delay: .3s;
+	-moz-transition-property: left,right;
+	-moz-transition-duration: .1s;
+	-moz-transition-timing-function: linear;
+	-moz-transition-delay: .3s;
+	-o-transition-property: left,right;
+	-o-transition-duration: .1s;
+	-o-transition-timing-function: linear;
+	-o-transition-delay: .3s;
+}
+.blog-nav-post {
+	position: fixed;
+	top: 50%;
+	background-color: #fff;
+	z-index: 10;
+	width: 265px;
+	height: 120px;
+	padding: 10px;
+	border-top: 5px solid;
+	border-bottom: 5px solid;
+}
+.blog-nav-post a {
+	display: block;
+	height: 100%;
+}
+.blog-nav-post.previous-post {
+	left: 0;
+	border-right: 5px solid;
+	padding-left: 50px;
+}
+.blog-nav-post.next-post {
+	right: 0;
+	border-left: 5px solid;
+	padding-right: 50px;
+	border-color: black;
+}
+.arrow-previous-post {
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -460px 0px;
+	height: 85px;
+	position: fixed;
+	width: 30px;
+	left: 5px;
+	top: 52%;
+	z-index: 111;
+}
+.arrow-next-post {
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -500px 0px;
+	height: 85px;
+	position: fixed;
+	width: 30px;
+	right: 5px;
+	top: 52%;
+	z-index: 111;
+}
+.blog-nav-post-content > p {
+	border-top:1px solid red;
+	padding-top: 5px;
+}
+
 
 /* AUTHOR COMPONENT */
 .about-author {
@@ -403,7 +539,7 @@ article a {
 	font-size: 13px;
 }
 .read-more-text {
-	height: 55px;
+	height: 80px;
 	padding-top: 3px;
 	font-weight: bold;
 	font-size: 12px;
