@@ -256,37 +256,26 @@ $(document).ready(function(){
 		price = $("#txtOptionsPrice").val();
 		manufacturerId = $("#manufacturerId").val();
 		versionId = $("versionId").val();
-		text = textTemp.split(";");
+		text = textTemp.split(",");
 		numCheck = $("#txtOptNumCheck").val();
 		// console.log("!",optId,"@",codOpt,"#" ,textTemp,"(",name ,"-",price,"+",manufacturerId,"=",text,"/",numCheck);
 		//add db
 		if (optId != "") {
-			// console.log('asdsda&field=name&text='+name);
-			// // $.getJSON('api/index.php?type=updateOption&idItem='+optId+'&value='+price, function(data) {
-			// // 	if (data[0].response == "true"){
-			// // 		console.log(data[0].reason);
-			// // 	} else {
-			// // 		console.log(data[0].reason);
-			// // 	}
-			// // });
 			if (numCheck != "") {
 				//find inputs
 				optItem = "#optItem"+numCheck;
-
 				$(optItem+" #optIdOpt").val(optId);
 				$(optItem+" #optPrice").val(price);
 				$(optItem+" #optCode").val(codOpt);
 				$(optItem+" #lblOptions").attr("title",textTemp);
 				$(optItem+" #lblOptions").text(name);
 				$(optItem).removeClass("hide");
-				// $(optItem+" #lblOptions").text(name);
-				// console.log($(optItem+" #optIdOpt"));
 			} else {
 				l = $("#resultOptions span").length;
 
 				$("#resultOptions").prepend('<span id="optItem'+l+'" title="'+textTemp+'" name="spanOptionsList">'+
 				'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')">'+
-					'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
+					'<input type="checkbox" class="hide" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
 					'<input type="hidden" id="txtOptIdFeature" value="" />'+
 					'<input type="hidden" id="optIdOpt" name="txtOpt'+l+'" value="'+optId+'" />'+
 					'<input type="hidden" id="optPrice" name="txtOptPrice'+l+'" value="'+price+'" />'+
@@ -296,9 +285,6 @@ $(document).ready(function(){
 				'</div>'+
 				'<label for="chOpt'+l+'" class="removeOpt" onclick="removeOpt(this,'+l+')">X</label>'+
 			'</span>');
-						// '<input type="checkbox" name="chOpt'+l+'" checked="true" value="s" />'+
-						// '<input type="hidden" name="txtOpt'+l+'" value="'+optId+'" />'+
-						// '<label title="'+textTemp+'">'+name+'</label>'+
 				// l++;
 				$("#lengthOptions").val(l+1);
 			}

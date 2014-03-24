@@ -800,7 +800,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 				<div class="dataOptions dataFields">
 					<label class="subTitle">OPCIONAIS</label>
 					<div id="optionsOptions" class="optionsOptions optionsFields">
-						<span class="spanOptions">Insira os itens separando cada linha com ponto e vírgula</span>
+						<span class="spanOptions">Insira os itens separando cada item/linha com vírgula</span>
 						<span class="inputOptions">
 							<input type="hidden" name="txtOptionsId" id="txtOptionsId" />
 							<input type="hidden" name="txtOptNumCheck" id="txtOptNumCheck" />
@@ -812,9 +812,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 								while ($resOptManuf = mysql_fetch_array($queryOptManuf)) {
 								?>
 								<option value="<?=$resOptManuf[id]?>" ><?=utf8_encode($resOptManuf[name])?></option>
-								<?
-								}
-								?>
+								<? } ?>
 							</select>
 							<input type="text" name="txtOptionsCode" id="txtOptionsCode" placeholder="Código" disabled="disabled"/>
 							<!--input type="text" name="txtOptionsName" id="txtOptionsName" placeholder="Nome" /-->
