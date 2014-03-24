@@ -105,7 +105,7 @@ if (file_exists("../carImages/".$res[picture])) {
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="estado"><span class="campoObrigatorioMegaOferta">*</span>Estado:</label></div>
-                        <select class="input_Select" name="propostaMegaOferta.unidadeFederativa.id" id="estado">
+                        <select class="input_Select" name="propostaMegaOferta.unidadeFederativa.id" id="estado" onchange="checkInputs()">
                             <option value="">Selecione:</option>                            
                                 <option value="AC">AC</option>                            
                                 <option value="AL">AL</option>                            
@@ -170,11 +170,13 @@ if (file_exists("../carImages/".$res[picture])) {
                         </select>
                     </div>
 
+                <div id="contentParaSp" class="hide">
                     <div class="megaOfertasCarsaleFormLineInputB financiaCheck">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.querFinanciar" id="querFinanciar"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.querFinanciar" id="querFinanciar" onchange="checkInputs()"></div>
                         <div class="megaOfertasCarsaleFormTxtCheck"><label class="labelCzFormMegaOferta" for="querFinanciar">Quero financiar</label></div>
                     </div>
+                <div id="contentFinanciamento" class="hide" >
                     <span class="sombraDivisoria"></span>
                     <div class="megaOfertasCarsaleFormLineInputB financia">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="querFinanciar">Entrada:</label></div>
@@ -188,11 +190,14 @@ if (file_exists("../carImages/".$res[picture])) {
                         </fieldset>
                     </div>
                     <span class="sombraDivisoria"></span>
+                </div>
                     <div class="megaOfertasCarsaleFormLineInput trocaCheck">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.temVeiculoTroca" id="checkboxTroca"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.temVeiculoTroca" id="checkboxTroca" onchange="checkInputs()"></div>
                         <div class="megaOfertasCarsaleFormTxtCheck"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Quero dar veículo na troca</label></div>
                     </div> 
+                </div>
+                <div id="contentQuerTrocar" class="hide">
                     <div class="megaOfertasCarsaleFormLineInputB troca">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Modelo:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
@@ -305,6 +310,7 @@ if (file_exists("../carImages/".$res[picture])) {
                         </div>
                     </div>                   
                 </div>
+                </div>
             </form>
         </div>
         </div>
@@ -318,7 +324,17 @@ $arrayModalYear[] = $res[yearModel];
 include ("../scripts/modalFeatureMakup.php");
 include ("../includes/footer.php");
 ?>
-
+<script>
+function checkInputs(){
+    if ($("#estado").val() == "SP") {
+        $("#contentParaSp").removeClass("hide");
+    } else {
+        $("#contentParaSp").addClass("hide");
+    }
+    if ($("#querFinanciar")) {}
+    if ($("#checkboxTroca")) {}
+}
+</script>
 
 <script type="text/javascript">
 var uolJsHost = (("https:" == document.location.protocol) ? "https://ssl.carsale.com.br/js/carsale.js" : "http://me.jsuol.com/omtr/carsale.js");
