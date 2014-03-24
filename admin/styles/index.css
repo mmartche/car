@@ -322,7 +322,7 @@ header .btnDelForm {
 	/*text-overflow: ellipsis;
 	white-space: nowrap;*/
 	overflow: hidden;
-	width: 150px;
+	width: 149px;
 	font-size: 17px;
 	text-align: center;
 	color: #000;

@@ -929,7 +929,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 								<div class="divColor">
 									<div style="background-color: #<?=$resColor[hexa]?>;"></div>
 								</div>
-								<span id="textColor"><?=utf8_encode($resColor[name])." - ".utf8_encode($resColor[type])."<br />".$resColor[code]." => R$ ".$resColor[price]?></span>
+								<span id="textColor"><?=utf8_encode($resColor[name])." - ".utf8_encode($resColor[type])."<br /> R$ ".$resColor[price]?></span>
 								<input type="hidden" id="colorInputId" name="colorInputId<?=$iColor?>" value="<?=$resColor[id]?>" />
 								<input type="hidden" id="colorInputName" name="colorInputName<?=$iColor?>" value="<?=utf8_encode($resColor[name])?>" />
 								<input type="hidden" id="colorInputColor" name="colorInputColor<?=$iColor?>" value="<?=$resColor[hexa]?>" />

@@ -277,7 +277,7 @@ transition: all .3s;
 .exploradorGridFiltrosChecks li {
 	float: left;
 	margin: 0;
-	width: 192px;
+	width: 185px;
 }
 .exploradorGridFiltrosInputTextLine {
 	overflow: hidden;

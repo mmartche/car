@@ -16,21 +16,21 @@ function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
 	&& in_array($extension, $allowedExts)) {
 	// && ($_FILES["file"]["size"] < 20000) ==> check the file size
 		if ($_FILES["file"]["error"] > 0) {
-			//echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 		} else {
 			$_FILES["file"]["name"] = $manufacturerName."-".$modelName."-".$versionName."-".$featureId.".".end($temp);
-			//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-			//echo "Type: " . $_FILES["file"]["type"] . "<br>";
-			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-			//echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-				//if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
-					//echo $_FILES["file"]["name"] . " already exists. ";
-				//} else {
+			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+			echo "Type: " . $_FILES["file"]["type"] . "<br>";
+			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+			echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+				if (file_exists("./carImages/" . $_FILES["file"]["name"])) {
+					echo $_FILES["file"]["name"] . " already exists. ";
+				} else {
 					move_uploaded_file($_FILES["file"]["tmp_name"],
-					"../../carImages/" . $_FILES["file"]["name"]);
-					//echo "Stored in: " . "../../carImages/" . $_FILES["file"]["name"];
+					"./carImages/" . $_FILES["file"]["name"]);
+					echo "Stored in: " . "./carImages/" . $_FILES["file"]["name"];
 					return $_FILES["file"]["name"];
-				//}
+				}
 		}
 	} else {
 		echo "Invalid file";
@@ -59,12 +59,12 @@ switch ($_POST[action]) {
 		break;
 		case 'version':
 			if ($_POST[versionId] == "") {
-				$sqlUpdate = "INSERT into `version` (`idManufacturer`, `idModel`, `name`) VALUES ('".$_POST[manufacturerId]."', '".$_POST[modelId]."', '".$_POST[modelName]."')";
+				$sqlUpdate = "INSERT into `version` (`idManufacturer`, `idModel`, `name`) VALUES ('".$_POST[manufacturerId]."', '".$_POST[modelId]."', '".$_POST[versionName]."')";
 			} else {
-				$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[modelName]."', `anoFabIni` = '".$_POST[anoFabIni]."', `anoFabFim` = '".$_POST[anoFabFim]."', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
+				$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[versionName]."', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
 			}
 			mysql_query("SET NAMES 'utf8'");
-			mysql_query($sqlUpdate) or die (" error #20");
+			mysql_query($sqlUpdate) or die (mysql_error()." error #20");
 			echo "<br />#60".$sqlUpdate;
 		break;
 		case 'feature':
