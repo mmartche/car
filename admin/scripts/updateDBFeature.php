@@ -58,7 +58,11 @@ switch ($_POST[action]) {
 			echo "<br />#55".$sqlUpdate;
 		break;
 		case 'version':
-			$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[modelName]."', `anoFabIni` = '".$_POST[anoFabIni]."', `anoFabFim` = '".$_POST[anoFabFim]."', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
+			if ($_POST[versionId] == "") {
+				$sqlUpdate = "INSERT into `version` (`idManufacturer`, `idModel`, `name`) VALUES ('".$_POST[manufacturerId]."', '".$_POST[modelId]."', '".$_POST[modelName]."')";
+			} else {
+				$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[modelName]."', `anoFabIni` = '".$_POST[anoFabIni]."', `anoFabFim` = '".$_POST[anoFabFim]."', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
+			}
 			mysql_query("SET NAMES 'utf8'");
 			mysql_query($sqlUpdate) or die (" error #20");
 			echo "<br />#60".$sqlUpdate;

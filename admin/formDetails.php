@@ -239,7 +239,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						</select>
 					</span><br />
 					<span><label>Modelo:</label>
-						<select  id="modelName">
+						<input type="text" name="modelName" value="<?=$res[modelName]?>" />
+						<!--select id="modelName" >
 							<? if ($res[modelName]) {
 								$sqlMod = "SELECT id, name from model where idManufacturer = '".$res[manufacturerId]."' order by name";
 							    $queryMod = mysql_query($sqlMod);
@@ -248,7 +249,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						    	<option value="<?=$resMod[id]?>" <? if ($resMod[name] == $res[modelName]) echo "selected=selected"; ?>><?=utf8_encode($resMod[name])?></option>
 								<? } 
 							} ?>
-						</select>
+						</select-->
 					</span><br />
 					<?
 					$flagSeg=0;
@@ -350,7 +351,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						</select>
 					</span><br />
 					<span><label>Versão:</label>
-						<select  id="versionName">
+						<input type="text" name="versionName" value="<?=$res[versionName]?>" />
+						<!--select  id="versionName">
 							<? if ($res[versionName]) { 
 								$sqlVer = "SELECT id, name from version where idModel = '".$res[modelId]."' order by name";
 							    $queryVer = mysql_query($sqlVer);
@@ -359,10 +361,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 									<option value="<?=$res[versionId]?>" <? if ($resVer[name] == $res[versionName]) echo "selected=selected"; ?> ><?=utf8_encode($res[versionName])?></option>
 								<? } 
 							} ?>
-						</select>
+						</select-->
 					</span><br />
-					<span><label>Ano Inicial:</label><input type="text" name="anoFabIni" value="<?=$resVer[anoFabIni]?>" /></span><br />
-					<span><label>Ano Final:</label><input type="text" class="anoFabFim" value="<?=$resVer[anoFabFim]?>" /></span><br />
 					<span><label>Descrição:</label><textarea name="description" id="txtDescription"><?=$res[description]?></textarea></span>
 					<?
 					break;

@@ -1,4 +1,4 @@
-body a {
+body a:hover, body a {
 	color:#000;
 }
 .imgHover {
@@ -163,6 +163,61 @@ margin-right: 15px;
 	max-height: 75px;
 	display: block;
 }
+.category-alta-rodagem.list-separator {
+	float: left;
+	width: 100%;
+}
+.index-high-header {
+	border-bottom: 0 !important;
+	border-top: 1px solid;
+}
+.index-high-header .list-title {
+	height: auto !important;
+	font-size: 28px;
+	margin-bottom: 10px;
+}
+.index-high-header .list-thumbPost img {
+	max-width: 670px;
+}
+.index-medium-header {
+	float: left;
+	width: 320px;
+	height: 320px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	border-bottom: 0 !important;
+	border-top: 1px solid;
+}
+.index-medium-header .list-title {
+	height: auto !important;
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+.index-medium-header .arrow-title-index {
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -400px -100px;
+	width: 20px;
+	height: 25px;
+	float: left;
+}
+.index-high-header .list-hour, .index-medium-header .list-hour, .index-low-header .list-hour {
+	color: darkred;
+	margin-bottom: 5px;
+}
+.index-medium-header .list-thumbPost img {
+	max-width: 310px;
+}
+.index-low-header {
+	float: left;
+	width: 100%;
+	border-top: 1px solid;
+	border-bottom: 0 !important;
+}
+.index-low-header .list-title {
+	height: auto !important;
+}
+.index-low-header .list-thumbPost img {
+	max-width: 170px;
+}
 .more-categories {
 	margin: 30px 3px 10px 1px;
 	border: 1px solid #d2d2d2;
@@ -203,6 +258,7 @@ margin-right: 15px;
 	overflow: hidden;
 	border-top: 3px solid #505b6b;
 	padding-top: 10px;
+	width: 100%;
 }
 .index-pagination .index-pagination-div {
 	width: 300px;
@@ -289,7 +345,28 @@ article a {
 	font-size: 40px;
 	text-transform: capitalize;
 }
-
+.author-box {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	padding: 5px;
+	display: none;
+}
+.author-box-picture {
+	height: 110px;
+	width: 110px;
+	text-align: center;
+	float: left;
+	margin-right: 10px;
+}
+.author-box-content > p {
+	height: 65px;
+	font-size: 12px;
+	color: #767273;
+}
+.author-box-content a, .author-box-content span {
+	font-size: 12px;
+	color: #1b1d20;
+}
 /*BLOG */
 .headerBlog {
 	background: url("http://noticias.carsale.uol.com.br/images/header-blog.png") 0 0 no-repeat transparent;

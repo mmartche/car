@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 <?php global $post; ?>
-
-
 <?php global $wpdb; ?>
 <?php if (have_posts()): while(have_posts()): the_post(); ?>
 <div class="content">
@@ -27,13 +25,34 @@
 			<div class="news-content">
 				<?php the_content(); ?>
 			</div>
+			<?php $authorBox = get_the_author(); ?>
+			<?php if($authorBox == 'Renato Bellote') { ?>
+				<div class="author-box">
+					<div class="author-box-picture"><img src="http://noticias.carsale.uol.com.br/images/author-Bellote.jpg" /></div>
+					<div class="author-box-content">
+						<p>Renato Bellote é jornalista automotivo em Sao Paulo, redator da Revista Driver e editor-chefe da Garagem do Bellote TV. Sua paixao por carros começou no dia em que saiu da maternidade a bordo de um Dodge Charger R/T. </p>
+						<span><a href="http://www.garagemdobellote.com.br">www.garagemdobellote.com.br</a></span>
+					</div>
+				</div>
+			<?php } ?>
+			<?php if($authorBox == 'Evaldo Costa') { ?>
+				<div class="author-box">
+					<div class="author-box-picture"><img src="http://noticias.carsale.uol.com.br/images/author-ECosta.jpg" /></div>
+					<div class="author-box-content">
+						<p>Evaldo Costa é escritor e conferencista<br />
+						Doutorando em Polí­tica de Desenvolvimento Sustentável</p>
+						<span>Siga no Twitter/LinkedIn/Facebook/Orkut: <a href="evaldocosta@icbr.com.br">evaldocosta@icbr.com.br</a><br />
+						Blog: <a href="verdesobrerodas.com.br">verdesobrerodas.com.br</a></span>
+					</div>
+				</div>
+			<?php } ?>
 		</article>
 	<?php $lastDate = get_the_date(); ?>
 <?php endwhile; endif; ?>
 
 		<?php $categories = get_the_category(); ?>
 		<?php foreach ($categories as $category) : ?>		
-		<?php if ($category->slug == "blog") { ?>
+		<?php if (($category->slug == "blog") || ($category->slug == "alta-rodagem")) { ?>
 		<?php
 		$next_post = get_next_post(true);
 		if (!empty( $next_post )): ?>
@@ -230,7 +249,7 @@
 					<?php endwhile; endif;  ?>
 					<?php wp_reset_query(); ?>
 				</ol>
-				<div class="read-more-link"><a href="http://noticias.carsale.uol.com.br/noticias" title="View all posts">+ Veja mais</a></div>
+				<div class="read-more-link"><a href="http://noticias.carsale.uol.com.br" title="View all posts">+ Veja mais</a></div>
 			</div>
 			<div class="tm-ads banner300" id="banner-300x600">
 				<script type="text/javascript">
@@ -273,7 +292,7 @@
 					<?php endwhile; endif;  ?>
 					<?php wp_reset_query(); ?>
 				</ol>
-				<div class="read-more-link"><a href="http://noticias.carsale.uol.com.br/noticias/categorias/testes/" title="View all posts">+ Veja mais</a></div>
+				<div class="read-more-link"><a href="http://noticias.carsale.uol.com.br/categorias/testes/" title="View all posts">+ Veja mais</a></div>
 			</div>
 			<div class="fbSocialLike">
 				<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;width=300&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;show_border=true&amp;appId=441715265891994" style="border:none; overflow:hidden; width:300px; height:258px;" ></iframe>

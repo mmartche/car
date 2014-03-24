@@ -17,6 +17,7 @@
 	<script type="text/javascript" src="scripts/jquery-ui.js"></script>
 	<script type="text/javascript" src="scripts/colorpicker.js"></script>
 	<script type="text/javascript" src="scripts/megaOferta.js"></script>
+	<script type="text/javascript" src="scripts/editNames.js"></script>	
 	
 	<link rel="stylesheet" href="styles//jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css" />
