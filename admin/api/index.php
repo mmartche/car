@@ -269,7 +269,7 @@ switch ($_GET[type]) {
 	case 'askModel':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and model.idManufacturer = '".$_GET[mainId]."' "; }
-		$sql_search = "SELECT model.id, model.name, model.idSegment1, model.idSegment2, model.idSegment3, model.active from model, version, feature where feature.idVersion = version.id and version.idModel = model.id and model.name like ('%".$_GET[term]."%') ".$mainId." GROUP BY model.id ORDER by model.name";
+		$sql_search = "SELECT model.id, model.name, model.idSegment1, model.idSegment2, model.idSegment3, model.active from model where model.name like ('%".$_GET[term]."%') ".$mainId." GROUP BY model.id ORDER by model.name";
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -371,6 +371,26 @@ switch ($_GET[type]) {
 		break;
 	case 'askOptionValue':
 		$sql = "SELECT id, name, options, price, code FROM optionsManufacturer WHERE id = '".$_GET[optId]."'";
+		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
+		$m=0; echo "[";
+		while ($resOpt = mysql_fetch_array($query)) {
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resOpt[id].'",
+					"label":"'.$resOpt[name].'",
+					"category": "Opcional",
+					"table":"optionsManufacturer",
+					"value":"'.$resOpt[name].'",
+					"optValue":"'.$resOpt[options].'",
+					"price":"'.$resOpt[price].'",
+					"code":"'.$resOpt[code].'"
+				}';
+			$m++;
+		}
+		echo "]";
+		break;
+	case 'askOptionEdit':
+		$sql = "SELECT id, name, options, price, code FROM optionsManufacturer WHERE idManufacturer = '".$_GET[optId]."'";
 		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'"}]');
 		$m=0; echo "[";
 		while ($resOpt = mysql_fetch_array($query)) {

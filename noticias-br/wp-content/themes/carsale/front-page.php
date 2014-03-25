@@ -26,7 +26,7 @@ global $wp_query;
 				<?php if ( has_post_thumbnail() ) { ?>
 				<div class="list-thumbPost imgHover"><a href="<?php the_permalink(); ?>">
 				<?php 
-					the_post_thumbnail();
+					the_post_thumbnail('thumbnail');
 				?>
 				</a></div>
 				<?php

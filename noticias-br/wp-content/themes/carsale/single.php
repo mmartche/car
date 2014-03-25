@@ -101,7 +101,7 @@
 					<a href="<?php the_permalink(); ?>">
 						<?php if ( has_post_thumbnail() ) { ?>
 						<div class="read-more-thumb imgHover">
-							<?php	the_post_thumbnail(); ?>
+							<?php	the_post_thumbnail(array(165,80)); ?>
 						</div>
 						<?php } ?>
 						<div class="read-more-label">
@@ -237,7 +237,7 @@
 						<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ) { ?>
 							<div class="read-more-thumb imgHover">
-								<?php the_post_thumbnail(); ?>
+								<?php the_post_thumbnail(array(160,75)); ?>
 							</div>
 							<?php } ?>
 							<div class="read-more-text">
@@ -280,7 +280,7 @@
 						<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ) { ?>
 							<div class="read-more-thumb imgHover">
-								<?php the_post_thumbnail(); ?>
+								<?php the_post_thumbnail(array(160,75)); ?>
 							</div>
 							<?php } ?>
 							<div class="read-more-text">

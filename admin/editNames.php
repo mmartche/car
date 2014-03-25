@@ -57,8 +57,8 @@ include ("./scripts/functions.php");
 		<input type="hidden" name="megaOfertaId" class="megaOfertaId" id="megaOfertaId" />
 		<div class="megaDiv">
 			<div class="MegaSelects">
-				<select name="manufacturer" id="manufacturerName">
-					<option>Escolha uma Marca</option>
+				<select name="manufacturer" onchange="loadInfo(this)">
+					<option>Escolha uma Montadora</option>
 					<?
 				    $sqlManuf = "SELECT manufacturer.id, manufacturer.name from manufacturer, model, version, feature where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id group by manufacturer.name order by name";
 				    $queryManuf = mysql_query($sqlManuf);
@@ -69,10 +69,6 @@ include ("./scripts/functions.php");
 				    }
 				    ?>
 				</select>
-				<select name="modelName" id="modelName"></select>
-				<select name="versionName" id="versionName"></select>
-				<select name="optionsName"></select>
-				<select name="colorName"></select>
 			</div>
 			<input type="hidden" name="manufacturerId" id="manufacturerId" />
 			<input type="hidden" name="modelId" id="modelId" />
@@ -93,4 +89,17 @@ include ("./scripts/functions.php");
 	</footer>
 </div>
 </body>
+<script>
+function loadInfo(obj){
+	manufacturerId = $(obj).val();
+	console.log('api/index.php?type=askOptionEdit&optId='+manufacturerId);
+	$.getJSON('api/index.php?type=askOptionEdit&optId='+manufacturerId, function(data) {
+		//console.log(data[0].response,data[0].insertId);
+		$.each(data, function(key, val) {
+			$('#formEditFeature').append('<span>'+val.value+'</span>');
+			
+		});
+	});
+}
+</script>
 </html>

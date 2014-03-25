@@ -63,9 +63,11 @@ if (file_exists("../carImages/".$res[picture])) {
             </div>
             <form action="send-mail.php" method="post" id="form_Enviarproposta" onsubmit="return checkValues();">
                 <input type="hidden" name="origem" value="explorador">
-                <input type="hidden" name="propostaMegaOferta.megaOferta.id" value="<?=$res[megaOfertaId]?>">
-                <input type="hidden" name="propostaMegaOferta.megaOferta.versao.id" value="<?=$res[versionId]?>">
-                <input type="hidden" name="propostaMegaOferta.megaOferta.preco" value="<?=$res[price]?>">
+                <input type="hidden" name="megaOfertaId" value="<?=$res[megaOfertaId]?>">
+                <input type="hidden" name="versionId" value="<?=$res[versionId]?>">
+                <input type="hidden" name="preco" value="<?=$res[price]?>">
+                <input type="hidden" name="modelName" value="<?=$res[modelName]?>">
+                <input type="hidden" name="versionName" value="<?=$res[versionName]?>">
                 <div class="megaOfertasCarsaleFormColunaInputb">
              
                     <span class="preenchimentoObrigatorioTxt">
@@ -75,22 +77,22 @@ if (file_exists("../carImages/".$res[picture])) {
                     <div class="megaOfertasCarsaleFormLineInputB">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="nome">Nome:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="txtInput input_frmMegaOferta" placeholder="Insira seu nome" name="propostaMegaOferta.nome" id="nome">
+                            <input type="text" class="txtInput input_frmMegaOferta" placeholder="Insira seu nome" name="nome" id="nome">
                         </fieldset>
                         <span class="campoObrigatorioMegaOferta">*</span>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="email">E-mail:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="txtInput input_frmMegaOferta" placeholder="Insira seu e-mail" name="propostaMegaOferta.email" id="email">
+                            <input type="text" class="txtInput input_frmMegaOferta" placeholder="Insira seu e-mail" name="email" id="email">
                         </fieldset>
                         <span class="campoObrigatorioMegaOferta">*</span>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="telefone">Telefone:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="txtInput inputForm_ddd" name="propostaMegaOferta.ddd" id="ddd">
-                            <input type="text" class="txtInput inputForm_tel" name="propostaMegaOferta.telefone" id="telefone">
+                            <input type="text" class="txtInput inputForm_ddd" name="telefoneddd" id="dddTelefone">
+                            <input type="text" class="txtInput inputForm_tel" name="telefone" id="telefone">
                         </fieldset>
                         <span class="campoObrigatorioMegaOferta">*</span>
                         <span class="exemploFormMegaOfertaTel">Ex.:(11) 9999-9999</span>
@@ -98,14 +100,14 @@ if (file_exists("../carImages/".$res[picture])) {
                     <div class="megaOfertasCarsaleFormLineInputB">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="telefone">Celular:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="txtInput inputForm_ddd" name="propostaMegaOferta.ddd" id="ddd">
-                            <input type="text" class="txtInput inputForm_tel" name="propostaMegaOferta.telefone" id="telefone">
+                            <input type="text" class="txtInput inputForm_ddd" name="celularddd" id="dddCelular">
+                            <input type="text" class="txtInput inputForm_tel" name="celular" id="celular">
                         </fieldset>
                         <span class="exemploFormMegaOfertaCel">Ex.:(11) 99999-9999</span>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="estado"><span class="campoObrigatorioMegaOferta">*</span>Estado:</label></div>
-                        <select class="input_Select" name="propostaMegaOferta.unidadeFederativa.id" id="estado" onchange="checkInputs()">
+                        <select class="input_Select" name="unidadeFederativa" id="estado" onchange="checkInputs()">
                             <option value="">Selecione:</option>                            
                                 <option value="AC">AC</option>                            
                                 <option value="AL">AL</option>                            
@@ -139,7 +141,7 @@ if (file_exists("../carImages/".$res[picture])) {
 
                         <div class="cidadeFrm"><label class="labelCzFormMegaOferta" for="cidade">Cidade:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="txtInput input_frmCidadeMegaOferta" placeholder="Insira sua cidade" name="propostaMegaOferta.cidade" id="cidade">
+                            <input type="text" class="txtInput input_frmCidadeMegaOferta" placeholder="Insira sua cidade" name="cidade" id="cidade">
                         </fieldset>
                         <span class="campoObrigatorioMegaOferta">*</span>
                     </div>
@@ -147,7 +149,7 @@ if (file_exists("../carImages/".$res[picture])) {
 
                     <div class="megaOfertasCarsaleFormLineInputB">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="cor1"><span class="campoObrigatorioMegaOferta">*</span>Cor:</label></div>
-                        <select class="input_SelectOpcaoCorAlt" name="propostaMegaOferta.cor.id">
+                        <select class="input_SelectOpcaoCorAlt" name="cor">
                             <option value="">Escolha uma cor</option>                            
                                 <option value="1">Branco</option>                            
                                 <option value="2">Preto</option>                            
@@ -158,7 +160,7 @@ if (file_exists("../carImages/".$res[picture])) {
                                 <option value="13">Prata Riviera</option>                            
                         </select>
                         <div class="telefoneAlternativoFrmB"><label class="labelCzFormMegaOferta" for="cor1">Cor Alternativa:</label></div>
-                        <select class="input_SelectOpcaoCorAlt" name="propostaMegaOferta.cor.id">
+                        <select class="input_SelectOpcaoCorAlt" name="corAlternativa">
                             <option value="">Escolha uma cor</option>                            
                                 <option value="1">Branco</option>                            
                                 <option value="2">Preto</option>                            
@@ -173,7 +175,7 @@ if (file_exists("../carImages/".$res[picture])) {
                 <div id="contentParaSp" class="hide">
                     <div class="megaOfertasCarsaleFormLineInputB financiaCheck">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.querFinanciar" id="querFinanciar" onchange="checkInputs()"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="querFinanciar" id="querFinanciar" onchange="checkInputs()"></div>
                         <div class="megaOfertasCarsaleFormTxtCheck"><label class="labelCzFormMegaOferta" for="querFinanciar">Quero financiar</label></div>
                     </div>
                 <div id="contentFinanciamento" class="hide" >
@@ -181,19 +183,19 @@ if (file_exists("../carImages/".$res[picture])) {
                     <div class="megaOfertasCarsaleFormLineInputB financia">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="querFinanciar">Entrada:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="hidden" name="propostaMegaOferta.valorEntradaFinanciamento" id="valorEntradaHidden">
+                            <input type="hidden" name="valorEntradaFinanciamento" id="valorEntradaHidden">
                             <input type="text" class="megaOfertasCarsaleFormTrocaInput numeric numericFormated" name="valorEntradaFinanciamento" id="valorEntrada" maxlength="10">
                         </fieldset>
                         <div class="megaOfertasCarsaleFormTxtLegendaC"><label  class="labelCzFormMegaOferta" for="parcelas">Quantas parcelas:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="megaOfertasCarsaleFormTrocaInputParcelas" name="propostaMegaOferta.quantidadeParcelasFinanciamento" id="parcelas" maxlength="2">
+                            <input type="text" class="megaOfertasCarsaleFormTrocaInputParcelas" name="quantidadeParcelasFinanciamento" id="parcelas" maxlength="2">
                         </fieldset>
                     </div>
                     <span class="sombraDivisoria"></span>
                 </div>
                     <div class="megaOfertasCarsaleFormLineInput trocaCheck">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.temVeiculoTroca" id="checkboxTroca" onchange="checkInputs()"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="temVeiculoTroca" id="checkboxTroca" onchange="checkInputs()"></div>
                         <div class="megaOfertasCarsaleFormTxtCheck"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Quero dar veículo na troca</label></div>
                     </div> 
                 </div>
@@ -201,30 +203,30 @@ if (file_exists("../carImages/".$res[picture])) {
                     <div class="megaOfertasCarsaleFormLineInputB troca">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Modelo:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="propostaMegaOferta.modeloVeiculoTroca">
+                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="modeloVeiculoTroca">
                         </fieldset>
                         <div class="megaOfertasCarsaleFormTxtLegendaSeg"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Versão:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="propostaMegaOferta.versaoVeiculoTroca">
+                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="versaoVeiculoTroca">
                         </fieldset>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB troca">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Motorização:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="propostaMegaOferta.motorVeiculoTroca" id="motor">
+                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="motorVeiculoTroca" id="motor">
                         </fieldset>
                         <div class="megaOfertasCarsaleFormTxtLegendaSeg"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Ano Modelo:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="propostaMegaOferta.anoVeiculoTroca" id="anoVeiculoTroca" maxlength="4">
+                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="anoVeiculoTroca" id="anoVeiculoTroca" maxlength="4">
                         </fieldset>
                     </div>                   
                     <div class="megaOfertasCarsaleFormLineInputB troca">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Quilometragem:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="propostaMegaOferta.kilometragemVeiculoTroca" id="kilometragemVeiculoTroca" maxlength="6">
+                            <input type="text" class="megaOfertasCarsaleFormTrocaInput" name="kilometragemVeiculoTroca" id="kilometragemVeiculoTroca" maxlength="6">
                         </fieldset>
                         <div class="megaOfertasCarsaleFormTxtLegendaSeg"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Cor:</label></div>
-                        <select class="input_SelectWidht120" name="propostaMegaOferta.corVeiculoTroca">
+                        <select class="input_SelectWidht120" name="corVeiculoTroca">
                             <option value="">Selecione:</option>                            
                                 <option value="Branco">Branco</option>                            
                                 <option value="Preto">Preto</option>                            
@@ -245,14 +247,14 @@ if (file_exists("../carImages/".$res[picture])) {
                     <div class="megaOfertasCarsaleFormLineInputB troca">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Câmbio:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <select class="input_SelectWidht120" name="propostaMegaOferta.cambioVeiculoTroca.id" id="cambioVeiculoTroca" style="width: 120px;">
+                            <select class="input_SelectWidht120" name="cambioVeiculoTroca" id="cambioVeiculoTroca" style="width: 120px;">
                                 <option value="">Selecione</option>
                                 <option value="1">Automático</option>
                                 <option value="2">Manual</option>
                             </select>
                         </fieldset>
                         <div class="megaOfertasCarsaleFormTxtLegendaPortas"><label  class="labelCzFormMegaOferta" for="checkboxTroca">Portas:</label></div>
-                        <select class="input_SelectWidht120" name="propostaMegaOferta.quantidadePortasVeiculoTroca">
+                        <select class="input_SelectWidht120" name="quantidadePortasVeiculoTroca">
                             <option value="">Selecione:</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -263,53 +265,53 @@ if (file_exists("../carImages/".$res[picture])) {
 
                     <div class="megaOfertasCarsaleFormLineInputB troca">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.arCondicionado" id="arCondicionado"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="arCondicionado" id="arCondicionado"></div>
                         <div class="megaOfertasCarsaleFormTxtCheckPrincipais"><label class="labelCzFormMegaOferta" for="arCondicionado">Ar Condicionado</label></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.direcaoHidraulica" id="direcaoHidraulica"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="direcaoHidraulica" id="direcaoHidraulica"></div>
                         <div class="megaOfertasCarsaleFormTxtCheckPrincipais"><label class="labelCzFormMegaOferta" for="direcaoHidraulica">Direção Hidraulica</label></div>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB troca noTopPadding">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.vidroEletrico" id="vidroEletrico"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="vidroEletrico" id="vidroEletrico"></div>
                         <div class="megaOfertasCarsaleFormTxtCheckPrincipais"><label class="labelCzFormMegaOferta" for="vidroEletrico">Vidro Elétrico</label></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.travaEletrica" id="travaEletrica"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="travaEletrica" id="travaEletrica"></div>
                         <div class="megaOfertasCarsaleFormTxtCheckPrincipais"><label class="labelCzFormMegaOferta" for="travaEletrica">Trava Elétrica</label></div>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB troca noTopPadding">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.kitVisibilidade" id="kitVisibilidade"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="kitVisibilidade" id="kitVisibilidade"></div>
                         <div class="megaOfertasCarsaleFormTxtCheckPrincipais"><label class="labelCzFormMegaOferta" for="kitVisibilidade">Kit Visibilidade</label></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.rodaLigaLeve" id="rodaLigaLeve"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="rodaLigaLeve" id="rodaLigaLeve"></div>
                         <div class="megaOfertasCarsaleFormTxtCheckPrincipais"><label class="labelCzFormMegaOferta" for="rodaLigaLeve">Roda de liga leve</label></div>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB troca noTopPadding">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.airBag" id="airbag"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="airBag" id="airbag"></div>
                         <div class="megaOfertasCarsaleFormTxtCheckPrincipais"><label class="labelCzFormMegaOferta" for="airbag">Airbag</label></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.freioAbs" id="freioAbs"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="freioAbs" id="freioAbs"></div>
                         <div class="megaOfertasCarsaleFormTxtCheckPrincipais"><label class="labelCzFormMegaOferta" for="freioAbs">Freio ABS</label></div>
                     </div>
+                </div>
                     <span class="sombraDivisoria"></span>
                     <div class="megaOfertasCarsaleFormLineMsgInput">
                         <div class="megaOfertasCarsaleFormTxtLegenda"><label  class="labelCzFormMegaOferta" for="observacao">Observações:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
-                            <textarea title="" placeholder="Insira suas dúvidas" cols="62" rows="5" class="textArea_SelectWidhtObservacao" name="propostaMegaOferta.observacoes"></textarea>
+                            <textarea title="" placeholder="Insira suas dúvidas" cols="62" rows="5" class="textArea_SelectWidhtObservacao" name="observacoes"></textarea>
                         </fieldset>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInput">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
-                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="propostaMegaOferta.queroReceberOfertas" id="newsletter"></div>
+                        <div class="megaOfertasCarsaleFormCheckBox"><input type="checkbox" name="queroReceberOfertas" id="newsletter"></div>
                         <div class="megaOfertasCarsaleFormTxtCheck"><label class="labelCzFormMegaOferta" for="newsletter">Quero receber ofertas e promoções do Carsale</label></div>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputBottom">
                         <div class="megaOfertasCarsaleFormTxtLegenda"></div>
                         <div class="megaOfertasCarsaleFormBtn">
                         <!--    <input type="submit" value="Enviar" />-->   
-                        <input class="buttonFrmVm" type="submit" value="Enviar">
+                        <input class="buttonFrmVm" name="enviar" type="submit" value="Enviar">
                             
                         </div>
                     </div>                   
-                </div>
                 </div>
             </form>
         </div>

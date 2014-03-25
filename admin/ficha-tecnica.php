@@ -33,12 +33,14 @@ include ("./scripts/functions.php");
 		<h1 class="logo"><span class="logoText logoRed">Car</span><span class="logoText logoBlack">sale</span></h1>
 		<h2>
 			<span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='formDetails.php?action=new&category=feature' class='btnButton btnNewForm'>Novo Cadastro</a>
-			<!--div class="newChoice">
-				<a href="formDetails.php?action=new&category=manufacturer" class="btnButton">Montadora</a>
-				<a href="formDetails.php?action=new&category=model" class="btnButton">Modelo</a>
-				<a href="formDetails.php?action=new&category=version" class="btnButton">Versão</a>
-				<a href="formDetails.php?action=new&category=feature" class="btnButton">Ficha Técnica</a>
-			</div-->
+			<div class="newChoice">
+				<a href="formDetails.php?action=new&category=manufacturer" class="btnButton">Nova Montadora</a>
+				<a href="formDetails.php?action=new&category=model" class="btnButton">Novo Modelo</a>
+				<a href="formDetails.php?action=new&category=version" class="btnButton">Nova Versão</a>
+				<a href="formDetails.php?action=new&category=feature" class="btnButton">Nova Ficha Técnica</a>
+				<a href="editNames.php?action=update&category=color" class="btnButton">Editar Cores (inativo)</a>
+				<a href="editNames.php?action=update&category=options" class="btnButton">Editar Opcionais (inativo)</a>
+			</div>
 		</h2>
 	</header>
 	<ol class="breadcrumb">

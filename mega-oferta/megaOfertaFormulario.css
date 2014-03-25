@@ -214,15 +214,16 @@ overflow: hidden;
 
 .inputForm_ddd {
 font-size: 12px;
-width: 18px;
+width: 23px;
 float: left;
 }
 
 .inputForm_tel {
 width: 80px;
+font-size: 12px;
 border-radius: 4px;
 height: 18px;
-padding-top: 2px;
+padding-top: 7px !important;
 padding-bottom: 2px;
 padding-right: 2px;
 padding-left: 2px;

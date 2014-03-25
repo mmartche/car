@@ -209,6 +209,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					?>
 					<span><label>Montadora:</label>
 						<select  id="manufacturerName">
+							<option>Escolha um Fabricante</option>
 						    <?
 						    $sqlManuf = "SELECT id, name from manufacturer order by name";
 						    $queryManuf = mysql_query($sqlManuf);
@@ -227,6 +228,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					?>
 					<span><label>Montadora:</label>
 						<select  id="manufacturerName">
+							<option>Escolha um Fabricante</option>
 						    <?
 						    $sqlManuf = "SELECT id, name from manufacturer order by name";
 						    $queryManuf = mysql_query($sqlManuf);
@@ -327,6 +329,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					?>
 					<span><label>Montadora:</label>
 						<select  id="manufacturerName">
+							<option>Escolha uma Montadora</option>
 						    <?
 						    $sqlManuf = "SELECT id, name from manufacturer order by name";
 						    $queryManuf = mysql_query($sqlManuf);
@@ -371,6 +374,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					<span id="spanManufacturerName">
 						<label>Montadora</label>
 						<select  id="manufacturerName">
+							<option>Escolha uma Montadora</option>
 						    <?
 						    $sqlManuf = "SELECT id, name from manufacturer order by name";
 						    $queryManuf = mysql_query($sqlManuf);
@@ -524,7 +528,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					<span><label>Garantia:</label><input type="text" name="warranty" id="txtWarranty" value="<?=$res[warranty]?>" /></span><br />
 					<span><label>País de orígem:</label>
 						<select  name="countryOrigin" id="countryOrigin">
-							<option value="<?=$res[countryOrigin]?>"><?=$res[countryOrigin]?></option>
+							<option value="<?=utf8_encode($res[countryOrigin])?>"><?=utf8_encode($res[countryOrigin])?></option>
 							<option value="Alemanha">Alemanha</option>
 							<option value="Argentina">Argentina</option>
 							<option value="Austrália">Austrália</option>
@@ -550,50 +554,9 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						</select>
 					</span><br />
 					<span><label>Preço:</label><input type="text" name="price" id="txtPrice" value="<?=$res[price]?>" onKeyPress="return(format_price(this,'.','',8,0,event))" /></span><br />
-					<span><label>Descrição:</label><textarea name="description" id="txtDescription"><?=$res[description]?></textarea></span>
+					<span><label>Descrição:</label><textarea name="description" id="txtDescription"><?=utf8_encode($res[description])?></textarea></span>
 					<?	
 					break;
-					/*
-				default:
-					?>
-					<span><label>Montadora:</label><input type="text"  id="manufacturerName" value="<?=$res[manufacturerName]?>" placeholder="Informe a Montadora" /></span><br />
-					<span><label>Modelo:</label><input type="text" id="modelName" value="<?=$res[modelName]?>" placeholder="Informe o Modelo" /></span><br />
-					<span><label>Versão:</label><input type="text" id="versionName" value="<?=$res[versionName]?>" placeholder="Informe a Versão" /></span><br />
-					<span><label>Segmento:</label><input type="text" name="segmentName" id="txtSegmentName" value="<?=$res[segmentName]?>" placeholder="Segmento" /></span><br />
-					<span><label>Ano de Produção:</label><input type="text" name="yearModel" id="txtYearModel" value="<?=$res[yearModel]?>" placeholder="Ano do Modelo" /></span><br />
-					<span><label>Ano do Modelo:</label><input type="text" name="yearProduced" id="txtYearProduced" value="<?=$res[yearProduced]?>" placeholder="Ano de Produção" /></span><br />
-					<span class="hide"><label>Quantidade de portas:</label><input type="text" name="doors" id="txtDoors" value="<?=$res[doors]?>" /></span><br />
-					<span class="hide"><label>Quantidade de ocupantes:</label><input type="text" name="passagers" id="txtPassagers" value="<?=$res[passagers]?>" /></span><br />
-					<span class="hide"><label>Motor:</label><input type="text" name="engine" id="txtEngine" value="<?=$res[engine]?>" /></span><br />
-					<span class="hide"><label>Alimentação:</label><input type="text" name="feeding" id="txtFeeding"  value="<?=$res[feeding]?>" /></span><br />
-					<span class="hide"><label>Combustível:</label><input type="text" name="fuel" id="txtFuel" value="<?=$res[fuel]?>" /></span><br />
-					<span class="hide"><label>Potência máxima:</label><input type="text" name="powerMax" id="txtPowerMax" value="<?=$res[powerMax]?>" /></span><br />
-					<span class="hide"><label>Torque:</label><input type="text" name="torque" id="txtTorque" value="<?=$res[torque]?>" /></span><br />
-					<span class="hide"><label>Aceleração:</label><input type="text" name="acceleration" id="txtAcceleration" value="<?=$res[acceleration]?>" /></span><br />
-					<span class="hide"><label>Velocidade máxima (km/h):</label><input type="text" name="speedMax" id="txtSpeedMax" value="<?=$res[speedMax]?>" /></span><br />
-					<span class="hide"><label>Consumo (km/l) na cidade:</label><input type="text" name="consumptionCity" id="txtConsumptionCity" value="<?=$res[consumptionCity]?>" /></span><br />
-					<span class="hide"><label>Consumo (km/l) na estrada:</label><input type="text" name="consumptionRoad" id="txtConsumptionRoad" value="<?=$res[consumptionRoad]?>" /></span><br />
-					<span class="hide"><label>Câmbio:</label><input type="text" name="gear" id="txtGear" value="<?=$res[gear]?>" /></span><br />
-					<span class="hide"><label>Tração:</label><input type="text" name="traction" id="txtTraction" value="<?=$res[traction]?>" /></span><br />
-					<span class="hide"><label>Rodas:</label><input type="text" name="wheels" id="txtWheels" value="<?=$res[wheels]?>" /></span><br />
-					<span class="hide"><label>Suspensão dianteira:</label><input type="text" name="frontSuspension" id="txtFrontSuspension" value="<?=$res[frontSuspension]?>" /></span><br />
-					<span class="hide"><label>Suspensão traseira:</label><input type="text" name="rearSuspension" id="txtRearSuspension" value="<?=$res[rearSuspension]?>" /></span><br />
-					<span class="hide"><label>Freio dianteiro:</label><input type="text" name="frontBrake" id="txtFrontBrake" value="<?=$res[frontBrake]?>" /></span><br />
-					<span class="hide"><label>Freio traseiro:</label><input type="text" name="rearBrake" id="txtRearBrake" value="<?=$res[rearBrake]?>" /></span><br />
-					<span class="hide"><label>Dimensão (mm):</label></span><br />
-					<span class="hide"><label>-Comprimento:</label><input type="text" name="dimensionLength" id="txtDimensionLength" value="<?=$res[dimensionLength]?>" /></span><br />
-					<span class="hide"><label>-Largura:</label><input type="text" name="dimensionWidth" id="txtDimensionWidth" value="<?=$res[dimensionWidth]?>" /></span><br />
-					<span class="hide"><label>-Altura:</label><input type="text" name="dimensionHeight" id="txtDimensionHeight" value="<?=$res[dimensionHeight]?>" /></span><br />
-					<span class="hide"><label>-Entre eixos:</label><input type="text" name="dimensionSignAxes" id="txtDimensionSignAxes" value="<?=$res[dimensionSignAxes]?>" /></span><br />
-					<span class="hide"><label>Peso (kg):</label><input type="text" name="weight" id="txtHeight" value="<?=$res[weight]?>" /></span><br />
-					<span class="hide"><label>Porta malas (litros):</label><input type="text" name="trunk" id="txtTrunk" value="<?=$res[trunk]?>" /></span><br />
-					<span class="hide"><label>Tanque (litros):</label><input type="text" name="tank" id="txtTank" value="<?=$res[tank]?>" /></span><br />
-					<span class="hide"><label>Garantia:</label><input type="text" name="warranty" id="txtWarranty" value="<?=$res[warranty]?>" /></span><br />
-					<span class="hide"><label>País de orígem:</label><input type="text" name="countryOrigin" id="txtCountryOrigin" value="<?=$res[countryOrigin]?>" /></span><br />
-					<span class="hide"><label>Descrição:</label><textarea name="description" id="txtDescription"><?=$res[description]?></textarea></span>
-					<?
-				break;
-				*/
 			}
 			?>
 			</div>

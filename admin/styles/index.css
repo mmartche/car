@@ -95,7 +95,8 @@ header .btnSave {
 	float: right;
 	border-radius: 5px;
 	color: #2e3b4f;
-
+	width: 210px;
+	text-align: center;
 }
 .newChoice {
 	position: absolute;
@@ -106,6 +107,7 @@ header .btnSave {
 	padding: 5px;
 	width: 140px;
 	display: none;
+	width: 210px;
 }
 .newChoice a {
 	float: left;
@@ -192,6 +194,7 @@ footer {
 	color: #4f4f4f;
 	border-radius: 5px;
 	text-shadow: 0px 1px 0px rgba(255,255,255,0.7);
+	padding: 5px;
 }
 .btnButton:hover {
 	border: 1px solid #7096ab;

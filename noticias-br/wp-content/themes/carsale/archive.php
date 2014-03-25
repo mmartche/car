@@ -17,11 +17,11 @@ global $wp_query;
 			<?php
 			$loopNumber=0;
 			if (have_posts()): while(have_posts()): the_post(); ?>
-			<?php if (is_category('alta-rodagem')) { 
+			<?php if ((is_category('alta-rodagem')) || (is_category('videos')) || (is_category('classicos'))) { 
 				if ($loopNumber == 0) { ?>
 					<li <?php post_class("index-high-header"); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>
 						<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-						<span class="list-hour"><?php the_date(); ?></span>
+						<span class="list-hour"><?php the_date('d/m/Y'); ?></span>
 						<?php if ( has_post_thumbnail() ) { ?>
 							<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
 							<?php 
@@ -34,11 +34,11 @@ global $wp_query;
 					<li <?php post_class("index-medium-header"); if (has_post_thumbnail()) { echo ' id="thumbPost" ';} ?>>
 						<div class="arrow-title-index"></div>
 						<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-						<span class="list-hour"><?php the_date(); ?></span>
+						<span class="list-hour"><?php the_date('d/m/Y'); ?></span>
 						<?php if ( has_post_thumbnail() ) { ?>
 							<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
 							<?php 
-								the_post_thumbnail();
+								the_post_thumbnail(array(320,250));
 							?>
 							</a></div>
 						<?php } ?>
@@ -48,12 +48,12 @@ global $wp_query;
 						<?php if ( has_post_thumbnail() ) { ?>
 							<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
 							<?php 
-								the_post_thumbnail();
+								the_post_thumbnail('thumbnail');
 							?>
 							</a></div>
 						<?php } ?>
 						<h3 class="list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-						<span class="list-hour"><?php the_date(); ?></span>
+						<span class="list-hour"><?php the_date('d/m/Y'); ?></span>
 					</li>
 				<?php } ?>
 				
@@ -72,7 +72,7 @@ global $wp_query;
 					<?php if ( has_post_thumbnail() ) { ?>
 					<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
 					<?php 
-						the_post_thumbnail();
+						the_post_thumbnail('thumbnail');
 					?>
 					</a></div>
 					<?php

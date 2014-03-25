@@ -53,7 +53,7 @@ margin-right: 15px;
 	background-color: #fff;
 }
 .arrow-comunicar-erro {
-	background: url("/images/sprite.png") no-repeat transparent -170px -56px;
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -170px -56px;
 	width: 30px;
 	height: 24px;
 	float: left;
@@ -128,7 +128,7 @@ margin-right: 15px;
 	font-weight: bold;
 }
 .arrow-list-separator {
-	background: url("/images/sprite.png") no-repeat transparent -370px -127px;
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -370px -127px;
 	width: 20px;
 	height: 20px;
 	float: left;
@@ -150,7 +150,7 @@ margin-right: 15px;
 }
 .list-title a{
 	color: #000;
-	font-weight: normal;
+	font-weight: bold;
 }
 .list-hour {
 	color: #656565;
@@ -182,7 +182,7 @@ margin-right: 15px;
 .index-medium-header {
 	float: left;
 	width: 320px;
-	height: 320px;
+	height: 250px;
 	margin-right: 20px;
 	margin-bottom: 10px;
 	border-bottom: 0 !important;
@@ -204,7 +204,7 @@ margin-right: 15px;
 	margin-bottom: 5px;
 }
 .index-medium-header .list-thumbPost img {
-	max-width: 310px;
+	max-width: 320px;
 }
 .index-low-header {
 	float: left;
@@ -249,7 +249,7 @@ margin-right: 15px;
 .ul-more-categories li:before {
 	content: ". ";
 	color: #f55454;
-	background: url("/images/sprite.png") no-repeat transparent -333px -128px;
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -333px -128px;
 }
 .ul-more-categories a {
 	color:#646464;
@@ -270,7 +270,7 @@ margin-right: 15px;
 	height: 25px;
 }
 .index-pagination .nav-previous a {
-	background: url("/images/sprite.png") no-repeat transparent -322px -46px;
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -322px -46px;
 	display: block;
 	height: 23px;
 }
@@ -280,7 +280,7 @@ margin-right: 15px;
 	height: 25px;
 }
 .index-pagination .nav-next a {
-	background: url("/images/sprite.png") no-repeat transparent -316px -66px;
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -316px -66px;
 	display: block;
 	height: 25px;
 }
@@ -308,6 +308,10 @@ article li, article ul {
 list-style: initial;
 padding: 0 20px 10px;
 }
+.post-meta, .post-meta li {
+	list-style: none;
+	padding: 0;
+}
 .post-title {
 	/* font-family: verdana; */
 	font-size: 32px;
@@ -334,8 +338,9 @@ padding: 0 20px 10px;
 	margin-bottom: 20px;
 }
 .news-content {
-	font-size: 13px;
+	font-size: 15px;
 	color: #525252;
+	text-align: justify;
 }
 .news-content p {
 	margin-bottom: 15px;
@@ -467,16 +472,17 @@ padding: 0 20px 10px;
 .blog-nav-post a {
 	display: block;
 	height: 100%;
+	margin-right: 25px;
 }
 .blog-nav-post.previous-post {
 	left: 0;
 	border-right: 5px solid;
-	padding-left: 50px;
+	padding-left: 35px;
 }
 .blog-nav-post.next-post {
 	right: 0;
 	border-left: 5px solid;
-	padding-right: 50px;
+	padding-right: 35px;
 	border-color: black;
 }
 .arrow-previous-post {
@@ -500,6 +506,7 @@ padding: 0 20px 10px;
 .blog-nav-post-content > p {
 	border-top:1px solid red;
 	padding-top: 5px;
+	font-weight: bold;
 }
 
 
@@ -537,7 +544,7 @@ padding: 0 20px 10px;
 	margin-bottom: 25px;
 }
 .arrow-read-more {
-	background: url("/images/sprite.png") no-repeat transparent -370px -124px;
+	background: url("http://noticias.carsale.uol.com.br/images/sprite.png") no-repeat transparent -370px -124px;
 	width: 15px;
 	height: 24px;
 	float: left;
@@ -685,17 +692,17 @@ padding: 0 20px 10px;
 	width: 20px !important;
 }
 #prev-film-arrow-1-1{
-	background: url('../images/sprite.png') -120px -90px transparent no-repeat;
+	background: url('http://noticias.carsale.uol.com.br/images/sprite.png') -120px -90px transparent no-repeat;
 	width: 20px !important;
 }
 #next-film-arrow-1-1 {
-	background: url('../images/sprite.png') -148px -90px transparent no-repeat;
+	background: url('http://noticias.carsale.uol.com.br/images/sprite.png') -148px -90px transparent no-repeat;
 }
 #bbb-1-l:hover {
-	background: url('../images/arrow-normal-left.png') left center transparent no-repeat;
+	background: url('http://noticias.carsale.uol.com.br/images/arrow-normal-left.png') left center transparent no-repeat;
 }
 #bbb-1-r:hover {
-	background: url('../images/arrow-normal-right.png') right center transparent no-repeat;
+	background: url('http://noticias.carsale.uol.com.br/images/arrow-normal-right.png') right center transparent no-repeat;
 }
 .wppa-fulltitle {
 	font-size: 16px;

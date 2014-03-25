@@ -92,7 +92,7 @@ update `model` set `idSegment1` = '7', `idSegment2` = '6' where id = '900';
 update `model` set `idSegment1` = '2' where id = '899';
 update `model` set `idSegment1` = '2' where id = '898';
 update `model` set `idSegment1` = '1' where id = '897';
-update `model` set `idSegment1` = '5', `idSegment2` = '2' where id = '895';';
+update `model` set `idSegment1` = '5', `idSegment2` = '2' where id = '895';
 update `model` set `idSegment1` = '1' where id = '894';
 update `model` set `idSegment1` = '7', `idSegment2` = '6' where id = '893';
 update `model` set `idSegment1` = '10' where id = '892';

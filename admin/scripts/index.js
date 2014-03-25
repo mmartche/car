@@ -36,7 +36,7 @@ $(document).ready(function(){
         }
 	});
 	manufacturerIdGlobal = $("#manufacturerId").val();
-	$(".btnNewForm").click(
+	$(".btnNewForm").mouseover(
 	function() {
 		$(".newChoice").show();
 	});
@@ -632,6 +632,7 @@ $.widget( "custom.combobox", {
         switch ($(ui.item.option.parentElement).attr("id")) {
       		case "manufacturerName":
 	      		var optTemp, optOptMan, optManufacturerName, optColorMan;
+	      		console.log('api/index.php?type=askModel&mainId='+ui.item.option.value);
 	  			$.getJSON('api/index.php?type=askModel&mainId='+ui.item.option.value, function(data) {
 					$.each(data, function(key, val) {
 						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
@@ -822,16 +823,16 @@ $.widget( "custom.combobox", {
 
 	switch (this.input[0].name) {
     	case "manufacturerName":
-    		$("#manufacturerId").val("");
+    		//$("#manufacturerId").val("");
     		//$("#modelId").val("");
     		//$("#versionId").val("");
 	    	break;
     	case "modelName":
-    		$("#modelId").val("");
+    		//$("#modelId").val("");
     		//$("#versionId").val("");
     		break;
 		case "versionName":
-			$("#versionId").val("");
+			//$("#versionId").val("");
 			break;
 		case "txtOptionsName":
 			$("#txtOptionsId").val("");

@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+	<div id="primary" class="content-area content">
+		<div id="content" class="site-content columnMiddle" role="main">
 			<div class="page-content">
 				<div class="alertError">
 					<h1 class="page-title"><b>Ops!</b> Página não encontrada</h1>
@@ -10,7 +10,8 @@
 					<?php get_search_form(); ?>
 				</div>
 			</div><!-- .page-content -->
-			<div class="contentRight">
+		</div><!-- #content -->
+		<div class="contentRight">
 			<div class="tm-ads banner300" id="banner-300x250">
 				<script type="text/javascript">
 					TM.display();
@@ -45,7 +46,6 @@
 				<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fcarsale.brasil&amp;width=300&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;show_border=true&amp;appId=441715265891994" style="border:none; overflow:hidden; width:300px; height:258px;" ></iframe>
 			</div>
 		</div>
-		</div><!-- #content -->
 	</div><!-- #primary -->
 <style type="text/css">
 	.alertError {
