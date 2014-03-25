@@ -802,8 +802,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					<div id="optionsOptions" class="optionsOptions optionsFields">
 						<span class="spanOptions">Insira os itens separando cada item/linha com vírgula</span>
 						<span class="inputOptions">
-							<input type="hidden" name="txtOptionsId" id="txtOptionsId" />
-							<input type="hidden" name="txtOptNumCheck" id="txtOptNumCheck" />
+							<input type="hidden" name="txtOptionsId" id="txtOptionsId" placeholder="txtOptionsId"/>
+							<input type="hidden" name="txtOptNumCheck" id="txtOptNumCheck" placeholder="txtOptNumCheck"/>
 							<select  name="txtOptionsName" id="txtOptionsName" placeholder="Nome">
 								<option>Opcionais</option>
 								<?

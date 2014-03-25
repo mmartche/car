@@ -215,13 +215,13 @@ switch ($_POST[action]) {
 				$colorApp = $_POST["colorInputApp".$i];
 				$colorHex = $_POST["colorInputColor".$i];
 			 	$colorType = $_POST["colorInputType".$i];
-			 	$colorCode = $_POST["colorInputCode".$i];
+			 	// $colorCode = $_POST["colorInputCode".$i];
 			 	$colorPrice = $_POST["colorInputPrice".$i];
 			 	if ($i > 0) { $valuesColorInput .= ","; }
-			 	$valuesColorInput .= "('".$_POST[versionId]."', '".$_POST[manufacturerId]."', '".$colorName."', '".$colorHex."','".$colorCode."', '".$colorApp."', '".$colorType."', '".$_POST[yearModel]."', '".$colorPrice."' ,now(), now(), NULL)";
+			 	$valuesColorInput .= "('".$_POST[versionId]."', '".$_POST[manufacturerId]."', '".$colorName."', '".$colorHex."', '".$colorApp."', '".$colorType."', '".$_POST[yearModel]."', '".$colorPrice."' ,now(), now(), NULL)";
 			}
 			if ($valuesColorInput != ""){
-			 	$sqlAddColor = "insert into `colorVersion` (`idVersion`, `idManufacturer`, `name`, `hexa`, `code`, `application`, `type`, `yearModel`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
+			 	$sqlAddColor = "insert into `colorVersion` (`idVersion`, `idManufacturer`, `name`, `hexa`, `application`, `type`, `yearModel`, `price`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;
 			 	mysql_query("SET NAMES 'utf8'");
 			 	mysql_query($sqlAddColor) or die (mysql_error()." error #126");
 				echo "<br />#211".$sqlAddColor;
