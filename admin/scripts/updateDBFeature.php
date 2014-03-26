@@ -374,6 +374,32 @@ if ($_GET[debug] == "true"){ ?>
 	alert("Atualizado");
 	</script>
 	<a href="../index.php">Voltar a Home</a>
+<? } elseif ($_POST[action] == "new") {
+	if ($_POST[category] == "manufacturer") { ?>
+		<script> 
+		alert("Direcionando para o cadastro do Modelo");
+		window.location="../formDetails.php?vehicle=<?=$manufacturerId?>&action=new&category=model";
+		</script>
+		<a href="../index.php">Voltar a Home</a>	
+	<? } elseif ($_POST[category] == "model") { ?>
+		<script> 
+		alert("Direcionando para o cadastro da Versão");
+		window.location="../formDetails.php?vehicle=<?=$modelId?>&action=new&category=version";
+		</script>
+		<a href="../index.php">Voltar a Home</a>
+	<? } elseif ($_POST[category] == "version") { ?>
+		<script> 
+		alert("Direcionando para o cadastro da Ficha Técnica");
+		window.location="../formDetails.php?vehicle=<?=$versionId?>&action=new&category=feature";
+		</script>
+		<a href="../index.php">Voltar a Home</a>
+	<? } else { ?>
+		<script> 
+		alert("Atualizado");
+		window.location="../ficha-tecnica.php";
+		</script>
+		<a href="../index.php">Voltar a Home</a>
+	<? } ?>
 <? } else { ?>
 	<script> 
 	alert("Atualizado");

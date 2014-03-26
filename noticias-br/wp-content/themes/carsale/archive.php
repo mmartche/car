@@ -48,7 +48,7 @@ global $wp_query;
 						<?php if ( has_post_thumbnail() ) { ?>
 							<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
 							<?php 
-								the_post_thumbnail('thumbnail');
+								the_post_thumbnail(array(170,100));
 							?>
 							</a></div>
 						<?php } ?>
@@ -72,7 +72,7 @@ global $wp_query;
 					<?php if ( has_post_thumbnail() ) { ?>
 					<div class="list-thumbPost imgHover"><a  href="<?php the_permalink(); ?>">
 					<?php 
-						the_post_thumbnail('thumbnail');
+						the_post_thumbnail(array(170,100));
 					?>
 					</a></div>
 					<?php
