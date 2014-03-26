@@ -25,6 +25,42 @@
 			<div class="news-content">
 				<?php the_content(); ?>
 			</div>
+			<div class="tableTest">
+				<div class="carsaleAvaliacaoGrigTabelaBg">
+		        	<div class="carsaleAvaliacaoGrigTabela">
+		            	<div class="carsaleAvaliacaoTabelaTitulo">Ficha Técnica</div>
+
+		                <div class="carsaleAvaliacaoTabelaLinha_A">
+		                	<div class="carsaleAvaliacaoTabelaDesc"></div>
+		                    <div class="carsaleAvaliacaoTabelaEstrelaUmCarro">Precision 2.4 16V Autoático</div>
+		                </div>
+						<div class="carsaleAvaliacaoTabelaLinha_B">
+		                	<div class="carsaleAvaliacaoTabelaDesc">Cilindrada Total</div>
+		                    <div class="carsaleAvaliacaoTabelaEstrelaUmCarro">2.360 cm³</div>
+		                </div>
+					
+					    <div class="carsaleAvaliacaoTabelaLinha_A">
+		                	<div class="carsaleAvaliacaoTabelaDesc">Potência máxima <br />(ABNT / regime)</div>
+		                    <div class="carsaleAvaliacaoTabelaEstrelaUmCarro">172cv / 6.000 rpm</div>
+		                </div>
+					 
+					    <div class="carsaleAvaliacaoTabelaLinha_B">
+		                	<div class="carsaleAvaliacaoTabelaDesc">Torque máximo <br />(ABNT / regime)</div>
+		                    <div class="carsaleAvaliacaoTabelaEstrelaUmCarro">22,4 kgfm / 4.500 rpm</div>
+		                </div>
+
+		                <div class="carsaleAvaliacaoTabelaLinha_A">
+		                	<div class="carsaleAvaliacaoTabelaDesc">Combustível</div>
+		                    <div class="carsaleAvaliacaoTabelaEstrelaUmCarro">Gasolina</div>
+		                </div>
+					 
+					    <div class="carsaleAvaliacaoTabelaLinha_B">
+		                	<div class="carsaleAvaliacaoTabelaDesc">Tração</div>
+		                    <div class="carsaleAvaliacaoTabelaEstrelaUmCarro">Dianteira com junta homocinéticas</div>
+		                </div>
+		            </div>
+		        </div>
+			</div>
 			<?php $authorBox = get_the_author(); ?>
 			<?php if($authorBox == 'Renato Bellote') { ?>
 				<div class="author-box">

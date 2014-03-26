@@ -428,23 +428,27 @@ class TablePress_Render {
 
 		$output = '';
 
-		if ( $this->render_options['print_name'] ) {
-			$print_name_html_tag = apply_filters( 'tablepress_print_name_html_tag', 'h2', $this->table['id'] );
-			$print_name_css_class = apply_filters( 'tablepress_print_name_css_class', "tablepress-table-name tablepress-table-name-id-{$this->table['id']}", $this->table['id'] );
-			$print_name_html = "<{$print_name_html_tag} class=\"{$print_name_css_class}\">" . $this->safe_output( $this->table['name'] ) . "</{$print_name_html_tag}>\n";
-		}
 		if ( $this->render_options['print_description'] ) {
 			$print_description_html_tag = apply_filters( 'tablepress_print_description_html_tag', 'span', $this->table['id'] );
 			$print_description_css_class = apply_filters( 'tablepress_print_description_css_class', "tablepress-table-description tablepress-table-description-id-{$this->table['id']}", $this->table['id'] );
 			$print_description_html = "<{$print_description_html_tag} class=\"{$print_description_css_class}\">" . $this->safe_output( $this->table['description'] ) . "</{$print_description_html_tag}>\n";
 		}
-
-		if ( $this->render_options['print_name'] && 'above' == $this->render_options['print_name_position'] ) {
-			$output .= $print_name_html;
+		if ( $this->render_options['print_name'] ) {
+			$print_name_html_tag = apply_filters( 'tablepress_print_name_html_tag', 'h2', $this->table['id'] );
+			$print_name_css_class = apply_filters( 'tablepress_print_name_css_class', "tablepress-table-name tablepress-table-name-id-{$this->table['id']}", $this->table['id'] );
+			$print_name_html = "<{$print_name_html_tag} class=\"{$print_name_css_class}\">" . $this->safe_output( $this->table['name'] ) . "</{$print_name_html_tag}>\n";
 		}
+		if ($this->render_options['extra_css_classes'] == "maua") {
+			$print_name_html .= "<img src='http://noticias.carsale.uol.com.br/images/maua-selo.jpg' class='maua-selo' />";
+		}
+		$output .= "<div class='titleTableTest'>";
 		if ( $this->render_options['print_description'] && 'above' == $this->render_options['print_description_position'] ) {
 			$output .= $print_description_html;
 		}
+		if ( $this->render_options['print_name'] && 'above' == $this->render_options['print_name_position'] ) {
+			$output .= $print_name_html;
+		}
+		$output .= "</div>";
 
 		// Deactivate nl2br() for this render process, if "convert_line_breaks" Shortcode parameter is set to false
 		if ( ! $this->render_options['convert_line_breaks'] ) {

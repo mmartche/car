@@ -713,14 +713,25 @@ padding: 0 20px 10px;
 /* TABLES */
 .tablepress-table-name {
 	font-size: 24px;
-	padding: 15px;
+	padding: 15px 15px 15px 40px;
 	color: #fff;
+	width: 500px;
+	margin-bottom: 10px;
+	background-image: url('../images/arrow-teste.png');
+	background-position: 10px 17px;
+	background-repeat: no-repeat;
 	background-color: #4d5869;
 	text-transform: uppercase;
-	border-radius:0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+
 }
-.tablepress-table-name:before{
-	content: ">> ";
+.titleTableTest{
+	position: relative;
+}
+.titleTableTest .maua-selo {
+	position: absolute;
+	top: 10px;
+	right: 30px;
 }
 .tablepress-table-description {
 	background-color: #4d5869;
@@ -729,6 +740,7 @@ padding: 0 20px 10px;
 	padding: 5px 15px;
 	margin: 0;
 	border-radius: 5px 5px 0 0;
+	width: 500px;
 }
 .tablepress {
 	padding: 5px;
@@ -741,7 +753,7 @@ padding: 0 20px 10px;
 }
 
 .carsaleAvaliacaoGrigTabelaBg {
-width: 640px;
+width: 680px;
 height: auto;
 margin-top: 20px;
 background-color: #f3f3f3;
@@ -758,7 +770,7 @@ position: relative;
 float: left;
 }
 .carsaleAvaliacaoTabelaTitulo {
-width: 574px;
+width: 608px;
 height: auto;
 padding-top: 10px;
 padding-bottom: 10px;
@@ -769,7 +781,7 @@ position: relative;
 float: left;
 }
 .carsaleAvaliacaoTabelaLinha_A {
-width: 574px;
+width: 608px;
 height: auto;
 background-color: #f3f3f3;
 border-top: 1px #d3d3d3 solid;
@@ -777,7 +789,7 @@ position: relative;
 float: left;
 }
 .carsaleAvaliacaoTabelaLinha_B {
-width: 574px;
+width: 608px;
 height: auto;
 background-color: #ffffff;
 border-top: 1px #d3d3d3 solid;
