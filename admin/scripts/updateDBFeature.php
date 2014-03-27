@@ -18,17 +18,18 @@ function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
 		if ($_FILES["file"]["error"] > 0) {
 			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 		} else {
-			$_FILES["file"]["name"] = $manufacturerName."-".$modelName."-".$versionName."-".$featureId.".".end($temp);
+			$_FILES["file"]["name"] = $manufacturerName.".".end($temp);
+			$_FILES["file"]["name"] = str_replace($_FILES["file"]["name"], "%20", "-");
 			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
 			echo "Type: " . $_FILES["file"]["type"] . "<br>";
 			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-				if (file_exists("./" . $_FILES["file"]["name"])) {
+				if (file_exists("../carImages/" . $_FILES["file"]["name"])) {
 					echo $_FILES["file"]["name"] . " already exists. ";
 				} else {
 					move_uploaded_file($_FILES["file"]["tmp_name"],
-					"./" . $_FILES["file"]["name"]);
-					echo "Stored in: " . "./" . $_FILES["file"]["name"];
+					"../carImages/" . $_FILES["file"]["name"]);
+					echo "Stored in: " . "../carImages/" . $_FILES["file"]["name"];
 					return $_FILES["file"]["name"];
 				}
 		}

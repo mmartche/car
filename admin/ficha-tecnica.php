@@ -179,8 +179,8 @@ include ("./scripts/functions.php");
 								</div>
 								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
-									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
-									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
+									<div class="rsModel" title="<?=$res[modelName]?>"><?=utf8_encode($res[modelName])?></div>
+									<div class="rsVersion" title="<?=$res[versionName]?>"><?=utf8_encode($res[versionName])?></div>
 									<div class="rsYearModel"><?=$res[yearModel]?></div>
 									<div class="rsYearProduced"><?=$res[yearProduced]?></div>
 									<div class="rsEngine"><?=utf8_encode($res[engine])?></div>

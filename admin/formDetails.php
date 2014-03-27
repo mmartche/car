@@ -519,7 +519,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 					<span><label>Tração:</label><input type="text" name="traction" id="txtTraction" value="<?=$res[traction]?>" /></span><br />
 					<span><label>Rodas:</label><input type="text" name="wheels" id="txtWheels" value="<?=utf8_encode($res[wheels])?>" /></span><br />
 					<span><label>Suspensão dianteira:</label><input type="text" name="frontSuspension" id="txtFrontSuspension" value="<?=utf8_encode($res[frontSuspension])?>" /></span><br />
-					<span><label>Suspensão traseira:</label><input type="text" name="rearSuspension" id="txtRearSuspension" value="<?=utf8_decode($res[rearSuspension])?>" /></span><br />
+					<span><label>Suspensão traseira:</label><input type="text" name="rearSuspension" id="txtRearSuspension" value="<?=utf8_encode($res[rearSuspension])?>" /></span><br />
 					<span><label>Freio dianteiro:</label><input type="text" name="frontBrake" id="txtFrontBrake" value="<?=utf8_encode($res[frontBrake])?>" /></span><br />
 					<span><label>Freio traseiro:</label><input type="text" name="rearBrake" id="txtRearBrake" value="<?=utf8_encode($res[rearBrake])?>" /></span><br />
 					<span><label>Dimensão (mm):</label></span><br />
