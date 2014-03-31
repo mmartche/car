@@ -2,11 +2,16 @@
 header('Content-Type: text/html; charset=utf-8');
 include ("checkPermissions.php");
 include("conectDB.php");
+$date = new DateTime();
+$dateTS = $date->getTimestamp();
 
 function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
+	echo "<br>";
 	var_dump($_FILES["file"]);
 	echo "<br>#7 upload data<br>";
 	var_dump($_FILES["image"]);
+	echo "<br>";
+	var_dump($_FILES["file"]["image"]);
 	$allowedExts = array("gif", "jpeg", "jpg", "png");
 	$temp = explode(".", $_FILES["file"]["name"]);
 	$extension = end($temp);
@@ -176,7 +181,6 @@ switch ($_POST[action]) {
 				".$picTempSql."
 				`active` = 's',
 				`description` = '".$_POST[description]."',
-				`dateCreate` = now(),
 				`dateUpdate` = now(),
 				`userUpdate` = ''
 			WHERE `feature`.`id` = '".$_POST[featureId]."' ;";
@@ -375,41 +379,37 @@ switch ($_POST[action]) {
 
 
 
-if ($_GET[debug] == "true"){ ?>
-	<script> 
-	alert("Atualizado");
-	</script>
-	<a href="../index.php">Voltar a Home</a>
-<? } elseif ($_POST[action] == "new") {
+
+if ($_POST[action] == "new") {
 	if ($_POST[category] == "manufacturer") { ?>
 		<script> 
 		alert("Direcionando para o cadastro do Modelo");
-		window.location="../formDetails.php?vehicle=<?=$manufacturerId?>&action=new&category=model";
+		window.location="../formDetails.php?vehicle=<?=$manufacturerId?>&action=new&category=model&timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>	
 	<? } elseif ($_POST[category] == "model") { ?>
 		<script> 
 		alert("Direcionando para o cadastro da Versão");
-		window.location="../formDetails.php?vehicle=<?=$modelId?>&action=new&category=version";
+		window.location="../formDetails.php?vehicle=<?=$modelId?>&action=new&category=version&timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>
 	<? } elseif ($_POST[category] == "version") { ?>
 		<script> 
 		alert("Direcionando para o cadastro da Ficha Técnica");
-		window.location="../formDetails.php?vehicle=<?=$versionId?>&action=new&category=feature";
+		window.location="../formDetails.php?vehicle=<?=$versionId?>&action=new&category=feature&timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>
 	<? } else { ?>
 		<script> 
 		alert("Atualizado");
-		window.location="../ficha-tecnica.php";
+		window.location="../ficha-tecnica.php?timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>
 	<? } ?>
 <? } else { ?>
 	<script> 
 	alert("Atualizado");
-	//window.location="../ficha-tecnica.php";
+	window.location="../ficha-tecnica.php?timestamp=<?=$dateTS?>";
 	</script>
 	<a href="../index.php">Voltar a Home</a>
 <? } ?>
