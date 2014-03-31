@@ -83,8 +83,7 @@ include ("../admin/scripts/functions.php");
 					while ($resItem = mysql_fetch_array($query)) {
 						if (file_exists("../carImages/".$resItem[picture])) {
 		                    $picture = "../carImages/".$resItem[picture];
-		                } elseif (file_exists("http://carsale.uol.com.br/foto/".$resItem[picture]."_g.jpg")) {
-		                    $picture = "http://carsale.uol.com.br/foto/".$resItem[picture]."_g.jpg";
+		                	// http://carsale.uol.com.br/images/ofertas/AudiA7Sportback_g.gif
 		                } else {
 		                    $picture = "http://carsale.uol.com.br/foto/".$resItem[picture]."_g.jpg";
 		                }
@@ -98,8 +97,8 @@ include ("../admin/scripts/functions.php");
 							<div class="carousel-caption">
 								<h4>R$ <?=formatToPrice($resItem[price])?></h4>
 								<!--div class="carousel-opacity"><?=$resItem[dateLimit]?></div-->
-								<div class="carousel-version"><?=$resItem[versionName]?></div>
-								<div class="carousel-desc"><?=$resItem[description]?></div>
+								<div class="carousel-version"><?=utf8_encode($resItem[versionName])?></div>
+								<div class="carousel-desc"><?=utf8_encode($resItem[description])?></div>
 							</div>
 							</a>
 						</div>
@@ -130,14 +129,12 @@ include ("../admin/scripts/functions.php");
 				$arrayModalYear[] = $resN[yearModel];
 				if (file_exists("../carImages/".$resN[picture])) {
                     $picture = "../carImages/".$resN[picture];
-                } elseif (file_exists("http://carsale.uol.com.br/foto/".$resN[picture]."_g.jpg")) {
-                    $picture = "http://carsale.uol.com.br/foto/".$resN[picture]."_g.jpg";
                 } else {
-                    $picture = "http://carsale.uol.com.br/foto/".$resN[picture]."_g.jpg";
+                    $picture = "http://carsale.uol.com.br/images/ofertas/".$resN[picture]."_g.gif";
                 }
 			?>
 			<div class="megaOfertasCarsaleOferta">
-				<div class="megaOfertasCarsaleTituloOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[modelName]."<br />".$res[versionName]?></a></div>
+				<div class="megaOfertasCarsaleTituloOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[modelName]."<br />".utf8_encode($res[versionName])?></a></div>
 				<div class="megaOfertasCarsaleImgBgOferta">
 					<div class="megaOfertasCarsaleImgOferta">
 						<a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">

@@ -25,7 +25,7 @@
 			<div class="news-content">
 				<?php the_content(); ?>
 			</div>
-			<div class="tableTest">
+			<!-- div class="tableTest">
 				<div class="carsaleAvaliacaoGrigTabelaBg">
 		        	<div class="carsaleAvaliacaoGrigTabela">
 		            	<div class="carsaleAvaliacaoTabelaTitulo">Ficha Técnica</div>
@@ -60,7 +60,7 @@
 		                </div>
 		            </div>
 		        </div>
-			</div>
+			</div> -->
 			<?php $authorBox = get_the_author(); ?>
 			<?php if($authorBox == 'Renato Bellote') { ?>
 				<div class="author-box">

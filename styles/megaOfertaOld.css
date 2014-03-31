@@ -34,15 +34,9 @@ z-index:0;
  }
 .megaOfertasCarsaleTituloOferta a { text-decoration:none; color:#294cc4; } /*#205488   */
 .megaOfertasCarsaleTituloOferta a:hover { text-decoration:underline; color:#205488; }
-.megaOfertasCarsaleImgBgOferta { width:183px; height:184px; margin-top:8px; margin-left:23px; margin-right:23px; margin-bottom:12px; background-image:url('../img/megaOfertasCarsaleOfertasBg.jpg'); background-repeat:no-repeat; position:relative; float:left; overflow:hidden; }
-.megaOfertasCarsaleImgBgOferta2013 { width:183px; height:184px; margin-top:8px; margin-left:23px; margin-right:23px; margin-bottom:12px; background-image:url('../img/megaOfertasCarsaleOfertas2013Bg.jpg'); background-repeat:no-repeat; position:relative; float:left; overflow:hidden; }
-.megaOfertasCarsaleImgOferta { width:141px; height:80px; padding-top:40px; padding-left:21px; padding-right:21px; position:relative; float:left; overflow:hidden; }
-.megaOfertasCarsaleValorOferta { width:141px; height:80px; padding-top:25px; padding-left:21px; padding-right:21px; font:18px 'DINPro-Regular', Arial, sans-serif; color:#531313; text-align:center; position:relative; float:left; overflow:hidden;
-
- }
+.megaOfertasCarsaleValorOferta { width:141px; height:80px; padding-top:25px; padding-left:21px; padding-right:21px; font:18px 'DINPro-Regular', Arial, sans-serif; color:#531313; text-align:center; position:relative; float:left; overflow:hidden; }
 .megaOfertasCarsaleValorOferta a { text-decoration:none; color:#531313; }
 .megaOfertasCarsaleValorOferta a:hover { text-decoration:underline; color:black; }
-.megaOfertasCarsaleTxtOferta { width:210px; height:auto; padding-left:10px; padding-right:10px; font:14px 'DINPro-Regular', Arial, sans-serif; color:#5c5c5c; text-align:center; position:relative; float:left; overflow:hidden; }
 .megaOfertasCarsaleTxtOferta a { text-decoration:none; color:#5c5c5c; }
 .megaOfertasCarsaleTxtOferta a:hover { text-decoration:underline; color:#5c5c5c; }
 .megaOfertasCarsaleBtnComprarOferta { overflow:visible; }
