@@ -1,5 +1,6 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 $allowedExts = array("gif", "jpeg", "jpg", "png");
 $temp = explode(".", $_FILES["file"]["name"]);
 $extension = end($temp);
@@ -53,6 +54,8 @@ enctype="multipart/form-data">
 </body>
 </html>
 =======
+=======
+>>>>>>> FETCH_HEAD
 if(isset($_POST['Submit'])){
     echo "<br>_FILES[file]:";
     var_dump($_FILES["file-image"]);
@@ -100,5 +103,9 @@ if(isset($_POST['Submit'])){
 <form action="" method="post" enctype="multipart/form-data">
     <input type="file" name="file-image" id="txtPicture" placeholder="Imagem" />
     <input type="submit" name="Submit" value="ATUALIZAR" class="btnSave btnButton">
+<<<<<<< HEAD
+</form>
+>>>>>>> FETCH_HEAD
+=======
 </form>
 >>>>>>> FETCH_HEAD
