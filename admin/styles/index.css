@@ -15,6 +15,9 @@ ul, li, h1 {
 	display: block;
 	padding: 5px;
 }
+.content {
+	position: relative;
+}
 #btnSerieAdd, #btnOptionsAdd, #btnColorAdd {
 	background: #eceff3; /* Old browsers */
 	background: -moz-linear-gradient(top,  #eceff3 16%, #bfc9d7 55%, #97a4b7 100%); /* FF3.6+ */
@@ -587,5 +590,9 @@ input[type="checkbox"] {
 	width: 100%;
 	text-align: center;
 }
-
+.dateUpdate {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
 

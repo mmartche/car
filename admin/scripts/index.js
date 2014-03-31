@@ -1,6 +1,6 @@
 //global vars
 var manufacturerIdGlobal, modelIdGlobal, versionIdGlobal, featureIdGlobal;
-
+var dateTsRandom = Math.floor((Math.random()*1000000)+100);
 
 function submitForm(){
 	fixFields();
@@ -485,7 +485,11 @@ function checkFields(e) {
 }
 function activeItem (item,table,obj) {
 	console.log(item,table,obj);
-	$.getJSON('api/index.php?type=activeItem&idItem='+item+'&category='+table, function(data) {
+	console.log('api/index.php?type=activeItem&idItem='+item+'&category='+table+'&timestamp='+Math.floor((Math.random()*1000000)+100));
+	$.getJSON('api/index.php?type=activeItem&idItem='+item+'&category='+table+'&timestamp='+Math.floor((Math.random()*1000000)+100), function(data) {
+		console.log(data[0].status);
+		console.log($(obj).parents("li.resultItem"));
+		console.log("Item:  "+data[0].reason);
 		if(data[0].response == "true"){
 			if (data[0].reason == "active") {
 				$(obj).parents("li.resultItem").removeClass("desactive");
@@ -493,7 +497,7 @@ function activeItem (item,table,obj) {
 				$(obj).parents("li.resultItem").addClass("desactive");
 			}
 		} else {
-			console.log("Item não desativado"+data[0].reason);
+			console.log("Item não desativado "+data[0].reason);
 		}
 	});
 }
@@ -823,16 +827,22 @@ $.widget( "custom.combobox", {
 
 	switch (this.input[0].name) {
     	case "manufacturerName":
-    		//$("#manufacturerId").val("");
-    		//$("#modelId").val("");
-    		//$("#versionId").val("");
+    		if ($("#action").val() == "new") {
+	    		$("#manufacturerId").val("");
+	    		$("#modelId").val("");
+	    		$("#versionId").val("");
+	    	}
 	    	break;
     	case "modelName":
-    		//$("#modelId").val("");
-    		//$("#versionId").val("");
+	    	if ($("#action").val() == "new") {
+	    		$("#modelId").val("");
+    			$("#versionId").val("");
+	    	}
     		break;
 		case "versionName":
-			//$("#versionId").val("");
+			if ($("#action").val() == "new") {
+				$("#versionId").val("");
+			}
 			break;
 		case "txtOptionsName":
 			$("#txtOptionsId").val("");

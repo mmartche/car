@@ -2,8 +2,16 @@
 header('Content-Type: text/html; charset=utf-8');
 include ("checkPermissions.php");
 include("conectDB.php");
+$date = new DateTime();
+$dateTS = $date->getTimestamp();
 
 function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
+	echo "<br>";
+	var_dump($_FILES["file"]);
+	echo "<br>#7 upload data<br>";
+	var_dump($_FILES["image"]);
+	echo "<br>";
+	var_dump($_FILES["file"]["image"]);
 	$allowedExts = array("gif", "jpeg", "jpg", "png");
 	$temp = explode(".", $_FILES["file"]["name"]);
 	$extension = end($temp);
@@ -18,18 +26,20 @@ function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
 		if ($_FILES["file"]["error"] > 0) {
 			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 		} else {
-			$_FILES["file"]["name"] = $manufacturerName.".".end($temp);
-			$_FILES["file"]["name"] = str_replace($_FILES["file"]["name"], "%20", "-");
+			// $_FILES["file"]["name"] = $manufacturerName.".".end($temp);
+			// $_FILES["file"]["name"] = str_replace($_FILES["file"]["name"], "%20", "-");
+			// $_FILES["file"]["name"] = $manufacturerName."-".$modelName."-".$versionName."-".$featureId.".".end($temp);
+			$_FILES["file"]["name"] = "imagemmarcelo.".end($temp);
 			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
 			echo "Type: " . $_FILES["file"]["type"] . "<br>";
 			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 			echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-				if (file_exists("../carImages/" . $_FILES["file"]["name"])) {
+				if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
 					echo $_FILES["file"]["name"] . " already exists. ";
 				} else {
 					move_uploaded_file($_FILES["file"]["tmp_name"],
-					"../carImages/" . $_FILES["file"]["name"]);
-					echo "Stored in: " . "../carImages/" . $_FILES["file"]["name"];
+					"../../carImages/" . $_FILES["file"]["name"]);
+					echo "Stored in: " . "../../carImages/" . $_FILES["file"]["name"];
 					return $_FILES["file"]["name"];
 				}
 		}
@@ -171,7 +181,6 @@ switch ($_POST[action]) {
 				".$picTempSql."
 				`active` = 's',
 				`description` = '".$_POST[description]."',
-				`dateCreate` = now(),
 				`dateUpdate` = now(),
 				`userUpdate` = ''
 			WHERE `feature`.`id` = '".$_POST[featureId]."' ;";
@@ -370,41 +379,37 @@ switch ($_POST[action]) {
 
 
 
-if ($_GET[debug] == "true"){ ?>
-	<script> 
-	alert("Atualizado");
-	</script>
-	<a href="../index.php">Voltar a Home</a>
-<? } elseif ($_POST[action] == "new") {
+
+if ($_POST[action] == "new") {
 	if ($_POST[category] == "manufacturer") { ?>
 		<script> 
 		alert("Direcionando para o cadastro do Modelo");
-		window.location="../formDetails.php?vehicle=<?=$manufacturerId?>&action=new&category=model";
+		window.location="../formDetails.php?vehicle=<?=$manufacturerId?>&action=new&category=model&timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>	
 	<? } elseif ($_POST[category] == "model") { ?>
 		<script> 
 		alert("Direcionando para o cadastro da Versão");
-		window.location="../formDetails.php?vehicle=<?=$modelId?>&action=new&category=version";
+		window.location="../formDetails.php?vehicle=<?=$modelId?>&action=new&category=version&timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>
 	<? } elseif ($_POST[category] == "version") { ?>
 		<script> 
 		alert("Direcionando para o cadastro da Ficha Técnica");
-		window.location="../formDetails.php?vehicle=<?=$versionId?>&action=new&category=feature";
+		window.location="../formDetails.php?vehicle=<?=$versionId?>&action=new&category=feature&timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>
 	<? } else { ?>
 		<script> 
 		alert("Atualizado");
-		window.location="../ficha-tecnica.php";
+		window.location="../ficha-tecnica.php?timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>
 	<? } ?>
 <? } else { ?>
 	<script> 
 	alert("Atualizado");
-	window.location="../ficha-tecnica.php";
+	window.location="../ficha-tecnica.php?timestamp=<?=$dateTS?>";
 	</script>
 	<a href="../index.php">Voltar a Home</a>
 <? } ?>
