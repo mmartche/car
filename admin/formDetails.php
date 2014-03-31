@@ -2,6 +2,8 @@
 header('Content-Type: text/html; charset=utf-8');
 include ("scripts/checkPermissions.php");
 include("./scripts/conectDB.php");
+//$date = new DateTime();
+//$dateTS = $date->getTimestamp();
 ?>
 <!DOCTYPE html>
 <html>
@@ -193,6 +195,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 			}
 			?>
 		</ol>
+		<div class="dateUpdate">Atualizado em: <?=$res[dateUpdate]?></div>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="return checkFields(this)" enctype="multipart/form-data">
 		<?
 		$actionType = ((mysql_num_rows($query_search) > 0) && ($_GET[action] != "clone") ? "update" : "new");
@@ -748,7 +751,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 							?>
 							<span>
 								<input type="checkbox" name="rdSerie<?=$iSerie?>" id="rdSerie<?=$iSerie?>" value="s" <? if ($resSerie[option] == "s") { echo 'checked="checked"'; } ?> />
-								<input type="hidden" name="txtSerie<?=$iSerie?>" id="txtSerie<?=$iSerie?>" value="<?=$resSerie[description]?>" />
+								<input type="hidden" name="txtSerie<?=$iSerie?>" id="txtSerie<?=$iSerie?>" value="<?=utf8_encode($resSerie[description])?>" />
 							<?=utf8_encode($resSerie[description])?></span>
 							<?
 							$iSerie++;

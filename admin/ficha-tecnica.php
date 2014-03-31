@@ -1,3 +1,8 @@
+<?php
+//$date = new DateTime();
+//$dateTs = $date->getTimestamp();
+$dateTs = rand();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,14 +42,14 @@ include ("./scripts/functions.php");
 	<header>
 		<h1 class="logo"><span class="logoText logoRed">Car</span><span class="logoText logoBlack">sale</span></h1>
 		<h2>
-			<span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='formDetails.php?action=new&category=feature' class='btnButton btnNewForm'>Novo Cadastro</a>
+			<span>Sistema administrativo - Ficha Técnica de Veículos</span><a href='formDetails.php?action=new&category=feature&timestamp=<?=rand()?>' class='btnButton btnNewForm'>Novo Cadastro</a>
 			<div class="newChoice">
-				<a href="formDetails.php?action=new&category=manufacturer" class="btnButton">Nova Montadora</a>
-				<a href="formDetails.php?action=new&category=model" class="btnButton">Novo Modelo</a>
-				<a href="formDetails.php?action=new&category=version" class="btnButton">Nova Versão</a>
-				<a href="formDetails.php?action=new&category=feature" class="btnButton">Nova Ficha Técnica</a>
-				<a href="editNames.php?action=update&category=color" class="btnButton">Editar Cores (inativo)</a>
-				<a href="editNames.php?action=update&category=options" class="btnButton">Editar Opcionais (inativo)</a>
+				<a href="formDetails.php?action=new&category=manufacturer&timestamp=<?=rand()?>" class="btnButton">Nova Montadora</a>
+				<a href="formDetails.php?action=new&category=model&timestamp=<?=rand()?>" class="btnButton">Novo Modelo</a>
+				<a href="formDetails.php?action=new&category=version&timestamp=<?=rand()?>" class="btnButton">Nova Versão</a>
+				<a href="formDetails.php?action=new&category=feature&timestamp=<?=rand()?>" class="btnButton">Nova Ficha Técnica</a>
+				<a href="editNames.php?action=update&category=color&timestamp=<?=rand()?>" class="btnButton">Editar Cores (inativo)</a>
+				<a href="editNames.php?action=update&category=options&timestamp=<?=rand()?>" class="btnButton">Editar Opcionais (inativo)</a>
 			</div>
 		</h2>
 	</header>
@@ -126,10 +131,10 @@ include ("./scripts/functions.php");
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<a class="btnClone btnButton" href="?category=model&action=new&vehicle=<?=$res[id]?>" title="Incluir Modelo para esta Montadora" alt="Incluir Modelo para esta Montadora">Novo modelo</a>
+									<a class="btnClone btnButton" href="?category=model&action=new&vehicle=<?=$res[id]?>&timestamp=<?=rand()?>" title="Incluir Modelo para esta Montadora" alt="Incluir Modelo para esta Montadora">Novo modelo</a>
 									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'manufacturer',this)"></div>
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=manufacturer&action=update" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=manufacturer&action=update&timestamp=<?=rand()?>" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 								</a>
 							</li>
@@ -140,10 +145,10 @@ include ("./scripts/functions.php");
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<a class="btnClone btnButton" href="?category=version&action=new&vehicle=<?=$res[id]?>" title="Incluir Versão para este Modelo" alt="Incluir Versão para este Modelo">Nova versão</a>
+									<a class="btnClone btnButton" href="?category=version&action=new&vehicle=<?=$res[id]?>&timestamp=<?=rand()?>" title="Incluir Versão para este Modelo" alt="Incluir Versão para este Modelo">Nova versão</a>
 									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'model',this)"></div>
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=model&action=update" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=model&action=update&timestamp=<?=rand()?>" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 								</a>
@@ -155,11 +160,11 @@ include ("./scripts/functions.php");
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<a class="btnClone btnButton" href="?category=feature&action=new&vehicle=<?=$res[id]?>" title="Incluir Ficha Técnica para esta Versão" alt="Incluir Ficha Técnica para esta Versão">Nova Ficha</a>
+									<a class="btnClone btnButton" href="?category=feature&action=new&vehicle=<?=$res[id]?>&timestamp=<?=rand()?>" title="Incluir Ficha Técnica para esta Versão" alt="Incluir Ficha Técnica para esta Versão">Nova Ficha</a>
 									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'version',this)"></div>
 									<!--div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div-->
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=version&action=update" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=version&action=update&timestamp=<?=rand()?>" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=$res[modelName]?></div>
 									<div class="rsVersion" title="<?=$res[versionName]?>"><?=$res[versionName]?></div>
@@ -173,11 +178,11 @@ include ("./scripts/functions.php");
 						?>
 							<li class="resultItem" idDB="<?=$res[id]?>">
 								<div class="rsItems">
-									<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
+									<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>&timestamp=<?=rand()?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
 									<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>
 									<!--div class="rsPicture"><img src="<?=$res[picture]?>+'" /></div-->
 								</div>
-								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
+								<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update&timestamp=<?=rand()?>" class="resultContent">
 									<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 									<div class="rsModel" title="<?=$res[modelName]?>"><?=utf8_encode($res[modelName])?></div>
 									<div class="rsVersion" title="<?=$res[versionName]?>"><?=utf8_encode($res[versionName])?></div>
@@ -235,11 +240,11 @@ include ("./scripts/functions.php");
 						?>
 						<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
 							<div class="rsItems">
-								<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
+								<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>&timestamp=<?=rand()?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
 								<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>
 								<!--div class="rsPicture"><img src="<?=$res[picture]?>" /></div-->
 							</div>
-							<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update" class="resultContent">
+							<a href="formDetails.php?vehicle=<?=$res[id]?>&category=feature&action=update&timestamp=<?=rand()?>" class="resultContent">
 								<div class="rsManufacturer" title="<?=$res[manufacturerName]?>"><?=$res[manufacturerName]?></div>
 								<div class="rsModel" title="<?=$res[modelName]?>"><?=utf8_encode($res[modelName])?></div>
 								<div class="rsVersion" title="<?=$res[versionName]?>"><?=utf8_encode($res[versionName])?></div>
