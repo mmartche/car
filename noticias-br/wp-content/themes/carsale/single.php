@@ -25,6 +25,7 @@
 			<div class="news-content">
 				<?php the_content(); ?>
 			</div>
+			<?php /*
 			<!-- div class="tableTest">
 				<div class="carsaleAvaliacaoGrigTabelaBg">
 		        	<div class="carsaleAvaliacaoGrigTabela">
@@ -61,6 +62,7 @@
 		            </div>
 		        </div>
 			</div> -->
+			*/ ?>
 			<?php $authorBox = get_the_author(); ?>
 			<?php if($authorBox == 'Renato Bellote') { ?>
 				<div class="author-box">
@@ -137,7 +139,7 @@
 					<a href="<?php the_permalink(); ?>">
 						<?php if ( has_post_thumbnail() ) { ?>
 						<div class="read-more-thumb imgHover">
-							<?php	the_post_thumbnail(array(165,80)); ?>
+							<?php the_post_thumbnail(array("170,150")); ?>
 						</div>
 						<?php } ?>
 						<div class="read-more-label">
@@ -273,7 +275,7 @@
 						<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ) { ?>
 							<div class="read-more-thumb imgHover">
-								<?php the_post_thumbnail(array(160,75)); ?>
+								<?php the_post_thumbnail(array(170,100)); ?>
 							</div>
 							<?php } ?>
 							<div class="read-more-text">
@@ -316,7 +318,7 @@
 						<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ) { ?>
 							<div class="read-more-thumb imgHover">
-								<?php the_post_thumbnail(array(160,75)); ?>
+								<?php the_post_thumbnail(array(170,100)); ?>
 							</div>
 							<?php } ?>
 							<div class="read-more-text">
