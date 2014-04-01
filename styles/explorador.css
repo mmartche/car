@@ -593,11 +593,11 @@ width: 178px;
 	position: absolute;
 	z-index: 11;
 	width: 500px;
+	border-radius: 20px;
 }
 .loagingImg {
-	border:1px solid;
-	width: 30px;
-	height: 30px;
+	width: 70px;
+	height: 70px;
 	margin: auto;
 }
 .removeLoadingCarList {

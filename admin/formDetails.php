@@ -99,7 +99,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 				} elseif ($_GET[action] == "update") {
 					?>
 					<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
-					<a href='?category=model&action=new&vehicle=<?=$res[manufacturerId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>
+					<a href='?category=model&action=new&vehicle=<?=$res[manufacturerId]?>&timestamp=<?=rand()?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Modelo para esta Montadora</a>
 					<!--input type="button" value="Atualizar" class="btnSave btnButton" /-->
 					<?
 				}
@@ -114,7 +114,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 				} elseif ($_GET[action] == "update") {
 					?>
 						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
-						<a href='?category=version&action=new&vehicle=<?=$res[modelId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>
+						<a href='?category=version&action=new&vehicle=<?=$res[modelId]?>&timestamp=<?=rand()?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Versão para este Modelo</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-->
 					<?
 				}
@@ -129,7 +129,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 				} elseif ($_GET[action] == "update") {
 					?>
 						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
-						<a href='?category=feature&action=new&vehicle=<?=$res[versionId]?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>
+						<a href='?category=feature&action=new&vehicle=<?=$res[versionId]?>&timestamp=<?=rand()?>' class='btnButton btnNewForm' id='btnAddItem'>Incluir Ficha Técnica para esta Versão</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-->	
 					<?
 				}
@@ -145,7 +145,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 				} elseif ($_GET[action] == "update") {
 					?>
 						<!-- <a href='index.php' class='btnButton btnDelForm' id='btnDelForm'>Desativar Cadastro</a> -->
-						<a href='?category=feature&action=clone&vehicle=<?=$res[featureId]?>' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>
+						<a href='?category=feature&action=clone&vehicle=<?=$res[featureId]?>&timestamp=<?=rand()?>' class='btnButton btnNewForm' id='btnAddItem'>Clonar Ficha Técnica</a>
 						<!--input type="submit" value="Atualizar" class="btnSave btnButton" /-\-->
 					<?
 				}
@@ -171,25 +171,25 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 	<div class="content">
 		<ol class="breadcrumb">
 			<li><a href="index.php">Home</a></li>
-			<li><a href="ficha-tecnica.php">Listagem</a></li>
+			<li><a href="ficha-tecnica.php?timestamp=<?=rand()?>">Listagem</a></li>
 			<?
 			switch ($_GET[category]) {
 				case 'manufacturer':
 					?><li class="active" title="Editar Montadora"><?=$res[manufacturerName]?></li><?
 					break;
 				case 'model':
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update&timestamp=<?=rand()?>" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
 					<li class="active" title="Editar Modelo"><?=$res[modelName]?></li><?
 					break;
 				case 'version':
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
-					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=utf8_encode($res[modelName])?></a></li>
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update&timestamp=<?=rand()?>" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update&timestamp=<?=rand()?>" title="Editar Modelo"><?=utf8_encode($res[modelName])?></a></li>
 					<li class="active" title="Editar Versão"><?=utf8_encode($res[versionName])?></li><?
 					break;
 				default:
-					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
-					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update" title="Editar Modelo"><?=utf8_encode($res[modelName])?></a></li>
-					<li><a href="?vehicle=<?=$res[versionId]?>&category=version&action=update" title="Editar Versão"><?=utf8_encode($res[versionName])?></a></li>
+					?><li><a href="?vehicle=<?=$res[manufacturerId]?>&category=manufacturer&action=update&timestamp=<?=rand()?>" title="Editar Montadora"><?=$res[manufacturerName]?></a></li>
+					<li><a href="?vehicle=<?=$res[modelId]?>&category=model&action=update&timestamp=<?=rand()?>" title="Editar Modelo"><?=utf8_encode($res[modelName])?></a></li>
+					<li><a href="?vehicle=<?=$res[versionId]?>&category=version&action=update&timestamp=<?=rand()?>" title="Editar Versão"><?=utf8_encode($res[versionName])?></a></li>
 					<li class="active" title="Editar Ficha Técnica">Ficha Técnica</li><?
 					break;
 			}

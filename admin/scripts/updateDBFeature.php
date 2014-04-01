@@ -379,7 +379,7 @@ switch ($_POST[action]) {
 
 
 
-
+$dateTS=rand();
 if ($_POST[action] == "new") {
 	if ($_POST[category] == "manufacturer") { ?>
 		<script> 

@@ -615,7 +615,7 @@ switch ($_GET[type]) {
 		        "description":"'.$res[description].'",
 		        "active":"'.$res[active].'",
 		        "price":"'.$res[price].'",
-		        "itemsSerie": "'.str_replace(array("\r", "\n", "\""), "", $res[items]).'"';
+		        "itemsSerie": "'.str_replace(array("\r", "\n", "\""), "", utf8_encode($res[items])).'"';
 			$sqlOpt = "SELECT optionsVersion.id, optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsVersion.price as priceFeature from optionsManufacturer, optionsVersion WHERE optionsVersion.code = optionsManufacturer.code and optionsVersion.idVersion = '".$res[versionId]."' and optionsVersion.yearModel = '".$res[yearModel]."'";
 			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #522");
 			$result.= (mysql_num_rows($queryOpt) > 0 ? ',"options":' : "");

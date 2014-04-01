@@ -3,8 +3,12 @@ include ('../includes/header.php');
 ?>
 <?
 // print_r(count($_POST[segments]));
+if ($_POST[segments]) {
 $_POST[segments] = (count($_POST[segments]) ==0 ) ? array() : $_POST[segments];
+}
+if ($_POST[filterSerie]){
 $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filterSerie];
+}
 ?>
 <div class="content">
 	<div class="columnMiddle">
@@ -184,9 +188,9 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 	<div class="exploradorTitulo">Clique nos carros para compará-los:</div>
 	<div class="loadingUlCarList hide"></div>
 	<div class="loadingText hide">
-		<p>Buscando informações sobre este modelo...</p><br />
+		<p>Buscando informações...</p><br />
 		<p id="responseReasonLoadingCarList">Aguarde</p><br />
-		<div class="loagingImg"></div>
+		<div class="loagingImg"><img src="http://noticias.carsale.uol.com.br/images/loading.gif" /></div>
 		<div class="removeLoadingCarList" onclick="removeLoadingCarList()">x</div>
 	</div>
 	<ul class="ulCarList">
