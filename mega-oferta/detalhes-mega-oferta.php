@@ -333,8 +333,42 @@ function checkInputs(){
     } else {
         $("#contentParaSp").addClass("hide");
     }
-    if ($("#querFinanciar")) {}
-    if ($("#checkboxTroca")) {}
+    if ($("#querFinanciar:checked").length > 0) {
+        $("#contentFinanciamento").removeClass("hide");
+    } else {
+        $("#contentFinanciamento").addClass("hide");
+    }
+    if ($("#checkboxTroca:checked").length > 0) {
+        $("#contentQuerTrocar").removeClass("hide");
+    } else {
+        $("#contentQuerTrocar").addClass("hide");
+    }
+}
+
+function checkValues () {
+    var flag;
+    if ($("#nome").val().length == 0) {
+        alert ("Preencha seu nome");
+        return false;
+    }
+    else if ($("#email").val().length == 0) {
+        alert ("Preencha seu e-mail");
+        return false;
+    }
+    else if ($("#estado").val().length == 0) {
+        alert ("Escolha seu estado");
+        return false;
+    }
+    else if ($("#cidade").val().length == 0) {
+        alert("Preencha sua cidade");
+        return false;
+    }
+    else if ((($("#dddTelefone").val().length == 0) && ($("#telefone").val().length == 0)) || (($("#dddCelular").val().length == 0) && ($("#celular").val().length == 0))) {
+        alert ("Preencha ao menos um número de telefone ou celular com ddd");
+        return false;
+    } else {
+        return false;
+    }
 }
 </script>
 

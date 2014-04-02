@@ -58,6 +58,6 @@ switch ($_POST[btnAddMegaOferta]) {
 ?>
 <script> 
 /*alert("Atualizado");*/
-window.location="../megaOferta.php";
+window.location="../megaOferta.php?timestamp=<?=rand()?>";
 </script>
 <a href="../index.php">Voltar a Home</a>

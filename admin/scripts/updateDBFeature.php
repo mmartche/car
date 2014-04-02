@@ -28,8 +28,8 @@ function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
 		} else {
 			// $_FILES["file"]["name"] = $manufacturerName.".".end($temp);
 			// $_FILES["file"]["name"] = str_replace($_FILES["file"]["name"], "%20", "-");
-			// $_FILES["file"]["name"] = $manufacturerName."-".$modelName."-".$versionName."-".$featureId.".".end($temp);
-			$_FILES["file"]["name"] = "imagemmarcelo.".end($temp);
+			$_FILES["file"]["name"] = $manufacturerName."-".$modelName."-".$versionName."-".$featureId.".".end($temp);
+			// $_FILES["file"]["name"] = "imagemmarcelo.".end($temp);
 			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
 			echo "Type: " . $_FILES["file"]["type"] . "<br>";
 			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";

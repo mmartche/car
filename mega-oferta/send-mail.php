@@ -20,8 +20,8 @@ if (!isset($_POST["enviar"]))
   // Check if the "from" input field is filled out
   if (isset($_POST["enviar"]))
     {
-    //$to = "salete.soares@carsale.com.br; manoel.bezerra@carsale.com.br";
-    $to = 'mmartche@hotmail.com';
+    // $to = 'mmartche@hotmail.com';
+    $to = "salete.soares@carsale.com.br; manoel.bezerra@carsale.com.br";
     $from = "Mega Ofertas Carsale <carsale@carsale.com.br>"; // sender
     $subject = 'Proposta campanha '.$_POST[megaOfertaId].' - '.$_POST[modelName].' - '.$_POST[versionName];
     $message = 'Nome: '.$_POST[nome].'

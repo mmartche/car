@@ -504,7 +504,7 @@ switch ($_GET[type]) {
 		if ($_GET[action] == "debug") {
 			echo $sql;
 		}
-		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'error #416"}]');
+		$query = mysql_query($sql) or die ('[{"response":"false", "reason":"'.mysql_error().'error #507"}]');
 		$result="[";
 		$loop=0;
 		while ($res = mysql_fetch_array($query)) {
@@ -615,7 +615,7 @@ switch ($_GET[type]) {
 		        "description":"'.$res[description].'",
 		        "active":"'.$res[active].'",
 		        "price":"'.$res[price].'",
-		        "itemsSerie": "'.str_replace(array("\r", "\n", "\""), "", utf8_encode($res[items])).'"';
+		        "itemsSerie": "'.str_replace(array("\r", "\n", "\""), "", $res[items]).'"';
 			$sqlOpt = "SELECT optionsVersion.id, optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsVersion.price as priceFeature from optionsManufacturer, optionsVersion WHERE optionsVersion.code = optionsManufacturer.code and optionsVersion.idVersion = '".$res[versionId]."' and optionsVersion.yearModel = '".$res[yearModel]."'";
 			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #522");
 			$result.= (mysql_num_rows($queryOpt) > 0 ? ',"options":' : "");
@@ -640,7 +640,7 @@ switch ($_GET[type]) {
 			while ($resSerieItem = mysql_fetch_array($querySerieItem)) {
 				$result .= ($loopOpt > 0 ? "," : "[");
 		        $result.='{
-		        	"description":"'.utf8_decode($resSerieItem[description]).'"
+		        	"description":"'.$resSerieItem[description].'"
 		        	}';
 		        $loopOpt++;
 			}
