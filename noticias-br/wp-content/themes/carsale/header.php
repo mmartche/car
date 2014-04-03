@@ -98,7 +98,7 @@
 					<li><div class="arrow-submenu"></div><a href="http://carsale.uol.com.br/classificado/mega-oferta/" title="">Mega Oferta</a></li>
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">
-					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/" title="">Últimas</a></li>
+					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/ultimas" title="">Últimas</a></li>
 					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/testes" title="">Testes</a></li>
 					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/lancamentos" title="">Lançamentos</a></li>
 					<li><div class="arrow-submenu"></div><a href="http://noticias.carsale.uol.com.br/videos" title="">Vídeos</a></li>

@@ -16,8 +16,8 @@
 
 // ** Configurações do MySQL - Você pode pegar essas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
-define( 'WPCACHEHOME', '/opt/www/noticias/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
-define('WP_CACHE', true); //Added by WP-Cache Manager
+//define( 'WPCACHEHOME', '/opt/www/noticias/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
+//define('WP_CACHE', true); //Added by WP-Cache Manager
 define('DB_NAME', 'carsale');
 
 /** Usuário do banco de dados MySQL */

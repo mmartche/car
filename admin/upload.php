@@ -30,12 +30,12 @@ if(isset($_POST['Submit'])){
             echo "Type: " . $_FILES["file-image"]["type"] . "<br>";
             echo "Size: " . ($_FILES["file-image"]["size"] / 1024) . " kB<br>";
             echo "Temp file: " . $_FILES["file-image"]["tmp_name"] . "<br>";
-                if (file_exists($workDir."/carImages/" . $_FILES["file-image"]["name"])) {
+                if (file_exists("./carImages/" . $_FILES["file-image"]["name"])) {
                     echo $_FILES["file-image"]["name"] . " already exists. ";
                 } else {
                     move_uploaded_file($_FILES["file-image"]["tmp_name"],
-                    $workDir."/carImages/" . $_FILES["file-image"]["name"]);
-                    echo "Stored in: " . $workDir."/carImages/" . $_FILES["file-image"]["name"];
+                    "./carImages/" . $_FILES["file-image"]["name"]);
+                    echo "Stored in: " . "./carImages/" . $_FILES["file-image"]["name"];
                     
                 }
         }

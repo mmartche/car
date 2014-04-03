@@ -16,8 +16,6 @@
 
 // ** Configurações do MySQL - Você pode pegar essas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
-define( 'WPCACHEHOME', '/opt/www/noticias/wp-content/plugins/wp-super-cache/' ); //Added by WP-Cache Manager
-define('WP_CACHE', true); //Added by WP-Cache Manager
 define('DB_NAME', 'carsale');
 
 /** Usuário do banco de dados MySQL */
@@ -44,14 +42,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '*$HWA 0:WK2},:l9;]_Z,KCAb:C+rRNri_?@f;(_$2}.doy%vv/Z-m7-R,NH+}&A');
-define('SECURE_AUTH_KEY',  's[eqWF=YDF eRN?A&&nYN47@9Mh}Q#5WmdI?N]9<f:E<3g;ybW7i<U@5^x5ZlQT9');
-define('LOGGED_IN_KEY',    't7jAdtc^IJ^_vxfK<E+-4^2mJT!(A0p!2/yTvfzeW7(O_8aLjOCGDIRJ}bFGzq6=');
-define('NONCE_KEY',        'Xqj,T(vT`?nmA.=PJfhK34-a7?.,DBQ:CB}C{Hr/!|PHKmnUVsIHUzxHuX2H>WVF');
-define('AUTH_SALT',        'tH:5X1| a2J<<Z3_XqWY$py$i_A^_b2!7+3q1=^Tu?hlI=)>_|ZL=UL ?E-N{@Tb');
-define('SECURE_AUTH_SALT', '1|HObZ}KpC;*c))Ur4caQj]BdU8 A8|7)W7r=**m UY d!9Z.C]|*A<[Shbd`4s<');
-define('LOGGED_IN_SALT',   'ntd{N^;oT**(Br=(VF9+Dd*3Zh&Al{vRRTGf/E/-Pm+V}/F;G9Vo+{P6>:s;r1vD');
-define('NONCE_SALT',       'H9ld4vYXse-kp8UmH2c^2tlU#ATzF&4s]AQa}|)fX1(BK0nW+B68& 4~.X7z)1s^');
+define('AUTH_KEY',         'Qy!9?H9$P1miTh^)D*P^K>oa~If_:|h4_R@)&?@zie-o+g8EiH4PourdY hNcVUj');
+define('SECURE_AUTH_KEY',  '9&yK|Sf|MD!XOmme~#I|D*7-a+pg`$)O3%8o^=@WlSPRRy7mLDz(+u--9x+w`536');
+define('LOGGED_IN_KEY',    'o+Z#`RP9_m+:C0C@(N5:2mmI0H?gEm6=+K>|-uFx~F|-o&q(Hg!;[]|3]`( L-&X');
+define('NONCE_KEY',        'Ictt!(lXK]n^X)8sZwr+^Z+1b(pfVw6.bkRZ1;=obiD[%[)#M^_g{A`2O8c(|Cd#');
+define('AUTH_SALT',        'B#+-+.REYk7l0`Ia#BheP AsqmOJY_/i7p`L5`g`U;Ua,7!GK/O,n0T+q61~!!v ');
+define('SECURE_AUTH_SALT', 'jx(]76^SOgI5{A@z&U-|5aQ$r:Jb+VH7|]RdcmR,JQn`z8b+7lk_-k4K?T=[#zI8');
+define('LOGGED_IN_SALT',   'X<e6%ko*FH=;6!d{2r*%b-ERmVMWU>4duB).Ws?rwoFxw]FWo/~u9ZJgXJ~zTlRA');
+define('NONCE_SALT',       '.Tgle/hJ$08=s>~:3iF!`7B:K(IjAQlRWKX|Ggp2Uxa)#Y2@@;yoC|Duh^%DfY=M');
 
 /**#@-*/
 
@@ -61,7 +59,7 @@ define('NONCE_SALT',       'H9ld4vYXse-kp8UmH2c^2tlU#ATzF&4s]AQa}|)fX1(BK0nW+B68
  * Você pode ter várias instalações em um único banco de dados se você der para cada um um único
  * prefixo. Somente números, letras e sublinhados!
  */
-$table_prefix  = 'wp_news_';
+$table_prefix  = 'wp_novo';
 
 /**
  * O idioma localizado do WordPress é o inglês por padrão.

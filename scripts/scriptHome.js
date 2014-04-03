@@ -36,6 +36,7 @@ $(document).ready(function(){
 
 	loadNews('#ultnotGeral','http://carsale.uol.com.br/novosite/import-news.asp','3');
 	loadNews('#ultnotAvaliacoes','http://carsale.uol.com.br/novosite/import-news-testes.asp','2');
+	// loadNews('#ultnotGeral','http://noticias.carsale.uol.com.br/?feed=json','3');
 
 	$(".arrow-next-post").mouseover(function(){
 		$(".next-post").removeClass("hide");

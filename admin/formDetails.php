@@ -4,6 +4,31 @@ include ("scripts/checkPermissions.php");
 include("./scripts/conectDB.php");
 //$date = new DateTime();
 //$dateTS = $date->getTimestamp();
+
+function logData ($info,$line,$type){
+	//upload file log(arg)
+	$fileLog = "logData.txt";
+	$contentFile = $info;
+	file_put_contents($fileLog, $contentFile,FILE_APPEND);
+	echo $contentFile;
+}
+$dateNow = date('l jS \of F Y h:i:s A');
+logData("
+	----------------------------------------------------------------------------------------------------------------------
+	".$dateNow."
+	");
+
+logData("
+	--------Form Details----------
+	vehicle: ".$_GET[vehicle]."
+	category: ".$_GET[category]."
+	action: ".$_GET[action]."
+	timestamp: ."$_GET[timestamp]."
+	");
+
+
+vehicle=11258&category=feature&action=update&timestamp=1690986108
+
 ?>
 <!DOCTYPE html>
 <html>
