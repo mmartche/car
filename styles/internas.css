@@ -336,6 +336,9 @@ padding: 0 20px 10px;
 	font-size: 12px;
 	margin-bottom: 20px;
 }
+.hideAuthorCustomPost .post-meta-key {
+	display: none;
+}
 .news-content {
 	font-size: 15px;
 	color: #525252;

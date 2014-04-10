@@ -22,7 +22,29 @@
 			<?php } ?>
 			<div class="post-author-box">
 				<h3 class="post-author"><?php the_author(); ?></h3>
-				<h3 class="post-author-photo"><?php the_meta(); ?></h3>
+				<?php 
+				//esconde o nome do custom post
+				$dataHoje = date('d/m/Y');
+				$dataHojeDia = '10';
+				$dataHojeMes = '04';
+				$dataHojeAno = '2014';
+				$dataHojeHora = '15';
+				$dataMatDia = get_the_date('d');
+				$dataMatMes = get_the_date('m');
+				$dataMatAno = get_the_date('Y');
+				$dataMatHora = get_the_date('H');
+				$validaCustomAuthorPostByDate = "";
+				if ($dataHojeAno >= $dataMatAno) {
+					if ($dataHojeMes >= $dataMatMes) {
+						if ($dataHojeDia >= $dataMatDia) {
+							if ($dataHojeHora >= $dataMatHora) {
+								$validaCustomAuthorPostByDate = "hideAuthorCustomPost";
+							}
+						}
+					}
+				}
+				 ?>
+				<h3 class="post-author-photo <?php echo $validaCustomAuthorPostByDate; ?>"><?php the_meta(); ?></h3>
 				<?php //get_post_meta($post->ID, 'll_appprice', true); ?>
 			</div>
 			<div class="news-content">
