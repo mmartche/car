@@ -34,14 +34,14 @@ function uploadFile ($manufacturerName,$modelName,$versionName,$featureId) {
 			logData("Type: " . $_FILES["file"]["type"] . "<br>");
 			logData("Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>");
 			logData("Temp file: " . $_FILES["file"]["tmp_name"] . "<br>");
-				if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
-					logData($_FILES["file"]["name"] . " already exists. ");
-				} else {
+				// if (file_exists("../../carImages/" . $_FILES["file"]["name"])) {
+				// 	logData($_FILES["file"]["name"] . " already exists. ");
+				// } else {
 					move_uploaded_file($_FILES["file"]["tmp_name"],
 					"../../carImages/" . $_FILES["file"]["name"]);
 					logData("Stored in: " . "../../carImages/" . $_FILES["file"]["name"]);
 					return $_FILES["file"]["name"];
-				}
+				// }
 		}
 	} else {
 		logData("Invalid file");
@@ -72,20 +72,20 @@ switch ($_POST[action]) {
 		break;
 		case 'model':
 			if ($_POST[modelId] == "") {
-				$sqlUpdate = "INSERT INTO `model` ('idManufacturer', 'modelName', 'idSegment1', 'idSegment2', 'idSegment3', 'description') VALUES ('".$_POST[idManufacturer]."','".$_POST[modelName]."','".$_POST[txtidSegment1]."','".$_POST[txtidSegment2]."','".$_POST[txtidSegment3]."','".$_POST[description]."')";
+				$sqlUpdate = "INSERT INTO `model` (`idManufacturer`, `name`, `idSegment1`, `idSegment2`, `idSegment3`, `active`, `description`) VALUES ('".$_POST[manufacturerId]."','".$_POST[modelName]."','".$_POST[txtidSegment1]."','".$_POST[txtidSegment2]."','".$_POST[txtidSegment3]."', 's','".$_POST[description]."')";
 			} else {
 				$sqlUpdate = "UPDATE `model` SET `idManufacturer` = '".$_POST[manufacturerId]."', `name` = '".$_POST[modelName]."', `idSegment1` = '".$_POST[txtidSegment1]."' ,`idSegment2` = '".$_POST[txtidSegment2]."' ,`idSegment3` = '".$_POST[txtidSegment3]."' ,`description` = '".$_POST[description]."' WHERE `id` = ".$_POST[modelId]."";
 			}
 			logData($sqlUpdate);
 			mysql_query("SET NAMES 'utf8'");
-			mysql_query($sqlUpdate) or die (" error #55");
-			logData("<br />#55".$sqlUpdate);
+			mysql_query($sqlUpdate) or die (mysql_error()." error #81");
+			logData("<br />#82".$sqlUpdate);
 		break;
 		case 'version':
 			if ($_POST[versionId] == "") {
-				$sqlUpdate = "INSERT into `version` (`idManufacturer`, `idModel`, `name`) VALUES ('".$_POST[manufacturerId]."', '".$_POST[modelId]."', '".$_POST[versionName]."')";
+				$sqlUpdate = "INSERT into `version` (`idManufacturer`, `idModel`, `name`, `active`) VALUES ('".$_POST[manufacturerId]."', '".$_POST[modelId]."', '".$_POST[versionName]."', 's')";
 			} else {
-				$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[versionName]."', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
+				$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[versionName]."', `active` = 's', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
 			}
 			mysql_query("SET NAMES 'utf8'");
 			mysql_query($sqlUpdate) or die (mysql_error()." error #20");
@@ -106,7 +106,7 @@ switch ($_POST[action]) {
 				logData("<br />#80".$sqlUpdate);
 			}
 			if ($_POST[versionId] != "") {
-				$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[versionName]."', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
+				$sqlUpdate = "UPDATE `version` SET `idManufacturer` = '".$_POST[manufacturerId]."', `idModel` = '".$_POST[modelId]."', `name` = '".$_POST[versionName]."', `active` = 's', `description` = '".$_POST[description]."' WHERE `id` = '".$_POST[versionId]."'";
 				mysql_query("SET NAMES 'utf8'");
 				mysql_query($sqlUpdate) or die (mysql_error()." error #20");
 				logData("<br />#85".$sqlUpdate);
@@ -216,7 +216,7 @@ switch ($_POST[action]) {
 				$serieOpt = "rdSerie".$i;
 				$serieName = "txtSerie".$i;
 				if ($i > 0) { $valuesSerieInput .= ","; }
-				$valuesSerieInput .= "(NULL, '".$_POST[featureId]."', '".$_POST[$serieName]."', '".$_POST[$serieOpt]."', now(), now(), NULL)";
+				$valuesSerieInput .= "(NULL, '".$_POST[featureId]."', '".str_replace("'", "\"", $_POST[$serieName])."', '".str_replace("'", "\"", $_POST[$serieOpt])."', now(), now(), NULL)";
 			}
 			if ($valuesSerieInput != ""){
 				$sqlAddSeries = "insert into `serieFeature` (`id`, `idFeature`, `description`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesSerieInput;
@@ -301,7 +301,7 @@ switch ($_POST[action]) {
 		} else {
 			if ($_POST[category] != "manufacturer") {
 				$modelId = $_POST[modelId];
-				$sqlUpSeg = "UPDATE `model` set `idSegment1` = '".$_POST[txtidSegment1]."', `idSegment2` = '".$_POST[txtidSegment2]."', `idSegment3` = '".$_POST[txtidSegment3]."' WHERE id = '".$modelId."'";
+				$sqlUpSeg = "UPDATE `model` set `idSegment1` = '".$_POST[txtidSegment1]."', `idSegment2` = '".$_POST[txtidSegment2]."', `idSegment3` = '".$_POST[txtidSegment3]."', `active` = 's' WHERE id = '".$modelId."'";
 				logData($sqlUpSeg);
 				mysql_query("SET NAMES 'utf8'");
 				mysql_query($sqlUpSeg) or die ("error #228");
@@ -310,7 +310,7 @@ switch ($_POST[action]) {
 		}
 		if ($_POST[versionId] == "") {
 			if ($_POST[category] != "manufacturer" && $_POST[category] != "model") {
-				$sqlAdd = "INSERT INTO `version` (`idManufacturer`,`idModel`,`name`, `active`, `description`) VALUES ('".$manufacturerId."','".$modelId."','".$_POST[versionName]."','s','".$_POST[description]."')";
+				$sqlAdd = "INSERT INTO `version` (`idManufacturer`,`idModel`,`name`, `active`, `description`) VALUES ('".$manufacturerId."','".$modelId."','".$_POST[versionName]."', 's','".$_POST[description]."')";
 				mysql_query("SET NAMES 'utf8'");
 				mysql_query($sqlAdd) or die (mysql_error()." error #231");
 				logData("<br />#247".$sqlAdd);
@@ -342,12 +342,12 @@ switch ($_POST[action]) {
 				$serieOpt = "rdSerie".$i;
 				$serieName = "txtSerie".$i;
 				if ($i > 0) { $valuesSerieInput .= ","; }
-				$valuesSerieInput .= "(NULL, '".$fetId."', '".$_POST[$serieName]."', '".$_POST[$serieOpt]."', now(), now(), NULL)";
+				$valuesSerieInput .= "(NULL, '".$fetId."', '".str_replace("'", "\"", $_POST[$serieName])."', '".str_replace("'", "\"", $_POST[$serieOpt])."', now(), now(), NULL)";
 			}
 			if ($valuesSerieInput != ""){
 				$sqlAddSeries = "insert into `serieFeature` (`id`, `idFeature`, `description`, `option`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesSerieInput;
 				mysql_query("SET NAMES 'utf8'");
-				mysql_query($sqlAddSeries) or die (" error #239");
+				mysql_query($sqlAddSeries) or die (mysql_error()." error #239");
 				logData("<br />#279".$sqlAddSeries);
 				//logData($sqlAddSeries);
 			}
@@ -414,14 +414,14 @@ if ($_POST[action] == "new") {
 		<a href="../index.php">Voltar a Home</a>
 	<? } else { ?>
 		<script> 
-		alert("Atualizado");
+		alert("Atualizado ação");
 		window.location="../ficha-tecnica.php?timestamp=<?=$dateTS?>";
 		</script>
 		<a href="../index.php">Voltar a Home</a>
 	<? } ?>
 <? } else { ?>
 	<script> 
-	alert("Atualizado");
+	alert("Atualizado <?=$_POST[action]?>");
 	window.location="../ficha-tecnica.php?timestamp=<?=$dateTS?>";
 	</script>
 	<a href="../index.php">Voltar a Home</a>

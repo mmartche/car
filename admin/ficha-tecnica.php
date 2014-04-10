@@ -227,6 +227,7 @@ include ("./scripts/functions.php");
 						if ($_POST[filterFuel] != "") { $filterSql .= " AND feature.fuel like ('%".$_POST[filterFuel]."%') "; }
 						if ($_POST[filterPrice] != "") { $filterSql .= " AND feature.price like ('%".$_POST[filterPrice]."%') "; }
 						if ($_POST[filterActive] == "n") { $filterSql .= " AND (version.active = 'n' OR feature.active = 'n') "; } else { $filterSql .= " AND (version.active = 's' AND feature.active = 's') "; }
+						// if ($_POST[filterActive] == "n") { $filterSql .= " AND (version.active = 'n' OR feature.active = 'n') "; } else { $filterSql .= " AND (version.active != 'n' AND feature.active = 's') "; }
 
 						$sql_search = "SELECT feature.id as id, version.id as versionId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearModel desc, yearProduced desc";
 						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";

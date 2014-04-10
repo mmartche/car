@@ -94,7 +94,7 @@
 			</li>
 			<li class="subMenuLi">
 				<ul class="subMenu dropdown-menu" id="submenuClassificados">
-					<li><div class="arrow-submenu"></div><a href="http://carsale.uol.com.br/classificado/explorador" title="">Explorador</a></li>
+					<!-- <li><div class="arrow-submenu"></div><a href="http://carsale.uol.com.br/classificado/explorador" title="">Explorador</a></li> -->
 					<li><div class="arrow-submenu"></div><a href="http://carsale.uol.com.br/classificado/mega-oferta/" title="">Mega Oferta</a></li>
 				</ul>
 				<ul class="subMenu dropdown-menu" id="submenuEditorial">

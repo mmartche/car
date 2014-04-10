@@ -223,8 +223,8 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 			$and = " and ";
 		}
 		$filterItems .= ($filterItems != "" ? ")" : ""); 
-		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version, manufacturer WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and (version.active ='s' or version.active != 'n') ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by manufacturerName, model.name ";
-		//echo $sqlFilter;
+		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version, manufacturer WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and (version.active = 's')  ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by manufacturerName, model.name ";
+		// echo $sqlFilter;
 		$queryFilter = mysql_query($sqlFilter) or die ($sqlFilter.mysql_error()."error #240");
 		if (mysql_num_rows($queryFilter) > 0) {
 			while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
@@ -233,6 +233,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 				<?
 				if (file_exists("../carImages/".$resFilter[picture])) {
 					$picture = "../carImages/".$resFilter[picture];
+					http://localhost/carsale/carImages/Chana%20motors-Chana%20Utility-testes-.jpg_p.jpg
 				} elseif (file_exists("http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif")) {
 					$picture = "http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif";
 				} elseif (file_exists("http://carsale.uol.com.br/foto/".$resFilter[picture]."_g.jpg")) {

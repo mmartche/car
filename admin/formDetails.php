@@ -10,7 +10,7 @@ function logData ($info,$line,$type){
 	$fileLog = "logData.txt";
 	$contentFile = $info;
 	file_put_contents($fileLog, $contentFile,FILE_APPEND);
-	echo $contentFile;
+	// echo $contentFile;
 }
 $dateNow = date('l jS \of F Y h:i:s A');
 logData("
@@ -23,11 +23,8 @@ logData("
 	vehicle: ".$_GET[vehicle]."
 	category: ".$_GET[category]."
 	action: ".$_GET[action]."
-	timestamp: ."$_GET[timestamp]."
+	timestamp: .".$_GET[timestamp]."
 	");
-
-
-vehicle=11258&category=feature&action=update&timestamp=1690986108
 
 ?>
 <!DOCTYPE html>
@@ -223,8 +220,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 		<div class="dateUpdate">Atualizado em: <?=$res[dateUpdate]?></div>
 		<form action="scripts/updateDBFeature.php" method="post" onsubmit="return checkFields(this)" enctype="multipart/form-data">
 		<?
-		$actionType = ((mysql_num_rows($query_search) > 0) && ($_GET[action] != "clone") ? "update" : "new");
-		//$actionType = $_GET[action];
+		// $actionType = ((mysql_num_rows($query_search) > 0) && ($_GET[action] != "clone") ? "update" : "new");
+		$actionType = $_GET[action];
 		?>
 		<input type="hidden" class="text" name="action" id="action" value="<?=$actionType?>" placeholder="action" />
 		<? if ($_GET[action] == "clone") { $fetId = 0; } else { $fetId = $res[featureId]; } ?>
@@ -274,8 +271,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						</select>
 					</span><br />
 					<span><label>Modelo:</label>
-						<input type="text" name="modelName" value="<?=$res[modelName]?>" />
-						<!--select id="modelName" >
+						<!-- <input type="text" name="modelName" value="<?=$res[modelName]?>" /> -->
+						<select id="modelName" >
 							<? if ($res[modelName]) {
 								$sqlMod = "SELECT id, name from model where idManufacturer = '".$res[manufacturerId]."' order by name";
 							    $queryMod = mysql_query($sqlMod);
@@ -284,7 +281,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						    	<option value="<?=$resMod[id]?>" <? if ($resMod[name] == $res[modelName]) echo "selected=selected"; ?>><?=utf8_encode($resMod[name])?></option>
 								<? } 
 							} ?>
-						</select-->
+						</select>
 					</span><br />
 					<?
 					$flagSeg=0;
@@ -387,8 +384,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						</select>
 					</span><br />
 					<span><label>Versão:</label>
-						<input type="text" name="versionName" value="<?=$res[versionName]?>" />
-						<!--select  id="versionName">
+						<!-- <input type="text" name="versionName" value="<?=$res[versionName]?>" /> -->
+						<select  id="versionName">
 							<? if ($res[versionName]) { 
 								$sqlVer = "SELECT id, name from version where idModel = '".$res[modelId]."' order by name";
 							    $queryVer = mysql_query($sqlVer);
@@ -397,7 +394,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 									<option value="<?=$res[versionId]?>" <? if ($resVer[name] == $res[versionName]) echo "selected=selected"; ?> ><?=utf8_encode($res[versionName])?></option>
 								<? } 
 							} ?>
-						</select-->
+						</select>
 					</span><br />
 					<span><label>Descrição:</label><textarea name="description" id="txtDescription"><?=$res[description]?></textarea></span>
 					<?
@@ -953,12 +950,13 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 								// $bgImgPicture = 'style="background-image:url(\'../carImages/'.$res[picture].'\')"'; 
 							} ?>
 							<?
-							if (file_exists("../carImages/".$res[picture])) {
-			                    $picture = "../carImages/".$res[picture];
-			                } elseif (file_exists("http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg")) {
-			                    $picture = "http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg";
+							
+							if (file_exists("../carImages/".utf8_encode($res[picture]))) {
+			                    $picture = "../carImages/".utf8_encode($res[picture]);
+			                } elseif (file_exists("http://carsale.uol.com.br/foto/".utf8_encode($res[picture])."_g.jpg")) {
+			                    $picture = "http://carsale.uol.com.br/foto/".utf8_encode($res[picture])."_g.jpg";
 			                } else {
-			                    $picture = "http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg";
+			                    $picture = "http://carsale.uol.com.br/foto/".utf8_encode($res[picture])."_g.jpg";
 			                }
 			                ?>
 							<textarea class="image-preview" disabled="disabled" <?=$bgImgPicture?>></textarea>

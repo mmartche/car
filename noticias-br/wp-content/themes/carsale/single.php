@@ -4,7 +4,9 @@
 <?php if (have_posts()): while(have_posts()): the_post(); ?>
 <div class="content">
 	<div class="columnMiddle">
-	<?php if (is_category('blog')) { ?>
+	<?php $categories = get_the_category(); ?>
+	<?php foreach ($categories as $category) : ?>		
+	<?php if ($category->slug == "blog") { ?>
 		<div class="headerBlog"><h1>header blog</h1></div>
 	<?php } else { ?>
 	<h2 class="title-page">
@@ -12,6 +14,7 @@
 		<span class="title-name"><?php the_category(); ?></span>
 	</h2>
 	<?php } ?>
+	<?php endforeach; ?>
 		<article <?php post_class();?>>
 			<h2 class="post-title"><?php the_title(); ?></h2>
 			<?php  if (has_excerpt() ) { ?>
@@ -275,7 +278,7 @@
 						<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ) { ?>
 							<div class="read-more-thumb imgHover">
-								<?php the_post_thumbnail(array(170,100)); ?>
+								<?php the_post_thumbnail(array('thumbnail')); ?>
 							</div>
 							<?php } ?>
 							<div class="read-more-text">
@@ -318,7 +321,7 @@
 						<h3 class="read-more-name"><a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ) { ?>
 							<div class="read-more-thumb imgHover">
-								<?php the_post_thumbnail(array(170,100)); ?>
+								<?php the_post_thumbnail(array('thumbnail')); ?>
 							</div>
 							<?php } ?>
 							<div class="read-more-text">

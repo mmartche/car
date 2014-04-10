@@ -47,14 +47,23 @@ function addFilter (obj,idModel,idVersion,place) {
         // console.log('888888',data[0].response);
         if(data[0].response == "true"){
             //count cars showed
-
-
+            pictureResult="";
+            var image_url_jpg = data[0].picture.indexOf(".jpg"),
+            image_url_png = data[0].picture.indexOf(".png"),
+            image_url_gif = data[0].picture.indexOf(".gif"),
+            image_old_g_gif = "http://carsale.uol.com.br/images/ofertas/"+data[0].picture+"_g.gif",
+            image_old_p_jpg = "http://carsale.uol.com.br/foto/"+data[0].picture+"_p.jpg";
+            if (image_url_png > 0 || image_url_jpg > 0 || image_url_gif > 0) {
+                pictureResult = "../carImages/"+data[0].picture;
+            } else {
+                pictureResult = "http://carsale.uol.com.br/foto/"+data[0].picture+"_p.jpg";
+            }
             if ($(obj).attr("id") == "optVersion") { carsLength--; }
             var divTitleCar = '<div class="exploradorTabelaGridCarro veiculo'+carsLength+'" idli="'+data[0].modelId+'">'+
                 '<div class="exploradorTabelaGridCarroOculta"></div>'+
                 '<div class="excluirComparacao" id="excluirComparacao'+carsLength+'" onclick="excluirComparacao(this,\''+data[0].modelId+'\')" >x</div>'+
                 '<div class="exploradorTabelaCarroNumeracao">'+carsLength+'</div>'+
-                '<div class="exploradorTabelaCarroImg"><img alt="'+data[0].modelName+'" title="'+data[0].modelName+'" src="http://carsale.uol.com.br/foto/'+data[0].picture+'_p.jpg"></div>'+
+                '<div class="exploradorTabelaCarroImg"><img alt="'+data[0].modelName+'" title="'+data[0].modelName+'" src="'+pictureResult+'"></div>'+
                 '<div class="exploradorTabelaCarroModelo">'+data[0].modelName+'</div>'+
                 '<div class="exploradorTabelaCarroValor">R$ '+data[0].price+'</div>'+
                 '<div class="exploradorOptVersion"><select id="optVersion" onchange="addFilter(this,\''+data[0].modelId+'\',\''+data[0].versionId+'\',\''+carsLength+'\')"><option value="0">'+data[0].versionName+'</option>';
