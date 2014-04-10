@@ -337,7 +337,7 @@ padding: 0 20px 10px;
 	margin-bottom: 20px;
 }
 .hideAuthorCustomPost .post-meta-key {
-	display: none;
+	/*display: none;*/
 }
 .news-content {
 	font-size: 15px;
@@ -628,7 +628,7 @@ padding: 0 20px 10px;
 	font-size: 13px;
 }
 .read-more-text {
-	height: 60px;
+	height: 70px;
 	padding-top: 3px;
 	font-weight: bold;
 	font-size: 12px;

@@ -28,16 +28,16 @@
 				$dataHojeDia = '10';
 				$dataHojeMes = '04';
 				$dataHojeAno = '2014';
-				$dataHojeHora = '15';
+				$dataHojeHora = '14';
 				$dataMatDia = get_the_date('d');
 				$dataMatMes = get_the_date('m');
 				$dataMatAno = get_the_date('Y');
 				$dataMatHora = get_the_date('H');
 				$validaCustomAuthorPostByDate = "";
-				if ($dataHojeAno >= $dataMatAno) {
-					if ($dataHojeMes >= $dataMatMes) {
-						if ($dataHojeDia >= $dataMatDia) {
-							if ($dataHojeHora >= $dataMatHora) {
+				if ($dataHojeAno <= $dataMatAno) {
+					if ($dataHojeMes <= $dataMatMes) {
+						if ($dataHojeDia <= $dataMatDia) {
+							if ($dataHojeHora <= $dataMatHora) {
 								$validaCustomAuthorPostByDate = "hideAuthorCustomPost";
 							}
 						}

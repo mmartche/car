@@ -1,402 +1,2914 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://localhost/carsale/noticias-br/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.8" -->
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://localhost:8888/carsale/noticias-br/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.8" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.4" -->
-<!-- generated-on="9 de April de 2014 19:37" -->
-<!-- Debug: Total comment count: 0 -->
+<!-- generated-on="10/04/2014 19h00" -->
+<!-- Debug: Total comment count: 1 -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
-		<loc>http://localhost/carsale/noticias-br/</loc>
-		<lastmod>2014-04-09T19:36:54+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/</loc>
+		<lastmod>2014-04-10T18:56:07+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
 	</url>
 <!-- Debug: Start Postings -->
-<!-- Debug: Priority report of postID 12431: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 14073: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2014/03/16/mmm/</loc>
-		<lastmod>2014-04-09T19:36:54+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/04/10/fdgdfgdf/</loc>
+		<lastmod>2014-04-10T18:56:07+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11495: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 1: Comments: 1 of 1 = 1 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/testes/2013/08/12/quatro-bons-motivos-para-o-sucesso-dos-carros-hibridos-e-eletricos/</loc>
-		<lastmod>2014-03-26T04:21:47+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/sem-categoria/2014/03/22/ola-mundo/</loc>
+		<lastmod>2014-03-23T17:37:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>1.0</priority>
+	</url>
+<!-- Debug: Priority report of postID 14064: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/21/segundo-concessionarias-chevrolet-onix-lollapalooza-custara-r-41-890/</loc>
+		<lastmod>2014-03-23T17:28:52+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11457: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 14034: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/testes/2013/08/03/artigo-carro-eletrico-nao-e-aposta-e-certeza/</loc>
-		<lastmod>2014-03-26T02:27:27+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/03/21/classico-honda-civic-vti-a-receita-niponica-de-diversao/</loc>
+		<lastmod>2014-03-22T21:50:31+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11703: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 12920: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/segredos/2013/09/19/encontro-confirma-o-baixo-interesse-do-brasil-por-veiculos-eletricos/</loc>
-		<lastmod>2014-03-21T21:59:40+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/20/citroen-c3-tem-revisao-a-preco-fixo-ate-os-60-mil-km/</loc>
+		<lastmod>2014-03-22T21:07:15+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 12393: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13484: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/videos/2014/02/13/nissan-leaf-domina-setor-de-eletricos-na-europa/</loc>
-		<lastmod>2014-03-21T21:41:29+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/28/economia-e-o-forte-do-vw-up/</loc>
+		<lastmod>2014-03-22T18:54:20+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11399: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13418: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2013/07/24/ford-tem-futuro-promissor-com-carros-eletricos/</loc>
-		<lastmod>2014-03-13T14:23:24+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/03/06/quer-comprar-um-up-saiba-quanto-custa-o-seguro/</loc>
+		<lastmod>2014-03-22T18:52:38+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11426: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13310: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2013/07/28/bmw-lanca-primeiro-eletrico-nesta-segunda-feira/</loc>
-		<lastmod>2014-03-13T14:23:18+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11433: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2013/07/30/montadoras-japonesas-unem-forcas-por-eletricos/</loc>
-		<lastmod>2014-03-13T14:23:14+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11591: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2013/08/30/carro-eletrico-em-questao-tem-gente-olhando-o-binoculo-pelo-lado-contrario/</loc>
-		<lastmod>2014-03-13T14:23:11+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11726: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2013/09/23/carros-eletricos-terao-recarga-gratis-na-franca/</loc>
-		<lastmod>2014-03-13T14:23:03+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11751: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2013/09/29/renault-investe-em-carros-eletricos-no-brasil/</loc>
-		<lastmod>2014-03-13T14:22:57+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 12300: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/blog/2014/01/23/nissan-vende-100-mil-unidades-do-leaf/</loc>
-		<lastmod>2014-03-13T14:22:52+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 12266: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2014/01/14/toyota-confirma-lancamento-de-carro-movido-a-hidrogenio-para-2015/</loc>
-		<lastmod>2014-03-13T14:16:01+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11631: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/videos/2013/09/06/oslo-bate-recorde-mundial-de-carros-eletricos-reunidos/</loc>
-		<lastmod>2014-03-09T17:25:58+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11331: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/10/brasil-podera-abrir-as-portas-para-os-eletricos/</loc>
-		<lastmod>2014-03-09T17:25:21+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11330: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/10/nissan-ampliara-pontos-de-recarga-rapida-nos-eua/</loc>
-		<lastmod>2014-03-09T17:25:21+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11336: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/11/china-aposta-em-aluguel-e-venda-de-carros-eletricos/</loc>
-		<lastmod>2014-03-09T17:25:21+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11496: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/08/12/novo-chevrolet-volt-podera-rodar-ate-96-km-em-modo-totalmente-eletrico/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11395: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/23/renault-nissan-100-mil-eletricos-vendidos/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11368: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/18/carros-eletricos-vao-dominar-os-eua-em-12-anos/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
-	</url>
-<!-- Debug: Priority report of postID 11364: Comments: 0 of 0 = 0 points -->
-	<url>
-		<loc>http://localhost/carsale/noticias-br/classicos/2013/07/17/toyota-gm-e-vw-a-um-passo-da-lideranca-global/</loc>
-		<lastmod>2014-03-09T17:25:20+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/03/07/central-multimidia-apresenta-falha/</loc>
+		<lastmod>2014-03-22T18:51:41+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
 	<url>
-		<loc>http://localhost/carsale/noticias-br/album/</loc>
-		<lastmod>2014-03-04T15:41:52+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/pagina-exemplo/</loc>
+		<lastmod>2014-03-22T17:29:01+00:00</lastmod>
 		<changefreq>weekly</changefreq>
 		<priority>0.6</priority>
 	</url>
-<!-- Debug: Priority report of postID 10124: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 14063: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/10/31/chevrolet-sera-lider-em-eletricos-diz-estudo/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/21/bmw-lanca-primeiro-serie-4-no-brasil/</loc>
+		<lastmod>2014-03-21T20:50:06+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10963: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 14055: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/04/30/por-que-o-carro-eletrico-ainda-nao-pegou/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/21/bentley-antecipa-suv-em-imagem-teaser/</loc>
+		<lastmod>2014-03-21T15:41:23+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11302: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 14045: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/07/04/setor-tentara-manter-o-crescimento-no-2º-semestre/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/21/google-homenageia-ayrton-senna/</loc>
+		<lastmod>2014-03-21T14:07:48+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11289: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 14024: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/07/02/honda-e-gm-se-unem-por-celulas-de-combustivel/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/03/20/ford-relanca-picape-ranger-sport-por-r-67-990/</loc>
+		<lastmod>2014-03-20T21:09:46+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11247: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 14016: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/24/celula-de-combustivel-e-coisa-do-futuro/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/03/20/volvo-v40-cross-country-pede-r-141-500-pela-proposta-aventureira/</loc>
+		<lastmod>2014-03-20T20:00:07+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11206: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 14008: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/17/ford-comemora-sucesso-da-frenagem-regenerativa/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/20/novo-bentley-flying-spur-chega-ao-brasil-por-quase-r-15-milhao/</loc>
+		<lastmod>2014-03-20T17:45:58+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11201: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13995: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/15/ford-reduz-em-37-emissoes-por-veiculo-produzido/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/20/museu-da-toyota-faz-25-aniversarios-e-ganha-exposicao/</loc>
+		<lastmod>2014-03-20T17:21:48+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11190: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13978: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/13/montadoras-dominam-ranking-de-empresas-&amp;quotverdes&amp;quot/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/20/policia-de-los-angeles-e-reforcada-por-lamborghini-gallardo/</loc>
+		<lastmod>2014-03-20T16:30:19+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11184: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13979: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/12/nissan-esta-entre-as-10-mais-&amp;quotverdes&amp;quot-do-mundo/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/20/citroen-ds3-especial-e-cor-de-rosa/</loc>
+		<lastmod>2014-03-20T15:17:56+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10707: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13962: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/03/12/carro-eletrico-quem-tem-a-palavra-final/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/19/porsche-adiciona-boxster-e-cayman-linha-gts/</loc>
+		<lastmod>2014-03-19T21:55:30+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10634: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13950: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/02/26/&amp;quotoceano-azul&amp;quot-para-veiculos-eletricos/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/2014/03/19/renovado-toyota-corolla-encara-honda-civic-na-versao-de-entrada-2/</loc>
+		<lastmod>2014-03-19T13:41:09+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10411: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13941: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/01/10/eletricos-serao-38-milhoes-em-uma-decada/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/03/19/volvo-v40-cross-country-estreia-por-r-141-500-2/</loc>
+		<lastmod>2014-03-19T13:02:49+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10371: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13919: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/01/02/dez-motivos-para-apoiarmos-os-veiculos-eletricos/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/18/renault-kangoo-chega-a-linha-2015-por-r-40-850/</loc>
+		<lastmod>2014-03-18T21:39:12+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10215: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13909: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/11/22/liderancas-globais-e-a-evolucao-dos-carros-eletricos/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/18/raro-mercedes-benz-300-sl-amg-vai-a-leilao-em-monaco/</loc>
+		<lastmod>2014-03-18T21:22:36+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10176: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13895: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/11/13/toyota-e-a-marca-&amp;quoteco-amigavel&amp;quot-do-ano/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/18/jac-j3-e-j3-turin-ganham-motor-1-5-flex/</loc>
+		<lastmod>2014-03-18T19:30:25+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10106: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13875: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/10/28/vendas-de-hibridos-da-toyota-lexus-crescem-120/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/03/18/chery-lanca-tiggo-automatico-e-aposta-no-preco/</loc>
+		<lastmod>2014-03-18T17:06:26+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10038: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13861: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/10/09/vendas-de-eletricos-e-hibridos-crescem-231/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/03/18/range-rover-evoque-2014-inova-e-melhora-com-cambio-de-9-marchas/</loc>
+		<lastmod>2014-03-18T15:59:41+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 9955: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13856: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/09/16/canada-lanca-programa-de-incentivo-para-eletricos/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/18/infiniti-anuncia-hibrido-com-mais-de-700-cv/</loc>
+		<lastmod>2014-03-18T13:19:43+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 9906: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13849: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/09/03/o-que-voce-pensa-da-mobilidade-eletrica/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/18/porsche-ira-substituir-todos-os-motores-do-modelo-911-gt3/</loc>
+		<lastmod>2014-03-18T12:46:18+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 9796: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13831: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/08/07/eletricos-troca-rapida-de-bateria-pode-ser-a-solucao/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/17/peugeot-lanca-serie-especial-do-207-sedan/</loc>
+		<lastmod>2014-03-17T21:05:21+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10717: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13822: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/03/16/cenario-&amp;quotverde&amp;quot-europa-reve-as-metas-climaticas/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/17/patentes-da-nova-renault-espace-sao-divulgadas/</loc>
+		<lastmod>2014-03-17T19:36:38+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10761: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13796: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/03/25/o-melhor-lugar-do-mundo-para-ter-carros-eletricos/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/17/caso-de-incendio-da-porsche-sera-resolvido-nos-proximos-dias/</loc>
+		<lastmod>2014-03-17T15:48:01+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11177: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13778: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/12/ford-comeca-a-produzir-focus-eletrico-na-europa/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/17/grupo-vw-quer-vender-10-milhoes-de-veiculos-ainda-em-2014/</loc>
+		<lastmod>2014-03-17T13:58:13+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11165: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13761: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/06/10/baterias-de-ions-de-litio-ficarao-mais-eficientes/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/16/renault-comemora-a-marca-de-3-milhoes-de-motores-feitos-no-brasil/</loc>
+		<lastmod>2014-03-16T18:21:43+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11117: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13742: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/05/30/carros-verdes-e-os-beneficios-para-a-saude/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/15/bmw-m4-cabrio-sera-revelado-no-salao-de-nova-york/</loc>
+		<lastmod>2014-03-15T14:58:04+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11078: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13749: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/05/26/eletricos-e-hibridos-ja-mostram-avancos-nas-vendas/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/14/o-inimigo-que-saiu-pelo-cano/</loc>
+		<lastmod>2014-03-14T19:27:19+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11082: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13681: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/05/24/londres-e-hong-kong-terao-taxis-eletricos-da-byd/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/14/novo-mini-cooper-ja-tem-preco-na-inglaterra/</loc>
+		<lastmod>2014-03-14T14:49:15+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 11050: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13675: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/05/21/sao-paulo-sediara-salao-de-veiculos-eletricos-/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/03/14/classico-ford-taurus-a-viatura-de-nova-york/</loc>
+		<lastmod>2014-03-14T14:40:45+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10946: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13548: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/04/26/brasil-da-poucos-incentivos-fiscais-a-politica-&amp;quotverde&amp;quot/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/03/13/chery-tiggo-automatico-chega-por-r-57-990/</loc>
+		<lastmod>2014-03-13T17:02:25+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10933: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13554: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/04/24/toyota-prius-e-nissan-leaf-&amp;quotverdes&amp;quot-bem-sucedidos/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/03/13/com-cambio-de-nove-marchas-range-rover-evoque-2014-chega-a-partir-de-r-192-mil/</loc>
+		<lastmod>2014-03-13T16:01:33+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10930: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13563: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/04/23/volvo-c30-pode-ser-totalmente-carregado-em-1h30/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/13/ferrari-anuncia-parque-tematico-na-espanha/</loc>
+		<lastmod>2014-03-13T15:03:06+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10884: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13571: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/04/13/toyota-lidera-mercado-de-hibridos-com-folga/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/12/novo-toyota-corolla-maior-melhor-e-mais-caro/</loc>
+		<lastmod>2014-03-12T22:00:23+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 10830: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13582: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2013/04/03/eis-a-questao-carro-eletrico-e-solucao-ou-ilusao/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/12/hyundai-lancara-seu-primeiro-eletrico-em-2016/</loc>
+		<lastmod>2014-03-12T15:04:41+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
-<!-- Debug: Priority report of postID 9767: Comments: 0 of 0 = 0 points -->
+<!-- Debug: Priority report of postID 13587: Comments: 0 of 1 = 0 points -->
 	<url>
-		<loc>http://localhost/carsale/noticias-br/sem-categoria/2012/07/31/eletricos-estao-nos-jogos-olimpicos-de-londres/</loc>
-		<lastmod>1999-11-30T00:00:00+00:00</lastmod>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/12/audi-inicia-ano-na-lideranca-do-mercado-de-luxo/</loc>
+		<lastmod>2014-03-12T13:27:30+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13594: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/11/citroen-divulga-preco-do-novo-c1-na-europa/</loc>
+		<lastmod>2014-03-11T19:12:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13023: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/03/11/novo-toyota-corolla-estreia-por-r-66-570/</loc>
+		<lastmod>2014-03-11T18:41:41+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12942: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/11/10-dicas-para-conservar-a-pintura-do-seu-carro/</loc>
+		<lastmod>2014-03-11T14:20:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12945: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/11/novo-bugatti-legends-vaza-na-internet/</loc>
+		<lastmod>2014-03-11T13:24:59+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12948: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/11/tire-suas-duvidas-sobre-o-seguro-dpvat/</loc>
+		<lastmod>2014-03-11T12:02:08+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12952: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/10/evento-de-classicos-no-anhembi-reestreia-dia-18/</loc>
+		<lastmod>2014-03-10T21:37:04+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12955: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/10/nissan-frontier-ganha-serie-especial-platinum/</loc>
+		<lastmod>2014-03-10T20:15:35+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12959: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/10/mini-cogita-deixar-de-produzir-versoes-cupe-e-roadster-do-cooper-e-o-crossover-paceman/</loc>
+		<lastmod>2014-03-10T15:40:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12963: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/10/opel-astra-tera-nova-plataforma-propria/</loc>
+		<lastmod>2014-03-10T14:53:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12966: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/10/land-rover-freelander-ganhara-atualizacao/</loc>
+		<lastmod>2014-03-10T13:38:08+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12969: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/09/ultimo-neto-de-henry-ford-morre-aos-88-anos/</loc>
+		<lastmod>2014-03-09T23:05:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12972: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/08/jaguar-xk-deixara-de-ser-produzido-em-2014/</loc>
+		<lastmod>2014-03-08T19:52:59+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12844: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2014/03/07/chrysler-destroi-93-prototipos-do-dodge-viper/</loc>
+		<lastmod>2014-03-07T21:37:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13603: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/07/objetos-soltos-viram-armas-no-banco-do-carro/</loc>
+		<lastmod>2014-03-07T20:57:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13609: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/07/porsche-911-carrera-ganha-pacote-da-topcar/</loc>
+		<lastmod>2014-03-07T16:29:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13614: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/07/novo-jeep-wrangler-podera-ter-capota-eletrica/</loc>
+		<lastmod>2014-03-07T16:01:56+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12784: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/03/07/classico-vectra-gsi-o-mais-rapido-de-sua-era/</loc>
+		<lastmod>2014-03-07T14:49:23+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13619: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/07/nova-ford-super-duty-tera-motor-mais-potente/</loc>
+		<lastmod>2014-03-07T12:20:59+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13624: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/06/brabus-mostra-serie-especial-do-smart-fortwo/</loc>
+		<lastmod>2014-03-06T21:07:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13628: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/06/mercedes-benz-e-a-marca-de-carro-mais-famosa-no-facebook/</loc>
+		<lastmod>2014-03-06T19:25:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13635: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/06/jeep-renegade-sera-o-primeiro-modelo-da-fiat-chrysler-automobiles-a-ser-produzido-em-pe/</loc>
+		<lastmod>2014-03-06T18:17:55+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13640: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/06/chevrolet-classic-advantage-sai-por-r-34-170/</loc>
+		<lastmod>2014-03-06T17:46:25+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13644: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/06/honda-apresenta-civic-black-edition/</loc>
+		<lastmod>2014-03-06T14:55:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13648: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/06/venda-de-veiculos-fecha-em-alta-no-primeiro-bimestre-de-2014/</loc>
+		<lastmod>2014-03-06T13:40:30+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13472: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/03/05/tipicamente-urbano-vw-up-tem-dirigibilidade-bem-acertada/</loc>
+		<lastmod>2014-03-05T22:21:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13652: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2014/03/05/elon-musk-o-henry-ford-do-seculo-xxi/</loc>
+		<lastmod>2014-03-05T21:24:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12848: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2014/03/05/russos-criam-carro-gigante/</loc>
+		<lastmod>2014-03-05T20:49:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13656: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/05/divulgada-a-lista-de-finalistas-do-world-car-of-the-year-2014/</loc>
+		<lastmod>2014-03-05T20:12:18+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13660: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/05/audi-registra-recorde-de-vendas-no-brasil/</loc>
+		<lastmod>2014-03-05T19:25:58+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13665: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/05/ford-inicia-as-vendas-do-new-fiesta-brasileiro-no-mercado-argentino/</loc>
+		<lastmod>2014-03-05T18:48:38+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12466: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/05/land-rover-anuncia-novo-modelo-para-2015/</loc>
+		<lastmod>2014-03-05T14:56:22+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/pagina-exemplo-2/</loc>
+		<lastmod>2014-03-05T03:12:10+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.6</priority>
+	</url>
+<!-- Debug: Priority report of postID 12421: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/04/jeep-mostra-o-renegade-em-genebra/</loc>
+		<lastmod>2014-03-04T18:13:05+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12429: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/04/bugatti-mostra-mais-um-veyron-legend-edition/</loc>
+		<lastmod>2014-03-04T14:07:32+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12438: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/03/revista-norte-americana-publica-lista-com-os-automoveis-a-serem-evitados/</loc>
+		<lastmod>2014-03-03T22:02:47+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12441: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/03/volvo-cars-entra-na-onda-da-apple/</loc>
+		<lastmod>2014-03-03T20:17:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12444: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/03/novo-audi-tt-mais-moderno-potente-e-leve/</loc>
+		<lastmod>2014-03-03T20:12:55+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12448: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/02/melhores-da-semana-confira-tudo-o-que-rolou-no-mundo-automotivo/</loc>
+		<lastmod>2014-03-02T17:52:38+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13479: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/03/01/volkswagen-white-up-vai-as-compras/</loc>
+		<lastmod>2014-03-02T01:53:32+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12453: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/03/01/nissan-desenvolve-retrovisor-com-tela-de-lcd/</loc>
+		<lastmod>2014-03-01T12:53:38+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12456: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/02/28/vw-ja-oferece-pacote-r-line-para-o-fusca/</loc>
+		<lastmod>2014-02-28T20:57:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12460: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2014/02/28/mustang-esta-no-comercial-do-need-for-speed/</loc>
+		<lastmod>2014-02-28T19:22:54+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12463: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/02/28/bellote-da-dicas-de-direcao-a-bordo-de-uma-ferrari-f355/</loc>
+		<lastmod>2014-02-28T13:10:08+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13419: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2014/02/25/jac-t6-testamos-o-novo-rival-do-eco-e-ix35/</loc>
+		<lastmod>2014-02-25T18:47:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13495: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/25/precos-do-vw-up-vao-de-r-26-900-a-r-39-390/</loc>
+		<lastmod>2014-02-25T16:02:14+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13501: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/24/o-que-esse-tal-de-up-tem/</loc>
+		<lastmod>2014-02-24T15:59:08+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13505: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/23/vw-up-inicia-maratona-no-alta-rodagem/</loc>
+		<lastmod>2014-02-23T19:14:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12895: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/20/citroen-c3-exclusive-at-chega-ao-fim-do-teste/</loc>
+		<lastmod>2014-02-21T00:44:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12923: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/18/confira-o-consumo-do-c3-no-teste-carsale-maua/</loc>
+		<lastmod>2014-02-18T21:02:05+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12927: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/18/preco-do-seguro-c3-e-concorrentes/</loc>
+		<lastmod>2014-02-18T16:07:08+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12930: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/17/um-dos-principais-destaques-do-c3-para-brisa-panoramico-custa-caro-para-reparar/</loc>
+		<lastmod>2014-02-17T17:37:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12706: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2014/02/14/flagra-fiat-realiza-testes-do-500l-novo-ducato-e-alfa-romeo-4c-no-brasil/</loc>
+		<lastmod>2014-02-14T15:44:33+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12398: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/02/14/volta-rapida-conheca-o-novo-jac-t8/</loc>
+		<lastmod>2014-02-14T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13192: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/02/14/classico-zr1-o-mais-brutal-dos-corvettes/</loc>
+		<lastmod>2014-02-14T13:32:06+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12933: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/13/citroen-c3-vai-muito-bem-na-cidade-mas-consumo-assusta/</loc>
+		<lastmod>2014-02-13T20:08:52+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12787: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2014/02/13/nissan-leaf-domina-setor-de-eletricos-na-europa/</loc>
+		<lastmod>2014-02-13T14:30:25+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12936: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/12/por-dentro-do-citroen-c3/</loc>
+		<lastmod>2014-02-12T23:42:27+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13260: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/12/renovado-c3-traz-motores-da-geracao-anterior/</loc>
+		<lastmod>2014-02-12T16:17:58+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13432: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2014/02/12/novo-golf-arrasa-na-pista-em-90-segundos/</loc>
+		<lastmod>2014-02-12T13:19:02+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12855: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2014/02/11/ser-braco-ou-nao-ser-eis-a-questao/</loc>
+		<lastmod>2014-02-11T20:50:06+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12384: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/02/11/jac-lanca-van-t8-por-r-114-990/</loc>
+		<lastmod>2014-02-11T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13273: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/10/o-que-curtimos-e-descurtimos-no-c3/</loc>
+		<lastmod>2014-02-10T21:48:53+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13287: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/10/novo-c3-acaba-com-as-piadinhas-machistas/</loc>
+		<lastmod>2014-02-10T18:58:09+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12371: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/02/08/primeiras-voltas-vw-up-chega-para-causar/</loc>
+		<lastmod>2014-02-08T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13300: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2014/02/07/citroen-c3-exclusive-estreia-no-alta-rodagem/</loc>
+		<lastmod>2014-02-07T15:15:23+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13210: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/02/07/classico-del-rey-ghia-andamos-na-ultima-versao-topo-de-linha-do-seda/</loc>
+		<lastmod>2014-02-07T12:46:14+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12357: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/02/05/vw-revela-os-precos-de-todas-as-versoes-do-up/</loc>
+		<lastmod>2014-02-05T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12355: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/02/04/vw-up-parte-de-r-26-900/</loc>
+		<lastmod>2014-02-04T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12353: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/02/04/ford-ja-vende-ranger-sport-a-partir-de-r-67-190/</loc>
+		<lastmod>2014-02-04T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12860: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2014/02/03/artista-cria-obra-ousada-com-luzes-de-farois-de-carro/</loc>
+		<lastmod>2014-02-03T20:50:55+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13213: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/01/31/audi-rs2-uniao-de-porsche-e-audi-deu-origem-a-um-mito/</loc>
+		<lastmod>2014-01-31T16:35:54+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13438: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2014/01/30/audi-a3-sedan-conheca-tudo-em-90-segundos/</loc>
+		<lastmod>2014-01-30T19:04:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12324: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/01/30/jeep-grand-cherokee-2014-chega-com-cambio-de-oito-marchas-a-partir-de-r-185-900/</loc>
+		<lastmod>2014-01-30T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12746: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/2014/01/29/teste-toyota-se-aventura-na-selva-urbana-com-o-etios-cross/</loc>
+		<lastmod>2014-01-29T19:53:40+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12714: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2014/01/28/novo-renault-sandero-e-flagrado-em-curitiba/</loc>
+		<lastmod>2014-01-28T20:37:27+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12719: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2014/01/27/jac-t6-e-surpreendido-sem-disfarces-em-sp/</loc>
+		<lastmod>2014-01-27T19:14:29+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12309: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/01/27/vw-revela-detalhes-do-up-nacional-conheca-o-novo-carro-de-entrada-da-marca-no-brasil/</loc>
+		<lastmod>2014-01-27T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13230: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/01/24/classico-gol-gti-com-mecanica-audi-e-350-cv-um-quadrado-nervoso/</loc>
+		<lastmod>2014-01-24T14:18:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12790: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2014/01/23/nissan-vende-100-mil-unidades-do-leaf/</loc>
+		<lastmod>2014-01-23T15:02:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12298: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/01/22/mercedes-benz-cla200-chega-por-r-150-500-em-sua-edicao-de-lancamento/</loc>
+		<lastmod>2014-01-23T01:25:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13088: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/01/22/geely-ec7-quer-mudar-fama-de-chines-no-brasil/</loc>
+		<lastmod>2014-01-22T21:15:47+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13445: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2014/01/22/aprenda-o-passo-a-passo-de-como-recarregar-a-bateria-do-carro/</loc>
+		<lastmod>2014-01-22T16:27:32+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12294: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/01/22/mercedes-benz-cla-estreia-no-pais-por-r-150-500/</loc>
+		<lastmod>2014-01-22T13:28:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12291: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2014/01/21/geely-estreia-no-brasil-com-o-seda-ec7-que-custara-cerca-de-r-50-mil-segundo-a-marca/</loc>
+		<lastmod>2014-01-21T17:30:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13237: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/01/17/classico-monza-sr-o-hatch-com-tempero-esportivo-da-chevrolet-nos-anos-1980/</loc>
+		<lastmod>2014-01-17T13:30:05+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12864: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2014/01/15/casal-brasileiro-da-volta-ao-mundo-a-bordo-de-uma-kombi/</loc>
+		<lastmod>2014-01-15T20:50:39+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12723: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2014/01/15/novo-nissan-march-e-flagrado-em-curitiba/</loc>
+		<lastmod>2014-01-15T20:13:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12793: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2014/01/14/toyota-confirma-lancamento-de-carro-movido-a-hidrogenio-para-2015/</loc>
+		<lastmod>2014-01-14T22:42:24+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12729: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2014/01/14/suvinho-da-jac-t6-e-flagrado-em-testes/</loc>
+		<lastmod>2014-01-14T18:40:47+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13241: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/01/10/classico-porsche-911-celebra-50-anos-de-vida-em-grande-estilo/</loc>
+		<lastmod>2014-01-10T14:13:15+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12735: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2014/01/09/volkswagen-up-e-flagrado-na-grande-sao-paulo/</loc>
+		<lastmod>2014-01-09T17:08:06+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12755: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/2014/01/08/teste-visual-renovado-nao-disfarca-a-idade-do-projeto-do-chevrolet-agile/</loc>
+		<lastmod>2014-01-08T16:38:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13255: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2014/01/03/classico-gol-gt-completa-30-anos-como-um-dos-melhores-esportivos-nacionais/</loc>
+		<lastmod>2014-01-03T16:14:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12868: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2013/12/30/perseguicao-de-carros-na-russia-tem-final-tragicomico/</loc>
+		<lastmod>2013-12-30T20:50:42+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13271: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/12/27/classico-escort-xr3-o-esportivo-que-foi-sonho-de-consumo-no-brasil/</loc>
+		<lastmod>2013-12-27T13:07:25+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13276: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/12/20/classico-ford-thunderbird-o-carro-perfeito-para-ir-ao-drive-in/</loc>
+		<lastmod>2013-12-20T14:35:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13449: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/12/19/fiat-strada-tres-portas-mostra-em-90-segundos-que-sabe-como-facilitar-a-vida/</loc>
+		<lastmod>2013-12-19T20:07:11+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12874: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2013/12/17/chevrolet-camaro-pra-crianca-dirigir/</loc>
+		<lastmod>2013-12-17T20:50:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13317: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/12/13/classico-ferrari-360-modena-che-bella-macchina/</loc>
+		<lastmod>2013-12-13T15:35:51+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13455: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/12/11/aprenda-a-levar-o-pet-no-carro-de-forma-segura/</loc>
+		<lastmod>2013-12-11T12:45:42+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12877: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2013/12/06/ferrari-f50-em-camera-lenta-faz-voce-enlouquecer/</loc>
+		<lastmod>2013-12-06T20:50:53+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13318: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/12/06/classico-porsche-550-spyder-a-forca-do-mito/</loc>
+		<lastmod>2013-12-06T16:38:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13460: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/12/03/90-segundos-volvo-v40-r-design-esbanja-esportividade-e-seguranca/</loc>
+		<lastmod>2013-12-03T19:15:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12762: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/2013/12/02/teste-fiat-recheia-o-uno-com-a-serie-college/</loc>
+		<lastmod>2013-12-02T19:05:46+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13328: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/11/29/classico-ford-gt-andamos-no-mito-de-550-cv/</loc>
+		<lastmod>2013-11-29T14:04:53+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12740: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2013/11/28/novo-corolla-e-flagrado-em-rodovia-de-sp/</loc>
+		<lastmod>2013-11-28T21:17:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13466: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/11/27/nissan-altima-se-apresenta-em-90-segundos/</loc>
+		<lastmod>2013-11-27T16:37:47+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12887: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2013/11/25/motorista-sobrevive-a-acidente-a-300-kmh/</loc>
+		<lastmod>2013-11-25T22:14:56+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13478: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/11/22/novo-logan-mostra-evolucao-em-90-segundos/</loc>
+		<lastmod>2013-11-22T16:58:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13342: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/11/22/classico-com-motor-preparado-fiat-147-rallye-entrega-210-cv-de-potencia/</loc>
+		<lastmod>2013-11-22T13:48:48+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13343: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/11/15/classico-opala-ss-41-anos-sem-restauracao/</loc>
+		<lastmod>2013-11-15T15:12:42+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11978: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/11/13/citroen-lanca-c3-xbox-one-por-r-49-990/</loc>
+		<lastmod>2013-11-13T20:10:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11975: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/11/13/ford-mostra-o-novo-ka-global-na-bahia/</loc>
+		<lastmod>2013-11-13T16:13:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11962: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/11/11/nissan-altima-chega-por-r-99-800-para-acirrar-a-briga-entre-os-sedas-grandes/</loc>
+		<lastmod>2013-11-11T23:36:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12768: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/2013/11/11/teste-smart-fortwo-cabrio-e-conversivel-com-vocacao-urbana-mas-para-poucos/</loc>
+		<lastmod>2013-11-11T17:30:01+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13514: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/11/08/camaro-mudou-saiba-tudo-em-90-segundos/</loc>
+		<lastmod>2013-11-08T21:06:09+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13357: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/11/08/classico-chevrolet-omega-cd-absoluto-ha-20-anos/</loc>
+		<lastmod>2013-11-08T14:20:20+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11947: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/11/07/novo-range-rover-sport-mais-moderno-e-feroz/</loc>
+		<lastmod>2013-11-08T00:09:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11935: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/11/06/vestido-de-aventureiro-urbano-toyota-etios-cross-parte-de-r-45-690/</loc>
+		<lastmod>2013-11-06T11:23:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11931: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/11/05/mais-atraente-e-equipada-nova-geracao-do-renault-logan-parte-de-r-28-990/</loc>
+		<lastmod>2013-11-05T13:09:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13518: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/11/04/chevrolet-tracker-mostra-tudo-em-90-segundos/</loc>
+		<lastmod>2013-11-04T20:56:25+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13711: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/2013/10/30/teste-fiat-punto-blackmotion-exibe-ousadia-no-visual-mas-desempenho-e-comportado/</loc>
+		<lastmod>2013-10-30T22:20:01+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13526: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/10/28/90-segundos-reestilizado-peugeot-rcz-continua-sendo-garantia-de-sucesso-nas-ruas/</loc>
+		<lastmod>2013-10-28T19:48:58+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12890: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/blog/2013/10/25/espanhois-constroem-pequena-replica-do-ford-mustang-com-lego/</loc>
+		<lastmod>2013-10-25T22:35:30+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13364: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/10/25/classico-delorean-uma-maquina-do-tempo-nas-ruas-de-sao-paulo/</loc>
+		<lastmod>2013-10-25T16:01:50+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13019: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2013/10/25/dupla-de-vw-up-e-vista-rodando-em-testes/</loc>
+		<lastmod>2013-10-25T15:01:53+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13535: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/10/22/90-segundos-novo-focus-titanium-plus-traz-tudo-o-que-o-seda-tem-de-melhor/</loc>
+		<lastmod>2013-10-22T14:26:14+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11845: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/10/18/volvo-traz-ao-brasil-a-familia-r-design-2014/</loc>
+		<lastmod>2013-10-19T01:05:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13375: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/10/18/classico-dodge-charger-rt-o-muscle-car-definitivo/</loc>
+		<lastmod>2013-10-18T15:14:02+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11829: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/10/16/linha-2014-da-fiat-strada-traz-novidades-como-terceira-porta-lateral-a-partir-de-r-42-330/</loc>
+		<lastmod>2013-10-16T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11828: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/10/16/renovado-nissan-sentra-quer-lutar-pela-quarta-posicao-entre-os-sedas-medios/</loc>
+		<lastmod>2013-10-16T11:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13712: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/2013/10/14/comparativo-ford-new-fiesta-e-peugeot-208-se-enfrentam-com-motor-1-5-sob-o-capo/</loc>
+		<lastmod>2013-10-14T18:28:12+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11816: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/10/13/partindo-de-r-210-mil-chevrolet-camaro-fica-com-cara-de-mau-e-mais-equipado-na-linha-2014/</loc>
+		<lastmod>2013-10-13T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13383: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/10/11/classico-mustang-eleanor-acelera-em-sp/</loc>
+		<lastmod>2013-10-11T21:20:57+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13540: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/videos/2013/10/11/90-segundos-jac-j6-mudou-para-melhor/</loc>
+		<lastmod>2013-10-11T16:19:17+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11810: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/10/11/chevrolet-agile-chega-redesenhado-em-versao-unica-a-linha-2014/</loc>
+		<lastmod>2013-10-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11812: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/10/11/reestilizado-chevrolet-camaro-2014-chega-custando-a-partir-de-r-210-mil/</loc>
+		<lastmod>2013-10-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13724: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/2013/10/09/teste-chevrolet-trailblazer-leva-sete-pessoas-com-conforto-e-disposicao-de-sobra/</loc>
+		<lastmod>2013-10-09T18:17:13+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13394: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/classicos/2013/10/04/classico-vw-gol-gti-e-esportividade-pura/</loc>
+		<lastmod>2013-10-04T13:43:55+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11773: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/10/03/jac-j6-chega-a-linha-2014-de-cara-nova-para-se-aproximar-de-chevrolet-spin-e-nissan-livina/</loc>
+		<lastmod>2013-10-03T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11772: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/10/03/chevrolet-tracker-chega-na-versao-ltz-para-brigar-so-com-o-ecosport-completao/</loc>
+		<lastmod>2013-10-03T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11759: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/10/01/novo-ford-focus-hatch-parte-de-r-60-990-para-rivalizar-com-chevrolet-cruze-e-vw-golf-vii/</loc>
+		<lastmod>2013-10-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12799: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/09/29/renault-investe-em-carros-eletricos-no-brasil/</loc>
+		<lastmod>2013-09-29T20:41:09+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11732: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/09/26/novo-ford-focus-sedan-estreia-por-r-69-990-de-olho-na-hegemonia-do-honda-civic/</loc>
+		<lastmod>2013-09-26T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12806: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/09/23/carros-eletricos-terao-recarga-gratis-na-franca/</loc>
+		<lastmod>2013-09-23T20:51:22+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12811: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/09/19/encontro-confirma-o-baixo-interesse-do-brasil-por-veiculos-eletricos/</loc>
+		<lastmod>2013-09-19T23:05:34+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11639: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/09/09/primeiras-voltas-golf-de-setima-geracao-chega-buscando-a-lideranca-entre-os-hatches-medios/</loc>
+		<lastmod>2013-09-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11636: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/ultimas/2013/09/07/fim-do-misterio-novo-volkswagen-golf-custara-a-partir-de-r-67-990/</loc>
+		<lastmod>2013-09-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12815: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/09/06/oslo-bate-recorde-mundial-de-carros-eletricos-reunidos/</loc>
+		<lastmod>2013-09-06T16:55:47+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13033: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2013/09/05/flagra-jac-j6-reestilizada-circula-camuflada-por-sao-paulo/</loc>
+		<lastmod>2013-09-05T21:23:07+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11598: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/09/01/peugeot-408-com-novo-cambio-automatico-de-seis-marchas-parte-de-r-59-990/</loc>
+		<lastmod>2013-09-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11594: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/30/s10-e-trailblazer-ganham-novidades-mecanicas-e-mylink-na-linha-2014/</loc>
+		<lastmod>2013-08-30T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12819: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/08/30/carro-eletrico-em-questao-tem-gente-olhando-o-binoculo-pelo-lado-contrario/</loc>
+		<lastmod>2013-08-30T14:02:28+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13047: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/segredos/2013/08/30/flagra-opel-atualiza-visual-do-veterano-corsa/</loc>
+		<lastmod>2013-08-30T12:36:03+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11583: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/29/com-o-primeiro-motor-com-injecao-direta-flex-do-mundo-novo-ford-focus-estreara-no-brasil-em-outubro/</loc>
+		<lastmod>2013-08-29T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11559: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/26/novo-mitsubishi-outlander-chega-em-setembro-a-partir-de-r-102-990/</loc>
+		<lastmod>2013-08-26T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11513: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/15/citroen-c4-lounge-parte-de-r-59-990-e-promete-ser-referencia-entre-os-sedas-medios/</loc>
+		<lastmod>2013-08-15T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11504: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/14/video-mostra-novo-golf-acelerando-no-aeroporto-campo-de-marte-carsale-pegou-uma-carona/</loc>
+		<lastmod>2013-08-14T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11500: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/13/novo-citroen-c4-lounge-parte-de-r-59-990-e-pode-chegar-a-r-77-990/</loc>
+		<lastmod>2013-08-13T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11502: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/13/vw-revela-na-noite-desta-terca-feira-13-o-novo-golf-que-estreia-no-brasil-em-setembro/</loc>
+		<lastmod>2013-08-13T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12824: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/08/12/novo-chevrolet-volt-podera-rodar-ate-96-km-em-modo-totalmente-eletrico/</loc>
+		<lastmod>2013-08-12T19:29:31+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12827: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/08/12/quatro-bons-motivos-para-o-sucesso-dos-carros-hibridos-e-eletricos/</loc>
+		<lastmod>2013-08-12T16:20:45+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11492: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/12/mini-john-cooper-works-deixa-o-cambio-manual-e-oferece-diversao-a-partir-de-r-136-950/</loc>
+		<lastmod>2013-08-12T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11487: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/09/mini-lanca-no-brasil-linha-john-cooper-works-com-motor-de-211-cv/</loc>
+		<lastmod>2013-08-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11477: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/07/fusion-hybrid-completa-a-gama-por-r-124-990/</loc>
+		<lastmod>2013-08-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12899: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2013/08/01/dona-de-peugeot-206-da-a-sua-opiniao-sobre-o-novato-208/</loc>
+		<lastmod>2013-08-01T16:59:16+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11445: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/08/01/fiat-500-ganha-motor-flex-cabrio-fica-mais-caro/</loc>
+		<lastmod>2013-08-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12834: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/07/30/montadoras-japonesas-unem-forcas-por-eletricos/</loc>
+		<lastmod>2013-07-30T14:40:48+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12837: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/07/28/bmw-lanca-primeiro-eletrico-nesta-segunda-feira/</loc>
+		<lastmod>2013-07-28T21:00:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11408: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/24/a3-sportback-chega-para-liderar-a-audi-no-brasil/</loc>
+		<lastmod>2013-07-24T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12840: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/07/24/ford-tem-futuro-promissor-com-carros-eletricos/</loc>
+		<lastmod>2013-07-24T12:08:14+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11360: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/16/onix-e-prisma-1-4-ganham-cambio-at-de-6-marchas/</loc>
+		<lastmod>2013-07-16T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11349: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/15/lexus-is250-une-luxo-e-esportividade-por-r-175-mil/</loc>
+		<lastmod>2013-07-15T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11327: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/10/lexus-traz-a-terceira-geracao-do-is-por-r-175-mil/</loc>
+		<lastmod>2013-07-10T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11323: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/09/mb-classe-e-2014-chega-para-manter-a-lideranca/</loc>
+		<lastmod>2013-07-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11326: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/09/volta-rapida-new-fiesta-sedan-1-6-titanium/</loc>
+		<lastmod>2013-07-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11307: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/05/new-fiesta-sedan-reestilizado-parte-de-r-49-990/</loc>
+		<lastmod>2013-07-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11305: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/04/novo-mb-classe-e-estreia-por-r-229-900/</loc>
+		<lastmod>2013-07-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11284: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/07/01/novo-honda-accord-chega-por-r-119-900/</loc>
+		<lastmod>2013-07-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11269: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/06/27/vw-fox-bluemotion-1-0-antecipa-o-motor-do-up/</loc>
+		<lastmod>2013-06-27T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11238: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/06/21/j3-e-j3-turin-marcam-novo-passo-da-jac-no-pais/</loc>
+		<lastmod>2013-06-21T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11214: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/06/18/mini-paceman-estreia-no-brasil-por-r-139-950/</loc>
+		<lastmod>2013-06-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11218: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/06/18/volta-rapida-mini-traz-paceman-por-r-139-950/</loc>
+		<lastmod>2013-06-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11188: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/06/18/teste-rs6-avant-e-monstro-em-traje-de-perua/</loc>
+		<lastmod>2013-06-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11189: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/06/13/novo-audi-a3-sport-impressiona-pela-tecnologia/</loc>
+		<lastmod>2013-06-13T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11158: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/06/10/volta-rapida-volvo-v40-esbanja-seguranca/</loc>
+		<lastmod>2013-06-10T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11043: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/05/17/gol-e-mais-aventureiro-como-rallye-do-que-track/</loc>
+		<lastmod>2013-05-17T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 11034: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/05/16/lifan-reestreia-apostando-no-completo-suv-x60/</loc>
+		<lastmod>2013-05-16T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10952: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/04/29/novo-audi-s3-leva-dupla-personalidade-a-serio/</loc>
+		<lastmod>2013-04-29T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10928: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/04/23/lideranca-acima-de-1-0-litro-e-o-alvo-do-new-fiesta/</loc>
+		<lastmod>2013-04-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10920: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/04/21/ford-new-fiesta-nacional-parte-de-r-38-990/</loc>
+		<lastmod>2013-04-21T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10919: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/04/19/saveiro-segue-tendencia-da-vw-e-muda-pouco/</loc>
+		<lastmod>2013-04-19T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10857: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/04/08/teste-rapido-kia-cerato-mira-rivais-maiores/</loc>
+		<lastmod>2013-04-08T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10844: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/04/04/mb-classe-a-volta-renovado-por-r-99-900/</loc>
+		<lastmod>2013-04-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10828: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/04/03/jac-da-uma-pequena-amostra-da-van-t8/</loc>
+		<lastmod>2013-04-03T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10832: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/04/03/mercedes-benz-classe-a-chega-por-r-99-900/</loc>
+		<lastmod>2013-04-03T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10797: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/03/27/chery-celer-chega-flex-a-partir-de-r-35-990/</loc>
+		<lastmod>2013-03-27T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12902: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2013/03/26/revisao-a-preco-fechado-e-ponto-positivo/</loc>
+		<lastmod>2013-03-26T13:35:32+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12917: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/alta-rodagem/2013/03/25/nissan-march-1-0-s-e-o-teste-de-aceleracao/</loc>
+		<lastmod>2013-03-25T21:39:19+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10762: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/03/21/peugeot-aposta-todas-as-suas-fichas-no-208/</loc>
+		<lastmod>2013-03-21T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10743: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/03/18/grand-cherokee-mostra-a-forca-do-motor-a-diesel/</loc>
+		<lastmod>2013-03-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10739: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/03/18/durango-traz-conforto-e-sete-lugares-por-r-179-900/</loc>
+		<lastmod>2013-03-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10729: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/03/15/dodge-durango-chega-a-partir-de-r-179-990/</loc>
+		<lastmod>2013-03-15T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 12830: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/carros-verdes/2013/03/08/artigo-carro-eletrico-nao-e-aposta-e-certeza/</loc>
+		<lastmod>2013-03-08T15:16:21+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10679: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/03/06/novo-range-rover-vogue-estreia-por-r-551-800/</loc>
+		<lastmod>2013-03-06T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10672: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/03/05/hyundai-completa-a-familia-hb-com-o-seda-hb20s/</loc>
+		<lastmod>2013-03-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10660: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/03/04/hyundai-hb20s-chega-a-partir-de-r-39-495/</loc>
+		<lastmod>2013-03-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10645: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/02/28/prisma-ressuscita-nome-com-qualidades-do-onix/</loc>
+		<lastmod>2013-02-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10633: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/02/26/custo-beneficio-do-ford-fusion-flex-e-incognita/</loc>
+		<lastmod>2013-02-26T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10638: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/02/26/ds4-chega-para-brigar-com-gente-grande/</loc>
+		<lastmod>2013-02-26T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10503: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/01/31/civic-ganha-folego-extra-para-assumir-a-lideranca/</loc>
+		<lastmod>2013-01-31T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10466: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2013/01/23/hyundai-hb20x-joga-no-time-dos-aventureiros/</loc>
+		<lastmod>2013-01-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10276: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/12/06/citroen-apresenta-o-ds5-para-encarar-alemaes/</loc>
+		<lastmod>2012-12-06T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10265: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/12/04/ecosport-ganha-cambio-automatizado-e-tracao-4wd/</loc>
+		<lastmod>2012-12-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10256: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/12/02/vw-cc-2013-e-tiguan-r-line-ja-estao-no-brasil/</loc>
+		<lastmod>2012-12-02T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10254: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/11/30/primeiras-impressoes-volkswagen-fusca/</loc>
+		<lastmod>2012-11-30T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10239: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/11/28/j2-e-o-carro-de-entrada-e-de-imagem-da-jac/</loc>
+		<lastmod>2012-11-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10223: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/11/23/fluence-gt-estreia-turbo-na-linha-renault-do-brasil/</loc>
+		<lastmod>2012-11-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10179: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/11/14/renault-aposta-na-economia-para-embalar-novo-clio/</loc>
+		<lastmod>2012-11-14T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10173: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/11/12/novo-renault-clio-estreia-por-r-23-290/</loc>
+		<lastmod>2012-11-12T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10127: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/11/01/onix-e-a-nova-cara-da-chevrolet-entre-os-compactos/</loc>
+		<lastmod>2012-11-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10051: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/10/17/nova-geracao-do-ford-fusion-chega-por-r-112-990/</loc>
+		<lastmod>2012-10-17T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10032: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/10/05/mercedes-benz-classe-b-chega-por-115-900/</loc>
+		<lastmod>2012-10-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 10020: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/10/03/grupo-volkswagen-domina-pavilhao-em-paris/</loc>
+		<lastmod>2012-10-03T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9976: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/09/20/volvo-v60-chega-ao-brasil-por-r-130-900/</loc>
+		<lastmod>2012-09-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9973: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/09/19/renault-duster-tech-road-chega-por-r-54-800/</loc>
+		<lastmod>2012-09-19T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9964: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/09/18/etios-o-compacto-da-toyota-chega-por-r-29-990/</loc>
+		<lastmod>2012-09-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9950: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/09/13/hb20-tera-nove-versoes-e-seguro-com-preco-fixo/</loc>
+		<lastmod>2012-09-13T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9945: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/09/12/contra-o-vw-gol-hb20-chega-por-r-31-995/</loc>
+		<lastmod>2012-09-12T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9910: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/09/04/volvo-xc60-r-design-chega-por-r-172-900/</loc>
+		<lastmod>2012-09-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9901: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/09/01/versao-r-line-do-touareg-chega-por-r-333-700/</loc>
+		<lastmod>2012-09-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9878: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/08/28/audi-a1-sport-de-185-cv-chega-por-r-109-900/</loc>
+		<lastmod>2012-08-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9866: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/08/24/sandero-e-logan-2013-chegam-sem-novidades/</loc>
+		<lastmod>2012-08-24T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9868: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/08/24/primeiras-voltas-a-bordo-do-chevrolet-cobalt-1-8/</loc>
+		<lastmod>2012-08-24T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9810: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/08/10/mini-cooper-coupe-jcw-chega-por-r-149-950/</loc>
+		<lastmod>2012-08-10T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9795: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/08/07/maior-e-completo-novo-c3-chega-por-r-39-990/</loc>
+		<lastmod>2012-08-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9788: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/08/06/novo-ford-ecosport-chega-com-visual-global/</loc>
+		<lastmod>2012-08-06T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9732: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/07/23/confira-a-avaliacao-de-todas-as-versoes-do-punto/</loc>
+		<lastmod>2012-07-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9730: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/07/20/fiat-punto-com-visual-europeu-parte-de-r-38-570/</loc>
+		<lastmod>2012-07-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9711: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/07/18/novos-gol-e-voyage-cara-nova-e-mesma-geracao/</loc>
+		<lastmod>2012-07-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9640: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/07/02/ford-ranger-vai-de-r-619-mil-ate-r-130-mil/</loc>
+		<lastmod>2012-07-02T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9633: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/06/28/chevrolet-lanca-minivan-spin-por-r-44-590/</loc>
+		<lastmod>2012-06-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9632: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/06/28/sexta-geracao-do-bmw-serie-3-chega-ao-brasil/</loc>
+		<lastmod>2012-06-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9600: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/06/22/mitsubishi-l200-2013-chega-por-r-121-490/</loc>
+		<lastmod>2012-06-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9546: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/06/14/siena-el-strada-e-weekend-ganham-novo-visual/</loc>
+		<lastmod>2012-06-14T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9525: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/06/11/fiat-bravo-ganha-versao-sporting-na-linha-2013/</loc>
+		<lastmod>2012-06-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9494: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/06/01/peugeot-508-requinte-a-francesa-por-r-119-990/</loc>
+		<lastmod>2012-06-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9480: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/05/29/ford-fiesta-rocam-2013-chega-por-r-24-210/</loc>
+		<lastmod>2012-05-29T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9481: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/05/29/sonic-chega-as-lojas-em-junho-a-partir-de-r-46-100/</loc>
+		<lastmod>2012-05-29T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9441: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/05/22/antes-da-estreia-peugeot-508-aparece-na-tv-e-site/</loc>
+		<lastmod>2012-05-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9440: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/05/22/lexus-estreia-no-brasil-com-tres-modelos/</loc>
+		<lastmod>2012-05-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9426: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/05/18/land-rover-agora-tem-cambio-de-8-marchas/</loc>
+		<lastmod>2012-05-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9424: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/05/18/chrysler-300c-retorna-mas-com-presenca-discreta/</loc>
+		<lastmod>2012-05-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9403: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/05/15/fiat-viaggio-chega-em-setembro-as-lojas-chinesas/</loc>
+		<lastmod>2012-05-15T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9290: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/04/25/ford-comeca-a-produzir-o-novo-ecosport-global/</loc>
+		<lastmod>2012-04-25T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9288: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/04/25/audi-q5-recebe-retoques-visuais/</loc>
+		<lastmod>2012-04-25T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9278: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/04/23/peugeot-mostra-na-china-jipinho-que-vira-ao-brasil/</loc>
+		<lastmod>2012-04-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9275: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/04/23/nissan-apresenta-nova-geracao-do-seda-sentra/</loc>
+		<lastmod>2012-04-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9274: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/04/23/volks-mostra-prototipo-do-beetle-conversivel/</loc>
+		<lastmod>2012-04-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9261: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/04/20/andamos-no-unico-vw-beetle-2012-do-brasil/</loc>
+		<lastmod>2012-04-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9264: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/04/20/honda-city-2013-chega-a-partir-de-r-53-620/</loc>
+		<lastmod>2012-04-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9198: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/04/09/novo-fusion-chega-ao-brasil-no-segundo-semestre/</loc>
+		<lastmod>2012-04-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9033: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/03/14/proxima-geracao-do-camaro-sera-mais-leve/</loc>
+		<lastmod>2012-03-14T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9019: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/03/12/hyundai-mostra-novo-suv-santa-fe/</loc>
+		<lastmod>2012-03-12T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 9000: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/03/09/ford-apresenta-a-nova-ranger-na-argentina/</loc>
+		<lastmod>2012-03-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 8997: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/03/08/novo-hyundai-nacional-sera-atracao-no-salao-de-sp/</loc>
+		<lastmod>2012-03-08T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 8975: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/03/05/ford-mostra-versao-definitiva-do-fiesta-st/</loc>
+		<lastmod>2012-03-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 8972: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/03/05/vazam-fotos-oficiais-do-novo-mercedes-classe-a/</loc>
+		<lastmod>2012-03-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 8960: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/03/01/jeep-prepara-crossover-compacto-e-revolucionario/</loc>
+		<lastmod>2012-03-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 8950: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/02/29/ferrari-apresenta-a-nova-f12berlinetta/</loc>
+		<lastmod>2012-02-29T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 8946: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/02/29/novo-fiat-siena-vai-se-chamar-grand-siena/</loc>
+		<lastmod>2012-02-29T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 8625: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/01/04/veja-detalhes-do-novo-i30-que-chega-em-2012/</loc>
+		<lastmod>2012-01-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 8618: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2012/01/03/confira-detalhes-o-novo-cr-v-que-chega-ate-abril/</loc>
+		<lastmod>2012-01-03T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 7113: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2011/04/18/volkswagen-beetle/</loc>
+		<lastmod>2011-04-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 6451: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2010/12/01/audi-a6-2011/</loc>
+		<lastmod>2010-12-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 6450: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2010/12/01/toyota-etios/</loc>
+		<lastmod>2010-12-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 6364: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2010/11/17/land-rover-evoque/</loc>
+		<lastmod>2010-11-17T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 5419: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2010/06/18/ford-fiesta-sedan-2011/</loc>
+		<lastmod>2010-06-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 4387: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2010/02/11/audi-a1/</loc>
+		<lastmod>2010-02-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 4370: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2010/01/20/mini-countryman/</loc>
+		<lastmod>2010-01-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 4369: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2009/12/08/dacia-duster/</loc>
+		<lastmod>2009-12-08T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 4368: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2009/12/02/novo-audi-a8/</loc>
+		<lastmod>2009-12-02T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 4367: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2009/12/02/volkswagen-amarok/</loc>
+		<lastmod>2009-12-02T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3317: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2009/05/22/bmw-serie-5-gran-turismo/</loc>
+		<lastmod>2009-05-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3315: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2008/10/01/bmw-serie-1-cabrio/</loc>
+		<lastmod>2008-10-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3316: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/10/18/citroen-c5/</loc>
+		<lastmod>2007-10-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3314: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/08/30/audi-a4-2008/</loc>
+		<lastmod>2007-08-30T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3313: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/08/22/laguna-2008/</loc>
+		<lastmod>2007-08-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3312: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/08/21/accord-2008/</loc>
+		<lastmod>2007-08-21T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3311: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/07/19/audi-r8/</loc>
+		<lastmod>2007-07-19T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3307: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/06/28/bmw-revela-linha-2008-do-serie-6/</loc>
+		<lastmod>2007-06-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3310: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/05/07/fiat-500/</loc>
+		<lastmod>2007-05-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3352: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/05/04/slr-mclaren-roadster/</loc>
+		<lastmod>2007-05-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3309: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/04/07/peugeot-308/</loc>
+		<lastmod>2007-04-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3318: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/03/07/audi-a5-e-s5/</loc>
+		<lastmod>2007-03-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3308: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/02/07/bmw-serie-1-coupe/</loc>
+		<lastmod>2007-02-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3353: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2007/01/19/mercedes-benz-classe-c/</loc>
+		<lastmod>2007-01-19T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3363: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/12/06/peugeot-207-cc/</loc>
+		<lastmod>2006-12-06T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3346: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/09/11/honda-cr-v/</loc>
+		<lastmod>2006-09-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3326: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/08/14/mini-cooper/</loc>
+		<lastmod>2006-08-14T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3327: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/08/09/bmw-x5/</loc>
+		<lastmod>2006-08-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3332: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/07/18/holden-commodore/</loc>
+		<lastmod>2006-07-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3380: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/07/12/volkswagen-jetta/</loc>
+		<lastmod>2006-07-12T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3354: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/06/26/mercedes-benz-cl/</loc>
+		<lastmod>2006-06-26T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3319: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/06/22/audi-q7/</loc>
+		<lastmod>2006-06-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3320: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/04/10/audi-a3-sportback/</loc>
+		<lastmod>2006-04-10T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3389: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/03/08/ford-ranger/</loc>
+		<lastmod>2006-03-08T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3344: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/01/16/ford-fusion/</loc>
+		<lastmod>2006-01-16T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3364: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2006/01/12/peugeot-207/</loc>
+		<lastmod>2006-01-12T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3338: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/12/05/citroen-c6/</loc>
+		<lastmod>2005-12-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3390: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/11/11/mitsubishi-l200/</loc>
+		<lastmod>2005-11-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3333: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/11/08/opel-meriva/</loc>
+		<lastmod>2005-11-08T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3321: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/10/19/audi-s8/</loc>
+		<lastmod>2005-10-19T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3377: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/10/05/toyota-hilux-sw4/</loc>
+		<lastmod>2005-10-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3378: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/09/23/toyota-rav4/</loc>
+		<lastmod>2005-09-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3324: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/09/06/audi-a4-cabriolet/</loc>
+		<lastmod>2005-09-06T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3348: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/09/02/honda-civic-sedan/</loc>
+		<lastmod>2005-09-02T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3385: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/08/31/novo-passat/</loc>
+		<lastmod>2005-08-31T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3362: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/08/22/frontier-e-x-terra/</loc>
+		<lastmod>2005-08-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3341: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/08/10/fiat-idea/</loc>
+		<lastmod>2005-08-10T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3347: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/08/05/honda-civic/</loc>
+		<lastmod>2005-08-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3391: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/08/01/ford-explorer-2/</loc>
+		<lastmod>2005-08-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3386: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/07/28/volkswagen-passat-variant/</loc>
+		<lastmod>2005-07-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3367: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/07/22/porsche-911-carrera-4/</loc>
+		<lastmod>2005-07-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3373: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/06/16/renault-clio/</loc>
+		<lastmod>2005-06-16T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3334: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/05/23/picape-s10/</loc>
+		<lastmod>2005-05-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3355: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/05/20/mercedes-classe-a/</loc>
+		<lastmod>2005-05-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3375: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/05/06/seat-leon/</loc>
+		<lastmod>2005-05-06T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3329: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/04/20/bmw-serie-3-touring/</loc>
+		<lastmod>2005-04-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3398: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/04/18/passat/</loc>
+		<lastmod>2005-04-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3384: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/04/01/polo/</loc>
+		<lastmod>2005-04-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3357: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/03/25/mercedes-classe-r/</loc>
+		<lastmod>2005-03-25T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3356: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/02/14/mercedes-benz-classe-b/</loc>
+		<lastmod>2005-02-14T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3337: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/02/11/opel-zafira/</loc>
+		<lastmod>2005-02-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3369: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/02/09/renault-laguna/</loc>
+		<lastmod>2005-02-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3379: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/02/02/toyota-yaris/</loc>
+		<lastmod>2005-02-02T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3331: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/01/27/bmw-serie-7/</loc>
+		<lastmod>2005-01-27T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3392: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/01/20/nissan-x-trail/</loc>
+		<lastmod>2005-01-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3366: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2005/01/13/porsche-911-cabriolet/</loc>
+		<lastmod>2005-01-13T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3350: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/12/28/range-rover-2006/</loc>
+		<lastmod>2004-12-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3361: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/12/07/mercedes-benz-ml/</loc>
+		<lastmod>2004-12-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3383: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/12/02/golf-plus/</loc>
+		<lastmod>2004-12-02T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3351: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/11/26/range-rover-sport/</loc>
+		<lastmod>2004-11-26T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3370: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/11/11/renault-logan/</loc>
+		<lastmod>2004-11-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3325: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/11/09/audi-a6-avant/</loc>
+		<lastmod>2004-11-09T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3368: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/10/06/porsche-boxster/</loc>
+		<lastmod>2004-10-06T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3393: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/09/17/ford-explorer/</loc>
+		<lastmod>2004-09-17T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3382: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/09/01/golf-gti/</loc>
+		<lastmod>2004-09-01T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3345: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/08/04/ford-focus/</loc>
+		<lastmod>2004-08-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3340: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/08/04/dodge-dakota/</loc>
+		<lastmod>2004-08-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3376: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/07/22/seat-toledo/</loc>
+		<lastmod>2004-07-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3339: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/07/15/citroen-c4/</loc>
+		<lastmod>2004-07-15T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3328: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/07/05/bmw-m5/</loc>
+		<lastmod>2004-07-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3397: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/06/21/mercedes-benz-classe-a/</loc>
+		<lastmod>2004-06-21T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3322: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/06/04/audi-a3-cinco-portas/</loc>
+		<lastmod>2004-06-04T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3372: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/05/19/renault-modus/</loc>
+		<lastmod>2004-05-19T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3365: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/05/11/porsche-911/</loc>
+		<lastmod>2004-05-11T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3359: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/04/12/jeep-grand-cherokee/</loc>
+		<lastmod>2004-04-12T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3358: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/02/20/mercedes-benz-cls/</loc>
+		<lastmod>2004-02-20T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3394: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/02/18/audi-a6/</loc>
+		<lastmod>2004-02-18T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3330: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/02/17/bmw-serie-5-touring/</loc>
+		<lastmod>2004-02-17T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3336: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/01/30/opel-tigra-twin-top/</loc>
+		<lastmod>2004-01-30T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3395: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2004/01/07/mercedes-benz-slk/</loc>
+		<lastmod>2004-01-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3381: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2003/07/22/novo-golf/</loc>
+		<lastmod>2003-07-22T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3388: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2003/04/23/renault-megane-sedan-e-perua/</loc>
+		<lastmod>2003-04-23T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3387: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2002/12/07/volkswagen-touran/</loc>
+		<lastmod>2002-12-07T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3371: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2002/09/28/novo-renault-megane/</loc>
+		<lastmod>2002-09-28T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3360: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2002/07/16/maybach-62/</loc>
+		<lastmod>2002-07-16T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3374: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2001/12/05/novo-seat-ibiza/</loc>
+		<lastmod>2001-12-05T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3349: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2001/09/13/hyundai-matrix/</loc>
+		<lastmod>2001-09-13T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 3396: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/lancamentos/2001/01/16/hyundai-tb/</loc>
+		<lastmod>2001-01-16T14:56:00+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
+	</url>
+<!-- Debug: Priority report of postID 13731: Comments: 0 of 1 = 0 points -->
+	<url>
+		<loc>http://localhost:8888/carsale/noticias-br/testes/0201/09/25/teste-mercedes-benz-b200-turbo-sport-leva-a-familia-com-conforto-de-minivan-e-jeito-de-hatch/</loc>
+		<lastmod>1970-01-01T03:00:00+00:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.2</priority>
 	</url>
