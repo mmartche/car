@@ -21,29 +21,18 @@
 				<p class="post-subtitle"><?php echo get_the_excerpt(); ?></p>
 			<?php } ?>
 			<div class="post-author-box">
-				<h3 class="post-author"><?php the_author(); ?></h3>
 				<?php 
 				//esconde o nome do custom post
-				$dataHoje = date('d/m/Y');
-				$dataHojeDia = '10';
-				$dataHojeMes = '04';
-				$dataHojeAno = '2014';
-				$dataHojeHora = '14';
-				$dataMatDia = get_the_date('d');
-				$dataMatMes = get_the_date('m');
-				$dataMatAno = get_the_date('Y');
-				$dataMatHora = get_the_date('H');
+				$dataLimitFull = strtotime('10/03/2014');
+				$dataMatFull = strtotime(get_the_date('d/m/Y'));
 				$validaCustomAuthorPostByDate = "";
-				if ($dataHojeAno <= $dataMatAno) {
-					if ($dataHojeMes <= $dataMatMes) {
-						if ($dataHojeDia <= $dataMatDia) {
-							if ($dataHojeHora <= $dataMatHora) {
-								$validaCustomAuthorPostByDate = "hideAuthorCustomPost";
-							}
-						}
-					}
+				$validaCustomAuthorPostByName = "";
+				if ($dataLimitFull <= $dataMatFull) {
+					$validaCustomAuthorPostByDate = "hideAuthorCustomPost";
+					$validaCustomAuthorPostByName = "hideAuthorCustomPostName";
 				}
 				 ?>
+				 <h3 class="post-author <?php echo $validaCustomAuthorPostByName; ?>"><?php the_author(); ?></h3>
 				<h3 class="post-author-photo <?php echo $validaCustomAuthorPostByDate; ?>"><?php the_meta(); ?></h3>
 				<?php //get_post_meta($post->ID, 'll_appprice', true); ?>
 			</div>
