@@ -344,7 +344,6 @@ function checkInputs(){
         $("#contentQuerTrocar").addClass("hide");
     }
 }
-
 function checkValues () {
     var flag;
     if ($("#nome").val().length == 0) {
