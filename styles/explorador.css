@@ -307,8 +307,7 @@ transition: all .3s;
 .bannerExplorer {
 	width: 100%;
 	height: 100px;
-	margin: 10px 0 20px;
-	background-color: #123;
+	margin: 0px 0 20px;
 }
 /* lista com os carros para comparacao */
 .sContent {
@@ -455,6 +454,9 @@ transition: all .3s;
 	position: relative;
 }
 .exploradorTabelaCarroImg { width:100%; height:70px; position:relative; float:left; text-align: center;}
+.exploradorTabelaCarroImg img {
+	max-width: 120px;
+}
 .exploradorTabelaCarroModelo { width:194px; height:40px; overflow: hidden;  padding-top:4px; font-size:12px; font-weight:bold; text-align:center; text-decoration:none; position:relative; float:left; }
 .exploradorTabelaCarroValor { width:194px; height:23px; padding-top:5px; font-size:12px; color: #b20a09; font-weight:bold; text-align:center; text-decoration:none; position:relative; float:left; }
 .exploradorOptVersion {
@@ -489,6 +491,9 @@ transition: all .3s;
 }
 .modal-body {
     overflow: hidden;
+}
+.modalFeatureOptions, .modalFeatureColors {
+	display: none;
 }
 .descriptionItem {
     float: left;

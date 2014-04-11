@@ -1,6 +1,7 @@
 <?php
 include ('../includes/header.php');
 ?>
+
 <?
 // print_r(count($_POST[segments]));
 if ($_POST[segments]) {
@@ -223,16 +224,16 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 			$and = " and ";
 		}
 		$filterItems .= ($filterItems != "" ? ")" : ""); 
-		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, feature.picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version, manufacturer WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and (version.active = 's')  ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by manufacturerName, model.name ";
-		// echo $sqlFilter;
+		$sqlFilter = "SELECT feature.id as featureId, model.id as modelId, max(feature.picture) as picture, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, model.idSegment1, model.idSegment2, model.idSegment3 FROM feature, model, version, manufacturer WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and (version.active = 's') and feature.active = 's'  ".$and.$filterSeg.$filterPriceIni.$filterPriceFinal.$filterItems." group by model.id order by manufacturerName, model.name, version.name, feature.yearModel desc, feature.yearProduced desc ";
+		// echo "<p class='hide'>".$sqlFilter."</p>";
 		$queryFilter = mysql_query($sqlFilter) or die ($sqlFilter.mysql_error()."error #240");
 		if (mysql_num_rows($queryFilter) > 0) {
 			while ($resFilter = mysql_fetch_array($queryFilter)) { ?>
 				<li class="liCarItem" onclick="addFilter(this,<?=$resFilter[modelId]?>)" iddb="<?=$resFilter[modelId]?>">
 				<div class="selectedNumber"></div>
 				<?
-				if (file_exists("../carImages/".$resFilter[picture])) {
-					$picture = "../carImages/".$resFilter[picture];
+				if (file_exists("../carImages/".utf8_encode($resFilter[picture]))) {
+					$picture = "../carImages/".utf8_encode($resFilter[picture]);
 					http://localhost/carsale/carImages/Chana%20motors-Chana%20Utility-testes-.jpg_p.jpg
 				} elseif (file_exists("http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif")) {
 					$picture = "http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif";
@@ -243,7 +244,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 				}
 				?>
 					<img src="<?=$picture?>" class="imgCarSelect" />
-					<label><?=$resFilter[manufacturerName]?> - <?=$resFilter[modelName]?></label>
+					<label><?=$resFilter[manufacturerName]?> - <?=utf8_encode($resFilter[modelName])?></label>
 				</li>
 			<?
 			}
@@ -265,8 +266,9 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 <? } ?>
 
 <!-- <div class="bannerExplorer" id="bannermenu" class="menu affix" data-spy="affix" data-offset-top="100" data-offset-bottom="2500">banner</div> -->
-	<div class="bannerExplorer" id="bannermenu">banner</div>
-
+	<div class="bannerExplorer" id="bannermenu">
+    <iframe frameborder="0" height="100%" width="100%" marginheight="0" marginwidth="0" scrolling="no" src="http://carsale.uol.com.br/classificado/explorador/anuncio?no_cache=1397200816156"></iframe>
+	</div>
 	<div class="exploradorTabela" id="exploradorTabela">
      	<div class="backGroundRepeat">
      		<div class="exploradorTabelaGridCarro veiculo">
@@ -331,9 +333,9 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 					<li class="liFilterItem">Ar condicionado</li>
 					<li class="liFilterItem">Banco de couro</li>
 					<li class="liFilterItem">Alarme</li>
-					<li class="liFilterItem">Câmbio automático</li>
+					<!--li class="liFilterItem">Câmbio automático</li-->
 					<li class="liFilterItem">Freio ABS</li>
-					<li class="liFilterItem">Tração 4x4</li>
+					<!--li class="liFilterItem">Tração 4x4</li-->
 					<li class="liFilterItem">Ar quente</li>
 					<li class="liFilterItem">Ajuste de altura</li>
 					<li class="liFilterItem">Banco traseiro bipartido</li>
@@ -352,7 +354,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 					<li class="liFilterItem">Protetor de caçamba</li>
 					<li class="liFilterItem">Rack no teto</li>
 					<li class="liFilterItem">Radio CD player com entrada USB</li>
-					<li class="liFilterItem">Radio FM</li>
+					<!--li class="liFilterItem">Radio FM</li-->
 					<li class="liFilterItem">Regulagem de altura dos faróis</li>
 					<li class="liFilterItem">Retrovisor elétrico</li>
 					<li class="liFilterItem">Rodas de liga leve</li>

@@ -363,11 +363,12 @@ function checkValues () {
         alert("Preencha sua cidade");
         return false;
     }
-    else if ((($("#dddTelefone").val().length == 0) && ($("#telefone").val().length == 0)) || (($("#dddCelular").val().length == 0) && ($("#celular").val().length == 0))) {
+    else if ((($("#dddTelefone").val().length == 0) && ($("#telefone").val().length == 0)) 
+        || (($("#dddCelular").val().length == 0) && ($("#celular").val().length == 0))) {
         alert ("Preencha ao menos um número de telefone ou celular com ddd");
         return false;
     } else {
-        return false;
+        return true;
     }
 }
 </script>

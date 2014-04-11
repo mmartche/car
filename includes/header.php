@@ -28,7 +28,6 @@ include ("../scripts/conectDB.php");
 		<script type="text/javascript" src="../scripts/jquery.2.9.3.min.js"></script>
 		<script type="text/javascript" src="../scripts/bootstrap.min.js"></script>
 
-		<script type="text/javascript" src="../scripts/Dfp_home.js"></script>
 		<script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
 		<script type="text/javascript" src="../scripts/scriptHome.js"></script>
 		<script type="text/javascript" src="../scripts/enquete.js" ></script>
@@ -40,8 +39,6 @@ include ("../scripts/conectDB.php");
 	<?php } else { ?>
 	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/jquery.2.9.3.min.js"></script>
 	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/bootstrap.min.js"></script>
-
-	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/Dfp_home.js"></script>
 	<script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
 	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/scriptHome.js"></script>
 	<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/enquete.js" ></script>
@@ -52,6 +49,7 @@ include ("../scripts/conectDB.php");
 	<link rel="stylesheet" type="text/css" href="http://noticias.carsale.uol.com.br/styles/explorador.css" />
 	<?php } ?>
 
+		<script type="text/javascript" src="http://noticias.carsale.uol.com.br/explorador/Dfp_home.js"></script>
 </head>
 <body>
 <script type="text/javascript" src="http://tm.uol.com.br/b/par/parceiros.js"></script>

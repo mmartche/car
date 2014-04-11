@@ -113,9 +113,9 @@ function addFilter (obj,idModel,idVersion,place) {
             divResultCar += checkItem(data[0].airConditioning);
             divResultCar += checkItem(data[0].leatherSeat);
             divResultCar += checkItem(data[0].alarm);
-            divResultCar += checkItem(data[0].autoGear);
+            //divResultCar += checkItem(data[0].autoGear);
             divResultCar += checkItem(data[0].absBrake);
-            divResultCar += checkItem(data[0].traction4x4);
+            //divResultCar += checkItem(data[0].traction4x4);
             divResultCar += checkItem(data[0].hotAir);
             divResultCar += checkItem(data[0].heightAdjustment);
             divResultCar += checkItem(data[0].rearSeatSplit);
@@ -134,7 +134,7 @@ function addFilter (obj,idModel,idVersion,place) {
             divResultCar += checkItem(data[0].bucketProtector);
             divResultCar += checkItem(data[0].roofRack);
             divResultCar += checkItem(data[0].cdplayerUSBInput);
-            divResultCar += checkItem(data[0].radio);
+            //divResultCar += checkItem(data[0].radio);
             divResultCar += checkItem(data[0].headlightsHeightAdjustment);
             divResultCar += checkItem(data[0].rearviewElectric);
             divResultCar += checkItem(data[0].alloyWheels);
@@ -159,7 +159,7 @@ function addFilter (obj,idModel,idVersion,place) {
 
             var divFooterCar = '<div class="exploradorTabelaGridBase veiculo">'+
                 '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-feature"></div><a data-toggle="modal" data-target="#modalFeatureItem'+data[0].featureId+'" id="fichaTecnica'+data[0].featureId+'" style="display: inline;">Ficha Técnica</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-news"></div><a href="http://noticias.carsale.uol.com.br/noticias/?s='+data[0].modelName+'" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-news"></div><a href="http://noticias.carsale.uol.com.br/?s='+data[0].manufacturerName+'+'+data[0].modelName+'" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
                 '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-opnion"></div><a href="http://carsale.uol.com.br/opniao/" id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
             '</div>';
 
@@ -194,8 +194,8 @@ function addFilter (obj,idModel,idVersion,place) {
                             }
                 modalTemp += '</div>'+
 
-                            '<div class="dealerFichaTecnicaTituloDesc">Opcionais</div>'+
-                            '<div class="descriptionItem">';
+                            '<div class="dealerFichaTecnicaTituloDesc modalFeatureOptions">Opcionais</div>'+
+                            '<div class="descriptionItem modalFeatureOptions">';
                             if (data[0].options ) {
                                 $.each( data[0].options, function( index, item ) {
                                     modalTemp += '<div class="descItemSerie"><b>'+item.name+'</b><br />'+item.items+'<br />R$ '+item.price+'</div>';
@@ -205,8 +205,8 @@ function addFilter (obj,idModel,idVersion,place) {
                             }
                 modalTemp += '</div>'+
 
-                            '<div class="dealerFichaTecnicaTituloDesc">Cores disponíveis</div>'+
-                            '<div class="descriptionItem colorItems">';
+                            '<div class="dealerFichaTecnicaTituloDesc modalFeatureColors">Cores disponíveis</div>'+
+                            '<div class="descriptionItem colorItems modalFeatureColors">';
                             if (data[0].colors ) {
                                 $.each( data[0].colors, function( index, item ) {
                                     modalTemp += '<div class="descItemSerie"><div class="divColor"><div style="background-color: #'+item.hexa+';"></div>'+item.name+'<br />R$ '+item.price+'</div></div>';

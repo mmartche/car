@@ -1,6 +1,7 @@
 <?
 header('Content-Type: application/json; charset=utf-8');
 include ("../scripts/conectDB.php");
+include ("../scripts/functions.php");
 mysql_query("SET NAMES 'utf8'");
 
 //$sql_search = "select feature.id as featureId, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.yearProduced, feature.yearModel from manufacturer, model, version, feature where feature.idManufacturer = manufacturer.id and feature.idModel = model.id and feature.idVersion = version.id order by model.name";
@@ -256,11 +257,11 @@ switch ($_GET[type]) {
 			if ($m > 0) { echo ","; }
 			echo '{
 					"id":"'.$resM[id].'",
-					"label":"'.$resM[name].'",
+					"label":"'.utf8_encode($resM[name]).'",
 					"category": "Montadora",
 					"table":"manufacturer",
 					"active":"'.$resM[active].'",
-					"value":"'.$resM[name].'"
+					"value":"'.utf8_encode($resM[name]).'"
 				}';
 			$m++;
 		}
@@ -276,14 +277,14 @@ switch ($_GET[type]) {
 			if ($m > 0) { echo ","; }
 			echo '{
 					"id":"'.$resM[id].'",
-					"label":"'.$resM[name].'",
+					"label":"'.utf8_encode($resM[name]).'",
 					"category": "Modelo",
 					"table":"model",
 					"segmentId1":"'.$resM[idSegment1].'",
 					"segmentId2":"'.$resM[idSegment2].'",
 					"segmentId3":"'.$resM[idSegment3].'",
 					"active":"'.$resM[active].'",
-					"value":"'.$resM[name].'"
+					"value":"'.utf8_encode($resM[name]).'"
 				}';
 			$m++;
 		}
@@ -500,7 +501,7 @@ switch ($_GET[type]) {
 
 	case 'askExplorer':
 		$a = ($_GET[idVersion] == "" || $_GET[idVersion] == "0" || $_GET[idVersion] == "undefined" ? "" : " and version.id = '".$_GET[idVersion]."' ");
-		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.radio,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, version.id as versionId, version.name as versionName, model.id as modelId, model.name as modelName from manufacturer, feature, version, model where model.idManufacturer = manufacturer.id and  version.active = 's' and feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ".$a." ORDER BY feature.yearProduced DESC limit 1 ";
+		$sql = "SELECT feature.id as featureId, feature.code,feature.engine,feature.doors,feature.acceleration,feature.passagers,feature.speedMax,feature.powerMax,feature.steering,feature.fuel,feature.feeding,feature.torque,feature.traction,feature.frontSuspension,feature.rearSuspension,feature.frontBrake,feature.wheels,feature.dimensionLength,feature.dimensionHeight,feature.dimensionWidth,feature.rearBrake,feature.weight,feature.trunk,feature.tank,feature.dimensionSignAxes,feature.warranty,feature.gear,feature.consumptionCity,feature.consumptionRoad,feature.yearModel,feature.yearProduced,feature.items,feature.picture,feature.dualFrontAirBag,feature.electricSteering,feature.hydraulicSteering,feature.airConditioning,feature.leatherSeat,feature.alarm,feature.autoGear,feature.absBrake,feature.traction4x4,feature.dateCreate,feature.countryOrigin,feature.dateUpdate,feature.hotAir,feature.heightAdjustment,feature.rearSeatSplit,feature.bluetoothSpeakerphone,feature.bonnetSea,feature.onboardComputer,feature.accelerationCounter,feature.rearWindowDefroster,feature.sidesteps,feature.fogLamps,feature.xenonHeadlights,feature.integratedGPSPanel,feature.rearWindowWiper,feature.bumper,feature.autopilot,feature.bucketProtector,feature.roofRack,feature.cdplayerUSBInput,feature.radio,feature.headlightsHeightAdjustment,feature.rearviewElectric,feature.alloyWheels,feature.rainSensor,feature.parkingSensor,feature.isofix,feature.sunroof,feature.electricLock,feature.electricWindow,feature.rearElectricWindow,feature.steeringWheelAdjustment,feature.description,feature.active,feature.userUpdate,feature.price, manufacturer.id as manufacturerId, manufacturer.name as manufacturerName, version.id as versionId, version.name as versionName, model.id as modelId, model.name as modelName from manufacturer, feature, version, model where model.idManufacturer = manufacturer.id and  version.active = 's' and feature.idVersion = version.id and version.idModel = model.id and model.id = '".$_GET[idModel]."' ".$a." ORDER BY feature.yearProduced DESC, feature.yearModel DESC limit 1 ";
 		if ($_GET[action] == "debug") {
 			echo $sql;
 		}
@@ -614,7 +615,7 @@ switch ($_GET[type]) {
 		        "steeringWheelAdjustment":"'.$res[steeringWheelAdjustment].'",
 		        "description":"'.$res[description].'",
 		        "active":"'.$res[active].'",
-		        "price":"'.$res[price].'",
+		        "price":"'.formatToPrice($res[price]).'",
 		        "itemsSerie": "'.str_replace(array("\r", "\n", "\""), "", $res[items]).'"';
 			$sqlOpt = "SELECT optionsVersion.id, optionsManufacturer.code, optionsManufacturer.name, optionsManufacturer.options, optionsManufacturer.price as priceManufacturer, optionsVersion.price as priceFeature from optionsManufacturer, optionsVersion WHERE optionsVersion.code = optionsManufacturer.code and optionsVersion.idVersion = '".$res[versionId]."' and optionsVersion.yearModel = '".$res[yearModel]."'";
 			$queryOpt = mysql_query($sqlOpt) or die (mysql_error()."error #522");
@@ -633,14 +634,14 @@ switch ($_GET[type]) {
 			}
 			$result.=($loopOpt>0 ? "]" : "");
 
-			$sqlSerieItem = "SELECT description from serieFeature WHERE idFeature = '".$res[featureId]."' order by description asc";
+			$sqlSerieItem = "SELECT description from serieFeature WHERE idFeature = '".$res[featureId]."' and serieFeature.option = 's' order by description asc";
 			$querySerieItem = mysql_query($sqlSerieItem) or die (mysql_error()."error #539");
 			$result.= (mysql_num_rows($querySerieItem) > 0 ? ',"serieItems":' : "");
 			$loopOpt=0;
 			while ($resSerieItem = mysql_fetch_array($querySerieItem)) {
 				$result .= ($loopOpt > 0 ? "," : "[");
 		        $result.='{
-		        	"description":"'.$resSerieItem[description].'"
+		        	"description":"'.htmlentities($resSerieItem[description]).'"
 		        	}';
 		        $loopOpt++;
 			}
@@ -664,7 +665,7 @@ switch ($_GET[type]) {
 			}
 			$result.=($loopOpt>0 ? "]" : "");
 
-			$sqlVrs = "SELECT version.id, version.name from version, feature WHERE feature.idVersion = version.id and version.idModel = '".$res[modelId]."' group by version.id";
+			$sqlVrs = "SELECT version.id, version.name from version, feature WHERE feature.idVersion = version.id and version.idModel = '".$res[modelId]."' and version.active = 's' and feature.active = 's' group by version.id order by version.name";
 			$queryVrs = mysql_query($sqlVrs) or die (mysql_error()."error #552");
 			$result.= (mysql_num_rows($queryVrs) > 0 ? ',"sameModel":' : "");
 			$loopOpt=0;

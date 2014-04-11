@@ -1,6 +1,7 @@
 <?php
 include('../includes/header.php');
 ?>
+
 <div class="content">
 	<div class="columnMiddle">
 		<div class="contentMiddle">
@@ -19,7 +20,7 @@ include('../includes/header.php');
 						<select class="expInputSelect" name="expManufacturer" id="expSelectManufacturer" onchange="updateField(this)">
 							<option>Montadora</option>
 							<?
-							$sql = "select manufacturer.id as manufacturerId, manufacturer.name as manufacturerName from manufacturer, model, version, feature WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id group by manufacturer.name ORDER by manufacturer.name";
+							$sql = "select manufacturer.id as manufacturerId, manufacturer.name as manufacturerName from manufacturer, model, version, feature WHERE feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id and version.active = 's' group by manufacturer.name ORDER by manufacturer.name";
 							$query = mysql_query($sql) or die (mysql_error()."error #62");
 							while ($resList = mysql_fetch_array($query)) {
 								// echo "<div>".$resList[manufacturerName]."</div>";

@@ -13,6 +13,9 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
     height: auto;
     min-height: 25px;
 }
+..dealerFichaTecnicaTituloDesc {
+    height: 45px !important;
+}
 .dealerFichaTecnicaBgInterno {
     width: 100%;
     overflow: hidden;
@@ -62,7 +65,7 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
             $queIS = mysql_query($sqlIS) or die (mysql_error()."error #64");
             while ($resIS = mysql_fetch_array($queIS)) {
             ?>
-                <div class="descItemSerie"><?=$resIS[description]?></div>
+                <div class="descItemSerie"><?=utf8_encode($resIS[description])?></div>
             <?
             }
             ?>
@@ -188,20 +191,20 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
             </div>
             <div class="dealerFichaTecnicaDescClaroLine">
                 <div class="dealerFichaTecnicaDescLineTxtA">País</div>
-                <div class="dealerFichaTecnicaDescLineTxtB"><?=$resF[countryOrigin]?></div>
+                <div class="dealerFichaTecnicaDescLineTxtB"><?=utf8_encode($resF[countryOrigin])?></div>
             </div>
             <div class="dealerFichaTecnicaDescClaroLine">
                 <div class="dealerFichaTecnicaDescLineTxtA">Garantia</div>
-                <div class="dealerFichaTecnicaDescLineTxtB"><?=$resF[warranty]?></div>
+                <div class="dealerFichaTecnicaDescLineTxtB"><?=utf8_encode($resF[warranty])?></div>
             </div>
             <div class="dealerFichaTecnicaTituloDesc">Motor</div>
             <div class="dealerFichaTecnicaDescEscuroLine">
             	<div class="dealerFichaTecnicaDescLineTxtA">Motor</div>
-                <div class="dealerFichaTecnicaDescLineTxtB"><?=$resF[engine]?></div>
+                <div class="dealerFichaTecnicaDescLineTxtB"><?=utf8_encode($resF[engine])?></div>
             </div>
             <div class="dealerFichaTecnicaDescClaroLine">
             	<div class="dealerFichaTecnicaDescLineTxtA">Alimentação</div>
-                <div class="dealerFichaTecnicaDescLineTxtB"><?=$resF[feeding]?></div>
+                <div class="dealerFichaTecnicaDescLineTxtB"><?=utf8_encode($resF[feeding])?></div>
             </div>
             <div class="dealerFichaTecnicaDescEscuroLine">
             	<div class="dealerFichaTecnicaDescLineTxtA">Combustível</div>

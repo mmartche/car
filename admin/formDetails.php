@@ -697,7 +697,7 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 							<input type="checkbox" id="cdplayerUSBInput" name="cdplayerUSBInput" value="s" <? if (strtolower($res[cdplayerUSBInput]) == "s") { echo 'checked="true"'; } ?> />
 							<label for="cdplayerUSBInput">Rádio CD player com entrada USB</label>
 						</span>
-						<span>
+						<span class="hide">
 							<input type="checkbox" id="radio" name="radio" value="s" <? if (strtolower($res[radio]) == "s") { echo 'checked="true"'; } ?> />
 							<label for="radio">Rádio FM</label>
 						</span>
