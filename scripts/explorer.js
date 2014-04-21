@@ -55,8 +55,10 @@ function addFilter (obj,idModel,idVersion,place) {
             image_old_p_jpg = "http://carsale.uol.com.br/foto/"+data[0].picture+"_p.jpg";
             if (image_url_png > 0 || image_url_jpg > 0 || image_url_gif > 0) {
                 pictureResult = "../carImages/"+data[0].picture;
+                pictureResultBig = "../carImages/"+data[0].picture;
             } else {
                 pictureResult = "http://carsale.uol.com.br/foto/"+data[0].picture+"_p.jpg";
+                pictureResultBig = "http://carsale.uol.com.br/foto/"+data[0].picture+"_g.jpg";
             }
             if ($(obj).attr("id") == "optVersion") { carsLength--; }
             var divTitleCar = '<div class="exploradorTabelaGridCarro veiculo'+carsLength+'" idli="'+data[0].modelId+'">'+
@@ -159,8 +161,8 @@ function addFilter (obj,idModel,idVersion,place) {
 
             var divFooterCar = '<div class="exploradorTabelaGridBase veiculo">'+
                 '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-feature"></div><a data-toggle="modal" data-target="#modalFeatureItem'+data[0].featureId+'" id="fichaTecnica'+data[0].featureId+'" style="display: inline;">Ficha Técnica</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-news"></div><a href="http://noticias.carsale.uol.com.br/?s='+data[0].manufacturerName+'+'+data[0].modelName+'" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
-                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-opnion"></div><a href="http://carsale.uol.com.br/opniao/" id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-news"></div><a href=\'http://noticias.carsale.uol.com.br/?s=\"'+data[0].modelName+'\"\' target="_blank" id="noticia" class="noticia" style="display: inline;">Testes e Notícias</a></div>'+
+                '<div class="exploradorTabelaBtnFicha"><div class="arrow-explorer-opnion"></div><a href="http://carsale.uol.com.br/opniao/" target="_blank" id="opiniao" class="opiniao">Opinião do Dono</a></div>'+
             '</div>';
 
 
@@ -174,7 +176,7 @@ function addFilter (obj,idModel,idVersion,place) {
                       '<div class="modal-body">'+
                         '<div class="dealerFichaTecnicaBgInterno">'+
                             '<div class="dealerFichaTecnicaTitulo">Ficha Técnica</div>'+
-                            '<div class="dealerFichaTecnicaImg"><img src="http://carsale.uol.com.br/foto/'+data[0].picture+'_g.jpg"></div>'+
+                            '<div class="dealerFichaTecnicaImg"><img src="'+pictureResultBig+'"></div>'+
                             '<div class="dealerFichaTecnicaTxtCarro"></div>'+
                             '<div class="dealerFichaTecnicaTxtLegenda">Foto meramente ilustrativa</div>'+
                             '<div class="dealerFichaTecnicaTituloDesc">Itens de série inclusos</div>'+

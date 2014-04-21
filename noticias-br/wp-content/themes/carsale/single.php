@@ -16,21 +16,40 @@
 	<?php } ?>
 	<?php endforeach; ?>
 		<article <?php post_class();?>>
+		<?php 
+			$thumb_id = get_post_thumbnail_id();
+			$thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', true);
+
+		?>
+			<link rel="image_src" href="<?php echo $thumb_url[0]; ?>" />
 			<h2 class="post-title"><?php the_title(); ?></h2>
 			<?php  if (has_excerpt() ) { ?>
 				<p class="post-subtitle"><?php echo get_the_excerpt(); ?></p>
 			<?php } ?>
 			<div class="post-author-box">
 				<?php 
-				//esconde o nome do custom post
-				$dataLimitFull = strtotime('10/03/2014');
-				$dataMatFull = strtotime(get_the_date('d/m/Y'));
+				
+				$dataHoje = date('d/m/Y');
+				$dataHojeDia = '10';
+				$dataHojeMes = '04';
+				$dataHojeAno = '2014';
+				$dataHojeHora = '15';
+				$dataMatDia = get_the_date('d');
+				$dataMatMes = get_the_date('m');
+				$dataMatAno = get_the_date('Y');
+				$dataMatHora = get_the_date('H');
 				$validaCustomAuthorPostByDate = "";
 				$validaCustomAuthorPostByName = "";
-				if ($dataLimitFull <= $dataMatFull) {
-					$validaCustomAuthorPostByDate = "hideAuthorCustomPost";
-					$validaCustomAuthorPostByName = "hideAuthorCustomPostName";
+				if ($dataHojeAno <= $dataMatAno) {
+					if ($dataHojeMes <= $dataMatMes) {
+						if ($dataHojeDia <= $dataMatDia) {
+								$validaCustomAuthorPostByDate = "hideAuthorCustomPost";
+								$validaCustomAuthorPostByName = "hideAuthorCustomPostName";
+						}
+					}
 				}
+				$dataMatFull = strtotime(get_the_date('d/m/Y'));
+				$dataLimitFull = strtotime('10/04/2014');
 				 ?>
 				 <h3 class="post-author <?php echo $validaCustomAuthorPostByName; ?>"><?php the_author(); ?></h3>
 				<h3 class="post-author-photo <?php echo $validaCustomAuthorPostByDate; ?>"><?php the_meta(); ?></h3>
@@ -77,6 +96,11 @@
 		        </div>
 			</div> -->
 			*/ ?>
+			<?php foreach ($categories as $category) : ?>		
+			<?php if ($category->slug == "segredos") { ?>
+				<p><a href="mailto:segredos@carsale.com.br"><img class="alignnone size-full wp-image-14901" alt="segredosBanner_658x75" src="http://noticias.carsale.uol.com.br/wp-content/uploads/2014/04/segredosBanner_658x75.jpg" width="658" height="95"></a></p>
+			<?php } ?>
+			<?php endforeach; ?>
 			<?php $authorBox = get_the_author(); ?>
 			<?php if($authorBox == 'Renato Bellote') { ?>
 				<div class="author-box">

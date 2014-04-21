@@ -59,6 +59,8 @@ function logData ($info,$line,$type){
 $dateNow = date('l jS \of F Y h:i:s A');
 logData("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	".$dateNow."
+	".$_SERVER['REMOTE_ADDR']."
+	".$_SERVER['SERVER_NAME']."
 	");
 
 switch ($_POST[action]) {
@@ -377,7 +379,9 @@ switch ($_POST[action]) {
 			//color
 			for ($i=0;$i<$_POST[colorLength];$i++){
 				if ($i > 0) { $valuesColorInput .= ","; }
-				$valuesColorInput .= "('".$versionId."', '".$manufacturerId."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."','".$_POST["colorInputCode".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputPrice".$i]."', '".$_POST["colorInputType".$i]."', '".$_POST[yearModel]."', now(), now(), NULL)";
+				if ($_POST["colorInputName".$i] != "") {
+					$valuesColorInput .= "('".$versionId."', '".$manufacturerId."', '".$_POST["colorInputName".$i]."', '".$_POST["colorInputColor".$i]."','".$_POST["colorInputCode".$i]."', '".$_POST["colorInputApp".$i]."', '".$_POST["colorInputPrice".$i]."', '".$_POST["colorInputType".$i]."', '".$_POST[yearModel]."', now(), now(), NULL)";
+				}
 			}
 			if ($valuesColorInput != ""){
 				$sqlAddColor = "insert into `colorVersion` (`idVersion`, `idManufacturer`, `name`, `hexa`, `code`, `application`, `price`, `type`, `yearModel`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ".$valuesColorInput;

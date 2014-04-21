@@ -28,7 +28,7 @@
 	<?php if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == 'localhost' || $_SERVER['REMOTE_ADDR'] == '::1') { ?>
 		<script type="text/javascript" src="/carsale/scripts/jquery.2.9.3.min.js"></script>
 		<script type="text/javascript" src="/carsale/scripts/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/carsale/scripts/Dfp_home.js"></script>
+		<script type="text/javascript" src="/carsale/scripts/Dfp_internas.js"></script>
 		<script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
 		<script type="text/javascript" src="/carsale/scripts/scriptHome.js"></script>
 		<script type="text/javascript" src="/carsale/scripts/enquete.js" ></script>
@@ -38,7 +38,7 @@
 	<?php } else { ?>
 		<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/jquery.2.9.3.min.js"></script>
 		<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/bootstrap.min.js"></script>
-		<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/Dfp_home.js"></script>
+		<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/Dfp_internas.js"></script>
 		<script type="text/javascript" src="http://tm.uol.com.br/h/par/parceiros.js"></script>
 		<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/scriptHome.js"></script>
 		<script type="text/javascript" src="http://noticias.carsale.uol.com.br/scripts/enquete.js" ></script>

@@ -219,9 +219,10 @@ $.widget( "custom.combobox", {
 	      		break;
       	case "modelName":
       			var optTemp;
-	  			$.getJSON('api/index.php?type=askVersion&mainId='+ui.item.option.value, function(data) {
+            console.log('api/index.php?type=askVersionMega&mainId='+ui.item.option.value);
+	  			$.getJSON('api/index.php?type=askVersionMega&mainId='+ui.item.option.value, function(data) {
   					$.each(data, function(key, val) {
-  						// console.log(val.label,"====",ui.item.option.value,"_----"+val.idSegment1);
+  						console.log(val.label,"====",ui.item.option.value,"_----"+val.idSegment1);
   						optTemp += '<option value="'+val.id+'" >'+val.label+'</option>';
   					});
   					$("#versionName option").remove();
@@ -238,6 +239,7 @@ $.widget( "custom.combobox", {
           //console.log('api/index.php?type=askYear&mainId=&manufacturerId='+$("#manufacturerId").val()+'&modelId='+$("#modelId").val()+'&versionId='+ui.item.option.value);
           $("#yearModel option").remove();
           $("#yearModel").append('<option value="" >Escolha o ano</option>');
+          console.log('api/index.php?type=askYear&mainId=&manufacturerId='+$("#manufacturerId").val()+'&modelId='+$("#modelId").val()+'&versionId='+ui.item.option.value);
         $.getJSON('api/index.php?type=askYear&mainId=&manufacturerId='+$("#manufacturerId").val()+'&modelId='+$("#modelId").val()+'&versionId='+ui.item.option.value, function(data) {
           $.each(data, function(key, val) {
             console.log(val.yearModel,"====",ui.item.option.value,"_----");

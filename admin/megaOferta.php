@@ -138,7 +138,7 @@ include ("./scripts/functions.php");
 						<div class="numberOrder" id="numberOrder"><?=$resMO[orderMega]?></div>
 						<div class="upOrder" id="upOrder" onclick="orderMega(this,'upOrder','<?=$resMO[megaOfertaId]?>','<?=$resMO[orderMega]?>')">\/</div>
 					</div>
-					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=$resMO[versionName]?><br /><?=$resMO[yearModel]?></span>
+					<span class="titleLiMO"><?=$resMO[modelName]?> - <?=utf8_encode($resMO[versionName])?><br /><?=$resMO[yearModel]?></span>
 					<!--img class="imgLiMO" src="../carImagesMegaOferta/<?=$resMO[picture]?>" /-->
 					<img class="imgLiMO" src="<?=$picture?>" />
 					<span class="priceLiMO">R$ <?=$resMO[price]?></span>

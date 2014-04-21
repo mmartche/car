@@ -91,9 +91,12 @@ order by [Linha_Segmento].[numLinha] desc
 “ = ô
 ä = õ
 ¢ = ó
+à = Ó
 ‡ = ç
 ¡ = í
 £ = ú
+Ç
+Ã
 
 update `feature` set `gear`="Automático" where `gear` = "1";
 update `feature` set `gear`="Manual" where `gear` = "2";

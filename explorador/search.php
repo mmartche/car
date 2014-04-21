@@ -234,7 +234,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 				<?
 				if (file_exists("../carImages/".utf8_encode($resFilter[picture]))) {
 					$picture = "../carImages/".utf8_encode($resFilter[picture]);
-					http://localhost/carsale/carImages/Chana%20motors-Chana%20Utility-testes-.jpg_p.jpg
+					// http://localhost/carsale/carImages/Chana%20motors-Chana%20Utility-testes-.jpg_p.jpg
 				} elseif (file_exists("http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif")) {
 					$picture = "http://carsale.uol.com.br/images/ofertas/".$resFilter[picture]."_g.gif";
 				} elseif (file_exists("http://carsale.uol.com.br/foto/".$resFilter[picture]."_g.jpg")) {
@@ -267,7 +267,7 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 
 <!-- <div class="bannerExplorer" id="bannermenu" class="menu affix" data-spy="affix" data-offset-top="100" data-offset-bottom="2500">banner</div> -->
 	<div class="bannerExplorer" id="bannermenu">
-    <iframe frameborder="0" height="100%" width="100%" marginheight="0" marginwidth="0" scrolling="no" src="http://carsale.uol.com.br/classificado/explorador/anuncio?no_cache=1397200816156"></iframe>
+    <iframe frameborder="0" height="100%" width="100%" marginheight="0" marginwidth="0" scrolling="no" src="http://carsale.uol.com.br/classificado/explorador/anuncio?no_cache="></iframe>
 	</div>
 	<div class="exploradorTabela" id="exploradorTabela">
      	<div class="backGroundRepeat">

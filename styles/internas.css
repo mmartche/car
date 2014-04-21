@@ -64,6 +64,9 @@ margin-right: 15px;
 	float: left;
 	cursor: pointer;
 }
+.screen-reader-text {
+	font-size: 12px;
+}
 /* LAST NEWS */
 .lastest-news .post.format-standard {
 	border-bottom: 1px dotted #ccc;
@@ -675,6 +678,10 @@ padding: 0 20px 10px;
 }
 .thumbnail-frame {
 	background-color: transparent;
+}
+.thumbnail-frame img {
+	margin-bottom: 0 !important;
+	margin-top: 0 !important;
 }
 .wppa-name-desc {
 	background-color: #1a1918 !important;

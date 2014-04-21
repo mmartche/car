@@ -270,7 +270,7 @@ switch ($_GET[type]) {
 	case 'askModel':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and model.idManufacturer = '".$_GET[mainId]."' "; }
-		$sql_search = "SELECT model.id, model.name, model.idSegment1, model.idSegment2, model.idSegment3, model.active from model where model.name like ('%".$_GET[term]."%') ".$mainId." GROUP BY model.id ORDER by model.name";
+		$sql_search = "SELECT model.id, model.name, model.idSegment1, model.idSegment2, model.idSegment3, model.active from feature, model, version where model.name like ('%".$_GET[term]."%') and version.idModel = model.id and feature.idVersion = version.id and version.active = 's' and feature.active = 's' ".$mainId." GROUP BY model.id ORDER by model.name";
 		$query_s_manuf = mysql_query($sql_search) or die (" error #15");
 		$m = 0;
 		while ($resM = mysql_fetch_array($query_s_manuf)) {
@@ -293,7 +293,7 @@ switch ($_GET[type]) {
 	case 'askVersion':
 		echo "[";
 		if ($_GET[mainId] != "") { $mainId = " and idModel = '".$_GET[mainId]."' and model.id = '".$_GET[mainId]."' "; }
-		$sql_v = "SELECT version.id, version.name, model.active, model.idSegment1, model.idSegment2, model.idSegment3 from version, model where version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by version.name";
+		$sql_v = "SELECT version.id, version.name, model.active, model.idSegment1, model.idSegment2, model.idSegment3 from version, model where version.active = 's' and version.name like ('%".$_GET[term]."%') ".$mainId." ORDER by version.name";
 		
 		$query_s_manuf = mysql_query($sql_v) or die (" error #15");
 		$m = 0;
@@ -554,10 +554,10 @@ switch ($_GET[type]) {
 		        "feeding":"'.$res[feeding].'",
 		        "torque":"'.$res[torque].'",
 		        "traction":"'.$res[traction].'",
-		        "frontSuspension":"'. str_replace(array("\r", "\n"), "", $res[frontSuspension]).'",
+		        "frontSuspension":"'. trim(str_replace(array("\r", "\n"), "", $res[frontSuspension])).'",
 		        "rearSuspension":"'.$res[rearSuspension].'",
 		        "frontBrake":"'.$res[frontBrake].'",
-		        "wheels":"'.$res[wheels].'",
+		        "wheels":"'.str_replace("\"", "\\\"", $res[wheels]).'",
 		        "dimensionLength":"'.$res[dimensionLength].'",
 		        "dimensionHeight":"'.$res[dimensionHeight].'",
 		        "dimensionWidth":"'.$res[dimensionWidth].'",
@@ -641,7 +641,7 @@ switch ($_GET[type]) {
 			while ($resSerieItem = mysql_fetch_array($querySerieItem)) {
 				$result .= ($loopOpt > 0 ? "," : "[");
 		        $result.='{
-		        	"description":"'.htmlentities($resSerieItem[description]).'"
+		        	"description":"'.$resSerieItem[description].'"
 		        	}';
 		        $loopOpt++;
 			}
@@ -714,8 +714,50 @@ switch ($_GET[type]) {
 
 		break;
 
+	case 'askVersionMega':
+		echo "[";
+		if ($_GET[mainId] != "") { $mainId = " and version.idModel = '".$_GET[mainId]."' and model.id = '".$_GET[mainId]."' "; }
+		$sql_v = "SELECT version.id, version.name, model.active, model.idSegment1, model.idSegment2, model.idSegment3, feature.yearModel from feature, version, model where feature.idVersion = version.id and version.active = 's' and version.name like ('%".$_GET[term]."%') ".$mainId." and feature.active = 's' group by version.id ORDER by version.name";
+
+		$query_s_manuf = mysql_query($sql_v) or die (mysql_error()." error #15");
+		$m = 0;
+		while ($resM = mysql_fetch_array($query_s_manuf)) {
+			if ($nameSeg == "") {
+				$sSeg1 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment1]."'";
+				$qSeg1 = mysql_query($sSeg1);
+				$rSeg1 = mysql_fetch_array($qSeg1);
+				$sSeg2 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment2]."'";
+				$qSeg2 = mysql_query($sSeg2);
+				$rSeg2 = mysql_fetch_array($qSeg2);
+				$sSeg3 = "SELECT segment.name from segment WHERE segment.id = '".$resM[idSegment3]."'";
+				$qSeg3 = mysql_query($sSeg3);
+				$rSeg3 = mysql_fetch_array($qSeg3);
+				$nameSeg = "ok";
+			}
+			if ($m > 0) { echo ","; }
+			echo '{
+					"id":"'.$resM[id].'",
+					"label":"'.$resM[name].'",
+					"category": "Versão",
+					"table":"version",
+					"idSegment1":"'.$resM[idSegment1].'",
+					"segmentName1":"'.$rSeg1[name].'",
+					"idSegment2":"'.$resM[idSegment2].'",
+					"segmentName2":"'.$rSeg2[name].'",
+					"idSegment3":"'.$resM[idSegment3].'",
+					"segmentName3":"'.$rSeg3[name].'",
+					"active":"'.$resM[active].'",
+					"value":"'.$resM[name].'",
+					"yearModel":"'.$resM[yearModel].'"
+				}';
+			$m++;
+		}
+		echo "]";
+		break;
+
 	case 'askYear':
-		$sqlY = "SELECT yearModel from manufacturer, model, version, feature where feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and model.id = '".$_GET[modelId]."' and version.id = '".$_GET[versionId]."' and manufacturer.id = '".$_GET[manufacturerId]."' order by yearModel desc"; 
+		$sqlY = "SELECT yearModel from manufacturer, model, version, feature where feature.active = 's' and version.active = 's' and feature.idVersion = version.id and version.idModel = model.id and model.idManufacturer = manufacturer.id  and model.id = '".$_GET[modelId]."' and version.id = '".$_GET[versionId]."' and manufacturer.id = '".$_GET[manufacturerId]."' order by yearModel desc"; 
+		// echo $sqlY;
 		$qY = mysql_query($sqlY) or die('[{"response":"false", "reason":"'.mysql_error().'#error 635"}]');
 		$m=0; echo "[";
 		while ($resY = mysql_fetch_array($qY)) {

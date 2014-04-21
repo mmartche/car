@@ -229,7 +229,7 @@ include ("./scripts/functions.php");
 						if ($_POST[filterActive] == "n") { $filterSql .= " AND (version.active = 'n' OR feature.active = 'n') "; } else { $filterSql .= " AND (version.active = 's' AND feature.active = 's') "; }
 						// if ($_POST[filterActive] == "n") { $filterSql .= " AND (version.active = 'n' OR feature.active = 'n') "; } else { $filterSql .= " AND (version.active != 'n' AND feature.active = 's') "; }
 
-						$sql_search = "SELECT feature.id as id, version.id as versionId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearProduced desc, yearModel desc";
+						$sql_search = "SELECT feature.id as id, version.id as versionId, feature.yearProduced, feature.yearModel, feature.engine, feature.gear, feature.fuel, feature.steering, feature.picture, feature.active, feature.active as factive, version.active as vactive, manufacturer.name as manufacturerName, model.name as modelName, version.name as versionName, feature.price FROM manufacturer, model, version, feature WHERE feature.idVersion = version.id AND version.idModel = model.id AND model.idManufacturer = manufacturer.id ".$filterSql." ORDER BY manufacturerName ASC, modelName ASC, versionName ASC, yearProduced desc, yearModel desc";
 						//$sql_search = "SELECT manufacturer.id as manufacturerId, manufacturer.name as manufacturerName FROM manufacturer ORDER by name";
 						// var_dump($sql_search);
 
@@ -239,7 +239,7 @@ include ("./scripts/functions.php");
 							if ($versionTemp != $res[versionId]) {
 								$versionTemp = $res[versionId];
 						?>
-						<li class="resultItem <? if ($res[active] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
+						<li class="resultItem <? if ($res[active] == "n" or $res[vactive] == "n") { echo "desactive"; } ?>" idDB="<?=$res[id]?>">
 							<div class="rsItems">
 								<a class="btnClone btnButton" href="formDetails.php?category=feature&action=clone&vehicle=<?=$res[id]?>&timestamp=<?=rand()?>" title="Copiar todos os dados para um novo cadastro" alt="Copiar todos os dados para um novo cadastro">Clonar</a>
 								<div class="btnActive" title="Ativo" alt="Ativo" onclick="activeItem(<?=$res[id]?>,'feature',this)"></div>

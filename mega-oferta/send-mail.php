@@ -20,8 +20,9 @@ if (!isset($_POST["enviar"]))
   // Check if the "from" input field is filled out
   if (isset($_POST["enviar"]))
     {
-    // $to = 'mmartche@hotmail.com';
-    $to = "salete.soares@carsale.com.br; manoel.bezerra@carsale.com.br";
+    // $to = "mmartche@hotmail.com";
+    // $to = "salete.soares@carsale.com.br; manoel.bezerra@carsale.com.br";
+    $to = "rogerio.costa@carsale.com.br; webmaster@carsale.com.br; salete.soares@carsale.com.br";
     $from = "Mega Ofertas Carsale <carsale@carsale.com.br>"; // sender
     $subject = 'Proposta campanha '.$_POST[megaOfertaId].' - '.$_POST[modelName].' - '.$_POST[versionName];
     $message = 'Nome: '.$_POST[nome].'
@@ -63,7 +64,13 @@ if (!isset($_POST["enviar"]))
     $message = wordwrap($message, 70);
     // send mail
     mail($to,$subject,$message,"From: $from\n");
-    echo "Thank you for sending us feedback";
+    // echo "Aguarde que em breve entraremos em contato";
+    ?>
+    <script>
+    alert("Obrigado pelo contato");
+    window.location="./";
+    </script>
+    <?
     } else {
       echo $_POST["enviar"]." #error";
     }

@@ -9,13 +9,15 @@ function logData ($info,$line,$type){
 	//upload file log(arg)
 	$fileLog = "logData.txt";
 	$contentFile = $info;
-	file_put_contents($fileLog, $contentFile,FILE_APPEND);
+	file_put_contents($fileLog, $contentFile,FILE_APPEND | LOCK_EX);
 	// echo $contentFile;
 }
 $dateNow = date('l jS \of F Y h:i:s A');
 logData("
 	----------------------------------------------------------------------------------------------------------------------
 	".$dateNow."
+	".$_SERVER['REMOTE_ADDR']."
+	".$_SERVER['SERVER_NAME']."
 	");
 
 logData("
@@ -541,8 +543,8 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 							<option value="F"><?=$res[gear]?></option>
 						</select><br /> -->
 						<input type="text" name="gear" id="txtGear" value="<?=utf8_encode($res[gear])?>" /></span><br />
-					<span><label>Tração:</label><input type="text" name="traction" id="txtTraction" value="<?=$res[traction]?>" /></span><br />
-					<span><label>Rodas:</label><input type="text" name="wheels" id="txtWheels" value="<?=utf8_encode($res[wheels])?>" /></span><br />
+					<span><label>Tração:</label><input type="text" name="traction" id="txtTraction" value="<?=utf8_encode($res[traction])?>" /></span><br />
+					<span><label>Rodas:</label><input type="text" name="wheels" id="txtWheels" value='<?=utf8_encode($res[wheels])?>' /></span><br />
 					<span><label>Suspensão dianteira:</label><input type="text" name="frontSuspension" id="txtFrontSuspension" value="<?=utf8_encode($res[frontSuspension])?>" /></span><br />
 					<span><label>Suspensão traseira:</label><input type="text" name="rearSuspension" id="txtRearSuspension" value="<?=utf8_encode($res[rearSuspension])?>" /></span><br />
 					<span><label>Freio dianteiro:</label><input type="text" name="frontBrake" id="txtFrontBrake" value="<?=utf8_encode($res[frontBrake])?>" /></span><br />

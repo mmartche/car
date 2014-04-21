@@ -6,12 +6,10 @@ include ("../admin/scripts/functions.php");
 $sql = "SELECT megaOferta.id as megaOfertaId, manufacturer.name as manufacturerName, model.id as modelId, model.name as modelName, version.id as versionId, version.name as versionName, megaOferta.price, megaOferta.yearModel, megaOferta.place, megaOferta.orderMega, megaOferta.description, megaOferta.dateLimit, feature.picture FROM megaOferta, manufacturer, model, version, feature WHERE feature.idVersion = version.id and feature.yearModel = megaOferta.yearModel and megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id and megaOferta.id = '".$_GET[veiculo]."'";
 $query = mysql_query($sql) or die ($sql);
 $res = mysql_fetch_array($query);
-if (file_exists("../carImages/".$res[picture])) {
-    $picture = "../carImages/".$res[picture];
+if (file_exists("../carImages/".utf8_encode($res[picture]))) {
+    $picture = "../carImages/".utf8_encode($res[picture]);
 } elseif (file_exists("../carImages/".$res[picture])) {
     $picture = "../carImages/".$res[picture];
-} elseif (file_exists("http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg")) {
-    $picture = "http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg";
 } else {
     $picture = "http://carsale.uol.com.br/foto/".$res[picture]."_g.jpg";
 }
@@ -98,7 +96,7 @@ if (file_exists("../carImages/".$res[picture])) {
                         <span class="exemploFormMegaOfertaTel">Ex.:(11) 9999-9999</span>
                     </div>
                     <div class="megaOfertasCarsaleFormLineInputB">
-                        <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="telefone">Celular:</label></div>
+                        <div class="megaOfertasCarsaleFormTxtLegenda"><label class="labelCzFormMegaOferta" for="celular">Celular:</label></div>
                         <fieldset class="megaOfertasCarsaleFormInput">
                             <input type="text" class="txtInput inputForm_ddd" name="celularddd" id="dddCelular">
                             <input type="text" class="txtInput inputForm_tel" name="celular" id="celular">
@@ -362,10 +360,11 @@ function checkValues () {
         alert("Preencha sua cidade");
         return false;
     }
-    else if ((($("#dddTelefone").val().length == 0) && ($("#telefone").val().length == 0)) 
-        || (($("#dddCelular").val().length == 0) && ($("#celular").val().length == 0))) {
-        alert ("Preencha ao menos um número de telefone ou celular com ddd");
-        return false;
+    else if (($("#dddTelefone").val().length == 0) && ($("#telefone").val().length == 0)) { 
+        if (($("#dddCelular").val().length == 0) && ($("#celular").val().length == 0)) {
+            alert ("Preencha ao menos um número de telefone ou celular com ddd");
+            return false;
+        }
     } else {
         return true;
     }

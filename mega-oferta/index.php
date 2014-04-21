@@ -81,8 +81,8 @@ include ("../admin/scripts/functions.php");
 					<?
 					$r=0;
 					while ($resItem = mysql_fetch_array($query)) {
-						if (file_exists("../carImages/".$resItem[picture])) {
-		                    $picture = "../carImages/".$resItem[picture];
+						if (file_exists("../carImages/".utf8_encode($resItem[picture]))) {
+		                    $picture = "../carImages/".utf8_encode($resItem[picture]);
 		                	// http://carsale.uol.com.br/images/ofertas/AudiA7Sportback_g.gif
 		                } else {
 		                    $picture = "http://carsale.uol.com.br/foto/".$resItem[picture]."_g.jpg";
@@ -127,15 +127,15 @@ include ("../admin/scripts/functions.php");
 			while ($resN = mysql_fetch_array($query)) {
 				$arrayModalVersion[] = $resN[versionId];
 				$arrayModalYear[] = $resN[yearModel];
-				if (file_exists("../carImages/".$resN[picture])) {
-                    $picture = "../carImages/".$resN[picture];
+				if (file_exists("../carImages/".utf8_encode($resN[picture]))) {
+                    $picture = "../carImages/".utf8_encode($resN[picture]);
                 } else {
                     $picture = "http://carsale.uol.com.br/images/ofertas/".$resN[picture]."_g.gif";
                 }
 			?>
 			<div class="megaOfertasCarsaleOferta">
 				<div class="megaOfertasCarsaleTituloOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[modelName]."<br />".utf8_encode($res[versionName])?></a></div>
-				<div class="megaOfertasCarsaleImgBgOferta">
+				<div class="megaOfertasCarsaleImgBgOferta <?=$resN[yearModel]?>">
 					<div class="megaOfertasCarsaleImgOferta">
 						<a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">
 							<img alt="" title="" border="0" class="imgMegaOfertaNormal" src="<?=$picture?>">
@@ -144,7 +144,7 @@ include ("../admin/scripts/functions.php");
 					<div class="megaOfertasCarsaleValorOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">R$ <?=formatToPrice($resN[price])?> </a></div>
 				</div>
 				<!--div class="megaOfertasCarsaleTxtOferta textoBold"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>"><?=$resN[dateLimit]?></a></div-->
-				<div class="megaOfertasCarsaleTxtOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">Cat.: <?=$resN[versionName]?></a></div>
+				<div class="megaOfertasCarsaleTxtOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">Cat.: <?=utf8_encode($resN[versionName])?></a></div>
 				<div class="megaOfertasCarsaleTxtOferta"><a data-toggle="modal" data-target="#feature_<?=$resN[versionId]?>" id="fichaTecnica1">Ficha Técnica</a></div>
 				<div class="megaOfertasCarsaleBtnComprarOferta"><a href="./detalhes-mega-oferta.php?veiculo=<?=$resN[megaOfertaId]?>">comprar</a></div>
 			</div>

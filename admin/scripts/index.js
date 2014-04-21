@@ -827,20 +827,20 @@ $.widget( "custom.combobox", {
 
 	switch (this.input[0].name) {
     	case "manufacturerName":
-    		if ($("#action").val() == "new") {
+    		if ($("#action").val() == "new" || $("#action").val() == "clone") {
 	    		$("#manufacturerId").val("");
 	    		$("#modelId").val("");
 	    		$("#versionId").val("");
 	    	}
 	    	break;
     	case "modelName":
-	    	if ($("#action").val() == "new") {
+	    	if ($("#action").val() == "new" || $("#action").val() == "clone") {
 	    		$("#modelId").val("");
     			$("#versionId").val("");
 	    	}
     		break;
 		case "versionName":
-			if ($("#action").val() == "new") {
+			if ($("#action").val() == "new" || $("#action").val() == "clone") {
 				$("#versionId").val("");
 			}
 			break;
