@@ -61,6 +61,7 @@ include ("./scripts/functions.php");
 		<div class="formMega"  data-spy="affix" data-offset-top="145">
 		<input type="hidden" name="megaOfertaId" class="megaOfertaId" id="megaOfertaId" />
 		<div class="megaDiv">
+		
 			<div class="MegaSelects">
 				<select name="manufacturer" onchange="loadInfo(this)">
 					<option>Escolha uma Montadora</option>
