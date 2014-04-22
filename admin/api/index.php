@@ -185,7 +185,8 @@ switch ($_GET[type]) {
 		}
 		echo "]";
 		break;
-
+		/*
+		DESATIVANDO VALIDACAO POR CODIGO
 	case 'addOption':
 		$checkDB = "select id from `optionsManufacturer` where code = '".$_GET[codopt]."'";
 		$checkQ = mysql_query($checkDB);
@@ -193,13 +194,20 @@ switch ($_GET[type]) {
 			$optIdEx = mysql_fetch_array($checkQ);
 			$sql_addOpt = "UPDATE `optionsManufacturer` SET `idManufacturer` = '".$_GET[manufacturerId]."', `name` = '".$_GET[name]."', `options` = '".$_GET[text]."', `price` = '".$_GET[price]."', `active` = 's', `dateUpdate` = now() WHERE code = '".$_GET[codopt]."'";
 			mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
-			echo '[{"response":"true","insertId":"'.$optIdEx[id].'","reason":"Same code"}]';
+			echo '[{"response":"alert","insertId":"'.$optIdEx[id].'","reason":"Same code"}]';
 		} else {
 			// $text = real_escape_string(nl2br(htmlspecialchars($_GET['text'])));
 			$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
 			mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
-			echo '[{"response":"true","insertId":"'.mysql_insert_id().$_GET[text].'"}]';
+			echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		}
+		break;
+		*/
+	case 'addOption':
+			// $text = real_escape_string(nl2br(htmlspecialchars($_GET['text'])));
+			$sql_addOpt = "insert into `optionsManufacturer` (`id`, `idManufacturer`, `code`, `name`, `options`, `price`, `active`, `dateCreate`, `dateUpdate`, `userUpdate`) VALUES ('', '".$_GET[manufacturerId]."', '".$_GET[codopt]."', '".$_GET[name]."', '".$_GET[text]."', '".$_GET[price]."', 's', now(), now(),'')";
+			mysql_query($sql_addOpt) or die ('[{"response":"false","error":"error #192","reason":"'.mysql_error().'"}]');
+			echo '[{"response":"true","insertId":"'.mysql_insert_id().'"}]';
 		break;
 
 	case 'addColor':
@@ -378,11 +386,11 @@ switch ($_GET[type]) {
 			if ($m > 0) { echo ","; }
 			echo '{
 					"id":"'.$resOpt[id].'",
-					"label":"'.$resOpt[name].'",
+					"label":"'.urlencode($resOpt[name]).'",
 					"category": "Opcional",
 					"table":"optionsManufacturer",
 					"value":"'.$resOpt[name].'",
-					"optValue":"'.$resOpt[options].'",
+					"optValue":"'.urlencode($resOpt[options]).'",
 					"price":"'.$resOpt[price].'",
 					"code":"'.$resOpt[code].'"
 				}';
@@ -667,15 +675,17 @@ switch ($_GET[type]) {
 
 			$sqlVrs = "SELECT version.id, version.name from version, feature WHERE feature.idVersion = version.id and version.idModel = '".$res[modelId]."' and version.active = 's' and feature.active = 's' group by version.id order by version.name";
 			$queryVrs = mysql_query($sqlVrs) or die (mysql_error()."error #552");
-			$result.= (mysql_num_rows($queryVrs) > 0 ? ',"sameModel":' : "");
+			$result.= (mysql_num_rows($queryVrs) > 1 ? ',"sameModel":' : "");
 			$loopOpt=0;
 			while ($resVrs = mysql_fetch_array($queryVrs)) {
+				if ($resVrs[id] != $res[versionId]){
 				$result .= ($loopOpt > 0 ? "," : "[");
-		        $result.='{
-	        		"id":"'.$resVrs[id].'",
-		        	"name":"'.$resVrs[name].'"
-		        	}';
-		        $loopOpt++;
+			        $result.='{
+		        		"id":"'.$resVrs[id].'",
+			        	"name":"'.$resVrs[name].'"
+			        	}';
+			    $loopOpt++;
+			    }
 			}
 			$result.=($loopOpt>0 ? "]" : "");
 			$result.='}';
@@ -773,138 +783,6 @@ switch ($_GET[type]) {
 
 
 }
-
-
-
-/*
-
-//campo label é obrigatorio aparecer pq é ele que eu mostro na listagem
-switch ($_GET[type]) {
- 	case 'askInput':
- 		# code...
-echo '
-	[
-	{
-		"id":"1",
-		"label":"1 Great Bittern",
-		"category": "Products",
-		"value":"Great Bittern"
-	},
-	{
-		"id":"Podiceps nigricollis",
-		"label":"2 Black-necked Grebe",
-		"category": "Products",
-		"value":"Black-necked Grebe"
-	},
-	{
-		"id":"Podiceps nigricollis",
-		"label":"3 Black-necked Grebe",
-		"category": "Products",
-		"value":"Black-necked Grebe2"
-	},
-	{
-		"id":"Podiceps nigricollis",
-		"label":"Black-necked Grebe",
-		"category": "ask",
-		"value":"Black-necked Grebe3"
-	},
-	{
-		"id":"Podiceps nigricollis",
-		"label":"4 Black-necked Grebe",
-		"category": "ask",
-		"value":"Black-necked Grebe4"
-	},
-	{
-		"id":"Podiceps nigricollis",
-		"label":"Black-necked Grebe",
-		"category": "ask",
-		"value":"Black-necked Grebe5"
-	},
-	{
-		"id":"Podiceps nigricollis",
-		"label":"Black-necked Grebe",
-		"category": "ask",
-		"value":"Black-necked Grebe8"
-	},
-	{
-		"id":"Nycticorax nycticorax",
-		"label":"Black-crowned Night Heron",
-		"category": "",
-		"value":"Black-crowned Night Heron"
-	},
-	{
-		"id":"Netta rufina",
-		"label":"Red-crested Pochard",
-		"category": "",
-		"value":"Red-crested Pochard"
-	},
-	{
-		"id":"Circus cyaneus",
-		"label":"Hen Harrier",
-		"category": "",
-		"value":"Hen Harrier"
-	},
-	{
-		"id":"Circus pygargus",
-		"label":"Montagus Harrier",
-		"category": "",
-		"value":"Montagus Harrier"
-	}
-	]';
-		break;
- 	
- 	case '2':
-echo '[
-	{
-		"id":"1",
-		"label":"11121111",
-		"value":"112121212"
-	},
-	{
-		"id":"3331333",
-		"label":"343333333",
-		"value":"4334344444"
-	}
-	]';
- 		break;
-
- 	default:
-	 	echo '[
-		{
-			"id":"'.$_GET[acao].'",
-			"label":"'.$_GET[term].'",
-			"value":"112121212"
-		},
-		{
-			"id":"3331333",
-			"label":"343333333",
-			"value":"4334344444"
-		}
-		]';
- 		# code...
- 		break;
- }
-//$result = "eee";
-//echo $result;
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

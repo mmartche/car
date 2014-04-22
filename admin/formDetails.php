@@ -822,14 +822,14 @@ $query_search = mysql_query($sql_search) or die ($sql_search."error #73");
 						$lengthOptionsTotal = mysql_num_rows($queryOptF);
 						while ($resOptF = mysql_fetch_array($queryOptF)) {
 						?>
-							<span id="optItem<?=$iOptM?>" title="<?=$resOptF[options]?>" name="spanOptionsList">
+							<span id="optItem<?=$iOptM?>" title='<?=$resOptF[options]?>' name="spanOptionsList">
 								<div class="updateOpt" onclick="updateOpt(this,'<?=$iOptM?>')" title="<?=$resOptF[options]?>">
 									<input class="hide" type="checkbox" id="chOpt<?=$iOptM?>" name="chOpt<?=$iOptM?>" value="s" checked="checked" />
 									<input type="hidden" id="txtOptIdFeature" value="<?=$resOptF[optId]?>" />
 									<input type="hidden" id="optIdOpt" name="txtOpt<?=$iOptM?>" value="<?=$resOptF[idOption]?>" />
 									<input type="hidden" id="optPrice" name="txtOptPrice<?=$iOptM?>" value="<?=$resOptF[price]?>" />
 									<input type="hidden" id="optCode" name="txtOptCode<?=$iOptM?>" value="<?=$resOptF[code]?>" />
-									<label id="lblOptions" title="<?=$resOptF[options]?>"><?=utf8_encode($resOptF[name])?></label><br />
+									<label id="lblOptions" title='<?=$resOptF[options]?>'><?=utf8_encode($resOptF[name])?></label><br />
 									<label>R$ <?=$resOptF[price]?></label>
 								</div>
 								<label for="chOpt<?=$iOptM?>" class="removeOpt" onclick="removeOpt(this,'<?=$iOptM?>')">X</label>

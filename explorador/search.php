@@ -267,7 +267,10 @@ $_POST[filterSerie] = (count($_POST[filterSerie]) ==0 ) ? array() : $_POST[filte
 
 <!-- <div class="bannerExplorer" id="bannermenu" class="menu affix" data-spy="affix" data-offset-top="100" data-offset-bottom="2500">banner</div> -->
 	<div class="bannerExplorer" id="bannermenu">
-    <iframe frameborder="0" height="100%" width="100%" marginheight="0" marginwidth="0" scrolling="no" src="http://carsale.uol.com.br/classificado/explorador/anuncio?no_cache="></iframe>
+		<a href="http://googleads.g.doubleclick.net/aclk?sa=L&ai=C_8nRoH9WU6WXLYbe0AHexYHYBuzGus8DAAAQASDUvs4RUKjL7Pj8_____wFgzfDugKwDyAECqQKTOUOzZN-dPuACAKgDAcgDnQSqBJIBT9CoZk3-lG0oK9GfusvfnmPgEdvtQs5mR7rARP57G2ZPX9RNdq6ai-fv_Ny8ZQijA2fHv8hZmKodsaLtm0x_kkaXKiwVzFTBo55sbycQ45uTYaGcB6gIbbn1-IuSMYtVVh3N8i5V8f3F3QAySxlbbnqpwBuO3ioNAs4SkkCRuEbtPGHDWuJAZKrMXyaL4FnD55ngBAGgBhQ&num=0&sig=AOD64_3ACjWkMknF2r5sLQw9rMC7mqVs2w&client=ca-pub-9394588252887517&adurl=http://carsale.uol.com.br/classificado/mega-oferta&nm=3&nx=157&ny=42&mb=2">
+			<img src="http://pagead2.googlesyndication.com/simgad/16568893082704063874" border="0" width="970" height="90" alt="" class="img_ad">
+		</a>
+    <!--iframe frameborder="0" height="100%" width="100%" marginheight="0" marginwidth="0" scrolling="no" src="http://carsale.uol.com.br/classificado/explorador/anuncio?no_cache="></iframe-->
 	</div>
 	<div class="exploradorTabela" id="exploradorTabela">
      	<div class="backGroundRepeat">
