@@ -41,8 +41,8 @@ function addFilter (obj,idModel,idVersion,place) {
 	//search info
     idVersion = $(obj).val();
     var carsLength = $(".column").length;
-    console.log($(obj),'api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion);
-    $.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion, function(data) {
+    console.log($(obj),'api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion+'&codAccess='+Math.floor((Math.random()*100000)+1));
+    $.getJSON('../admin/api/index.php?type=askExplorer&idModel='+idModel+'&idVersion='+idVersion+'&codAccess='+Math.floor((Math.random()*100000)+1), function(data) {
     if (carsLength < 6) {
         // console.log('888888',data[0].response);
         if(data[0].response == "true"){
@@ -69,7 +69,7 @@ function addFilter (obj,idModel,idVersion,place) {
                 '<div class="exploradorTabelaCarroModelo">'+data[0].modelName+'</div>'+
                 '<div class="exploradorTabelaCarroValor">R$ '+data[0].price+'</div>'+
                 '<div class="exploradorOptVersion"><select id="optVersion" onchange="addFilter(this,\''+data[0].modelId+'\',\''+data[0].versionId+'\',\''+carsLength+'\')"><option value="0">'+data[0].versionName+'</option>';
-                if (data[0].sameModel.length > 1 && data[0].sameModel) {
+                if (data[0].sameModel && data[0].sameModel.length > 1) {
                     $.each( data[0].sameModel, function( index, item ) {
                         divTitleCar += '<option value='+item.id+'>'+item.name+'</option>';
                     });

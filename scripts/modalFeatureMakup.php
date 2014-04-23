@@ -1,7 +1,7 @@
 <?
 $arrayModalVersion = array_unique($arrayModalVersion);
 for ($i=0; $i < count($arrayModalVersion); $i++) { 
-	$sqlF = "SELECT *, feature.id as featureId, max(feature.yearModel), feature.picture, version.name as versionName, model.name as modelName from feature, megaOferta, version, model, manufacturer WHERE feature.idVersion = version.id and feature.yearModel = '".$arrayModalYear[$i]."' and feature.idVersion = '".$arrayModalVersion[$i]."' and megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id";
+	$sqlF = "SELECT *, feature.id as featureId, max(feature.yearModel) as yearModel, feature.picture, version.name as versionName, model.name as modelName from feature, megaOferta, version, model, manufacturer WHERE feature.idVersion = version.id and feature.yearModel = '".$arrayModalYear[$i]."' and feature.idVersion = '".$arrayModalVersion[$i]."' and megaOferta.manufacturerId = manufacturer.id and megaOferta.versionId = version.id AND megaOferta.modelId = model.id GROUP BY megaOferta.id";
 	$queryF = mysql_query($sqlF) or die(mysql_error()."error #5");
 	$resF = mysql_fetch_array($queryF);
 ?>
@@ -63,10 +63,19 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
             $sqlIS = "SELECT * FROM `serieFeature` where idFeature = '".$resF[featureId]."'";
             //echo $sqlIS;
             $queIS = mysql_query($sqlIS) or die (mysql_error()."error #64");
-            while ($resIS = mysql_fetch_array($queIS)) {
-            ?>
-                <div class="descItemSerie"><?=utf8_encode($resIS[description])?></div>
-            <?
+            if (mysql_num_rows($queIS) > 0) {
+                while ($resIS = mysql_fetch_array($queIS)) {
+                ?>
+                    <div class="descItemSerie"><?=utf8_encode($resIS[description])?></div>
+                <?
+                }
+            } else {
+                $items_exploded = explode(",", utf8_encode($resF[items]));
+                for ($itemNum=0; $itemNum <= count($items_exploded); $itemNum++) { 
+                ?>
+                    <div class="descItemSerie"><?=$items_exploded[$itemNum]?></div>
+                <?
+                }
             }
             ?>
             </div>
@@ -252,6 +261,7 @@ for ($i=0; $i < count($arrayModalVersion); $i++) {
                 <div class="dealerFichaTecnicaDescLineTxtA">Entre Eixos</div>
                 <div class="dealerFichaTecnicaDescLineTxtB"><?=$resF[dimensionSignAxes]?></div>
             </div>
+            <div class="dealerFichaTecnicaTituloDesc">Itens de Série</div>
         </div>
       </div>
       <div class="modal-footer">

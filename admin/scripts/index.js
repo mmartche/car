@@ -274,7 +274,7 @@ $(document).ready(function(){
 			} else {
 				l = $("#resultOptions span").length;
 
-				$("#resultOptions").prepend('<span id="optItem'+l+'" title="'+textTemp+'" name="spanOptionsList">'+
+				$("#resultOptions").prepend('<span id="optItem'+l+'" title=\''+textTemp+'\' name="spanOptionsList">'+
 				'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')">'+
 					'<input type="checkbox" class="hide" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
 					'<input type="hidden" id="txtOptIdFeature" value="" />'+
@@ -297,14 +297,14 @@ $(document).ready(function(){
 			$("#txtOptionsPrice").val("");
 			$("#txtOptNumCheck").val("");
 		} else {
-			// console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price);
-			$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+name+'&text='+textTemp+'&price='+price, function(data) {
+			// console.log('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+encodeURIComponent(name)+'&text='+encodeURIComponent(textTemp)+'&price='+encodeURIComponent(price));
+			$.getJSON('api/index.php?type=addOption&manufacturerId='+manufacturerId+'&codopt='+codOpt+'&name='+encodeURIComponent(name)+'&text='+encodeURIComponent(textTemp)+'&price='+encodeURIComponent(price), function(data) {
 				if(data[0].response == "true"){
 					newId = data[0].insertId;
 					l = $("#resultOptions span").length;
-					$("#resultOptions").prepend('<span id="optItem'+l+'" title="'+textTemp+'">'+
-						'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')" title="'+textTemp+'">'+
-							'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" />'+
+					$("#resultOptions").prepend('<span id="optItem'+l+'" title=\''+textTemp+'\'>'+
+						'<div class="updateOpt" onclick="updateOpt(this,\''+l+'\')" title=\''+textTemp+'\'>'+
+							'<input type="checkbox" id="chOpt'+l+'" name="chOpt'+l+'" value="s" checked="checked" class="hide" />'+
 							'<input type="hidden" id="txtOptIdFeature" value="" />'+
 							'<input type="hidden" id="optIdOpt" name="txtOpt'+l+'" value="'+newId+'" />'+
 							'<input type="hidden" id="optPrice" name="txtOptPrice'+l+'" value="'+price+'" />'+
@@ -704,8 +704,8 @@ $.widget( "custom.combobox", {
 						$("#txtOptionsCode").attr("disabled",true);
 						$("#txtOptionsPrice").val(val.price);
 						$("#txtOptionsPrice").attr("disabled",false);
-						$("#textAreaOptionsAdd").val(val.optValue.replace(',',';\n'));
-						$("#textAreaOptionsAdd").text(val.optValue);
+						$("#textAreaOptionsAdd").val(decodeURIComponent(val.optValue.replace(',',';\n')));
+						$("#textAreaOptionsAdd").text(decodeURIComponent(val.optValue));
 						$("#textAreaOptionsAdd").attr("disabled",true);
 					});
 				});
