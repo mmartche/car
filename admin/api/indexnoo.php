@@ -675,17 +675,15 @@ switch ($_GET[type]) {
 
 			$sqlVrs = "SELECT version.id, version.name from version, feature WHERE feature.idVersion = version.id and version.idModel = '".$res[modelId]."' and version.active = 's' and feature.active = 's' group by version.id order by version.name";
 			$queryVrs = mysql_query($sqlVrs) or die (mysql_error()."error #552");
-			$result.= (mysql_num_rows($queryVrs) > 1 ? ',"sameModel":' : "");
+			$result.= (mysql_num_rows($queryVrs) > 0 ? ',"sameModel":' : "");
 			$loopOpt=0;
 			while ($resVrs = mysql_fetch_array($queryVrs)) {
-				if ($resVrs[id] != $res[versionId]){
 				$result .= ($loopOpt > 0 ? "," : "[");
-			        $result.='{
-		        		"id":"'.$resVrs[id].'",
-			        	"name":"'.$resVrs[name].'"
-			        	}';
-			    $loopOpt++;
-			    }
+		        $result.='{
+	        		"id":"'.$resVrs[id].'",
+		        	"name":"'.$resVrs[name].'"
+		        	}';
+		        $loopOpt++;
 			}
 			$result.=($loopOpt>0 ? "]" : "");
 			$result.='}';
@@ -783,6 +781,138 @@ switch ($_GET[type]) {
 
 
 }
+
+
+
+/*
+
+//campo label é obrigatorio aparecer pq é ele que eu mostro na listagem
+switch ($_GET[type]) {
+ 	case 'askInput':
+ 		# code...
+echo '
+	[
+	{
+		"id":"1",
+		"label":"1 Great Bittern",
+		"category": "Products",
+		"value":"Great Bittern"
+	},
+	{
+		"id":"Podiceps nigricollis",
+		"label":"2 Black-necked Grebe",
+		"category": "Products",
+		"value":"Black-necked Grebe"
+	},
+	{
+		"id":"Podiceps nigricollis",
+		"label":"3 Black-necked Grebe",
+		"category": "Products",
+		"value":"Black-necked Grebe2"
+	},
+	{
+		"id":"Podiceps nigricollis",
+		"label":"Black-necked Grebe",
+		"category": "ask",
+		"value":"Black-necked Grebe3"
+	},
+	{
+		"id":"Podiceps nigricollis",
+		"label":"4 Black-necked Grebe",
+		"category": "ask",
+		"value":"Black-necked Grebe4"
+	},
+	{
+		"id":"Podiceps nigricollis",
+		"label":"Black-necked Grebe",
+		"category": "ask",
+		"value":"Black-necked Grebe5"
+	},
+	{
+		"id":"Podiceps nigricollis",
+		"label":"Black-necked Grebe",
+		"category": "ask",
+		"value":"Black-necked Grebe8"
+	},
+	{
+		"id":"Nycticorax nycticorax",
+		"label":"Black-crowned Night Heron",
+		"category": "",
+		"value":"Black-crowned Night Heron"
+	},
+	{
+		"id":"Netta rufina",
+		"label":"Red-crested Pochard",
+		"category": "",
+		"value":"Red-crested Pochard"
+	},
+	{
+		"id":"Circus cyaneus",
+		"label":"Hen Harrier",
+		"category": "",
+		"value":"Hen Harrier"
+	},
+	{
+		"id":"Circus pygargus",
+		"label":"Montagus Harrier",
+		"category": "",
+		"value":"Montagus Harrier"
+	}
+	]';
+		break;
+ 	
+ 	case '2':
+echo '[
+	{
+		"id":"1",
+		"label":"11121111",
+		"value":"112121212"
+	},
+	{
+		"id":"3331333",
+		"label":"343333333",
+		"value":"4334344444"
+	}
+	]';
+ 		break;
+
+ 	default:
+	 	echo '[
+		{
+			"id":"'.$_GET[acao].'",
+			"label":"'.$_GET[term].'",
+			"value":"112121212"
+		},
+		{
+			"id":"3331333",
+			"label":"343333333",
+			"value":"4334344444"
+		}
+		]';
+ 		# code...
+ 		break;
+ }
+//$result = "eee";
+//echo $result;
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
